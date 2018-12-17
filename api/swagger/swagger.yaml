@@ -1,0 +1,28 @@
+openapi: 3.0.0
+components:
+  schemas:
+    VehicleTechnicalRecords:
+      type: object
+      properties:
+        vrms:
+          type: array
+        vin:
+          type: string
+        techRecord:
+          type: array
+  securitySchemes: {}
+info:
+  title: Get Vehicle Technical Records List API
+  description: >-
+    This is the API spec for retrieving those Vehicle Technical Records that
+    correspond with an input searchIdentifier
+  version: '1'
+paths:
+  '/vehicles/{searchIdentifier}/tech-records/{status?}':
+    get:
+      operationId: getTechRecords
+      summary: Get Vehicle Technical Records list
+      description: >-
+        Retrieves the Vehicle Technical Records for the input searchIdentifier,
+        which can be the VRM, the last 6 digits of the VIN or the full VIN
+      responses: {}
