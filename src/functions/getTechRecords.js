@@ -8,8 +8,6 @@ const getTechRecords = (event) => {
   const techRecordsDAO = new TechRecordsDAO()
   const techRecordsService = new TechRecordsService(techRecordsDAO)
 
-  console.log(event)
-
   let path = (process.env.BRANCH === 'local') ? event.path : event.pathParameters.proxy
   let pathRegex = new RegExp('(\\w{3,}\\b)\\/tech-records\\/?(\\w+\\b)?')
   let matches = pathRegex.exec(path)
@@ -20,6 +18,10 @@ const getTechRecords = (event) => {
 
   const searchIdentifier = matches[1]
   const status = (matches[2]) ? matches[2] : 'current'
+
+  console.log(`Search identifier: ${searchIdentifier}`)
+  console.log(`Status: ${status}`)
+  console.log(`Matches: ${matches}`)
 
   return techRecordsService.getTechRecordsList(searchIdentifier, status)
     .then((data) => {
