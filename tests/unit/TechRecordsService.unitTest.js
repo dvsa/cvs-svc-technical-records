@@ -18,8 +18,7 @@ describe('getTechRecordsList', () => {
         .then((returnedRecords) => {
           expect(returnedRecords).to.not.equal(undefined)
           expect(returnedRecords).to.not.equal({})
-          expect(returnedRecords[0]).to.equal(techRecordsDAOMock.techRecordsMock[0])
-          expect(returnedRecords.length).to.be.equal(techRecordsDAOMock.techRecordsMock.length)
+          expect(returnedRecords).to.equal(techRecordsDAOMock.techRecordsMock[0])
         })
     })
   })

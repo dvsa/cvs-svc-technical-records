@@ -19,9 +19,9 @@ const getTechRecords = (event) => {
   const searchIdentifier = matches[1]
   const status = (matches[2]) ? matches[2] : 'current'
 
-  console.log(`Search identifier: ${searchIdentifier}`)
-  console.log(`Status: ${status}`)
-  console.log(`Matches: ${matches}`)
+  if (searchIdentifier.length < 3) {
+    return new HTTPResponse(400, 'The search identifier should be at least 3 characters long')
+  }
 
   return techRecordsService.getTechRecordsList(searchIdentifier, status)
     .then((data) => {

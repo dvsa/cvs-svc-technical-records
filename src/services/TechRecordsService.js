@@ -51,7 +51,7 @@ class TechRecordsService {
           throw new HTTPError(404, 'No resources match the search criteria.')
         }
 
-        return response
+        return response[0]
       })
       .catch(error => {
         if (!(error instanceof HTTPError)) {

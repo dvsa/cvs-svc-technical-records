@@ -28,7 +28,7 @@ describe('techRecords', () => {
         delete responseObj.secondaryVrms // No longer needed
         delete responseObj.partialVin // No longer needed
 
-        return [responseObj]
+        return responseObj
       }
 
       // Populating the database
