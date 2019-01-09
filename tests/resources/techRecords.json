@@ -40,6 +40,8 @@
         "brakeCode": "o",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "1jU6",
           "dataTrPsvBrakeOne": "oaCS4aZ5UGGZT",
@@ -122,6 +124,8 @@
         "brakeCode": "p",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "GUO",
           "dataTrPsvBrakeOne": "xRVS0cTaL0o",
@@ -204,6 +208,8 @@
         "brakeCode": "6E",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 9,
           "dataTrPsvBrakeOne": "OmwAMv",
@@ -286,6 +292,8 @@
         "brakeCode": "AaNF",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "OwPJ",
           "dataTrPsvBrakeOne": "xClTahe7T",
@@ -368,6 +376,8 @@
         "brakeCode": "C0D",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "DwF",
           "dataTrPsvBrakeOne": "cKv6Xj9aBIEX",
@@ -450,6 +460,8 @@
         "brakeCode": "X",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "3eu",
           "dataTrPsvBrakeOne": "3KxV312TY2dGH",
@@ -532,6 +544,8 @@
         "brakeCode": "vYqu",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "CY",
           "dataTrPsvBrakeOne": "R9eoBQK6nmz",
@@ -614,6 +628,8 @@
         "brakeCode": "Dhe",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 0,
           "dataTrPsvBrakeOne": "0KaBK0mAQUh",
@@ -696,6 +712,8 @@
         "brakeCode": "Ez",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "sE",
           "dataTrPsvBrakeOne": "T49bInAX",
@@ -778,6 +796,8 @@
         "brakeCode": "tgjq0",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "G2N",
           "dataTrPsvBrakeOne": "VZySMMRzX",
@@ -860,6 +880,8 @@
         "brakeCode": "qo",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Z",
           "dataTrPsvBrakeOne": "w4G1a3lLNwh",
@@ -942,6 +964,8 @@
         "brakeCode": "IYImZ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Ry",
           "dataTrPsvBrakeOne": "wCOxTIRoPlKWAeak",
@@ -1024,6 +1048,8 @@
         "brakeCode": "kT",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "xLi",
           "dataTrPsvBrakeOne": "lSTdw",
@@ -1106,6 +1132,8 @@
         "brakeCode": "tf",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "jZS",
           "dataTrPsvBrakeOne": "SD",
@@ -1188,6 +1216,8 @@
         "brakeCode": "WmPs",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "SLF",
           "dataTrPsvBrakeOne": "m3dvEmK",
@@ -1270,6 +1300,8 @@
         "brakeCode": "lS",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "bMa",
           "dataTrPsvBrakeOne": "AuMJyIp4",
@@ -1352,6 +1384,8 @@
         "brakeCode": "17XV",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "vb",
           "dataTrPsvBrakeOne": "8TI",
@@ -1434,6 +1468,8 @@
         "brakeCode": "9B",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "mz6aG",
           "dataTrPsvBrakeOne": "tZDor4k",
@@ -1516,6 +1552,8 @@
         "brakeCode": "E",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "rL",
           "dataTrPsvBrakeOne": "01iEOY",
@@ -1598,6 +1636,8 @@
         "brakeCode": "LFT0",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "ajf",
           "dataTrPsvBrakeOne": "yPU4EufVQ",
@@ -1680,6 +1720,8 @@
         "brakeCode": "J2m",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "l",
           "dataTrPsvBrakeOne": "Iegq58",
@@ -1762,6 +1804,8 @@
         "brakeCode": "G",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "wy",
           "dataTrPsvBrakeOne": "I2IN4Yv486UGa9rO",
@@ -1844,6 +1888,8 @@
         "brakeCode": "VarQA",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "l",
           "dataTrPsvBrakeOne": "HSlC1osJbs",
@@ -1926,6 +1972,8 @@
         "brakeCode": "3Y",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "D6",
           "dataTrPsvBrakeOne": "QmWHueRZoxrLFqcC",
@@ -2008,6 +2056,8 @@
         "brakeCode": "f3",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "bA",
           "dataTrPsvBrakeOne": "v3WQAaVPqt",
@@ -2090,6 +2140,8 @@
         "brakeCode": "lpn7",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "qc4",
           "dataTrPsvBrakeOne": "MFJTDWK33",
@@ -2172,6 +2224,8 @@
         "brakeCode": "ap",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "bBd",
           "dataTrPsvBrakeOne": "iitjbZ3M6OO",
@@ -2254,6 +2308,8 @@
         "brakeCode": "2G2W",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 0,
           "dataTrPsvBrakeOne": "S3cSIY",
@@ -2336,6 +2392,8 @@
         "brakeCode": "hc",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "qVi",
           "dataTrPsvBrakeOne": "t1NC",
@@ -2418,6 +2476,8 @@
         "brakeCode": "zsioQ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "CKNq",
           "dataTrPsvBrakeOne": "Nz1ujqra3XiSDmm3",
@@ -2500,6 +2560,8 @@
         "brakeCode": "UGS",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "ICY",
           "dataTrPsvBrakeOne": "Wn4BUBdsRiwBBHtb9",
@@ -2582,6 +2644,8 @@
         "brakeCode": "E",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "M1jA",
           "dataTrPsvBrakeOne": "tPQakUX7Ecip",
@@ -2664,6 +2728,8 @@
         "brakeCode": "zvbg",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Zzn",
           "dataTrPsvBrakeOne": "R0",
@@ -2746,6 +2812,8 @@
         "brakeCode": "B",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "6e",
           "dataTrPsvBrakeOne": "4LkigpHGmDFy",
@@ -2828,6 +2896,8 @@
         "brakeCode": "zAq",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "uTuA",
           "dataTrPsvBrakeOne": "GKOs",
@@ -2910,6 +2980,8 @@
         "brakeCode": "O",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "l6T4",
           "dataTrPsvBrakeOne": "R9nzBIbJb8nD",
@@ -2992,6 +3064,8 @@
         "brakeCode": "7H",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Dq5",
           "dataTrPsvBrakeOne": "fXtJ8e55w",
@@ -3074,6 +3148,8 @@
         "brakeCode": "y3",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Ih",
           "dataTrPsvBrakeOne": "5fUIUg6cMueb",
@@ -3156,6 +3232,8 @@
         "brakeCode": "ZATR",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "I8",
           "dataTrPsvBrakeOne": "Kz1Wgfu",
@@ -3238,6 +3316,8 @@
         "brakeCode": "DT8C",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "H",
           "dataTrPsvBrakeOne": "mJOnANr",
@@ -3320,6 +3400,8 @@
         "brakeCode": "og",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "wu",
           "dataTrPsvBrakeOne": "cdeTp9bMJc",
@@ -3402,6 +3484,8 @@
         "brakeCode": "i",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "x",
           "dataTrPsvBrakeOne": "Sp0BivGW",
@@ -3484,6 +3568,8 @@
         "brakeCode": "IDxP8",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "GO",
           "dataTrPsvBrakeOne": "4pc49JGR",
@@ -3566,6 +3652,8 @@
         "brakeCode": "mcgw",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "RC",
           "dataTrPsvBrakeOne": "kiYeu1OYX",
@@ -3648,6 +3736,8 @@
         "brakeCode": "oN5",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "wLl",
           "dataTrPsvBrakeOne": "pvwmj3Xo",
@@ -3730,6 +3820,8 @@
         "brakeCode": "gMB",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "IB",
           "dataTrPsvBrakeOne": "WJOCCeAp",
@@ -3812,6 +3904,8 @@
         "brakeCode": "82ucS",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "0P5",
           "dataTrPsvBrakeOne": "rM7yxHBfM3IIG5",
@@ -3894,6 +3988,8 @@
         "brakeCode": "UPE",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Y2",
           "dataTrPsvBrakeOne": "tuTSS928",
@@ -3976,6 +4072,8 @@
         "brakeCode": "0RW",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "tVA1h",
           "dataTrPsvBrakeOne": "qbB4XBsYS",
@@ -4058,6 +4156,8 @@
         "brakeCode": "RSDt",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "RP",
           "dataTrPsvBrakeOne": "LfesQTCjB9ZPJOapd",
@@ -4140,6 +4240,8 @@
         "brakeCode": "SN7",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "a3",
           "dataTrPsvBrakeOne": "AJ8bC2oo50zDRetV",
@@ -4222,6 +4324,8 @@
         "brakeCode": "Nxg",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Q4",
           "dataTrPsvBrakeOne": "aYVvfQ",
@@ -4304,6 +4408,8 @@
         "brakeCode": "GQ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "1F",
           "dataTrPsvBrakeOne": "Rq8fzabM5inWCc",
@@ -4386,6 +4492,8 @@
         "brakeCode": "gO4MC",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "eqR",
           "dataTrPsvBrakeOne": "2pM13ODm",
@@ -4468,6 +4576,8 @@
         "brakeCode": "Goum",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Yy",
           "dataTrPsvBrakeOne": "DkeZczTWrUO9V7RiY",
@@ -4550,6 +4660,8 @@
         "brakeCode": "a",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "sht",
           "dataTrPsvBrakeOne": "d6mhDxnHUuU3FvLEhBF5K",
@@ -4632,6 +4744,8 @@
         "brakeCode": "QK",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "lB",
           "dataTrPsvBrakeOne": "9iA0q4",
@@ -4714,6 +4828,8 @@
         "brakeCode": "pq3",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "P",
           "dataTrPsvBrakeOne": "eLBo3ZLW17D",
@@ -4796,6 +4912,8 @@
         "brakeCode": "oBVpb",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "VbKF",
           "dataTrPsvBrakeOne": "PyzH",
@@ -4878,6 +4996,8 @@
         "brakeCode": "Q10I6",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "9F6s",
           "dataTrPsvBrakeOne": "vgBgxz66j",
@@ -4960,6 +5080,8 @@
         "brakeCode": "E",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "e",
           "dataTrPsvBrakeOne": "krppP4J",
@@ -5042,6 +5164,8 @@
         "brakeCode": "NNj",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "x",
           "dataTrPsvBrakeOne": "572KsG",
@@ -5124,6 +5248,8 @@
         "brakeCode": "yJsrH",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "jlqt",
           "dataTrPsvBrakeOne": "FlZ0z00jk",
@@ -5206,6 +5332,8 @@
         "brakeCode": "auV",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Ps",
           "dataTrPsvBrakeOne": "cxR",
@@ -5288,6 +5416,8 @@
         "brakeCode": "J",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "vh",
           "dataTrPsvBrakeOne": "QuKU6CW25e2o",
@@ -5370,6 +5500,8 @@
         "brakeCode": 7,
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "X",
           "dataTrPsvBrakeOne": "WD7s7L",
@@ -5452,6 +5584,8 @@
         "brakeCode": "MwH",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "yHh",
           "dataTrPsvBrakeOne": "5W3TIh",
@@ -5534,6 +5668,8 @@
         "brakeCode": "Ca",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 78,
           "dataTrPsvBrakeOne": "8k",
@@ -5616,6 +5752,8 @@
         "brakeCode": "pPp",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "K",
           "dataTrPsvBrakeOne": "1ylcslW",
@@ -5698,6 +5836,8 @@
         "brakeCode": "kdz",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "xL",
           "dataTrPsvBrakeOne": "frz",
@@ -5780,6 +5920,8 @@
         "brakeCode": "Z",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "ehO",
           "dataTrPsvBrakeOne": "r7RCj9uuqVF",
@@ -5862,6 +6004,8 @@
         "brakeCode": "KZ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "ZG0",
           "dataTrPsvBrakeOne": "zNsfS",
@@ -5944,6 +6088,8 @@
         "brakeCode": "OIA",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "5a3s",
           "dataTrPsvBrakeOne": "vldIQwu",
@@ -6026,6 +6172,8 @@
         "brakeCode": "uXU",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "G7",
           "dataTrPsvBrakeOne": "N",
@@ -6108,6 +6256,8 @@
         "brakeCode": "e2",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "z8",
           "dataTrPsvBrakeOne": "lVJ",
@@ -6190,6 +6340,8 @@
         "brakeCode": "Jf5IL",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Nc",
           "dataTrPsvBrakeOne": "C8jOD43EGJub5GWPF7",
@@ -6272,6 +6424,8 @@
         "brakeCode": "0y",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "U",
           "dataTrPsvBrakeOne": "g7HGbi6SVVuMr",
@@ -6354,6 +6508,8 @@
         "brakeCode": "1ENN",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "0s",
           "dataTrPsvBrakeOne": "GKAZoUtm",
@@ -6436,6 +6592,8 @@
         "brakeCode": "5fqd",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "vq",
           "dataTrPsvBrakeOne": "VWT",
@@ -6518,6 +6676,8 @@
         "brakeCode": "ou",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "tsl",
           "dataTrPsvBrakeOne": "HvRmr",
@@ -6600,6 +6760,8 @@
         "brakeCode": "zS",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "zQ",
           "dataTrPsvBrakeOne": "HQ9eqNy",
@@ -6682,6 +6844,8 @@
         "brakeCode": "55EG",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "5bO",
           "dataTrPsvBrakeOne": "SVwMyc",
@@ -6764,6 +6928,8 @@
         "brakeCode": "3TOyY",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "uPQT",
           "dataTrPsvBrakeOne": "R",
@@ -6846,6 +7012,8 @@
         "brakeCode": "tO19",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "7HXR",
           "dataTrPsvBrakeOne": "uiKRRK4pmuSvtHZ",
@@ -6928,6 +7096,8 @@
         "brakeCode": "qR",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "zUb",
           "dataTrPsvBrakeOne": "JLFFVYXJQrX",
@@ -7010,6 +7180,8 @@
         "brakeCode": "y",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "d5sE",
           "dataTrPsvBrakeOne": "o9",
@@ -7092,6 +7264,8 @@
         "brakeCode": "evbR",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "veJ",
           "dataTrPsvBrakeOne": "qI0FHj1",
@@ -7174,6 +7348,8 @@
         "brakeCode": "URc",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "a",
           "dataTrPsvBrakeOne": "Y0E",
@@ -7256,6 +7432,8 @@
         "brakeCode": "eaA",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "X8h1",
           "dataTrPsvBrakeOne": "YhLsCHQ6TzeDh3",
@@ -7338,6 +7516,8 @@
         "brakeCode": "Nc",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Gj",
           "dataTrPsvBrakeOne": "Td2x25VrjMBlDMi1J",
@@ -7420,6 +7600,8 @@
         "brakeCode": "Cam",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Vk",
           "dataTrPsvBrakeOne": "gko3Ar459ZwTp",
@@ -7502,6 +7684,8 @@
         "brakeCode": "5Kf",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "vm",
           "dataTrPsvBrakeOne": "XNssVVvrHfcTJx5jRGC",
@@ -7584,6 +7768,8 @@
         "brakeCode": "b",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "hP",
           "dataTrPsvBrakeOne": 5,
@@ -7666,6 +7852,8 @@
         "brakeCode": "Zu",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "wmU",
           "dataTrPsvBrakeOne": "4QAfyTDWVk",
@@ -7748,6 +7936,8 @@
         "brakeCode": "R87",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 4,
           "dataTrPsvBrakeOne": "pfOt",
@@ -7830,6 +8020,8 @@
         "brakeCode": "u",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "g9",
           "dataTrPsvBrakeOne": "umSbYyLccx",
@@ -7912,6 +8104,8 @@
         "brakeCode": "N98G",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "a",
           "dataTrPsvBrakeOne": "VXqC",
@@ -7994,6 +8188,8 @@
         "brakeCode": "DId",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "oRl",
           "dataTrPsvBrakeOne": "lNnuvQpLf9",
@@ -8076,6 +8272,8 @@
         "brakeCode": "e",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "pSO7",
           "dataTrPsvBrakeOne": "Jliw2gEmI",
@@ -8158,6 +8356,8 @@
         "brakeCode": "iJsc",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "s",
           "dataTrPsvBrakeOne": "gB9KbQx",
@@ -8240,6 +8440,8 @@
         "brakeCode": "S",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "LMCX",
           "dataTrPsvBrakeOne": "KPll0y",
@@ -8322,6 +8524,8 @@
         "brakeCode": "MI",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Rcx",
           "dataTrPsvBrakeOne": "pxu3RFitQQv",
@@ -8404,6 +8608,8 @@
         "brakeCode": "wr1",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 29,
           "dataTrPsvBrakeOne": "hkLtf",
@@ -8486,6 +8692,8 @@
         "brakeCode": "tP",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "rbp",
           "dataTrPsvBrakeOne": "90tDOQ",
@@ -8568,6 +8776,8 @@
         "brakeCode": "OS",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Slo",
           "dataTrPsvBrakeOne": "twguGoEA",
@@ -8650,6 +8860,8 @@
         "brakeCode": "BXr",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Bn5y",
           "dataTrPsvBrakeOne": "nwsEoXjf23JVTbcRZLi1",
@@ -8732,6 +8944,8 @@
         "brakeCode": "fu40",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "dbbd",
           "dataTrPsvBrakeOne": "rMQMWox3NsBhbzxb",
@@ -8814,6 +9028,8 @@
         "brakeCode": "j",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "MXu",
           "dataTrPsvBrakeOne": "3PE2NiRaCNVP",
@@ -8896,6 +9112,8 @@
         "brakeCode": "P2",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "rR",
           "dataTrPsvBrakeOne": "gTjjxl6MY",
@@ -8978,6 +9196,8 @@
         "brakeCode": "f4ff",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "s",
           "dataTrPsvBrakeOne": "CL3HynjLcWWIYM4sln",
@@ -9060,6 +9280,8 @@
         "brakeCode": 0,
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "3HI",
           "dataTrPsvBrakeOne": "DsvxYmcoPy",
@@ -9142,6 +9364,8 @@
         "brakeCode": "RbVr",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "o",
           "dataTrPsvBrakeOne": "h7ZL3S8nIehki",
@@ -9224,6 +9448,8 @@
         "brakeCode": "1R3q",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "YdG",
           "dataTrPsvBrakeOne": "XkU9wGzZ3M179aLoP",
@@ -9306,6 +9532,8 @@
         "brakeCode": "wLOF",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "I9",
           "dataTrPsvBrakeOne": "A5CPfWhRk",
@@ -9388,6 +9616,8 @@
         "brakeCode": "rADcI",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "qO",
           "dataTrPsvBrakeOne": "EmVkkUA5bu7k",
@@ -9470,6 +9700,8 @@
         "brakeCode": "j6WAB",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "k6rv",
           "dataTrPsvBrakeOne": "ejNvXl0z",
@@ -9552,6 +9784,8 @@
         "brakeCode": "XUd",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "eut8",
           "dataTrPsvBrakeOne": "EXwiUQh",
@@ -9634,6 +9868,8 @@
         "brakeCode": "Z7",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "DMUO",
           "dataTrPsvBrakeOne": "oWSG0g",
@@ -9716,6 +9952,8 @@
         "brakeCode": "sl",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "MK",
           "dataTrPsvBrakeOne": "jMtC",
@@ -9798,6 +10036,8 @@
         "brakeCode": "RvK",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "CJ",
           "dataTrPsvBrakeOne": "V8Lh7XohkXkR",
@@ -9880,6 +10120,8 @@
         "brakeCode": "8r",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Ic",
           "dataTrPsvBrakeOne": "NOXz9",
@@ -9962,6 +10204,8 @@
         "brakeCode": "Bn4",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "aQ2",
           "dataTrPsvBrakeOne": "lSnTegi7gq0v",
@@ -10044,6 +10288,8 @@
         "brakeCode": "E3pe",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "X5Z4",
           "dataTrPsvBrakeOne": "F7FaHSrJ6vjl5",
@@ -10126,6 +10372,8 @@
         "brakeCode": "G2",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Tk0",
           "dataTrPsvBrakeOne": "rBIz1cqR1h",
@@ -10208,6 +10456,8 @@
         "brakeCode": "PgW",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Hh8",
           "dataTrPsvBrakeOne": "a",
@@ -10290,6 +10540,8 @@
         "brakeCode": "wZ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "F6b",
           "dataTrPsvBrakeOne": "MdSzQwHCv88",
@@ -10372,6 +10624,8 @@
         "brakeCode": "1Hs",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "xXk",
           "dataTrPsvBrakeOne": "Qc9ov6",
@@ -10454,6 +10708,8 @@
         "brakeCode": "auMK",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "B",
           "dataTrPsvBrakeOne": "sSjCk2U4b8Cs6i",
@@ -10536,6 +10792,8 @@
         "brakeCode": "Qoo",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "iH",
           "dataTrPsvBrakeOne": "8Q2kfX",
@@ -10618,6 +10876,8 @@
         "brakeCode": "Dro3",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "rLzVF",
           "dataTrPsvBrakeOne": "4Zzgse2pKJRxqQnzX",
@@ -10700,6 +10960,8 @@
         "brakeCode": "xe",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "j6tB",
           "dataTrPsvBrakeOne": "CXOVMK9AIs3JK",
@@ -10782,6 +11044,8 @@
         "brakeCode": "vI",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "y9q0",
           "dataTrPsvBrakeOne": "hfQJdx8sR1RY",
@@ -10864,6 +11128,8 @@
         "brakeCode": "lyXD",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "42g",
           "dataTrPsvBrakeOne": "aSy",
@@ -10946,6 +11212,8 @@
         "brakeCode": "4Ie",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "ldik",
           "dataTrPsvBrakeOne": "iGCtK8V9ByEK",
@@ -11028,6 +11296,8 @@
         "brakeCode": "peMV",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "y6E",
           "dataTrPsvBrakeOne": "ZZC23hIIY5",
@@ -11110,6 +11380,8 @@
         "brakeCode": "E",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "wV",
           "dataTrPsvBrakeOne": "crQsBBjbRuSV",
@@ -11192,6 +11464,8 @@
         "brakeCode": "NwS",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "P",
           "dataTrPsvBrakeOne": "he9kqDL2TzxhsjRVpG",
@@ -11274,6 +11548,8 @@
         "brakeCode": "xt",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "3f",
           "dataTrPsvBrakeOne": "SfZJTx88Y",
@@ -11356,6 +11632,8 @@
         "brakeCode": "6COU",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Fp",
           "dataTrPsvBrakeOne": "I6uFnT",
@@ -11438,6 +11716,8 @@
         "brakeCode": "uJ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "ua",
           "dataTrPsvBrakeOne": "O68Ts82E0iczB7T1",
@@ -11520,6 +11800,8 @@
         "brakeCode": "auzdZ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "UrdE",
           "dataTrPsvBrakeOne": "KDcIyDMrtI",
@@ -11602,6 +11884,8 @@
         "brakeCode": "HZP0",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "mvs",
           "dataTrPsvBrakeOne": "2vZdUVoNtY",
@@ -11684,6 +11968,8 @@
         "brakeCode": "I36c",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "V0",
           "dataTrPsvBrakeOne": "bJqCsKe",
@@ -11766,6 +12052,8 @@
         "brakeCode": "MZNu",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "MOz6r",
           "dataTrPsvBrakeOne": "UV5RRttr",
@@ -11848,6 +12136,8 @@
         "brakeCode": "3gc",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "H",
           "dataTrPsvBrakeOne": "tNhpDH",
@@ -11930,6 +12220,8 @@
         "brakeCode": "hjg",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "exm",
           "dataTrPsvBrakeOne": "J7d14Env",
@@ -12012,6 +12304,8 @@
         "brakeCode": "IwyA",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Sl4a",
           "dataTrPsvBrakeOne": "T4QKsOzo",
@@ -12094,6 +12388,8 @@
         "brakeCode": 1,
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "0o",
           "dataTrPsvBrakeOne": "gZeZ8mHpBhFHwU",
@@ -12176,6 +12472,8 @@
         "brakeCode": "u",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "p",
           "dataTrPsvBrakeOne": "BJ1gqi97Nd",
@@ -12258,6 +12556,8 @@
         "brakeCode": "Ba",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "e",
           "dataTrPsvBrakeOne": "thB9KES",
@@ -12340,6 +12640,8 @@
         "brakeCode": "r",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "gSM",
           "dataTrPsvBrakeOne": "7WpKU4dbToC",
@@ -12422,6 +12724,8 @@
         "brakeCode": "ZJgC",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "JTI",
           "dataTrPsvBrakeOne": "qn87vJ",
@@ -12504,6 +12808,8 @@
         "brakeCode": "7E",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Tnp",
           "dataTrPsvBrakeOne": "CdkOMnNoSop",
@@ -12586,6 +12892,8 @@
         "brakeCode": "6WwC",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "8AOD",
           "dataTrPsvBrakeOne": "UthbJVdW1Rj",
@@ -12668,6 +12976,8 @@
         "brakeCode": "toh",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "q5yf",
           "dataTrPsvBrakeOne": "eUsq0vnttf",
@@ -12750,6 +13060,8 @@
         "brakeCode": "hAT8",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "E0IU",
           "dataTrPsvBrakeOne": "1I1UVuZf",
@@ -12832,6 +13144,8 @@
         "brakeCode": "RPrL",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Q",
           "dataTrPsvBrakeOne": "3ldLjFt7OCkpRb1E",
@@ -12914,6 +13228,8 @@
         "brakeCode": "jR",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "zmh",
           "dataTrPsvBrakeOne": "FDMZIiW",
@@ -12996,6 +13312,8 @@
         "brakeCode": "Oq",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "RIiKJ",
           "dataTrPsvBrakeOne": "uoW4AuqtjmdE",
@@ -13078,6 +13396,8 @@
         "brakeCode": "66cY",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "b6N",
           "dataTrPsvBrakeOne": "gEfy1H18dzkPEtLd",
@@ -13160,6 +13480,8 @@
         "brakeCode": "hX8",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Ph",
           "dataTrPsvBrakeOne": "hNZhYz",
@@ -13242,6 +13564,8 @@
         "brakeCode": "I7U",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "R4o",
           "dataTrPsvBrakeOne": "udHgEtk6",
@@ -13324,6 +13648,8 @@
         "brakeCode": "T1C",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "h",
           "dataTrPsvBrakeOne": "Jr2DzJG",
@@ -13406,6 +13732,8 @@
         "brakeCode": "WCE",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "ytL",
           "dataTrPsvBrakeOne": "lSYo2067AyFT",
@@ -13488,6 +13816,8 @@
         "brakeCode": "xbp",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "i",
           "dataTrPsvBrakeOne": "ZezjUF",
@@ -13570,6 +13900,8 @@
         "brakeCode": "pr",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "s",
           "dataTrPsvBrakeOne": "J46HsAadqY",
@@ -13652,6 +13984,8 @@
         "brakeCode": "JDJN",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "xM",
           "dataTrPsvBrakeOne": "kHfe",
@@ -13734,6 +14068,8 @@
         "brakeCode": "VZg",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "1ld",
           "dataTrPsvBrakeOne": "EURkmYtQvfCpO6JLjfy",
@@ -13816,6 +14152,8 @@
         "brakeCode": "D4i",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "B",
           "dataTrPsvBrakeOne": "nkaeDBIyCubVT",
@@ -13898,6 +14236,8 @@
         "brakeCode": "E38b",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 2,
           "dataTrPsvBrakeOne": "tTSqK",
@@ -13980,6 +14320,8 @@
         "brakeCode": "9T",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "tn8nv",
           "dataTrPsvBrakeOne": "jf4FsADVF",
@@ -14062,6 +14404,8 @@
         "brakeCode": "2J2",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "uQ",
           "dataTrPsvBrakeOne": "04dorYcCw0J",
@@ -14144,6 +14488,8 @@
         "brakeCode": "qS",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Y",
           "dataTrPsvBrakeOne": 7,
@@ -14226,6 +14572,8 @@
         "brakeCode": "Rr",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "8FnRQ",
           "dataTrPsvBrakeOne": "e9ZcV9Yju",
@@ -14308,6 +14656,8 @@
         "brakeCode": "OX1q",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Q1nSK",
           "dataTrPsvBrakeOne": "9Qg0uZcCkWGVcyRwV1h",
@@ -14390,6 +14740,8 @@
         "brakeCode": "wEJjk1",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "qZ4o",
           "dataTrPsvBrakeOne": "pQBP5ugd",
@@ -14472,6 +14824,8 @@
         "brakeCode": "ui",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "nHyR",
           "dataTrPsvBrakeOne": "RDiXvAzb3LO",
@@ -14554,6 +14908,8 @@
         "brakeCode": "qf",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "VS",
           "dataTrPsvBrakeOne": "G",
@@ -14636,6 +14992,8 @@
         "brakeCode": "43HK",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "qKF8",
           "dataTrPsvBrakeOne": "8qr9UPQOxxh",
@@ -14718,6 +15076,8 @@
         "brakeCode": 25,
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "O",
           "dataTrPsvBrakeOne": "JwideGElrxjOwE6Or7v",
@@ -14800,6 +15160,8 @@
         "brakeCode": "do",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "dr",
           "dataTrPsvBrakeOne": "sSwdfGk7wDq",
@@ -14882,6 +15244,8 @@
         "brakeCode": "i",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Rsy",
           "dataTrPsvBrakeOne": "a6nDQou",
@@ -14964,6 +15328,8 @@
         "brakeCode": "8HLbs",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "rC",
           "dataTrPsvBrakeOne": "SF4QxAnMwv8aYo",
@@ -15046,6 +15412,8 @@
         "brakeCode": "3cJ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "IQg6",
           "dataTrPsvBrakeOne": "nDcqVOFY",
@@ -15128,6 +15496,8 @@
         "brakeCode": "eMMWfC",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "axm",
           "dataTrPsvBrakeOne": "KSDVTcrP2Yc7zkJi",
@@ -15210,6 +15580,8 @@
         "brakeCode": "hG",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "1j",
           "dataTrPsvBrakeOne": "Sq4ZbunKuaA6N",
@@ -15292,6 +15664,8 @@
         "brakeCode": "o9f1",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "ooqcl",
           "dataTrPsvBrakeOne": "m",
@@ -15374,6 +15748,8 @@
         "brakeCode": "cWtX",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "3QOZ",
           "dataTrPsvBrakeOne": "lgUvv3CUyy",
@@ -15456,6 +15832,8 @@
         "brakeCode": "tO",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "vsFsju",
           "dataTrPsvBrakeOne": "vBXjxRaXJe8eywMf0jxy5Ic",
@@ -15538,6 +15916,8 @@
         "brakeCode": "ToZ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "JeqZw",
           "dataTrPsvBrakeOne": "mNwlKtCrk3B",
@@ -15620,6 +16000,8 @@
         "brakeCode": "GdP",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "ZF2",
           "dataTrPsvBrakeOne": "oiz4",
@@ -15702,6 +16084,8 @@
         "brakeCode": "3GzU",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "v",
           "dataTrPsvBrakeOne": "ou9",
@@ -15784,6 +16168,8 @@
         "brakeCode": "4MT",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "e37",
           "dataTrPsvBrakeOne": "8tPK1pCg1ds216edaxr",
@@ -15866,6 +16252,8 @@
         "brakeCode": 6,
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "uM",
           "dataTrPsvBrakeOne": "hjfDAl1",
@@ -15948,6 +16336,8 @@
         "brakeCode": "S",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "cd9l",
           "dataTrPsvBrakeOne": "wSGFYhhWS6nK",
@@ -16030,6 +16420,8 @@
         "brakeCode": "O1nk",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "1L4G",
           "dataTrPsvBrakeOne": "s331k",
@@ -16112,6 +16504,8 @@
         "brakeCode": "ExT",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "4JK",
           "dataTrPsvBrakeOne": "ga3e3xAMeqKf6CbP",
@@ -16194,6 +16588,8 @@
         "brakeCode": "WDN",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "aLQ",
           "dataTrPsvBrakeOne": "0gaamfFCcfIzf2eBmR",
@@ -16276,6 +16672,8 @@
         "brakeCode": "I3",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "kc",
           "dataTrPsvBrakeOne": "QkzZvWlu05",
@@ -16358,6 +16756,8 @@
         "brakeCode": "xvf6X",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "w",
           "dataTrPsvBrakeOne": "ZTr9nNuqtG",
@@ -16440,6 +16840,8 @@
         "brakeCode": "qmDgWk",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "xTlBy",
           "dataTrPsvBrakeOne": "htRXlr",
@@ -16522,6 +16924,8 @@
         "brakeCode": "2f",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "4r",
           "dataTrPsvBrakeOne": "9wM7hskgXpFc",
@@ -16604,6 +17008,8 @@
         "brakeCode": "rFI9",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "boJ3",
           "dataTrPsvBrakeOne": "0Ot1YY4Int",
@@ -16686,6 +17092,8 @@
         "brakeCode": "xtcr",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "znn",
           "dataTrPsvBrakeOne": "wEXp",
@@ -16768,6 +17176,8 @@
         "brakeCode": "b4eki",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "g",
           "dataTrPsvBrakeOne": "SzLX",
@@ -16850,6 +17260,8 @@
         "brakeCode": "jQZ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Y3z",
           "dataTrPsvBrakeOne": "JKIJGAeosqJif2d",
@@ -16932,6 +17344,8 @@
         "brakeCode": "0g",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "7C4T",
           "dataTrPsvBrakeOne": "enjnDwrZJN",
@@ -17014,6 +17428,8 @@
         "brakeCode": "P5h",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "LCz",
           "dataTrPsvBrakeOne": "6xf6Buhu2p1hYgcReeC3",
@@ -17096,6 +17512,8 @@
         "brakeCode": "9rA",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Cb",
           "dataTrPsvBrakeOne": "YYvZHxpQv8Y2",
@@ -17178,6 +17596,8 @@
         "brakeCode": "Qdg6v",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "op",
           "dataTrPsvBrakeOne": "Xk1Zwx91",
@@ -17260,6 +17680,8 @@
         "brakeCode": "RZ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "dQf",
           "dataTrPsvBrakeOne": "R1iKU",
@@ -17342,6 +17764,8 @@
         "brakeCode": "E598",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 3,
           "dataTrPsvBrakeOne": "K6",
@@ -17424,6 +17848,8 @@
         "brakeCode": 18,
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "2RjYX",
           "dataTrPsvBrakeOne": "oDFB6aI4Ek1XGE6",
@@ -17506,6 +17932,8 @@
         "brakeCode": "rd",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "T0en",
           "dataTrPsvBrakeOne": "xUExz2b",
@@ -17588,6 +18016,8 @@
         "brakeCode": "ZX",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "E45",
           "dataTrPsvBrakeOne": "h3lyaWjB",
@@ -17670,6 +18100,8 @@
         "brakeCode": "HH",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "x",
           "dataTrPsvBrakeOne": "DqHT9qkfZ",
@@ -17752,6 +18184,8 @@
         "brakeCode": "FGnS",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "nkS",
           "dataTrPsvBrakeOne": "zvRGFsPWr7m5BN10",
@@ -17834,6 +18268,8 @@
         "brakeCode": "7xk",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "DzO",
           "dataTrPsvBrakeOne": "5BabgcRphVdk7o3yklxR2",
@@ -17916,6 +18352,8 @@
         "brakeCode": "cl",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "AA",
           "dataTrPsvBrakeOne": "Ve0h",
@@ -17998,6 +18436,8 @@
         "brakeCode": "wMqI",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "17R",
           "dataTrPsvBrakeOne": "0zg72xWRy",
@@ -18080,6 +18520,8 @@
         "brakeCode": "CfxDM",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "CtYo",
           "dataTrPsvBrakeOne": "xcpon",
@@ -18162,6 +18604,8 @@
         "brakeCode": "u",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "eom",
           "dataTrPsvBrakeOne": "sXSuN",
@@ -18244,6 +18688,8 @@
         "brakeCode": "bjC",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "f4",
           "dataTrPsvBrakeOne": "CFzR",
@@ -18326,6 +18772,8 @@
         "brakeCode": "P8",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "WaPfJ",
           "dataTrPsvBrakeOne": "JfesAxIxCv",
@@ -18408,6 +18856,8 @@
         "brakeCode": "j",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "AILvH",
           "dataTrPsvBrakeOne": "r9eI",
@@ -18490,6 +18940,8 @@
         "brakeCode": "6wL",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Z",
           "dataTrPsvBrakeOne": "Ocl9OyWPf9F1eIK",
@@ -18572,6 +19024,8 @@
         "brakeCode": "JQw",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "G",
           "dataTrPsvBrakeOne": "t1fhP1VWwVb2",
@@ -18654,6 +19108,8 @@
         "brakeCode": "Wtn6",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "F7",
           "dataTrPsvBrakeOne": "jEubD",
@@ -18736,6 +19192,8 @@
         "brakeCode": "5wzL",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Z",
           "dataTrPsvBrakeOne": "KFdbcWhmeoON",
@@ -18818,6 +19276,8 @@
         "brakeCode": "iCTng",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "l0",
           "dataTrPsvBrakeOne": "ibRFSJloQDU",
@@ -18900,6 +19360,8 @@
         "brakeCode": "X8fi",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "xb",
           "dataTrPsvBrakeOne": "FoMyNaaBAj",
@@ -18982,6 +19444,8 @@
         "brakeCode": "Ph3F8",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "fg",
           "dataTrPsvBrakeOne": "0jAsz1fW",
@@ -19064,6 +19528,8 @@
         "brakeCode": "rR",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "0ulg",
           "dataTrPsvBrakeOne": "TVVEst",
@@ -19146,6 +19612,8 @@
         "brakeCode": "ozt",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Vh",
           "dataTrPsvBrakeOne": "yAE",
@@ -19228,6 +19696,8 @@
         "brakeCode": "LSx",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "xr",
           "dataTrPsvBrakeOne": "dmDc86BcKy",
@@ -19310,6 +19780,8 @@
         "brakeCode": "ckgaJ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "yAne",
           "dataTrPsvBrakeOne": "cTHsNxb8vs10HMf",
@@ -19392,6 +19864,8 @@
         "brakeCode": "WQWT",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "nJ",
           "dataTrPsvBrakeOne": "IGUdz5QJ6",
@@ -19474,6 +19948,8 @@
         "brakeCode": "A",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 6,
           "dataTrPsvBrakeOne": "5g1P",
@@ -19556,6 +20032,8 @@
         "brakeCode": "chV",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "hN8",
           "dataTrPsvBrakeOne": "nkNA8RoChHiSZ",
@@ -19638,6 +20116,8 @@
         "brakeCode": "nh",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 0,
           "dataTrPsvBrakeOne": "mqOWeREY",
@@ -19720,6 +20200,8 @@
         "brakeCode": "tz76",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "vC",
           "dataTrPsvBrakeOne": "cP9r",
@@ -19802,6 +20284,8 @@
         "brakeCode": "9f",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "8n",
           "dataTrPsvBrakeOne": "z7bCZS18iOVG1",
@@ -19884,6 +20368,8 @@
         "brakeCode": "n5",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "B8fE",
           "dataTrPsvBrakeOne": "tu",
@@ -19966,6 +20452,8 @@
         "brakeCode": "b",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Zy63",
           "dataTrPsvBrakeOne": "thS",
@@ -20048,6 +20536,8 @@
         "brakeCode": "BTv",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "qjO",
           "dataTrPsvBrakeOne": "4Nu0ppdqm",
@@ -20130,6 +20620,8 @@
         "brakeCode": "jc",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "BmD",
           "dataTrPsvBrakeOne": "3zHXVjOQ8DY3Pf8lT",
@@ -20212,6 +20704,8 @@
         "brakeCode": "dj",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "cK0",
           "dataTrPsvBrakeOne": "mQfr",
@@ -20294,6 +20788,8 @@
         "brakeCode": "8en",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Sg",
           "dataTrPsvBrakeOne": "I50Lyd",
@@ -20376,6 +20872,8 @@
         "brakeCode": "E",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "4u",
           "dataTrPsvBrakeOne": "YVr4T3z2oO",
@@ -20458,6 +20956,8 @@
         "brakeCode": "Y",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "pDgKK",
           "dataTrPsvBrakeOne": "bQmhHBr4x06q",
@@ -20540,6 +21040,8 @@
         "brakeCode": "5b",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "2Wbk",
           "dataTrPsvBrakeOne": "5mdoZND2g",
@@ -20622,6 +21124,8 @@
         "brakeCode": "1T9",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "iTNC",
           "dataTrPsvBrakeOne": "9518t",
@@ -20704,6 +21208,8 @@
         "brakeCode": "p7AsS",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "aIn",
           "dataTrPsvBrakeOne": "m2O98T",
@@ -20786,6 +21292,8 @@
         "brakeCode": "j2T",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Dnpa",
           "dataTrPsvBrakeOne": "ySJoIwrkWn9LdImqQQ",
@@ -20868,6 +21376,8 @@
         "brakeCode": "pT4uc",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "XkD",
           "dataTrPsvBrakeOne": "beUGkA66",
@@ -20950,6 +21460,8 @@
         "brakeCode": "jMs",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "KKO",
           "dataTrPsvBrakeOne": "NauBb6",
@@ -21032,6 +21544,8 @@
         "brakeCode": "W",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "8qEPf",
           "dataTrPsvBrakeOne": "FYbXglyU",
@@ -21114,6 +21628,8 @@
         "brakeCode": 9,
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "r",
           "dataTrPsvBrakeOne": "9L767v5jw8lhVRZxtyc3T",
@@ -21196,6 +21712,8 @@
         "brakeCode": "Cv",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "RJ",
           "dataTrPsvBrakeOne": "uf2tBv",
@@ -21278,6 +21796,8 @@
         "brakeCode": "DE30m",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 7,
           "dataTrPsvBrakeOne": "lbmO3z12VCQtsU",
@@ -21360,6 +21880,8 @@
         "brakeCode": "hM3",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "3s73",
           "dataTrPsvBrakeOne": "a2fj3QDfP",
@@ -21442,6 +21964,8 @@
         "brakeCode": "tk",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "hvTf",
           "dataTrPsvBrakeOne": "YqU",
@@ -21524,6 +22048,8 @@
         "brakeCode": "9rZNji",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "I3K9",
           "dataTrPsvBrakeOne": "gNH3cNeds",
@@ -21606,6 +22132,8 @@
         "brakeCode": "Qzb6",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "JLP",
           "dataTrPsvBrakeOne": "NARD2Otis",
@@ -21688,6 +22216,8 @@
         "brakeCode": "8eQy",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "zOB",
           "dataTrPsvBrakeOne": "8KbSccd9fiiD2q",
@@ -21770,6 +22300,8 @@
         "brakeCode": "iqWuL",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "TLhiX",
           "dataTrPsvBrakeOne": "WuOXWa8",
@@ -21852,6 +22384,8 @@
         "brakeCode": "jdK",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "4yOoq",
           "dataTrPsvBrakeOne": "Lai5ZPbsl",
@@ -21934,6 +22468,8 @@
         "brakeCode": "Dz",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "WiF",
           "dataTrPsvBrakeOne": "5FKh0q",
@@ -22016,6 +22552,8 @@
         "brakeCode": "IcntU",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "XZi8",
           "dataTrPsvBrakeOne": "12Vv00JSD",
@@ -22098,6 +22636,8 @@
         "brakeCode": "vpp",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "4m",
           "dataTrPsvBrakeOne": "H5Xyl3",
@@ -22180,6 +22720,8 @@
         "brakeCode": "41Vb",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "R",
           "dataTrPsvBrakeOne": "9f86Kt43UmMuC",
@@ -22262,6 +22804,8 @@
         "brakeCode": "NH",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "y",
           "dataTrPsvBrakeOne": "U5K0WhdN6PEV",
@@ -22344,6 +22888,8 @@
         "brakeCode": "335dF",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "6xj",
           "dataTrPsvBrakeOne": "Uk603YhruhjlcYB5eYQ2",
@@ -22426,6 +22972,8 @@
         "brakeCode": "ScP7",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "s3r",
           "dataTrPsvBrakeOne": "7jMtk0WUWKtqC7R",
@@ -22508,6 +23056,8 @@
         "brakeCode": "Tj",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "s",
           "dataTrPsvBrakeOne": "KvwRC3V6",
@@ -22590,6 +23140,8 @@
         "brakeCode": "Cy",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "NHL4",
           "dataTrPsvBrakeOne": "cXrn",
@@ -22672,6 +23224,8 @@
         "brakeCode": "fO",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "ABfE",
           "dataTrPsvBrakeOne": "LM4z",
@@ -22754,6 +23308,8 @@
         "brakeCode": "G",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "O7a",
           "dataTrPsvBrakeOne": "9jjnv",
@@ -22836,6 +23392,8 @@
         "brakeCode": "g",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Gj9O",
           "dataTrPsvBrakeOne": "Km1wgUN",
@@ -22918,6 +23476,8 @@
         "brakeCode": "lD",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "YTPGP",
           "dataTrPsvBrakeOne": "AwztQ5FEiu",
@@ -23000,6 +23560,8 @@
         "brakeCode": "xsSz",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "zDAk",
           "dataTrPsvBrakeOne": "gB5TW5L",
@@ -23082,6 +23644,8 @@
         "brakeCode": "bPkDi",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "WFz",
           "dataTrPsvBrakeOne": "0O2",
@@ -23164,6 +23728,8 @@
         "brakeCode": "o",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "n",
           "dataTrPsvBrakeOne": "bZVkapRwIQ",
@@ -23246,6 +23812,8 @@
         "brakeCode": "qVWh",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 6,
           "dataTrPsvBrakeOne": "tby5TehZ4",
@@ -23328,6 +23896,8 @@
         "brakeCode": "s",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "2nnn",
           "dataTrPsvBrakeOne": "f87AOBz24B4NKbwn",
@@ -23410,6 +23980,8 @@
         "brakeCode": "mQ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Pn0",
           "dataTrPsvBrakeOne": "o29CQhwM8ymc",
@@ -23492,6 +24064,8 @@
         "brakeCode": "qxr",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "lF",
           "dataTrPsvBrakeOne": "fBLr",
@@ -23574,6 +24148,8 @@
         "brakeCode": "ISb",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "xG",
           "dataTrPsvBrakeOne": "7yVP",
@@ -23656,6 +24232,8 @@
         "brakeCode": "xR1",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "q",
           "dataTrPsvBrakeOne": "Cs4c9D",
@@ -23738,6 +24316,8 @@
         "brakeCode": "vrQ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Sz",
           "dataTrPsvBrakeOne": "8zD",
@@ -23820,6 +24400,8 @@
         "brakeCode": "LZM",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 0,
           "dataTrPsvBrakeOne": "bAJdpl",
@@ -23902,6 +24484,8 @@
         "brakeCode": "Xy2",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "8a",
           "dataTrPsvBrakeOne": "uFAQi",
@@ -23984,6 +24568,8 @@
         "brakeCode": "FXvl",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "sa",
           "dataTrPsvBrakeOne": "WHx",
@@ -24066,6 +24652,8 @@
         "brakeCode": "nYSoN",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "edyg",
           "dataTrPsvBrakeOne": "JPB9MSrjX2D9Vg6gJ3",
@@ -24148,6 +24736,8 @@
         "brakeCode": "qKg",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": 2,
           "dataTrPsvBrakeOne": "rfNwnrj",
@@ -24230,6 +24820,8 @@
         "brakeCode": "pyF9",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "HL",
           "dataTrPsvBrakeOne": "QAtrKq0m2",
@@ -24312,6 +24904,8 @@
         "brakeCode": "ToA",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "91U6",
           "dataTrPsvBrakeOne": "Eps4K",
@@ -24394,6 +24988,8 @@
         "brakeCode": "xQw",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "wqAi",
           "dataTrPsvBrakeOne": "jdxbFBya",
@@ -24476,6 +25072,8 @@
         "brakeCode": "pQ",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "Ysiu",
           "dataTrPsvBrakeOne": "Kyij",
@@ -24558,6 +25156,8 @@
         "brakeCode": "75jF",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "66q",
           "dataTrPsvBrakeOne": "bbaYFC6W",
@@ -24638,6 +25238,8 @@
         "brakeCode": "75jF",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "66q",
           "dataTrPsvBrakeOne": "bbaYFC6W",
