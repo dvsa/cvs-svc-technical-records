@@ -1,0 +1,30 @@
+# MacOS specific hidden files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Idea specific hidden files
+.idea/**
+
+# Node specific files
+node_modules/**
+
+# Serverless specific files
+.dynamodb/**
+
+# Config file generated based on environment
+src/config/config.json

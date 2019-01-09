@@ -1,0 +1,131 @@
+service: cvs-svc-technical-records
+
+openapi: 3.0.0
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline
+  - serverless-openapi-documentation
+
+custom:
+  serverless-offline:
+    port: 3005
+  dynamodb:
+    start:
+      port: 8003
+      inMemory: true
+      migrate: true
+      seed: false
+    seed:
+      tech-records:
+        sources:
+          - table: cvs-local-technical-records
+            sources: [./tests/resources/techRecords.json]
+  documentation:
+    version: '1'
+    title: 'Get Vehicle Technical Records List API'
+    description: 'This is the API spec for retrieving those Vehicle Technical Records that correspond with an input searchIdentifier'
+    models:
+      - name: "VehicleTechnicalRecords"
+        description: "Successful response"
+        contentType: "application/json"
+        schema:
+          type: object
+          properties:
+            vrms:
+              type: array
+            vin:
+              type: string
+            techRecord:
+              type: array
+
+functions:
+  getTechRecords:
+    handler: src/handler.handler
+    events:
+    - http:
+        path: vehicles/{searchIdentifier}/tech-records/{status?}
+        method: get
+        request:
+          parameters:
+            paths:
+              searchIdentifier: true
+              status: false
+        documentation:
+          summary: "Get Vehicle Technical Records list"
+          description: "Retrieves the Vehicle Technical Records for the input searchIdentifier, which can be the VRM, the last 6 digits of the VIN or the full VIN"
+          parameters:
+            - name: searchIdentifier
+              in: path
+              description: The attribute to search a vehicle technical record by, which can be either the VRM, the last 6 digits of the VIN or the full VIN"
+              required: true
+              schema:
+                type: string
+            - name: status?
+              in: path
+              description: The status code of a vehicle technical record"
+              required: true
+              schema:
+                type: string
+          methodResposes:
+            - statusCode: 200
+              responseBody:
+                description: "List of Vehicle Technical Records"
+              responseModels:
+                "application/json": "VehicleTechnicalRecords"
+            - statusCode: 404
+              responseBody:
+                description: "No resources match the search criteria"
+              responseModels:
+                content:
+                  application/json:
+                    schema:
+                      type: string
+            - statusCode: 422
+              responseBody:
+                description: "Multiple results found"
+              responseModels:
+                content:
+                  application/json:
+                    schema:
+                      type: string
+
+resources:
+  Resources:
+    Users:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: cvs-local-technical-records
+        AttributeDefinitions:
+        - AttributeName: partialVin
+          AttributeType: S
+        - AttributeName: vin
+          AttributeType: S
+        - AttributeName: primaryVrm
+          AttributeType: S
+        KeySchema:
+        - AttributeName: partialVin
+          KeyType: HASH
+        - AttributeName: vin
+          KeyType: RANGE
+        GlobalSecondaryIndexes:
+          - IndexName: VRMIndex
+            KeySchema:
+            - AttributeName: primaryVrm
+              KeyType: HASH
+            Projection:
+              NonKeyAttributes:
+                - secondaryVrms
+                - vin
+                - techRecord
+              ProjectionType: INCLUDE
+            ProvisionedThroughput:
+              ReadCapacityUnits: '1'
+              WriteCapacityUnits: '1'
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
