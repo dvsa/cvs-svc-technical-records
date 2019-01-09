@@ -40,6 +40,8 @@
         "brakeCode": "o",
         "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
         "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "1jU6",
           "dataTrPsvBrakeOne": "oaCS4aZ5UGGZT",
