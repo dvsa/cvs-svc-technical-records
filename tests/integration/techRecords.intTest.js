@@ -83,7 +83,7 @@ describe('techRecords', () => {
         context('and statusCode is provided', () => {
           context('and the tech record for that VRM has the statusCode provided', () => {
             it('should return the tech record for that VRM with statusCode \'archived\'', (done) => {
-              request.get('vehicles/V916FSB/tech-records/archived')
+              request.get('vehicles/V916FSB/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(200)
@@ -97,7 +97,7 @@ describe('techRecords', () => {
 
           context('and the tech record for that VRM does not have statusCode \'archived\'', () => {
             it('should return 404', (done) => {
-              request.get('vehicles/BQ91YHQ/tech-records/archived')
+              request.get('vehicles/BQ91YHQ/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(404)
@@ -145,7 +145,7 @@ describe('techRecords', () => {
         context('and statusCode is provided', () => {
           context('and the tech record for that partial VIN has the statusCode provided', () => {
             it('should return the tech record for that partial VIN with statusCode \'archived\'', (done) => {
-              request.get('vehicles/186664/tech-records/archived')
+              request.get('vehicles/186664/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(200)
@@ -159,7 +159,7 @@ describe('techRecords', () => {
 
           context('and the tech record for that partial VIN does not have statusCode \'archived\'', () => {
             it('should return 404', (done) => {
-              request.get('vehicles/678410/tech-records/archived')
+              request.get('vehicles/678410/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(404)
@@ -221,7 +221,7 @@ describe('techRecords', () => {
         context('and statusCode is provided', () => {
           context('and the tech record for that full VIN has the statusCode provided', () => {
             it('should return the tech record for that full VIN with statusCode \'archived\'', (done) => {
-              request.get('vehicles/2FAFP71961X186664/tech-records/archived')
+              request.get('vehicles/2FAFP71961X186664/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(200)
@@ -235,7 +235,7 @@ describe('techRecords', () => {
 
           context('and the tech record for that full VIN does not have statusCode \'archived\'', () => {
             it('should return 404', (done) => {
-              request.get('vehicles/1B7GG36N12S678410/tech-records/archived')
+              request.get('vehicles/1B7GG36N12S678410/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(404)
