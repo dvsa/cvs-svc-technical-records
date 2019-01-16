@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.332.0",
+    "path-parser": "^4.2.0",
     "serverless-openapi-documentation": "^0.4.0"
   }
 }

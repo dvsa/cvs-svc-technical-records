@@ -48,12 +48,13 @@ functions:
     handler: src/handler.handler
     events:
     - http:
-        path: vehicles/{searchIdentifier}/tech-records/{status?}
+        path: vehicles/{searchIdentifier}/tech-records
         method: get
         request:
           parameters:
             paths:
               searchIdentifier: true
+            querystrings:
               status: false
         documentation:
           summary: "Get Vehicle Technical Records list"
