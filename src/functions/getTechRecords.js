@@ -9,7 +9,8 @@ const getTechRecords = (event) => {
   const techRecordsDAO = new TechRecordsDAO()
   const techRecordsService = new TechRecordsService(techRecordsDAO)
 
-  let path = (process.env.BRANCH === 'local') ? event.path : event.pathParameters.proxy
+  const basePath = '/vehicles'
+  let path = (process.env.BRANCH === 'local') ? event.path : `${basePath}/${event.pathParameters.proxy}`
   const getTechRecords = new Path('/vehicles/:searchIdentifier/tech-records')
 
   if (getTechRecords.test(path)) {
