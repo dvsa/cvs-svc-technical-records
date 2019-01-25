@@ -174,7 +174,7 @@ describe('techRecords', () => {
 
         context('and the partial VIN provided returns more than one match', () => {
           it('should return 422', (done) => {
-            request.get('vehicles/016333/tech-records')
+            request.get('vehicles/C48754/tech-records')
               .end((err, res) => {
                 if (err) { expect.fail(err) }
                 expect(res.statusCode).to.equal(422)
