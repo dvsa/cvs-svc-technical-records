@@ -17,7 +17,8 @@
     "predeploy": "npm install && npm run prepush",
     "security-checks": "git secrets --scan && git log -p | scanrepo",
     "eslint": "eslint . --config=.eslintrc.json --fix",
-    "generate-docs": "serverless openapi generate -o api/swagger/swagger.yaml && swagger-ui-watcher ./api/swagger/swagger.yaml"
+    "generate-docs": "serverless openapi generate -o api/swagger/swagger.yaml && swagger-ui-watcher ./api/swagger/swagger.yaml",
+    "sonar-scanner": "echo 'TODO'"
   },
   "author": "",
   "license": "MIT",
