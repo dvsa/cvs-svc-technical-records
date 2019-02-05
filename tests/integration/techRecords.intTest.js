@@ -53,7 +53,7 @@ describe('techRecords', () => {
         context('and no statusCode is provided', () => {
           context('and the tech record for that VRM has statusCode \'current\'', () => {
             it('should return the tech record for that VRM with default status \'current\'', (done) => {
-              request.get('vehicles/BQ91YHQ/tech-records')
+              request.get('vehicles/JY58FPP/tech-records')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(200)
@@ -83,13 +83,13 @@ describe('techRecords', () => {
         context('and statusCode is provided', () => {
           context('and the tech record for that VRM has the statusCode provided', () => {
             it('should return the tech record for that VRM with statusCode \'archived\'', (done) => {
-              request.get('vehicles/V916FSB/tech-records?status=archived')
+              request.get('vehicles/AA12BCD/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(200)
                   expect(res.headers['access-control-allow-origin']).to.equal('*')
                   expect(res.headers['access-control-allow-credentials']).to.equal('true')
-                  expect(_.isEqual(convertToResponse(mockData[3]), res.body)).to.equal(true)
+                  expect(convertToResponse(mockData[2])).to.eql(res.body)
                   done()
                 })
             })
@@ -115,13 +115,13 @@ describe('techRecords', () => {
         context('and no statusCode is provided', () => {
           context('and the tech record for that partial VIN has statusCode \'current\'', () => {
             it('should return the tech record for that partial VIN with default status \'current\'', (done) => {
-              request.get('vehicles/678410/tech-records')
+              request.get('vehicles/012345/tech-records')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(200)
                   expect(res.headers['access-control-allow-origin']).to.equal('*')
                   expect(res.headers['access-control-allow-credentials']).to.equal('true')
-                  expect(_.isEqual(convertToResponse(mockData[0]), res.body)).to.equal(true)
+                  expect(convertToResponse(mockData[0])).to.eql(res.body)
                   done()
                 })
             })
@@ -129,7 +129,7 @@ describe('techRecords', () => {
 
           context('and the tech record for that partial VIN does not have statusCode \'current\'', () => {
             it('should return 404', (done) => {
-              request.get('vehicles/186664/tech-records')
+              request.get('vehicles/021430/tech-records')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(404)
@@ -145,13 +145,13 @@ describe('techRecords', () => {
         context('and statusCode is provided', () => {
           context('and the tech record for that partial VIN has the statusCode provided', () => {
             it('should return the tech record for that partial VIN with statusCode \'archived\'', (done) => {
-              request.get('vehicles/186664/tech-records?status=archived')
+              request.get('vehicles/012356/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(200)
                   expect(res.headers['access-control-allow-origin']).to.equal('*')
                   expect(res.headers['access-control-allow-credentials']).to.equal('true')
-                  expect(_.isEqual(convertToResponse(mockData[3]), res.body)).to.equal(true)
+                  expect(convertToResponse(mockData[2])).to.eql(res.body)
                   done()
                 })
             })
@@ -159,7 +159,7 @@ describe('techRecords', () => {
 
           context('and the tech record for that partial VIN does not have statusCode \'archived\'', () => {
             it('should return 404', (done) => {
-              request.get('vehicles/678410/tech-records?status=archived')
+              request.get('vehicles/012345/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(404)
@@ -174,7 +174,7 @@ describe('techRecords', () => {
 
         context('and the partial VIN provided returns more than one match', () => {
           it('should return 422', (done) => {
-            request.get('vehicles/C48754/tech-records')
+            request.get('vehicles/678413/tech-records')
               .end((err, res) => {
                 if (err) { expect.fail(err) }
                 expect(res.statusCode).to.equal(422)
@@ -191,13 +191,13 @@ describe('techRecords', () => {
         context('and no statusCode is provided', () => {
           context('and the tech record for that full VIN has statusCode \'current\'', () => {
             it('should return the tech record for that full VIN with default status \'current\'', (done) => {
-              request.get('vehicles/1B7GG36N12S678410/tech-records')
+              request.get('vehicles/XMGDE02FS0H012345/tech-records')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(200)
                   expect(res.headers['access-control-allow-origin']).to.equal('*')
                   expect(res.headers['access-control-allow-credentials']).to.equal('true')
-                  expect(_.isEqual(convertToResponse(mockData[0]), res.body)).to.equal(true)
+                  expect(convertToResponse(mockData[0])).to.eql(res.body)
                   done()
                 })
             })
@@ -205,7 +205,7 @@ describe('techRecords', () => {
 
           context('and the tech record for that full VIN does not have statusCode \'current\'', () => {
             it('should return 404', (done) => {
-              request.get('vehicles/2FAFP71961X186664/tech-records')
+              request.get('vehicles/XMGDE02FS0H012356/tech-records')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(404)
@@ -221,13 +221,13 @@ describe('techRecords', () => {
         context('and statusCode is provided', () => {
           context('and the tech record for that full VIN has the statusCode provided', () => {
             it('should return the tech record for that full VIN with statusCode \'archived\'', (done) => {
-              request.get('vehicles/2FAFP71961X186664/tech-records?status=archived')
+              request.get('vehicles/XMGDE02FS0H012356/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(200)
                   expect(res.headers['access-control-allow-origin']).to.equal('*')
                   expect(res.headers['access-control-allow-credentials']).to.equal('true')
-                  expect(_.isEqual(convertToResponse(mockData[3]), res.body)).to.equal(true)
+                  expect(convertToResponse(mockData[2])).to.eql(res.body)
                   done()
                 })
             })
@@ -235,7 +235,7 @@ describe('techRecords', () => {
 
           context('and the tech record for that full VIN does not have statusCode \'archived\'', () => {
             it('should return 404', (done) => {
-              request.get('vehicles/1B7GG36N12S678410/tech-records?status=archived')
+              request.get('vehicles/XMGDE02FS0H012345/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(404)
