@@ -20,6 +20,7 @@ custom:
       inMemory: true
       migrate: true
       seed: false
+      noStart: true
     seed:
       tech-records:
         sources:
