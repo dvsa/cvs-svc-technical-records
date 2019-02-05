@@ -1,3 +1,0 @@
-node("dvsacvsmgmt") {
-    print "Test"
-}
