@@ -1,10 +1,108 @@
 [
   {
+    "primaryVrm": "JY58FPP",
+    "secondaryVrms": [
+      "609859Z"
+    ],
+    "vin": "XMGDE02FS0H012345",
+    "partialVin": "012345",
+    "techRecord": [
+      {
+        "createdAt": "2018-04-20T04:20:00.027Z",
+        "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
+        "chassisMake": "DAF",
+        "chassisModel": "SB200",
+        "bodyMake": "Plaxton",
+        "bodyModel": "Centro",
+        "bodyType": "single Decker",
+        "manufactureDate": 2008,
+        "regnDate": "2008-09-24",
+        "coifDate": "2008-04-23",
+        "ntaNumber": "1",
+        "conversionRefNo": "1",
+        "seatsLowerDeck": 45,
+        "seatsUpperDeck": 0,
+        "standingCapacity": 26,
+        "speedRestriction": 0,
+        "speedLimiterMrk": false,
+        "tachoExemptMrk": false,
+        "dispensations": "None",
+        "remarks": "OUTSWING 120MM. 45 & 26 OR 42 SEATS & 1 WHEELCHAIR WITH 26 STANDEES. DDA SCHEDULES 1 & 2. SEAT BELTS FITTED TO ALL FORWARD FACING SEATS 3 POINT 42 IN TOTAL INC DRIVER.",
+        "reasonForCreation": "COIF",
+        "statusCode": "current",
+        "unladenWeight": 0,
+        "grossKerbWeight": 9140,
+        "grossLadenWeight": 13520,
+        "grossGbWeight": 14440,
+        "grossDesignWeight": 14440,
+        "noOfAxles": 2,
+        "brakeCode": "135202",
+        "vehicleClass": "L",
+        "vehicleType": "PSV",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
+        "brakes": {
+          "brakeCode": "135202",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "parkingBrakeMrk": null,
+          "retarderBrakeOne": "hydraulic",
+          "retarderBrakeTwo": "hydraulic",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6084,
+            "secondaryBrakeForceA": 3042,
+            "parkingBrakeForceA": 2163
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 4570,
+            "secondaryBrakeForceB": 2285,
+            "parkingBrakeForceB": 1462
+          }
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "weights": {
+              "kerbWeight": 2760,
+              "ladenWeight": 0,
+              "gbWeight": 5000,
+              "designWeight": 5000
+            },
+            "tyres": {
+              "tyreSize": "265/70-19.5",
+              "plyRating": "A",
+              "fitmentCode": "single",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "M",
+              "tyreCode": 735
+            }
+          },
+          {
+            "axleNumber": 2,
+            "weights": {
+              "kerbWeight": 6380,
+              "ladenWeight": 0,
+              "gbWeight": 9440,
+              "designWeight": 9440
+            },
+            "tyres": {
+              "tyreSize": "265/70-19.5",
+              "plyRating": "A",
+              "fitmentCode": "double",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "M",
+              "tyreCode": 735
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
     "primaryVrm": "BQ91YHQ",
     "secondaryVrms": [
-      "QO92UX2",
-      "O431X2G",
-      "QB369JS"
+      "X71LTA"
     ],
     "vin": "1B7GG36N12S678410",
     "partialVin": "678410",
@@ -12,158 +110,89 @@
       {
         "createdAt": "2019-01-16T12:24:38.027Z",
         "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
-        "chassisMake": "Zentix",
-        "chassisModel": "non",
-        "bodyMake": "Unisure",
-        "bodyModel": "do",
-        "bodyType": "other",
-        "manufactureDate": 3225,
-        "regnDate": "2006-07-01",
-        "coifDate": "1991-12-07",
-        "ntaNumber": "pP",
-        "conversionRefNo": "S5J9z",
-        "seatsLowerDeck": 986,
-        "seatsUpperDeck": 57,
-        "standingCapacity": 251,
-        "speedRestriction": 29,
-        "speedLimiterMrk": true,
-        "tachoExemptMrk": true,
-        "dispensations": "3UZnR",
-        "remarks": "bof1ikLSURNJi0oxHdAmyo1",
-        "reasonForCreation": "DFGIscm7",
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": "single Decker",
+        "manufactureDate": 2010,
+        "regnDate": "2011-01-05",
+        "coifDate": "2010-12-20",
+        "ntaNumber": "7",
+        "conversionRefNo": "2",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "standingCapacity": 0,
+        "speedRestriction": 0,
+        "speedLimiterMrk": false,
+        "tachoExemptMrk": false,
+        "dispensations": "None",
+        "remarks": "None",
+        "reasonForCreation": "COIF",
         "statusCode": "current",
         "unladenWeight": 0,
-        "grossKerbWeight": 20445,
-        "grossLadenWeight": 82879,
-        "grossGbWeight": 85025,
-        "grossDesignWeight": 71125,
-        "noOfAxles": 43,
-        "brakeCode": "o",
-        "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "grossGbWeight": 18000,
+        "grossDesignWeight": 19000,
+        "noOfAxles": 2,
+        "brakeCode": "171202",
+        "vehicleClass": "S",
         "vehicleType": "PSV",
         "vehicleSize": "small",
         "vehicleConfiguration": "rigid",
         "brakes": {
-          "brakeCode": "1jU6",
-          "dataTrBrakeOne": "oaCS4aZ5UGGZT",
-          "dataTrBrakeTwo": "bmsZLJjBZFRMu3",
-          "dataTrBrakeThree": "KeQHRwq9",
-          "parkingBrakeMrk": "Y",
-          "retarderBrakeOne": "friction",
+          "brakeCode": "171202",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "parkingBrakeMrk": null,
+          "retarderBrakeOne": "exhaust",
           "retarderBrakeTwo": "exhaust",
           "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 53671,
-            "secondaryBrakeForceA": 45199,
-            "parkingBrakeForceA": 83665
+            "serviceBrakeForceA": 7713,
+            "secondaryBrakeForceA": 3857,
+            "parkingBrakeForceA": 2742
           },
           "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 6739,
-            "secondaryBrakeForceB": 17115,
-            "parkingBrakeForceB": 0
+            "serviceBrakeForceB": 6658,
+            "secondaryBrakeForceB": 3329,
+            "parkingBrakeForceB": 2130
           }
         },
         "axles": [
           {
-            "axleNumber": 24075,
+            "axleNumber": 1,
             "weights": {
-              "kerbWeight": 53850,
-              "ladenWeight": 6383,
-              "gbWeight": 40343,
-              "designWeight": 30923
+              "kerbWeight": 5018,
+              "ladenWeight": 7100,
+              "gbWeight": 7100,
+              "designWeight": 7100
             },
             "tyres": {
-              "tyreSize": "4IHi7",
-              "plyRating": "E9",
+              "tyreSize": "295/80-22.5",
+              "plyRating": "A",
               "fitmentCode": "single",
-              "dataTrAxles": 416,
+              "dataTrAxles": 0,
               "speedCategorySymbol": "J",
-              "tyreCode": 1355
+              "tyreCode": 456
             }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "primaryVrm": "UV37W2F",
-    "secondaryVrms": [
-      "ZX23CA1",
-      "XZ94UAV",
-      "FA44HJ1"
-    ],
-    "vin": "1G3AJ1934GD333812",
-    "partialVin": "333812",
-    "techRecord": [
-      {
-        "createdAt": "2019-01-16T12:24:38.027Z",
-        "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
-        "chassisMake": "Zytrac",
-        "chassisModel": "veniam",
-        "bodyMake": "Datacator",
-        "bodyModel": "dolor",
-        "bodyType": "single Decker",
-        "manufactureDate": 8634,
-        "regnDate": "1983-07-30",
-        "coifDate": "1982-01-05",
-        "ntaNumber": "Z",
-        "conversionRefNo": "b4Q",
-        "seatsLowerDeck": 676,
-        "seatsUpperDeck": 19,
-        "standingCapacity": 611,
-        "speedRestriction": 21,
-        "speedLimiterMrk": true,
-        "tachoExemptMrk": false,
-        "dispensations": "p7sWQJJ",
-        "remarks": "TnMN9VfWIgrvLroDzfpnfcKEvc4l4kpbwEBEEqnmJsnOndec9Oxo",
-        "reasonForCreation": "TXg",
-        "statusCode": "current",
-        "unladenWeight": 0,
-        "grossKerbWeight": 51197,
-        "grossLadenWeight": 66736,
-        "grossGbWeight": 31896,
-        "grossDesignWeight": 1040,
-        "grossladenWeight": 0,
-        "noOfAxles": 42,
-        "brakeCode": "p",
-        "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
-        "vehicleType": "PSV",
-        "vehicleSize": "small",
-        "vehicleConfiguration": "rigid",
-        "brakes": {
-          "brakeCode": "GUO",
-          "dataTrBrakeOne": "xRVS0cTaL0o",
-          "dataTrBrakeTwo": "zq90GYBNx",
-          "dataTrBrakeThree": "Df",
-          "parkingBrakeMrk": "Y",
-          "retarderBrakeOne": "hydraulic",
-          "retarderBrakeTwo": "electric",
-          "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 2790,
-            "secondaryBrakeForceA": 21788,
-            "parkingBrakeForceA": 33533
           },
-          "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 27902,
-            "secondaryBrakeForceB": 38828,
-            "parkingBrakeForceB": 0
-          }
-        },
-        "axles": [
           {
-            "axleNumber": 66486,
+            "axleNumber": 2,
             "weights": {
-              "kerbWeight": 12899,
-              "ladenWeight": 96335,
-              "gbWeight": 64467,
-              "designWeight": 22904
+              "kerbWeight": 8297,
+              "ladenWeight": 11500,
+              "gbWeight": 11500,
+              "designWeight": 12600
             },
             "tyres": {
-              "tyreSize": "u",
-              "plyRating": "M2",
+              "tyreSize": "295/80-22.5",
+              "plyRating": "A",
               "fitmentCode": "double",
-              "dataTrAxles": 57,
-              "speedCategorySymbol": "P",
-              "tyreCode": 1073
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "J",
+              "tyreCode": 456
             }
           }
         ]
@@ -171,515 +200,99 @@
     ]
   },
   {
-    "primaryVrm": "LD85K0F",
+    "primaryVrm": "AA12BCD",
     "secondaryVrms": [
-      "PB33STS",
-      "CR4DKL",
-      "K347TPW"
+      "SM33KR"
     ],
-    "vin": "1B3AJ56U01N743224",
-    "partialVin": "743224",
+    "vin": "XMGDE02FS0H012356",
+    "partialVin": "012356",
     "techRecord": [
       {
-        "createdAt": "2019-01-16T12:24:38.027Z",
-        "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
-        "chassisMake": "Xinware",
-        "chassisModel": "ut",
-        "bodyMake": "Neteria",
-        "bodyModel": "commodo",
-        "bodyType": "articulated",
-        "manufactureDate": 4168,
-        "regnDate": "2016-02-06",
-        "coifDate": "1986-06-05",
-        "ntaNumber": "b",
-        "conversionRefNo": "g",
-        "seatsLowerDeck": 514,
-        "seatsUpperDeck": 0,
-        "standingCapacity": 467,
-        "speedRestriction": 52,
+        "createdAt": "2018-04-20T04:20:00.027Z",
+        "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
+        "chassisMake": "Leyland",
+        "chassisModel": "Olympian",
+        "bodyMake": "Northen Counties",
+        "bodyModel": "Palatine 1",
+        "bodyType": "double Decker",
+        "manufactureDate": 1996,
+        "regnDate": "1996-10-17",
+        "coifDate": "1996-09-01",
+        "ntaNumber": "3",
+        "conversionRefNo": "5",
+        "seatsLowerDeck": 29,
+        "seatsUpperDeck": 47,
+        "standingCapacity": 17,
+        "speedRestriction": 0,
         "speedLimiterMrk": false,
-        "tachoExemptMrk": true,
-        "dispensations": "kf2fi1yrIHmk",
-        "remarks": "6YAipKiPKACLYoi0lZK0k0N6jM2cB19RfeN1LXUlXzKgVDiPJiKjyaFn",
-        "reasonForCreation": "nKkeXRGBd0I57y",
-        "statusCode": "provisional",
+        "tachoExemptMrk": false,
+        "dispensations": "None",
+        "remarks": "MAX GEARED SPEED 60 AXLE 2 LADEN WEIGHT EXCEEDS GB MAX BY C & U REG 78 (5)(B)(II) DRIVERS ASSAULT SCREEN FTD",
+        "reasonForCreation": "COIF",
+        "statusCode": "archived",
         "unladenWeight": 0,
-        "grossKerbWeight": 88967,
-        "grossLadenWeight": 54842,
-        "grossGbWeight": 91464,
-        "grossDesignWeight": 97689,
-        "grossladenWeight": 0,
-        "noOfAxles": 84,
-        "brakeCode": "6E",
-        "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
+        "grossKerbWeight": 10620,
+        "grossLadenWeight": 16730,
+        "grossGbWeight": 16800,
+        "grossDesignWeight": 17000,
+        "noOfAxles": 2,
+        "brakeCode": "167202",
+        "vehicleClass": "L",
         "vehicleType": "PSV",
-        "vehicleSize": "small",
+        "vehicleSize": "large",
         "vehicleConfiguration": "rigid",
         "brakes": {
-          "brakeCode": 9,
-          "dataTrBrakeOne": "OmwAMv",
-          "dataTrBrakeTwo": "r7WieoPyoGrYF",
-          "dataTrBrakeThree": "D7M6YCcdrSAF",
-          "parkingBrakeMrk": "Y",
+          "brakeCode": "167202",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "parkingBrakeMrk": null,
           "retarderBrakeOne": "hydraulic",
           "retarderBrakeTwo": "hydraulic",
           "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 97178,
-            "secondaryBrakeForceA": 2045,
-            "parkingBrakeForceA": 34313
+            "serviceBrakeForceA": 7529,
+            "secondaryBrakeForceA": 3764,
+            "parkingBrakeForceA": 2677
           },
           "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 61506,
-            "secondaryBrakeForceB": 30288,
-            "parkingBrakeForceB": 0
+            "serviceBrakeForceB": 5310,
+            "secondaryBrakeForceB": 2655,
+            "parkingBrakeForceB": 1699
           }
         },
         "axles": [
           {
-            "axleNumber": 73099,
+            "axleNumber": 1,
             "weights": {
-              "kerbWeight": 99043,
-              "ladenWeight": 67698,
-              "gbWeight": 32303,
-              "designWeight": 28468
+              "kerbWeight": 3630,
+              "ladenWeight": 6014,
+              "gbWeight": 6300,
+              "designWeight": 6500
             },
             "tyres": {
-              "tyreSize": "q",
-              "plyRating": "Ia",
-              "fitmentCode": "double",
-              "dataTrAxles": 19,
-              "speedCategorySymbol": "F",
-              "tyreCode": 6122
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "primaryVrm": "V916FSB",
-    "secondaryVrms": [
-      "OM54AQE",
-      "9F34IPG",
-      "G438SR7"
-    ],
-    "vin": "2FAFP71961X186664",
-    "partialVin": "186664",
-    "techRecord": [
-      {
-        "createdAt": "2019-01-16T12:24:38.027Z",
-        "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
-        "chassisMake": "Spherix",
-        "chassisModel": "sunt",
-        "bodyMake": "Limage",
-        "bodyModel": "reprehenderit",
-        "bodyType": "articulated",
-        "manufactureDate": 7335,
-        "regnDate": "1975-08-04",
-        "coifDate": "1997-08-07",
-        "ntaNumber": "99jw",
-        "conversionRefNo": "j5JG",
-        "seatsLowerDeck": 481,
-        "seatsUpperDeck": 0,
-        "standingCapacity": 435,
-        "speedRestriction": 66,
-        "speedLimiterMrk": false,
-        "tachoExemptMrk": false,
-        "dispensations": "gqlNnCQbjo0pTvxbQLlW",
-        "remarks": "epl3IVUcF5RQsr",
-        "reasonForCreation": "MQwLaw",
-        "statusCode": "archived",
-        "unladenWeight": 0,
-        "grossKerbWeight": 24118,
-        "grossLadenWeight": 60201,
-        "grossGbWeight": 80606,
-        "grossDesignWeight": 58359,
-        "grossladenWeight": 0,
-        "noOfAxles": 80,
-        "brakeCode": "AaNF",
-        "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
-        "vehicleType": "PSV",
-        "vehicleSize": "small",
-        "vehicleConfiguration": "rigid",
-        "brakes": {
-          "brakeCode": "OwPJ",
-          "dataTrBrakeOne": "xClTahe7T",
-          "dataTrBrakeTwo": "hejoc56QyqD1TaaiR",
-          "dataTrBrakeThree": "wy1ON253",
-          "parkingBrakeMrk": "Y",
-          "retarderBrakeOne": "retarder",
-          "retarderBrakeTwo": "electric",
-          "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 44482,
-            "secondaryBrakeForceA": 65448,
-            "parkingBrakeForceA": 32627
-          },
-          "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 47735,
-            "secondaryBrakeForceB": 15716,
-            "parkingBrakeForceB": 0
-          }
-        },
-        "axles": [
-          {
-            "axleNumber": 82242,
-            "weights": {
-              "kerbWeight": 22947,
-              "ladenWeight": 34114,
-              "gbWeight": 54929,
-              "designWeight": 51869
-            },
-            "tyres": {
-              "tyreSize": "4Uq",
-              "plyRating": "lN",
-              "fitmentCode": "double",
-              "dataTrAxles": 477,
-              "speedCategorySymbol": "M",
-              "tyreCode": 268
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "primaryVrm": "MJ306LL",
-    "secondaryVrms": [
-      "I8462L7",
-      "EB2ZZG",
-      "YE59UK9"
-    ],
-    "vin": "1MEFM58U92A676137",
-    "partialVin": "676137",
-    "techRecord": [
-      {
-        "createdAt": "2019-01-16T12:24:38.027Z",
-        "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
-        "chassisMake": "Zaj",
-        "chassisModel": "veniam",
-        "bodyMake": "Buzzness",
-        "bodyModel": "esse",
-        "bodyType": "other",
-        "manufactureDate": 4276,
-        "regnDate": "1992-04-20",
-        "coifDate": "1994-01-13",
-        "ntaNumber": "W",
-        "conversionRefNo": "Cpyv",
-        "seatsLowerDeck": 570,
-        "seatsUpperDeck": 16,
-        "standingCapacity": 396,
-        "speedRestriction": 33,
-        "speedLimiterMrk": false,
-        "tachoExemptMrk": false,
-        "dispensations": "xRkIisLvC",
-        "remarks": "20oXdfE3UiHSMF3sbHMbuw8okgV8QQDMWn3QO4UUcP",
-        "reasonForCreation": "5TqenIBzyM3O",
-        "statusCode": "archived",
-        "unladenWeight": 0,
-        "grossKerbWeight": 83780,
-        "grossLadenWeight": 81872,
-        "grossGbWeight": 10526,
-        "grossDesignWeight": 21379,
-        "grossladenWeight": 0,
-        "noOfAxles": 28,
-        "brakeCode": "C0D",
-        "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
-        "vehicleType": "PSV",
-        "vehicleSize": "small",
-        "vehicleConfiguration": "rigid",
-        "brakes": {
-          "brakeCode": "DwF",
-          "dataTrBrakeOne": "cKv6Xj9aBIEX",
-          "dataTrBrakeTwo": "W",
-          "dataTrBrakeThree": "Xz3i9TbXAtSS",
-          "parkingBrakeMrk": "Y",
-          "retarderBrakeOne": "hydraulic",
-          "retarderBrakeTwo": "friction",
-          "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 32905,
-            "secondaryBrakeForceA": 78319,
-            "parkingBrakeForceA": 25957
-          },
-          "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 63904,
-            "secondaryBrakeForceB": 99934,
-            "parkingBrakeForceB": 0
-          }
-        },
-        "axles": [
-          {
-            "axleNumber": 19960,
-            "weights": {
-              "kerbWeight": 61521,
-              "ladenWeight": 20103,
-              "gbWeight": 19103,
-              "designWeight": 38213
-            },
-            "tyres": {
-              "tyreSize": "cy3YbwAxI",
-              "plyRating": "Ev",
-              "fitmentCode": "double",
-              "dataTrAxles": 896,
-              "speedCategorySymbol": "K",
-              "tyreCode": 8092
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "primaryVrm": "RT19XYQ",
-    "secondaryVrms": [
-      "7G81NLA",
-      "Z943B2Y",
-      "SL84FCT"
-    ],
-    "vin": "1XPFDB8X2RD356997",
-    "partialVin": "356997",
-    "techRecord": [
-      {
-        "createdAt": "2019-01-16T12:24:38.027Z",
-        "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
-        "chassisMake": "Octocore",
-        "chassisModel": "ut",
-        "bodyMake": "Aquamate",
-        "bodyModel": "minim",
-        "bodyType": "articulated",
-        "manufactureDate": 7182,
-        "regnDate": "1984-12-02",
-        "coifDate": "1976-07-28",
-        "ntaNumber": "ULrJ",
-        "conversionRefNo": "VS",
-        "seatsLowerDeck": 69,
-        "seatsUpperDeck": 14,
-        "standingCapacity": 817,
-        "speedRestriction": 45,
-        "speedLimiterMrk": true,
-        "tachoExemptMrk": true,
-        "dispensations": "en0xXWnPWTrJQa",
-        "remarks": "6k8Rpsdbcgw",
-        "reasonForCreation": "RJ0WB95X7",
-        "statusCode": "archived",
-        "unladenWeight": 0,
-        "grossKerbWeight": 59529,
-        "grossLadenWeight": 43953,
-        "grossGbWeight": 64740,
-        "grossDesignWeight": 92339,
-        "grossladenWeight": 0,
-        "noOfAxles": 80,
-        "brakeCode": "X",
-        "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
-        "vehicleType": "PSV",
-        "vehicleSize": "small",
-        "vehicleConfiguration": "rigid",
-        "brakes": {
-          "brakeCode": "3eu",
-          "dataTrBrakeOne": "3KxV312TY2dGH",
-          "dataTrBrakeTwo": "f8ito7A",
-          "dataTrBrakeThree": "HJcn5BPSRNEJ5",
-          "parkingBrakeMrk": "Y",
-          "retarderBrakeOne": "hydraulic",
-          "retarderBrakeTwo": "electric",
-          "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 55208,
-            "secondaryBrakeForceA": 8953,
-            "parkingBrakeForceA": 9333
-          },
-          "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 92356,
-            "secondaryBrakeForceB": 77483,
-            "parkingBrakeForceB": 0
-          }
-        },
-        "axles": [
-          {
-            "axleNumber": 24249,
-            "weights": {
-              "kerbWeight": 48410,
-              "ladenWeight": 82634,
-              "gbWeight": 4940,
-              "designWeight": 282
-            },
-            "tyres": {
-              "tyreSize": "kYwuC",
-              "plyRating": "hF",
+              "tyreSize": "11-22.5",
+              "plyRating": "A",
               "fitmentCode": "single",
-              "dataTrAxles": 278,
-              "speedCategorySymbol": "A8",
-              "tyreCode": 7340
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "primaryVrm": "L510F9S",
-    "secondaryVrms": [
-      "YE91GYZ",
-      "SS479MI",
-      "ZR516EC"
-    ],
-    "vin": "1FTPW14568KE20032",
-    "partialVin": "E20032",
-    "techRecord": [
-      {
-        "createdAt": "2019-01-16T12:24:38.027Z",
-        "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
-        "chassisMake": "Boilcat",
-        "chassisModel": "excepteur",
-        "bodyMake": "Multiflex",
-        "bodyModel": "Lorem",
-        "bodyType": "other",
-        "manufactureDate": 8538,
-        "regnDate": "1981-06-09",
-        "coifDate": "2018-10-28",
-        "ntaNumber": "lpFr",
-        "conversionRefNo": "iIr",
-        "seatsLowerDeck": 471,
-        "seatsUpperDeck": 52,
-        "standingCapacity": 921,
-        "speedRestriction": 13,
-        "speedLimiterMrk": true,
-        "tachoExemptMrk": true,
-        "dispensations": "4XjkgpYsGJnX40Jl2",
-        "remarks": "jBns3ykiZ30oEX7JoYPnPLCIgnYsU7J",
-        "reasonForCreation": "plhq",
-        "statusCode": "archived",
-        "unladenWeight": 0,
-        "grossKerbWeight": 86516,
-        "grossLadenWeight": 26218,
-        "grossGbWeight": 48471,
-        "grossDesignWeight": 26423,
-        "grossladenWeight": 0,
-        "noOfAxles": 46,
-        "brakeCode": "vYqu",
-        "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
-        "vehicleType": "PSV",
-        "vehicleSize": "small",
-        "vehicleConfiguration": "rigid",
-        "brakes": {
-          "brakeCode": "CY",
-          "dataTrBrakeOne": "R9eoBQK6nmz",
-          "dataTrBrakeTwo": "FqmEubwkF",
-          "dataTrBrakeThree": "ofhaJ8x6Pr",
-          "parkingBrakeMrk": "N",
-          "retarderBrakeOne": "other",
-          "retarderBrakeTwo": "retarder",
-          "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 63760,
-            "secondaryBrakeForceA": 54089,
-            "parkingBrakeForceA": 55964
-          },
-          "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 2345,
-            "secondaryBrakeForceB": 9262,
-            "parkingBrakeForceB": 0
-          }
-        },
-        "axles": [
-          {
-            "axleNumber": 77723,
-            "weights": {
-              "kerbWeight": 72645,
-              "ladenWeight": 25915,
-              "gbWeight": 95692,
-              "designWeight": 36345
-            },
-            "tyres": {
-              "tyreSize": "0jJZA",
-              "plyRating": "iG",
-              "fitmentCode": "single",
-              "dataTrAxles": 772,
-              "speedCategorySymbol": "A7",
-              "tyreCode": 4681
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "primaryVrm": "GO76FAT",
-    "secondaryVrms": [
-      "EB70SWU",
-      "MT17SAC",
-      "J829WG2"
-    ],
-    "vin": "1GBGC33R3XF060464",
-    "partialVin": "060464",
-    "techRecord": [
-      {
-        "createdAt": "2019-01-16T12:24:38.027Z",
-        "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
-        "chassisMake": "Steeltab",
-        "chassisModel": "proident",
-        "bodyMake": "Codact",
-        "bodyModel": "excepteur",
-        "bodyType": "double decker",
-        "manufactureDate": 3594,
-        "regnDate": "1998-01-22",
-        "coifDate": "2005-02-10",
-        "ntaNumber": "56m",
-        "conversionRefNo": "O",
-        "seatsLowerDeck": 732,
-        "seatsUpperDeck": 75,
-        "standingCapacity": 671,
-        "speedRestriction": 92,
-        "speedLimiterMrk": true,
-        "tachoExemptMrk": false,
-        "dispensations": "diNrla5QyPr2R4z",
-        "remarks": "vG2wbhapVFH5X5",
-        "reasonForCreation": "3tuVisvS6",
-        "statusCode": "current",
-        "unladenWeight": 0,
-        "grossKerbWeight": 44878,
-        "grossLadenWeight": 89113,
-        "grossGbWeight": 73917,
-        "grossDesignWeight": 99776,
-        "grossladenWeight": 0,
-        "noOfAxles": 28,
-        "brakeCode": "Dhe",
-        "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
-        "vehicleType": "PSV",
-        "vehicleSize": "small",
-        "vehicleConfiguration": "rigid",
-        "brakes": {
-          "brakeCode": 0,
-          "dataTrBrakeOne": "0KaBK0mAQUh",
-          "dataTrBrakeTwo": "SLftCeGaff",
-          "dataTrBrakeThree": "H7cNJF",
-          "parkingBrakeMrk": null,
-          "retarderBrakeOne": "other",
-          "retarderBrakeTwo": "friction",
-          "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 93917,
-            "secondaryBrakeForceA": 14026,
-            "parkingBrakeForceA": 87584
-          },
-          "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 2912,
-            "secondaryBrakeForceB": 29951,
-            "parkingBrakeForceB": 0
-          }
-        },
-        "axles": [
-          {
-            "axleNumber": 85516,
-            "weights": {
-              "kerbWeight": 47447,
-              "ladenWeight": 34410,
-              "gbWeight": 79096,
-              "designWeight": 88405
-            },
-            "tyres": {
-              "tyreSize": "z3Y2p",
-              "plyRating": "IU",
-              "fitmentCode": "double",
-              "dataTrAxles": 277,
+              "dataTrAxles": 0,
               "speedCategorySymbol": "L",
-              "tyreCode": 2215
+              "tyreCode": 438
+            }
+          },
+          {
+            "axleNumber": 2,
+            "weights": {
+              "kerbWeight": 6990,
+              "ladenWeight": 10716,
+              "gbWeight": 10500,
+              "designWeight": 11000
+            },
+            "tyres": {
+              "tyreSize": "11-22.5",
+              "plyRating": "A",
+              "fitmentCode": "double",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "L",
+              "tyreCode": 438
             }
           }
         ]
@@ -687,85 +300,99 @@
     ]
   },
   {
-    "primaryVrm": "QK3GYJ",
+    "primaryVrm": "AA34BCD",
     "secondaryVrms": [
-      "NO35W39",
-      "PI28NBH",
-      "WE809YA"
+      "VG44BND"
     ],
-    "vin": "1FDWW37S5YEC48754",
-    "partialVin": "C48754",
+    "vin": "1B7GG36N12S012356",
+    "partialVin": "012356",
     "techRecord": [
       {
-        "createdAt": "2019-01-16T12:24:38.027Z",
-        "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
-        "chassisMake": "Phormula",
-        "chassisModel": "nulla",
-        "bodyMake": "Zounds",
-        "bodyModel": "qui",
-        "bodyType": "articulated",
-        "manufactureDate": 3683,
-        "regnDate": "2017-07-09",
-        "coifDate": "2012-10-15",
-        "ntaNumber": "i",
-        "conversionRefNo": "NK9",
-        "seatsLowerDeck": 712,
-        "seatsUpperDeck": 15,
-        "standingCapacity": 50,
-        "speedRestriction": 94,
+        "createdAt": "2018-04-20T04:20:00.027Z",
+        "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
+        "chassisMake": "DAF",
+        "chassisModel": "SB200",
+        "bodyMake": "Plaxton",
+        "bodyModel": "Centro",
+        "bodyType": "single Decker",
+        "manufactureDate": 2008,
+        "regnDate": "2008-09-24",
+        "coifDate": "2008-04-23",
+        "ntaNumber": "1",
+        "conversionRefNo": "1",
+        "seatsLowerDeck": 45,
+        "seatsUpperDeck": 0,
+        "standingCapacity": 26,
+        "speedRestriction": 0,
         "speedLimiterMrk": false,
         "tachoExemptMrk": false,
-        "dispensations": "25TjK6",
-        "remarks": "fQApNPsVJ7lz4sQj6F",
-        "reasonForCreation": "oqxYgmw5PHd2",
+        "dispensations": "None",
+        "remarks": "OUTSWING 120MM. 45 & 26 OR 42 SEATS & 1 WHEELCHAIR WITH 26 STANDEES. DDA SCHEDULES 1 & 2. SEAT BELTS FITTED TO ALL FORWARD FACING SEATS 3 POINT 42 IN TOTAL INC DRIVER.",
+        "reasonForCreation": "COIF",
         "statusCode": "provisional",
         "unladenWeight": 0,
-        "grossKerbWeight": 40080,
-        "grossLadenWeight": 64098,
-        "grossGbWeight": 86920,
-        "grossDesignWeight": 45608,
-        "grossladenWeight": 0,
-        "noOfAxles": 22,
-        "brakeCode": "Ez",
-        "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
+        "grossKerbWeight": 9140,
+        "grossLadenWeight": 13520,
+        "grossGbWeight": 14440,
+        "grossDesignWeight": 14440,
+        "noOfAxles": 2,
+        "brakeCode": "135202",
+        "vehicleClass": "L",
         "vehicleType": "PSV",
         "vehicleSize": "small",
         "vehicleConfiguration": "rigid",
         "brakes": {
-          "brakeCode": "sE",
-          "dataTrBrakeOne": "T49bInAX",
-          "dataTrBrakeTwo": "G4JVImOIfwY",
-          "dataTrBrakeThree": "HT5uLsF5wGxqXToc",
-          "parkingBrakeMrk": "Y",
-          "retarderBrakeOne": "friction",
-          "retarderBrakeTwo": "friction",
+          "brakeCode": "135202",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "parkingBrakeMrk": null,
+          "retarderBrakeOne": "hydraulic",
+          "retarderBrakeTwo": "hydraulic",
           "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 39370,
-            "secondaryBrakeForceA": 25379,
-            "parkingBrakeForceA": 81715
+            "serviceBrakeForceA": 6084,
+            "secondaryBrakeForceA": 3042,
+            "parkingBrakeForceA": 2163
           },
           "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 86990,
-            "secondaryBrakeForceB": 87553,
-            "parkingBrakeForceB": 0
+            "serviceBrakeForceB": 4570,
+            "secondaryBrakeForceB": 2285,
+            "parkingBrakeForceB": 1462
           }
         },
         "axles": [
           {
-            "axleNumber": 76055,
+            "axleNumber": 1,
             "weights": {
-              "kerbWeight": 97278,
-              "ladenWeight": 91824,
-              "gbWeight": 49651,
-              "designWeight": 49903
+              "kerbWeight": 2760,
+              "ladenWeight": 0,
+              "gbWeight": 5000,
+              "designWeight": 5000
             },
             "tyres": {
-              "tyreSize": "uB7",
-              "plyRating": "V",
+              "tyreSize": "265/70-19.5",
+              "plyRating": "A",
               "fitmentCode": "single",
-              "dataTrAxles": 144,
-              "speedCategorySymbol": "C",
-              "tyreCode": 9765
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "M",
+              "tyreCode": 735
+            }
+          },
+          {
+            "axleNumber": 2,
+            "weights": {
+              "kerbWeight": 6380,
+              "ladenWeight": 0,
+              "gbWeight": 9440,
+              "designWeight": 9440
+            },
+            "tyres": {
+              "tyreSize": "265/70-19.5",
+              "plyRating": "A",
+              "fitmentCode": "single",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "M",
+              "tyreCode": 735
             }
           }
         ]
@@ -773,85 +400,99 @@
     ]
   },
   {
-    "primaryVrm": "TN0S19",
+    "primaryVrm": "AA56BCD",
     "secondaryVrms": [
-      "EX23HA3",
-      "OX123UM",
-      "N959LTW"
+      "CO04LAR"
     ],
-    "vin": "1FDHF35G8VEC48754",
-    "partialVin": "C48754",
+    "vin": "1B7GG36N12S678413",
+    "partialVin": "678413",
     "techRecord": [
       {
-        "createdAt": "2019-01-16T12:24:38.027Z",
-        "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
-        "chassisMake": "Gushkool",
-        "chassisModel": "ipsum",
-        "bodyMake": "Oatfarm",
-        "bodyModel": "do",
-        "bodyType": "other",
-        "manufactureDate": 4087,
-        "regnDate": "2017-05-05",
-        "coifDate": "1984-06-02",
-        "ntaNumber": "J",
-        "conversionRefNo": "m",
-        "seatsLowerDeck": 967,
-        "seatsUpperDeck": 75,
-        "standingCapacity": 46,
-        "speedRestriction": 81,
-        "speedLimiterMrk": true,
+        "createdAt": "2018-04-20T04:20:00.027Z",
+        "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
+        "chassisMake": "DAF",
+        "chassisModel": "SB200",
+        "bodyMake": "Plaxton",
+        "bodyModel": "Centro",
+        "bodyType": "single Decker",
+        "manufactureDate": 2008,
+        "regnDate": "2008-09-24",
+        "coifDate": "2008-04-23",
+        "ntaNumber": "1",
+        "conversionRefNo": "1",
+        "seatsLowerDeck": 45,
+        "seatsUpperDeck": 0,
+        "standingCapacity": 26,
+        "speedRestriction": 0,
+        "speedLimiterMrk": false,
         "tachoExemptMrk": false,
-        "dispensations": "o8UmWlAuRSN92",
-        "remarks": "5jBvzJFwKKpxU9zgU58UNzbtvZwcUWbGQnE9aJWEQXYD",
-        "reasonForCreation": "AmiVsVMh5RR9",
+        "dispensations": "None",
+        "remarks": "OUTSWING 120MM. 45 & 26 OR 42 SEATS & 1 WHEELCHAIR WITH 26 STANDEES. DDA SCHEDULES 1 & 2. SEAT BELTS FITTED TO ALL FORWARD FACING SEATS 3 POINT 42 IN TOTAL INC DRIVER.",
+        "reasonForCreation": "COIF",
         "statusCode": "current",
         "unladenWeight": 0,
-        "grossKerbWeight": 68921,
-        "grossLadenWeight": 6709,
-        "grossGbWeight": 72825,
-        "grossDesignWeight": 54822,
-        "grossladenWeight": 0,
-        "noOfAxles": 85,
-        "brakeCode": "tgjq0",
-        "vehicleClass": "2 (MotorBikes over 200cc or with a sidecar)",
+        "grossKerbWeight": 9140,
+        "grossLadenWeight": 13520,
+        "grossGbWeight": 14440,
+        "grossDesignWeight": 14440,
+        "noOfAxles": 2,
+        "brakeCode": "135202",
+        "vehicleClass": "L",
         "vehicleType": "PSV",
         "vehicleSize": "small",
         "vehicleConfiguration": "rigid",
         "brakes": {
-          "brakeCode": "G2N",
-          "dataTrBrakeOne": "VZySMMRzX",
-          "dataTrBrakeTwo": "Gh0Ax347qhe",
-          "dataTrBrakeThree": "UVo8N3tn8AbYnoFZ",
-          "parkingBrakeMrk": "Y",
-          "retarderBrakeOne": "exhaust",
-          "retarderBrakeTwo": "retarder",
+          "brakeCode": "135202",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "parkingBrakeMrk": null,
+          "retarderBrakeOne": "hydraulic",
+          "retarderBrakeTwo": "hydraulic",
           "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 10015,
-            "secondaryBrakeForceA": 10251,
-            "parkingBrakeForceA": 20926
+            "serviceBrakeForceA": 6084,
+            "secondaryBrakeForceA": 3042,
+            "parkingBrakeForceA": 2163
           },
           "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 64917,
-            "secondaryBrakeForceB": 50388,
-            "parkingBrakeForceB": 0
+            "serviceBrakeForceB": 4570,
+            "secondaryBrakeForceB": 2285,
+            "parkingBrakeForceB": 1462
           }
         },
         "axles": [
           {
-            "axleNumber": 10696,
+            "axleNumber": 1,
             "weights": {
-              "kerbWeight": 18122,
-              "ladenWeight": 73053,
-              "gbWeight": 58398,
-              "designWeight": 91782
+              "kerbWeight": 2760,
+              "ladenWeight": 0,
+              "gbWeight": 5000,
+              "designWeight": 5000
             },
             "tyres": {
-              "tyreSize": "F5jAFI8Ape",
-              "plyRating": "QG",
+              "tyreSize": "265/70-19.5",
+              "plyRating": "A",
+              "fitmentCode": "single",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "M",
+              "tyreCode": 735
+            }
+          },
+          {
+            "axleNumber": 2,
+            "weights": {
+              "kerbWeight": 6380,
+              "ladenWeight": 0,
+              "gbWeight": 9440,
+              "designWeight": 9440
+            },
+            "tyres": {
+              "tyreSize": "265/70-19.5",
+              "plyRating": "A",
               "fitmentCode": "double",
-              "dataTrAxles": 366,
-              "speedCategorySymbol": "P",
-              "tyreCode": 4213
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "M",
+              "tyreCode": 735
             }
           }
         ]
