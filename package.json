@@ -38,7 +38,8 @@
     "expect": "^23.6.0",
     "serverless": "^1.32.0",
     "chai": "^4.2.0",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "gulp": "^4.0.0"
   },
   "dependencies": {
     "aws-sdk": "^2.332.0",
