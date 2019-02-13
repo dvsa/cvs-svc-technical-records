@@ -745,6 +745,23 @@
               "speedCategorySymbol": "j",
               "tyreCode": 452
             }
+          },
+          {
+            "axleNumber": 3,
+            "weights": {
+              "kerbWeight": 8300,
+              "ladenWeight": 0,
+              "gbWeight": 11000,
+              "designWeight": 12000
+            },
+            "tyres": {
+              "tyreSize": "295/80-22.5",
+              "plyRating": "B",
+              "fitmentCode": "double",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "j",
+              "tyreCode": 456
+            }
           }
         ]
       }
@@ -961,6 +978,23 @@
               "speedCategorySymbol": "j",
               "tyreCode": 386
             }
+          },
+          {
+            "axleNumber": 3,
+            "weights": {
+              "kerbWeight": 6250,
+              "ladenWeight": 7625,
+              "gbWeight": 10100,
+              "designWeight": 10200
+            },
+            "tyres": {
+              "tyreSize": "295/80-22.5",
+              "plyRating": "A",
+              "fitmentCode": "double",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "j",
+              "tyreCode": 390
+            }
           }
         ]
       },
@@ -1056,6 +1090,23 @@
               "dataTrAxles": 0,
               "speedCategorySymbol": "j",
               "tyreCode": 388
+            }
+          },
+          {
+            "axleNumber": 3,
+            "weights": {
+              "kerbWeight": 6000,
+              "ladenWeight": 8025,
+              "gbWeight": 10110,
+              "designWeight": 10000
+            },
+            "tyres": {
+              "tyreSize": "295/80-22.5",
+              "plyRating": "A",
+              "fitmentCode": "double",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "j",
+              "tyreCode": 390
             }
           }
         ]
