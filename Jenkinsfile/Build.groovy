@@ -74,8 +74,7 @@ podTemplate(label: label, containers: [
                                   credentialsId: 'jenkins-iam',
                                   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
 
-                    sh "aws s3 cp ${LBRANCH}.zip s3://cvs-services/technical-records/${LBRANCH}.zip"
-                    sh "echo sha256sum ${LBRANCH}.zip > ${LBRANCH}.sha256 && aws s3 cp ${LBRANCH}.sha256 s3://cvs-services/technical-records/${LBRANCH}.sha256"
+                    sh "aws s3 cp ${LBRANCH}.zip s3://cvs-services/technical-records/${LBRANCH}.zip --metadata sha256sum=\"\$(sha256sum ${LBRANCH}.zip  | cut -d \" \" -f 1 )\""
 
                 }
             }
