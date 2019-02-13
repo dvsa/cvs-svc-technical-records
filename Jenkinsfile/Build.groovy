@@ -2,8 +2,8 @@ def label = "jenkins-node-${UUID.randomUUID().toString()}"
 podTemplate(label: label, containers: [
     containerTemplate(name: 'dynamodb',
                       image: '086658912680.dkr.ecr.eu-west-1.amazonaws.com/cvs/dynamodb-local:latest',
-                      command: 'java -jar /home/dynamodblocal/DynamoDBLocal.jar -inMemory -sharedDb -port 8001',
-                      ports: [portMapping(name: 'dynamoport', containerPort: 8001, hostPort: 8001)]),
+                      command: 'java -jar /home/dynamodblocal/DynamoDBLocal.jar -inMemory -sharedDb -port 8003',
+                      ports: [portMapping(name: 'dynamoport', containerPort: 8003, hostPort: 8003)]),
     containerTemplate(name: 'node', image: '086658912680.dkr.ecr.eu-west-1.amazonaws.com/cvs/nodejs-builder:latest', ttyEnabled: true, alwaysPullImage: true, command: 'cat'),]){
     node(label) {
 
@@ -39,7 +39,10 @@ podTemplate(label: label, containers: [
                 --region=eu-west-1 \
                 --endpoint-url http://localhost:8003 \
                 --table-name cvs-local-technical-records \
-                --attribute-definitions AttributeName=partialVin,AttributeType=S AttributeName=vin,AttributeType=S AttributeName=primaryVrm,AttributeType=S --key-schema AttributeName=partialVin,KeyType=HASH AttributeName=vin,KeyType=RANGE --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --global-secondary-indexes IndexName=VRMIndex,KeySchema=[{AttributeName=primaryVrm,KeyType=HASH}],Projection={ProjectionType=INCLUDE,NonKeyAttributes=[secondaryVrms,vin,techRecord]},ProvisionedThroughput="{ReadCapacityUnits=1,WriteCapacityUnits=1}"
+                --attribute-definitions AttributeName=partialVin,AttributeType=S AttributeName=vin,AttributeType=S AttributeName=primaryVrm,AttributeType=S \
+                --key-schema AttributeName=partialVin,KeyType=HASH AttributeName=vin,KeyType=RANGE \
+                --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
+                --global-secondary-indexes IndexName=VRMIndex,KeySchema=[{AttributeName=primaryVrm,KeyType=HASH}],Projection={ProjectionType=INCLUDE,NonKeyAttributes=[secondaryVrms,vin,techRecord]},ProvisionedThroughput="{ReadCapacityUnits=1,WriteCapacityUnits=1}"
 
                 '''
 
