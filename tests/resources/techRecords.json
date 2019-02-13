@@ -6,6 +6,7 @@
     ],
     "vin": "XMGDE02FS0H012345",
     "partialVin": "012345",
+    "vehicleId": 0,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -14,18 +15,21 @@
         "chassisModel": "SB200",
         "bodyMake": "Plaxton",
         "bodyModel": "Centro",
-        "bodyType": "single Decker",
-        "manufactureDate": 2008,
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "manufactureYear": 2008,
         "regnDate": "2008-09-24",
         "coifDate": "2008-04-23",
         "ntaNumber": "1",
         "conversionRefNo": "1",
-        "seatsLowerDeck": 45,
+        "seatsLowerDeck": 22,
         "seatsUpperDeck": 0,
         "standingCapacity": 26,
         "speedRestriction": 0,
         "speedLimiterMrk": false,
-        "tachoExemptMrk": false,
+        "tachoExemptMrk": true,
         "dispensations": "None",
         "remarks": "OUTSWING 120MM. 45 & 26 OR 42 SEATS & 1 WHEELCHAIR WITH 26 STANDEES. DDA SCHEDULES 1 & 2. SEAT BELTS FITTED TO ALL FORWARD FACING SEATS 3 POINT 42 IN TOTAL INC DRIVER.",
         "reasonForCreation": "COIF",
@@ -37,8 +41,11 @@
         "grossDesignWeight": 14440,
         "noOfAxles": 2,
         "brakeCode": "135202",
-        "vehicleClass": "L",
-        "vehicleType": "PSV",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleType": "psv",
         "vehicleSize": "small",
         "vehicleConfiguration": "rigid",
         "brakes": {
@@ -46,7 +53,7 @@
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": null,
+          "parkingBrakeMrk": false,
           "retarderBrakeOne": "hydraulic",
           "retarderBrakeTwo": "hydraulic",
           "brakeForceWheelsNotLocked": {
@@ -74,7 +81,7 @@
               "plyRating": "A",
               "fitmentCode": "single",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "M",
+              "speedCategorySymbol": "m",
               "tyreCode": 735
             }
           },
@@ -91,14 +98,15 @@
               "plyRating": "A",
               "fitmentCode": "double",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "M",
-              "tyreCode": 735
+              "speedCategorySymbol": "m",
+              "tyreCode": 733
             }
           }
         ]
       }
     ]
   },
+    
   {
     "primaryVrm": "BQ91YHQ",
     "secondaryVrms": [
@@ -106,6 +114,7 @@
     ],
     "vin": "1B7GG36N12S678410",
     "partialVin": "678410",
+    "vehicleId": 1,
     "techRecord": [
       {
         "createdAt": "2019-01-16T12:24:38.027Z",
@@ -114,8 +123,11 @@
         "chassisModel": "632,01",
         "bodyMake": "Plaxton",
         "bodyModel": "Tourismo",
-        "bodyType": "single Decker",
-        "manufactureDate": 2010,
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "manufactureYear": 2010,
         "regnDate": "2011-01-05",
         "coifDate": "2010-12-20",
         "ntaNumber": "7",
@@ -137,8 +149,11 @@
         "grossDesignWeight": 19000,
         "noOfAxles": 2,
         "brakeCode": "171202",
-        "vehicleClass": "S",
-        "vehicleType": "PSV",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleType": "psv",
         "vehicleSize": "small",
         "vehicleConfiguration": "rigid",
         "brakes": {
@@ -146,7 +161,7 @@
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": null,
+          "parkingBrakeMrk": false,
           "retarderBrakeOne": "exhaust",
           "retarderBrakeTwo": "exhaust",
           "brakeForceWheelsNotLocked": {
@@ -174,7 +189,7 @@
               "plyRating": "A",
               "fitmentCode": "single",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "J",
+              "speedCategorySymbol": "j",
               "tyreCode": 456
             }
           },
@@ -191,7 +206,7 @@
               "plyRating": "A",
               "fitmentCode": "double",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "J",
+              "speedCategorySymbol": "j",
               "tyreCode": 456
             }
           }
@@ -204,8 +219,9 @@
     "secondaryVrms": [
       "SM33KR"
     ],
-    "vin": "XMGDE02FS0H012356",
-    "partialVin": "012356",
+    "vin": "XMGDE02FS0H012461",
+    "partialVin": "012461",
+    "vehicleId": 2,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -214,8 +230,11 @@
         "chassisModel": "Olympian",
         "bodyMake": "Northen Counties",
         "bodyModel": "Palatine 1",
-        "bodyType": "double Decker",
-        "manufactureDate": 1996,
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "manufactureYear": 1996,
         "regnDate": "1996-10-17",
         "coifDate": "1996-09-01",
         "ntaNumber": "3",
@@ -237,8 +256,11 @@
         "grossDesignWeight": 17000,
         "noOfAxles": 2,
         "brakeCode": "167202",
-        "vehicleClass": "L",
-        "vehicleType": "PSV",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleType": "psv",
         "vehicleSize": "large",
         "vehicleConfiguration": "rigid",
         "brakes": {
@@ -246,7 +268,7 @@
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": null,
+          "parkingBrakeMrk": false,
           "retarderBrakeOne": "hydraulic",
           "retarderBrakeTwo": "hydraulic",
           "brakeForceWheelsNotLocked": {
@@ -274,7 +296,7 @@
               "plyRating": "A",
               "fitmentCode": "single",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "L",
+              "speedCategorySymbol": "l",
               "tyreCode": 438
             }
           },
@@ -291,7 +313,7 @@
               "plyRating": "A",
               "fitmentCode": "double",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "L",
+              "speedCategorySymbol": "l",
               "tyreCode": 438
             }
           }
@@ -306,6 +328,7 @@
     ],
     "vin": "1B7GG36N12S021430",
     "partialVin": "021430",
+    "vehicleId": 3,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -314,8 +337,11 @@
         "chassisModel": "SB200",
         "bodyMake": "Plaxton",
         "bodyModel": "Centro",
-        "bodyType": "single Decker",
-        "manufactureDate": 2008,
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "manufactureYear": 2008,
         "regnDate": "2008-09-24",
         "coifDate": "2008-04-23",
         "ntaNumber": "1",
@@ -337,8 +363,11 @@
         "grossDesignWeight": 14440,
         "noOfAxles": 2,
         "brakeCode": "135202",
-        "vehicleClass": "L",
-        "vehicleType": "PSV",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleType": "psv",
         "vehicleSize": "small",
         "vehicleConfiguration": "rigid",
         "brakes": {
@@ -346,7 +375,7 @@
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": null,
+          "parkingBrakeMrk": false,
           "retarderBrakeOne": "hydraulic",
           "retarderBrakeTwo": "hydraulic",
           "brakeForceWheelsNotLocked": {
@@ -374,7 +403,7 @@
               "plyRating": "A",
               "fitmentCode": "single",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "M",
+              "speedCategorySymbol": "m",
               "tyreCode": 735
             }
           },
@@ -391,7 +420,7 @@
               "plyRating": "A",
               "fitmentCode": "single",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "M",
+              "speedCategorySymbol": "m",
               "tyreCode": 735
             }
           }
@@ -406,6 +435,7 @@
     ],
     "vin": "1B7GG36N12S678413",
     "partialVin": "678413",
+    "vehicleId": 4,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -414,8 +444,11 @@
         "chassisModel": "SB200",
         "bodyMake": "Plaxton",
         "bodyModel": "Centro",
-        "bodyType": "single Decker",
-        "manufactureDate": 2008,
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "manufactureYear": 2008,
         "regnDate": "2008-09-24",
         "coifDate": "2008-04-23",
         "ntaNumber": "1",
@@ -437,8 +470,11 @@
         "grossDesignWeight": 14440,
         "noOfAxles": 2,
         "brakeCode": "135202",
-        "vehicleClass": "L",
-        "vehicleType": "PSV",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleType": "psv",
         "vehicleSize": "small",
         "vehicleConfiguration": "rigid",
         "brakes": {
@@ -446,7 +482,7 @@
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": null,
+          "parkingBrakeMrk": false,
           "retarderBrakeOne": "hydraulic",
           "retarderBrakeTwo": "hydraulic",
           "brakeForceWheelsNotLocked": {
@@ -474,7 +510,7 @@
               "plyRating": "A",
               "fitmentCode": "single",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "M",
+              "speedCategorySymbol": "m",
               "tyreCode": 735
             }
           },
@@ -491,7 +527,7 @@
               "plyRating": "A",
               "fitmentCode": "double",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "M",
+              "speedCategorySymbol": "m",
               "tyreCode": 735
             }
           }
@@ -506,6 +542,7 @@
     ],
     "vin": "YV31MEC18GA678413",
     "partialVin": "678413",
+    "vehicleId": 5,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -514,8 +551,11 @@
         "chassisModel": "B10M",
         "bodyMake": "Duple",
         "bodyModel": "320",
-        "bodyType": "single Decker",
-        "manufactureDate": 1987,
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "manufactureYear": 1987,
         "regnDate": "1986-05-01",
         "coifDate": "1986-04-18",
         "ntaNumber": "1",
@@ -537,8 +577,11 @@
         "grossDesignWeight": 14440,
         "noOfAxles": 2,
         "brakeCode": "145202",
-        "vehicleClass": "L",
-        "vehicleType": "PSV",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleType": "psv",
         "vehicleSize": "large",
         "vehicleConfiguration": "rigid",
         "brakes": {
@@ -546,7 +589,7 @@
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": null,
+          "parkingBrakeMrk": false,
           "retarderBrakeOne": "electric",
           "retarderBrakeTwo": "exhaust",
           "brakeForceWheelsNotLocked": {
@@ -574,7 +617,7 @@
               "plyRating": "A",
               "fitmentCode": "single",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "J",
+              "speedCategorySymbol": "j",
               "tyreCode": 390
             }
           },
@@ -591,8 +634,428 @@
               "plyRating": "A",
               "fitmentCode": "double",
               "dataTrAxles": 0,
-              "speedCategorySymbol": "J",
+              "speedCategorySymbol": "j",
               "tyreCode": 390
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "primaryVrm": "X71LTA",
+    "secondaryVrms": [
+      "609823Z"
+    ],
+    "vin": "XMGDE02FS0H012356",
+    "partialVin": "012356",
+    "vehicleId": 6,
+    "techRecord": [
+      {
+        "createdAt": "2018-04-20T04:20:00.027Z",
+        "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
+        "chassisMake": "Mercedes",
+        "chassisModel": "632.01",
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "manufactureYear": 2010,
+        "regnDate": "2011-01-05",
+        "coifDate": "2010-12-20",
+        "ntaNumber": "1",
+        "conversionRefNo": "1",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "standingCapacity": 0,
+        "speedRestriction": 0,
+        "speedLimiterMrk": false,
+        "tachoExemptMrk": true,
+        "dispensations": "None",
+        "remarks": "None",
+        "reasonForCreation": "COIF",
+        "statusCode": "current",
+        "unladenWeight": 0,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "grossGbWeight": 18000,
+        "grossDesignWeight": 19000,
+        "noOfAxles": 3,
+        "brakeCode": "171202",
+        "vehicleClass": {
+          "code": "l",
+          "description": "large psv(ie: greater than 23 seats)"
+        },
+        "vehicleType": "psv",
+        "vehicleSize": "large",
+        "vehicleConfiguration": "rigid",
+        "brakes": {
+          "brakeCode": "135202",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "parkingBrakeMrk": false,
+          "retarderBrakeOne": "other",
+          "retarderBrakeTwo": "other",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 7713,
+            "secondaryBrakeForceA": 3857,
+            "parkingBrakeForceA": 2742
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 6658,
+            "secondaryBrakeForceB": 3329,
+            "parkingBrakeForceB": 2130
+          }
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "weights": {
+              "kerbWeight": 5018,
+              "ladenWeight": 0,
+              "gbWeight": 7100,
+              "designWeight": 7100
+            },
+            "tyres": {
+              "tyreSize": "295/80-22.5",
+              "plyRating": "B",
+              "fitmentCode": "single",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "j",
+              "tyreCode": 456
+            }
+          },
+          {
+            "axleNumber": 2,
+            "weights": {
+              "kerbWeight": 8297,
+              "ladenWeight": 0,
+              "gbWeight": 11500,
+              "designWeight": 12600
+            },
+            "tyres": {
+              "tyreSize": "295/80-22.5",
+              "plyRating": "B",
+              "fitmentCode": "double",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "j",
+              "tyreCode": 452
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "primaryVrm": "P111YAC",
+    "secondaryVrms": [
+      "603559Z"
+    ],
+    "vin": "XMGDE02FS0H012432",
+    "partialVin": "012432",
+    "vehicleId": 7,
+    "techRecord": [
+      {
+        "createdAt": "2018-04-20T04:20:00.027Z",
+        "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
+        "chassisMake": "Leyland",
+        "chassisModel": "Olympian",
+        "bodyMake": "Northern Counties",
+        "bodyModel": "Palatine 1",
+        "bodyType": {
+          "code": "d",
+          "description": "double decker"
+        },
+        "manufactureYear": 1996,
+        "regnDate": "1996-10-17",
+        "coifDate": "1996-09-01",
+        "ntaNumber": "1",
+        "conversionRefNo": "1",
+        "seatsLowerDeck": 29,
+        "seatsUpperDeck": 47,
+        "standingCapacity": 17,
+        "speedRestriction": 0,
+        "speedLimiterMrk": false,
+        "tachoExemptMrk": true,
+        "dispensations": "None",
+        "remarks": "MAX GEARED SPEED 60 AXLE 2 LADEN WEIGHT EXCEEDS GB MAX BY C & U REG 78 (5)(B)(II) DRIVERS ASSAULT SCREEN FTD",
+        "reasonForCreation": "COIF",
+        "statusCode": "current",
+        "unladenWeight": 0,
+        "grossKerbWeight": 10620,
+        "grossLadenWeight": 16730,
+        "grossGbWeight": 16800,
+        "grossDesignWeight": 17000,
+        "noOfAxles": 2,
+        "brakeCode": "167202",
+        "vehicleClass": {
+          "code": "l",
+          "description": "large psv(ie: greater than 23 seats)"
+        },
+        "vehicleType": "psv",
+        "vehicleSize": "large",
+        "vehicleConfiguration": "rigid",
+        "brakes": {
+          "brakeCode": "167202",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "parkingBrakeMrk": false,
+          "retarderBrakeOne": "hydraulic",
+          "retarderBrakeTwo": "other",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 7529,
+            "secondaryBrakeForceA": 3764,
+            "parkingBrakeForceA": 2677
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5310,
+            "secondaryBrakeForceB": 2655,
+            "parkingBrakeForceB": 1699
+          }
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "weights": {
+              "kerbWeight": 3630,
+              "ladenWeight": 6014,
+              "gbWeight": 6300,
+              "designWeight": 6500
+            },
+            "tyres": {
+              "tyreSize": "11-22.55",
+              "plyRating": "A",
+              "fitmentCode": "single",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "l",
+              "tyreCode": 438
+            }
+          },
+          {
+            "axleNumber": 2,
+            "weights": {
+              "kerbWeight": 6990,
+              "ladenWeight": 10716,
+              "gbWeight": 10500,
+              "designWeight": 11000
+            },
+            "tyres": {
+              "tyreSize": "11-22.5",
+              "plyRating": "A",
+              "fitmentCode": "double",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "l",
+              "tyreCode": 434
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "primaryVrm": "C47WLL",
+    "secondaryVrms": [
+      "609912Z"
+    ],
+    "vin": "YV31MEC18GA011900",
+    "partialVin": "011900",
+    "vehicleId": 8,
+    "techRecord": [
+      {
+        "createdAt": "2018-04-20T04:20:00.027Z",
+        "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
+        "chassisMake": "Volvo",
+        "chassisModel": "B10M",
+        "bodyMake": "Duple",
+        "bodyModel": "320",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "manufactureYear": 1986,
+        "regnDate": "1986-05-01",
+        "coifDate": "1986-04-18",
+        "ntaNumber": "1",
+        "conversionRefNo": "1",
+        "seatsLowerDeck": 53,
+        "seatsUpperDeck": 0,
+        "standingCapacity": 26,
+        "speedRestriction": 0,
+        "speedLimiterMrk": false,
+        "tachoExemptMrk": false,
+        "dispensations": "None",
+        "remarks": "53 seatbelts",
+        "reasonForCreation": "COIF",
+        "statusCode": "current",
+        "unladenWeight": 0,
+        "grossKerbWeight": 11020,
+        "grossLadenWeight": 14513,
+        "grossGbWeight": 16260,
+        "grossDesignWeight": 17000,
+        "noOfAxles": 3,
+        "brakeCode": "145202",
+        "vehicleClass": {
+          "code": "l",
+          "description": "large psv"
+        },
+        "vehicleType": "psv",
+        "vehicleSize": "large",
+        "vehicleConfiguration": "articulated",
+        "brakes": {
+          "brakeCode": "145202",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "parkingBrakeMrk": false,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6531,
+            "secondaryBrakeForceA": 3265,
+            "parkingBrakeForceA": 2322
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5510,
+            "secondaryBrakeForceB": 2755,
+            "parkingBrakeForceB": 1763
+          }
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "weights": {
+              "kerbWeight": 4870,
+              "ladenWeight": 5888,
+              "gbWeight": 6500,
+              "designWeight": 6500
+            },
+            "tyres": {
+              "tyreSize": "295/80-22.5",
+              "plyRating": "A",
+              "fitmentCode": "single",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "j",
+              "tyreCode": 390
+            }
+          },
+          {
+            "axleNumber": 2,
+            "weights": {
+              "kerbWeight": 6150,
+              "ladenWeight": 8625,
+              "gbWeight": 10170,
+              "designWeight": 10500
+            },
+            "tyres": {
+              "tyreSize": "295/80-22.5",
+              "plyRating": "A",
+              "fitmentCode": "double",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "j",
+              "tyreCode": 386
+            }
+          }
+        ]
+      },
+      {
+        "createdAt": "2018-04-20T04:20:00.027Z",
+        "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
+        "chassisMake": "Volvo",
+        "chassisModel": "B10M",
+        "bodyMake": "Duple",
+        "bodyModel": "320",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "manufactureYear": 1986,
+        "regnDate": "1986-05-01",
+        "coifDate": "1986-04-18",
+        "ntaNumber": "1",
+        "conversionRefNo": "1",
+        "seatsLowerDeck": 57,
+        "seatsUpperDeck": 0,
+        "standingCapacity": 26,
+        "speedRestriction": 0,
+        "speedLimiterMrk": false,
+        "tachoExemptMrk": false,
+        "dispensations": "None",
+        "remarks": "57 seatbelts",
+        "reasonForCreation": "VTP5",
+        "statusCode": "current",
+        "unladenWeight": 0,
+        "grossKerbWeight": 11020,
+        "grossLadenWeight": 14513,
+        "grossGbWeight": 16260,
+        "grossDesignWeight": 17000,
+        "noOfAxles": 3,
+        "brakeCode": "145202",
+        "vehicleClass": {
+          "code": "l",
+          "description": "large psv"
+        },
+        "vehicleType": "psv",
+        "vehicleSize": "large",
+        "vehicleConfiguration": "articulated",
+        "brakes": {
+          "brakeCode": "145202",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "parkingBrakeMrk": false,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6531,
+            "secondaryBrakeForceA": 3265,
+            "parkingBrakeForceA": 2322
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5510,
+            "secondaryBrakeForceB": 2755,
+            "parkingBrakeForceB": 1763
+          }
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "weights": {
+              "kerbWeight": 4870,
+              "ladenWeight": 5888,
+              "gbWeight": 6500,
+              "designWeight": 6500
+            },
+            "tyres": {
+              "tyreSize": "295/80-22.5",
+              "plyRating": "A",
+              "fitmentCode": "single",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "j",
+              "tyreCode": 390
+            }
+          },
+          {
+            "axleNumber": 2,
+            "weights": {
+              "kerbWeight": 6150,
+              "ladenWeight": 8625,
+              "gbWeight": 10170,
+              "designWeight": 10500
+            },
+            "tyres": {
+              "tyreSize": "295/80-22.5",
+              "plyRating": "A",
+              "fitmentCode": "double",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "j",
+              "tyreCode": 388
             }
           }
         ]
