@@ -57,10 +57,10 @@ podTemplate(label: label, containers: [
                 sh "npm run test"
             }
 
-            stage ("integration test") {
-                sh "BRANCH=local node_modules/gulp/bin/gulp.js start-serverless"
-                sh "BRANCH=local node_modules/.bin/mocha tests/**/*.intTest.js"
-            }
+            //stage ("integration test") {
+            //    sh "BRANCH=local node_modules/gulp/bin/gulp.js start-serverless"
+            //    sh "BRANCH=local node_modules/.bin/mocha tests/**/*.intTest.js"
+            //}
 
             stage("zip dir"){
                 sh "rm -rf ./node_modules"
