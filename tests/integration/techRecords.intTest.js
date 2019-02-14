@@ -5,7 +5,6 @@ const url = 'http://localhost:3005/'
 const request = supertest(url)
 const TechRecordsService = require('../../src/services/TechRecordsService')
 const TechRecordsDAO = require('../../src/models/TechRecordsDAO')
-var _ = require('lodash/core')
 
 describe('techRecords', () => {
   describe('getTechRecords', () => {
@@ -59,7 +58,7 @@ describe('techRecords', () => {
                   expect(res.statusCode).to.equal(200)
                   expect(res.headers['access-control-allow-origin']).to.equal('*')
                   expect(res.headers['access-control-allow-credentials']).to.equal('true')
-                  expect(_.isEqual(convertToResponse(mockData[0]), res.body)).to.equal(true)
+                  expect(res.body).is.eql(convertToResponse(mockData[0]))
                   done()
                 })
             })
@@ -145,13 +144,14 @@ describe('techRecords', () => {
         context('and statusCode is provided', () => {
           context('and the tech record for that partial VIN has the statusCode provided', () => {
             it('should return the tech record for that partial VIN with statusCode \'archived\'', (done) => {
-              request.get('vehicles/012356/tech-records?status=archived')
+              request.get('vehicles/012461/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
-                  expect(res.statusCode).to.equal(200)
                   expect(res.headers['access-control-allow-origin']).to.equal('*')
                   expect(res.headers['access-control-allow-credentials']).to.equal('true')
+                  // console.log(convertToResponse(mockData[2]))
                   expect(convertToResponse(mockData[2])).to.eql(res.body)
+                  expect(res.statusCode).to.equal(200)
                   done()
                 })
             })
@@ -205,7 +205,7 @@ describe('techRecords', () => {
 
           context('and the tech record for that full VIN does not have statusCode \'current\'', () => {
             it('should return 404', (done) => {
-              request.get('vehicles/XMGDE02FS0H012356/tech-records')
+              request.get('vehicles/XMGDE02FS0H012461/tech-records')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(404)
@@ -221,7 +221,7 @@ describe('techRecords', () => {
         context('and statusCode is provided', () => {
           context('and the tech record for that full VIN has the statusCode provided', () => {
             it('should return the tech record for that full VIN with statusCode \'archived\'', (done) => {
-              request.get('vehicles/XMGDE02FS0H012356/tech-records?status=archived')
+              request.get('vehicles/XMGDE02FS0H012461/tech-records?status=archived')
                 .end((err, res) => {
                   if (err) { expect.fail(err) }
                   expect(res.statusCode).to.equal(200)

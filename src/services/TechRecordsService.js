@@ -26,27 +26,22 @@ class TechRecordsService {
           .map((item) => {
             // Adding primary and secondary VRMs in the same array
             let vrms = [{ vrm: item.primaryVrm, isPrimary: true }]
-
             Object.assign(item, {
               vrms: vrms
             })
-
             // Cleaning up unneeded properties
             delete item.primaryVrm // No longer needed
             delete item.secondaryVrms // No longer needed
             delete item.partialVin // No longer needed
-
             // Filtering the tech records based on their status
             item.techRecord = item.techRecord.filter((techRecord) => {
               return techRecord.statusCode === status
             })
-
             return item
           })
           .filter((item) => { // We do not want results without tech records, so let's fix that
             return item.techRecord.length > 0
           })
-
         if (response.length === 0) {
           throw new HTTPError(404, 'No resources match the search criteria.')
         }
