@@ -124,6 +124,7 @@ resources:
                 - secondaryVrms
                 - vin
                 - techRecord
+                - vehicleId
               ProjectionType: INCLUDE
             ProvisionedThroughput:
               ReadCapacityUnits: '1'
