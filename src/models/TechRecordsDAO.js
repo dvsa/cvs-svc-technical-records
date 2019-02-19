@@ -9,6 +9,7 @@ class TechRecordsDAO {
   }
 
   getBySearchTerm (searchTerm) {
+    let ONLY_DIGITS_REGEX = /^\d+$/
     let query = {
       TableName: this.tableName,
       KeyConditionExpression: null,
@@ -30,7 +31,7 @@ class TechRecordsDAO {
 
       // And create the query
       query.KeyConditionExpression = '#partialVin = :partialVin AND #vin = :vin'
-    } else if (searchTerm.length === 6) { // We are queried a partial VIN
+    } else if (searchTerm.length === 6 && ONLY_DIGITS_REGEX.test(searchTerm)) { // We are queried a partial VIN
       Object.assign(query.ExpressionAttributeValues, {
         ':partialVin': searchTerm
       })
@@ -38,7 +39,6 @@ class TechRecordsDAO {
       Object.assign(query.ExpressionAttributeNames, {
         '#partialVin': 'partialVin'
       })
-
       query.KeyConditionExpression = '#partialVin = :partialVin'
     } else if (searchTerm.length >= 3 && searchTerm.length <= 8) { // We are queried a VRM
       // If we are queried a VRM, we need to specify we are using the VRM index
@@ -54,7 +54,6 @@ class TechRecordsDAO {
 
       query.KeyConditionExpression = '#vrm = :vrm'
     }
-
     return dbClient.query(query).promise()
   }
 

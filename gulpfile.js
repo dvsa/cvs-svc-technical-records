@@ -1,3 +1,4 @@
+/* eslint-disable */
 const gulp = require('gulp')
 	const exec = require('child_process').exec
 	const process = require('process')
