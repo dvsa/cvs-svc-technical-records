@@ -39,6 +39,13 @@ podTemplate(label: label, containers: [
                         --attribute-definitions AttributeName=partialVin,AttributeType=S AttributeName=vin,AttributeType=S AttributeName=primaryVrm,AttributeType=S --key-schema AttributeName=partialVin,KeyType=HASH AttributeName=vin,KeyType=RANGE --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --global-secondary-indexes IndexName=VRMIndex,KeySchema=[{AttributeName=primaryVrm,KeyType=HASH}],Projection={ProjectionType=INCLUDE,NonKeyAttributes=[secondaryVrms,vin,techRecord]},ProvisionedThroughput="{ReadCapacityUnits=1,WriteCapacityUnits=1}"
                         '''
                     sh "aws dynamodb wait table-exists --table-name cvs-local-technical-records --region=eu-west-1"
+                    sh "sleep 10"
+                    sh """aws dynamodb tag-resource \
+                        --resource-arn arn:aws:dynamodb:eu-west-1:006106226016:table/cvs-${LBRANCH}-technical-records \
+                        --tags Key=is_managed,Value=true \
+                        --region=eu-west-1
+                        """
+                        sh "aws dynamodb wait table-exists --table-name cvs-${LBRANCH}-technical-records --region=eu-west-1"
 
                 }
                 
