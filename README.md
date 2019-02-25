@@ -52,6 +52,13 @@ In order to test, you need to run the following:
 - `npm run test` for unit tests
 - `npm run test-i` for integration tests
 
+### SonarQube
+In order to generate SonarQube reports on local, follow the steps:
+- Download SonarQube server -> https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.6.zip
+- Download SonarQube scanner -> https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-macosx.zip
+- Add sonar-scanner in environment variables -> In .brash_profile add the line "export PATH=<PATH_TO_SONAR_SCANNER>/sonar-scanner-3.3.0.1492-macosx/bin:$PATH"
+- Start the SonarQube server -> cd <PATH_TO_SONARQUBE_SERVER>/bin/macosx-universal-64 ./sonar.sh start
+- In the microservice folder run the command -> npm run sonar-scanner
 
 ### Environmental variables
 
