@@ -22,7 +22,7 @@ custom:
       seed: false
       noStart: true
     seed:
-      tech-records:
+      technical-records:
         sources:
           - table: cvs-local-technical-records
             sources: [./tests/resources/techRecords.json]
