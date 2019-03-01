@@ -28,3 +28,11 @@ node_modules/**
 
 # Config file generated based on environment
 src/config/config.json
+
+#coverage
+.nyc_output/**
+coverage/**
+
+#sonarqube
+.scannerwork/**
+report.json
