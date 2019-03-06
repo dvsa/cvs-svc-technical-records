@@ -18,7 +18,7 @@
     "security-checks": "git secrets --scan && git log -p | scanrepo",
     "eslint": "eslint . --config=.eslintrc.json --fix  -f json -o report.json",
     "generate-docs": "serverless openapi generate -o api/swagger/swagger.yaml && swagger-ui-watcher ./api/swagger/swagger.yaml",
-    "sonar-scanner": "npm run eslint && npm run coverage && sonar-scanner",
+    "sonar-scanner": "npm run eslint && npm run coverage", // TO ADD sonar-scanner
     "coverage": "nyc mocha tests/unit/*.unitTest.js && nyc report --reporter=lcov"
   },
   "author": "",
