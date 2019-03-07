@@ -25,7 +25,7 @@ custom:
       technical-records:
         sources:
           - table: cvs-local-technical-records
-            sources: [./tests/resources/techRecords.json]
+            sources: [./tests/resources/technical-records.json]
   documentation:
     version: '1'
     title: 'Get Vehicle Technical Records List API'
