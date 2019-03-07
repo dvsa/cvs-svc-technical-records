@@ -10,7 +10,7 @@ describe('techRecords', () => {
   describe('getTechRecords', () => {
     context('when database is populated', () => {
       let techRecordsService = null
-      let mockData = require('../resources/techRecords.json')
+      let mockData = require('../resources/technical-records.json')
       let techRecordsDAO = null
       const convertToResponse = (dbObj) => { // Needed to convert an object from the database to a response object
         let responseObj = Object.assign({}, dbObj)

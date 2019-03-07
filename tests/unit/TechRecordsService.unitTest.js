@@ -9,7 +9,7 @@ describe('getTechRecordsList', () => {
 
   context('when db call returns data', () => {
     it('should return a populated response', () => {
-      techRecordsDAOMock.techRecordsMock = [require('../resources/techRecords.json')[0]]
+      techRecordsDAOMock.techRecordsMock = [require('../resources/technical-records.json')[0]]
       techRecordsDAOMock.numberOfrecords = 1
       techRecordsDAOMock.numberOfScannedRecords = 1
       var techRecordsService = new TechRecordsService(techRecordsDAOMock)
