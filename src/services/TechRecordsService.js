@@ -1,6 +1,7 @@
 'use strict'
 
 const HTTPError = require('../models/HTTPError')
+
 /**
  * Fetches the entire list of Technical Records from the database.
  * @returns Promise
@@ -79,7 +80,7 @@ class TechRecordsService {
       .catch((error) => {
         if (error) {
           console.error(error)
-          throw new HTTPError(500, 'Internal ServerError')
+          throw new HTTPError(500, 'Internal Server Error')
         }
       })
   }
