@@ -15,7 +15,7 @@ describe('deleteTechRecordsList', () => {
 
       return techRecordsService.deleteTechRecordsList(techRecordDAOMock.techRecordsMock)
         .then(data => {
-          expect(data).to.be.undefined
+          expect(data).to.equal(undefined)
         })
     })
 
