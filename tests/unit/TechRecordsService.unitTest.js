@@ -3,17 +3,19 @@ const expect = require('chai').expect
 const TechRecordsDAOMock = require('../models/TechRecordsDAOMock')
 const TechRecordsService = require('../../src/services/TechRecordsService')
 const HTTPError = require('../../src/models/HTTPError')
+const fs = require('fs')
+const path = require('path')
 
 describe('getTechRecordsList', () => {
   var techRecordsDAOMock = new TechRecordsDAOMock()
 
   context('when db call returns data', () => {
     it('should return a populated response', () => {
-      techRecordsDAOMock.techRecordsMock = [require('../resources/technical-records.json')[0]]
+      const techRecordsMock = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../resources/technical-records.json'), 'utf8'))
+      techRecordsDAOMock.techRecordsMock = [techRecordsMock[0]]
       techRecordsDAOMock.numberOfrecords = 1
       techRecordsDAOMock.numberOfScannedRecords = 1
       var techRecordsService = new TechRecordsService(techRecordsDAOMock)
-
       return techRecordsService.getTechRecordsList('1B7GG36N12S678410', 'current')
         .then((returnedRecords) => {
           expect(returnedRecords).to.not.equal(undefined)
