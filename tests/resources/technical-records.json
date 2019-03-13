@@ -6,7 +6,6 @@
     ],
     "vin": "XMGDE02FS0H012345",
     "partialVin": "012345",
-    "vehicleId": 0,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -50,10 +49,10 @@
         "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "135202",
+          "brakeCodeOriginal": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": false,
           "retarderBrakeOne": "hydraulic",
           "retarderBrakeTwo": "hydraulic",
           "brakeForceWheelsNotLocked": {
@@ -74,7 +73,8 @@
               "kerbWeight": 2760,
               "ladenWeight": 0,
               "gbWeight": 5000,
-              "designWeight": 5000
+              "designWeight": 5000,
+              "parkingBrakeMrk": false
             },
             "tyres": {
               "tyreSize": "265/70-19.5",
@@ -106,7 +106,6 @@
       }
     ]
   },
-    
   {
     "primaryVrm": "BQ91YHQ",
     "secondaryVrms": [
@@ -114,7 +113,6 @@
     ],
     "vin": "1B7GG36N12S678410",
     "partialVin": "678410",
-    "vehicleId": 1,
     "techRecord": [
       {
         "createdAt": "2019-01-16T12:24:38.027Z",
@@ -158,10 +156,10 @@
         "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": false,
           "retarderBrakeOne": "exhaust",
           "retarderBrakeTwo": "exhaust",
           "brakeForceWheelsNotLocked": {
@@ -182,7 +180,8 @@
               "kerbWeight": 5018,
               "ladenWeight": 7100,
               "gbWeight": 7100,
-              "designWeight": 7100
+              "designWeight": 7100,
+              "parkingBrakeMrk": false
             },
             "tyres": {
               "tyreSize": "295/80-22.5",
@@ -221,7 +220,6 @@
     ],
     "vin": "XMGDE02FS0H012461",
     "partialVin": "012461",
-    "vehicleId": 2,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -265,10 +263,10 @@
         "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "167202",
+          "brakeCodeOriginal": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": false,
           "retarderBrakeOne": "hydraulic",
           "retarderBrakeTwo": "hydraulic",
           "brakeForceWheelsNotLocked": {
@@ -289,7 +287,8 @@
               "kerbWeight": 3630,
               "ladenWeight": 6014,
               "gbWeight": 6300,
-              "designWeight": 6500
+              "designWeight": 6500,
+              "parkingBrakeMrk": false
             },
             "tyres": {
               "tyreSize": "11-22.5",
@@ -328,7 +327,6 @@
     ],
     "vin": "1B7GG36N12S021430",
     "partialVin": "021430",
-    "vehicleId": 3,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -372,10 +370,10 @@
         "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "135202",
+          "brakeCodeOriginal": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": false,
           "retarderBrakeOne": "hydraulic",
           "retarderBrakeTwo": "hydraulic",
           "brakeForceWheelsNotLocked": {
@@ -396,7 +394,8 @@
               "kerbWeight": 2760,
               "ladenWeight": 0,
               "gbWeight": 5000,
-              "designWeight": 5000
+              "designWeight": 5000,
+              "parkingBrakeMrk": false
             },
             "tyres": {
               "tyreSize": "265/70-19.5",
@@ -435,7 +434,6 @@
     ],
     "vin": "1B7GG36N12S678413",
     "partialVin": "678413",
-    "vehicleId": 4,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -479,10 +477,10 @@
         "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "135202",
+          "brakeCodeOriginal": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": false,
           "retarderBrakeOne": "hydraulic",
           "retarderBrakeTwo": "hydraulic",
           "brakeForceWheelsNotLocked": {
@@ -503,7 +501,8 @@
               "kerbWeight": 2760,
               "ladenWeight": 0,
               "gbWeight": 5000,
-              "designWeight": 5000
+              "designWeight": 5000,
+              "parkingBrakeMrk": false
             },
             "tyres": {
               "tyreSize": "265/70-19.5",
@@ -542,7 +541,6 @@
     ],
     "vin": "YV31MEC18GA678413",
     "partialVin": "678413",
-    "vehicleId": 5,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -586,10 +584,10 @@
         "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "145202",
+          "brakeCodeOriginal": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": false,
           "retarderBrakeOne": "electric",
           "retarderBrakeTwo": "exhaust",
           "brakeForceWheelsNotLocked": {
@@ -610,7 +608,8 @@
               "kerbWeight": 4870,
               "ladenWeight": 5888,
               "gbWeight": 6500,
-              "designWeight": 6500
+              "designWeight": 6500,
+              "parkingBrakeMrk": false
             },
             "tyres": {
               "tyreSize": "295/80-22.5",
@@ -650,7 +649,6 @@
     ],
     "vin": "XMGDE02FS0H012356",
     "partialVin": "012356",
-    "vehicleId": 6,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -694,10 +692,10 @@
         "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "135202",
+          "brakeCodeOriginal": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": false,
           "retarderBrakeOne": "other",
           "retarderBrakeTwo": "other",
           "brakeForceWheelsNotLocked": {
@@ -718,7 +716,8 @@
               "kerbWeight": 5018,
               "ladenWeight": 0,
               "gbWeight": 7100,
-              "designWeight": 7100
+              "designWeight": 7100,
+              "parkingBrakeMrk": false
             },
             "tyres": {
               "tyreSize": "295/80-22.5",
@@ -775,7 +774,6 @@
     ],
     "vin": "XMGDE02FS0H012432",
     "partialVin": "012432",
-    "vehicleId": 7,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -819,10 +817,10 @@
         "vehicleConfiguration": "rigid",
         "brakes": {
           "brakeCode": "167202",
+          "brakeCodeOriginal": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": false,
           "retarderBrakeOne": "hydraulic",
           "retarderBrakeTwo": "other",
           "brakeForceWheelsNotLocked": {
@@ -843,7 +841,8 @@
               "kerbWeight": 3630,
               "ladenWeight": 6014,
               "gbWeight": 6300,
-              "designWeight": 6500
+              "designWeight": 6500,
+              "parkingBrakeMrk": false
             },
             "tyres": {
               "tyreSize": "11-22.55",
@@ -883,7 +882,6 @@
     ],
     "vin": "YV31MEC18GA011900",
     "partialVin": "011900",
-    "vehicleId": 8,
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -927,10 +925,10 @@
         "vehicleConfiguration": "articulated",
         "brakes": {
           "brakeCode": "145202",
+          "brakeCodeOriginal": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": false,
           "retarderBrakeOne": "electric",
           "retarderBrakeTwo": "exhaust",
           "brakeForceWheelsNotLocked": {
@@ -951,7 +949,8 @@
               "kerbWeight": 4870,
               "ladenWeight": 5888,
               "gbWeight": 6500,
-              "designWeight": 6500
+              "designWeight": 6500,
+              "parkingBrakeMrk": false
             },
             "tyres": {
               "tyreSize": "295/80-22.5",
@@ -1040,10 +1039,10 @@
         "vehicleConfiguration": "articulated",
         "brakes": {
           "brakeCode": "145202",
+          "brakeCodeOriginal": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
-          "parkingBrakeMrk": false,
           "retarderBrakeOne": "electric",
           "retarderBrakeTwo": "exhaust",
           "brakeForceWheelsNotLocked": {
@@ -1064,7 +1063,8 @@
               "kerbWeight": 4870,
               "ladenWeight": 5888,
               "gbWeight": 6500,
-              "designWeight": 6500
+              "designWeight": 6500,
+              "parkingBrakeMrk": false
             },
             "tyres": {
               "tyreSize": "295/80-22.5",
