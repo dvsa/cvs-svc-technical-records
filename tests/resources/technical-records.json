@@ -42,7 +42,7 @@
         "brakeCode": "135202",
         "vehicleClass": {
           "code": "s",
-          "description": "small psv (ie: less than or equal to 22 seats)"
+          "description": "small psv"
         },
         "vehicleType": "psv",
         "vehicleSize": "small",
@@ -149,7 +149,7 @@
         "brakeCode": "171202",
         "vehicleClass": {
           "code": "s",
-          "description": "small psv (ie: less than or equal to 22 seats)"
+          "description": "small psv"
         },
         "vehicleType": "psv",
         "vehicleSize": "small",
@@ -256,7 +256,7 @@
         "brakeCode": "167202",
         "vehicleClass": {
           "code": "s",
-          "description": "small psv (ie: less than or equal to 22 seats)"
+          "description": "small psv"
         },
         "vehicleType": "psv",
         "vehicleSize": "large",
@@ -363,7 +363,7 @@
         "brakeCode": "135202",
         "vehicleClass": {
           "code": "s",
-          "description": "small psv (ie: less than or equal to 22 seats)"
+          "description": "small psv"
         },
         "vehicleType": "psv",
         "vehicleSize": "small",
@@ -470,7 +470,7 @@
         "brakeCode": "135202",
         "vehicleClass": {
           "code": "s",
-          "description": "small psv (ie: less than or equal to 22 seats)"
+          "description": "small psv"
         },
         "vehicleType": "psv",
         "vehicleSize": "small",
@@ -577,7 +577,7 @@
         "brakeCode": "145202",
         "vehicleClass": {
           "code": "s",
-          "description": "small psv (ie: less than or equal to 22 seats)"
+          "description": "small psv"
         },
         "vehicleType": "psv",
         "vehicleSize": "large",
@@ -685,7 +685,7 @@
         "brakeCode": "171202",
         "vehicleClass": {
           "code": "l",
-          "description": "large psv(ie: greater than 23 seats)"
+          "description": "large psv"
         },
         "vehicleType": "psv",
         "vehicleSize": "large",
@@ -810,7 +810,7 @@
         "brakeCode": "167202",
         "vehicleClass": {
           "code": "l",
-          "description": "large psv(ie: greater than 23 seats)"
+          "description": "large psv"
         },
         "vehicleType": "psv",
         "vehicleSize": "large",
