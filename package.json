@@ -10,7 +10,7 @@
   "scripts": {
     "start": "npm run eslint && BRANCH=local ./node_modules/serverless/bin/serverless offline start",
     "debug": "export SLS_DEBUG=* && BRANCH=local node --inspect ./node_modules/serverless/bin/serverless offline start",
-    "test": "node_modules/.bin/mocha tests/**/*.unitTest.js",
+    "test": "BRANCH=local node_modules/.bin/mocha tests/**/*.unitTest.js",
     "test-i": "BRANCH=local node_modules/.bin/mocha tests/**/*.intTest.js",
     "dynamodb": "sls dynamodb start",
     "prepush": "BRANCH=local npm test && npm run eslint",
