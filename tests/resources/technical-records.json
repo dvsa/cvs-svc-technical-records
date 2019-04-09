@@ -68,13 +68,13 @@
         },
         "axles": [
           {
+            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
               "kerbWeight": 2760,
               "ladenWeight": 0,
               "gbWeight": 5000,
-              "designWeight": 5000,
-              "parkingBrakeMrk": false
+              "designWeight": 5000
             },
             "tyres": {
               "tyreSize": "265/70-19.5",
@@ -175,13 +175,13 @@
         },
         "axles": [
           {
+            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
               "kerbWeight": 5018,
               "ladenWeight": 7100,
               "gbWeight": 7100,
-              "designWeight": 7100,
-              "parkingBrakeMrk": false
+              "designWeight": 7100
             },
             "tyres": {
               "tyreSize": "295/80-22.5",
@@ -282,13 +282,13 @@
         },
         "axles": [
           {
+            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
               "kerbWeight": 3630,
               "ladenWeight": 6014,
               "gbWeight": 6300,
-              "designWeight": 6500,
-              "parkingBrakeMrk": false
+              "designWeight": 6500
             },
             "tyres": {
               "tyreSize": "11-22.5",
@@ -389,13 +389,13 @@
         },
         "axles": [
           {
+            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
               "kerbWeight": 2760,
               "ladenWeight": 0,
               "gbWeight": 5000,
-              "designWeight": 5000,
-              "parkingBrakeMrk": false
+              "designWeight": 5000
             },
             "tyres": {
               "tyreSize": "265/70-19.5",
@@ -496,13 +496,13 @@
         },
         "axles": [
           {
+            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
               "kerbWeight": 2760,
               "ladenWeight": 0,
               "gbWeight": 5000,
-              "designWeight": 5000,
-              "parkingBrakeMrk": false
+              "designWeight": 5000
             },
             "tyres": {
               "tyreSize": "265/70-19.5",
@@ -603,13 +603,13 @@
         },
         "axles": [
           {
+            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
               "kerbWeight": 4870,
               "ladenWeight": 5888,
               "gbWeight": 6500,
-              "designWeight": 6500,
-              "parkingBrakeMrk": false
+              "designWeight": 6500
             },
             "tyres": {
               "tyreSize": "295/80-22.5",
@@ -711,13 +711,13 @@
         },
         "axles": [
           {
+            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
               "kerbWeight": 5018,
               "ladenWeight": 0,
               "gbWeight": 7100,
-              "designWeight": 7100,
-              "parkingBrakeMrk": false
+              "designWeight": 7100
             },
             "tyres": {
               "tyreSize": "295/80-22.5",
@@ -836,13 +836,13 @@
         },
         "axles": [
           {
+            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
               "kerbWeight": 3630,
               "ladenWeight": 6014,
               "gbWeight": 6300,
-              "designWeight": 6500,
-              "parkingBrakeMrk": false
+              "designWeight": 6500
             },
             "tyres": {
               "tyreSize": "11-22.55",
@@ -944,13 +944,13 @@
         },
         "axles": [
           {
+            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
               "kerbWeight": 4870,
               "ladenWeight": 5888,
               "gbWeight": 6500,
-              "designWeight": 6500,
-              "parkingBrakeMrk": false
+              "designWeight": 6500
             },
             "tyres": {
               "tyreSize": "295/80-22.5",
@@ -1058,13 +1058,13 @@
         },
         "axles": [
           {
+            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
               "kerbWeight": 4870,
               "ladenWeight": 5888,
               "gbWeight": 6500,
-              "designWeight": 6500,
-              "parkingBrakeMrk": false
+              "designWeight": 6500
             },
             "tyres": {
               "tyreSize": "295/80-22.5",
