@@ -5,11 +5,20 @@ openapi: 3.0.0
 provider:
   name: aws
   runtime: nodejs8.10
+  tracing: true # enable tracing
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "xray:PutTraceSegments"
+        - "xray:PutTelemetryRecords"
+      Resource:
+        - "*"
 
 plugins:
   - serverless-dynamodb-local
   - serverless-offline
   - serverless-openapi-documentation
+  - serverless-plugin-tracing
 
 custom:
   serverless-offline:
