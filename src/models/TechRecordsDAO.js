@@ -1,4 +1,5 @@
-const AWS = require('aws-sdk')
+const AWSXRay = require('aws-xray-sdk')
+const AWS = AWSXRay.captureAWS(require('aws-sdk'))
 const generateConfig = require('../config/generateConfig')
 const config = generateConfig()
 const dbClient = new AWS.DynamoDB.DocumentClient(config.DYNAMODB_DOCUMENTCLIENT_PARAMS)

@@ -70,3 +70,17 @@ In order to generate SonarQube reports on local, follow the steps:
 - From within the resource folder type the following:
 ```cat techRecords.json | json-dynamo-putrequest cvs-BRANCH-dft-tech-records --beautify >test.json```
 ```aws dynamodb batch-write-item --request-items file://test.json --region=eu-west-1```
+
+### Local Running
+
+To run this locally, add the following environment variables to your run configuration(s):
+* AWS_XRAY_CONTEXT_MISSING = LOG_ERROR
+* SLS_DEBUG = *
+* BRANCH = LOCAL
+
+and change the serverless.yml so that Custom > DynamoDB >
+*      migrate: true
+       seed: true
+       noStart: false
+
+**NB: Do not push these changes. They are for local running only**
