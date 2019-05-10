@@ -11,6 +11,9 @@ class HTTPResponse {
     if (headers) this.headers = headers
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Allow-Credentials'] = true
+    headers['X-Content-Type-Options'] = 'nosniff'
+    headers['Vary'] = 'Origin'
+    headers['X-XSS-Protection'] = '1; mode=block'
     this.statusCode = statusCode
     this.body = JSON.stringify(body)
   }
