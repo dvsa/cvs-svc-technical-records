@@ -19,11 +19,13 @@
     "eslint": "eslint . --config=.eslintrc.json --fix  -f json -o report.json",
     "generate-docs": "serverless openapi generate -o api/swagger/swagger.yaml && swagger-ui-watcher ./api/swagger/swagger.yaml",
     "sonar-scanner": "npm run eslint && npm run coverage && sonar-scanner",
-    "coverage": "BRANCH=local nyc mocha tests/unit/*.unitTest.js && nyc report --reporter=lcov"
+    "coverage": "BRANCH=local nyc mocha tests/unit/*.unitTest.js && nyc report --reporter=lcov",
+    "audit-dep": "npm audit --json | audit-filter --nsp-config=.nsprc --audit=-"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "audit-filter": "^0.4.3",
     "chai": "^4.2.0",
     "eslint": "^5.8.0",
     "eslint-config-standard": "^12.0.0",
