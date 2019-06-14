@@ -1,16 +1,25 @@
 const AWSXRay = require('aws-xray-sdk')
 const AWS = AWSXRay.captureAWS(require('aws-sdk'))
-const generateConfig = require('../config/generateConfig')
-const config = generateConfig()
-const dbClient = new AWS.DynamoDB.DocumentClient(config.DYNAMODB_DOCUMENTCLIENT_PARAMS)
+const Configuration = require('../utils/Configuration')
+const dbConfig = Configuration.getInstance().getDynamoDBConfig()
+const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params)
 
 class TechRecordsDAO {
   constructor () {
-    this.tableName = config.DYNAMODB_TABLE_NAME
+    this.tableName = dbConfig.table
+    this.ONLY_DIGITS_REGEX = /^\d+$/
+    this.TRAILER_REGEX = /^[a-zA-Z]\d{6}$/
+  }
+
+  isTrailerId (searchTerm) {
+    // Exactly 8 numbers
+    let isAllNumbersTrailerId = searchTerm.length === 8 && this.ONLY_DIGITS_REGEX.test(searchTerm)
+    // A letter followed by exactly 6 numbers
+    let isLetterAndNumbersTrailerId = this.TRAILER_REGEX.test(searchTerm)
+    return isAllNumbersTrailerId || isLetterAndNumbersTrailerId
   }
 
   getBySearchTerm (searchTerm) {
-    let ONLY_DIGITS_REGEX = /^\d+$/
     let query = {
       TableName: this.tableName,
       KeyConditionExpression: null,
@@ -18,7 +27,7 @@ class TechRecordsDAO {
       ExpressionAttributeValues: {}
     }
 
-    if (searchTerm.length >= 9) { // We are queried a full VIN
+    if (searchTerm.length >= 9) { // Query for a full VIN
       // The partial VIN is a primary index, and is always required
       Object.assign(query.ExpressionAttributeValues, {
         ':vin': searchTerm,
@@ -32,7 +41,17 @@ class TechRecordsDAO {
 
       // And create the query
       query.KeyConditionExpression = '#partialVin = :partialVin AND #vin = :vin'
-    } else if (searchTerm.length === 6 && ONLY_DIGITS_REGEX.test(searchTerm)) { // We are queried a partial VIN
+    } else if (this.isTrailerId(searchTerm)) { // Query for a Trailer ID
+      Object.assign(query, { IndexName: 'TrailerIdIndex' })
+
+      Object.assign(query.ExpressionAttributeValues, {
+        ':trailerId': searchTerm
+      })
+      Object.assign(query.ExpressionAttributeNames, {
+        '#trailerId': 'trailerId'
+      })
+      query.KeyConditionExpression = '#trailerId = :trailerId'
+    } else if (searchTerm.length === 6 && this.ONLY_DIGITS_REGEX.test(searchTerm)) { // Query for a partial VIN
       Object.assign(query.ExpressionAttributeValues, {
         ':partialVin': searchTerm
       })
@@ -41,7 +60,7 @@ class TechRecordsDAO {
         '#partialVin': 'partialVin'
       })
       query.KeyConditionExpression = '#partialVin = :partialVin'
-    } else if (searchTerm.length >= 3 && searchTerm.length <= 8) { // We are queried a VRM
+    } else if (searchTerm.length >= 3 && searchTerm.length <= 8) { // Query for a VRM
       // If we are queried a VRM, we need to specify we are using the VRM index
       Object.assign(query, { IndexName: 'VRMIndex' })
 

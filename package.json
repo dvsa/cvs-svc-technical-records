@@ -44,12 +44,14 @@
     "serverless-dynamodb-local": "^0.2.37",
     "serverless-offline": "^3.27.0",
     "serverless-plugin-tracing": "^2.0.0",
+    "sinon": "^7.3.2",
     "standard": "^12.0.1",
     "supertest": "^3.3.0"
   },
   "dependencies": {
     "aws-sdk": "^2.332.0",
     "aws-xray-sdk": "^2.3.2",
+    "node-yaml": "^3.2.0",
     "path-parser": "^4.2.0",
     "serverless-openapi-documentation": "^0.4.0"
   }

@@ -118,6 +118,8 @@ resources:
           AttributeType: S
         - AttributeName: primaryVrm
           AttributeType: S
+        - AttributeName: trailerId
+          AttributeType: S
         KeySchema:
         - AttributeName: partialVin
           KeyType: HASH
@@ -133,6 +135,21 @@ resources:
                 - secondaryVrms
                 - vin
                 - techRecord
+                - trailerId
+              ProjectionType: INCLUDE
+            ProvisionedThroughput:
+              ReadCapacityUnits: '1'
+              WriteCapacityUnits: '1'
+          - IndexName: TrailerIdIndex
+            KeySchema:
+            - AttributeName: trailerId
+              KeyType: HASH
+            Projection:
+              NonKeyAttributes:
+                - secondaryVrms
+                - vin
+                - techRecord
+                - trailerId
               ProjectionType: INCLUDE
             ProvisionedThroughput:
               ReadCapacityUnits: '1'

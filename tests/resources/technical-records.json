@@ -6,6 +6,7 @@
     ],
     "vin": "XMGDE02FS0H012345",
     "partialVin": "012345",
+    "trailerId": "12345678",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
