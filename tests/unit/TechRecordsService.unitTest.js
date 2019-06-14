@@ -7,7 +7,10 @@ const fs = require('fs')
 const path = require('path')
 
 describe('getTechRecordsList', () => {
-  var techRecordsDAOMock = new TechRecordsDAOMock()
+  let techRecordsDAOMock
+  beforeEach(() => {
+    techRecordsDAOMock = new TechRecordsDAOMock()
+  })
 
   context('when db call returns data', () => {
     it('should return a populated response', () => {
@@ -42,7 +45,7 @@ describe('getTechRecordsList', () => {
         })
     })
   })
-  context('when db return undifined data', () => {
+  context('when db return undefined data', () => {
     it('should return 404-No resources match the search criteria if db return null data', () => {
       techRecordsDAOMock.techRecordsMock = undefined
       techRecordsDAOMock.numberOfrecords = 0
@@ -73,6 +76,24 @@ describe('getTechRecordsList', () => {
           expect(errorResponse).to.be.instanceOf(HTTPError)
           expect(errorResponse.statusCode).to.be.equal(500)
           expect(errorResponse.body).to.equal('Internal Server Error')
+        })
+    })
+  })
+
+  context('when db returns too many results', () => {
+    it('should return 422 - More Than One Match', () => {
+      techRecordsDAOMock.techRecordsMock = undefined
+      techRecordsDAOMock.numberOfrecords = 2
+      techRecordsDAOMock.numberOfScannedRecords = 2
+      var techRecordsService = new TechRecordsService(techRecordsDAOMock)
+
+      return techRecordsService.getTechRecordsList()
+        .then(() => {
+          expect.fail()
+        }).catch((errorResponse) => {
+          expect(errorResponse).to.be.instanceOf(HTTPError)
+          expect(errorResponse.statusCode).to.equal(422)
+          expect(errorResponse.body).to.equal('The provided partial VIN returned more than one match.')
         })
     })
   })

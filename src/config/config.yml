@@ -1,0 +1,26 @@
+functions:
+- getTechRecords:
+    method: GET
+    path: /vehicles/{+proxy}/tech-records/
+    proxy: :searchIdentifier
+    function: getTechRecords
+dynamodb:
+  local:
+    params:
+      region: localhost
+      endpoint: http://localhost:8003
+      convertEmptyValues: true
+    table: cvs-local-technical-records
+  local-global:
+    params:
+      region: localhost
+      endpoint: http://localhost:8000
+      convertEmptyValues: true
+    table: cvs-local-global-technical-records
+  remote:
+    params:
+      convertEmptyValues: true
+    table: cvs-${BRANCH}-technical-records
+serverless:
+  basePath: /${BRANCH}
+  port: 3005
