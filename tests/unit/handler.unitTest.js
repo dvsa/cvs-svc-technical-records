@@ -8,7 +8,6 @@ const event = require('../resources/event')
 
 describe('The lambda function handler', () => {
   context('With correct Config', () => {
-
     context('should correctly handle incoming events', () => {
       it('should call functions with correct event payload', async () => {
         // Specify your event, with correct path, payload etc
@@ -61,7 +60,7 @@ describe('The lambda function handler', () => {
       let result = await handler.handler(event, null, null)
       expect(result.statusCode).to.equal(400)
       expect(result.body).to.deep.equals(JSON.stringify({ error: `Route ${event.httpMethod} ${event.path} was not found.` }))
-      configStub.restore();
+      configStub.restore()
     })
   })
 })
