@@ -8,6 +8,7 @@ const event = require('../resources/event')
 
 describe('The lambda function handler', () => {
   context('With correct Config', () => {
+
     context('should correctly handle incoming events', () => {
       it('should call functions with correct event payload', async () => {
         // Specify your event, with correct path, payload etc
@@ -55,25 +56,26 @@ describe('The lambda function handler', () => {
   context('With no routes defined in config', () => {
     it('should return a Route Not Found error', async () => {
       // Stub Config getFunctions method and return empty array instead
-      sinon.stub(Configuration.prototype, 'getFunctions').returns([])
+      let configStub = sinon.stub(Configuration.prototype, 'getFunctions').returns([])
 
       let result = await handler.handler(event, null, null)
       expect(result.statusCode).to.equal(400)
       expect(result.body).to.deep.equals(JSON.stringify({ error: `Route ${event.httpMethod} ${event.path} was not found.` }))
+      configStub.restore();
     })
   })
 })
 
-describe('The configuration service', ()=> {
+describe('The configuration service', () => {
   context('with good config file', () => {
     it('should return local versions of the config if specified', () => {
       process.env.BRANCH = 'local'
-      let configService = Configuration.getInstance();
-      let functions = configService.getFunctions();
+      let configService = Configuration.getInstance()
+      let functions = configService.getFunctions()
       expect(functions.length).to.equal(1)
       expect(functions[0].name).to.equal('getTechRecords')
 
-      let DBConfig = configService.getDynamoDBConfig();
+      let DBConfig = configService.getDynamoDBConfig()
       expect(DBConfig).to.equal(configService.config.dynamodb.local)
 
       // No Endpoints for this service
@@ -81,12 +83,12 @@ describe('The configuration service', ()=> {
 
     it('should return local-global versions of the config if specified', () => {
       process.env.BRANCH = 'local-global'
-      let configService = Configuration.getInstance();
-      let functions = configService.getFunctions();
+      let configService = Configuration.getInstance()
+      let functions = configService.getFunctions()
       expect(functions.length).to.equal(1)
       expect(functions[0].name).to.equal('getTechRecords')
 
-      let DBConfig = configService.getDynamoDBConfig();
+      let DBConfig = configService.getDynamoDBConfig()
       expect(DBConfig).to.equal(configService.config.dynamodb['local-global'])
 
       // No Endpoints for this service
@@ -94,12 +96,12 @@ describe('The configuration service', ()=> {
 
     it('should return remote versions of the config by default', () => {
       process.env.BRANCH = 'CVSB-XXX'
-      let configService = Configuration.getInstance();
-      let functions = configService.getFunctions();
+      let configService = Configuration.getInstance()
+      let functions = configService.getFunctions()
       expect(functions.length).to.equal(1)
       expect(functions[0].name).to.equal('getTechRecords')
 
-      let DBConfig = configService.getDynamoDBConfig();
+      let DBConfig = configService.getDynamoDBConfig()
       expect(DBConfig).to.equal(configService.config.dynamodb.remote)
 
       // No Endpoints for this service
@@ -108,25 +110,25 @@ describe('The configuration service', ()=> {
 
   context('with bad config file', () => {
     it('should return an error for missing functions from getFunctions', () => {
-      let config = new Configuration('../../tests/resources/badConfig.yml');
+      let config = new Configuration('../../tests/resources/badConfig.yml')
       try {
         config.getFunctions()
-      } catch(e) {
+      } catch (e) {
         expect(e.message).to.equal('Functions were not defined in the config file.')
       }
     })
 
     it('should return an error for missing DB Config from getDynamoDBConfig', () => {
-      let config = new Configuration('../../tests/resources/badConfig.yml');
+      let config = new Configuration('../../tests/resources/badConfig.yml')
       try {
         config.getDynamoDBConfig()
-      } catch(e) {
+      } catch (e) {
         expect(e.message).to.equal('DynamoDB config is not defined in the config file.')
       }
     })
   })
 
-  afterEach(()=> {
-    process.env.BRANCH = 'local'
+  afterEach(() => {
+    // process.env.BRANCH = 'local'
   })
 })
