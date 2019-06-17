@@ -249,6 +249,68 @@ describe('techRecords', () => {
         })
       })
 
+      context('and when a search by Trailer ID is done', () => {
+        context('and no statusCode is provided', () => {
+          context('and the tech record for that Trailer ID has statusCode \'current\'', () => {
+            it('should return the tech record for that Trailer ID with default status \'current\'', (done) => {
+              request.get('vehicles/09876543/tech-records')
+                .end((err, res) => {
+                  if (err) { expect.fail(err) }
+                  expect(res.statusCode).to.equal(200)
+                  expect(res.headers['access-control-allow-origin']).to.equal('*')
+                  expect(res.headers['access-control-allow-credentials']).to.equal('true')
+                  expect(res.body).is.eql(convertToResponse(mockData[0]))
+                  done()
+                })
+            })
+          })
+
+          context('and the tech record for that TrailerID does not have statusCode \'current\'', () => {
+            it('should return 404', (done) => {
+              request.get('vehicles/A456789/tech-records')
+                .end((err, res) => {
+                  if (err) { expect.fail(err) }
+                  expect(res.statusCode).to.equal(404)
+                  expect(res.headers['access-control-allow-origin']).to.equal('*')
+                  expect(res.headers['access-control-allow-credentials']).to.equal('true')
+                  expect(res.body).to.equal('No resources match the search criteria.')
+                  done()
+                })
+            })
+          })
+        })
+
+        context('and statusCode is provided', () => {
+          context('and the tech record for that Trailer ID has the statusCode provided', () => {
+            it('should return the tech record for that Trailer ID with statusCode \'archived\'', (done) => {
+              request.get('vehicles/A456789/tech-records?status=archived')
+                .end((err, res) => {
+                  if (err) { expect.fail(err) }
+                  expect(res.statusCode).to.equal(200)
+                  expect(res.headers['access-control-allow-origin']).to.equal('*')
+                  expect(res.headers['access-control-allow-credentials']).to.equal('true')
+                  expect(convertToResponse(mockData[2])).to.eql(res.body)
+                  done()
+                })
+            })
+          })
+
+          context('and the tech record for that Trailer ID does not have statusCode \'archived\'', () => {
+            it('should return 404', (done) => {
+              request.get('vehicles/09876543/tech-records?status=archived')
+                .end((err, res) => {
+                  if (err) { expect.fail(err) }
+                  expect(res.statusCode).to.equal(404)
+                  expect(res.headers['access-control-allow-origin']).to.equal('*')
+                  expect(res.headers['access-control-allow-credentials']).to.equal('true')
+                  expect(res.body).to.equal('No resources match the search criteria.')
+                  done()
+                })
+            })
+          })
+        })
+      })
+
       after((done) => {
         let mockBuffer = mockData
 
