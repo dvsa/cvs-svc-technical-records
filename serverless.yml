@@ -132,6 +132,7 @@ resources:
               KeyType: HASH
             Projection:
               NonKeyAttributes:
+                - primaryVrm
                 - secondaryVrms
                 - vin
                 - techRecord
