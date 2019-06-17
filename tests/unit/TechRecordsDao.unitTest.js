@@ -119,7 +119,7 @@ describe('TechRecordsDAO', () => {
         expect(getRequestBody(daoReq)).to.deep.equal(JSON.stringify(expectedCall))
       })
 
-      // <3 or >21 chars handled in getTechRecords Function, so only cursory checks here.
+      //<3 or >21 chars handled in getTechRecords Function, so only cursory checks here.
       it('for Non-matching pattern (2 chars)', async () => {
         let techRecordsDao = new TechRecordsDao()
         techRecordsDao.getBySearchTerm('7A')
