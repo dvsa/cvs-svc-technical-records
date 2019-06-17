@@ -89,24 +89,6 @@ class Configuration {
 
     return this.config.dynamodb[env]
   }
-
-  getEndpoints (endpoint) {
-    if (!this.config.endpoints) {
-      throw new Error('Endpoints were not defined in the config file.')
-    }
-
-    // Not defining BRANCH will default to local-global
-    var env
-    switch (process.env.BRANCH) {
-      case 'local-global':
-        env = 'local-global'
-        break
-      default:
-        env = 'remote'
-    }
-
-    return this.config.endpoints[env]
-  }
 }
 
 module.exports = Configuration
