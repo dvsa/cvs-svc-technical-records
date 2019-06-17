@@ -6,7 +6,7 @@
     ],
     "vin": "XMGDE02FS0H012345",
     "partialVin": "012345",
-    "trailerId": "12345678",
+    "trailerId": "09876543",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -221,6 +221,7 @@
     ],
     "vin": "XMGDE02FS0H012461",
     "partialVin": "012461",
+    "trailerId": "A456789",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
