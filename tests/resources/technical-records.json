@@ -1153,7 +1153,7 @@
         "drawbarCouplingFitted": true,
         "euroStandard": 7,
         "dimensions": {
-          "lenght": 7500,
+          "length": 7500,
           "width": 2200
         },
         "frontAxleTo5thWheelMin": 1200,
@@ -1228,7 +1228,7 @@
         "suspensionType": "Y",
         "couplingType": "F",
         "dimensions": {
-          "lenght": 7500,
+          "length": 7500,
           "width": 2200,
           "axleSpacing": [
             {
@@ -1318,7 +1318,7 @@
         "suspensionType": "Y",
         "couplingType": "F",
         "dimensions": {
-          "lenght": 7500,
+          "length": 7500,
           "width": 2200,
           "axleSpacing": [
             {
@@ -1408,7 +1408,7 @@
       "suspensionType": "Y",
       "couplingType": "F",
       "dimensions": {
-        "lenght": 7500,
+        "length": 7500,
         "width": 2200,
         "axleSpacing": [
           {
