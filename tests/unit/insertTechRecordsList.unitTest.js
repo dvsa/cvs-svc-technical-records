@@ -24,7 +24,7 @@ describe('insertTechRecordsList', () => {
 
       return techRecordsService.insertTechRecordsList(techRecordDAOMock.techRecordsMock)
         .then(data => {
-          expect(data.length).to.equal(9)
+          expect(data.length).to.equal(13)
         })
     })
   })
