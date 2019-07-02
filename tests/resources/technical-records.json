@@ -1279,7 +1279,7 @@
             },
             "brakes": {
               "brakeActuator": 113,
-              "leverLenght": 125,
+              "leverLength": 125,
               "springBrakeParking": true
             }
           }
@@ -1369,7 +1369,7 @@
             },
             "brakes": {
               "brakeActuator": 113,
-              "leverLenght": 125,
+              "leverLength": 125,
               "springBrakeParking": true
             }
           }
@@ -1459,7 +1459,7 @@
           },
           "brakes": {
             "brakeActuator": 113,
-            "leverLenght": 125,
+            "leverLength": 125,
             "springBrakeParking": true
           }
         }
