@@ -1162,7 +1162,7 @@
         "frontAxleTo5thWheelCouplingMax": 1900,
         "noOfAxles": 2,
         "vehicleType": "hgv",
-        "notes": "",
+        "notes": "test note",
         "axles": [
           {
             "axleNumber": 1,
@@ -1248,7 +1248,7 @@
         "antilockBrakingSystem": true,
         "noOfAxles": 2,
         "vehicleType": "trl",
-        "notes": "",
+        "notes": null,
         "axles": [
           {
             "axleNumber": 1,
@@ -1339,7 +1339,7 @@
         "antilockBrakingSystem": true,
         "noOfAxles": 2,
         "vehicleType": "trl",
-        "notes": "",
+        "notes": "another note",
         "axles": [
           {
             "axleNumber": 1,
@@ -1430,7 +1430,7 @@
       "antilockBrakingSystem": true,
       "noOfAxles": 2,
       "vehicleType": "trl",
-      "notes": "",
+      "notes": null,
       "axles": [
         {
           "axleNumber": 1,
