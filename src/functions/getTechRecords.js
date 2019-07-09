@@ -12,10 +12,7 @@ const getTechRecords = (event) => {
   const searchIdentifier = (event.pathParameters) ? event.pathParameters.searchIdentifier : null
 
   // searchTerm too long or too short
-  if (!searchIdentifier) {
-    return Promise.resolve(new HTTPResponse(400, 'The search identifier should be between 3 and 21 characters.'))
-  }
-  if (searchIdentifier.length < 3 || searchIdentifier.length > 21) {
+  if (!searchIdentifier || searchIdentifier.length < 3 || searchIdentifier.length > 21) {
     return Promise.resolve(new HTTPResponse(400, 'The search identifier should be between 3 and 21 characters.'))
   }
 
