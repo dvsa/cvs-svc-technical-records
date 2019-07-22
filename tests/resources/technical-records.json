@@ -2193,5 +2193,68 @@
     }
   ],
   "vin": "P012301000000"
+},
+  {
+  "partialVin": "098765",
+  "primaryVrm": "VM14MDT",
+  "secondaryVrms": [
+    "TF14PTH"
+  ],
+  "techRecord": [
+    {
+      "axles": [
+        {
+          "axleNumber": 1,
+          "tyres": {
+            "dataTrAxles": 345,
+            "fitmentCode": "single",
+            "plyRating": "AB",
+            "speedCategorySymbol": "a7",
+            "tyreCode": 1234,
+            "tyreSize": "9.23648E+11"
+          }
+      ],
+      "bodyType": {
+        "code": "a",
+        "description": "articulated"
+      },
+      "brakeCode": "178202",
+      "conversionRefNo": "7891234",
+      "createdAt": "2019-06-24T10:26:54.903Z",
+      "dimensions": {
+        "length": 7500,
+        "width": 2200
+      },
+      "drawbarCouplingFitted": true,
+      "euroStandard": 7,
+      "frontAxleTo5thWheelCouplingMax": 1900,
+      "frontAxleTo5thWheelCouplingMin": 1700,
+      "frontAxleTo5thWheelMax": 1500,
+      "frontAxleTo5thWheelMin": 1200,
+      "functionCode": "A",
+      "grossKerbWeight": 2500,
+      "grossLadenWeight": 3000,
+      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+      "make": "Isuzu",
+      "manufactureYear": 2018,
+      "maxTrainDesignWeight": 500,
+      "maxTrainGbWeight": 1000,
+      "model": "FM",
+      "noOfAxles": 1,
+      "notes": "test note",
+      "ntaNumber": "123456",
+      "reasonForCreation": "new vehicle",
+      "regnDate": "2019-06-24",
+      "roadFriendly": true,
+      "speedLimiterMrk": true,
+      "statusCode": "current",
+      "tachoExemptMrk": true,
+      "trainDesignWeight": 2000,
+      "trainGbWeight": 1500,
+      "tyreUseCode": "2B",
+      "vehicleType": "hgv"
+    }
+  ],
+  "vin": "P012301098765"
 }
 ]
