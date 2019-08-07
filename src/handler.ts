@@ -1,10 +1,10 @@
-'use strict'
+import Path from 'path-parser';
+import Configuration from './utils/Configuration';
+import HTTPResponse from './models/HTTPResponse';
+import {Context} from "aws-lambda";
+import {IFunctions} from "../@Types/Configuration";
 
-const Path = require('path-parser').default
-const Configuration = require('./utils/Configuration')
-const HTTPResponse = require('./models/HTTPResponse')
-
-const handler = async (event, context, callback) => {
+const handler = async (event: any, context: Context) => {
   // Request integrity checks
   if (!event) {
     return new HTTPResponse(400, 'AWS event is empty. Check your test event.')
@@ -27,11 +27,11 @@ const handler = async (event, context, callback) => {
   const functions = config.getFunctions()
   const serverlessConfig = config.getConfig().serverless
 
-  const matchingLambdaEvents = functions.filter((fn) => {
+  const matchingLambdaEvents = functions.filter((fn: IFunctions) => {
     // Find λ with matching httpMethod
     return event.httpMethod === fn.method
   })
-    .filter((fn) => {
+    .filter((fn: IFunctions) => {
       // Find λ with matching path
       const localPath = new Path(fn.path)
       const remotePath = new Path(`${serverlessConfig.basePath}${fn.path}`) // Remote paths also have environment
@@ -54,7 +54,7 @@ const handler = async (event, context, callback) => {
     console.log(`HTTP ${event.httpMethod} ${event.path} -> λ ${lambdaEvent.name}`)
 
     // Explicit conversion because typescript can't figure it out
-    return lambdaFn(event, context, callback)
+    return lambdaFn(event, context)
   }
 
   // If filtering results in less or more λ functions than expected, we return an error.
@@ -67,4 +67,4 @@ const handler = async (event, context, callback) => {
   return new HTTPResponse(400, { error: `Route ${event.httpMethod} ${event.path} was not found.` })
 }
 
-module.exports.handler = handler
+export {handler};

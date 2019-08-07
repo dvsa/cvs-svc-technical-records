@@ -17,8 +17,8 @@ provider:
 plugins:
   - serverless-dynamodb-local
   - serverless-offline
-  - serverless-openapi-documentation
   - serverless-plugin-tracing
+  - serverless-plugin-typescript
 
 custom:
   serverless-offline:
