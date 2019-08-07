@@ -8,18 +8,18 @@
     "url": "https://github.com/dvsa/cvs-svc-technical-records.git"
   },
   "scripts": {
-    "start": "npm run lint && BRANCH=local ./node_modules/serverless/bin/serverless offline start",
+    "start": "npm run tslint && BRANCH=local ./node_modules/serverless/bin/serverless offline start",
     "debug": "export SLS_DEBUG=* && BRANCH=local node --inspect ./node_modules/serverless/bin/serverless offline start",
     "build": "node_modules/typescript/bin/tsc --rootDir ./ --outDir .build --sourceMap false && npm run build:copy",
     "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build",
     "test": "BRANCH=local node_modules/.bin/jest --testMatch=\"**/*.unitTest.ts\" --coverage",
     "test-i": "BRANCH=local node_modules/.bin/jest --testMatch=\"**/*.intTest.ts\" --coverage",
     "dynamodb": "sls dynamodb start",
-    "prepush": "BRANCH=local npm test && npm run lint",
+    "prepush": "BRANCH=local npm test && npm run tslint",
     "predeploy": "npm install && npm run prepush",
     "security-checks": "git secrets --scan && git log -p | scanrepo",
-    "lint": "tslint src/**/*.ts tests/**/*.ts -q",
-    "sonar-scanner": "npm run lint && npm run coverage && sonar-scanner",
+    "tslint": "tslint src/**/*.ts tests/**/*.ts -q",
+    "sonar-scanner": "npm run tslint && npm run coverage && sonar-scanner",
     "coverage": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*Test.ts\" --coverage && open coverage/lcov-report/index.html",
     "audit-dep": "npm audit --json | audit-filter --nsp-config=.nsprc --audit=-"
   },
