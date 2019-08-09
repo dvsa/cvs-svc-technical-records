@@ -1162,6 +1162,7 @@
         "frontAxleTo5thWheelCouplingMax": 1900,
         "noOfAxles": 2,
         "vehicleType": "hgv",
+        "vehicleConfiguration": "rigid",
         "vehicleClass": {
           "code": "v",
           "description": "heavy goods vehicle"
@@ -1256,6 +1257,7 @@
           "code": "t",
           "description": "trailer"
         },
+        "vehicleConfiguration": "rigid",
         "notes": null,
         "axles": [
           {
@@ -1346,6 +1348,7 @@
           "code": "t",
           "description": "trailer"
         },
+        "vehicleConfiguration": "articulated",
         "notes": "another note",
         "axles": [
           {
@@ -1521,7 +1524,8 @@
       "vehicleClass": {
         "code": "t",
         "description": "trailer"
-      }
+      },
+      "vehicleConfiguration": "rigid"
     }
   ],
   "trailerId": "0285678",
@@ -1654,7 +1658,8 @@
       "vehicleClass": {
         "code": "v",
         "description": "heavy goods vehicle"
-      }
+      },
+      "vehicleConfiguration": "articulated"
     }
   ],
   "vin": "P012301957486"
@@ -1771,7 +1776,8 @@
       "vehicleClass": {
         "code": "v",
         "description": "heavy goods vehicle"
-      }
+      },
+      "vehicleConfiguration": "rigid"
     }
   ],
   "vin": "P012301293847"
@@ -1945,7 +1951,8 @@
       "vehicleClass": {
         "code": "t",
         "description": "trailer"
-      }
+      },
+      "vehicleConfiguration": "articulated"
     }
   ],
   "trailerId": "C234567",
@@ -2080,7 +2087,8 @@
       "vehicleClass": {
         "code": "t",
         "description": "trailer"
-      }
+      },
+      "vehicleConfiguration": "rigid"
     }
   ],
   "trailerId": "C456789",
@@ -2183,7 +2191,8 @@
       "vehicleClass": {
         "code": "v",
         "description": "heavy goods vehicle"
-      }
+      },
+      "vehicleConfiguration": "articulated"
     }
   ],
   "vin": "P012301012938"
@@ -2360,7 +2369,8 @@
       "vehicleClass": {
         "code": "v",
         "description": "heavy goods vehicle"
-      }
+      },
+      "vehicleConfiguration": "rigid"
     }
   ],
   "vin": "P012301000000"
@@ -2428,7 +2438,8 @@
       "vehicleClass": {
         "code": "v",
         "description": "heavy goods vehicle"
-      }
+      },
+      "vehicleConfiguration": "articulated"
     }
   ],
   "vin": "P012301098765"
@@ -2487,6 +2498,7 @@
           "code": "t",
           "description": "trailer"
         },
+        "vehicleConfiguration": "articulated",
         "notes": null,
         "axles": [
           {
