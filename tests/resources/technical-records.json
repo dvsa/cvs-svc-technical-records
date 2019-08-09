@@ -1159,6 +1159,10 @@
         "frontAxleTo5thWheelCouplingMax": 1900,
         "noOfAxles": 2,
         "vehicleType": "hgv",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
         "notes": "test note",
         "axles": [
           {
@@ -1240,6 +1244,10 @@
         "antilockBrakingSystem": true,
         "noOfAxles": 2,
         "vehicleType": "trl",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
         "notes": null,
         "axles": [
           {
@@ -1326,6 +1334,10 @@
         "antilockBrakingSystem": true,
         "noOfAxles": 1,
         "vehicleType": "trl",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
         "notes": "another note",
         "axles": [
           {
@@ -1626,7 +1638,11 @@
       "trainDesignWeight": 2000,
       "trainGbWeight": 1500,
       "tyreUseCode": "2B",
-      "vehicleType": "hgv"
+      "vehicleType": "hgv",
+      "vehicleClass": {
+        "code": "v",
+        "description": "heavy goods vehicle"
+      }
     }
   ],
   "vin": "P012301957486"
@@ -1739,7 +1755,11 @@
       "trainDesignWeight": 2000,
       "trainGbWeight": 1500,
       "tyreUseCode": "2B",
-      "vehicleType": "hgv"
+      "vehicleType": "hgv",
+      "vehicleClass": {
+        "code": "v",
+        "description": "heavy goods vehicle"
+      }
     }
   ],
   "vin": "P012301293847"
@@ -1909,7 +1929,11 @@
       "statusCode": "current",
       "suspensionType": "Y",
       "tyreUseCode": "2B",
-      "vehicleType": "trl"
+      "vehicleType": "trl",
+      "vehicleClass": {
+        "code": "t",
+        "description": "trailer"
+      }
     }
   ],
   "trailerId": "C234567",
@@ -2040,7 +2064,11 @@
       "statusCode": "current",
       "suspensionType": "Y",
       "tyreUseCode": "2B",
-      "vehicleType": "trl"
+      "vehicleType": "trl",
+      "vehicleClass": {
+        "code": "t",
+        "description": "trailer"
+      }
     }
   ],
   "trailerId": "C456789",
@@ -2139,7 +2167,11 @@
       "trainDesignWeight": 2000,
       "trainGbWeight": 1500,
       "tyreUseCode": "2B",
-      "vehicleType": "hgv"
+      "vehicleType": "hgv",
+      "vehicleClass": {
+        "code": "v",
+        "description": "heavy goods vehicle"
+      }
     }
   ],
   "vin": "P012301012938"
@@ -2312,7 +2344,11 @@
       "trainDesignWeight": 2000,
       "trainGbWeight": 1500,
       "tyreUseCode": "2B",
-      "vehicleType": "hgv"
+      "vehicleType": "hgv",
+      "vehicleClass": {
+        "code": "v",
+        "description": "heavy goods vehicle"
+      }
     }
   ],
   "vin": "P012301000000"
@@ -2376,7 +2412,11 @@
       "trainDesignWeight": 2000,
       "trainGbWeight": 1500,
       "tyreUseCode": "2B",
-      "vehicleType": "hgv"
+      "vehicleType": "hgv",
+      "vehicleClass": {
+        "code": "v",
+        "description": "heavy goods vehicle"
+      }
     }
   ],
   "vin": "P012301098765"
@@ -2431,6 +2471,10 @@
         "antilockBrakingSystem": true,
         "noOfAxles": 3,
         "vehicleType": "trl",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
         "notes": null,
         "axles": [
           {
@@ -2978,7 +3022,11 @@
       "statusCode": "current",
       "suspensionType": "Y",
       "tyreUseCode": "2B",
-      "vehicleType": "trl"
+      "vehicleType": "trl",
+      "vehicleClass": {
+        "code": "t",
+        "description": "trailer"
+      }
     }
   ],
   "trailerId": "0285678",
