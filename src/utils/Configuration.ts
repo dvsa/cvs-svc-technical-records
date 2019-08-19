@@ -1,7 +1,7 @@
 // @ts-ignore
 import yml from "node-yaml";
 import {IFunctions, IParams} from "../../@Types/Configuration";
-import {ERRORS} from "../assets/enums";
+import {ERRORS} from "../assets/Enums";
 
 class Configuration {
   private static instance: Configuration;
