@@ -40,6 +40,7 @@
     "gulp": "^4.0.0",
     "jest": "^24.8.0",
     "jest-plugin-context": "^2.9.0",
+    "jest-sonar-reporter": "^2.0.0",
     "lambda-tester": "^3.5.0",
     "nyc": "^14.1.1",
     "serverless": "^1.42.3",
@@ -62,5 +63,16 @@
     "node-yaml": "^3.2.0",
     "path-parser": "^4.2.0",
     "reflect-metadata": "^0.1.13"
+  },
+  "jestSonar": {
+    "reportPath": ".reports",
+    "reportFile": "test-report.xml",
+    "indent": 4
+  },
+  "jest": {
+    "coverageDirectory": "./coverage",
+    "collectCoverage": true,
+    "testResultsProcessor": "jest-sonar-reporter",
+    "testURL": "http://localhost"
   }
 }
