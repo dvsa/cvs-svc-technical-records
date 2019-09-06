@@ -73,7 +73,7 @@ class TechRecordsService {
       });
   }
 
-  public deleteTechRecordsList(techRecordItemKeys: string[]) {
+  public deleteTechRecordsList(techRecordItemKeys: string[][]) {
     return this.techRecordsDAO.deleteMultiple(techRecordItemKeys)
       .then((data: {UnprocessedItems: string[]}) => {
         if (data.UnprocessedItems) { return data.UnprocessedItems; }
