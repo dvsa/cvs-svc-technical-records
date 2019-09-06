@@ -37,5 +37,5 @@ coverage/**
 .scannerwork/**
 report.json
 
-#Build directories
+#build
 .build/*
