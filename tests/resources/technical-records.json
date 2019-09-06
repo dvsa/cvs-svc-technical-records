@@ -1128,8 +1128,8 @@
         "functionCode": "A",
         "brakeCode": "178202",
         "bodyType": {
-          "code": "a",
-          "description": "articulated"
+          "code": "x",
+          "description": "other"
         },
         "manufactureYear": 2018,
         "regnDate": "2019-06-24",
@@ -1159,12 +1159,34 @@
         "frontAxleTo5thWheelCouplingMax": 1900,
         "noOfAxles": 2,
         "vehicleType": "hgv",
-        "vehicleConfiguration": "rigid",
+        "vehicleConfiguration": "semi-car transporter",
         "vehicleClass": {
           "code": "v",
           "description": "heavy goods vehicle"
         },
         "notes": "test note",
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdgsd",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
+        },
         "axles": [
           {
             "axleNumber": 1,
@@ -1212,8 +1234,8 @@
         "model": "F06",
         "brakeCode": "178202",
         "bodyType": {
-          "code": "a",
-          "description": "articulated"
+          "code": "p",
+          "description": "petrol/oil tanker"
         },
         "manufactureYear": 2018,
         "firstUseDate": "2019-06-24",
@@ -1233,7 +1255,12 @@
         "dimensions": {
           "length": 7500,
           "width": 2200,
-          "axleSpacing": []
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1200
+            }
+          ]
         },
         "frontAxleToRearAxle": 1700,
         "rearAxleToRearTrl": 400,
@@ -1249,8 +1276,30 @@
           "code": "t",
           "description": "trailer"
         },
-        "vehicleConfiguration": "rigid",
-        "notes": null,
+        "vehicleConfiguration": "centre axle drawbar",
+        "notes": "some note",
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdsdg",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
+        },
         "axles": [
           {
             "axleNumber": 1,
@@ -1303,8 +1352,8 @@
         "model": "F06",
         "brakeCode": "178202",
         "bodyType": {
-          "code": "a",
-          "description": "articulated"
+          "code": "k",
+          "description": "skeletal"
         },
         "manufactureYear": 2018,
         "firstUseDate": "2019-06-24",
@@ -1340,8 +1389,30 @@
           "code": "t",
           "description": "trailer"
         },
-        "vehicleConfiguration": "articulated",
+        "vehicleConfiguration": "semi-trailer",
         "notes": "another note",
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdsd",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
+        },
         "axles": [
           {
             "axleNumber": 1,
@@ -1371,7 +1442,28 @@
     "partialVin": "768594",
     "techRecord": [
       {
-        "antilockBrakingSystem": true,
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdgsd",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
+        },
         "axles": [
           {
             "axleNumber": 1,
@@ -1470,8 +1562,8 @@
           }
         ],
         "bodyType": {
-          "code": "a",
-          "description": "articulated"
+          "code": "t",
+          "description": "tipper"
         },
         "brakeCode": "178202",
         "conversionRefNo": "7891234",
@@ -1497,13 +1589,12 @@
         "grossKerbWeight": 2500,
         "grossLadenWeight": 3000,
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-        "loadSensingValve": false,
         "make": "Isuzu",
         "manufactureYear": 2018,
         "maxLoadOnCoupling": 7000,
         "model": "F06",
         "noOfAxles": 5,
-        "notes": null,
+        "notes": "some note",
         "ntaNumber": "123456",
         "rearAxleToRearTrl": 400,
         "reasonForCreation": "new trailer",
@@ -1512,353 +1603,372 @@
         "statusCode": "current",
         "suspensionType": "Y",
         "tyreUseCode": "2B",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "other"
       }
     ],
     "trailerId": "0285678",
     "vin": "T12768594"
   },
   {
-  "partialVin": "957486",
-  "primaryVrm": "AD35GHT",
-  "secondaryVrms": [
-    "CT96DRG"
-  ],
-  "techRecord": [
-    {
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
-        },
-        {
-          "axleNumber": 2,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 3,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 4,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 5,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "euroStandard": 7,
-      "frontAxleTo5thWheelCouplingMax": 1900,
-      "frontAxleTo5thWheelCouplingMin": 1700,
-      "frontAxleTo5thWheelMax": 1500,
-      "frontAxleTo5thWheelMin": 1200,
-      "functionCode": "A",
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxTrainDesignWeight": 500,
-      "maxTrainGbWeight": 1000,
-      "model": "FM",
-      "noOfAxles": 5,
-      "notes": "test note",
-      "ntaNumber": "123456",
-      "reasonForCreation": "new vehicle",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "speedLimiterMrk": true,
-      "statusCode": "current",
-      "tachoExemptMrk": true,
-      "trainDesignWeight": 2000,
-      "trainGbWeight": 1500,
-      "tyreUseCode": "2B",
-      "vehicleType": "hgv",
-      "vehicleClass": {
-        "code": "v",
-        "description": "heavy goods vehicle"
-      },
-      "vehicleConfiguration": "articulated"
-    }
-  ],
-  "vin": "P012301957486"
-},
-  {
-  "partialVin": "293847",
-  "primaryVrm": "CO79ERT",
-  "secondaryVrms": [
-    "CT96DRG"
-  ],
-  "techRecord": [
-    {
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
-        },
-        {
-          "axleNumber": 2,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 3,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 4,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "euroStandard": 7,
-      "frontAxleTo5thWheelCouplingMax": 1900,
-      "frontAxleTo5thWheelCouplingMin": 1700,
-      "frontAxleTo5thWheelMax": 1500,
-      "frontAxleTo5thWheelMin": 1200,
-      "functionCode": "A",
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxTrainDesignWeight": 500,
-      "maxTrainGbWeight": 1000,
-      "model": "FM",
-      "noOfAxles": 4,
-      "notes": "test note",
-      "ntaNumber": "123456",
-      "reasonForCreation": "new vehicle",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "speedLimiterMrk": true,
-      "statusCode": "current",
-      "tachoExemptMrk": true,
-      "trainDesignWeight": 2000,
-      "trainGbWeight": 1500,
-      "tyreUseCode": "2B",
-      "vehicleType": "hgv",
-      "vehicleClass": {
-        "code": "v",
-        "description": "heavy goods vehicle"
-      },
-      "vehicleConfiguration": "rigid"
-    }
-  ],
-  "vin": "P012301293847"
-},
-  {
-    "vin": "T12111111",
-    "partialVin": "111111",
-    "trailerId": "C234567",
+    "partialVin": "957486",
+    "primaryVrm": "AD35GHT",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
     "techRecord": [
       {
-        "createdAt": "2019-06-24T10:26:54.903Z",
-        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-        "make": "Isuzu",
-        "model": "F06",
-        "brakeCode": "178202",
-        "bodyType": {
-          "code": "a",
-          "description": "articulated"
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdgs",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
         },
-        "manufactureYear": 2018,
-        "firstUseDate": "2019-06-24",
-        "regnDate": "2019-06-24",
-        "ntaNumber": "123456",
-        "conversionRefNo": "7891234",
-        "reasonForCreation": "new trailer",
-        "statusCode": "current",
-        "grossKerbWeight": 2500,
-        "grossLadenWeight": 3000,
-        "maxLoadOnCoupling": 7000,
-        "tyreUseCode": "2B",
-        "roadFriendly": true,
-        "drawbarCouplingFitted": true,
-        "suspensionType": "Y",
-        "couplingType": "F",
-        "dimensions": {
-          "length": 7500,
-          "width": 2200,
-          "axleSpacing": [
-            {
-              "axles": "1-2",
-              "value": 1200
-            }
-          ]
-        },
-        "frontAxleToRearAxle": 1700,
-        "rearAxleToRearTrl": 400,
-        "couplingCenterToRearAxleMin": 1000,
-        "couplingCenterToRearAxleMax": 900,
-        "couplingCenterToRearTrlMin": 800,
-        "couplingCenterToRearTrlMax": 700,
-        "loadSensingValve": false,
-        "antilockBrakingSystem": true,
-        "noOfAxles": 6,
-        "vehicleType": "trl",
-        "vehicleClass": {
-          "code": "t",
-          "description": "trailer"
-        },
-        "vehicleConfiguration": "rigid",
-        "notes": null,
         "axles": [
           {
             "axleNumber": 1,
-            "weights": {
-              "gbWeight": 1400,
-              "designWeight": 1800
-            },
             "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
               "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
               "speedCategorySymbol": "a7",
-              "tyreCode": 1234
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
             }
           },
           {
             "axleNumber": 2,
-            "weights": {
-              "gbWeight": 1600,
-              "designWeight": 1900
-            },
             "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
               "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
               "speedCategorySymbol": "a7",
-              "tyreCode": 5678
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
             },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euroStandard": 7,
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "reasonForCreation": "new vehicle",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleType": "hgv",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar"
+      }
+    ],
+    "vin": "P012301957486"
+  },
+  {
+    "partialVin": "293847",
+    "primaryVrm": "CO79ERT",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdgsd",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "s",
+          "description": "skip loader"
+        },
+        "brakeCode": "178202",
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euroStandard": 7,
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 4,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "reasonForCreation": "new vehicle",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleType": "hgv",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "semi-car transporter"
+      }
+    ],
+    "vin": "P012301293847"
+  },
+  {
+    "partialVin": "111111",
+    "techRecord": [
+      {
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdgs",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
             "brakes": {
               "brakeActuator": 113,
               "leverLength": 125,
               "springBrakeParking": true
+            },
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
             }
           },
           {
@@ -1941,496 +2051,633 @@
               "gbWeight": 1600
             }
           }
-        ]
+        ],
+        "bodyType": {
+          "code": "s",
+          "description": "skip loader"
+        },
+        "brakeCode": "178202",
+        "conversionRefNo": "7891234",
+        "couplingCenterToRearAxleMax": 900,
+        "couplingCenterToRearAxleMin": 1000,
+        "couplingCenterToRearTrlMax": 700,
+        "couplingCenterToRearTrlMin": 800,
+        "couplingType": "F",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1200
+            }
+          ],
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "firstUseDate": "2019-06-24",
+        "frontAxleToRearAxle": 1700,
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxLoadOnCoupling": 7000,
+        "model": "F06",
+        "noOfAxles": 6,
+        "notes": "another note",
+        "ntaNumber": "123456",
+        "rearAxleToRearTrl": 400,
+        "reasonForCreation": "new trailer",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "statusCode": "current",
+        "suspensionType": "Y",
+        "tyreUseCode": "2B",
+        "vehicleType": "trl",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "drawbar"
       }
-    ]
+    ],
+    "trailerId": "C234567",
+    "vin": "T12111111"
   },
   {
-  "partialVin": "876765",
-  "techRecord": [
-    {
-      "antilockBrakingSystem": true,
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
+    "partialVin": "876765",
+    "techRecord": [
+      {
+        "antilockBrakingSystem": true,
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdgs",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
           },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
         },
-        {
-          "axleNumber": 2,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 3,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 4,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "couplingCenterToRearAxleMax": 900,
-      "couplingCenterToRearAxleMin": 1000,
-      "couplingCenterToRearTrlMax": 700,
-      "couplingCenterToRearTrlMin": 800,
-      "couplingType": "F",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "axleSpacing": [
+        "axles": [
           {
-            "axles": "1-2",
-            "value": 1200
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 113,
+              "leverLength": 125,
+              "springBrakeParking": true
+            },
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "brakes": {
+              "brakeActuator": 113,
+              "leverLength": 125,
+              "springBrakeParking": true
+            },
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "brakes": {
+              "brakeActuator": 113,
+              "leverLength": 125,
+              "springBrakeParking": true
+            },
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
           }
         ],
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "firstUseDate": "2019-06-24",
-      "frontAxleToRearAxle": 1700,
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "loadSensingValve": false,
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxLoadOnCoupling": 7000,
-      "model": "F06",
-      "noOfAxles": 4,
-      "notes": null,
-      "ntaNumber": "123456",
-      "rearAxleToRearTrl": 400,
-      "reasonForCreation": "new trailer",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "statusCode": "current",
-      "suspensionType": "Y",
-      "tyreUseCode": "2B",
-      "vehicleType": "trl",
-      "vehicleClass": {
-        "code": "t",
-        "description": "trailer"
-      },
-      "vehicleConfiguration": "rigid"
-    }
-  ],
-  "trailerId": "C456789",
-  "vin": "T12876765"
-},
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "conversionRefNo": "7891234",
+        "couplingCenterToRearAxleMax": 900,
+        "couplingCenterToRearAxleMin": 1000,
+        "couplingCenterToRearTrlMax": 700,
+        "couplingCenterToRearTrlMin": 800,
+        "couplingType": "F",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1200
+            }
+          ],
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "firstUseDate": "2019-06-24",
+        "frontAxleToRearAxle": 1700,
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxLoadOnCoupling": 7000,
+        "model": "F06",
+        "noOfAxles": 4,
+        "notes": "note",
+        "ntaNumber": "123456",
+        "rearAxleToRearTrl": 400,
+        "reasonForCreation": "new trailer",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "statusCode": "current",
+        "suspensionType": "Y",
+        "tyreUseCode": "2B",
+        "vehicleType": "trl",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "dolly"
+      }
+    ],
+    "trailerId": "C456789",
+    "vin": "T12876765"
+  },
   {
-  "partialVin": "012938",
-  "primaryVrm": "GH389BH",
-  "secondaryVrms": [
-    "CT96DRG"
-  ],
-  "techRecord": [
-    {
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
+    "partialVin": "012938",
+    "primaryVrm": "GH389BH",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdgs",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
           },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
         },
-        {
-          "axleNumber": 2,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
           },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
           }
+        ],
+        "bodyType": {
+          "code": "t",
+          "description": "tipper"
         },
-        {
-          "axleNumber": 3,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "euroStandard": 7,
-      "frontAxleTo5thWheelCouplingMax": 1900,
-      "frontAxleTo5thWheelCouplingMin": 1700,
-      "frontAxleTo5thWheelMax": 1500,
-      "frontAxleTo5thWheelMin": 1200,
-      "functionCode": "A",
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxTrainDesignWeight": 500,
-      "maxTrainGbWeight": 1000,
-      "model": "FM",
-      "noOfAxles": 3,
-      "notes": "test note",
-      "ntaNumber": "123456",
-      "reasonForCreation": "new vehicle",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "speedLimiterMrk": true,
-      "statusCode": "current",
-      "tachoExemptMrk": true,
-      "trainDesignWeight": 2000,
-      "trainGbWeight": 1500,
-      "tyreUseCode": "2B",
-      "vehicleType": "hgv",
-      "vehicleClass": {
-        "code": "v",
-        "description": "heavy goods vehicle"
-      },
-      "vehicleConfiguration": "articulated"
-    }
-  ],
-  "vin": "P012301012938"
-},
+        "brakeCode": "178202",
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euroStandard": 7,
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 3,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "reasonForCreation": "new vehicle",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleType": "hgv",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "full drawbar"
+      }
+    ],
+    "vin": "P012301012938"
+  },
   {
-  "partialVin": "000000",
-  "primaryVrm": "AA00AAA",
-  "secondaryVrms": [
-    "CT96DRG"
-  ],
-  "techRecord": [
-    {
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
+    "partialVin": "000000",
+    "primaryVrm": "AA00AAA",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdgs",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
           },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
         },
-        {
-          "axleNumber": 2,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
           },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 6,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 7,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 8,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
           }
+        ],
+        "bodyType": {
+          "code": "b",
+          "description": "box"
         },
-        {
-          "axleNumber": 3,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
+        "brakeCode": "178202",
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
         },
-        {
-          "axleNumber": 4,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
+        "drawbarCouplingFitted": true,
+        "euroStandard": 7,
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 8,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "reasonForCreation": "new vehicle",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleType": "hgv",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
         },
-        {
-          "axleNumber": 5,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 6,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 7,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 8,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "euroStandard": 7,
-      "frontAxleTo5thWheelCouplingMax": 1900,
-      "frontAxleTo5thWheelCouplingMin": 1700,
-      "frontAxleTo5thWheelMax": 1500,
-      "frontAxleTo5thWheelMin": 1200,
-      "functionCode": "A",
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxTrainDesignWeight": 500,
-      "maxTrainGbWeight": 1000,
-      "model": "FM",
-      "noOfAxles": 8,
-      "notes": "test note",
-      "ntaNumber": "123456",
-      "reasonForCreation": "new vehicle",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "speedLimiterMrk": true,
-      "statusCode": "current",
-      "tachoExemptMrk": true,
-      "trainDesignWeight": 2000,
-      "trainGbWeight": 1500,
-      "tyreUseCode": "2B",
-      "vehicleType": "hgv",
-      "vehicleClass": {
-        "code": "v",
-        "description": "heavy goods vehicle"
-      },
-      "vehicleConfiguration": "rigid"
-    }
-  ],
-  "vin": "P012301000000"
-},
+        "vehicleConfiguration": "dolly"
+      }
+    ],
+    "vin": "P012301000000"
+  },
   {
-  "partialVin": "098765",
-  "primaryVrm": "VM14MDT",
-  "secondaryVrms": [
-    "TF14PTH"
-  ],
-  "techRecord": [
-    {
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
+    "partialVin": "098765",
+    "primaryVrm": "VM14MDT",
+    "secondaryVrms": [
+      "TF14PTH"
+    ],
+    "techRecord": [
+      {
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "fdhh",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            }
           }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "euroStandard": 7,
-      "frontAxleTo5thWheelCouplingMax": 1900,
-      "frontAxleTo5thWheelCouplingMin": 1700,
-      "frontAxleTo5thWheelMax": 1500,
-      "frontAxleTo5thWheelMin": 1200,
-      "functionCode": "A",
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxTrainDesignWeight": 500,
-      "maxTrainGbWeight": 1000,
-      "model": "FM",
-      "noOfAxles": 1,
-      "notes": "test note",
-      "ntaNumber": "123456",
-      "reasonForCreation": "new vehicle",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "speedLimiterMrk": true,
-      "statusCode": "current",
-      "tachoExemptMrk": true,
-      "trainDesignWeight": 2000,
-      "trainGbWeight": 1500,
-      "tyreUseCode": "2B",
-      "vehicleType": "hgv",
-      "vehicleClass": {
-        "code": "v",
-        "description": "heavy goods vehicle"
-      },
-      "vehicleConfiguration": "articulated"
-    }
-  ],
-  "vin": "P012301098765"
-},
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakeCode": "178202",
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euroStandard": 7,
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 1,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "reasonForCreation": "new vehicle",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleType": "hgv",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "other"
+      }
+    ],
+    "vin": "P012301098765"
+  },
   {
     "vin": "T12765432",
     "partialVin": "765432",
@@ -2443,8 +2690,8 @@
         "model": "F06",
         "brakeCode": "178202",
         "bodyType": {
-          "code": "a",
-          "description": "articulated"
+          "code": "x",
+          "description": "other"
         },
         "manufactureYear": 2018,
         "firstUseDate": "2019-06-24",
@@ -2485,1493 +2732,7 @@
           "code": "t",
           "description": "trailer"
         },
-        "vehicleConfiguration": "rigid",
-        "notes": null,
-        "axles": [
-          {
-            "axleNumber": 1,
-            "weights": {
-              "gbWeight": 1400,
-              "designWeight": 1800
-            },
-            "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
-              "dataTrAxles": 345,
-              "speedCategorySymbol": "a7",
-              "tyreCode": 1234
-            }
-          },
-          {
-            "axleNumber": 2,
-            "weights": {
-              "gbWeight": 1600,
-              "designWeight": 1900
-            },
-            "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
-              "dataTrAxles": 345,
-              "speedCategorySymbol": "a7",
-              "tyreCode": 5678
-            },
-            "brakes": {
-              "brakeActuator": 113,
-              "leverLength": 125,
-              "springBrakeParking": true
-            }
-          },
-          {
-            "axleNumber": 3,
-            "weights": {
-              "gbWeight": 1600,
-              "designWeight": 1900
-            },
-            "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
-              "dataTrAxles": 345,
-              "speedCategorySymbol": "a7",
-              "tyreCode": 5679
-            },
-            "brakes": {
-              "brakeActuator": 113,
-              "leverLength": 125,
-              "springBrakeParking": true
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "vin": "T13541234",
-    "partialVin": "541234",
-    "trailerId": "Q000001",
-    "techRecord": [
-      {
-        "createdAt": "2019-06-24T10:26:54.903Z",
-        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-        "make": "Isuzu",
-        "model": "F06",
-        "brakeCode": "178202",
-        "bodyType": {
-          "code": "a",
-          "description": "articulated"
-        },
-        "manufactureYear": 2018,
-        "firstUseDate": "2019-06-24",
-        "regnDate": "2019-06-24",
-        "ntaNumber": "123456",
-        "conversionRefNo": "7891234",
-        "reasonForCreation": "new trailer",
-        "statusCode": "archived",
-        "grossKerbWeight": 2500,
-        "grossLadenWeight": 3000,
-        "maxLoadOnCoupling": 7000,
-        "tyreUseCode": "2B",
-        "roadFriendly": true,
-        "drawbarCouplingFitted": true,
-        "suspensionType": "Y",
-        "couplingType": "F",
-        "dimensions": {
-          "length": 7500,
-          "width": 2200,
-          "axleSpacing": [
-            {
-              "axles": "1-2",
-              "value": 1200
-            }
-          ]
-        },
-        "frontAxleToRearAxle": 1700,
-        "rearAxleToRearTrl": 400,
-        "couplingCenterToRearAxleMin": 1000,
-        "couplingCenterToRearAxleMax": 900,
-        "couplingCenterToRearTrlMin": 800,
-        "couplingCenterToRearTrlMax": 700,
-        "loadSensingValve": false,
-        "antilockBrakingSystem": true,
-        "noOfAxles": 2,
-        "vehicleType": "trl",
-        "notes": null,
-        "axles": [
-          {
-            "axleNumber": 1,
-            "weights": {
-              "gbWeight": 1400,
-              "designWeight": 1800
-            },
-            "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
-              "dataTrAxles": 345,
-              "speedCategorySymbol": "a7",
-              "tyreCode": 1234
-            }
-          },
-          {
-            "axleNumber": 2,
-            "weights": {
-              "gbWeight": 1600,
-              "designWeight": 1900
-            },
-            "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
-              "dataTrAxles": 345,
-              "speedCategorySymbol": "a7",
-              "tyreCode": 5678
-            },
-            "brakes": {
-              "brakeActuator": 113,
-              "leverLength": 125,
-              "springBrakeParking": true
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "vin": "P012301230123",
-    "partialVin": "230123",
-    "primaryVrm": "CT70VRL",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
-    "techRecord": [
-      {
-        "createdAt": "2019-06-24T10:26:54.903Z",
-        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-        "make": "Isuzu",
-        "model": "FM",
-        "functionCode": "A",
-        "brakeCode": "178202",
-        "bodyType": {
-          "code": "a",
-          "description": "articulated"
-        },
-        "manufactureYear": 2018,
-        "regnDate": "2019-06-24",
-        "ntaNumber": "123456",
-        "conversionRefNo": "7891234",
-        "speedLimiterMrk": true,
-        "tachoExemptMrk": true,
-        "reasonForCreation": "new vehicle",
-        "statusCode": "current",
-        "grossKerbWeight": 2500,
-        "grossLadenWeight": 3000,
-        "trainGbWeight": 1500,
-        "trainDesignWeight": 2000,
-        "maxTrainGbWeight": 1000,
-        "maxTrainDesignWeight": 500,
-        "tyreUseCode": "2B",
-        "roadFriendly": true,
-        "drawbarCouplingFitted": true,
-        "euroStandard": 7,
-        "dimensions": {
-          "length": 7500,
-          "width": 2200
-        },
-        "frontAxleTo5thWheelMin": 1200,
-        "frontAxleTo5thWheelMax": 1500,
-        "frontAxleTo5thWheelCouplingMin": 1700,
-        "frontAxleTo5thWheelCouplingMax": 1900,
-        "noOfAxles": 2,
-        "vehicleType": "hgv",
-        "notes": "test note",
-        "axles": [
-          {
-            "axleNumber": 1,
-            "weights": {
-              "gbWeight": 1400,
-              "designWeight": 1800
-            },
-            "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
-              "dataTrAxles": 345,
-              "speedCategorySymbol": "a7",
-              "tyreCode": 1234
-            }
-          },
-          {
-            "axleNumber": 2,
-            "weights": {
-              "gbWeight": 1600,
-              "designWeight": 1900
-            },
-            "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
-              "dataTrAxles": 345,
-              "speedCategorySymbol": "a7",
-              "tyreCode": 5678
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "vin": "T12341234",
-    "partialVin": "341234",
-    "trailerId": "C000001",
-    "techRecord": [
-      {
-        "createdAt": "2019-06-24T10:26:54.903Z",
-        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-        "make": "Isuzu",
-        "model": "F06",
-        "brakeCode": "178202",
-        "bodyType": {
-          "code": "a",
-          "description": "articulated"
-        },
-        "manufactureYear": 2018,
-        "firstUseDate": "2019-06-24",
-        "regnDate": "2019-06-24",
-        "ntaNumber": "123456",
-        "conversionRefNo": "7891234",
-        "reasonForCreation": "new trailer",
-        "statusCode": "current",
-        "grossKerbWeight": 2500,
-        "grossLadenWeight": 3000,
-        "maxLoadOnCoupling": 7000,
-        "tyreUseCode": "2B",
-        "roadFriendly": true,
-        "drawbarCouplingFitted": true,
-        "suspensionType": "Y",
-        "couplingType": "F",
-        "dimensions": {
-          "length": 7500,
-          "width": 2200,
-          "axleSpacing": [
-            {
-              "axles": "1-2",
-              "value": 1200
-            }
-          ]
-        },
-        "frontAxleToRearAxle": 1700,
-        "rearAxleToRearTrl": 400,
-        "couplingCenterToRearAxleMin": 1000,
-        "couplingCenterToRearAxleMax": 900,
-        "couplingCenterToRearTrlMin": 800,
-        "couplingCenterToRearTrlMax": 700,
-        "loadSensingValve": false,
-        "antilockBrakingSystem": true,
-        "noOfAxles": 2,
-        "vehicleType": "trl",
-        "notes": null,
-        "axles": [
-          {
-            "axleNumber": 1,
-            "weights": {
-              "gbWeight": 1400,
-              "designWeight": 1800
-            },
-            "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
-              "dataTrAxles": 345,
-              "speedCategorySymbol": "a7",
-              "tyreCode": 1234
-            }
-          },
-          {
-            "axleNumber": 2,
-            "weights": {
-              "gbWeight": 1600,
-              "designWeight": 1900
-            },
-            "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
-              "dataTrAxles": 345,
-              "speedCategorySymbol": "a7",
-              "tyreCode": 5678
-            },
-            "brakes": {
-              "brakeActuator": 113,
-              "leverLength": 125,
-              "springBrakeParking": true
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "vin": "T12341237",
-    "partialVin": "341237",
-    "trailerId": "C000002",
-    "techRecord": [
-      {
-        "createdAt": "2019-06-24T10:26:54.903Z",
-        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-        "make": "Isuzu",
-        "model": "F06",
-        "brakeCode": "178202",
-        "bodyType": {
-          "code": "a",
-          "description": "articulated"
-        },
-        "manufactureYear": 2018,
-        "firstUseDate": "2019-06-24",
-        "regnDate": "2019-06-24",
-        "ntaNumber": "123456",
-        "conversionRefNo": "7891234",
-        "reasonForCreation": "new trailer",
-        "statusCode": "current",
-        "grossKerbWeight": 2500,
-        "grossLadenWeight": 3000,
-        "maxLoadOnCoupling": 7000,
-        "tyreUseCode": "2B",
-        "roadFriendly": true,
-        "drawbarCouplingFitted": true,
-        "suspensionType": "Y",
-        "couplingType": "F",
-        "dimensions": {
-          "length": 7500,
-          "width": 2200,
-          "axleSpacing": [
-            {
-              "axles": "1-2",
-              "value": 1200
-            }
-          ]
-        },
-        "frontAxleToRearAxle": 1700,
-        "rearAxleToRearTrl": 400,
-        "couplingCenterToRearAxleMin": 1000,
-        "couplingCenterToRearAxleMax": 900,
-        "couplingCenterToRearTrlMin": 800,
-        "couplingCenterToRearTrlMax": 700,
-        "loadSensingValve": false,
-        "antilockBrakingSystem": true,
-        "noOfAxles": 1,
-        "vehicleType": "trl",
-        "notes": "another note",
-        "axles": [
-          {
-            "axleNumber": 1,
-            "weights": {
-              "gbWeight": 1600,
-              "designWeight": 1900
-            },
-            "tyres": {
-              "tyreSize": "9.23648E+11",
-              "plyRating": "AB",
-              "fitmentCode": "single",
-              "dataTrAxles": 345,
-              "speedCategorySymbol": "a7",
-              "tyreCode": 5678
-            },
-            "brakes": {
-              "brakeActuator": 113,
-              "leverLength": 125,
-              "springBrakeParking": true
-            }
-          }
-        ]
-      }
-    ]
-  },
-{
-  "partialVin": "768594",
-  "techRecord": [
-    {
-      "antilockBrakingSystem": true,
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
-        },
-        {
-          "axleNumber": 2,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 3,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 4,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 5,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "couplingCenterToRearAxleMax": 900,
-      "couplingCenterToRearAxleMin": 1000,
-      "couplingCenterToRearTrlMax": 700,
-      "couplingCenterToRearTrlMin": 800,
-      "couplingType": "F",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "axleSpacing": [
-          {
-            "axles": "1-2",
-            "value": 1200
-          }
-        ],
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "firstUseDate": "2019-06-24",
-      "frontAxleToRearAxle": 1700,
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "loadSensingValve": false,
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxLoadOnCoupling": 7000,
-      "model": "F06",
-      "noOfAxles": 5,
-      "notes": null,
-      "ntaNumber": "123456",
-      "rearAxleToRearTrl": 400,
-      "reasonForCreation": "new trailer",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "statusCode": "current",
-      "suspensionType": "Y",
-      "tyreUseCode": "2B",
-      "vehicleType": "trl",
-      "vehicleClass": {
-        "code": "t",
-        "description": "trailer"
-      },
-      "vehicleConfiguration": "rigid"
-    }
-  ],
-  "trailerId": "0285678",
-  "vin": "T12768594"
-},
-  {
-  "partialVin": "957486",
-  "primaryVrm": "AD35GHT",
-  "secondaryVrms": [
-    "CT96DRG"
-  ],
-  "techRecord": [
-    {
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
-        },
-        {
-          "axleNumber": 2,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 3,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 4,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 5,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "euroStandard": 7,
-      "frontAxleTo5thWheelCouplingMax": 1900,
-      "frontAxleTo5thWheelCouplingMin": 1700,
-      "frontAxleTo5thWheelMax": 1500,
-      "frontAxleTo5thWheelMin": 1200,
-      "functionCode": "A",
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxTrainDesignWeight": 500,
-      "maxTrainGbWeight": 1000,
-      "model": "FM",
-      "noOfAxles": 5,
-      "notes": "test note",
-      "ntaNumber": "123456",
-      "reasonForCreation": "new vehicle",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "speedLimiterMrk": true,
-      "statusCode": "current",
-      "tachoExemptMrk": true,
-      "trainDesignWeight": 2000,
-      "trainGbWeight": 1500,
-      "tyreUseCode": "2B",
-      "vehicleType": "hgv"
-    }
-  ],
-  "vin": "P012301957486"
-},
-  {
-  "partialVin": "293847",
-  "primaryVrm": "CO79ERT",
-  "secondaryVrms": [
-    "CT96DRG"
-  ],
-  "techRecord": [
-    {
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
-        },
-        {
-          "axleNumber": 2,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 3,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 4,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "euroStandard": 7,
-      "frontAxleTo5thWheelCouplingMax": 1900,
-      "frontAxleTo5thWheelCouplingMin": 1700,
-      "frontAxleTo5thWheelMax": 1500,
-      "frontAxleTo5thWheelMin": 1200,
-      "functionCode": "A",
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxTrainDesignWeight": 500,
-      "maxTrainGbWeight": 1000,
-      "model": "FM",
-      "noOfAxles": 4,
-      "notes": "test note",
-      "ntaNumber": "123456",
-      "reasonForCreation": "new vehicle",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "speedLimiterMrk": true,
-      "statusCode": "current",
-      "tachoExemptMrk": true,
-      "trainDesignWeight": 2000,
-      "trainGbWeight": 1500,
-      "tyreUseCode": "2B",
-      "vehicleType": "hgv"
-    }
-  ],
-  "vin": "P012301293847"
-},
-  {
-  "partialVin": "111111",
-  "techRecord": [
-    {
-      "antilockBrakingSystem": true,
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
-        },
-        {
-          "axleNumber": 2,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 3,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 4,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 5,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 6,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "couplingCenterToRearAxleMax": 900,
-      "couplingCenterToRearAxleMin": 1000,
-      "couplingCenterToRearTrlMax": 700,
-      "couplingCenterToRearTrlMin": 800,
-      "couplingType": "F",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "axleSpacing": [
-          {
-            "axles": "1-2",
-            "value": 1200
-          }
-        ],
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "firstUseDate": "2019-06-24",
-      "frontAxleToRearAxle": 1700,
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "loadSensingValve": false,
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxLoadOnCoupling": 7000,
-      "model": "F06",
-      "noOfAxles": 6,
-      "notes": null,
-      "ntaNumber": "123456",
-      "rearAxleToRearTrl": 400,
-      "reasonForCreation": "new trailer",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "statusCode": "current",
-      "suspensionType": "Y",
-      "tyreUseCode": "2B",
-      "vehicleType": "trl"
-    }
-  ],
-  "trailerId": "C234567",
-  "vin": "T12111111"
-},
-  {
-  "partialVin": "876765",
-  "techRecord": [
-    {
-      "antilockBrakingSystem": true,
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
-        },
-        {
-          "axleNumber": 2,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 3,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 4,
-          "brakes": {
-            "brakeActuator": 113,
-            "leverLength": 125,
-            "springBrakeParking": true
-          },
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "couplingCenterToRearAxleMax": 900,
-      "couplingCenterToRearAxleMin": 1000,
-      "couplingCenterToRearTrlMax": 700,
-      "couplingCenterToRearTrlMin": 800,
-      "couplingType": "F",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "axleSpacing": [
-          {
-            "axles": "1-2",
-            "value": 1200
-          }
-        ],
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "firstUseDate": "2019-06-24",
-      "frontAxleToRearAxle": 1700,
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "loadSensingValve": false,
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxLoadOnCoupling": 7000,
-      "model": "F06",
-      "noOfAxles": 4,
-      "notes": null,
-      "ntaNumber": "123456",
-      "rearAxleToRearTrl": 400,
-      "reasonForCreation": "new trailer",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "statusCode": "current",
-      "suspensionType": "Y",
-      "tyreUseCode": "2B",
-      "vehicleType": "trl"
-    }
-  ],
-  "trailerId": "C456789",
-  "vin": "T12876765"
-},
-  {
-  "partialVin": "012938",
-  "primaryVrm": "GH389BH",
-  "secondaryVrms": [
-    "CT96DRG"
-  ],
-  "techRecord": [
-    {
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
-        },
-        {
-          "axleNumber": 2,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 3,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "euroStandard": 7,
-      "frontAxleTo5thWheelCouplingMax": 1900,
-      "frontAxleTo5thWheelCouplingMin": 1700,
-      "frontAxleTo5thWheelMax": 1500,
-      "frontAxleTo5thWheelMin": 1200,
-      "functionCode": "A",
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxTrainDesignWeight": 500,
-      "maxTrainGbWeight": 1000,
-      "model": "FM",
-      "noOfAxles": 3,
-      "notes": "test note",
-      "ntaNumber": "123456",
-      "reasonForCreation": "new vehicle",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "speedLimiterMrk": true,
-      "statusCode": "current",
-      "tachoExemptMrk": true,
-      "trainDesignWeight": 2000,
-      "trainGbWeight": 1500,
-      "tyreUseCode": "2B",
-      "vehicleType": "hgv"
-    }
-  ],
-  "vin": "P012301012938"
-},
-  {
-  "partialVin": "000000",
-  "primaryVrm": "AA00AAA",
-  "secondaryVrms": [
-    "CT96DRG"
-  ],
-  "techRecord": [
-    {
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1800,
-            "gbWeight": 1400
-          }
-        },
-        {
-          "axleNumber": 2,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 3,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 4,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 5,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 6,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 7,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        },
-        {
-          "axleNumber": 8,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 5678,
-            "tyreSize": "9.23648E+11"
-          },
-          "weights": {
-            "designWeight": 1900,
-            "gbWeight": 1600
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "euroStandard": 7,
-      "frontAxleTo5thWheelCouplingMax": 1900,
-      "frontAxleTo5thWheelCouplingMin": 1700,
-      "frontAxleTo5thWheelMax": 1500,
-      "frontAxleTo5thWheelMin": 1200,
-      "functionCode": "A",
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxTrainDesignWeight": 500,
-      "maxTrainGbWeight": 1000,
-      "model": "FM",
-      "noOfAxles": 8,
-      "notes": "test note",
-      "ntaNumber": "123456",
-      "reasonForCreation": "new vehicle",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "speedLimiterMrk": true,
-      "statusCode": "current",
-      "tachoExemptMrk": true,
-      "trainDesignWeight": 2000,
-      "trainGbWeight": 1500,
-      "tyreUseCode": "2B",
-      "vehicleType": "hgv"
-    }
-  ],
-  "vin": "P012301000000"
-},
-  {
-  "partialVin": "098765",
-  "primaryVrm": "VM14MDT",
-  "secondaryVrms": [
-    "TF14PTH"
-  ],
-  "techRecord": [
-    {
-      "axles": [
-        {
-          "axleNumber": 1,
-          "tyres": {
-            "dataTrAxles": 345,
-            "fitmentCode": "single",
-            "plyRating": "AB",
-            "speedCategorySymbol": "a7",
-            "tyreCode": 1234,
-            "tyreSize": "9.23648E+11"
-          }
-        }
-      ],
-      "bodyType": {
-        "code": "a",
-        "description": "articulated"
-      },
-      "brakeCode": "178202",
-      "conversionRefNo": "7891234",
-      "createdAt": "2019-06-24T10:26:54.903Z",
-      "dimensions": {
-        "length": 7500,
-        "width": 2200
-      },
-      "drawbarCouplingFitted": true,
-      "euroStandard": 7,
-      "frontAxleTo5thWheelCouplingMax": 1900,
-      "frontAxleTo5thWheelCouplingMin": 1700,
-      "frontAxleTo5thWheelMax": 1500,
-      "frontAxleTo5thWheelMin": 1200,
-      "functionCode": "A",
-      "grossKerbWeight": 2500,
-      "grossLadenWeight": 3000,
-      "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-      "make": "Isuzu",
-      "manufactureYear": 2018,
-      "maxTrainDesignWeight": 500,
-      "maxTrainGbWeight": 1000,
-      "model": "FM",
-      "noOfAxles": 1,
-      "notes": "test note",
-      "ntaNumber": "123456",
-      "reasonForCreation": "new vehicle",
-      "regnDate": "2019-06-24",
-      "roadFriendly": true,
-      "speedLimiterMrk": true,
-      "statusCode": "current",
-      "tachoExemptMrk": true,
-      "trainDesignWeight": 2000,
-      "trainGbWeight": 1500,
-      "tyreUseCode": "2B",
-      "vehicleType": "hgv"
-    }
-  ],
-  "vin": "P012301098765"
-},
-  {
-    "vin": "T12765432",
-    "partialVin": "765432",
-    "trailerId": "D000001",
-    "techRecord": [
-      {
-        "createdAt": "2019-06-24T10:26:54.903Z",
-        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-        "make": "Isuzu",
-        "model": "F06",
-        "brakeCode": "178202",
-        "bodyType": {
-          "code": "a",
-          "description": "articulated"
-        },
-        "manufactureYear": 2018,
-        "firstUseDate": "2019-06-24",
-        "regnDate": "2019-06-24",
-        "ntaNumber": "123456",
-        "conversionRefNo": "7891234",
-        "reasonForCreation": "new trailer",
-        "statusCode": "current",
-        "grossKerbWeight": 2500,
-        "grossLadenWeight": 3000,
-        "maxLoadOnCoupling": 7000,
-        "tyreUseCode": "2B",
-        "roadFriendly": true,
-        "drawbarCouplingFitted": true,
-        "suspensionType": "Y",
-        "couplingType": "F",
-        "dimensions": {
-          "length": 7500,
-          "width": 2200,
-          "axleSpacing": [
-            {
-              "axles": "1-2",
-              "value": 1200
-            }
-          ]
-        },
-        "frontAxleToRearAxle": 1700,
-        "rearAxleToRearTrl": 400,
-        "couplingCenterToRearAxleMin": 1000,
-        "couplingCenterToRearAxleMax": 900,
-        "couplingCenterToRearTrlMin": 800,
-        "couplingCenterToRearTrlMax": 700,
-        "loadSensingValve": false,
-        "antilockBrakingSystem": true,
-        "noOfAxles": 3,
-        "vehicleType": "trl",
+        "vehicleConfiguration": "articulated",
         "notes": null,
         "axles": [
           {
