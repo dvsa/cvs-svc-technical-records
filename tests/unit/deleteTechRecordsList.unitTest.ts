@@ -1,7 +1,9 @@
-import TechRecordsDAOMock from "../models/TechRecordsDAOMock";
 import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
+import techRecords from "../resources/technical-records.json";
 import {expect} from "chai";
+
+const recordIds = techRecords.map((record) => [record.partialVin, record.vin]);
 
 describe("deleteTechRecordsList", () => {
   context("database call deletes items", () => {
@@ -16,7 +18,7 @@ describe("deleteTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      return techRecordsService.deleteTechRecordsList(TechRecordsDAOMock.techRecordsMock)
+      return techRecordsService.deleteTechRecordsList(recordIds)
         .then((data: any) => {
           expect(data).to.equal(undefined);
         });
@@ -33,7 +35,7 @@ describe("deleteTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      return techRecordsService.deleteTechRecordsList(TechRecordsDAOMock.techRecordsMock)
+      return techRecordsService.deleteTechRecordsList(recordIds)
         .then((data: any) => {
           expect(data.length).to.equal(3);
         });
@@ -52,7 +54,7 @@ describe("deleteTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      return techRecordsService.deleteTechRecordsList(TechRecordsDAOMock.techRecordsMock)
+      return techRecordsService.deleteTechRecordsList(recordIds)
         .catch((errorResponse: any) => {
           expect(errorResponse).to.be.instanceOf(HTTPError);
           expect(errorResponse.statusCode).to.be.equal(500);
