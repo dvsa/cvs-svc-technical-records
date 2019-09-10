@@ -16,7 +16,8 @@ describe("techRecords", () => {
         const responseObj = Object.assign({}, dbObj);
 
         // Adding primary and secondary VRMs in the same array
-        const vrms = [{ vrm: responseObj.primaryVrm, isPrimary: true }];
+        const vrms: any = [{ isPrimary: true }];
+        if (responseObj.primaryVrm) { vrms[0].vrm = responseObj.primaryVrm; }
 
         Object.assign(responseObj, {
           vrms
@@ -241,13 +242,13 @@ describe("techRecords", () => {
         context("and no statusCode is provided", () => {
           context("and the tech record for that Trailer ID has statusCode 'current'", () => {
             it("should return the tech record for that Trailer ID with default status 'current'", (done) => {
-              request.get("vehicles/09876543/tech-records")
+              request.get("vehicles/C000001/tech-records")
                 .end((err, res: any) => {
                   if (err) { expect.fail(err); }
                   expect(res.statusCode).to.equal(200);
                   expect(res.headers["access-control-allow-origin"]).to.equal("*");
                   expect(res.headers["access-control-allow-credentials"]).to.equal("true");
-                  expect(res.body).is.eql(convertToResponse(mockData[0]));
+                  expect(res.body).is.eql(convertToResponse(mockData[10]));
                   done();
                 });
             });
@@ -271,13 +272,13 @@ describe("techRecords", () => {
         context("and statusCode is provided", () => {
           context("and the tech record for that Trailer ID has the statusCode provided", () => {
             it("should return the tech record for that Trailer ID with statusCode 'archived'", (done) => {
-              request.get("vehicles/A456789/tech-records?status=archived")
+              request.get("vehicles/Q000001/tech-records?status=archived")
                 .end((err, res: any) => {
                   if (err) { expect.fail(err); }
                   expect(res.statusCode).to.equal(200);
                   expect(res.headers["access-control-allow-origin"]).to.equal("*");
                   expect(res.headers["access-control-allow-credentials"]).to.equal("true");
-                  expect(convertToResponse(mockData[2])).to.eql(res.body);
+                  expect(convertToResponse(mockData[21])).to.eql(res.body);
                   done();
                 });
             });
@@ -323,7 +324,6 @@ describe("techRecords", () => {
     done();
   });
 });
-
 
 const populateDatabase = () => {
     const techRecordsDAO = new TechRecordsDAO();
