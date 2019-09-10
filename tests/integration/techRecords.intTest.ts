@@ -5,13 +5,15 @@ const url = "http://localhost:3005/";
 const request = supertest(url);
 import TechRecordsService from "../../src/services/TechRecordsService";
 import TechRecordsDAO from "../../src/models/TechRecordsDAO";
+import * as fs from "fs";
+import * as path from "path";
 import mockData from "../resources/technical-records.json";
 
 describe("techRecords", () => {
   describe("getTechRecords", () => {
     context("when database is populated", () => {
-      let techRecordsService: any = null;
-      let techRecordsDAO = null;
+      const techRecordsService: any = null;
+      const techRecordsDAO = null;
       const convertToResponse = (dbObj: any) => { // Needed to convert an object from the database to a response object
         const responseObj = Object.assign({}, dbObj);
 
@@ -32,19 +34,7 @@ describe("techRecords", () => {
 
       // Populating the database
       beforeAll((done) => {
-        techRecordsDAO = new TechRecordsDAO();
-        techRecordsService = new TechRecordsService(techRecordsDAO);
-        const mockBuffer = mockData.slice();
-
-        const batches = [];
-        while (mockBuffer.length > 0) {
-          batches.push(mockBuffer.splice(0, 25));
-        }
-
-        batches.forEach((batch) => {
-          techRecordsService.insertTechRecordsList(batch);
-        });
-
+        populateDatabase();
         done();
       });
 
@@ -310,38 +300,55 @@ describe("techRecords", () => {
           });
         });
       });
-
-      afterAll((done: any) => {
-        const mockBuffer = mockData;
-
-        const batches = [];
-        while (mockBuffer.length > 0) {
-          batches.push(mockBuffer.splice(0, 25));
-        }
-
-        batches.forEach((batch) => {
-          techRecordsService.deleteTechRecordsList(
-            batch.map((mock: any) => {
-              return [mock.partialVin, mock.vin];
-            })
-          );
-        });
-
-        done();
-      });
     });
 
     context("when database is empty,", () => {
-      it("should return error code 404", (done) => {
-        request.get("techRecords").expect(404, done);
-      });
+        beforeAll(() => {
+            emptyDatabase();
+        });
+
+        it("should return error code 404", (done) => {
+            request.get("techRecords").expect(404, done);
+        });
+
     });
   });
-
-  beforeEach((done) => {
-    setTimeout(done, 500);
-  });
-  afterEach((done) => {
-    setTimeout(done, 500);
-  });
+  afterAll(() => {
+        populateDatabase();
+    });
 });
+
+
+const populateDatabase = () => {
+    const techRecordsDAO = new TechRecordsDAO();
+    const techRecordsService = new TechRecordsService(techRecordsDAO);
+    // tslint:disable-next-line:no-shadowed-variable
+    const mockData = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../resources/technical-records.json"), "utf8"));
+    const batches = [];
+    while (mockData.length > 0) {
+        batches.push(mockData.splice(0, 25));
+    }
+
+    batches.forEach((batch: any) => {
+        techRecordsService.insertTechRecordsList(batch);
+    });
+};
+
+const emptyDatabase = () => {
+    const techRecordsDAO = new TechRecordsDAO();
+    const techRecordsService = new TechRecordsService(techRecordsDAO);
+    const mockBuffer = mockData;
+
+    const batches = [];
+    while (mockBuffer.length > 0) {
+        batches.push(mockBuffer.splice(0, 25));
+    }
+
+    batches.forEach((batch) => {
+        techRecordsService.deleteTechRecordsList(
+            batch.map((mock) => {
+                return [mock.partialVin, mock.vin];
+            })
+        );
+    });
+};
