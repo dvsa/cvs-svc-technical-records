@@ -21,6 +21,7 @@ describe("getTechRecords", () => {
   context("when the path is valid", () => {
     context("and the vehicle was found", () => {
       it("should return 200", () => {
+
         return LambdaTester(GetTechRecordsFunction)
           .event({
             path: "/vehicles/XMGDE02FS0H012345/tech-records",
