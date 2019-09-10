@@ -12,8 +12,6 @@ import mockData from "../resources/technical-records.json";
 describe("techRecords", () => {
   describe("getTechRecords", () => {
     context("when database is populated", () => {
-      const techRecordsService: any = null;
-      const techRecordsDAO = null;
       const convertToResponse = (dbObj: any) => { // Needed to convert an object from the database to a response object
         const responseObj = Object.assign({}, dbObj);
 
