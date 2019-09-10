@@ -301,8 +301,9 @@ describe("techRecords", () => {
     });
 
     context("when database is empty,", () => {
-        beforeAll(() => {
+        beforeAll((done) => {
             emptyDatabase();
+            done();
         });
 
         it("should return error code 404", (done) => {
@@ -311,9 +312,16 @@ describe("techRecords", () => {
 
     });
   });
-  afterAll(() => {
-        populateDatabase();
-    });
+  beforeEach((done) => {
+    setTimeout(done, 500);
+  });
+  afterEach((done) => {
+    setTimeout(done, 500);
+  });
+  afterAll((done) => {
+    populateDatabase();
+    done();
+  });
 });
 
 
