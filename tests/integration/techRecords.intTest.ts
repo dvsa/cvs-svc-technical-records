@@ -3,10 +3,7 @@ import supertest from "supertest";
 import {expect} from "chai";
 const url = "http://localhost:3005/";
 const request = supertest(url);
-import TechRecordsService from "../../src/services/TechRecordsService";
-import TechRecordsDAO from "../../src/models/TechRecordsDAO";
-import * as fs from "fs";
-import * as path from "path";
+import {populateDatabase, emptyDatabase} from "../util/dbOperations";
 import mockData from "../resources/technical-records.json";
 
 describe("techRecords", () => {
@@ -311,44 +308,18 @@ describe("techRecords", () => {
             request.get("techRecords").expect(404, done);
         });
 
+        afterAll(async (done) => {
+            await populateDatabase();
+            done();
+        });
     });
   });
-  afterAll(async (done) => {
-    await populateDatabase();
-    done();
+  beforeEach(() => {
+      jest.setTimeout(5000);
+  });
+  afterEach(() => {
+      jest.setTimeout(5000);
   });
 });
 
-const populateDatabase = () => {
-    const techRecordsDAO = new TechRecordsDAO();
-    const techRecordsService = new TechRecordsService(techRecordsDAO);
-    // tslint:disable-next-line:no-shadowed-variable
-    const mockData = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../resources/technical-records.json"), "utf8"));
-    const batches = [];
-    while (mockData.length > 0) {
-        batches.push(mockData.splice(0, 25));
-    }
 
-    return batches.forEach(async (batch: any) => {
-        return await techRecordsService.insertTechRecordsList(batch);
-    });
-};
-
-const emptyDatabase = () => {
-    const techRecordsDAO = new TechRecordsDAO();
-    const techRecordsService = new TechRecordsService(techRecordsDAO);
-    const mockBuffer = mockData;
-
-    const batches = [];
-    while (mockBuffer.length > 0) {
-        batches.push(mockBuffer.splice(0, 25));
-    }
-
-    return batches.forEach(async (batch) => {
-        return await techRecordsService.deleteTechRecordsList(
-            batch.map((mock) => {
-                return [mock.partialVin, mock.vin];
-            })
-        );
-    });
-};
