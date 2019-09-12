@@ -1,8 +1,12 @@
 import {expect} from "chai";
 import LambdaTester from "lambda-tester";
 import {getTechRecords as GetTechRecordsFunction} from "../../src/functions/getTechRecords";
+import {populateDatabase} from "../util/dbOperations";
 
 describe("getTechRecords", () => {
+  beforeAll(async () => {
+    await populateDatabase();
+  });
   context("when the path is invalid", () => {
     it("should return 400", () => {
       // Event has a path, but the path does not contain a Search Term
