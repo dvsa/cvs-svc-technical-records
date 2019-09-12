@@ -32,8 +32,8 @@ describe("techRecords", () => {
       };
 
       // Populating the database
-      beforeAll((done) => {
-        populateDatabase();
+      beforeAll(async (done) => {
+        await populateDatabase();
         done();
       });
 
@@ -302,8 +302,8 @@ describe("techRecords", () => {
     });
 
     context("when database is empty,", () => {
-        beforeAll((done) => {
-            emptyDatabase();
+        beforeAll(async (done) => {
+            await emptyDatabase();
             done();
         });
 
@@ -313,14 +313,8 @@ describe("techRecords", () => {
 
     });
   });
-  beforeEach((done) => {
-    setTimeout(done, 500);
-  });
-  afterEach((done) => {
-    setTimeout(done, 500);
-  });
-  afterAll((done) => {
-    populateDatabase();
+  afterAll(async (done) => {
+    await populateDatabase();
     done();
   });
 });
@@ -335,8 +329,8 @@ const populateDatabase = () => {
         batches.push(mockData.splice(0, 25));
     }
 
-    batches.forEach((batch: any) => {
-        techRecordsService.insertTechRecordsList(batch);
+    return batches.forEach(async (batch: any) => {
+        return await techRecordsService.insertTechRecordsList(batch);
     });
 };
 
@@ -350,8 +344,8 @@ const emptyDatabase = () => {
         batches.push(mockBuffer.splice(0, 25));
     }
 
-    batches.forEach((batch) => {
-        techRecordsService.deleteTechRecordsList(
+    return batches.forEach(async (batch) => {
+        return await techRecordsService.deleteTechRecordsList(
             batch.map((mock) => {
                 return [mock.partialVin, mock.vin];
             })
