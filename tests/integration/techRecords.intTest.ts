@@ -313,11 +313,11 @@ describe("techRecords", () => {
 
     });
   });
-  beforeEach(() => {
-    jest.setTimeout(500);
+  beforeEach((done) => {
+    setTimeout(done, 500);
   });
-  afterEach(() => {
-    jest.setTimeout(500);
+  afterEach((done) => {
+    setTimeout(done, 500);
   });
   afterAll((done) => {
     populateDatabase();
