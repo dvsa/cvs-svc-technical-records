@@ -4,8 +4,9 @@ import {getTechRecords as GetTechRecordsFunction} from "../../src/functions/getT
 import {populateDatabase} from "../util/dbOperations";
 
 describe("getTechRecords", () => {
-  beforeAll(async () => {
+  beforeAll(async (done) => {
     await populateDatabase();
+    done();
   });
   context("when the path is invalid", () => {
     it("should return 400", () => {
