@@ -31,7 +31,7 @@ describe("techRecords", () => {
       // Populating the database
       beforeAll(async (done) => {
         await populateDatabase();
-        done();
+        setTimeout(done, 1000);
       });
 
       context("and when a search by VRM is done", () => {
@@ -299,19 +299,19 @@ describe("techRecords", () => {
     });
 
     context("when database is empty,", () => {
-        beforeAll(async (done) => {
-            await emptyDatabase();
-            done();
-        });
+      beforeAll(async (done) => {
+        await emptyDatabase();
+        setTimeout(done, 1000);
+      });
 
-        it("should return error code 404", (done) => {
-            request.get("techRecords").expect(404, done);
-        });
+      it("should return error code 404", (done) => {
+          request.get("techRecords").expect(404, done);
+      });
 
-        afterAll(async (done) => {
-            await populateDatabase();
-            done();
-        });
+      afterAll(async (done) => {
+        await populateDatabase();
+        setTimeout(done, 1000);
+      });
     });
   });
   beforeEach(() => {
