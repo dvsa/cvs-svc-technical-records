@@ -7,7 +7,9 @@ import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
 
 describe("getTechRecordsList", () => {
-
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
   context("when db call returns data", () => {
     it("should return a populated response", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
