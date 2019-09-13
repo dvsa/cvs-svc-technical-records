@@ -7,7 +7,7 @@ describe("getTechRecords", () => {
   beforeAll(async (done) => {
     jest.restoreAllMocks();
     await populateDatabase();
-    done();
+    setTimeout(done(), 1000);
   });
   context("when the path is invalid", () => {
     it("should return 400", () => {
