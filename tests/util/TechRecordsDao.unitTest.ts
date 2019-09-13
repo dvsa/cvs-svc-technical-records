@@ -1,10 +1,16 @@
 import TechRecordsDao from "../../src/models/TechRecordsDAO";
+import AWS from "aws-sdk";
 import chai from "chai";
+import sinon, {SinonStub} from "sinon";
+const sandbox = sinon.createSandbox();
 const expect = chai.expect;
 
 describe("TechRecordsDAO", () => {
   context("getBySearchTerm", () => {
     context("builds correct request", () => {
+      beforeEach(() => {jest.resetModules(); });
+      afterEach(() => {sandbox.restore(); });
+
       it("for Trailer ID (letter and 6 numbers)", async () => {
         const expectedCall = {
           TableName: "cvs-local-technical-records",
@@ -13,15 +19,15 @@ describe("TechRecordsDAO", () => {
             "#trailerId": "trailerId"
           },
           ExpressionAttributeValues: {
-            ":trailerId": { S: "a123456" }
+            ":trailerId": "Q000001"
           },
           IndexName: "TrailerIdIndex"
         };
-
+        const stub = mockDocumentClientWithReturn("query", []);
         const techRecordsDao = new TechRecordsDao();
-        const daoReq = await techRecordsDao.getBySearchTerm("a123456");
+        await techRecordsDao.getBySearchTerm("Q000001");
 
-        expect(getRequestBody(daoReq)).to.deep.equal(JSON.stringify(expectedCall));
+        expect(getRequestItemsBodyFromStub(stub)).to.deep.equal(expectedCall);
       });
 
       it("for Trailer ID (8 numbers)", async () => {
@@ -32,15 +38,16 @@ describe("TechRecordsDAO", () => {
             "#trailerId": "trailerId"
           },
           ExpressionAttributeValues: {
-            ":trailerId": { S: "12345678" }
+            ":trailerId": "12345678"
           },
           IndexName: "TrailerIdIndex"
         };
 
+        const stub = mockDocumentClientWithReturn("query", []);
         const techRecordsDao = new TechRecordsDao();
-        const daoReq = await techRecordsDao.getBySearchTerm("12345678");
+        await techRecordsDao.getBySearchTerm("12345678");
 
-        expect(getRequestBody(daoReq)).to.deep.equal(JSON.stringify(expectedCall));
+        expect(getRequestItemsBodyFromStub(stub)).to.deep.equal(expectedCall);
       });
 
       it("for Full VIN (>9 chars)", async () => {
@@ -52,15 +59,15 @@ describe("TechRecordsDAO", () => {
             "#partialVin": "partialVin"
           },
           ExpressionAttributeValues: {
-            ":vin": { S: "1234567890" },
-            ":partialVin": { S: "567890" }
+            ":vin": "1234567890",
+            ":partialVin": "567890"
           }
         };
-
+        const stub = mockDocumentClientWithReturn("query", []);
         const techRecordsDao = new TechRecordsDao();
-        const daoReq = await techRecordsDao.getBySearchTerm("1234567890");
+        await techRecordsDao.getBySearchTerm("1234567890");
 
-        expect(getRequestBody(daoReq)).to.deep.equal(JSON.stringify(expectedCall));
+        expect(getRequestItemsBodyFromStub(stub)).to.deep.equal(expectedCall);
       });
 
       it("for Partial VIN (6 digits)", async () => {
@@ -71,14 +78,15 @@ describe("TechRecordsDAO", () => {
             "#partialVin": "partialVin"
           },
           ExpressionAttributeValues: {
-            ":partialVin": { S: "123456" }
+            ":partialVin": "123456"
           }
         };
 
+        const stub = mockDocumentClientWithReturn("query", []);
         const techRecordsDao = new TechRecordsDao();
-        const daoReq = await techRecordsDao.getBySearchTerm("123456");
+        await techRecordsDao.getBySearchTerm("123456");
 
-        expect(getRequestBody(daoReq)).to.deep.equal(JSON.stringify(expectedCall));
+        expect(getRequestItemsBodyFromStub(stub)).to.deep.equal(expectedCall);
       });
 
       it("for VRM (8 chars, not matching Trailer Pattern)", async () => {
@@ -89,15 +97,16 @@ describe("TechRecordsDAO", () => {
             "#vrm": "primaryVrm"
           },
           ExpressionAttributeValues: {
-            ":vrm": { S: "1234567A" }
+            ":vrm": "1234567A"
           },
           IndexName: "VRMIndex"
         };
 
+        const stub = mockDocumentClientWithReturn("query", []);
         const techRecordsDao = new TechRecordsDao();
-        const daoReq = await techRecordsDao.getBySearchTerm("1234567A");
+        await techRecordsDao.getBySearchTerm("1234567A");
 
-        expect(getRequestBody(daoReq)).to.deep.equal(JSON.stringify(expectedCall));
+        expect(getRequestItemsBodyFromStub(stub)).to.deep.equal(expectedCall);
       });
 
       it("for VRM (3 chars)", async () => {
@@ -108,15 +117,16 @@ describe("TechRecordsDAO", () => {
             "#vrm": "primaryVrm"
           },
           ExpressionAttributeValues: {
-            ":vrm": { S: "67A" }
+            ":vrm": "67A"
           },
           IndexName: "VRMIndex"
         };
 
+        const stub = mockDocumentClientWithReturn("query", []);
         const techRecordsDao = new TechRecordsDao();
-        const daoReq = await techRecordsDao.getBySearchTerm("67A");
+        await techRecordsDao.getBySearchTerm("67A");
 
-        expect(getRequestBody(daoReq)).to.deep.equal(JSON.stringify(expectedCall));
+        expect(getRequestItemsBodyFromStub(stub)).to.deep.equal(expectedCall);
       });
 
       // <3 or >21 chars handled in getTechRecords Function, so only cursory checks here.
@@ -138,3 +148,17 @@ describe("TechRecordsDAO", () => {
 const getRequestBody = (dao: any) => {
   return dao.$response.request.httpRequest.body;
 };
+
+const getRequestItemsBodyFromStub = (input: SinonStub) => {
+    return input.args[0][0];
+};
+
+function mockDocumentClientWithReturn(method: "batchWrite" | "scan" | "query", retVal: any) {
+    const myStub = sinon.stub().callsFake(() => {
+        return {
+            promise: sinon.fake.resolves(retVal)
+        };
+    });
+    sandbox.replace(AWS.DynamoDB.DocumentClient.prototype, method, myStub);
+    return myStub;
+}
