@@ -76,4 +76,10 @@ describe("getTechRecords", () => {
       });
     });
   });
+  beforeEach(() => {
+    jest.setTimeout(5000);
+  });
+  afterEach(() => {
+    jest.setTimeout(5000);
+  });
 });
