@@ -4,6 +4,14 @@ functions:
     path: /vehicles/{+proxy}/tech-records/
     proxy: :searchIdentifier
     function: getTechRecords
+- postTechRecords:
+    method: POST
+    path: /vehicles/tech-records/
+    function: postTechRecords
+- updateTechRecords:
+    method: PUT
+    path: /vehicles/tech-records/
+    function: updateTechRecords
 dynamodb:
   local:
     params:

@@ -108,6 +108,18 @@ functions:
                   application/json:
                     schema:
                       type: string
+  postTechRecords:
+    handler: src/handler.handler
+    events:
+      - http:
+          path: vehicles/tech-records
+          method: post
+  updateTechRecords:
+    handler: src/handler.handler
+    events:
+      - http:
+          path: vehicles/tech-records
+          method: put
 
 resources:
   Resources:

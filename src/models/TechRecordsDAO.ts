@@ -92,6 +92,41 @@ class TechRecordsDAO {
     return dbClient.query(query).promise();
   }
 
+  public createSingle(techRecord: ITechRecordWrapper) {
+    const query = {
+      TableName: this.tableName,
+      Item: techRecord,
+      ConditionExpression: "vin <> :vin AND partialVin <> :partialVin",
+      ExpressionAttributeValues: {
+        ":vin": techRecord.vin,
+        ":partialVin": techRecord.partialVin
+      }
+    };
+    return dbClient.put(query).promise();
+  }
+
+  public updateSingle(techRecord: ITechRecordWrapper) {
+    const query = {
+      TableName: this.tableName,
+      Key: {
+        partialVin: techRecord.partialVin,
+        vin: techRecord.vin
+      },
+      UpdateExpression: "set #techRecord = :techRecord",
+      ExpressionAttributeNames: {
+        "#techRecord": "techRecord"
+      },
+      ConditionExpression: "vin = :vin AND primaryVrm = :primaryVrm",
+      ExpressionAttributeValues: {
+        ":vin": techRecord.vin,
+        ":primaryVrm": techRecord.primaryVrm,
+        ":techRecord": techRecord.techRecord
+      },
+      ReturnValues: "ALL_NEW"
+    };
+    return dbClient.update(query).promise();
+  }
+
   public createMultiple(techRecordItems: ITechRecordWrapper[]) {
     const params = this.generatePartialParams();
 

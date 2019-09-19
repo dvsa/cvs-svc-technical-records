@@ -2,6 +2,7 @@ import HTTPError from "../models/HTTPError";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {HTTPRESPONSE, STATUS} from "../assets/Enums";
+import HTTPResponse from "../models/HTTPResponse";
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -87,6 +88,35 @@ class TechRecordsService {
     delete techRecordItem.partialVin; // No longer needed
 
     return techRecordItem;
+  }
+
+  public insertTechRecord(techRecord: ITechRecordWrapper) {
+    return this.techRecordsDAO.createSingle(techRecord)
+      .then(() => {
+        return new HTTPResponse(201, "Technical Record created");
+      })
+      .catch((error: any) => {
+        throw new HTTPError(error.statusCode, error.message);
+      });
+  }
+
+  public updateTechRecord(techRecord: ITechRecordWrapper) {
+    return this.techRecordsDAO.updateSingle(techRecord)
+      .then((data: any) => {
+        const response = data.Attributes;
+        const vrms = [{vrm: response.primaryVrm, isPrimary: true}];
+        Object.assign(response, {
+          vrms
+        });
+        // Cleaning up unneeded properties
+        delete response.primaryVrm; // No longer needed
+        delete response.secondaryVrms; // No longer needed
+        delete response.partialVin; // No longer needed
+        return response;
+      })
+      .catch((error: any) => {
+        throw new HTTPError(error.statusCode, error.message);
+      });
   }
 
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {
