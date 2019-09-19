@@ -6,10 +6,13 @@ import Configuration from "../../src/utils/Configuration";
 import HTTPResponse from "../../src/models/HTTPResponse";
 import mockContext from "aws-lambda-mock-context";
 import event from "../resources/event.json";
-const ctx = mockContext();
-
+const sandbox = sinon.createSandbox();
 
 describe("The lambda function handler", () => {
+  const ctx = mockContext();
+  afterAll(() => {
+    sandbox.restore();
+  });
   context("With correct Config", () => {
     context("should correctly handle incoming events", () => {
       it("should call functions with correct event payload", async () => {
@@ -17,12 +20,12 @@ describe("The lambda function handler", () => {
         const vehicleRecordEvent = event;
 
         // Stub out the actual functions
-        const getTechRecordsStub = sinon.stub(getTechRecords);
+        const getTechRecordsStub = sandbox.stub(getTechRecords);
         getTechRecordsStub.getTechRecords.returns(new HTTPResponse(200, {}));
 
         const result = await handler(vehicleRecordEvent, ctx);
         expect(result.statusCode).to.equal(200);
-        sinon.assert.called(getTechRecordsStub.getTechRecords);
+        sandbox.assert.called(getTechRecordsStub.getTechRecords);
       });
 
       it("should return error on empty event", async () => {
@@ -58,7 +61,7 @@ describe("The lambda function handler", () => {
   context("With no routes defined in config", () => {
     it("should return a Route Not Found error", async () => {
       // Stub Config getFunctions method and return empty array instead
-      const configStub = sinon.stub(Configuration.prototype, "getFunctions").returns([]);
+      const configStub = sandbox.stub(Configuration.prototype, "getFunctions").returns([]);
 
       const result = await handler(event, ctx);
       expect(result.statusCode).to.equal(400);
