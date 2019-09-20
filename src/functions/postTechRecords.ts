@@ -18,7 +18,7 @@ const postTechRecords = (event: any) => {
     payload.partialVin = payload.vin.substr(payload.vin.length - 6);
     return techRecordsService.insertTechRecord(payload)
         .then((data: any) => {
-            return data;
+            return new HTTPResponse(201, "Technical Record created");
         })
         .catch((error: any) => {
             console.log(error);

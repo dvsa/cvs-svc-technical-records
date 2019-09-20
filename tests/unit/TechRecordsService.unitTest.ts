@@ -209,3 +209,128 @@ describe("getTechRecordsList", () => {
     });
   });
 });
+
+describe("insertTechRecord", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+  context("when inserting a new technical record", () => {
+    it("should return 201 Technical Record Created", async () => {
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          createSingle: () => {
+            return Promise.resolve({});
+          }
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+
+      // @ts-ignore
+      const techRecord: ITechRecordWrapper = records[0];
+      techRecord.vin = Date.now().toString();
+      techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
+      techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
+      techRecord.techRecord[0].bodyType.description = "new tech record";
+
+      const data: any = await techRecordsService.insertTechRecord(techRecord)
+      expect(data).not.toEqual(undefined);
+      expect(Object.keys(data).length).toEqual(0);
+    });
+  });
+
+  context("when trying to create a technical record for existing vehicle", () => {
+    it("should return error 400 The conditional request failed", async () => {
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          createSingle: () => {
+            return Promise.reject({statusCode: 400, message: "The conditional request failed"});
+          }
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+
+      // @ts-ignore
+      const techRecord: ITechRecordWrapper = records[0];
+      techRecord.partialVin = "012345";
+      techRecord.vin = "XMGDE02FS0H012345";
+      techRecord.primaryVrm = "JY58FPP";
+
+      try {
+        expect(await techRecordsService.insertTechRecord(techRecord)).toThrowError();
+      } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(400);
+          expect(errorResponse.body).toEqual("The conditional request failed");
+        };
+    });
+  });
+});
+
+describe("updateTechRecord", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+  context("when updating a technical record for an existing vehicle", () => {
+    it("should return the updated document", async () => {
+      // @ts-ignore
+      const techRecord: ITechRecordWrapper = records[0];
+      techRecord.techRecord[0].bodyType.description = "new tech record";
+      techRecord.techRecord[0].grossGbWeight = 5555;
+      const vrms = [{ vrm: "JY58FPP", isPrimary: true }];
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          updateSingle: () => {
+            return Promise.resolve({
+              Attributes: techRecord
+            });
+          }
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+      const updatedTechRec = await techRecordsService.updateTechRecord(techRecord)
+          expect(updatedTechRec).not.toEqual(undefined);
+          expect(updatedTechRec).not.toEqual({});
+          expect(updatedTechRec).not.toHaveProperty("primaryVrm")
+          expect(updatedTechRec).not.toHaveProperty("partialVin")
+          expect(updatedTechRec).not.toHaveProperty("secondaryVrms")
+          expect(updatedTechRec.vin).toEqual("XMGDE02FS0H012345");
+          expect(updatedTechRec.vrms).toStrictEqual(vrms);
+          expect(updatedTechRec.techRecord[0].bodyType.description).toEqual("new tech record");
+          expect(updatedTechRec.techRecord[0].grossGbWeight).toEqual(5555);
+    });
+  });
+
+  context("when trying to update a technical record for non existing vehicle", () => {
+    it("should return error 400 The conditional request failed", async () => {
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          updateSingle: () => {
+            return Promise.reject({statusCode: 400, message: "The conditional request failed"});
+          }
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+
+      // @ts-ignore
+      const techRecord: ITechRecordWrapper = records[0];
+      techRecord.partialVin = "012345";
+      techRecord.vin = "XMGDE02FS0H012345";
+      techRecord.primaryVrm = "JY58FPP";
+      techRecord.techRecord[0].bodyType.description = "new tech record";
+      techRecord.techRecord[0].grossGbWeight = 5555;
+
+      try {
+        expect(await techRecordsService.updateTechRecord(techRecord)).toThrowError()
+      } catch(errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(400);
+          expect(errorResponse.body).toEqual("The conditional request failed");
+        };
+    });
+  });
+});
+
