@@ -1,6 +1,10 @@
 import TechRecordsDao from "../../src/models/TechRecordsDAO";
 import AWS from "aws-sdk";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
+import mockData from "../resources/technical-records.json";
+import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+const techRecord: ITechRecordWrapper = mockData[0];
+
 
 describe("TechRecordsDAO", () => {
   context("getBySearchTerm", () => {
@@ -137,6 +141,51 @@ describe("TechRecordsDAO", () => {
 
         const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.getBySearchTerm("7A");
+        expect(stub).toStrictEqual(expectedCall);
+      });
+    });
+  });
+
+  context("createSingle", () => {
+    context("builds correct request", () => {
+      beforeEach(() => {jest.resetModules(); });
+      // Mock once
+      let stub: any = null;
+      AWS.DynamoDB.DocumentClient.prototype.put = jest.fn().mockImplementation( (params: DocumentClient.Put) => {
+        return {
+          promise: () => {stub = params; return Promise.resolve([]); }
+        };
+      });
+
+      it("for valid TechRecord", async () => {
+        const expectedCall = {
+          TableName: "cvs-local-technical-records",
+          Item: techRecord,
+          ConditionExpression: "vin <> :vin AND partialVin <> :partialVin",
+          ExpressionAttributeValues: {
+            ":vin": "XMGDE02FS0H012345",
+            ":partialVin": "012345"
+          }
+        };
+        const techRecordsDao = new TechRecordsDao();
+        await techRecordsDao.createSingle(techRecord);
+        expect(stub).toStrictEqual(expectedCall);
+      });
+
+      it("for invalid TechRecord", async () => {
+        delete techRecord.partialVin;
+        delete techRecord.vin;
+        const expectedCall = {
+          TableName: "cvs-local-technical-records",
+          Item: techRecord,
+          ConditionExpression: "vin <> :vin AND partialVin <> :partialVin",
+          ExpressionAttributeValues: {
+            ":vin": undefined,
+            ":partialVin": undefined
+          }
+        };
+        const techRecordsDao = new TechRecordsDao();
+        await techRecordsDao.createSingle(techRecord);
         expect(stub).toStrictEqual(expectedCall);
       });
     });
