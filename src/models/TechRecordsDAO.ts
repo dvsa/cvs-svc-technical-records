@@ -106,20 +106,22 @@ class TechRecordsDAO {
   }
 
   public updateSingle(techRecord: ITechRecordWrapper) {
+    const partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
+
     const query = {
       TableName: this.tableName,
       Key: {
-        partialVin: techRecord.partialVin,
+        partialVin,
         vin: techRecord.vin
       },
       UpdateExpression: "set #techRecord = :techRecord",
       ExpressionAttributeNames: {
         "#techRecord": "techRecord"
       },
-      ConditionExpression: "vin = :vin AND primaryVrm = :primaryVrm",
+      ConditionExpression: "vin = :vin AND partialVin = :partialVin",
       ExpressionAttributeValues: {
         ":vin": techRecord.vin,
-        ":primaryVrm": techRecord.primaryVrm,
+        ":partialVin": partialVin,
         ":techRecord": techRecord.techRecord
       },
       ReturnValues: "ALL_NEW"

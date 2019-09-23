@@ -6,11 +6,11 @@ functions:
     function: getTechRecords
 - postTechRecords:
     method: POST
-    path: /vehicles/tech-records/
+    path: /vehicles
     function: postTechRecords
 - updateTechRecords:
     method: PUT
-    path: /vehicles/tech-records/
+    path: /vehicles/:vin
     function: updateTechRecords
 dynamodb:
   local:

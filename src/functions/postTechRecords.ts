@@ -10,7 +10,7 @@ const postTechRecords = (event: any) => {
     const payload: ITechRecordWrapper = event.body;
 
     if (!payload || !(payload.techRecord && payload.techRecord.length)) {
-        return Promise.resolve(new HTTPResponse(404, "Body is not a valid TechRecord"));
+        return Promise.resolve(new HTTPResponse(400, "Body is not a valid TechRecord"));
     }
 
     // TODO: validate payload for every type of vehicle(psv, hgv, trl) - will be done in a future ticket

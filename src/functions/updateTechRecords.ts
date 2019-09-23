@@ -6,15 +6,22 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 const updateTechRecords = (event: any) => {
     const techRecordsDAO = new TechRecordsDAO();
     const techRecordsService = new TechRecordsService(techRecordsDAO);
+    const ONLY_DIGITS_AND_NUMBERS: RegExp = /^[A-Za-z0-9]+$/;
 
-    const payload: ITechRecordWrapper = event.body;
+    let payload: ITechRecordWrapper = event.body;
+    const vin = event.pathParameters.vin;
+
+    if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 9) {
+        return Promise.resolve(new HTTPResponse(400, "Invalid path parameter 'vin'"));
+    }
 
     if (!payload || !(payload.techRecord && payload.techRecord.length)) {
-        return Promise.resolve(new HTTPResponse(404, "Body is not a valid TechRecord"));
+        return Promise.resolve(new HTTPResponse(400, "Body is not a valid TechRecord"));
     }
 
     // TODO: validate payload for every type of vehicle(psv, hgv, trl) - will be done in a future ticket
 
+    payload = Object.assign(payload, {vin});
     return techRecordsService.updateTechRecord(payload)
         .then((updatedTechRec: any) => {
             return new HTTPResponse(200, updatedTechRec);

@@ -112,14 +112,18 @@ functions:
     handler: src/handler.handler
     events:
       - http:
-          path: vehicles/tech-records
+          path: vehicles
           method: post
   updateTechRecords:
     handler: src/handler.handler
     events:
       - http:
-          path: vehicles/tech-records
+          path: vehicles/{vin}
           method: put
+          request:
+            parameters:
+              paths:
+                vin: true
 
 resources:
   Resources:
