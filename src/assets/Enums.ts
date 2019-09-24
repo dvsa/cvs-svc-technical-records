@@ -7,5 +7,5 @@ export enum ERRORS {
 }
 
 export enum HTTPRESPONSE {
-    RESOURCE_NOT_FOUND = ""
+    RESOURCE_NOT_FOUND = "No resources match the search criteria."
 }
