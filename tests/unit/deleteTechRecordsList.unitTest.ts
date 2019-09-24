@@ -1,7 +1,6 @@
 import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import techRecords from "../resources/technical-records.json";
-import {expect} from "chai";
 
 const recordIds = techRecords.map((record) => [record.partialVin, record.vin]);
 
@@ -20,7 +19,7 @@ describe("deleteTechRecordsList", () => {
 
       return techRecordsService.deleteTechRecordsList(recordIds)
         .then((data: any) => {
-          expect(data).to.equal(undefined);
+          expect(data).toEqual(undefined);
         });
     });
 
@@ -37,7 +36,7 @@ describe("deleteTechRecordsList", () => {
 
       return techRecordsService.deleteTechRecordsList(recordIds)
         .then((data: any) => {
-          expect(data.length).to.equal(3);
+          expect(data.length).toEqual(3);
         });
     });
   });
@@ -56,9 +55,9 @@ describe("deleteTechRecordsList", () => {
 
       return techRecordsService.deleteTechRecordsList(recordIds)
         .catch((errorResponse: any) => {
-          expect(errorResponse).to.be.instanceOf(HTTPError);
-          expect(errorResponse.statusCode).to.be.equal(500);
-          expect(errorResponse.body).to.equal("Internal Server Error");
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.body).toEqual("Internal Server Error");
         });
     });
   });

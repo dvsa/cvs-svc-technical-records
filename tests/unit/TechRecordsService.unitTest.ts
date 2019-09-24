@@ -1,7 +1,4 @@
 /* global describe context it */
-import {expect} from "chai";
-
-// import TechRecordsDAOMock from "../models/TechRecordsDAOMock";
 import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
@@ -29,15 +26,15 @@ describe("getTechRecordsList", () => {
 
       return techRecordsService.getTechRecordsList("1B7GG36N12S678410", "current")
         .then((returnedRecords: any) => {
-          expect(returnedRecords).to.not.equal(undefined);
-          expect(returnedRecords).to.not.equal({});
-          expect(returnedRecords).to.equal(records[0]);
+          expect(returnedRecords).not.toEqual(undefined);
+          expect(returnedRecords).not.toEqual({});
+          expect(returnedRecords).toEqual(records[0]);
         });
     });
   });
 
   context("when db returns empty data", () => {
-    it("should return 404-No resources match the search criteria", () => {
+    it("should return 404-No resources match the search criteria", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
@@ -52,18 +49,16 @@ describe("getTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      return techRecordsService.getTechRecordsList("Rhubarb", "Potato")
-        .then(() => {
-          expect.fail();
-        }).catch((errorResponse: any) => {
-          expect(errorResponse).to.be.instanceOf(HTTPError);
-          expect(errorResponse.statusCode).to.equal(404);
-          expect(errorResponse.body).to.equal("No resources match the search criteria.");
-        });
+      try {
+        expect(await techRecordsService.getTechRecordsList("Rhubarb", "Potato")).toThrowError();
+      } catch (errorResponse) {
+        expect(errorResponse.statusCode).toEqual(404);
+        expect(errorResponse.body).toEqual("No resources match the search criteria.");
+      }
     });
   });
   context("when db return undefined data", () => {
-    it("should return 404-No resources match the search criteria if db return null data", () => {
+    it("should return 404-No resources match the search criteria if db return null data", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
@@ -78,19 +73,18 @@ describe("getTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      return techRecordsService.getTechRecordsList("", "")
-        .then(() => {
-          expect.fail();
-        }).catch((errorResponse: any) => {
-          expect(errorResponse).to.be.instanceOf(HTTPError);
-          expect(errorResponse.statusCode).to.equal(404);
-          expect(errorResponse.body).to.equal("No resources match the search criteria.");
-        });
+      try {
+        expect(await techRecordsService.getTechRecordsList("", "")).toThrowError();
+      } catch (errorResponse) {
+        expect(errorResponse).toBeInstanceOf(HTTPError);
+        expect(errorResponse.statusCode).toEqual(404);
+        expect(errorResponse.body).toEqual("No resources match the search criteria.");
+      }
     });
   });
 
   context("when db does not return response", () => {
-    it("should return 500-Internal Server Error", () => {
+    it("should return 500-Internal Server Error", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
@@ -105,20 +99,18 @@ describe("getTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      return techRecordsService.getTechRecordsList("", "")
-        .then(() => {
-          expect.fail();
-        })
-        .catch((errorResponse: any) => {
-          expect(errorResponse).to.be.instanceOf(HTTPError);
-          expect(errorResponse.statusCode).to.be.equal(500);
-          expect(errorResponse.body).to.equal("Internal Server Error");
-        });
+      try {
+        expect(await techRecordsService.getTechRecordsList("", "")).toThrowError();
+      } catch (errorResponse) {
+        expect(errorResponse).toBeInstanceOf(HTTPError);
+        expect(errorResponse.statusCode).toEqual(500);
+        expect(errorResponse.body).toEqual("Internal Server Error");
+      }
     });
   });
 
   context("when db returns too many results", () => {
-    it("should return 422 - More Than One Match", () => {
+    it("should return 422 - More Than One Match", async () => {
 
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
@@ -133,15 +125,13 @@ describe("getTechRecordsList", () => {
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
-
-      return techRecordsService.getTechRecordsList("", "")
-        .then(() => {
-          expect.fail();
-        }).catch((errorResponse: any) => {
-          expect(errorResponse).to.be.instanceOf(HTTPError);
-          expect(errorResponse.statusCode).to.equal(422);
-          expect(errorResponse.body).to.equal("The provided partial VIN returned more than one match.");
-        });
+      try {
+        expect(await techRecordsService.getTechRecordsList("", "")).toThrowError();
+      } catch (errorResponse) {
+        expect(errorResponse).toBeInstanceOf(HTTPError);
+        expect(errorResponse.statusCode).toEqual(422);
+        expect(errorResponse.body).toEqual("The provided partial VIN returned more than one match.");
+      }
     });
   });
 });

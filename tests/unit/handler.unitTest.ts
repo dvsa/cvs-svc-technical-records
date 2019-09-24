@@ -1,5 +1,4 @@
 import sinon from "sinon";
-import {expect} from "chai";
 import {handler} from "../../src/handler";
 import * as getTechRecords from "../../src/functions/getTechRecords";
 import Configuration from "../../src/utils/Configuration";
@@ -24,16 +23,16 @@ describe("The lambda function handler", () => {
         getTechRecordsStub.getTechRecords.returns(new HTTPResponse(200, {}));
 
         const result = await handler(vehicleRecordEvent, ctx);
-        expect(result.statusCode).to.equal(200);
+        expect(result.statusCode).toEqual(200);
         sandbox.assert.called(getTechRecordsStub.getTechRecords);
       });
 
       it("should return error on empty event", async () => {
         const result = await handler(null, ctx);
 
-        expect(result).to.be.instanceOf(HTTPResponse);
-        expect(result.statusCode).to.equal(400);
-        expect(result.body).to.equal(JSON.stringify("AWS event is empty. Check your test event."));
+        expect(result).toBeInstanceOf(HTTPResponse);
+        expect(result.statusCode).toEqual(400);
+        expect(result.body).toEqual(JSON.stringify("AWS event is empty. Check your test event."));
       });
 
       it("should return error on invalid body json", async () => {
@@ -41,9 +40,9 @@ describe("The lambda function handler", () => {
         invalidBodyEvent.body = '{"hello":}';
 
         const result = await handler(invalidBodyEvent, ctx);
-        expect(result).to.be.instanceOf(HTTPResponse);
-        expect(result.statusCode).to.equal(400);
-        expect(result.body).to.equal(JSON.stringify("Body is not a valid JSON."));
+        expect(result).toBeInstanceOf(HTTPResponse);
+        expect(result.statusCode).toEqual(400);
+        expect(result.body).toEqual(JSON.stringify("Body is not a valid JSON."));
       });
 
       it("should return a Route Not Found error on invalid path", async () => {
@@ -52,8 +51,8 @@ describe("The lambda function handler", () => {
         invalidPathEvent.path = "/vehicles/123/doesntExist";
 
         const result = await handler(invalidPathEvent, ctx);
-        expect(result.statusCode).to.equal(400);
-        expect(result.body).to.deep.equals(JSON.stringify({ error: `Route ${invalidPathEvent.httpMethod} ${invalidPathEvent.path} was not found.` }));
+        expect(result.statusCode).toEqual(400);
+        expect(result.body).toStrictEqual(JSON.stringify({ error: `Route ${invalidPathEvent.httpMethod} ${invalidPathEvent.path} was not found.` }));
       });
     });
   });
@@ -64,8 +63,8 @@ describe("The lambda function handler", () => {
       const configStub = sandbox.stub(Configuration.prototype, "getFunctions").returns([]);
 
       const result = await handler(event, ctx);
-      expect(result.statusCode).to.equal(400);
-      expect(result.body).to.deep.equals(JSON.stringify({ error: `Route ${event.httpMethod} ${event.path} was not found.` }));
+      expect(result.statusCode).toEqual(400);
+      expect(result.body).toStrictEqual(JSON.stringify({ error: `Route ${event.httpMethod} ${event.path} was not found.` }));
       configStub.restore();
     });
   });
@@ -77,11 +76,11 @@ describe("The configuration service", () => {
       process.env.BRANCH = "local";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).to.equal(1);
-      expect(functions[0].name).to.equal("getTechRecords");
+      expect(functions.length).toEqual(1);
+      expect(functions[0].name).toEqual("getTechRecords");
 
       const DBConfig = configService.getDynamoDBConfig();
-      expect(DBConfig).to.equal(configService.getConfig().dynamodb.local);
+      expect(DBConfig).toEqual(configService.getConfig().dynamodb.local);
 
       // No Endpoints for this service
     });
@@ -90,11 +89,11 @@ describe("The configuration service", () => {
       process.env.BRANCH = "local-global";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).to.equal(1);
-      expect(functions[0].name).to.equal("getTechRecords");
+      expect(functions.length).toEqual(1);
+      expect(functions[0].name).toEqual("getTechRecords");
 
       const DBConfig = configService.getDynamoDBConfig();
-      expect(DBConfig).to.equal(configService.getConfig().dynamodb["local-global"]);
+      expect(DBConfig).toEqual(configService.getConfig().dynamodb["local-global"]);
 
       // No Endpoints for this service
     });
@@ -103,11 +102,11 @@ describe("The configuration service", () => {
       process.env.BRANCH = "CVSB-XXX";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).to.equal(1);
-      expect(functions[0].name).to.equal("getTechRecords");
+      expect(functions.length).toEqual(1);
+      expect(functions[0].name).toEqual("getTechRecords");
 
       const DBConfig = configService.getDynamoDBConfig();
-      expect(DBConfig).to.equal(configService.getConfig().dynamodb.remote);
+      expect(DBConfig).toEqual(configService.getConfig().dynamodb.remote);
 
       // No Endpoints for this service
     });
@@ -119,7 +118,7 @@ describe("The configuration service", () => {
       try {
         config.getFunctions();
       } catch (e) {
-        expect(e.message).to.equal("Functions were not defined in the config file.");
+        expect(e.message).toEqual("Functions were not defined in the config file.");
       }
     });
 
@@ -128,7 +127,7 @@ describe("The configuration service", () => {
       try {
         config.getDynamoDBConfig();
       } catch (e) {
-        expect(e.message).to.equal("DynamoDB config is not defined in the config file.");
+        expect(e.message).toEqual("DynamoDB config is not defined in the config file.");
       }
     });
   });

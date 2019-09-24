@@ -1,18 +1,19 @@
 import Configuration from "../utils/Configuration";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
+import QueryInput = DocumentClient.QueryInput;
 // @ts-ignore
-import AWSXRay from "aws-xray-sdk";
-// tslint:disable-next-line
-const AWS = AWSXRay.captureAWS(require("aws-sdk"));
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
-const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
-
-interface IQuery {
-  TableName: string;
-  KeyConditionExpression: null | string;
-  ExpressionAttributeNames: {};
-  ExpressionAttributeValues: {};
+/* tslint:disable */
+let AWS: { DynamoDB: { DocumentClient: new (arg0: any) => DocumentClient; }; };
+if (process.env._X_AMZN_TRACE_ID) {
+  AWS = require("aws-xray-sdk").captureAWS(require("aws-sdk"));
+} else {
+  console.log("Serverless Offline detected; skipping AWS X-Ray setup")
+  AWS = require("aws-sdk");
 }
+/* tslint:enable */
+const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
 
 class TechRecordsDAO {
   private readonly tableName: string;
@@ -34,9 +35,9 @@ class TechRecordsDAO {
   }
 
   public getBySearchTerm(searchTerm: string) {
-    const query: IQuery = {
+    const query: QueryInput = {
       TableName: this.tableName,
-      KeyConditionExpression: null,
+      KeyConditionExpression: "",
       ExpressionAttributeNames: {},
       ExpressionAttributeValues: {}
     };
