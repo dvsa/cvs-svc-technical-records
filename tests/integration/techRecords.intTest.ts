@@ -4,6 +4,7 @@ const url = "http://localhost:3005/";
 const request = supertest(url);
 import {populateDatabase, emptyDatabase} from "../util/dbOperations";
 import mockData from "../resources/technical-records.json";
+import {HTTPRESPONSE} from "../../src/assets/Enums";
 
 describe("techRecords", () => {
   describe("getTechRecords", () => {
@@ -294,8 +295,19 @@ describe("techRecords", () => {
         await emptyDatabase();
       });
 
-      it("should return error code 404", (done) => {
-          request.get("techRecords").expect(404, done);
+      /**
+       * Due to open bug https://github.com/dherault/serverless-offline/issues/703,
+       * Serverless Offline does not correctly return errors thrown by the Service.
+       * exception path for code 404 cannot be tested directly and so assertion is indirect.
+       * Workaround below asserts that correct errors are thrown, even if not caught in usual way.
+       * The logic of test is strictly not correct but not an issue when this is deployed to AWS.
+       */
+      it("should return error code 404", async () => {
+        const res = await request.get("techRecords");
+        expect(res.clientError).toBeTruthy();
+        expect(res.notFound).toBeTruthy();
+        expect(res.ok).toBeFalsy();
+        expect(res.status).toEqual(404);
       });
     });
   });
