@@ -5,3 +5,7 @@ export enum ERRORS {
     EventIsEmpty = "Event is empty",
     NoBranch = "Please define BRANCH environment variable"
 }
+
+export enum HTTPRESPONSE {
+    RESOURCE_NOT_FOUND = ""
+}
