@@ -20,7 +20,7 @@ describe("The lambda function handler", () => {
 
         // Stub out the actual functions
         const getTechRecordsStub = sandbox.stub(getTechRecords);
-        getTechRecordsStub.getTechRecords.returns(new HTTPResponse(200, {}));
+        getTechRecordsStub.getTechRecords.resolves(new HTTPResponse(200, {}));
 
         const result = await handler(vehicleRecordEvent, ctx);
         expect(result.statusCode).toEqual(200);

@@ -64,7 +64,7 @@ class TechRecordsService {
 
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {
     return this.techRecordsDAO.createMultiple(techRecordItems)
-      .then((data: {UnprocessedItems: ITechRecord[]}) => {
+      .then((data) => {
         if (data.UnprocessedItems) { return data.UnprocessedItems; }
       })
       .catch((error: any) => {
@@ -75,7 +75,7 @@ class TechRecordsService {
 
   public deleteTechRecordsList(techRecordItemKeys: string[][]) {
     return this.techRecordsDAO.deleteMultiple(techRecordItemKeys)
-      .then((data: {UnprocessedItems: string[]}) => {
+      .then((data) => {
         if (data.UnprocessedItems) { return data.UnprocessedItems; }
       })
       .catch((error: any) => {
