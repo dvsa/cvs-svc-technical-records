@@ -131,8 +131,4 @@ describe("The configuration service", () => {
       }
     });
   });
-
-  afterEach(() => {
-    // process.env.BRANCH = 'local'
-  });
 });
