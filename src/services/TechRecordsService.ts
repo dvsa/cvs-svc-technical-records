@@ -60,21 +60,23 @@ class TechRecordsService {
     const {statusCode} = originalTechRecordItem.techRecord[0];
 
     if (provisionalOverCurrent && length === 1 && techRecordItem.techRecord.length > 0 && (statusCode === STATUS.CURRENT || statusCode === STATUS.PROVISIONAL)) {
-        return techRecordItem;
+      return techRecordItem;
     }
 
     if (provisionalOverCurrent && ((length === techRecordItem.techRecord.length) || (0 === techRecordItem.techRecord.length))) {
       techRecordItem = this.filterTechRecordsByStatus(originalTechRecordItem, STATUS.CURRENT);
     }
 
-    if (techRecordItem.techRecord.length <= 0) { throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND); }
+    if (techRecordItem.techRecord.length <= 0) {
+      throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
+    }
 
     return techRecordItem;
   }
 
   public formatTechRecordItemForResponse(techRecordItem: ITechRecordWrapper) {
     // Adding primary and secondary VRMs in the same array
-    const vrms = [{ vrm: techRecordItem.primaryVrm, isPrimary: true }];
+    const vrms = [{vrm: techRecordItem.primaryVrm, isPrimary: true}];
     Object.assign(techRecordItem, {
       vrms
     });
@@ -89,7 +91,9 @@ class TechRecordsService {
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {
     return this.techRecordsDAO.createMultiple(techRecordItems)
       .then((data) => {
-        if (data.UnprocessedItems) { return data.UnprocessedItems; }
+        if (data.UnprocessedItems) {
+          return data.UnprocessedItems;
+        }
       })
       .catch((error: any) => {
         console.error(error);
@@ -100,7 +104,9 @@ class TechRecordsService {
   public deleteTechRecordsList(techRecordItemKeys: string[][]) {
     return this.techRecordsDAO.deleteMultiple(techRecordItemKeys)
       .then((data) => {
-        if (data.UnprocessedItems) { return data.UnprocessedItems; }
+        if (data.UnprocessedItems) {
+          return data.UnprocessedItems;
+        }
       })
       .catch((error: any) => {
         console.error(error);

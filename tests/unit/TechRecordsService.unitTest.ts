@@ -89,6 +89,32 @@ describe("getTechRecordsList", () => {
     });
   });
 
+  context("when db call returns data and status 'all' is provided", () => {
+    it("should return the vehicle with all the technical records", () => {
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve({
+              Items: [records[8]],
+              Count: 1,
+              ScannedCount: 1
+            });
+          }
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+
+
+      return techRecordsService.getTechRecordsList("YV31MEC18GA011900", "all")
+        .then((returnedRecords: any) => {
+          expect(returnedRecords).not.toEqual(undefined);
+          expect(returnedRecords).not.toEqual({});
+          expect(returnedRecords.techRecord.length).toEqual(2);
+        });
+    });
+  });
+
   context("when db returns empty data", () => {
     it("should return 404-No resources match the search criteria", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
