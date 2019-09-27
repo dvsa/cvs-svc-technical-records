@@ -90,7 +90,7 @@ describe("getTechRecordsList", () => {
   });
 
   context("when db call returns data and status 'all' is provided", () => {
-    it("should return the vehicle with all the technical records", () => {
+    it("should return the vehicle with all the technical records", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
@@ -105,13 +105,10 @@ describe("getTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-
-      return techRecordsService.getTechRecordsList("YV31MEC18GA011900", "all")
-        .then((returnedRecords: any) => {
-          expect(returnedRecords).not.toEqual(undefined);
-          expect(returnedRecords).not.toEqual({});
-          expect(returnedRecords.techRecord.length).toEqual(2);
-        });
+      const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011900", "all")
+      expect(returnedRecords).not.toEqual(undefined);
+      expect(returnedRecords).not.toEqual({});
+      expect(returnedRecords.techRecord.length).toEqual(2);
     });
   });
 
