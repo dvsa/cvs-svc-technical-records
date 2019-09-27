@@ -3,18 +3,25 @@ import AWS from "aws-sdk";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import mockData from "../resources/technical-records.json";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+
+// @ts-ignore
 const techRecord: ITechRecordWrapper = mockData[0];
 
 
 describe("TechRecordsDAO", () => {
   context("getBySearchTerm", () => {
     context("builds correct request", () => {
-      beforeEach(() => {jest.resetModules(); });
+      beforeEach(() => {
+        jest.resetModules();
+      });
       // Mock once
       let stub: any = null;
-      AWS.DynamoDB.DocumentClient.prototype.query = jest.fn().mockImplementation( (params: DocumentClient.QueryInput) => {
+      AWS.DynamoDB.DocumentClient.prototype.query = jest.fn().mockImplementation((params: DocumentClient.QueryInput) => {
         return {
-          promise: () => {stub = params; return Promise.resolve([]); }
+          promise: () => {
+            stub = params;
+            return Promise.resolve([]);
+          }
         };
       });
 
@@ -148,12 +155,17 @@ describe("TechRecordsDAO", () => {
 
   context("createSingle", () => {
     context("builds correct request", () => {
-      beforeEach(() => {jest.resetModules(); });
+      beforeEach(() => {
+        jest.resetModules();
+      });
       // Mock once
       let stub: any = null;
-      AWS.DynamoDB.DocumentClient.prototype.put = jest.fn().mockImplementation( (params: DocumentClient.Put) => {
+      AWS.DynamoDB.DocumentClient.prototype.put = jest.fn().mockImplementation((params: DocumentClient.Put) => {
         return {
-          promise: () => {stub = params; return Promise.resolve([]); }
+          promise: () => {
+            stub = params;
+            return Promise.resolve([]);
+          }
         };
       });
 
