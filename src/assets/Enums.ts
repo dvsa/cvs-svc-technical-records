@@ -17,3 +17,11 @@ export enum STATUS {
     PROVISIONAL = "provisional",
     CURRENT = "current"
 }
+
+export enum STATUS {
+    ARCHIVED = "archived",
+    CURRENT = "current",
+    PROVISIONAL = "provisional",
+    PROVISIONAL_OVER_CURRENT = "provisional_over_current",
+    ALL = "all"
+}
