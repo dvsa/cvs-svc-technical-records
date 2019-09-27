@@ -233,7 +233,7 @@ describe("insertTechRecord", () => {
       techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
       techRecord.techRecord[0].bodyType.description = "new tech record";
 
-      const data: any = await techRecordsService.insertTechRecord(techRecord)
+      const data: any = await techRecordsService.insertTechRecord(techRecord);
       expect(data).not.toEqual(undefined);
       expect(Object.keys(data).length).toEqual(0);
     });
@@ -260,10 +260,11 @@ describe("insertTechRecord", () => {
       try {
         expect(await techRecordsService.insertTechRecord(techRecord)).toThrowError();
       } catch (errorResponse) {
-          expect(errorResponse).toBeInstanceOf(HTTPError);
-          expect(errorResponse.statusCode).toEqual(400);
-          expect(errorResponse.body).toEqual("The conditional request failed");
-        };
+        expect(errorResponse).toBeInstanceOf(HTTPError);
+        expect(errorResponse.statusCode).toEqual(400);
+        expect(errorResponse.body).toEqual("The conditional request failed");
+      }
+      ;
     });
   });
 });
@@ -278,7 +279,7 @@ describe("updateTechRecord", () => {
       const techRecord: ITechRecordWrapper = records[0];
       techRecord.techRecord[0].bodyType.description = "new tech record";
       techRecord.techRecord[0].grossGbWeight = 5555;
-      const vrms = [{ vrm: "JY58FPP", isPrimary: true }];
+      const vrms = [{vrm: "JY58FPP", isPrimary: true}];
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           updateSingle: () => {
@@ -290,16 +291,16 @@ describe("updateTechRecord", () => {
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
-      const updatedTechRec = await techRecordsService.updateTechRecord(techRecord)
-          expect(updatedTechRec).not.toEqual(undefined);
-          expect(updatedTechRec).not.toEqual({});
-          expect(updatedTechRec).not.toHaveProperty("primaryVrm")
-          expect(updatedTechRec).not.toHaveProperty("partialVin")
-          expect(updatedTechRec).not.toHaveProperty("secondaryVrms")
-          expect(updatedTechRec.vin).toEqual("XMGDE02FS0H012345");
-          expect(updatedTechRec.vrms).toStrictEqual(vrms);
-          expect(updatedTechRec.techRecord[0].bodyType.description).toEqual("new tech record");
-          expect(updatedTechRec.techRecord[0].grossGbWeight).toEqual(5555);
+      const updatedTechRec = await techRecordsService.updateTechRecord(techRecord);
+      expect(updatedTechRec).not.toEqual(undefined);
+      expect(updatedTechRec).not.toEqual({});
+      expect(updatedTechRec).not.toHaveProperty("primaryVrm");
+      expect(updatedTechRec).not.toHaveProperty("partialVin");
+      expect(updatedTechRec).not.toHaveProperty("secondaryVrms");
+      expect(updatedTechRec.vin).toEqual("XMGDE02FS0H012345");
+      expect(updatedTechRec.vrms).toStrictEqual(vrms);
+      expect(updatedTechRec.techRecord[0].bodyType.description).toEqual("new tech record");
+      expect(updatedTechRec.techRecord[0].grossGbWeight).toEqual(5555);
     });
   });
 
@@ -324,12 +325,12 @@ describe("updateTechRecord", () => {
       techRecord.techRecord[0].grossGbWeight = 5555;
 
       try {
-        expect(await techRecordsService.updateTechRecord(techRecord)).toThrowError()
-      } catch(errorResponse) {
-          expect(errorResponse).toBeInstanceOf(HTTPError);
-          expect(errorResponse.statusCode).toEqual(400);
-          expect(errorResponse.body).toEqual("The conditional request failed");
-        };
+        expect(await techRecordsService.updateTechRecord(techRecord)).toThrowError();
+      } catch (errorResponse) {
+        expect(errorResponse).toBeInstanceOf(HTTPError);
+        expect(errorResponse.statusCode).toEqual(400);
+        expect(errorResponse.body).toEqual("The conditional request failed");
+      }
     });
   });
 });
