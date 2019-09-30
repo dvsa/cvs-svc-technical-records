@@ -38,4 +38,7 @@ coverage/**
 report.json
 
 #build
-.build/*
+.build/**
+
+#reports
+.reports/**
