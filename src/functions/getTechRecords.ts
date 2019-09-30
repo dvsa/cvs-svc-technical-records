@@ -2,13 +2,14 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import ITechRecord from "../../@Types/ITechRecord";
+import {STATUS} from "../assets/Enums";
 
 const getTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
   const techRecordsService = new TechRecordsService(techRecordsDAO);
 
-  const status = (event.queryStringParameters) ? event.queryStringParameters.status : "current";
-  const searchIdentifier = (event.pathParameters) ? event.pathParameters.searchIdentifier : null;
+  const status: string = (event.queryStringParameters) ? event.queryStringParameters.status : STATUS.PROVISIONAL_OVER_CURRENT;
+  const searchIdentifier: string = (event.pathParameters) ? event.pathParameters.searchIdentifier : null;
 
   // searchTerm too long or too short
   if (!searchIdentifier || searchIdentifier.length < 3 || searchIdentifier.length > 21) {

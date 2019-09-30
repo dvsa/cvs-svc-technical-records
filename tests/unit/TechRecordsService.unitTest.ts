@@ -2,6 +2,8 @@
 import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
+import {HTTPRESPONSE, STATUS} from "../../src/assets/Enums";
+import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 
 describe("getTechRecordsList", () => {
   afterEach(() => {
@@ -24,12 +26,66 @@ describe("getTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
 
-      return techRecordsService.getTechRecordsList("1B7GG36N12S678410", "current")
+      return techRecordsService.getTechRecordsList("1B7GG36N12S678410", STATUS.CURRENT)
         .then((returnedRecords: any) => {
           expect(returnedRecords).not.toEqual(undefined);
           expect(returnedRecords).not.toEqual({});
           expect(returnedRecords).toEqual(records[0]);
         });
+    });
+  });
+
+  context("and the statusCode by which we query is provisional_over_current", () => {
+    context("and the result is a techRecord with one provisional entry and one current one", () => {
+      it("should return the provisional entry", () => {
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getBySearchTerm: () => {
+              return Promise.resolve({
+                Items: [records[9]],
+                Count: 1,
+                ScannedCount: 1
+              });
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+
+        let expectedResult: ITechRecordWrapper = JSON.parse(JSON.stringify(records[9]));
+
+        expectedResult.techRecord.splice(0, 1);
+        expectedResult = techRecordsService.formatTechRecordItemForResponse(expectedResult);
+        return techRecordsService.getTechRecordsList("YV31MEC18GA011911", STATUS.PROVISIONAL_OVER_CURRENT)
+            .then((returnedRecords) => {
+              expect(returnedRecords).toEqual(expectedResult);
+            });
+      });
+    });
+    context("and the result is a techRecord with one archived entry and one current one", () => {
+      it("should return the current entry", () => {
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getBySearchTerm: () => {
+              return Promise.resolve({
+                Items: [records[10]],
+                Count: 1,
+                ScannedCount: 1
+              });
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+
+        let expectedResult: ITechRecordWrapper = JSON.parse(JSON.stringify(records[10]));
+        expectedResult.techRecord.splice(1, 1);
+        expectedResult = techRecordsService.formatTechRecordItemForResponse(expectedResult);
+        return techRecordsService.getTechRecordsList("YV31MEC18GA011933", STATUS.PROVISIONAL_OVER_CURRENT)
+            .then((returnedRecords) => {
+              expect(returnedRecords).toEqual(expectedResult);
+            });
+      });
     });
   });
 
@@ -53,7 +109,7 @@ describe("getTechRecordsList", () => {
         expect(await techRecordsService.getTechRecordsList("Rhubarb", "Potato")).toThrowError();
       } catch (errorResponse) {
         expect(errorResponse.statusCode).toEqual(404);
-        expect(errorResponse.body).toEqual("No resources match the search criteria.");
+        expect(errorResponse.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
       }
     });
   });
@@ -78,7 +134,7 @@ describe("getTechRecordsList", () => {
       } catch (errorResponse) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(404);
-        expect(errorResponse.body).toEqual("No resources match the search criteria.");
+        expect(errorResponse.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
       }
     });
   });
@@ -104,7 +160,7 @@ describe("getTechRecordsList", () => {
       } catch (errorResponse) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(500);
-        expect(errorResponse.body).toEqual("Internal Server Error");
+        expect(errorResponse.body).toEqual(HTTPRESPONSE.INTERNAL_SERVER_ERROR);
       }
     });
   });
@@ -130,7 +186,7 @@ describe("getTechRecordsList", () => {
       } catch (errorResponse) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(422);
-        expect(errorResponse.body).toEqual("The provided partial VIN returned more than one match.");
+        expect(errorResponse.body).toEqual(HTTPRESPONSE.MORE_THAN_ONE_MATCH);
       }
     });
   });
