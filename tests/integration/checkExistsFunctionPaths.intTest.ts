@@ -4,20 +4,6 @@ import {populateDatabase, emptyDatabase} from "../util/dbOperations";
 
 describe("techRecords", () => {
   describe("getTechRecords", () => {
-    beforeAll(async () => {
-      jest.restoreAllMocks();
-      await emptyDatabase();
-    });
-    beforeEach(async () => {
-      await populateDatabase();
-    });
-    afterEach(async () => {
-      await emptyDatabase();
-    });
-    afterAll(async () => {
-      await populateDatabase();
-    });
-
     it("should detect exported path /vehicles/{searchIdentifier}/tech-records", async () => {
       const vehicleRecordEvent = {
         path: "/vehicles/YV31MEC18GA011900/tech-records",

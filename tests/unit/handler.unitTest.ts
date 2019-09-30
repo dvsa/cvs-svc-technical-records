@@ -36,6 +36,31 @@ describe("The lambda function handler", () => {
         expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
       });
 
+      it("should call the /vehicles/{searchIdentifier}/tech-records function with correct event payload", async () => {
+        // Specify your event, with correct path, payload etc
+        sandbox.restore();
+        const vehicleRecordEvent = {
+          path: "/vehicles/12345678/tech-records",
+          pathParameters: {
+            searchIdentifier: "12345678"
+          },
+          resource: "/vehicles/{searchIdentifier}/tech-records",
+          httpMethod: "GET",
+          queryStringParameters: {
+            status: "all"
+          }
+        };
+
+        // Stub out the actual functions
+        const getTechRecordsStub = sandbox.stub(getTechRecords);
+        getTechRecordsStub.getTechRecords.resolves(new HTTPResponse(200, {}));
+
+        const result = await handler(vehicleRecordEvent, ctx);
+        expect(result.statusCode).toEqual(200);
+        expect(getTechRecordsStub.getTechRecords.args[0][0].queryStringParameters.status).toEqual("all");
+        sandbox.assert.called(getTechRecordsStub.getTechRecords);
+      });
+
       it("should return error on empty event", async () => {
         let ctx: any = mockContext(opts);
         const result = await handler(null, ctx);
