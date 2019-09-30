@@ -7,5 +7,13 @@ export enum ERRORS {
 }
 
 export enum HTTPRESPONSE {
-    RESOURCE_NOT_FOUND = "No resources match the search criteria."
+    RESOURCE_NOT_FOUND = "No resources match the search criteria.",
+    INTERNAL_SERVER_ERROR = "Internal Server Error",
+    MORE_THAN_ONE_MATCH = "The provided partial VIN returned more than one match."
+}
+
+export enum STATUS {
+    PROVISIONAL_OVER_CURRENT = "provisional_over_current",
+    PROVISIONAL = "provisional",
+    CURRENT = "current"
 }
