@@ -1,4 +1,4 @@
-import {handler} from "../../src/handler";
+import { handler } from "../../src/handler";
 import Configuration from "../../src/utils/Configuration";
 import HTTPResponse from "../../src/models/HTTPResponse";
 import mockContext from "aws-lambda-mock-context";
@@ -9,6 +9,9 @@ jest.mock("../../src/services/TechRecordsService");
 const opts = Object.assign({
   timeout: 0.2
 });
+import * as postTechRecords from "../../src/functions/postTechRecords";
+import * as updateTechRecords from "../../src/functions/updateTechRecords";
+import mockData from "../resources/technical-records.json";
 
 describe("The lambda function handler", () => {
   context("With correct Config", () => {
@@ -61,6 +64,46 @@ describe("The lambda function handler", () => {
         ctx.succeed(result);
         expect(result.statusCode).toEqual(200);
         expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
+      });
+
+      it("should call /vehicles function with correct event payload", async () => {
+        // Specify your event, with correct path, payload etc
+        const vehicleRecordEvent = {
+          path: "/vehicles",
+          pathParameters: null,
+          resource: "/vehicles/{searchIdentifier}/tech-records",
+          httpMethod: "POST",
+          body: JSON.stringify(mockData[0]),
+          queryStringParameters: null
+        };
+
+        // Stub out the actual functions
+        const postTechRecordsStub = sandbox.stub(postTechRecords);
+        postTechRecordsStub.postTechRecords.resolves(new HTTPResponse(200, {}));
+        const result = await handler(vehicleRecordEvent, ctx);
+        expect(result.statusCode).toEqual(200);
+        sandbox.assert.called(postTechRecordsStub.postTechRecords);
+      });
+
+      it("should call /vehicles/{vin} function with correct event payload", async () => {
+        // Specify your event, with correct path, payload etc
+        const vehicleRecordEvent = {
+          path: "/vehicles/12345678",
+          pathParameters: {
+            vin: "12345678"
+          },
+          resource: "/vehicles/{vin}",
+          httpMethod: "PUT",
+          body: JSON.stringify(mockData[0]),
+          queryStringParameters: null
+        };
+
+        // Stub out the actual functions
+        const updateTechRecordsStub = sandbox.stub(updateTechRecords);
+        updateTechRecordsStub.updateTechRecords.resolves(new HTTPResponse(200, {}));
+        const result = await handler(vehicleRecordEvent, ctx);
+        expect(result.statusCode).toEqual(200);
+        sandbox.assert.called(updateTechRecordsStub.updateTechRecords);
       });
 
       it("should return error on empty event", async () => {
