@@ -105,7 +105,7 @@ describe("getTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011900", "all")
+      const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011900", "all");
       expect(returnedRecords).not.toEqual(undefined);
       expect(returnedRecords).not.toEqual({});
       expect(returnedRecords.techRecord.length).toEqual(2);
