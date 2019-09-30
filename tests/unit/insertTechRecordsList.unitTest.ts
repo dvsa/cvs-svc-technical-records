@@ -22,7 +22,7 @@ describe("insertTechRecordsList", () => {
 
       return techRecordsService.insertTechRecordsList(records)
           .then((data: ITechRecord[]) => {
-            expect(data.length).toEqual(22);
+            expect(data.length).toEqual(21);
           });
     });
 
