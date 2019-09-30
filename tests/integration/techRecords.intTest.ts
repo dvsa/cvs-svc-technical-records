@@ -240,7 +240,7 @@ describe("techRecords", () => {
                   expect(res.statusCode).toEqual(200);
                   expect(res.headers["access-control-allow-origin"]).toEqual("*");
                   expect(res.headers["access-control-allow-credentials"]).toEqual("true");
-                  expect(res.body).toEqual(convertToResponse(mockData[10]));
+                  expect(res.body).toEqual(convertToResponse(mockData[12]));
                   done();
                 });
             });
@@ -268,7 +268,7 @@ describe("techRecords", () => {
                   expect(res.statusCode).toEqual(200);
                   expect(res.headers["access-control-allow-origin"]).toEqual("*");
                   expect(res.headers["access-control-allow-credentials"]).toEqual("true");
-                  expect(convertToResponse(mockData[21])).toEqual(res.body);
+                  expect(convertToResponse(mockData[23])).toEqual(res.body);
                   done();
                 });
             });
