@@ -108,7 +108,7 @@ describe("getTechRecordsList", () => {
       const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011900", "all");
       expect(returnedRecords).not.toEqual(undefined);
       expect(returnedRecords).not.toEqual({});
-      expect(returnedRecords.techRecord.length).toEqual(2);
+      expect(returnedRecords.techRecord.length).toEqual(10);
     });
   });
 
