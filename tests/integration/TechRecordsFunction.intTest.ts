@@ -196,7 +196,7 @@ describe("updateTechRecords", () => {
   });
 
   const records = require("../resources/technical-records.json");
-  const techRecord: ITechRecordWrapper = records[1];
+  const techRecord: ITechRecordWrapper = {...records[1]};
 
   context("when trying to update a vehicle", () => {
     context("and the path parameter VIN is valid", () => {

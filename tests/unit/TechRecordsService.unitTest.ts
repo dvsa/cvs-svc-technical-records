@@ -227,7 +227,7 @@ describe("insertTechRecord", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
       // @ts-ignore
-      const techRecord: ITechRecordWrapper = records[0];
+      const techRecord: ITechRecordWrapper = {...records[0]};
       techRecord.vin = Date.now().toString();
       techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
       techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
@@ -252,7 +252,7 @@ describe("insertTechRecord", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
       // @ts-ignore
-      const techRecord: ITechRecordWrapper = records[0];
+      const techRecord: ITechRecordWrapper = {...records[0]};
       techRecord.partialVin = "012345";
       techRecord.vin = "XMGDE02FS0H012345";
       techRecord.primaryVrm = "JY58FPP";
@@ -264,7 +264,6 @@ describe("insertTechRecord", () => {
         expect(errorResponse.statusCode).toEqual(400);
         expect(errorResponse.body).toEqual("The conditional request failed");
       }
-      ;
     });
   });
 });
@@ -276,7 +275,7 @@ describe("updateTechRecord", () => {
   context("when updating a technical record for an existing vehicle", () => {
     it("should return the updated document", async () => {
       // @ts-ignore
-      const techRecord: ITechRecordWrapper = records[0];
+      const techRecord: ITechRecordWrapper = {...records[0]};
       techRecord.techRecord[0].bodyType.description = "new tech record";
       techRecord.techRecord[0].grossGbWeight = 5555;
       const vrms = [{vrm: "JY58FPP", isPrimary: true}];
@@ -317,7 +316,7 @@ describe("updateTechRecord", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
       // @ts-ignore
-      const techRecord: ITechRecordWrapper = records[0];
+      const techRecord: ITechRecordWrapper = {...records[0]};
       techRecord.partialVin = "012345";
       techRecord.vin = "XMGDE02FS0H012345";
       techRecord.primaryVrm = "JY58FPP";
