@@ -4,6 +4,7 @@ import {emptyDatabase, populateDatabase} from "../util/dbOperations";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {updateTechRecords as UpdateTechRecordsFunction} from "../../src/functions/updateTechRecords";
 import {postTechRecords as PostTechRecordsFunction} from "../../src/functions/postTechRecords";
+import {cloneDeep} from "lodash";
 
 describe("getTechRecords", () => {
   beforeAll(async () => {
@@ -196,7 +197,7 @@ describe("updateTechRecords", () => {
   });
 
   const records = require("../resources/technical-records.json");
-  const techRecord: ITechRecordWrapper = {...records[1]};
+  const techRecord: ITechRecordWrapper = cloneDeep(records[1]);
 
   context("when trying to update a vehicle", () => {
     context("and the path parameter VIN is valid", () => {

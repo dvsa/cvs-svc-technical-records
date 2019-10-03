@@ -3,9 +3,10 @@ import AWS from "aws-sdk";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import mockData from "../resources/technical-records.json";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import {cloneDeep} from "lodash";
 
 // @ts-ignore
-const techRecord: ITechRecordWrapper = {...mockData[0]};
+const techRecord: ITechRecordWrapper = cloneDeep(mockData[0]);
 
 
 describe("TechRecordsDAO", () => {
