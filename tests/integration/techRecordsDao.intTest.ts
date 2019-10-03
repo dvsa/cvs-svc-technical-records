@@ -7,7 +7,7 @@ describe("TechRecordsDAO", () => {
     context("when creating a new vehicle", () => {
       it("should be successful and return {}", async () => {
         // @ts-ignore
-        const techRecord: ITechRecordWrapper = mockData[0];
+        const techRecord: ITechRecordWrapper = {...mockData[0]};
         techRecord.vin = Date.now().toString();
         techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
         techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
@@ -21,7 +21,7 @@ describe("TechRecordsDAO", () => {
     context("when trying to create a vehicle that already exists", () => {
       it("should throw error 400 ConditionalCheckFailedException", async () => {
         // @ts-ignore
-        const techRecord: ITechRecordWrapper = mockData[0];
+        const techRecord: ITechRecordWrapper = {...mockData[0]};
         techRecord.vin = "XMGDE02FS0H012345";
         techRecord.partialVin = "012345";
         techRecord.primaryVrm = "JY58FPP";
@@ -41,7 +41,7 @@ describe("TechRecordsDAO", () => {
     context("when updating an existing tech record", () => {
       it("should return the updated tech record", async () => {
         // @ts-ignore
-        const techRecord: ITechRecordWrapper = mockData[0];
+        const techRecord: ITechRecordWrapper = {...mockData[0]};
         techRecord.techRecord[0].grossGbWeight = 1255;
         techRecord.techRecord[0].bodyType.description = "updated body type";
 
@@ -56,7 +56,7 @@ describe("TechRecordsDAO", () => {
     context("when updating a tech record that does not exist", () => {
       it("should throw error 400 ConditionalCheckFailedException", async () => {
         // @ts-ignore
-        const techRecord: ITechRecordWrapper = mockData[0];
+        const techRecord: ITechRecordWrapper = {...mockData[0]};
         techRecord.techRecord[0].grossGbWeight = 1255;
         techRecord.techRecord[0].bodyType.description = "updated body type";
 

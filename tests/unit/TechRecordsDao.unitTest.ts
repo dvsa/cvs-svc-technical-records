@@ -5,7 +5,7 @@ import mockData from "../resources/technical-records.json";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 
 // @ts-ignore
-const techRecord: ITechRecordWrapper = mockData[0];
+const techRecord: ITechRecordWrapper = {...mockData[0]};
 
 
 describe("TechRecordsDAO", () => {
