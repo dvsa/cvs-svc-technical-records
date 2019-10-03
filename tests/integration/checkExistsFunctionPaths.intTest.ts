@@ -2,6 +2,7 @@ import {handler} from "../../src/handler";
 import mockContext from "aws-lambda-mock-context";
 import mockData from "../resources/technical-records.json";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import { cloneDeep } from "lodash";
 
 describe("TechRecords", () => {
 
@@ -32,7 +33,7 @@ describe("TechRecords", () => {
 
   it("should detect exported path /vehicles", async () => {
     // @ts-ignore
-    const techRecord: ITechRecordWrapper = {...mockData[0]};
+    const techRecord: ITechRecordWrapper = cloneDeep(mockData[0]);
     techRecord.vin = Date.now().toString();
     techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
     techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
@@ -59,7 +60,7 @@ describe("TechRecords", () => {
 
   it("should detect exported path /vehicles/{vin}", async () => {
     // @ts-ignore
-    const techRecord: ITechRecordWrapper = {...mockData[1]};
+    const techRecord: ITechRecordWrapper = cloneDeep(mockData[1]);
     delete techRecord.vin;
     techRecord.techRecord[0].bodyType.description = "updated tech record";
     const vehicleRecordEvent = {

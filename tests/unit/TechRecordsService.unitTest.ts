@@ -4,6 +4,7 @@ import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
 import {HTTPRESPONSE, STATUS} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import {cloneDeep} from "lodash";
 
 describe("getTechRecordsList", () => {
   afterEach(() => {
@@ -11,11 +12,12 @@ describe("getTechRecordsList", () => {
   });
   context("when db call returns data", () => {
     it("should return a populated response", async () => {
+      const techRecord = cloneDeep(records[0]);
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
             return Promise.resolve({
-              Items: [records[0]],
+              Items: [techRecord],
               Count: 1,
               ScannedCount: 1
             });
@@ -227,7 +229,7 @@ describe("insertTechRecord", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
       // @ts-ignore
-      const techRecord: ITechRecordWrapper = {...records[0]};
+      const techRecord: ITechRecordWrapper = cloneDeep(records[0]);
       techRecord.vin = Date.now().toString();
       techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
       techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
@@ -252,7 +254,7 @@ describe("insertTechRecord", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
       // @ts-ignore
-      const techRecord: ITechRecordWrapper = {...records[0]};
+      const techRecord: ITechRecordWrapper = cloneDeep(records[0]);
       techRecord.partialVin = "012345";
       techRecord.vin = "XMGDE02FS0H012345";
       techRecord.primaryVrm = "JY58FPP";
@@ -275,7 +277,7 @@ describe("updateTechRecord", () => {
   context("when updating a technical record for an existing vehicle", () => {
     it("should return the updated document", async () => {
       // @ts-ignore
-      const techRecord: ITechRecordWrapper = {...records[0]};
+      const techRecord: ITechRecordWrapper = cloneDeep(records[0]);
       techRecord.techRecord[0].bodyType.description = "new tech record";
       techRecord.techRecord[0].grossGbWeight = 5555;
       const vrms = [{vrm: "JY58FPP", isPrimary: true}];
@@ -316,7 +318,7 @@ describe("updateTechRecord", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
       // @ts-ignore
-      const techRecord: ITechRecordWrapper = {...records[0]};
+      const techRecord: ITechRecordWrapper = cloneDeep(records[0]);
       techRecord.partialVin = "012345";
       techRecord.vin = "XMGDE02FS0H012345";
       techRecord.primaryVrm = "JY58FPP";

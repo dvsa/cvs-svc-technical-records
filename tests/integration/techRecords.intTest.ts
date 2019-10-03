@@ -6,6 +6,8 @@ const request = supertest(url);
 import {populateDatabase, emptyDatabase, convertToResponse} from "../util/dbOperations";
 import mockData from "../resources/technical-records.json";
 import {HTTPRESPONSE} from "../../src/assets/Enums";
+import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import { cloneDeep } from "lodash";
 
 describe("techRecords", () => {
   describe("getTechRecords", () => {
@@ -284,7 +286,7 @@ describe("techRecords", () => {
         });
 
         // @ts-ignore
-        const newTechRec: ITechRecordWrapper = {...mockData[0]};
+        const newTechRec: ITechRecordWrapper = cloneDeep(mockData[0]);
 
         context("and when trying to create a new vehicle", () => {
           context("and the payload is valid", () => {
@@ -386,7 +388,7 @@ describe("techRecords", () => {
             context("and that vehicle does exist", () => {
               it("should return status 200 and the updated vehicle", (done) => {
                 // @ts-ignore
-                const techRec: ITechRecordWrapper = {...mockData[1]};
+                const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
                 techRec.techRecord[0].bodyType.description = "Updated Tech Record";
                 techRec.techRecord[0].grossGbWeight = 5678;
                 request.put(`vehicles/${techRec.vin}`)
@@ -404,7 +406,7 @@ describe("techRecords", () => {
             context("and that vehicle does not exist", () => {
               it("should return error status 400 The conditional request failed", (done) => {
                 // @ts-ignore
-                const techRec: ITechRecordWrapper = {...mockData[1]};
+                const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
                 techRec.vin = Date.now().toString();
                 techRec.partialVin = techRec.vin.substr(techRec.vin.length - 6);
                 techRec.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
@@ -425,7 +427,7 @@ describe("techRecords", () => {
             context("and the techRecord array is empty", () => {
               it("should return error status 400 Body is not a valid TechRecord", (done) => {
                 // @ts-ignore
-                const techRec: ITechRecordWrapper = {...mockData[1]};
+                const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
                 techRec.techRecord = [];
                 request.put(`vehicles/${techRec.vin}`)
                   .send(techRec)
@@ -444,7 +446,7 @@ describe("techRecords", () => {
             context("and the path parameter VIN is null", () => {
               it("should return 400 Invalid path parameter 'vin'", (done) => {
                 // @ts-ignore
-                const techRec: ITechRecordWrapper = {...mockData[1]};
+                const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
                 techRec.techRecord = [];
                 request.put(`vehicles/null`)
                   .send(techRec)
@@ -461,7 +463,7 @@ describe("techRecords", () => {
             context("and the path parameter VIN is shorter than 9 characters", () => {
               it("should return 400 Invalid path parameter 'vin'", (done) => {
                 // @ts-ignore
-                const techRec: ITechRecordWrapper = {...mockData[1]};
+                const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
                 techRec.techRecord = [];
                 request.put(`vehicles/ABCDEF5`)
                   .send(techRec)
@@ -478,7 +480,7 @@ describe("techRecords", () => {
             context("and the path parameter VIN contains non alphanumeric characters", () => {
               it("should return 400 Invalid path parameter 'vin'", (done) => {
                 // @ts-ignore
-                const techRec: ITechRecordWrapper = {...mockData[1]};
+                const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
                 techRec.techRecord = [];
                 request.put(`vehicles/t@ch-r#cord$`)
                   .send(techRec)
