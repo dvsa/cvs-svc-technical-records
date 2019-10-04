@@ -42,7 +42,6 @@
     "jest-sonar-reporter": "^2.0.0",
     "lambda-tester": "^3.6.0",
     "lodash": "^4.17.15",
-    "nyc": "^14.1.1",
     "serverless": "^1.52.2",
     "serverless-dynamodb-local": "^0.2.38",
     "serverless-offline": "^5.11.0",

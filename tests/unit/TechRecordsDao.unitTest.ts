@@ -5,10 +5,6 @@ import mockData from "../resources/technical-records.json";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
 
-// @ts-ignore
-const techRecord: ITechRecordWrapper = cloneDeep(mockData[0]);
-
-
 describe("TechRecordsDAO", () => {
   context("getBySearchTerm", () => {
     context("builds correct request", () => {
@@ -171,6 +167,8 @@ describe("TechRecordsDAO", () => {
       });
 
       it("for valid TechRecord", async () => {
+        const techRecord: any = cloneDeep(mockData[0]);
+
         const expectedCall = {
           TableName: "cvs-local-technical-records",
           Item: techRecord,
@@ -186,6 +184,8 @@ describe("TechRecordsDAO", () => {
       });
 
       it("for invalid TechRecord", async () => {
+        const techRecord: any = cloneDeep(mockData[0]);
+
         delete techRecord.partialVin;
         delete techRecord.vin;
         const expectedCall = {
