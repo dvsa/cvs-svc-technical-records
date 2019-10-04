@@ -4,6 +4,7 @@ import {emptyDatabase, populateDatabase} from "../util/dbOperations";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {updateTechRecords as UpdateTechRecordsFunction} from "../../src/functions/updateTechRecords";
 import {postTechRecords as PostTechRecordsFunction} from "../../src/functions/postTechRecords";
+import records from "../resources/technical-records.json";
 import {cloneDeep} from "lodash";
 
 describe("getTechRecords", () => {
@@ -104,12 +105,11 @@ describe("postTechRecords", () => {
     await populateDatabase();
   });
 
-  const records = require("../resources/technical-records.json");
-  const techRecord: ITechRecordWrapper = records[0];
-
   context("when trying to create a new vehicle", () => {
     context("and the vehicle was found", () => {
       it("should return error 400", () => {
+        const techRecord = cloneDeep(records[0]);
+
         return LambdaTester(PostTechRecordsFunction)
             .event({
               path: "/vehicles",
@@ -124,6 +124,8 @@ describe("postTechRecords", () => {
 
     context("and the vehicle was not found", () => {
       it("should return 201 created", () => {
+        const techRecord = cloneDeep(records[0]);
+
         techRecord.vin = Date.now().toString();
         techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
         techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
@@ -141,6 +143,8 @@ describe("postTechRecords", () => {
 
     context("and the techRecord array is empty", () => {
       it("should return 400 invalid TechRecord", () => {
+        const techRecord = cloneDeep(records[0]);
+
         techRecord.vin = Date.now().toString();
         techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
         techRecord.techRecord = [];
@@ -158,6 +162,8 @@ describe("postTechRecords", () => {
 
     context("and the event body is empty", () => {
       it("should return 400 invalid TechRecord", () => {
+        const techRecord = cloneDeep(records[0]);
+
         techRecord.vin = Date.now().toString();
         techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
         techRecord.techRecord = [];
@@ -196,17 +202,16 @@ describe("updateTechRecords", () => {
     await populateDatabase();
   });
 
-  const records = require("../resources/technical-records.json");
-  const techRecord: ITechRecordWrapper = cloneDeep(records[1]);
-
   context("when trying to update a vehicle", () => {
     context("and the path parameter VIN is valid", () => {
       context("and the vehicle was found", () => {
         it("should return 200 and the updated vehicle", () => {
+          const techRecord = cloneDeep(records[1]);
+
           const vin = techRecord.vin;
           delete techRecord.vin;
           techRecord.techRecord[0].bodyType.description = "updated tech record";
-          techRecord.techRecord[0].grossGbWeight = 9900;
+          techRecord.techRecord[0].grossLadenWeight = 9900;
           return LambdaTester(UpdateTechRecordsFunction)
               .event({
                 path: `/vehicles/${vin}`,
@@ -219,7 +224,7 @@ describe("updateTechRecords", () => {
                 const updatedTechRes = JSON.parse(result.body);
                 expect(result.statusCode).toEqual(200);
                 expect(updatedTechRes.techRecord[0].bodyType.description).toEqual("updated tech record");
-                expect(updatedTechRes.techRecord[0].grossGbWeight).toEqual(9900);
+                expect(updatedTechRes.techRecord[0].grossLadenWeight).toEqual(9900);
                 expect(updatedTechRes).not.toHaveProperty("primaryVrm");
                 expect(updatedTechRes).not.toHaveProperty("partialVin");
                 expect(updatedTechRes).not.toHaveProperty("secondaryVrms");
@@ -229,6 +234,8 @@ describe("updateTechRecords", () => {
 
       context("and the vehicle was not found", () => {
         it("should return 400 Bad Request", () => {
+          const techRecord = cloneDeep(records[1]);
+
           const vin = Date.now().toString();
           techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
           techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
@@ -249,6 +256,8 @@ describe("updateTechRecords", () => {
 
       context("and the techRecord array is empty", () => {
         it("should return 400 invalid TechRecord", () => {
+          const techRecord = cloneDeep(records[1]);
+
           const vin = Date.now().toString();
           techRecord.partialVin = vin.substr(vin.length - 6);
           techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
@@ -270,6 +279,8 @@ describe("updateTechRecords", () => {
 
       context("and the event body is empty", () => {
         it("should return 400 invalid TechRecord", () => {
+          const techRecord = cloneDeep(records[1]);
+
           const vin = Date.now().toString();
           techRecord.partialVin = vin.substr(vin.length - 6);
           techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
@@ -293,6 +304,8 @@ describe("updateTechRecords", () => {
     context("and the path parameter VIN is invalid", () => {
       context("and the path parameter VIN is null", () => {
         it("should return 400 Invalid path parameter 'vin'", () => {
+          const techRecord = cloneDeep(records[1]);
+
           const vin = Date.now().toString();
           techRecord.partialVin = vin.substr(vin.length - 6);
           techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
@@ -314,6 +327,8 @@ describe("updateTechRecords", () => {
 
       context("and the path parameter VIN is shorter than 9 characters", () => {
         it("should return 400 Invalid path parameter 'vin'", () => {
+          const techRecord = cloneDeep(records[1]);
+
           const vin = Date.now().toString();
           techRecord.partialVin = vin.substr(vin.length - 6);
           techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
@@ -335,6 +350,8 @@ describe("updateTechRecords", () => {
 
       context("and the path parameter VIN contains non alphanumeric characters", () => {
         it("should return 400 Invalid path parameter 'vin'", () => {
+          const techRecord = cloneDeep(records[1]);
+
           const vin = Date.now().toString();
           techRecord.partialVin = vin.substr(vin.length - 6);
           techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
