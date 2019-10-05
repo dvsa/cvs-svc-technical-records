@@ -28,6 +28,7 @@ class TechRecordsService {
         // Formatting the object for lambda function
         let techRecordItem = data.Items[0];
         techRecordItem = this.filterTechRecordsByStatus(techRecordItem, status);
+
         techRecordItem = this.formatTechRecordItemForResponse(techRecordItem);
 
         return techRecordItem;
@@ -43,26 +44,30 @@ class TechRecordsService {
   }
 
     private filterTechRecordsByStatus(techRecordItem: ITechRecordWrapper, status: string) {
-        const originalTechRecordItem = JSON.parse(JSON.stringify(techRecordItem));
+      console.log(`Inside filterTechRecordsByStatus`);
+      const originalTechRecordItem = JSON.parse(JSON.stringify(techRecordItem));
 
-        let provisionalOverCurrent = false;
-        if (status === STATUS.PROVISIONAL_OVER_CURRENT) {
+      let provisionalOverCurrent = false;
+      if (status === STATUS.PROVISIONAL_OVER_CURRENT) {
             provisionalOverCurrent = true;
             status = STATUS.PROVISIONAL;
         }
 
-        techRecordItem.techRecord = techRecordItem.techRecord
+      console.log(`Inside filterTechRecordsByStatus techRecordItem.techRecord ${JSON.stringify(techRecordItem.techRecord)}`);
+
+      techRecordItem.techRecord = techRecordItem.techRecord
             .filter((techRecord: any) => {
                 return techRecord.statusCode === status;
             });
 
-        if (provisionalOverCurrent && (originalTechRecordItem.techRecord.length === techRecordItem.techRecord.length || 0 === techRecordItem.techRecord.length)) {
+
+      if (provisionalOverCurrent && ((originalTechRecordItem.techRecord.length === techRecordItem.techRecord.length) || (0 === techRecordItem.techRecord.length))) {
             techRecordItem = this.filterTechRecordsByStatus(originalTechRecordItem, STATUS.CURRENT);
         }
 
-        if (techRecordItem.techRecord.length <= 0) { throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND); }
+      if (techRecordItem.techRecord.length <= 0) { throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND); }
 
-        return techRecordItem;
+      return techRecordItem;
     }
 
     public formatTechRecordItemForResponse(techRecordItem: ITechRecordWrapper) {
