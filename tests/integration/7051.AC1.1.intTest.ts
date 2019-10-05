@@ -38,7 +38,7 @@ describe("techRecords", () => {
 
       const convertTo7051Response = (dbObj: any, resolvedRecordIndex: number) => { // Needed to convert an object from the database to a response object
         const responseObj = convertToResponse(_.cloneDeep(dbObj));
-      
+
 
         // replace techRecord with resolvedRecordIndex
         const resolvedRecord = _.cloneDeep(responseObj.techRecord[resolvedRecordIndex]);
@@ -46,7 +46,7 @@ describe("techRecords", () => {
         responseObj.techRecord.push(resolvedRecord);
 
         return responseObj;
-      };      
+      };
 
       beforeEach(async () => {
         await populateDatabase();
@@ -67,7 +67,7 @@ describe("techRecords", () => {
               AND the system returns a body message containing a single CompleteTechRecord \
               AND the statusCode of the Technical Records 'provisional' \
               AND the system returns an HTTP status code 200 OK", async () => {
-          const expectedResponseD = convertTo7051Response(_.cloneDeep(mockData[9]),1);
+          const expectedResponseD = convertTo7051Response(_.cloneDeep(mockData[9]), 1);
           const response = await request.get("vehicles/YV31MEC18GA011911/tech-records");
           expect(response.status).toEqual(200);
           expect(expectedResponseD).toEqual(response.body);
