@@ -2,13 +2,21 @@
 import supertest from "supertest";
 const url = "http://localhost:3005/";
 const request = supertest(url);
-import {populateDatabase, emptyDatabase} from "../util/dbOperations";
+import { populateDatabase, emptyDatabase, convertToResponse } from "../util/dbOperations";
 import mockData from "../resources/technical-records.json";
-import {HTTPRESPONSE} from "../../src/assets/Enums";
+import { HTTPRESPONSE } from "../../src/assets/Enums";
 
 describe("techRecords", () => {
   describe("getTechRecords", () => {
     beforeAll(async () => {
+      await emptyDatabase();
+    });
+
+    beforeEach(async () => {
+      await populateDatabase();
+    });
+
+    afterEach(async () => {
       await emptyDatabase();
     });
 
@@ -17,32 +25,6 @@ describe("techRecords", () => {
     });
 
     context("when database is populated", () => {
-      const convertToResponse = (dbObj: any) => { // Needed to convert an object from the database to a response object
-        const responseObj = Object.assign({}, dbObj);
-
-        // Adding primary and secondary VRMs in the same array
-        const vrms: any = [{ isPrimary: true }];
-        if (responseObj.primaryVrm) { vrms[0].vrm = responseObj.primaryVrm; }
-
-        Object.assign(responseObj, {
-          vrms
-        });
-
-        // Cleaning up unneeded properties
-        delete responseObj.primaryVrm; // No longer needed
-        delete responseObj.secondaryVrms; // No longer needed
-        delete responseObj.partialVin; // No longer needed
-
-        return responseObj;
-      };
-      beforeEach(async () => {
-        await populateDatabase();
-      });
-
-      afterEach(async () => {
-        await emptyDatabase();
-      });
-
       context("and when a search by VRM is done", () => {
         context("and no statusCode is provided", () => {
           context("and the tech record for that VRM has statusCode 'current'", () => {
