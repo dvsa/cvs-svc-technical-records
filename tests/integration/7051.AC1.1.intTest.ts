@@ -1,7 +1,7 @@
 import supertest from "supertest";
 const url = "http://localhost:3005/";
 const request = supertest(url);
-import { populateDatabase, emptyDatabase } from "../util/dbOperations";
+import { populateDatabase, emptyDatabase, convertTo7051Response, convertToResponse } from "../util/dbOperations";
 import mockData from "../resources/technical-records.json";
 import { HTTPRESPONSE } from "../../src/assets/Enums";
 import * as _ from "lodash";
@@ -12,50 +12,19 @@ describe("techRecords", () => {
       await emptyDatabase();
     });
 
+    beforeEach(async () => {
+      await populateDatabase();
+    });
+
+    afterEach(async () => {
+      await emptyDatabase();
+    });
+
     afterAll(async () => {
       await populateDatabase();
     });
 
     context("when database is populated", () => {
-      const convertToResponse = (dbObj: any) => { // Needed to convert an object from the database to a response object
-        const responseObj = Object.assign({}, dbObj);
-
-        // Adding primary and secondary VRMs in the same array
-        const vrms: any = [{ isPrimary: true }];
-        if (responseObj.primaryVrm) { vrms[0].vrm = responseObj.primaryVrm; }
-
-        Object.assign(responseObj, {
-          vrms
-        });
-
-        // Cleaning up unneeded properties
-        delete responseObj.primaryVrm; // No longer needed
-        delete responseObj.secondaryVrms; // No longer needed
-        delete responseObj.partialVin; // No longer needed
-
-        return responseObj;
-      };
-
-      const convertTo7051Response = (dbObj: any, resolvedRecordIndex: number) => { // Needed to convert an object from the database to a response object
-        const responseObj = convertToResponse(_.cloneDeep(dbObj));
-
-
-        // replace techRecord with resolvedRecordIndex
-        const resolvedRecord = _.cloneDeep(responseObj.techRecord[resolvedRecordIndex]);
-        responseObj.techRecord.length = 0;
-        responseObj.techRecord.push(resolvedRecord);
-
-        return responseObj;
-      };
-
-      beforeEach(async () => {
-        await populateDatabase();
-      });
-
-      afterEach(async () => {
-        await emptyDatabase();
-      });
-
       context("AC1.1 API Consumer retrieve the Vehicle Technical Records \
               for - query parameter 'status' not provided & vehicle has both 'current' and 'provisional' technical records \
               GIVEN I am an API Consumer \

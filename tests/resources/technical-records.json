@@ -883,236 +883,218 @@
     "partialVin": "011900",
     "techRecord": [
       {
-        "createdAt": "2018-04-20T04:20:00.027Z",
-        "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
-        "chassisMake": "Volvo",
-        "chassisModel": "B10M",
-        "bodyMake": "Duple",
-        "bodyModel": "320",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "model": "FM",
+        "functionCode": "A",
+        "brakeCode": "178202",
         "bodyType": {
-          "code": "s",
-          "description": "single decker"
+          "code": "x",
+          "description": "other"
         },
-        "manufactureYear": 1986,
-        "regnDate": "1986-05-01",
-        "coifDate": "1986-04-18",
-        "ntaNumber": "1",
-        "conversionRefNo": "1",
-        "seatsLowerDeck": 53,
-        "seatsUpperDeck": 0,
-        "standingCapacity": 26,
-        "speedRestriction": 0,
-        "speedLimiterMrk": false,
-        "tachoExemptMrk": false,
-        "dispensations": "None",
-        "remarks": "53 seatbelts",
-        "reasonForCreation": "COIF",
+        "manufactureYear": 2018,
+        "regnDate": "2019-06-24",
+        "ntaNumber": "123456",
+        "conversionRefNo": "7891234",
+        "speedLimiterMrk": true,
+        "tachoExemptMrk": true,
+        "reasonForCreation": "new vehicle",
         "statusCode": "current",
-        "unladenWeight": 0,
-        "grossKerbWeight": 11020,
-        "grossLadenWeight": 14513,
-        "grossGbWeight": 16260,
-        "grossDesignWeight": 17000,
-        "noOfAxles": 3,
-        "brakeCode": "145202",
-        "vehicleClass": {
-          "code": "l",
-          "description": "large psv(ie: greater than 23 seats)"
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "trainGbWeight": 1500,
+        "trainDesignWeight": 2000,
+        "maxTrainGbWeight": 1000,
+        "maxTrainDesignWeight": 500,
+        "tyreUseCode": "2B",
+        "roadFriendly": true,
+        "drawbarCouplingFitted": true,
+        "euroStandard": 7,
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
         },
-        "vehicleType": "psv",
-        "vehicleSize": "large",
-        "vehicleConfiguration": "articulated",
+        "frontAxleTo5thWheelMin": 1200,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "noOfAxles": 2,
+        "vehicleType": "hgv",
+        "vehicleConfiguration": "semi-car transporter",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "notes": "test note",
         "brakes": {
-          "brakeCode": "145202",
-          "brakeCodeOriginal": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
           "retarderBrakeOne": "electric",
           "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdgsd",
           "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 6531,
-            "secondaryBrakeForceA": 3265,
-            "parkingBrakeForceA": 2322
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
           },
           "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 5510,
-            "secondaryBrakeForceB": 2755,
-            "parkingBrakeForceB": 1763
-          }
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
         },
         "axles": [
           {
-            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
-              "kerbWeight": 4870,
-              "ladenWeight": 5888,
-              "gbWeight": 6500,
-              "designWeight": 6500
+              "gbWeight": 1400,
+              "designWeight": 1800
             },
             "tyres": {
-              "tyreSize": "295/80-22.5",
-              "plyRating": "A",
+              "tyreSize": "9.23648E+11",
+              "plyRating": "AB",
               "fitmentCode": "single",
-              "dataTrAxles": 0,
-              "speedCategorySymbol": "j",
-              "tyreCode": 390
+              "dataTrAxles": 345,
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234
             }
           },
           {
             "axleNumber": 2,
             "weights": {
-              "kerbWeight": 6150,
-              "ladenWeight": 8625,
-              "gbWeight": 10170,
-              "designWeight": 10500
+              "gbWeight": 1600,
+              "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "295/80-22.5",
-              "plyRating": "A",
-              "fitmentCode": "double",
-              "dataTrAxles": 0,
-              "speedCategorySymbol": "j",
-              "tyreCode": 386
-            }
-          },
-          {
-            "axleNumber": 3,
-            "weights": {
-              "kerbWeight": 6250,
-              "ladenWeight": 7625,
-              "gbWeight": 10100,
-              "designWeight": 10200
-            },
-            "tyres": {
-              "tyreSize": "295/80-22.5",
-              "plyRating": "A",
-              "fitmentCode": "double",
-              "dataTrAxles": 0,
-              "speedCategorySymbol": "j",
-              "tyreCode": 390
+              "tyreSize": "9.23648E+11",
+              "plyRating": "AB",
+              "fitmentCode": "single",
+              "dataTrAxles": 345,
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678
             }
           }
         ]
       },
       {
-        "createdAt": "2018-04-20T04:20:00.027Z",
-        "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
-        "chassisMake": "Volvo",
-        "chassisModel": "B10M",
-        "bodyMake": "Duple",
-        "bodyModel": "320",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "model": "F06",
+        "brakeCode": "178202",
         "bodyType": {
-          "code": "s",
-          "description": "single decker"
+          "code": "p",
+          "description": "petrol/oil tanker"
         },
-        "manufactureYear": 1986,
-        "regnDate": "1986-05-01",
-        "coifDate": "1986-04-18",
-        "ntaNumber": "1",
-        "conversionRefNo": "1",
-        "seatsLowerDeck": 57,
-        "seatsUpperDeck": 0,
-        "standingCapacity": 26,
-        "speedRestriction": 0,
-        "speedLimiterMrk": false,
-        "tachoExemptMrk": false,
-        "dispensations": "None",
-        "remarks": "57 seatbelts",
-        "reasonForCreation": "VTP5",
-        "statusCode": "archived",
-        "unladenWeight": 0,
-        "grossKerbWeight": 11020,
-        "grossLadenWeight": 14513,
-        "grossGbWeight": 16260,
-        "grossDesignWeight": 17000,
-        "noOfAxles": 3,
-        "brakeCode": "145202",
+        "manufactureYear": 2018,
+        "firstUseDate": "2019-06-24",
+        "regnDate": "2019-06-24",
+        "ntaNumber": "123456",
+        "conversionRefNo": "7891234",
+        "reasonForCreation": "new trailer",
+        "statusCode": "current",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "maxLoadOnCoupling": 7000,
+        "tyreUseCode": "2B",
+        "roadFriendly": true,
+        "drawbarCouplingFitted": true,
+        "suspensionType": "Y",
+        "couplingType": "F",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200,
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1200
+            }
+          ]
+        },
+        "frontAxleToRearAxle": 1700,
+        "rearAxleToRearTrl": 400,
+        "couplingCenterToRearAxleMin": 1000,
+        "couplingCenterToRearAxleMax": 900,
+        "couplingCenterToRearTrlMin": 800,
+        "couplingCenterToRearTrlMax": 700,
+        "loadSensingValve": false,
+        "antilockBrakingSystem": true,
+        "noOfAxles": 2,
+        "vehicleType": "trl",
         "vehicleClass": {
-          "code": "l",
-          "description": "large psv(ie: greater than 23 seats)"
+          "code": "t",
+          "description": "trailer"
         },
-        "vehicleType": "psv",
-        "vehicleSize": "large",
-        "vehicleConfiguration": "articulated",
+        "vehicleConfiguration": "centre axle drawbar",
+        "notes": "some note",
         "brakes": {
-          "brakeCode": "145202",
-          "brakeCodeOriginal": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
           "dataTrBrakeOne": "None",
           "dataTrBrakeTwo": "None",
           "dataTrBrakeThree": "None",
           "retarderBrakeOne": "electric",
           "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "sdsdg",
           "brakeForceWheelsNotLocked": {
-            "serviceBrakeForceA": 6531,
-            "secondaryBrakeForceA": 3265,
-            "parkingBrakeForceA": 2322
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
           },
           "brakeForceWheelsUpToHalfLocked": {
-            "serviceBrakeForceB": 5510,
-            "secondaryBrakeForceB": 2755,
-            "parkingBrakeForceB": 1763
-          }
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
         },
         "axles": [
           {
-            "parkingBrakeMrk": false,
             "axleNumber": 1,
             "weights": {
-              "kerbWeight": 4870,
-              "ladenWeight": 5888,
-              "gbWeight": 6500,
-              "designWeight": 6500
+              "gbWeight": 1400,
+              "designWeight": 1800
             },
             "tyres": {
-              "tyreSize": "295/80-22.5",
-              "plyRating": "A",
+              "tyreSize": "9.23648E+11",
+              "plyRating": "AB",
               "fitmentCode": "single",
-              "dataTrAxles": 0,
-              "speedCategorySymbol": "j",
-              "tyreCode": 390
+              "dataTrAxles": 345,
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234
             }
           },
           {
             "axleNumber": 2,
             "weights": {
-              "kerbWeight": 6150,
-              "ladenWeight": 8625,
-              "gbWeight": 10170,
-              "designWeight": 10500
+              "gbWeight": 1600,
+              "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "295/80-22.5",
-              "plyRating": "A",
-              "fitmentCode": "double",
-              "dataTrAxles": 0,
-              "speedCategorySymbol": "j",
-              "tyreCode": 388
-            }
-          },
-          {
-            "axleNumber": 3,
-            "weights": {
-              "kerbWeight": 6000,
-              "ladenWeight": 8025,
-              "gbWeight": 10110,
-              "designWeight": 10000
+              "tyreSize": "9.23648E+11",
+              "plyRating": "AB",
+              "fitmentCode": "single",
+              "dataTrAxles": 345,
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678
             },
-            "tyres": {
-              "tyreSize": "295/80-22.5",
-              "plyRating": "A",
-              "fitmentCode": "double",
-              "dataTrAxles": 0,
-              "speedCategorySymbol": "j",
-              "tyreCode": 390
+            "brakes": {
+              "brakeActuator": 113,
+              "leverLength": 125,
+              "springBrakeParking": true
             }
           }
         ]
       }
     ]
   },
-
   {
     "primaryVrm": "C48GWQ",
     "secondaryVrms": [
