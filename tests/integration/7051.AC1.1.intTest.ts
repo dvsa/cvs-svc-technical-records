@@ -9,7 +9,7 @@ import * as _ from "lodash";
 describe("techRecords", () => {
   describe("getTechRecords", () => {
     beforeAll(async () => {
-      await emptyDatabase();
+            await emptyDatabase();
     });
 
     beforeEach(async () => {
