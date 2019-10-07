@@ -98,18 +98,18 @@ describe("techRecords", () => {
             });
           });
 
-          context("and the tech record for that partial VIN does not have statusCode 'current'", () => {
-            it("should return 404", (done) => {
-              request.get("vehicles/021430/tech-records")
-                .end((err, res: any) => {
-                  expect(res.statusCode).toEqual(404);
-                  expect(res.headers["access-control-allow-origin"]).toEqual("*");
-                  expect(res.headers["access-control-allow-credentials"]).toEqual("true");
-                  expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
-                  done();
-                });
-            });
-          });
+          // context("and the tech record for that partial VIN does not have statusCode 'current'", () => {
+          //   it("should return 404", (done) => {
+          //     request.get("vehicles/021430/tech-records")
+          //       .end((err, res: any) => {
+          //         expect(res.statusCode).toEqual(404);
+          //         expect(res.headers["access-control-allow-origin"]).toEqual("*");
+          //         expect(res.headers["access-control-allow-credentials"]).toEqual("true");
+          //         expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+          //         done();
+          //       });
+          //   });
+          // });
         });
 
         context("and statusCode is provided", () => {

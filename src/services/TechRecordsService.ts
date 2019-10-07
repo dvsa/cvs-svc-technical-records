@@ -1,8 +1,8 @@
 import HTTPError from "../models/HTTPError";
 import TechRecordsDAO from "../models/TechRecordsDAO";
-import ITechRecord from "../../@Types/ITechRecord";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import { STATUS, HTTPRESPONSE } from "../assets/Enums";
+import {HTTPRESPONSE, STATUS} from "../assets/Enums";
+
 /**
  * Fetches the entire list of Technical Records from the database.
  * @returns Promise
@@ -44,23 +44,26 @@ class TechRecordsService {
   }
 
   private filterTechRecordsByStatus(techRecordItem: ITechRecordWrapper, status: string) {
-    console.log(`Inside filterTechRecordsByStatus`);
     const originalTechRecordItem = JSON.parse(JSON.stringify(techRecordItem));
-
     let provisionalOverCurrent = false;
     if (status === STATUS.PROVISIONAL_OVER_CURRENT) {
       provisionalOverCurrent = true;
       status = STATUS.PROVISIONAL;
     }
 
-
     techRecordItem.techRecord = techRecordItem.techRecord
       .filter((techRecord: any) => {
         return techRecord.statusCode === status;
       });
 
+    const {length} = originalTechRecordItem.techRecord;
+    const {statusCode} = originalTechRecordItem.techRecord[0];
 
-    if (provisionalOverCurrent && ((originalTechRecordItem.techRecord.length === techRecordItem.techRecord.length) || (0 === techRecordItem.techRecord.length))) {
+    if (provisionalOverCurrent && length === 1 && techRecordItem.techRecord.length > 0 && (statusCode === STATUS.CURRENT || statusCode === STATUS.PROVISIONAL)) {
+        return techRecordItem;
+    }
+
+    if (provisionalOverCurrent && ((length === techRecordItem.techRecord.length) || (0 === techRecordItem.techRecord.length))) {
       techRecordItem = this.filterTechRecordsByStatus(originalTechRecordItem, STATUS.CURRENT);
     }
 
