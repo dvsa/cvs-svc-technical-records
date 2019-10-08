@@ -1,4 +1,4 @@
-import { handler } from "../../src/handler";
+import {handler} from "../../src/handler";
 import Configuration from "../../src/utils/Configuration";
 import HTTPResponse from "../../src/models/HTTPResponse";
 import mockContext from "aws-lambda-mock-context";
@@ -67,6 +67,7 @@ describe("The lambda function handler", () => {
       });
 
       it("should call /vehicles function with correct event payload", async () => {
+        let ctx: any = mockContext(opts);
         // Specify your event, with correct path, payload etc
         const vehicleRecordEvent = {
           path: "/vehicles",
@@ -78,19 +79,23 @@ describe("The lambda function handler", () => {
         };
 
         // Stub out the actual functions
-        const postTechRecordsStub = sandbox.stub(postTechRecords);
-        postTechRecordsStub.postTechRecords.resolves(new HTTPResponse(200, {}));
+        TechRecordsService.prototype.insertTechRecord = jest.fn().mockImplementation(() => {
+          return Promise.resolve(new HTTPResponse(201, {}));
+        });
         const result = await handler(vehicleRecordEvent, ctx);
-        expect(result.statusCode).toEqual(200);
-        sandbox.assert.called(postTechRecordsStub.postTechRecords);
+        ctx.succeed(result);
+        ctx = null;
+        expect(result.statusCode).toEqual(201);
+        expect(TechRecordsService.prototype.insertTechRecord).toHaveBeenCalled();
       });
 
       it("should call /vehicles/{vin} function with correct event payload", async () => {
+        let ctx: any = mockContext(opts);
         // Specify your event, with correct path, payload etc
         const vehicleRecordEvent = {
-          path: "/vehicles/12345678",
+          path: "/vehicles/XMGDE02FS0H999987",
           pathParameters: {
-            vin: "12345678"
+            vin: "XMGDE02FS0H999987"
           },
           resource: "/vehicles/{vin}",
           httpMethod: "PUT",
@@ -99,11 +104,14 @@ describe("The lambda function handler", () => {
         };
 
         // Stub out the actual functions
-        const updateTechRecordsStub = sandbox.stub(updateTechRecords);
-        updateTechRecordsStub.updateTechRecords.resolves(new HTTPResponse(200, {}));
+        TechRecordsService.prototype.updateTechRecord = jest.fn().mockImplementation(() => {
+          return Promise.resolve(new HTTPResponse(200, {}));
+        });
         const result = await handler(vehicleRecordEvent, ctx);
+        ctx.succeed(result);
+        ctx = null;
         expect(result.statusCode).toEqual(200);
-        sandbox.assert.called(updateTechRecordsStub.updateTechRecords);
+        expect(TechRecordsService.prototype.updateTechRecord).toHaveBeenCalled();
       });
 
       it("should return error on empty event", async () => {
@@ -141,21 +149,21 @@ describe("The lambda function handler", () => {
       });
     });
   });
-});
 
-context("With no routes defined in config", () => {
-  it("should return a Route Not Found error", async () => {
+  context("With no routes defined in config", () => {
+    it("should return a Route Not Found error", async () => {
 
-    const getFunctions = Configuration.prototype.getFunctions;
-    Configuration.prototype.getFunctions = jest.fn().mockImplementation(() => []);
-    const eventNoRoute = {httpMethod: "GET", path: ""};
-    let ctx: any = mockContext(opts);
-    const result = await handler(eventNoRoute, ctx);
-    ctx.succeed(result);
-    ctx = null;
-    expect(result.statusCode).toEqual(400);
-    expect(result.body).toEqual(JSON.stringify({error: `Route ${eventNoRoute.httpMethod} ${eventNoRoute.path} was not found.`}));
-    Configuration.prototype.getFunctions = getFunctions;
+      const getFunctions = Configuration.prototype.getFunctions;
+      Configuration.prototype.getFunctions = jest.fn().mockImplementation(() => []);
+      const eventNoRoute = {httpMethod: "GET", path: ""};
+      let ctx: any = mockContext(opts);
+      const result = await handler(eventNoRoute, ctx);
+      ctx.succeed(result);
+      ctx = null;
+      expect(result.statusCode).toEqual(400);
+      expect(result.body).toEqual(JSON.stringify({error: `Route ${eventNoRoute.httpMethod} ${eventNoRoute.path} was not found.`}));
+      Configuration.prototype.getFunctions = getFunctions;
+    });
   });
 });
 

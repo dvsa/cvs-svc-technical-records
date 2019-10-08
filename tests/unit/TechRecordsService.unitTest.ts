@@ -28,10 +28,10 @@ describe("getTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
 
-      const returnedRecords = await techRecordsService.getTechRecordsList("1B7GG36N12S678410", STATUS.CURRENT);
+      const returnedRecords: any = await techRecordsService.getTechRecordsList("1B7GG36N12S678410", STATUS.CURRENT);
       expect(returnedRecords).not.toEqual(undefined);
       expect(returnedRecords).not.toEqual({});
-      expect(returnedRecords).toEqual(records[0]);
+      expect(returnedRecords).toEqual(techRecord);
     });
   });
 

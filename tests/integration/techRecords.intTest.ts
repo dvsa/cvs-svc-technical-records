@@ -355,26 +355,6 @@ describe("techRecords", () => {
       });
 
       context("when database is populated", () => {
-        const convertToResponse = (dbObj: any) => { // Needed to convert an object from the database to a response object
-          const responseObj = Object.assign({}, dbObj);
-
-          // Adding primary and secondary VRMs in the same array
-          const vrms: any = [{isPrimary: true}];
-          if (responseObj.primaryVrm) {
-            vrms[0].vrm = responseObj.primaryVrm;
-          }
-
-          Object.assign(responseObj, {
-            vrms
-          });
-
-          // Cleaning up unneeded properties
-          delete responseObj.primaryVrm; // No longer needed
-          delete responseObj.secondaryVrms; // No longer needed
-          delete responseObj.partialVin; // No longer needed
-
-          return responseObj;
-        };
         beforeEach(async () => {
           await populateDatabase();
         });
