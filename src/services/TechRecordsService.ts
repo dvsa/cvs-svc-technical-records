@@ -27,7 +27,7 @@ class TechRecordsService {
 
         // Formatting the object for lambda function
         let techRecordItem = data.Items[0];
-        if(status !== STATUS.ALL) {
+        if (status !== STATUS.ALL) {
           techRecordItem = this.filterTechRecordsByStatus(techRecordItem, status);
         }
         techRecordItem = this.formatTechRecordItemForResponse(techRecordItem);

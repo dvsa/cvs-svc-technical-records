@@ -13,12 +13,6 @@ export enum HTTPRESPONSE {
 }
 
 export enum STATUS {
-    PROVISIONAL_OVER_CURRENT = "provisional_over_current",
-    PROVISIONAL = "provisional",
-    CURRENT = "current"
-}
-
-export enum STATUS {
     ARCHIVED = "archived",
     CURRENT = "current",
     PROVISIONAL = "provisional",
