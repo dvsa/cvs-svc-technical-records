@@ -6,43 +6,39 @@ const recordIds = techRecords.map((record) => [record.partialVin, record.vin]);
 
 describe("deleteTechRecordsList", () => {
   context("database call deletes items", () => {
-    it("should return nothing", () => {
+    it("should return nothing", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           deleteMultiple: () => {
-            return Promise.resolve({ UnprocessedItems: undefined });
+            return Promise.resolve({UnprocessedItems: undefined});
           }
         };
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      return techRecordsService.deleteTechRecordsList(recordIds)
-        .then((data: any) => {
-          expect(data).toEqual(undefined);
-        });
+      const data = await techRecordsService.deleteTechRecordsList(recordIds);
+      expect(data).toEqual(undefined);
     });
 
-    it("should return the unprocessed items", () => {
+    it("should return the unprocessed items", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           deleteMultiple: () => {
-            return Promise.resolve({ UnprocessedItems: [{}, {}, {}] });
+            return Promise.resolve({UnprocessedItems: [{}, {}, {}]});
           }
         };
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      return techRecordsService.deleteTechRecordsList(recordIds)
-        .then((data: any) => {
-          expect(data.length).toEqual(3);
-        });
+      const data: any = await techRecordsService.deleteTechRecordsList(recordIds);
+      expect(data.length).toEqual(3);
     });
   });
 
   context("database call fails deleting items", () => {
-    it("should return error 500", () => {
+    it("should return error 500", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           deleteMultiple: () => {
@@ -53,12 +49,13 @@ describe("deleteTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      return techRecordsService.deleteTechRecordsList(recordIds)
-        .catch((errorResponse: any) => {
-          expect(errorResponse).toBeInstanceOf(HTTPError);
-          expect(errorResponse.statusCode).toEqual(500);
-          expect(errorResponse.body).toEqual("Internal Server Error");
-        });
+      try {
+        expect(await techRecordsService.deleteTechRecordsList(recordIds)).toThrowError();
+      } catch (errorResponse) {
+        expect(errorResponse).toBeInstanceOf(HTTPError);
+        expect(errorResponse.statusCode).toEqual(500);
+        expect(errorResponse.body).toEqual("Internal Server Error");
+      }
     });
   });
 });
