@@ -38,7 +38,6 @@ describe("The lambda function handler", () => {
 
       it("should call the /vehicles/{searchIdentifier}/tech-records function with correct event payload", async () => {
         // Specify your event, with correct path, payload etc
-        sandbox.restore();
         const vehicleRecordEvent = {
           path: "/vehicles/12345678/tech-records",
           pathParameters: {
@@ -51,14 +50,17 @@ describe("The lambda function handler", () => {
           }
         };
 
+        const ctx: any = mockContext(opts);
+
         // Stub out the actual functions
-        const getTechRecordsStub = sandbox.stub(getTechRecords);
-        getTechRecordsStub.getTechRecords.resolves(new HTTPResponse(200, {}));
+        TechRecordsService.prototype.getTechRecordsList = jest.fn().mockImplementation(() => {
+          return Promise.resolve(new HTTPResponse(200, {}));
+        });
 
         const result = await handler(vehicleRecordEvent, ctx);
+        ctx.succeed(result);
         expect(result.statusCode).toEqual(200);
-        expect(getTechRecordsStub.getTechRecords.args[0][0].queryStringParameters.status).toEqual("all");
-        sandbox.assert.called(getTechRecordsStub.getTechRecords);
+        expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
       });
 
       it("should return error on empty event", async () => {
@@ -94,35 +96,6 @@ describe("The lambda function handler", () => {
         expect(result.statusCode).toEqual(400);
         expect(result.body).toStrictEqual(JSON.stringify({error: `Route ${invalidPathEvent.httpMethod} ${invalidPathEvent.path} was not found.`}));
       });
-    });
-  });
-
-  context("should correctly handle exported functions", () => {
-    it("should call the /vehicles/{searchIdentifier}/tech-records function with correct event payload", async () => {
-      // Specify your event, with correct path, payload etc
-      const vehicleRecordEvent = {
-        path: "/vehicles/12345678/tech-records",
-        pathParameters: {
-          searchIdentifier: "12345678"
-        },
-        resource: "/vehicles/{searchIdentifier}/tech-records",
-        httpMethod: "GET",
-        queryStringParameters: {
-          status: "all"
-        }
-      };
-
-      const ctx: any = mockContext(opts);
-
-      // Stub out the actual functions
-      TechRecordsService.prototype.getTechRecordsList = jest.fn().mockImplementation(() => {
-        return Promise.resolve(new HTTPResponse(200, {}));
-      });
-
-      const result = await handler(vehicleRecordEvent, ctx);
-      ctx.succeed(result);
-      expect(result.statusCode).toEqual(200);
-      expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
     });
   });
 });
