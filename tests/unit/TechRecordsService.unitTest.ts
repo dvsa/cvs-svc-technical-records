@@ -10,7 +10,7 @@ describe("getTechRecordsList", () => {
     jest.restoreAllMocks();
   });
   context("when db call returns data", () => {
-    it("should return a populated response", () => {
+    it("should return a populated response", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
@@ -26,18 +26,16 @@ describe("getTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
 
-      return techRecordsService.getTechRecordsList("1B7GG36N12S678410", STATUS.CURRENT)
-        .then((returnedRecords: any) => {
-          expect(returnedRecords).not.toEqual(undefined);
-          expect(returnedRecords).not.toEqual({});
-          expect(returnedRecords).toEqual(records[0]);
-        });
+      const returnedRecords = await techRecordsService.getTechRecordsList("1B7GG36N12S678410", STATUS.CURRENT);
+      expect(returnedRecords).not.toEqual(undefined);
+      expect(returnedRecords).not.toEqual({});
+      expect(returnedRecords).toEqual(records[0]);
     });
   });
 
   context("and the statusCode by which we query is provisional_over_current", () => {
     context("and the result is a techRecord with one provisional entry and one current one", () => {
-      it("should return the provisional entry", () => {
+      it("should return the provisional entry", async () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             getBySearchTerm: () => {
@@ -56,14 +54,13 @@ describe("getTechRecordsList", () => {
 
         expectedResult.techRecord.splice(0, 1);
         expectedResult = techRecordsService.formatTechRecordItemForResponse(expectedResult);
-        return techRecordsService.getTechRecordsList("YV31MEC18GA011911", STATUS.PROVISIONAL_OVER_CURRENT)
-            .then((returnedRecords) => {
-              expect(returnedRecords).toEqual(expectedResult);
-            });
+        const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011911", STATUS.PROVISIONAL_OVER_CURRENT);
+        expect(returnedRecords).toEqual(expectedResult);
       });
     });
+
     context("and the result is a techRecord with one archived entry and one current one", () => {
-      it("should return the current entry", () => {
+      it("should return the current entry", async () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             getBySearchTerm: () => {
@@ -81,10 +78,8 @@ describe("getTechRecordsList", () => {
         let expectedResult: ITechRecordWrapper = JSON.parse(JSON.stringify(records[10]));
         expectedResult.techRecord.splice(1, 1);
         expectedResult = techRecordsService.formatTechRecordItemForResponse(expectedResult);
-        return techRecordsService.getTechRecordsList("YV31MEC18GA011933", STATUS.PROVISIONAL_OVER_CURRENT)
-            .then((returnedRecords) => {
-              expect(returnedRecords).toEqual(expectedResult);
-            });
+        const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011933", STATUS.PROVISIONAL_OVER_CURRENT);
+        expect(returnedRecords).toEqual(expectedResult);
       });
     });
   });

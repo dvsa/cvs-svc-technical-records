@@ -255,12 +255,12 @@ context("and when a search by Trailer ID is done", () => {
 
   context("and the vehicle has more than one tech record", () => {
     it("should return all tech records for that Trailer ID", async () => {
-      const res = await request.get("vehicles/Q000001/tech-records?status=all");
+      const res = await request.get("vehicles/09876543/tech-records?status=all");
       expect(res.status).toEqual(200);
       expect(res.header["access-control-allow-origin"]).toEqual("*");
       expect(res.header["access-control-allow-credentials"]).toEqual("true");
-      expect(convertToResponse(mockData[21])).toEqual(res.body);
-      expect(res.body.techRecord.length).toEqual(mockData[21].techRecord.length);
+      expect(convertToResponse(mockData[0])).toEqual(res.body);
+      expect(res.body.techRecord.length).toEqual(mockData[0].techRecord.length);
     });
   });
 });
