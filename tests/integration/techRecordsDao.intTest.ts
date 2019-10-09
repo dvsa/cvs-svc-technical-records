@@ -12,6 +12,7 @@ describe("TechRecordsDAO", () => {
         techRecord.vin = Date.now().toString();
         techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
         techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
+        techRecord.trailerId = Math.floor(100000 + Math.random() * 900000).toString();
         techRecord.techRecord[0].bodyType.description = "new tech record";
         const techRecordsDao = new TechRecordsDao();
         const data: any = await techRecordsDao.createSingle(techRecord);

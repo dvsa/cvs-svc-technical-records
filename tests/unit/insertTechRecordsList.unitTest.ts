@@ -1,6 +1,7 @@
 import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
+import ITechRecord from "../../@Types/ITechRecord";
 import instantiate = WebAssembly.instantiate;
 import {HTTPRESPONSE} from "../../src/assets/Enums";
 
@@ -22,7 +23,7 @@ describe("insertTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
       // @ts-ignore
-      const data = await techRecordsService.insertTechRecordsList(records);
+      const data: ITechRecord[] = await techRecordsService.insertTechRecordsList(records);
       expect(data.length).toEqual(29);
     });
 
@@ -38,7 +39,7 @@ describe("insertTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
       // @ts-ignore //Required because it decided records was different from the last time it was used otherwise
-      const data = await techRecordsService.insertTechRecordsList(records);
+      const data: ITechRecord[] = await techRecordsService.insertTechRecordsList(records);
       expect(data).toEqual(undefined);
     });
   });

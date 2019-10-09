@@ -4,14 +4,14 @@ import HTTPResponse from "../../src/models/HTTPResponse";
 import mockContext from "aws-lambda-mock-context";
 import event from "../resources/event.json";
 import TechRecordsService from "../../src/services/TechRecordsService";
+import * as postTechRecords from "../../src/functions/postTechRecords";
+import * as updateTechRecords from "../../src/functions/updateTechRecords";
+import mockData from "../resources/technical-records.json";
 
 jest.mock("../../src/services/TechRecordsService");
 const opts = Object.assign({
   timeout: 0.2
 });
-import * as postTechRecords from "../../src/functions/postTechRecords";
-import * as updateTechRecords from "../../src/functions/updateTechRecords";
-import mockData from "../resources/technical-records.json";
 
 describe("The lambda function handler", () => {
   context("With correct Config", () => {
