@@ -37,6 +37,8 @@ describe("TechRecords", () => {
     techRecord.vin = Date.now().toString();
     techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
     techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
+    techRecord.trailerId = Math.floor(100000 + Math.random() * 900000).toString();
+
     const vehicleRecordEvent = {
       path: "/vehicles",
       pathParameters: null,

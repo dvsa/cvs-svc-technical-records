@@ -1,6 +1,7 @@
 import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import techRecords from "../resources/technical-records.json";
+import {HTTPRESPONSE} from "../../src/assets/Enums";
 
 const recordIds = techRecords.map((record) => [record.partialVin, record.vin]);
 
@@ -17,7 +18,7 @@ describe("deleteTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      const data = await techRecordsService.deleteTechRecordsList(recordIds);
+      const data: any = await techRecordsService.deleteTechRecordsList(recordIds);
       expect(data).toEqual(undefined);
     });
 
@@ -54,7 +55,7 @@ describe("deleteTechRecordsList", () => {
       } catch (errorResponse) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(500);
-        expect(errorResponse.body).toEqual("Internal Server Error");
+        expect(errorResponse.body).toEqual(HTTPRESPONSE.INTERNAL_SERVER_ERROR);
       }
     });
   });
