@@ -330,110 +330,110 @@ describe("techRecords", () => {
       });
     });
   });
-});
 
-describe("updateTechRecords", () => {
-  context("when database is populated", () => {
-    beforeAll(async () => {
-      await emptyDatabase();
-    });
-
-    afterAll(async () => {
-      await populateDatabase();
-    });
-
-    beforeEach(async () => {
-      await populateDatabase();
-    });
-
-    afterEach(async () => {
-      await emptyDatabase();
-    });
-
-    context("and when trying to update a vehicle", () => {
-      context("and the path parameter VIN is valid", () => {
-        context("and that vehicle does exist", () => {
-          it("should return status 200 and the updated vehicle", async () => {
-            // @ts-ignore
-            const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-            techRec.techRecord[0].bodyType.description = "Updated Tech Record";
-            techRec.techRecord[0].grossGbWeight = 5678;
-            const res = await request.put(`vehicles/${techRec.vin}`).send(techRec);
-            expect(res.status).toEqual(200);
-            expect(res.header["access-control-allow-origin"]).toEqual("*");
-            expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual(convertToResponse(techRec));
-          });
-        });
-
-        context("and that vehicle does not exist", () => {
-          it("should return error status 400 The conditional request failed", async () => {
-            // @ts-ignore
-            const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-            techRec.vin = Date.now().toString();
-            techRec.partialVin = techRec.vin.substr(techRec.vin.length - 6);
-            techRec.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-            techRec.techRecord[0].bodyType.description = "Updated Tech Record";
-            techRec.techRecord[0].grossGbWeight = 5678;
-            const res = await request.put(`vehicles/${techRec.vin}`).send(techRec);
-            expect(res.status).toEqual(400);
-            expect(res.header["access-control-allow-origin"]).toEqual("*");
-            expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual("The conditional request failed");
-          });
-        });
-
-        context("and the techRecord array is empty", () => {
-          it("should return error status 400 Body is not a valid TechRecord", async () => {
-            // @ts-ignore
-            const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-            techRec.techRecord = [];
-            const res = await request.put(`vehicles/${techRec.vin}`).send(techRec);
-            expect(res.status).toEqual(400);
-            expect(res.header["access-control-allow-origin"]).toEqual("*");
-            expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual("Body is not a valid TechRecord");
-          });
-        });
+  describe("updateTechRecords", () => {
+    context("when database is populated", () => {
+      beforeAll(async () => {
+        await emptyDatabase();
       });
 
-      context("and the path parameter VIN is invalid", () => {
-        context("and the path parameter VIN is null", () => {
-          it("should return 400 Invalid path parameter 'vin'", async () => {
-            // @ts-ignore
-            const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-            techRec.techRecord = [];
-            const res = await request.put(`vehicles/null`).send(techRec);
-            expect(res.status).toEqual(400);
-            expect(res.header["access-control-allow-origin"]).toEqual("*");
-            expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual("Invalid path parameter \'vin\'");
+      afterAll(async () => {
+        await populateDatabase();
+      });
+
+      beforeEach(async () => {
+        await populateDatabase();
+      });
+
+      afterEach(async () => {
+        await emptyDatabase();
+      });
+
+      context("and when trying to update a vehicle", () => {
+        context("and the path parameter VIN is valid", () => {
+          context("and that vehicle does exist", () => {
+            it("should return status 200 and the updated vehicle", async () => {
+              // @ts-ignore
+              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
+              techRec.techRecord[0].bodyType.description = "Updated Tech Record";
+              techRec.techRecord[0].grossGbWeight = 5678;
+              const res = await request.put(`vehicles/${techRec.vin}`).send(techRec);
+              expect(res.status).toEqual(200);
+              expect(res.header["access-control-allow-origin"]).toEqual("*");
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
+              expect(res.body).toEqual(convertToResponse(techRec));
+            });
+          });
+
+          context("and that vehicle does not exist", () => {
+            it("should return error status 400 The conditional request failed", async () => {
+              // @ts-ignore
+              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
+              techRec.vin = Date.now().toString();
+              techRec.partialVin = techRec.vin.substr(techRec.vin.length - 6);
+              techRec.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
+              techRec.techRecord[0].bodyType.description = "Updated Tech Record";
+              techRec.techRecord[0].grossGbWeight = 5678;
+              const res = await request.put(`vehicles/${techRec.vin}`).send(techRec);
+              expect(res.status).toEqual(400);
+              expect(res.header["access-control-allow-origin"]).toEqual("*");
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
+              expect(res.body).toEqual("The conditional request failed");
+            });
+          });
+
+          context("and the techRecord array is empty", () => {
+            it("should return error status 400 Body is not a valid TechRecord", async () => {
+              // @ts-ignore
+              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
+              techRec.techRecord = [];
+              const res = await request.put(`vehicles/${techRec.vin}`).send(techRec);
+              expect(res.status).toEqual(400);
+              expect(res.header["access-control-allow-origin"]).toEqual("*");
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
+              expect(res.body).toEqual("Body is not a valid TechRecord");
+            });
           });
         });
 
-        context("and the path parameter VIN is shorter than 9 characters", () => {
-          it("should return 400 Invalid path parameter 'vin'", async () => {
-            // @ts-ignore
-            const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-            techRec.techRecord = [];
-            const res = await request.put(`vehicles/ABCDEF5`).send(techRec);
-            expect(res.status).toEqual(400);
-            expect(res.header["access-control-allow-origin"]).toEqual("*");
-            expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual("Invalid path parameter \'vin\'");
+        context("and the path parameter VIN is invalid", () => {
+          context("and the path parameter VIN is null", () => {
+            it("should return 400 Invalid path parameter 'vin'", async () => {
+              // @ts-ignore
+              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
+              techRec.techRecord = [];
+              const res = await request.put(`vehicles/null`).send(techRec);
+              expect(res.status).toEqual(400);
+              expect(res.header["access-control-allow-origin"]).toEqual("*");
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
+              expect(res.body).toEqual("Invalid path parameter \'vin\'");
+            });
           });
-        });
 
-        context("and the path parameter VIN contains non alphanumeric characters", () => {
-          it("should return 400 Invalid path parameter 'vin'", async () => {
-            // @ts-ignore
-            const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-            techRec.techRecord = [];
-            const res = await request.put(`vehicles/t@ch-r#cord$`).send(techRec);
-            expect(res.status).toEqual(400);
-            expect(res.header["access-control-allow-origin"]).toEqual("*");
-            expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual("Invalid path parameter \'vin\'");
+          context("and the path parameter VIN is shorter than 9 characters", () => {
+            it("should return 400 Invalid path parameter 'vin'", async () => {
+              // @ts-ignore
+              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
+              techRec.techRecord = [];
+              const res = await request.put(`vehicles/ABCDEF5`).send(techRec);
+              expect(res.status).toEqual(400);
+              expect(res.header["access-control-allow-origin"]).toEqual("*");
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
+              expect(res.body).toEqual("Invalid path parameter \'vin\'");
+            });
+          });
+
+          context("and the path parameter VIN contains non alphanumeric characters", () => {
+            it("should return 400 Invalid path parameter 'vin'", async () => {
+              // @ts-ignore
+              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
+              techRec.techRecord = [];
+              const res = await request.put(`vehicles/t@ch-r#cord$`).send(techRec);
+              expect(res.status).toEqual(400);
+              expect(res.header["access-control-allow-origin"]).toEqual("*");
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
+              expect(res.body).toEqual("Invalid path parameter \'vin\'");
+            });
           });
         });
       });
