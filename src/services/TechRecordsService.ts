@@ -92,32 +92,32 @@ class TechRecordsService {
   }
 
   public insertTechRecord(techRecord: ITechRecordWrapper) {
-      return this.techRecordsDAO.createSingle(techRecord)
-          .then((data: any) => {
-              return data;
-          })
-          .catch((error: any) => {
-              throw new HTTPError(error.statusCode, error.message);
-          });
+    return this.techRecordsDAO.createSingle(techRecord)
+      .then((data: any) => {
+        return data;
+      })
+      .catch((error: any) => {
+        throw new HTTPError(error.statusCode, error.message);
+      });
   }
 
   public updateTechRecord(techRecord: ITechRecordWrapper) {
-      return this.techRecordsDAO.updateSingle(techRecord)
-          .then((data: any) => {
-              const response = data.Attributes;
-              const vrms = [{ vrm: response.primaryVrm, isPrimary: true }];
-              Object.assign(response, {
-                  vrms
-              });
-              // Cleaning up unneeded properties
-              delete response.primaryVrm; // No longer needed
-              delete response.secondaryVrms; // No longer needed
-              delete response.partialVin; // No longer needed
-              return response;
-          })
-          .catch((error: any) => {
-              throw new HTTPError(error.statusCode, error.message);
-          });
+    return this.techRecordsDAO.updateSingle(techRecord)
+      .then((data: any) => {
+        const response = data.Attributes;
+        const vrms = [{vrm: response.primaryVrm, isPrimary: true}];
+        Object.assign(response, {
+          vrms
+        });
+        // Cleaning up unneeded properties
+        delete response.primaryVrm; // No longer needed
+        delete response.secondaryVrms; // No longer needed
+        delete response.partialVin; // No longer needed
+        return response;
+      })
+      .catch((error: any) => {
+        throw new HTTPError(error.statusCode, error.message);
+      });
   }
 
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {
