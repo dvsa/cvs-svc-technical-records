@@ -11,10 +11,10 @@ import mockContext from "aws-lambda-mock-context";
 const opts = Object.assign({
   timeout: 0.5
 });
-
 const feature = loadFeature(path.resolve(__dirname, "../7051.ACs.feature"));
 
 defineFeature(feature, test => {
+  let ctx: any = mockContext(opts);
   test('AC1.1 API Consumer retrieve the Vehicle Technical Records for - ' +
     'query parameter "status" not provided & vehicle has both "current" and "provisional" technical records', ({given, when, then, and}) => {
     let requestUrl: string;
@@ -24,10 +24,7 @@ defineFeature(feature, test => {
       requestUrl = 'vehicles/YV31MEC18GA011911/tech-records';
     });
     when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records', async () => {
-      let ctx: any = mockContext(opts);
       response = await request.get(requestUrl);
-      ctx.succeed(response);
-      ctx = null;
     });
     and('for the identified vehicle in the database there is a Technical Record with the "statusCode" = "current"', () => {
       const isStatusPresent = isStatusCodePresent(mockData[9], "current");
@@ -61,10 +58,7 @@ defineFeature(feature, test => {
       requestUrl = 'vehicles/021430/tech-records';
     });
     when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records', async () => {
-      let ctx: any = mockContext(opts);
       response = await request.get(requestUrl);
-      ctx.succeed(response);
-      ctx = null;
     });
     and('the query parameter "status" is not provided', () => {
     });
@@ -101,10 +95,7 @@ defineFeature(feature, test => {
     when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records?status=provisional_over_current', async () => {
       const status = "status=provisional_over_current";
       requestUrl += status;
-      let ctx: any = mockContext(opts);
       response = await request.get(requestUrl);
-      ctx.succeed(response);
-      ctx = null;
     });
     and('the query parameter "status" is "provisional_over_current"', () => {
     });
@@ -140,10 +131,7 @@ defineFeature(feature, test => {
     when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records?status=provisional_over_current', async () => {
       const status = "status=provisional_over_current";
       requestUrl += status;
-      let ctx: any = mockContext(opts);
       response = await request.get(requestUrl);
-      ctx.succeed(response);
-      ctx = null;
     });
     and('the query parameter "status" is "provisional_over_current"', () => {
     });
@@ -174,10 +162,7 @@ defineFeature(feature, test => {
       requestUrl = 'vehicles/T72745555/tech-records?status=provisional_over_current';
     });
     when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records', async () => {
-      let ctx: any = mockContext(opts);
       response = await request.get(requestUrl);
-      ctx.succeed(response);
-      ctx = null;
     });
     and('no data is found', () => {
     });
@@ -193,10 +178,7 @@ defineFeature(feature, test => {
       requestUrl = 'vehicles/678413/tech-records';
     });
     when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records', async () => {
-      let ctx: any = mockContext(opts);
       response = await request.get(requestUrl);
-      ctx.succeed(response);
-      ctx = null;
     });
     and('multiple results found (more than one CompleteTechRecord object is returned)', () => {
     });
@@ -204,6 +186,8 @@ defineFeature(feature, test => {
       expect(response.status).toEqual(422);
     });
   });
+  ctx.succeed('done');
+  ctx = null;
 });
 
 const isStatusCodePresent = (completeTechRecord: any, status: string) => {
