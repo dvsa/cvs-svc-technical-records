@@ -10,7 +10,6 @@ Feature: Retrieve (v7) - Update the endpoint to retrieve the technical records
     And the statusCode of the Technical Records "provisional"
     And the system returns an HTTP status code 200 OK
 
-
   Scenario: AC1.2 API Consumer retrieve the Vehicle Technical Records for - query parameter "status" not provided & vehicle has only one "current" OR "provisional" technical record
     Given I am an API Consumer
     When I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records
