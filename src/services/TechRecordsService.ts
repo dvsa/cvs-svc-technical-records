@@ -88,6 +88,12 @@ class TechRecordsService {
     delete techRecordItem.secondaryVrms; // No longer needed
     delete techRecordItem.partialVin; // No longer needed
 
+    techRecordItem.techRecord.forEach((techRecord) => {
+      if (techRecord.euroStandard !== undefined && techRecord.euroStandard !== null) {
+        techRecord.euroStandard = techRecord.euroStandard.toString();
+      }
+    });
+
     return techRecordItem;
   }
 
