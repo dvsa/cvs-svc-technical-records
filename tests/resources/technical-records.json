@@ -2774,7 +2774,7 @@
         "tyreUseCode": "2B",
         "roadFriendly": true,
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "dimensions": {
           "length": 7500,
           "width": 2200
@@ -3359,7 +3359,7 @@
           "width": 2200
         },
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "frontAxleTo5thWheelCouplingMax": 1900,
         "frontAxleTo5thWheelCouplingMin": 1700,
         "frontAxleTo5thWheelMax": 1500,
@@ -3499,7 +3499,7 @@
           "width": 2200
         },
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "frontAxleTo5thWheelCouplingMax": 1900,
         "frontAxleTo5thWheelCouplingMin": 1700,
         "frontAxleTo5thWheelMax": 1500,
@@ -3977,7 +3977,7 @@
           "width": 2200
         },
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "frontAxleTo5thWheelCouplingMax": 1900,
         "frontAxleTo5thWheelCouplingMin": 1700,
         "frontAxleTo5thWheelMax": 1500,
@@ -4177,7 +4177,7 @@
           "width": 2200
         },
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "frontAxleTo5thWheelCouplingMax": 1900,
         "frontAxleTo5thWheelCouplingMin": 1700,
         "frontAxleTo5thWheelMax": 1500,
@@ -4268,7 +4268,7 @@
           "width": 2200
         },
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "frontAxleTo5thWheelCouplingMax": 1900,
         "frontAxleTo5thWheelCouplingMin": 1700,
         "frontAxleTo5thWheelMax": 1500,
@@ -4665,7 +4665,7 @@
         "tyreUseCode": "2B",
         "roadFriendly": true,
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "dimensions": {
           "length": 7500,
           "width": 2200
@@ -4813,7 +4813,7 @@
           "width": 2200
         },
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "frontAxleTo5thWheelCouplingMax": 1900,
         "frontAxleTo5thWheelCouplingMin": 1700,
         "frontAxleTo5thWheelMax": 1500,
@@ -4913,7 +4913,7 @@
           "width": 2200
         },
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "frontAxleTo5thWheelCouplingMax": 1900,
         "frontAxleTo5thWheelCouplingMin": 1700,
         "frontAxleTo5thWheelMax": 1500,
@@ -5312,7 +5312,7 @@
           "width": 2200
         },
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": 0,
         "frontAxleTo5thWheelCouplingMax": 1900,
         "frontAxleTo5thWheelCouplingMin": 1700,
         "frontAxleTo5thWheelMax": 1500,

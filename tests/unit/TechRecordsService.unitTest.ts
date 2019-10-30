@@ -334,5 +334,26 @@ describe("updateTechRecord", () => {
       }
     });
   });
+
+  it("should return euroStandard as a string, even if the field is set as 0 in dynamodb", async () => {
+    const MockDAO = jest.fn().mockImplementation(() => {
+      return {
+        getBySearchTerm: () => {
+          return Promise.resolve({
+            Items: [records[29]],
+            Count: 1,
+            ScannedCount: 1
+          });
+        }
+      };
+    });
+    const mockDAO = new MockDAO();
+    const techRecordsService = new TechRecordsService(mockDAO);
+
+    const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);
+    expect(typeof returnedRecords.techRecord[0].euroStandard).toBe("string");
+    expect(returnedRecords.techRecord[0].euroStandard).toBe("0");
+  });
+
 });
 
