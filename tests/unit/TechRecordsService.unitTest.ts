@@ -210,6 +210,50 @@ describe("getTechRecordsList", () => {
       }
     });
   });
+
+  context("when searching for a vehicle with euroStandard field set", () => {
+
+    const MockDAO = jest.fn().mockImplementation((record) => {
+      return {
+        getBySearchTerm: () => {
+          return Promise.resolve({
+            Items: [record],
+            Count: 1,
+            ScannedCount: 1
+          });
+        }
+      };
+    });
+
+    it("should return euroStandard as a string, even if the field is set as 0 in dynamodb", async () => {
+      const techRecordWithNumber = cloneDeep(records[29]);
+      const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithNumber));
+
+      const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);
+      expect(typeof returnedRecords.techRecord[0].euroStandard).toBe("string");
+      expect(returnedRecords.techRecord[0].euroStandard).toBe("0");
+    });
+
+    it("should return euroStandard as a string when the field is already a string", async () => {
+      const techRecordWithString: any = cloneDeep(records[29]);
+      techRecordWithString.techRecord[0].euroStandard = "test";
+      const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithString));
+
+      const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);
+      expect(typeof returnedRecords.techRecord[0].euroStandard).toBe("string");
+      expect(returnedRecords.techRecord[0].euroStandard).toBe("test");
+    });
+
+    it("should return euroStandard as null if it has been set as null", async () => {
+      const techRecordWithNull: any = cloneDeep(records[29]);
+      techRecordWithNull.techRecord[0].euroStandard = null;
+      const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithNull));
+
+      const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);
+      expect(returnedRecords.techRecord[0].euroStandard).toBe(null);
+    });
+  });
+
 });
 
 describe("insertTechRecord", () => {
@@ -333,26 +377,6 @@ describe("updateTechRecord", () => {
         expect(errorResponse.body).toEqual("The conditional request failed");
       }
     });
-  });
-
-  it("should return euroStandard as a string, even if the field is set as 0 in dynamodb", async () => {
-    const MockDAO = jest.fn().mockImplementation(() => {
-      return {
-        getBySearchTerm: () => {
-          return Promise.resolve({
-            Items: [records[29]],
-            Count: 1,
-            ScannedCount: 1
-          });
-        }
-      };
-    });
-    const mockDAO = new MockDAO();
-    const techRecordsService = new TechRecordsService(mockDAO);
-
-    const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);
-    expect(typeof returnedRecords.techRecord[0].euroStandard).toBe("string");
-    expect(returnedRecords.techRecord[0].euroStandard).toBe("0");
   });
 
 });
