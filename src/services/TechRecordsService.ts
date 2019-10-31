@@ -4,11 +4,13 @@ import ITechRecord from "../../@Types/ITechRecord";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {HTTPRESPONSE, STATUS} from "../assets/Enums";
 import HTTPResponse from "../models/HTTPResponse";
+import {validateAdr} from "../utils/AdrValidation";
 
 /**
  * Fetches the entire list of Technical Records from the database.
  * @returns Promise
  */
+
 class TechRecordsService {
   private techRecordsDAO: TechRecordsDAO;
 
@@ -107,7 +109,9 @@ class TechRecordsService {
       });
   }
 
-  public updateTechRecord(techRecord: ITechRecordWrapper) {
+  public updateTechRecord(techRecord: any) {
+    // const isAdrValid = validateAdr(techRecord.adrDetails);
+    // return Promise.resolve(isAdrValid.error);
     return this.techRecordsDAO.updateSingle(techRecord)
       .then((data: any) => {
         const response = data.Attributes;
