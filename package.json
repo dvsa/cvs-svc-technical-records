@@ -57,6 +57,9 @@
     "typescript": "^3.6.4"
   },
   "dependencies": {
+    "@hapi/joi": "^16.1.7",
+    "@hapi/joi-date": "^2.0.1",
+    "@types/hapi__joi": "^16.0.2",
     "aws-sdk": "^2.562.0",
     "aws-xray-sdk": "^2.4.0",
     "node-yaml": "^3.2.0",
