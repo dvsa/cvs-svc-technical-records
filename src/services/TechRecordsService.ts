@@ -4,7 +4,7 @@ import ITechRecord from "../../@Types/ITechRecord";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {HTTPRESPONSE, STATUS} from "../assets/Enums";
 import HTTPResponse from "../models/HTTPResponse";
-import {validateAdr} from "../utils/AdrValidation";
+import {validatePayload} from "../utils/AdrValidation";
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -110,26 +110,7 @@ class TechRecordsService {
   }
 
   public updateTechRecord(techRecord: ITechRecordWrapper) {
-    // let isBatteryOrTank = false, isBattery = false;
-    // return this.getTechRecordsList(techRecord.vin, STATUS.CURRENT)
-    //   .then((data: ITechRecordWrapper) => {
-    //     const currentTechRecord = data.techRecord[0];
-    //     if(techRecord.techRecord[0].adrDetails) {
-    //       const vehicleDetailsType = techRecord.techRecord[0].adrDetails.vehicleDetails.type.toLowerCase();
-    //       if (vehicleDetailsType.indexOf("battery") !== -1) {
-    //         isBattery = true;
-    //       }
-    //       if ((vehicleDetailsType.indexOf("battery") !== -1) || (vehicleDetailsType.indexOf("tank") !== -1)) {
-    //         isBatteryOrTank = true;
-    //       }
-    //     }
-    //     const isAdrValid = validateAdr(techRecord.techRecord[0].adrDetails, isBatteryOrTank, isBattery);
-    //     return data;
-    //   })
-    //   .catch((error: any) => {
-    //     console.log("EROARE", error);
-    //     return new HTTPResponse(error.statusCode, error.body);
-    //   });
+    // return this.createAndArchiveTechRecord(techRecord);
     return this.techRecordsDAO.updateSingle(techRecord)
       .then((data: any) => {
         const response = data.Attributes;
@@ -145,6 +126,36 @@ class TechRecordsService {
       })
       .catch((error: any) => {
         throw new HTTPError(error.statusCode, error.message);
+      });
+  }
+
+  private createAndArchiveTechRecord(techRecord: ITechRecordWrapper) {
+    let isBatteryOrTank = false;
+    let isBattery = false;
+    return this.getTechRecordsList(techRecord.vin, STATUS.CURRENT)
+      .then((oldTechRec: ITechRecordWrapper) => {
+        if (techRecord.techRecord[0].adrDetails) {
+          const vehicleDetailsType = techRecord.techRecord[0].adrDetails.vehicleDetails.type.toLowerCase();
+          if (vehicleDetailsType.indexOf("battery") !== -1) {
+            isBattery = true;
+          }
+          if ((vehicleDetailsType.indexOf("battery") !== -1) || (vehicleDetailsType.indexOf("tank") !== -1)) {
+            isBatteryOrTank = true;
+          }
+        }
+        const isAdrValid = validatePayload(techRecord.techRecord[0], isBatteryOrTank, isBattery);
+        if (isAdrValid.error) {
+          throw new HTTPError(500, isAdrValid.error.details);
+        }
+        oldTechRec.techRecord[0].statusCode = STATUS.ARCHIVED;
+        const newRecord = JSON.parse(JSON.stringify(oldTechRec.techRecord[0]));
+        newRecord.statusCode = STATUS.CURRENT;
+        Object.assign(newRecord, techRecord.techRecord[0]);
+        oldTechRec.techRecord.push(newRecord);
+        return oldTechRec as any;
+      })
+      .catch((error: any) => {
+        throw new HTTPError(error.statusCode, error.body);
       });
   }
 
