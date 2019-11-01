@@ -12,8 +12,8 @@ const tc3Types: string[] = [
   "exceptional"
 ];
 
-export const validateAdr = (adrObject: any, isBatteryOrTank: boolean, isBattery: boolean) => {
-  return adrValidation.validate(adrObject, {context: {isTankOrBattery: isBatteryOrTank, isBattery: isBattery}});
+export const validatePayload = (payload: any, isBatteryOrTank: boolean, isBattery: boolean) => {
+  return techRecordValidation.validate(payload, {context: {isTankOrBattery: isBatteryOrTank, isBattery: isBattery}});
 };
 
 const adrValidation = Joi.object().keys({
@@ -99,4 +99,9 @@ const adrValidation = Joi.object().keys({
       tankStatement: Joi.object().forbidden()
     }).forbidden()
   })
+});
+
+const techRecordValidation = Joi.object().keys({
+  reasonForCreation: Joi.string().max(60).required(),
+  adrDetails: adrValidation
 });
