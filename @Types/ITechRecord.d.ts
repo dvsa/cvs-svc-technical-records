@@ -1,5 +1,3 @@
-import { PERMITTED_DANGEROUS_GOODS, MEMOS_APPLY, SUBSTANCES_PERMITTED } from './../src/assets/Enums';
-
 export default interface ITechRecord {
     createdAt: string;
     lastUpdatedAt: string;
@@ -39,6 +37,7 @@ export default interface ITechRecord {
     vehicleType: string;
     vehicleSize: string;
     vehicleConfiguration: string;
+    adrDetails?: AdrDetails,
     brakes: {
     brakeCode: string,
     brakeCodeOriginal: string,
@@ -59,8 +58,6 @@ export default interface ITechRecord {
     }
 };
     axles: Axle[];
-    euroStandard?: string;
-    adrDetails?: AdrDetails;
 }
 
 interface Axle {
@@ -82,54 +79,60 @@ interface Axle {
     };
 }
 
-export interface AdrDetails {
-    vehicleDetails: VehicleDetails;
-    permittedDangerousGoods: PERMITTED_DANGEROUS_GOODS[];
-    additionalExaminerNotes: string;
-    applicantDetails: ApplicantDetails;
-    memosApply: MEMOS_APPLY[];
-    additionalNotes: AdditionalNotes;
-    tank: Tank;
-}
-
-export interface AdditionalNotes {
-    number: number;
-    guidanceNotes: string[];
-}
-
-export interface ApplicantDetails {
-    name: string;
-    street: string;
-    town: string;
-    city: string;
-    postcode: string;
-}
-
-export interface Tank {
-    tankDetails: TankDetails;
-    tankStatement: TankStatement;
-}
-
-export interface TankDetails {
-    tankManufacturer: string;
-    tc2IntermediateApprovalNo: string;
-    tc2IntermediateExpiryDate: Date;
-    tc3PeriodicNumber: string;
-    tc3PeriodicExpiryDate: Date;
-    yearOfManufacture: string;
-    tankCode: string;
-    specialProvisions: string;
-    tankManufacturerSerialNo: string;
-    tankTypeAppNo: string;
-}
-
-export interface TankStatement {
-    substancesPermitted: SUBSTANCES_PERMITTED;
-    statement: string | null; // statement and productList are mutually exclusive
-    productList: string | null;
-}
-
-export interface VehicleDetails {
-    type: string;
-    approvalDate: Date;
+interface AdrDetails {
+    vehicleDetails: {
+        type: string,
+        approvalDate: string
+    },
+    listStatementApplicable?: boolean,
+    batteryListNumber?: string,
+    declarationsSeen?: boolean,
+    brakeDeclarationsSeen?: boolean,
+    brakeDeclarationIssuer?: string,
+    brakeEndurance?: boolean,
+    weight?: string,
+    compatibilityGroupJ?: boolean,
+    documents?: string[],
+    permittedDangerousGoods: string[],
+    additionalExaminerNotes?: string,
+    applicantDetails: {
+        name: string,
+        street: string,
+        town: string,
+        city: string,
+        postcode: string
+    },
+    memosApply?: string[],
+    additionalNotes?:{
+        number?: string[],
+        guidanceNotes?: string[]
+    },
+    adrTypeApprovalNo?: string,
+    tank?:{
+        tankDetails?:{
+            tankManufacturer?: string
+            yearOfManufacture?: number
+            tankCode?: string
+            specialProvisions?: string
+            tankManufacturerSerialNo?: string
+            tankTypeAppNo?: string
+            tc2Details?:{
+                tc2Type?: string,
+                tc2IntermediateApprovalNo?: string,
+                tc2IntermediateExpiryDate?: string
+            },
+            tc3Details?: [{
+                tc3Type?: string,
+                tc3PeriodicNumber?: string,
+                tc3PeriodicExpiryDate?: string
+            }]
+        },
+        tankStatement?:{
+            substancesPermitted?: string,
+            statement?: string,
+            productListRefNo?: string,
+            productListUnNo?: string[],
+            productList?: string
+        }
+    }
 }

@@ -109,9 +109,27 @@ class TechRecordsService {
       });
   }
 
-  public updateTechRecord(techRecord: any) {
-    // const isAdrValid = validateAdr(techRecord.adrDetails);
-    // return Promise.resolve(isAdrValid.error);
+  public updateTechRecord(techRecord: ITechRecordWrapper) {
+    // let isBatteryOrTank = false, isBattery = false;
+    // return this.getTechRecordsList(techRecord.vin, STATUS.CURRENT)
+    //   .then((data: ITechRecordWrapper) => {
+    //     const currentTechRecord = data.techRecord[0];
+    //     if(techRecord.techRecord[0].adrDetails) {
+    //       const vehicleDetailsType = techRecord.techRecord[0].adrDetails.vehicleDetails.type.toLowerCase();
+    //       if (vehicleDetailsType.indexOf("battery") !== -1) {
+    //         isBattery = true;
+    //       }
+    //       if ((vehicleDetailsType.indexOf("battery") !== -1) || (vehicleDetailsType.indexOf("tank") !== -1)) {
+    //         isBatteryOrTank = true;
+    //       }
+    //     }
+    //     const isAdrValid = validateAdr(techRecord.techRecord[0].adrDetails, isBatteryOrTank, isBattery);
+    //     return data;
+    //   })
+    //   .catch((error: any) => {
+    //     console.log("EROARE", error);
+    //     return new HTTPResponse(error.statusCode, error.body);
+    //   });
     return this.techRecordsDAO.updateSingle(techRecord)
       .then((data: any) => {
         const response = data.Attributes;
