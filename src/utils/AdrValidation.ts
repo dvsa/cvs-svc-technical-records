@@ -12,8 +12,8 @@ const tc3Types: string[] = [
   "exceptional"
 ];
 
-export const validateAdr = (adrObject: any) => {
-  return adrValidation.validate(adrObject, {context: {isTankOrBattery: true, isBattery: true}});
+export const validateAdr = (adrObject: any, isBatteryOrTank: boolean, isBattery: boolean) => {
+  return adrValidation.validate(adrObject, {context: {isTankOrBattery: isBatteryOrTank, isBattery: isBattery}});
 };
 
 const adrValidation = Joi.object().keys({
