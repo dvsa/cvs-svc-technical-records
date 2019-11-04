@@ -99,7 +99,7 @@ const adrValidation = Joi.object().keys({
       tankStatement: Joi.object().forbidden()
     }).forbidden()
   })
-});
+}).required();
 
 const techRecordValidation = Joi.object().keys({
   reasonForCreation: Joi.string().max(60).required(),

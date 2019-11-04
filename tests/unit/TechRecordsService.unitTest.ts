@@ -318,31 +318,52 @@ describe("updateTechRecord", () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });
+  const msUserDetails = {
+    msUser: "dorel",
+    msOid: "1234545"
+  };
   context("when updating a technical record for an existing vehicle", () => {
     it("should return the updated document", async () => {
       // @ts-ignore
-      const techRecord: ITechRecordWrapper = cloneDeep(records[0]);
+      const techRecord: ITechRecordWrapper = cloneDeep(records[31]);
       techRecord.techRecord[0].bodyType.description = "new tech record";
       techRecord.techRecord[0].grossGbWeight = 5555;
-      const vrms = [{vrm: "JY58FPP", isPrimary: true}];
+      const vrms = [{vrm: "YYY3456", isPrimary: true}];
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           updateSingle: () => {
             return Promise.resolve({
               Attributes: techRecord
             });
+          },
+          getBySearchTerm: () => {
+            return Promise.resolve({
+              Items: [cloneDeep(records[31])],
+              Count: 1,
+              ScannedCount: 1
+            });
           }
         };
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
-      const updatedTechRec = await techRecordsService.updateTechRecord(techRecord);
+      const recordToUpdate: any = {
+        vin: techRecord.vin,
+        partialVin: techRecord.partialVin,
+        primaryVrm: techRecord.primaryVrm,
+        techRecord:
+          [{
+            reasonForCreation: techRecord.techRecord[0].reasonForCreation,
+            adrDetails: techRecord.techRecord[0].adrDetails
+          }]
+      };
+      const updatedTechRec: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails);
       expect(updatedTechRec).not.toEqual(undefined);
       expect(updatedTechRec).not.toEqual({});
       expect(updatedTechRec).not.toHaveProperty("primaryVrm");
       expect(updatedTechRec).not.toHaveProperty("partialVin");
       expect(updatedTechRec).not.toHaveProperty("secondaryVrms");
-      expect(updatedTechRec.vin).toEqual("XMGDE02FS0H012345");
+      expect(updatedTechRec.vin).toEqual("P1234567890123");
       expect(updatedTechRec.vrms).toStrictEqual(vrms);
       expect(updatedTechRec.techRecord[0].bodyType.description).toEqual("new tech record");
       expect(updatedTechRec.techRecord[0].grossGbWeight).toEqual(5555);
@@ -350,11 +371,18 @@ describe("updateTechRecord", () => {
   });
 
   context("when trying to update a technical record for non existing vehicle", () => {
-    it("should return error 400 The conditional request failed", async () => {
+    it("should return error 404 No resources match the search criteria", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           updateSingle: () => {
             return Promise.reject({statusCode: 400, message: "The conditional request failed"});
+          },
+          getBySearchTerm: () => {
+            return Promise.resolve({
+              Items: {},
+              Count: 0,
+              ScannedCount: 0
+            });
           }
         };
       });
@@ -370,11 +398,11 @@ describe("updateTechRecord", () => {
       techRecord.techRecord[0].grossGbWeight = 5555;
 
       try {
-        expect(await techRecordsService.updateTechRecord(techRecord)).toThrowError();
+        expect(await techRecordsService.updateTechRecord(techRecord, msUserDetails)).toThrowError();
       } catch (errorResponse) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
-        expect(errorResponse.statusCode).toEqual(400);
-        expect(errorResponse.body).toEqual("The conditional request failed");
+        expect(errorResponse.statusCode).toEqual(404);
+        expect(errorResponse.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
       }
     });
   });

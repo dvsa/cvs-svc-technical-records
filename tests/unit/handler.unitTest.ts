@@ -92,6 +92,13 @@ describe("The lambda function handler", () => {
       it("should call /vehicles/{vin} function with correct event payload", async () => {
         let ctx: any = mockContext(opts);
         // Specify your event, with correct path, payload etc
+        const payload = {
+          msUserDetails: {
+            msUser: "dorel",
+            msOid: "12314234"
+          },
+          techRecord: mockData[31].techRecord
+        };
         const vehicleRecordEvent = {
           path: "/vehicles/XMGDE02FS0H999987",
           pathParameters: {
@@ -99,7 +106,7 @@ describe("The lambda function handler", () => {
           },
           resource: "/vehicles/{vin}",
           httpMethod: "PUT",
-          body: JSON.stringify(mockData[0]),
+          body: JSON.stringify(payload),
           queryStringParameters: null
         };
 
@@ -110,6 +117,7 @@ describe("The lambda function handler", () => {
         const result = await handler(vehicleRecordEvent, ctx);
         ctx.succeed(result);
         ctx = null;
+        console.log("RESULT", result);
         expect(result.statusCode).toEqual(200);
         expect(TechRecordsService.prototype.updateTechRecord).toHaveBeenCalled();
       });
