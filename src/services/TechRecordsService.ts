@@ -109,31 +109,27 @@ class TechRecordsService {
       });
   }
 
-  public updateTechRecord(techRecord: ITechRecordWrapper) {
-    // return this.createAndArchiveTechRecord(techRecord);
-    return this.techRecordsDAO.updateSingle(techRecord)
-      .then((data: any) => {
-        const response = data.Attributes;
-        const vrms = [{vrm: response.primaryVrm, isPrimary: true}];
-        Object.assign(response, {
-          vrms
-        });
-        // Cleaning up unneeded properties
-        delete response.primaryVrm; // No longer needed
-        delete response.secondaryVrms; // No longer needed
-        delete response.partialVin; // No longer needed
-        return response;
+  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
+    return this.createAndArchiveTechRecord(techRecord)
+      .then((data: ITechRecordWrapper) => {
+        return this.techRecordsDAO.updateSingle(data)
+          .then((updatedData: any) => {
+            return this.formatTechRecordItemForResponse(updatedData.Attributes);
+          })
+          .catch((error: any) => {
+            throw new HTTPError(error.statusCode, error.message);
+          });
       })
       .catch((error: any) => {
-        throw new HTTPError(error.statusCode, error.message);
+        throw new HTTPError(error.statusCode, error.body);
       });
   }
 
   private createAndArchiveTechRecord(techRecord: ITechRecordWrapper) {
     let isBatteryOrTank = false;
     let isBattery = false;
-    return this.getTechRecordsList(techRecord.vin, STATUS.CURRENT)
-      .then((oldTechRec: ITechRecordWrapper) => {
+    return this.getTechRecordsList(techRecord.vin, STATUS.ALL)
+      .then((data: ITechRecordWrapper) => {
         if (techRecord.techRecord[0].adrDetails) {
           const vehicleDetailsType = techRecord.techRecord[0].adrDetails.vehicleDetails.type.toLowerCase();
           if (vehicleDetailsType.indexOf("battery") !== -1) {
@@ -147,16 +143,40 @@ class TechRecordsService {
         if (isAdrValid.error) {
           throw new HTTPError(500, isAdrValid.error.details);
         }
-        oldTechRec.techRecord[0].statusCode = STATUS.ARCHIVED;
-        const newRecord = JSON.parse(JSON.stringify(oldTechRec.techRecord[0]));
+        const oldTechRec = this.getTechRecordToArchive(data);
+        oldTechRec.statusCode = STATUS.ARCHIVED;
+        const newRecord = JSON.parse(JSON.stringify(oldTechRec));
         newRecord.statusCode = STATUS.CURRENT;
         Object.assign(newRecord, techRecord.techRecord[0]);
-        oldTechRec.techRecord.push(newRecord);
-        return oldTechRec as any;
+        data.techRecord.push(newRecord);
+        return data;
       })
       .catch((error: any) => {
         throw new HTTPError(error.statusCode, error.body);
       });
+  }
+
+  private getTechRecordToArchive(techRecord: ITechRecordWrapper) {
+    let currentTechRecord = null;
+    let provisionalTechRecord = null;
+    for (const record of techRecord.techRecord) {
+      if (record.statusCode === STATUS.CURRENT) {
+        currentTechRecord = record;
+        break;
+      } else if (record.statusCode === STATUS.PROVISIONAL) {
+        provisionalTechRecord = record;
+      }
+    }
+    if (currentTechRecord) {
+      return currentTechRecord;
+    } else if (provisionalTechRecord) {
+      return provisionalTechRecord;
+    } else {
+      techRecord.techRecord.sort((a, b) => {
+        return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
+      });
+      return techRecord.techRecord[0];
+    }
   }
 
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {
