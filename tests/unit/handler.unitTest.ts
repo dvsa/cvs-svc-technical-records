@@ -147,6 +147,7 @@ describe("The lambda function handler", () => {
         const result = await handler(vehicleRecordEvent, ctx);
         ctx.succeed(result);
         ctx = null;
+        console.log("RESULT", result);
         expect(result.statusCode).toEqual(200);
         expect(TechRecordsService.prototype.updateTechRecord).toHaveBeenCalled();
       });
