@@ -23,6 +23,11 @@ describe("TechRecords", () => {
     await populateDatabase();
   });
 
+  const msUserDetails = {
+    msUser: "dorel",
+    msOid: "1234545"
+  };
+
   it("should detect exported path /vehicles", async () => {
     // @ts-ignore
     const techRecord: ITechRecordWrapper = cloneDeep(mockData[0]);
@@ -54,17 +59,23 @@ describe("TechRecords", () => {
 
   it("should detect exported path /vehicles/{vin}", async () => {
     // @ts-ignore
-    const techRecord: ITechRecordWrapper = cloneDeep(mockData[1]);
+    const techRecord: ITechRecordWrapper = cloneDeep(mockData[29]);
     delete techRecord.vin;
-    techRecord.techRecord[0].bodyType.description = "updated tech record";
+    const payload = {
+      msUserDetails,
+      techRecord: [{
+        reasonForCreation: techRecord.techRecord[0].reasonForCreation,
+        adrDetails: techRecord.techRecord[0].adrDetails
+      }]
+    };
     const vehicleRecordEvent = {
-      path: "/vehicles/1B7GG36N12S678410",
+      path: "/vehicles/ABCDEFGH777777",
       pathParameters: {
-        vin: "1B7GG36N12S678410"
+        vin: "ABCDEFGH777777"
       },
       resource: "/vehicles/{vin}",
       httpMethod: "PUT",
-      body: JSON.stringify(techRecord),
+      body: JSON.stringify(payload),
       queryStringParameters: null
     };
 
@@ -77,6 +88,8 @@ describe("TechRecords", () => {
     ctx = null;
     expect(response).toBeDefined();
     expect(response.statusCode).toEqual(200);
-    expect(JSON.parse(response.body).techRecord[0].bodyType.description).toEqual("updated tech record");
+    expect(JSON.parse(response.body).techRecord[0].statusCode).toEqual("archived");
+    expect(JSON.parse(response.body).techRecord[1].statusCode).toEqual("current");
+
   });
 });
