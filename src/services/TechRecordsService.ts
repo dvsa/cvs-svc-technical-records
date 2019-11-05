@@ -2,7 +2,7 @@ import HTTPError from "../models/HTTPError";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {HTTPRESPONSE, STATUS} from "../assets/Enums";
+import {HTTPRESPONSE, STATUS, UPDATE_TYPE} from "../assets/Enums";
 import HTTPResponse from "../models/HTTPResponse";
 import {validatePayload} from "../utils/AdrValidation";
 
@@ -110,7 +110,7 @@ class TechRecordsService {
   }
 
   public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
-    return this.createAndArchiveTechRecord(techRecord)
+    return this.createAndArchiveTechRecord(techRecord, msUserDetails)
       .then((data: ITechRecordWrapper) => {
         return this.techRecordsDAO.updateSingle(data)
           .then((updatedData: any) => {
@@ -125,7 +125,7 @@ class TechRecordsService {
       });
   }
 
-  private createAndArchiveTechRecord(techRecord: ITechRecordWrapper) {
+  private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
     let isBatteryOrTank = false;
     let isBattery = false;
     return this.getTechRecordsList(techRecord.vin, STATUS.ALL)
@@ -148,6 +148,7 @@ class TechRecordsService {
         const newRecord = JSON.parse(JSON.stringify(oldTechRec));
         newRecord.statusCode = STATUS.CURRENT;
         Object.assign(newRecord, techRecord.techRecord[0]);
+        this.setAuditDetails(newRecord, oldTechRec, msUserDetails);
         data.techRecord.push(newRecord);
         return data;
       })
@@ -177,6 +178,21 @@ class TechRecordsService {
       });
       return techRecord.techRecord[0];
     }
+  }
+
+  private setAuditDetails(newTechRecord: ITechRecord, oldTechRecord: ITechRecord, msUserDetails: any) {
+    const date = new Date().toISOString();
+    newTechRecord.createdAt = date;
+    newTechRecord.createdByName = msUserDetails.msUser;
+    newTechRecord.createdById = msUserDetails.msOid;
+    delete newTechRecord.lastUpdatedAt;
+    delete newTechRecord.lastUpdatedById;
+    delete newTechRecord.lastUpdatedByName;
+
+    oldTechRecord.lastUpdatedAt = date;
+    oldTechRecord.lastUpdatedByName = msUserDetails.msUser;
+    oldTechRecord.lastUpdatedById = msUserDetails.msOid;
+    oldTechRecord.updateType = UPDATE_TYPE.ADR;
   }
 
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {

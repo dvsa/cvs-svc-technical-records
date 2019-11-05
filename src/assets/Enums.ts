@@ -20,30 +20,6 @@ export enum STATUS {
     ALL = "all"
 }
 
-export enum PERMITTED_DANGEROUS_GOODS {
-    "FP <61 (FL)",
-    "AT",
-    "Class 5.1 Hydrogen Peroxide (OX)",
-    "MEMU",
-    "Carbon Disulphide",
-    "Hydrogen",
-    "Explosives: Type 2",
-    "Explosives: Type 3",
-}
-
-export enum SUBSTANCES_PERMITTED {
-    "Substances permitted under the tank code and any special provisions specified in 9 may be carried",
-    "Substances (Class UN number and if necessary packing group and proper shipping name) may be carried",
-}
-
-export enum MEMOS_APPLY {
-    "07/09 3mth leak ext",
-    "03/10 vehicle ABS/EBS",
-    "03/10 trailer ABS",
-}
-
-export enum GUIDANCE_NOTES {
-    "M145 Statement",
-    "M129 Statement",
-    "New certificate requested",
+export enum UPDATE_TYPE {
+    ADR = "adrUpdate"
 }
