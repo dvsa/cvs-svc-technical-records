@@ -1,6 +1,11 @@
 export default interface ITechRecord {
     createdAt: string;
+    createdByName: string,
+    createdById: string,
     lastUpdatedAt: string;
+    lastUpdatedByName?: string,
+    lastUpdatedById?: string,
+    updateType?: string,
     chassisMake: string;
     chassisModel: string;
     bodyMake: string;
