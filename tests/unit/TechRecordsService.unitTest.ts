@@ -329,7 +329,7 @@ describe("updateTechRecord", () => {
       const techRecord: ITechRecordWrapper = cloneDeep(records[31]);
       techRecord.techRecord[0].bodyType.description = "new tech record";
       techRecord.techRecord[0].grossGbWeight = 5555;
-      const vrms = [{vrm: "YYY3456", isPrimary: true}];
+      const vrms = [{vrm: "JY58FPP", isPrimary: true}, {vrm: "609859Z", isPrimary: false}];
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           updateSingle: () => {
