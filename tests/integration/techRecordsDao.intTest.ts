@@ -2,8 +2,25 @@ import TechRecordsDao from "../../src/models/TechRecordsDAO";
 import mockData from "../resources/technical-records.json";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
+import {emptyDatabase, populateDatabase} from "../util/dbOperations";
 
 describe("TechRecordsDAO", () => {
+  beforeAll(async () => {
+    await emptyDatabase();
+  });
+
+  beforeEach(async () => {
+    await populateDatabase();
+  });
+
+  afterEach(async () => {
+    await emptyDatabase();
+  });
+
+  afterAll(async () => {
+    await populateDatabase();
+  });
+
   context("createSingle", () => {
     context("when creating a new vehicle", () => {
       it("should be successful and return {}", async () => {
