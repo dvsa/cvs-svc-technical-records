@@ -5,7 +5,6 @@ import {updateTechRecords as UpdateTechRecordsFunction} from "../../src/function
 import {postTechRecords as PostTechRecordsFunction} from "../../src/functions/postTechRecords";
 import records from "../resources/technical-records.json";
 import {cloneDeep} from "lodash";
-import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {HTTPRESPONSE} from "../../src/assets/Enums";
 
 describe("getTechRecords", () => {
@@ -236,7 +235,7 @@ describe("updateTechRecords", () => {
       });
 
       context("and the vehicle was not found", () => {
-        it("should return 400 Bad Request", async () => {
+        it("should return 404 Not found", async () => {
           const techRecord: any = cloneDeep(records[29]);
           const payload = {
             msUserDetails,
@@ -283,6 +282,33 @@ describe("updateTechRecords", () => {
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
               expect(result.body).toEqual('"Body is not a valid TechRecord"');
+            });
+        });
+      });
+
+      context("and the msUserDetails is not provided", () => {
+        it("should return 400 invalid TechRecord", async () => {
+          const techRecord: any = cloneDeep(records[29]);
+          const payload = {
+            techRecord: [{
+              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
+              adrDetails: techRecord.techRecord[0].adrDetails
+            }]
+          };
+          const vin = Date.now().toString();
+          techRecord.partialVin = vin.substr(vin.length - 6);
+          techRecord.techRecord = [];
+          await LambdaTester(UpdateTechRecordsFunction)
+            .event({
+              path: `/vehicles/${vin}`,
+              pathParameters: {
+                vin
+              },
+              body: payload
+            })
+            .expectResolve((result: any) => {
+              expect(result.statusCode).toEqual(400);
+              expect(result.body).toEqual('"Microsoft user details not provided"');
             });
         });
       });

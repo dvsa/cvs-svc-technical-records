@@ -368,6 +368,47 @@ describe("updateTechRecord", () => {
       expect(updatedTechRec.techRecord[0].bodyType.description).toEqual("new tech record");
       expect(updatedTechRec.techRecord[0].grossGbWeight).toEqual(5555);
     });
+
+    context("and the payload doesn't pass the validation", () => {
+      it("should return the updated document", async () => {
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[31]);
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            updateSingle: () => {
+              return Promise.resolve({
+                Attributes: techRecord
+              });
+            },
+            getBySearchTerm: () => {
+              return Promise.resolve({
+                Items: [cloneDeep(records[31])],
+                Count: 1,
+                ScannedCount: 1
+              });
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+        const recordToUpdate: any = {
+          vin: techRecord.vin,
+          partialVin: techRecord.partialVin,
+          primaryVrm: techRecord.primaryVrm,
+          techRecord:
+            [{
+              reasonForCreation: techRecord.techRecord[0].reasonForCreation
+            }]
+        };
+        try {
+          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.body[0].message).toEqual('"adrDetails" is required');
+        }
+      });
+    });
   });
 
   context("when trying to update a technical record for non existing vehicle", () => {
