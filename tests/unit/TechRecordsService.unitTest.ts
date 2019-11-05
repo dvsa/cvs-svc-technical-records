@@ -280,7 +280,7 @@ describe("updateTechRecord", () => {
       const techRecord: ITechRecordWrapper = cloneDeep(records[0]);
       techRecord.techRecord[0].bodyType.description = "new tech record";
       techRecord.techRecord[0].grossGbWeight = 5555;
-      const vrms = [{vrm: "JY58FPP", isPrimary: true}];
+      const vrms = [{vrm: "JY58FPP", isPrimary: true}, {vrm: "609859Z", isPrimary: false}];
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           updateSingle: () => {
@@ -292,7 +292,7 @@ describe("updateTechRecord", () => {
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
-      const updatedTechRec = await techRecordsService.updateTechRecord(techRecord);
+      const updatedTechRec: any = await techRecordsService.updateTechRecord(techRecord);
       expect(updatedTechRec).not.toEqual(undefined);
       expect(updatedTechRec).not.toEqual({});
       expect(updatedTechRec).not.toHaveProperty("primaryVrm");

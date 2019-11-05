@@ -10,7 +10,7 @@ import mockData from "../resources/technical-records.json";
 
 jest.mock("../../src/services/TechRecordsService");
 const opts = Object.assign({
-  timeout: 0.2
+  timeout: 0.5
 });
 
 describe("The lambda function handler", () => {

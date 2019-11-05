@@ -80,6 +80,11 @@ class TechRecordsService {
   public formatTechRecordItemForResponse(techRecordItem: ITechRecordWrapper) {
     // Adding primary and secondary VRMs in the same array
     const vrms = [{vrm: techRecordItem.primaryVrm, isPrimary: true}];
+    if (techRecordItem.secondaryVrms) {
+      for (const secondaryVrm of techRecordItem.secondaryVrms) {
+        vrms.push({vrm: secondaryVrm, isPrimary: false});
+      }
+    }
     Object.assign(techRecordItem, {
       vrms
     });
@@ -105,15 +110,7 @@ class TechRecordsService {
     return this.techRecordsDAO.updateSingle(techRecord)
       .then((data: any) => {
         const response = data.Attributes;
-        const vrms = [{vrm: response.primaryVrm, isPrimary: true}];
-        Object.assign(response, {
-          vrms
-        });
-        // Cleaning up unneeded properties
-        delete response.primaryVrm; // No longer needed
-        delete response.secondaryVrms; // No longer needed
-        delete response.partialVin; // No longer needed
-        return response;
+        return this.formatTechRecordItemForResponse(response);
       })
       .catch((error: any) => {
         throw new HTTPError(error.statusCode, error.message);
