@@ -5698,7 +5698,7 @@
         "tyreUseCode": "2B",
         "roadFriendly": true,
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "dimensions": {
           "length": 7500,
           "width": 2200
@@ -5821,7 +5821,7 @@
         "tyreUseCode": "2B",
         "roadFriendly": true,
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "dimensions": {
           "length": 7500,
           "width": 2200
@@ -5944,7 +5944,7 @@
         "tyreUseCode": "2B",
         "roadFriendly": true,
         "drawbarCouplingFitted": true,
-        "euroStandard": 7,
+        "euroStandard": "7",
         "dimensions": {
           "length": 7500,
           "width": 2200

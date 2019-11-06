@@ -42,6 +42,7 @@ export default interface ITechRecord {
     vehicleType: string;
     vehicleSize: string;
     vehicleConfiguration: string;
+    euroStandard?: string,
     adrDetails?: AdrDetails,
     brakes: {
     brakeCode: string,
