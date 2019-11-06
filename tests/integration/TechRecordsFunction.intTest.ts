@@ -46,12 +46,14 @@ describe("getTechRecords", () => {
               searchIdentifier: "XMGDE02FS0H012345"
             },
             queryStringParameters: {
-              status: "current"
+              status: "current",
+              metadata: "true"
             }
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(200);
             expect(JSON.parse(result.body).vin).toEqual("XMGDE02FS0H012345");
+            expect(JSON.parse(result.body)).toHaveProperty("metadata");
           });
       });
     });
