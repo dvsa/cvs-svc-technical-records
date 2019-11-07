@@ -41,7 +41,7 @@ defineFeature(feature, test => {
     let expectedResponse: any;
 
     given('I am an API Consumer', () => {
-      requestUrl = 'vehicles/012999/tech-records';
+      requestUrl = 'vehicles/ABCDEFGH777777/tech-records';
     });
     when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records', async () => {
       response = await request.get(requestUrl);
