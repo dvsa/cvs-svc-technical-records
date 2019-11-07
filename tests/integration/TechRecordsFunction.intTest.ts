@@ -5,6 +5,7 @@ import {updateTechRecords as UpdateTechRecordsFunction} from "../../src/function
 import {postTechRecords as PostTechRecordsFunction} from "../../src/functions/postTechRecords";
 import records from "../resources/technical-records.json";
 import {cloneDeep} from "lodash";
+import {HTTPRESPONSE} from "../../src/assets/Enums";
 
 describe("getTechRecords", () => {
   beforeAll(async () => {
@@ -45,12 +46,14 @@ describe("getTechRecords", () => {
               searchIdentifier: "XMGDE02FS0H012345"
             },
             queryStringParameters: {
-              status: "current"
+              status: "current",
+              metadata: "true"
             }
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(200);
             expect(JSON.parse(result.body).vin).toEqual("XMGDE02FS0H012345");
+            expect(JSON.parse(result.body)).toHaveProperty("metadata");
           });
       });
     });
@@ -197,65 +200,78 @@ describe("updateTechRecords", () => {
     await populateDatabase();
   });
 
+  const msUserDetails = {
+    msUser: "dorel",
+    msOid: "1234545"
+  };
+
   context("when trying to update a vehicle", () => {
     context("and the path parameter VIN is valid", () => {
       context("and the vehicle was found", () => {
         it("should return 200 and the updated vehicle", async () => {
-          const techRecord = cloneDeep(records[1]);
-
+          const techRecord: any = cloneDeep(records[29]);
+          const payload = {
+            msUserDetails,
+            techRecord: [{
+              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
+              adrDetails: techRecord.techRecord[0].adrDetails
+            }]
+          };
           const vin = techRecord.vin;
           delete techRecord.vin;
-          techRecord.techRecord[0].bodyType.description = "updated tech record";
-          techRecord.techRecord[0].grossLadenWeight = 9900;
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
               path: `/vehicles/${vin}`,
               pathParameters: {
                 vin
               },
-              body: techRecord
+              body: payload
             })
             .expectResolve((result: any) => {
               const updatedTechRes = JSON.parse(result.body);
               expect(result.statusCode).toEqual(200);
-              expect(updatedTechRes.techRecord[0].bodyType.description).toEqual("updated tech record");
-              expect(updatedTechRes.techRecord[0].grossLadenWeight).toEqual(9900);
-              expect(updatedTechRes).not.toHaveProperty("primaryVrm");
-              expect(updatedTechRes).not.toHaveProperty("partialVin");
-              expect(updatedTechRes).not.toHaveProperty("secondaryVrms");
+              expect(updatedTechRes.techRecord[techRecord.techRecord.length].statusCode).toEqual("current");
+              expect(updatedTechRes.techRecord[techRecord.techRecord.length - 1].statusCode).toEqual("archived");
             });
         });
       });
 
       context("and the vehicle was not found", () => {
-        it("should return 400 Bad Request", async () => {
-          const techRecord = cloneDeep(records[1]);
-
+        it("should return 404 Not found", async () => {
+          const techRecord: any = cloneDeep(records[29]);
+          const payload = {
+            msUserDetails,
+            techRecord: [{
+              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
+              adrDetails: techRecord.techRecord[0].adrDetails
+            }]
+          };
           const vin = Date.now().toString();
           techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
-          techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
               path: `/vehicles/${vin}`,
               pathParameters: {
                 vin
               },
-              body: techRecord
+              body: payload
             })
             .expectResolve((result: any) => {
-              expect(result.statusCode).toEqual(400);
-              expect(result.body).toEqual('"The conditional request failed"');
+              expect(result.statusCode).toEqual(404);
+              expect(JSON.parse(result.body)).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
             });
         });
       });
 
       context("and the techRecord array is empty", () => {
         it("should return 400 invalid TechRecord", async () => {
-          const techRecord = cloneDeep(records[1]);
-
+          const techRecord = cloneDeep(records[29]);
+          const payload = {
+            msUserDetails,
+            techRecord: []
+          };
           const vin = Date.now().toString();
           techRecord.partialVin = vin.substr(vin.length - 6);
-          techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
           techRecord.techRecord = [];
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
@@ -263,7 +279,7 @@ describe("updateTechRecords", () => {
               pathParameters: {
                 vin
               },
-              body: techRecord
+              body: payload
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
@@ -272,14 +288,36 @@ describe("updateTechRecords", () => {
         });
       });
 
-      context("and the event body is empty", () => {
+      context("and the msUserDetails is not provided", () => {
         it("should return 400 invalid TechRecord", async () => {
-          const techRecord = cloneDeep(records[1]);
-
+          const techRecord: any = cloneDeep(records[29]);
+          const payload = {
+            techRecord: [{
+              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
+              adrDetails: techRecord.techRecord[0].adrDetails
+            }]
+          };
           const vin = Date.now().toString();
           techRecord.partialVin = vin.substr(vin.length - 6);
-          techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
           techRecord.techRecord = [];
+          await LambdaTester(UpdateTechRecordsFunction)
+            .event({
+              path: `/vehicles/${vin}`,
+              pathParameters: {
+                vin
+              },
+              body: payload
+            })
+            .expectResolve((result: any) => {
+              expect(result.statusCode).toEqual(400);
+              expect(result.body).toEqual('"Microsoft user details not provided"');
+            });
+        });
+      });
+
+      context("and the event body is empty", () => {
+        it("should return 400 invalid TechRecord", async () => {
+          const vin = Date.now().toString();
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
               path: `/vehicles/${vin}`,

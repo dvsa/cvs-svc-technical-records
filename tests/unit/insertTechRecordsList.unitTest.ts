@@ -2,7 +2,6 @@ import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
 import ITechRecord from "../../@Types/ITechRecord";
-import instantiate = WebAssembly.instantiate;
 import {HTTPRESPONSE} from "../../src/assets/Enums";
 
 describe("insertTechRecordsList", () => {
@@ -24,7 +23,7 @@ describe("insertTechRecordsList", () => {
 
       // @ts-ignore
       const data: ITechRecord[] = await techRecordsService.insertTechRecordsList(records);
-      expect(data.length).toEqual(35);
+      expect(data.length).toEqual(44);
     });
 
     it("should return nothing", async () => {

@@ -2,13 +2,15 @@ import HTTPError from "../models/HTTPError";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {HTTPRESPONSE, STATUS} from "../assets/Enums";
+import {HTTPRESPONSE, STATUS, UPDATE_TYPE} from "../assets/Enums";
 import HTTPResponse from "../models/HTTPResponse";
+import {validatePayload} from "../utils/AdrValidation";
 
 /**
  * Fetches the entire list of Technical Records from the database.
  * @returns Promise
  */
+
 class TechRecordsService {
   private techRecordsDAO: TechRecordsDAO;
 
@@ -88,6 +90,12 @@ class TechRecordsService {
     delete techRecordItem.secondaryVrms; // No longer needed
     delete techRecordItem.partialVin; // No longer needed
 
+    techRecordItem.techRecord.forEach((techRecord) => {
+      if (techRecord.euroStandard !== undefined && techRecord.euroStandard !== null) {
+        techRecord.euroStandard = techRecord.euroStandard.toString();
+      }
+    });
+
     return techRecordItem;
   }
 
@@ -101,23 +109,90 @@ class TechRecordsService {
       });
   }
 
-  public updateTechRecord(techRecord: ITechRecordWrapper) {
-    return this.techRecordsDAO.updateSingle(techRecord)
-      .then((data: any) => {
-        const response = data.Attributes;
-        const vrms = [{vrm: response.primaryVrm, isPrimary: true}];
-        Object.assign(response, {
-          vrms
-        });
-        // Cleaning up unneeded properties
-        delete response.primaryVrm; // No longer needed
-        delete response.secondaryVrms; // No longer needed
-        delete response.partialVin; // No longer needed
-        return response;
+  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
+    return this.createAndArchiveTechRecord(techRecord, msUserDetails)
+      .then((data: ITechRecordWrapper) => {
+        return this.techRecordsDAO.updateSingle(data)
+          .then((updatedData: any) => {
+            return this.formatTechRecordItemForResponse(updatedData.Attributes);
+          })
+          .catch((error: any) => {
+            throw new HTTPError(error.statusCode, error.message);
+          });
       })
       .catch((error: any) => {
-        throw new HTTPError(error.statusCode, error.message);
+        throw new HTTPError(error.statusCode, error.body);
       });
+  }
+
+  private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
+    let isBatteryOrTank = false;
+    let isBattery = false;
+    return this.getTechRecordsList(techRecord.vin, STATUS.ALL)
+      .then((data: ITechRecordWrapper) => {
+        if (techRecord.techRecord[0].adrDetails) {
+          const vehicleDetailsType = techRecord.techRecord[0].adrDetails.vehicleDetails.type.toLowerCase();
+          if (vehicleDetailsType.indexOf("battery") !== -1) {
+            isBattery = true;
+          }
+          if ((vehicleDetailsType.indexOf("battery") !== -1) || (vehicleDetailsType.indexOf("tank") !== -1)) {
+            isBatteryOrTank = true;
+          }
+        }
+        const isAdrValid = validatePayload(techRecord.techRecord[0], isBatteryOrTank, isBattery);
+        if (isAdrValid.error) {
+          throw new HTTPError(500, isAdrValid.error.details);
+        }
+        const oldTechRec = this.getTechRecordToArchive(data);
+        oldTechRec.statusCode = STATUS.ARCHIVED;
+        const newRecord = JSON.parse(JSON.stringify(oldTechRec));
+        newRecord.statusCode = STATUS.CURRENT;
+        Object.assign(newRecord, techRecord.techRecord[0]);
+        this.setAuditDetails(newRecord, oldTechRec, msUserDetails);
+        data.techRecord.push(newRecord);
+        return data;
+      })
+      .catch((error: any) => {
+        throw new HTTPError(error.statusCode, error.body);
+      });
+  }
+
+  private getTechRecordToArchive(techRecord: ITechRecordWrapper) {
+    let currentTechRecord = null;
+    let provisionalTechRecord = null;
+    for (const record of techRecord.techRecord) {
+      if (record.statusCode === STATUS.CURRENT) {
+        currentTechRecord = record;
+        break;
+      } else if (record.statusCode === STATUS.PROVISIONAL) {
+        provisionalTechRecord = record;
+      }
+    }
+    if (currentTechRecord) {
+      return currentTechRecord;
+    } else if (provisionalTechRecord) {
+      return provisionalTechRecord;
+    } else {
+      techRecord.techRecord.sort((a, b) => {
+        return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
+      });
+      return techRecord.techRecord[0];
+    }
+  }
+
+  private setAuditDetails(newTechRecord: ITechRecord, oldTechRecord: ITechRecord, msUserDetails: any) {
+    const date = new Date().toISOString();
+    newTechRecord.createdAt = date;
+    newTechRecord.createdByName = msUserDetails.msUser;
+    newTechRecord.createdById = msUserDetails.msOid;
+    delete newTechRecord.lastUpdatedAt;
+    delete newTechRecord.lastUpdatedById;
+    delete newTechRecord.lastUpdatedByName;
+
+    oldTechRecord.lastUpdatedAt = date;
+    oldTechRecord.lastUpdatedByName = msUserDetails.msUser;
+    oldTechRecord.lastUpdatedById = msUserDetails.msOid;
+    oldTechRecord.updateType = UPDATE_TYPE.ADR;
   }
 
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {

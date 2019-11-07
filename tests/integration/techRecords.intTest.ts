@@ -349,36 +349,51 @@ describe("techRecords", () => {
         await emptyDatabase();
       });
 
+      const msUserDetails = {
+        msUser: "dorel",
+        msOid: "1234545"
+      };
+
       context("and when trying to update a vehicle", () => {
         context("and the path parameter VIN is valid", () => {
           context("and that vehicle does exist", () => {
             it("should return status 200 and the updated vehicle", async () => {
               // @ts-ignore
-              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-              techRec.techRecord[0].bodyType.description = "Updated Tech Record";
-              techRec.techRecord[0].grossGbWeight = 5678;
-              const res = await request.put(`vehicles/${techRec.vin}`).send(techRec);
+              const techRec: ITechRecordWrapper = cloneDeep(mockData[30]);
+              const payload = {
+                msUserDetails,
+                techRecord: [{
+                  reasonForCreation: techRec.techRecord[0].reasonForCreation,
+                  adrDetails: techRec.techRecord[0].adrDetails
+                }]
+              };
+              const res = await request.put(`vehicles/${techRec.vin}`).send(payload);
               expect(res.status).toEqual(200);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body).toEqual(convertToResponse(techRec));
+              expect(res.body.techRecord[techRec.techRecord.length].statusCode).toEqual("current");
+              expect(res.body.techRecord[techRec.techRecord.length - 2].statusCode).toEqual("archived");
             });
           });
 
           context("and that vehicle does not exist", () => {
-            it("should return error status 400 The conditional request failed", async () => {
+            it("should return error status 404 No resources match the search criteria", async () => {
               // @ts-ignore
-              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
+              const techRec: ITechRecordWrapper = cloneDeep(mockData[30]);
               techRec.vin = Date.now().toString();
               techRec.partialVin = techRec.vin.substr(techRec.vin.length - 6);
-              techRec.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-              techRec.techRecord[0].bodyType.description = "Updated Tech Record";
-              techRec.techRecord[0].grossGbWeight = 5678;
-              const res = await request.put(`vehicles/${techRec.vin}`).send(techRec);
-              expect(res.status).toEqual(400);
+              const payload = {
+                msUserDetails,
+                techRecord: [{
+                  reasonForCreation: techRec.techRecord[0].reasonForCreation,
+                  adrDetails: techRec.techRecord[0].adrDetails
+                }]
+              };
+              const res = await request.put(`vehicles/${techRec.vin}`).send(payload);
+              expect(res.status).toEqual(404);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body).toEqual("The conditional request failed");
+              expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
             });
           });
 

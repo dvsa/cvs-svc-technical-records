@@ -1,6 +1,11 @@
 export default interface ITechRecord {
     createdAt: string;
+    createdByName: string,
+    createdById: string,
     lastUpdatedAt: string;
+    lastUpdatedByName?: string,
+    lastUpdatedById?: string,
+    updateType?: string,
     chassisMake: string;
     chassisModel: string;
     bodyMake: string;
@@ -37,6 +42,8 @@ export default interface ITechRecord {
     vehicleType: string;
     vehicleSize: string;
     vehicleConfiguration: string;
+    euroStandard?: string,
+    adrDetails?: AdrDetails,
     brakes: {
     brakeCode: string,
     brakeCodeOriginal: string,
@@ -76,4 +83,62 @@ interface Axle {
         speedCategorySymbol: string,
         tyreCode: number
     };
+}
+
+interface AdrDetails {
+    vehicleDetails: {
+        type: string,
+        approvalDate: string
+    },
+    listStatementApplicable?: boolean,
+    batteryListNumber?: string,
+    declarationsSeen?: boolean,
+    brakeDeclarationsSeen?: boolean,
+    brakeDeclarationIssuer?: string,
+    brakeEndurance?: boolean,
+    weight?: string,
+    compatibilityGroupJ?: boolean,
+    documents?: string[],
+    permittedDangerousGoods: string[],
+    additionalExaminerNotes?: string,
+    applicantDetails: {
+        name: string,
+        street: string,
+        town: string,
+        city: string,
+        postcode: string
+    },
+    memosApply?: string[],
+    additionalNotes?:{
+        number?: string[],
+        guidanceNotes?: string[]
+    },
+    adrTypeApprovalNo?: string,
+    tank?:{
+        tankDetails?:{
+            tankManufacturer?: string
+            yearOfManufacture?: number
+            tankCode?: string
+            specialProvisions?: string
+            tankManufacturerSerialNo?: string
+            tankTypeAppNo?: string
+            tc2Details?:{
+                tc2Type?: string,
+                tc2IntermediateApprovalNo?: string,
+                tc2IntermediateExpiryDate?: string
+            },
+            tc3Details?: [{
+                tc3Type?: string,
+                tc3PeriodicNumber?: string,
+                tc3PeriodicExpiryDate?: string
+            }]
+        },
+        tankStatement?:{
+            substancesPermitted?: string,
+            statement?: string,
+            productListRefNo?: string,
+            productListUnNo?: string[],
+            productList?: string
+        }
+    }
 }

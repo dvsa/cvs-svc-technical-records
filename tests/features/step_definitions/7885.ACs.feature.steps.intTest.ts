@@ -7,6 +7,7 @@ const request = supertest(url);
 import mockData from "../../resources/technical-records.json";
 import {cloneDeep} from 'lodash';
 import mockContext from "aws-lambda-mock-context";
+import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 
 const opts = Object.assign({
   timeout: 0.5
@@ -15,6 +16,22 @@ const opts = Object.assign({
 const feature = loadFeature(path.resolve(__dirname, "../7885.ACs.feature"));
 
 defineFeature(feature, test => {
+  beforeAll(async () => {
+    await emptyDatabase();
+  });
+
+  beforeEach(async () => {
+    await populateDatabase();
+  });
+
+  afterEach(async () => {
+    await emptyDatabase();
+  });
+
+  afterAll(async () => {
+    await populateDatabase();
+  });
+
   let ctx: any = mockContext(opts);
   test('AC1. Vehicles API spec contains GET/POST/PUT/ verbs', ({given, when, then, and}) => {
     let requestUrlPOST: string;
@@ -41,8 +58,8 @@ defineFeature(feature, test => {
       expect(responsePOST.body).toEqual("Technical Record created");
 
       expect(responsePUT.status).toEqual(200);
-      expect(responsePUT.body.techRecord[0].bodyType.description).toEqual("Updated Tech Record");
-      expect(responsePUT.body.techRecord[0].grossGbWeight).toEqual(5678);
+      expect(responsePUT.body.techRecord[0].statusCode).toEqual("archived");
+      expect(responsePUT.body.techRecord[1].statusCode).toEqual("current");
     });
     and('I am still able to perform a GET request', async () => {
       responseGET = await request.get(requestUrlGET);
@@ -65,9 +82,17 @@ const createPOSTPayload = () => {
 };
 
 const createPUTPayload = () => {
-  const techRec: any = cloneDeep(mockData[1]);
-  techRec.techRecord[0].bodyType.description = "Updated Tech Record";
-  techRec.techRecord[0].grossGbWeight = 5678;
-  return techRec;
+  const techRec: any = cloneDeep(mockData[29]);
+  const payload = {
+    msUserDetails: {
+      msUser: "dorel",
+      msOid: "1234545"
+    },
+    techRecord: [{
+      reasonForCreation: techRec.techRecord[0].reasonForCreation,
+      adrDetails: techRec.techRecord[0].adrDetails
+    }]
+  };
+  return payload;
 };
 

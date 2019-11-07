@@ -19,3 +19,7 @@ export enum STATUS {
     PROVISIONAL_OVER_CURRENT = "provisional_over_current",
     ALL = "all"
 }
+
+export enum UPDATE_TYPE {
+    ADR = "adrUpdate"
+}

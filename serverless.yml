@@ -70,6 +70,7 @@ functions:
               searchIdentifier: true
             querystrings:
               status: false
+              metadata: false
         documentation:
           summary: "Get Vehicle Technical Records list"
           description: "Retrieves the Vehicle Technical Records for the input searchIdentifier, which can be the VRM, the last 6 digits of the VIN or the full VIN"
@@ -84,6 +85,12 @@ functions:
               in: path
               description: The status code of a vehicle technical record"
               required: true
+              schema:
+                type: string
+            - name: metadata?
+              in: path
+              description: Applicable only to ADR details. Query param for returning the list of values that are selectable on the front end
+              required: false
               schema:
                 type: string
           methodResposes:
