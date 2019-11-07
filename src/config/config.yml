@@ -12,6 +12,11 @@ functions:
     method: PUT
     path: /vehicles/:vin
     function: updateTechRecords
+s3:
+  local:
+    endpoint: http://localhost:7000
+    s3ForcePathStyle: true
+  remote: {}
 dynamodb:
   local:
     params:
