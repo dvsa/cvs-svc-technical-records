@@ -12,6 +12,7 @@ const updateTechRecords = (event: any) => {
   const techRec = event.body ? event.body.techRecord : null;
   const msUserDetails = event.body ? event.body.msUserDetails : null;
   const vin = event.pathParameters.vin;
+  const fileToUpload = event.body ? event.body.base64String : null;
 
   if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 9) {
     return Promise.resolve(new HTTPResponse(400, "Invalid path parameter 'vin'"));
@@ -32,7 +33,7 @@ const updateTechRecords = (event: any) => {
     partialVin: vin.substr(vin.length - 6),
     techRecord: techRec
   };
-  return techRecordsService.updateTechRecord(techRecord, msUserDetails)
+  return techRecordsService.updateTechRecord(techRecord, msUserDetails, fileToUpload)
     .then((updatedTechRec: any) => {
       return new HTTPResponse(200, updatedTechRec);
     })

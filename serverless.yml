@@ -22,6 +22,10 @@ plugins:
   - serverless-plugin-typescript
 
 custom:
+  s3:
+    host: s3
+    port: 7000
+    directory: /tmp
   serverless-offline:
     port: 3005
   dynamodb:

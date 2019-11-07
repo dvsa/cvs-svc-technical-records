@@ -1,10 +1,13 @@
 import HTTPError from "../models/HTTPError";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
+import {ManagedUpload, Metadata} from "aws-sdk/clients/s3";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {HTTPRESPONSE, STATUS, UPDATE_TYPE} from "../assets/Enums";
 import HTTPResponse from "../models/HTTPResponse";
 import {validatePayload} from "../utils/AdrValidation";
+import S3BucketService from "./S3BucketService";
+import S3 = require("aws-sdk/clients/s3");
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -13,9 +16,11 @@ import {validatePayload} from "../utils/AdrValidation";
 
 class TechRecordsService {
   private techRecordsDAO: TechRecordsDAO;
+  private s3BucketService: S3BucketService;
 
   constructor(techRecordsDAO: TechRecordsDAO) {
     this.techRecordsDAO = techRecordsDAO;
+    this.s3BucketService = new S3BucketService(new S3());
   }
 
   public getTechRecordsList(searchTerm: string, status: string) {
@@ -114,20 +119,42 @@ class TechRecordsService {
       });
   }
 
-  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
-    return this.createAndArchiveTechRecord(techRecord, msUserDetails)
-      .then((data: ITechRecordWrapper) => {
-        return this.techRecordsDAO.updateSingle(data)
-          .then((updatedData: any) => {
-            return this.formatTechRecordItemForResponse(updatedData.Attributes);
-          })
-          .catch((error: any) => {
-            throw new HTTPError(error.statusCode, error.message);
-          });
-      })
-      .catch((error: any) => {
-        throw new HTTPError(error.statusCode, error.body);
-      });
+  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, file?: string) {
+    if (file) {
+      return this.uploadFile(file)
+        .then((uploadedData: any) => {
+          console.log("AFTER UPLOAD", uploadedData);
+          return this.createAndArchiveTechRecord(techRecord, msUserDetails)
+            .then((data: ITechRecordWrapper) => {
+              return this.techRecordsDAO.updateSingle(data)
+                .then((updatedData: any) => {
+                  return this.formatTechRecordItemForResponse(updatedData.Attributes);
+                })
+                .catch((error: any) => {
+                  throw new HTTPError(error.statusCode, error.message);
+                });
+            });
+        })
+        .catch((error: any) => {
+          console.log("EROARE", error);
+          throw new HTTPError(error.statusCode, error.body);
+        });
+    } else {
+      return this.createAndArchiveTechRecord(techRecord, msUserDetails)
+        .then((data: ITechRecordWrapper) => {
+          return this.techRecordsDAO.updateSingle(data)
+            .then((updatedData: any) => {
+              return this.formatTechRecordItemForResponse(updatedData.Attributes);
+            })
+            .catch((error: any) => {
+              throw new HTTPError(error.statusCode, error.message);
+            });
+        })
+        .catch((error: any) => {
+          console.log("EROARE", error);
+          throw new HTTPError(error.statusCode, error.body);
+        });
+    }
   }
 
   private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
@@ -187,6 +214,16 @@ class TechRecordsService {
     oldTechRecord.lastUpdatedByName = msUserDetails.msUser;
     oldTechRecord.lastUpdatedById = msUserDetails.msOid;
     oldTechRecord.updateType = UPDATE_TYPE.ADR;
+  }
+
+  public uploadFile(base64String: any): Promise<ManagedUpload.SendData> {
+    const buffer: Buffer = Buffer.from(base64String, "base64");
+    const metadata: Metadata = {
+      "file-size": buffer.byteLength.toString(),
+      "file-format": "pdf"
+    };
+
+    return this.s3BucketService.upload(`cvs-adr-pdfs-${process.env.BUCKET}`, `testing-${Date.now()}.pdf`, buffer, metadata);
   }
 
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {
