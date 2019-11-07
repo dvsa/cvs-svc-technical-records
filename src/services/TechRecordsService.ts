@@ -222,8 +222,8 @@ class TechRecordsService {
       "file-size": buffer.byteLength.toString(),
       "file-format": "pdf"
     };
-
-    return this.s3BucketService.upload(`cvs-adr-pdfs-${process.env.BUCKET}`, `testing-${Date.now()}.pdf`, buffer, metadata);
+    console.log("BUCKET NAME", process.env.BUCKET);
+    return this.s3BucketService.upload(`cvs-adr-pdfs-nonprod`, `testing-${Date.now()}.pdf`, buffer, metadata);
   }
 
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {
