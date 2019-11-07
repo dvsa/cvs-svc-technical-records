@@ -226,7 +226,8 @@ describe("getTechRecordsList", () => {
     });
 
     it("should return euroStandard as a string, even if the field is set as 0 in dynamodb", async () => {
-      const techRecordWithNumber = cloneDeep(records[29]);
+      const techRecordWithNumber: any = cloneDeep(records[29]);
+      techRecordWithNumber.techRecord[0].euroStandard = 0;
       const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithNumber));
 
       const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);

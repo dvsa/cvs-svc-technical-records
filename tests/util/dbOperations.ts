@@ -46,7 +46,7 @@ export const convertToResponse = (dbObj: any) => { // Needed to convert an objec
     delete responseObj.partialVin; // No longer needed
 
     responseObj.techRecord.forEach((techRecord: any) => {
-        if (techRecord.euroStandard !== undefined && techRecord.euroStandard !== null) {
+        if (techRecord.euroStandard) {
           techRecord.euroStandard = techRecord.euroStandard.toString();
         }
       });
