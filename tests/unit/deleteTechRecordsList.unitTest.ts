@@ -2,7 +2,9 @@ import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import techRecords from "../resources/technical-records.json";
 import {HTTPRESPONSE} from "../../src/assets/Enums";
+import S3BucketServiceMock from "../models/S3BucketServiceMock";
 
+const s3BucketServiceMock = new S3BucketServiceMock();
 const recordIds = techRecords.map((record) => [record.partialVin, record.vin]);
 
 describe("deleteTechRecordsList", () => {
@@ -16,7 +18,7 @@ describe("deleteTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       const data: any = await techRecordsService.deleteTechRecordsList(recordIds);
       expect(data).toEqual(undefined);
@@ -31,7 +33,7 @@ describe("deleteTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       const data: any = await techRecordsService.deleteTechRecordsList(recordIds);
       expect(data.length).toEqual(3);
@@ -48,7 +50,7 @@ describe("deleteTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       try {
         expect(await techRecordsService.deleteTechRecordsList(recordIds)).toThrowError();
