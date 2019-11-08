@@ -19,9 +19,9 @@ class TechRecordsService {
   private techRecordsDAO: TechRecordsDAO;
   private s3BucketService: S3BucketService;
 
-  constructor(techRecordsDAO: TechRecordsDAO) {
+  constructor(techRecordsDAO: TechRecordsDAO, s3BucketService: S3BucketService) {
     this.techRecordsDAO = techRecordsDAO;
-    this.s3BucketService = new S3BucketService(new S3());
+    this.s3BucketService = s3BucketService;
   }
 
   public getTechRecordsList(searchTerm: string, status: string) {
@@ -128,7 +128,6 @@ class TechRecordsService {
       }
       return Promise.all(promises)
         .then((uploadedData: ManagedUpload.SendData[]) => {
-          console.log("AFTER UPLOAD", uploadedData);
           const documents: string[] = [];
           if (uploadedData && uploadedData.length) {
             for (const uploaded of uploadedData) {
@@ -140,7 +139,6 @@ class TechRecordsService {
           return this.manageUpdateLogic(techRecord, msUserDetails, documents);
         })
         .catch((error: any) => {
-          console.log("EROARE UPLOAD", error);
           throw new HTTPError(500, HTTPRESPONSE.S3_ERROR);
         });
     } else {
@@ -160,7 +158,6 @@ class TechRecordsService {
           });
       })
       .catch((error: any) => {
-        console.log("EROARE UPDATE LOGIC", error);
         throw new HTTPError(error.statusCode, error.body);
       });
   }
@@ -243,14 +240,7 @@ class TechRecordsService {
       "file-size": buffer.byteLength.toString(),
       "file-format": "pdf"
     };
-    console.log("BUCKET NAME", process.env.BUCKET);
-    // return Promise.resolve({
-    //   Location: `http://localhost:7000/`,
-    //   ETag: "621c9c14d75958d4c3ed8ad77c80cde1",
-    //   Bucket: 'cvs-nonprod',
-    //   Key: `${uuid.v4()}.pdf`
-    // });
-    return this.s3BucketService.upload(`cvs-adr-pdfs-${process.env.BUCKET}`, `${uuid.v4()}.pdf`, buffer, metadata);
+    return this.s3BucketService.upload(`cvs-${process.env.BUCKET}-adr-pdfs`, `${uuid.v4()}.pdf`, buffer, metadata);
   }
 
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {
