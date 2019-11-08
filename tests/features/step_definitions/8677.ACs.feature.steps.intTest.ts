@@ -11,7 +11,7 @@ import {validatePayload} from "../../../src/utils/AdrValidation";
 const url = "http://localhost:3005/";
 const request = supertest(url);
 const opts = Object.assign({
-  timeout: 0.5
+  timeout: 1
 });
 
 const feature = loadFeature(path.resolve(__dirname, "../8677.ACs.feature"));
