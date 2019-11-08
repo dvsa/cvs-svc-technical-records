@@ -12,7 +12,9 @@ describe("The configuration service", () => {
         expect(functions[2].name).toEqual("updateTechRecords");
 
         const DBConfig = configService.getDynamoDBConfig();
+        const S3Config = configService.getS3Config();
         expect(DBConfig).toEqual(configService.getConfig().dynamodb.local);
+        expect(S3Config).toEqual(configService.getConfig().s3.local);
 
         // No Endpoints for this service
       });
@@ -64,6 +66,15 @@ describe("The configuration service", () => {
           config.getDynamoDBConfig();
         } catch (e) {
           expect(e.message).toEqual("DynamoDB config is not defined in the config file.");
+        }
+      });
+
+      it("should return an error for missing S3 Config from getS3Config", () => {
+        const config = new Configuration("../../tests/resources/badConfig.yml");
+        try {
+          config.getS3Config();
+        } catch (e) {
+          expect(e.message).toEqual("S3 config is not defined in the config file.");
         }
       });
     });

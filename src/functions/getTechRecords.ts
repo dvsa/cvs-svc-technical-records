@@ -4,10 +4,13 @@ import HTTPResponse from "../models/HTTPResponse";
 import ITechRecord from "../../@Types/ITechRecord";
 import {STATUS} from "../assets/Enums";
 import {metaData} from "../utils/AdrValidation";
+import S3BucketService from "../services/S3BucketService";
+import S3 = require("aws-sdk/clients/s3");
 
 const getTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
-  const techRecordsService = new TechRecordsService(techRecordsDAO);
+  const s3BucketService = new S3BucketService(new S3());
+  const techRecordsService = new TechRecordsService(techRecordsDAO, s3BucketService);
 
   const status: string = (event.queryStringParameters) ? event.queryStringParameters.status : STATUS.PROVISIONAL_OVER_CURRENT;
   const metadata: string = (event.queryStringParameters) ? event.queryStringParameters.metadata : null;
