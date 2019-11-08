@@ -470,6 +470,63 @@ describe("updateTechRecord", () => {
         }
       });
     });
+
+    context("and the user wants to upload documents", () => {
+      it("should return the updated document with the correct documents array", async () => {
+        // @ts-ignore
+        const techRecord: any = cloneDeep(records[29]);
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            updateSingle: () => {
+              return Promise.resolve({
+                Attributes: techRecord
+              });
+            },
+            getBySearchTerm: () => {
+              return Promise.resolve({
+                Items: [cloneDeep(records[29])],
+                Count: 1,
+                ScannedCount: 1
+              });
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+        techRecord.techRecord[0].adrDetails.documents = [];
+        const recordToUpdate: any = {
+          vin: techRecord.vin,
+          partialVin: techRecord.partialVin,
+          primaryVrm: techRecord.primaryVrm,
+          techRecord:
+            [{
+              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
+              adrDetails: techRecord.techRecord[0].adrDetails
+            }]
+        };
+        process.env.BUCKET = "local";
+        const response: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["nsa7zXuM/5iYmrCM2kzmT"]);
+        expect(response).toBeDefined();
+        expect(response.vin).toEqual("ABCDEFGH777777");
+      });
+
+      it("should return Error 500 if upload is not successful", async () => {
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return null;
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+        const recordToUpdate: any = {vin: "123456656"};
+        process.env.BUCKET = "non-existing-bucket";
+        try {
+          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["nsa7zXuM/5iYmrCM2kzmT"])).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.body).toEqual(HTTPRESPONSE.S3_ERROR);
+        }
+      });
+    });
   });
 
   context("when trying to update a technical record for non existing vehicle", () => {
