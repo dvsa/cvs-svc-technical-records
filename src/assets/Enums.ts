@@ -10,7 +10,8 @@ export enum HTTPRESPONSE {
     RESOURCE_NOT_FOUND = "No resources match the search criteria.",
     INTERNAL_SERVER_ERROR = "Internal Server Error",
     MORE_THAN_ONE_MATCH = "The provided partial VIN returned more than one match.",
-    S3_ERROR = "Upload on S3 failed"
+    S3_ERROR = "Upload on S3 failed",
+    S3_DOWNLOAD_ERROR = "Cannot download document from S3"
 }
 
 export enum STATUS {

@@ -243,6 +243,17 @@ class TechRecordsService {
     return this.s3BucketService.upload(`cvs-${process.env.BUCKET}-adr-pdfs`, `${uuid.v4()}.pdf`, buffer, metadata);
   }
 
+  public downloadFile(filename: string) {
+    return this.s3BucketService.download(`cvs-${process.env.BUCKET}-adr-pdfs`, filename)
+      .then((result: S3.Types.GetObjectOutput) => {
+        return result.Body!.toString();
+      })
+      .catch((error: any) => {
+        console.log("ERROR", error);
+        throw new HTTPError(500, HTTPRESPONSE.S3_DOWNLOAD_ERROR);
+      });
+  }
+
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {
     return this.techRecordsDAO.createMultiple(techRecordItems)
       .then((data) => {
