@@ -131,20 +131,9 @@ class TechRecordsService {
   }
 
   private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
-    let isBatteryOrTank = false;
-    let isBattery = false;
     return this.getTechRecordsList(techRecord.vin, STATUS.ALL)
       .then((data: ITechRecordWrapper) => {
-        if (techRecord.techRecord[0].adrDetails) {
-          const vehicleDetailsType = techRecord.techRecord[0].adrDetails.vehicleDetails.type.toLowerCase();
-          if (vehicleDetailsType.indexOf("battery") !== -1) {
-            isBattery = true;
-          }
-          if ((vehicleDetailsType.indexOf("battery") !== -1) || (vehicleDetailsType.indexOf("tank") !== -1)) {
-            isBatteryOrTank = true;
-          }
-        }
-        const isAdrValid = validatePayload(techRecord.techRecord[0], isBatteryOrTank, isBattery);
+        const isAdrValid = validatePayload(techRecord.techRecord[0]);
         if (isAdrValid.error) {
           throw new HTTPError(500, isAdrValid.error.details);
         }
