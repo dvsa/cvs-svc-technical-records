@@ -406,7 +406,7 @@ describe("updateTechRecord", () => {
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(500);
-          expect(errorResponse.body[0].message).toEqual('"adrDetails" is required');
+          expect(errorResponse.body).toEqual("Payload is not valid");
         }
       });
     });
