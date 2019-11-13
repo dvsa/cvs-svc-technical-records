@@ -64,8 +64,25 @@ const tc3Types: string[] = [
   "exceptional"
 ];
 
-export const validateAdr = (adrObject: any, isBatteryOrTank: boolean, isBattery: boolean) => {
-  return adrValidation.validate(adrObject, {context: {isTankOrBattery: isBatteryOrTank, isBattery: isBattery}});
+export const validatePayload = (payload: any) => {
+  let isBatteryOrTank = false;
+  let isBattery = false;
+  if (payload.adrDetails && payload.adrDetails.vehicleDetails && payload.adrDetails.vehicleDetails.type) {
+    const vehicleDetailsType = payload.adrDetails.vehicleDetails.type.toLowerCase();
+    if (vehicleDetailsType.indexOf("battery") !== -1) {
+      isBattery = true;
+    }
+    if ((vehicleDetailsType.indexOf("battery") !== -1) || (vehicleDetailsType.indexOf("tank") !== -1)) {
+      isBatteryOrTank = true;
+    }
+  } else {
+    return {
+      error: {
+        details: "Payload is not valid"
+      }
+    };
+  }
+  return techRecordValidation.validate(payload, {context: {isTankOrBattery: isBatteryOrTank, isBattery: isBattery}});
 };
 
 const adrValidation = Joi.object().keys({
@@ -162,7 +179,7 @@ export const metaData = {
   adrDetails: {
     memosApplyFe,
     tank: {
-      tankStatement:{
+      tankStatement: {
         substancesPermittedFe
       }
     },
