@@ -126,7 +126,7 @@ defineFeature(feature, test => {
         reasonForCreation: response.body.techRecord[1].reasonForCreation,
         adrDetails: response.body.techRecord[1].adrDetails
       };
-      const isAdrValid = validatePayload(toValidate, true, false);
+      const isAdrValid = validatePayload(toValidate);
       expect(isAdrValid).not.toHaveProperty("error");
     });
     ctx.succeed('done');
