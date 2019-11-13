@@ -23,7 +23,6 @@ const getTechRecords = (event: any) => {
   }
 
   if (filename) {
-    console.log("FILENAME", filename);
     return techRecordsService.downloadFile(filename)
       .then((document: string) => {
         return new HTTPResponse(200, document);

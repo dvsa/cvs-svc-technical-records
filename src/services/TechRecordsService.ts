@@ -128,20 +128,17 @@ class TechRecordsService {
       }
       return Promise.all(promises)
         .then((uploadedData: ManagedUpload.SendData[]) => {
-          console.log("UPLOADED DATA", uploadedData);
           const documents: string[] = [];
           if (uploadedData && uploadedData.length) {
             for (const uploaded of uploadedData) {
               documents.push(uploaded.Key);
             }
           } else {
-            console.log("ERROR EMPTY");
             throw new HTTPError(500, HTTPRESPONSE.S3_ERROR);
           }
           return this.manageUpdateLogic(techRecord, msUserDetails, documents);
         })
         .catch((error: any) => {
-          console.log("ERROR PROMISE ALL", error);
           throw new HTTPError(500, HTTPRESPONSE.S3_ERROR);
         });
     } else {
@@ -249,12 +246,10 @@ class TechRecordsService {
   public downloadFile(filename: string) {
     return this.s3BucketService.download(`cvs-${process.env.BUCKET}-adr-pdfs`, filename)
       .then((result: S3.Types.GetObjectOutput) => {
-        console.log("METADATA", result.Metadata);
-        console.log("BODY", result.Body!.toString("base64"));
         return result.Body!.toString("base64");
       })
       .catch((error: any) => {
-        console.log("ERROR", error);
+        console.error(error);
         throw new HTTPError(500, HTTPRESPONSE.S3_DOWNLOAD_ERROR);
       });
   }
