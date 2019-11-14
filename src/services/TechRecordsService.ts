@@ -1,10 +1,14 @@
 import HTTPError from "../models/HTTPError";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
+import {ManagedUpload, Metadata} from "aws-sdk/clients/s3";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {HTTPRESPONSE, STATUS, UPDATE_TYPE} from "../assets/Enums";
-import HTTPResponse from "../models/HTTPResponse";
+import * as _ from "lodash";
+import * as uuid from "uuid";
 import {validatePayload} from "../utils/AdrValidation";
+import S3BucketService from "./S3BucketService";
+import S3 = require("aws-sdk/clients/s3");
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -13,9 +17,11 @@ import {validatePayload} from "../utils/AdrValidation";
 
 class TechRecordsService {
   private techRecordsDAO: TechRecordsDAO;
+  private s3BucketService: S3BucketService;
 
-  constructor(techRecordsDAO: TechRecordsDAO) {
+  constructor(techRecordsDAO: TechRecordsDAO, s3BucketService: S3BucketService) {
     this.techRecordsDAO = techRecordsDAO;
+    this.s3BucketService = s3BucketService;
   }
 
   public getTechRecordsList(searchTerm: string, status: string) {
@@ -114,8 +120,34 @@ class TechRecordsService {
       });
   }
 
-  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
-    return this.createAndArchiveTechRecord(techRecord, msUserDetails)
+  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, files?: string[]) {
+    if (files && files.length) {
+      const promises = [];
+      for (const file of files) {
+        promises.push(this.uploadFile(file, techRecord.vin));
+      }
+      return Promise.all(promises)
+        .then((uploadedData: ManagedUpload.SendData[]) => {
+          const documents: string[] = [];
+          if (uploadedData && uploadedData.length) {
+            for (const uploaded of uploadedData) {
+              documents.push(uploaded.Key);
+            }
+          } else {
+            throw new HTTPError(500, HTTPRESPONSE.S3_ERROR);
+          }
+          return this.manageUpdateLogic(techRecord, msUserDetails, documents);
+        })
+        .catch((error: any) => {
+          throw new HTTPError(500, HTTPRESPONSE.S3_ERROR);
+        });
+    } else {
+      return this.manageUpdateLogic(techRecord, msUserDetails);
+    }
+  }
+
+  private manageUpdateLogic(techRecord: ITechRecordWrapper, msUserDetails: any, documents?: string[]) {
+    return this.createAndArchiveTechRecord(techRecord, msUserDetails, documents)
       .then((data: ITechRecordWrapper) => {
         return this.techRecordsDAO.updateSingle(data)
           .then((updatedData: any) => {
@@ -130,7 +162,7 @@ class TechRecordsService {
       });
   }
 
-  private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
+  private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, documents?: string[]) {
     return this.getTechRecordsList(techRecord.vin, STATUS.ALL)
       .then((data: ITechRecordWrapper) => {
         const isAdrValid = validatePayload(techRecord.techRecord[0]);
@@ -141,7 +173,19 @@ class TechRecordsService {
         oldTechRec.statusCode = STATUS.ARCHIVED;
         const newRecord = JSON.parse(JSON.stringify(oldTechRec));
         newRecord.statusCode = STATUS.CURRENT;
-        Object.assign(newRecord, techRecord.techRecord[0]);
+        _.merge(newRecord, techRecord.techRecord[0]);
+        if (techRecord.techRecord[0].adrDetails && techRecord.techRecord[0].adrDetails.documents) {
+          newRecord.adrDetails.documents = techRecord.techRecord[0].adrDetails.documents;
+        }
+        if (documents && documents.length) {
+          if (newRecord.adrDetails) {
+            if (newRecord.adrDetails.documents) {
+              newRecord.adrDetails.documents = newRecord.adrDetails.documents.concat(documents);
+            } else {
+              newRecord.adrDetails.documents = documents;
+            }
+          }
+        }
         this.setAuditDetails(newRecord, oldTechRec, msUserDetails);
         data.techRecord.push(newRecord);
         return data;
@@ -187,6 +231,16 @@ class TechRecordsService {
     oldTechRecord.lastUpdatedByName = msUserDetails.msUser;
     oldTechRecord.lastUpdatedById = msUserDetails.msOid;
     oldTechRecord.updateType = UPDATE_TYPE.ADR;
+  }
+
+  public uploadFile(file: string, vin: string): Promise<ManagedUpload.SendData> {
+    const buffer: Buffer = Buffer.from(file, "base64");
+    const metadata: Metadata = {
+      "vin": vin,
+      "file-size": buffer.byteLength.toString(),
+      "file-format": "pdf"
+    };
+    return this.s3BucketService.upload(`cvs-${process.env.BUCKET}-adr-pdfs`, `${uuid.v4()}.pdf`, buffer, metadata);
   }
 
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {

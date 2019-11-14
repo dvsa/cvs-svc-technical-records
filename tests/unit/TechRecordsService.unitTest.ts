@@ -4,7 +4,10 @@ import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
 import {HTTPRESPONSE, STATUS} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import S3BucketServiceMock from "../models/S3BucketServiceMock";
 import {cloneDeep} from "lodash";
+
+const s3BucketServiceMock = new S3BucketServiceMock();
 
 describe("getTechRecordsList", () => {
   afterEach(() => {
@@ -25,7 +28,7 @@ describe("getTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
 
       const returnedRecords: any = await techRecordsService.getTechRecordsList("1B7GG36N12S678410", STATUS.CURRENT);
@@ -50,7 +53,7 @@ describe("getTechRecordsList", () => {
           };
         });
         const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO);
+        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
         let expectedResult: ITechRecordWrapper = JSON.parse(JSON.stringify(records[9]));
 
@@ -75,7 +78,7 @@ describe("getTechRecordsList", () => {
           };
         });
         const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO);
+        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
         let expectedResult: ITechRecordWrapper = JSON.parse(JSON.stringify(records[10]));
         expectedResult.techRecord.splice(1, 1);
@@ -100,7 +103,7 @@ describe("getTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011900", "all");
       expect(returnedRecords).not.toEqual(undefined);
@@ -123,7 +126,7 @@ describe("getTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       try {
         expect(await techRecordsService.getTechRecordsList("Rhubarb", "Potato")).toThrowError();
@@ -147,7 +150,7 @@ describe("getTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       try {
         expect(await techRecordsService.getTechRecordsList("", "")).toThrowError();
@@ -173,7 +176,7 @@ describe("getTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       try {
         expect(await techRecordsService.getTechRecordsList("", "")).toThrowError();
@@ -200,7 +203,7 @@ describe("getTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
       try {
         expect(await techRecordsService.getTechRecordsList("", "")).toThrowError();
       } catch (errorResponse) {
@@ -228,7 +231,7 @@ describe("getTechRecordsList", () => {
     it("should return euroStandard as a string, even if the field is set as 0 in dynamodb", async () => {
       const techRecordWithNumber: any = cloneDeep(records[29]);
       techRecordWithNumber.techRecord[0].euroStandard = 0;
-      const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithNumber));
+      const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithNumber), s3BucketServiceMock);
 
       const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);
       expect(typeof returnedRecords.techRecord[0].euroStandard).toBe("string");
@@ -238,7 +241,7 @@ describe("getTechRecordsList", () => {
     it("should return euroStandard as a string when the field is already a string", async () => {
       const techRecordWithString: any = cloneDeep(records[29]);
       techRecordWithString.techRecord[0].euroStandard = "test";
-      const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithString));
+      const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithString), s3BucketServiceMock);
 
       const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);
       expect(typeof returnedRecords.techRecord[0].euroStandard).toBe("string");
@@ -248,7 +251,7 @@ describe("getTechRecordsList", () => {
     it("should return euroStandard as null if it has been set as null", async () => {
       const techRecordWithNull: any = cloneDeep(records[29]);
       techRecordWithNull.techRecord[0].euroStandard = null;
-      const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithNull));
+      const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithNull), s3BucketServiceMock);
 
       const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);
       expect(returnedRecords.techRecord[0].euroStandard).toBe(null);
@@ -271,7 +274,7 @@ describe("insertTechRecord", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[0]);
@@ -296,7 +299,7 @@ describe("insertTechRecord", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[0]);
@@ -347,7 +350,7 @@ describe("updateTechRecord", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
       const recordToUpdate: any = {
         vin: techRecord.vin,
         partialVin: techRecord.partialVin,
@@ -391,7 +394,7 @@ describe("updateTechRecord", () => {
           };
         });
         const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO);
+        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
         const recordToUpdate: any = {
           vin: techRecord.vin,
           partialVin: techRecord.partialVin,
@@ -407,6 +410,63 @@ describe("updateTechRecord", () => {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(500);
           expect(errorResponse.body).toEqual("Payload is not valid");
+        }
+      });
+    });
+
+    context("and the user wants to upload documents", () => {
+      it("should return the updated document with the correct documents array", async () => {
+        // @ts-ignore
+        const techRecord: any = cloneDeep(records[29]);
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            updateSingle: () => {
+              return Promise.resolve({
+                Attributes: techRecord
+              });
+            },
+            getBySearchTerm: () => {
+              return Promise.resolve({
+                Items: [cloneDeep(records[29])],
+                Count: 1,
+                ScannedCount: 1
+              });
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+        techRecord.techRecord[0].adrDetails.documents = [];
+        const recordToUpdate: any = {
+          vin: techRecord.vin,
+          partialVin: techRecord.partialVin,
+          primaryVrm: techRecord.primaryVrm,
+          techRecord:
+            [{
+              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
+              adrDetails: techRecord.techRecord[0].adrDetails
+            }]
+        };
+        process.env.BUCKET = "local";
+        const response: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["nsa7zXuM/5iYmrCM2kzmT"]);
+        expect(response).toBeDefined();
+        expect(response.vin).toEqual("ABCDEFGH777777");
+      });
+
+      it("should return Error 500 if upload is not successful", async () => {
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return null;
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+        const recordToUpdate: any = {vin: "123456656"};
+        process.env.BUCKET = "non-existing-bucket";
+        try {
+          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["nsa7zXuM/5iYmrCM2kzmT"])).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.body).toEqual(HTTPRESPONSE.S3_ERROR);
         }
       });
     });
@@ -429,7 +489,7 @@ describe("updateTechRecord", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[0]);
