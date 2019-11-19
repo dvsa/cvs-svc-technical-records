@@ -53,6 +53,20 @@ export const convertToResponse = (dbObj: any) => { // Needed to convert an objec
         if (techRecord.euroStandard !== undefined && techRecord.euroStandard !== null) {
           techRecord.euroStandard = techRecord.euroStandard.toString();
         }
+        if (techRecord.adrDetails) {
+            if (techRecord.adrDetails.documents) {
+                techRecord.adrDetails.documents = techRecord.adrDetails.documents.map((document: string) => {
+                    const filename = document.split("/");
+                    if (filename.length > 1) {
+                        return document.split("/")[1];
+                    } else {
+                        return filename[0];
+                    }
+                });
+            } else {
+                techRecord.adrDetails.documents = [];
+            }
+        }
       });
 
     return responseObj;
