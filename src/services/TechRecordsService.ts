@@ -105,6 +105,20 @@ class TechRecordsService {
       if (techRecord.euroStandard !== undefined && techRecord.euroStandard !== null) {
         techRecord.euroStandard = techRecord.euroStandard.toString();
       }
+      if (techRecord.adrDetails) {
+        if (techRecord.adrDetails.documents) {
+          techRecord.adrDetails.documents = techRecord.adrDetails.documents.map((document: string) => {
+            const filename = document.split("/");
+            if (filename.length > 1) {
+              return document.split("/")[1];
+            } else {
+              return filename[0];
+            }
+          });
+        } else {
+          techRecord.adrDetails.documents = [];
+        }
+      }
     });
 
     return techRecordItem;
@@ -131,7 +145,8 @@ class TechRecordsService {
           const documents: string[] = [];
           if (uploadedData && uploadedData.length) {
             for (const uploaded of uploadedData) {
-              documents.push(uploaded.Key);
+              const filename = uploaded.Key.split("/")[1];
+              documents.push(filename);
             }
           } else {
             throw new HTTPError(500, HTTPRESPONSE.S3_ERROR);
