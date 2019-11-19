@@ -76,7 +76,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run security-checks",
+      "pre-commit": "npm run prepush && npm run security-checks",
       "pre-push": "npm run prepush"
     }
   }
