@@ -10,7 +10,7 @@ import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 
 const opts = Object.assign({
-  timeout: 0.5
+  timeout: 1
 });
 
 const feature = loadFeature(path.resolve(__dirname, "../7885.ACs.feature"));
