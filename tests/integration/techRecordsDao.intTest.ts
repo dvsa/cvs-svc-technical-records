@@ -22,20 +22,20 @@ describe("TechRecordsDAO", () => {
   });
 
   context("createSingle", () => {
-    context("when creating a new vehicle", () => {
-      it("should be successful and return {}", async () => {
-        // @ts-ignore
-        const techRecord: ITechRecordWrapper = cloneDeep(mockData[0]);
-        techRecord.vin = Date.now().toString();
-        techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
-        techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-        techRecord.trailerId = Math.floor(100000 + Math.random() * 900000).toString();
-        techRecord.techRecord[0].bodyType.description = "new tech-record";
-        const techRecordsDao = new TechRecordsDao();
-        const data: any = await techRecordsDao.createSingle(techRecord);
-        expect(Object.keys(data).length).toEqual(0);
-      });
-    });
+    // context("when creating a new vehicle", () => {
+    //   it("should be successful and return {}", async () => {
+    //     // @ts-ignore
+    //     const techRecord: ITechRecordWrapper = cloneDeep(mockData[0]);
+    //     techRecord.vin = Date.now().toString();
+    //     techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
+    //     techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
+    //     techRecord.trailerId = Math.floor(100000 + Math.random() * 900000).toString();
+    //     techRecord.techRecord[0].bodyType.description = "new tech-record";
+    //     const techRecordsDao = new TechRecordsDao();
+    //     const data: any = await techRecordsDao.createSingle(techRecord);
+    //     expect(Object.keys(data).length).toEqual(0);
+    //   });
+    // });
 
     context("when trying to create a vehicle that already exists", () => {
       it("should throw error 400 ConditionalCheckFailedException", async () => {
