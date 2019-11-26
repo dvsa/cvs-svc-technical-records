@@ -9,7 +9,7 @@ import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 
 const opts = Object.assign({
-  timeout: 0.5
+  timeout: 1
 });
 
 const feature = loadFeature(path.resolve(__dirname, "../7743.ACs.feature"));
@@ -31,8 +31,9 @@ defineFeature(feature, test => {
     await populateDatabase();
   });
 
-  let ctx: any = mockContext(opts);
-  test('AC1. Backend Service Correctly Interprets The "status" value of "all"', ({given, when, then, and}) => {
+  test('AC1. Backend Service Correctly Interprets The "status" value of "all"', ({given, when, then}) => {
+    let ctx: any = mockContext(opts);
+
     let requestUrl: string;
     let response: any;
     given('I am a consumer of the vehicles API', () => {
@@ -45,7 +46,7 @@ defineFeature(feature, test => {
       expect(response.status).toEqual(200);
       expect(response.body.techRecord.length).toEqual(mockData[8].techRecord.length);
     });
+    ctx.succeed('done');
+    ctx = null;
   });
-  ctx.succeed('done');
-  ctx = null;
 });
