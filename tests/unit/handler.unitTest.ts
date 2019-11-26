@@ -26,7 +26,7 @@ describe("The lambda function handler", () => {
           queryStringParameters: null
         };
 
-        const ctx: any = mockContext(opts);
+        let ctx: any = mockContext(opts);
 
         // Stub out the actual functions
         TechRecordsService.prototype.getTechRecordsList = jest.fn().mockImplementation(() => {
@@ -35,6 +35,7 @@ describe("The lambda function handler", () => {
 
         const result = await handler(vehicleRecordEvent, ctx);
         ctx.succeed(result);
+        ctx = null;
         expect(result.statusCode).toEqual(200);
         expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
       });
@@ -53,7 +54,7 @@ describe("The lambda function handler", () => {
           }
         };
 
-        const ctx: any = mockContext(opts);
+        let ctx: any = mockContext(opts);
 
         // Stub out the actual functions
         TechRecordsService.prototype.getTechRecordsList = jest.fn().mockImplementation(() => {
@@ -62,6 +63,7 @@ describe("The lambda function handler", () => {
 
         const result = await handler(vehicleRecordEvent, ctx);
         ctx.succeed(result);
+        ctx = null;
         expect(result.statusCode).toEqual(200);
         expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
       });
@@ -117,7 +119,6 @@ describe("The lambda function handler", () => {
         const result = await handler(vehicleRecordEvent, ctx);
         ctx.succeed(result);
         ctx = null;
-        console.log("RESULT", result);
         expect(result.statusCode).toEqual(200);
         expect(TechRecordsService.prototype.updateTechRecord).toHaveBeenCalled();
       });
@@ -137,8 +138,10 @@ describe("The lambda function handler", () => {
         const invalidBodyEvent = Object.assign({}, event);
         invalidBodyEvent.body = '{"hello":}';
 
-        const ctx: any = mockContext(opts);
+        let ctx: any = mockContext(opts);
         const result = await handler(invalidBodyEvent, ctx);
+        ctx.succeed(result);
+        ctx = null;
         expect(result).toBeInstanceOf(HTTPResponse);
         expect(result.statusCode).toEqual(400);
         expect(result.body).toEqual(JSON.stringify("Body is not a valid JSON."));
