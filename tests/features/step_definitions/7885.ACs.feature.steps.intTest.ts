@@ -32,8 +32,9 @@ defineFeature(feature, test => {
     await populateDatabase();
   });
 
-  let ctx: any = mockContext(opts);
   test('AC1. Vehicles API spec contains GET/POST/PUT/ verbs', ({given, when, then, and}) => {
+    let ctx: any = mockContext(opts);
+
     let requestUrlPOST: string;
     let requestUrlPUT: string;
     let requestUrlGET: string;
@@ -66,9 +67,9 @@ defineFeature(feature, test => {
       expect(responsePUT.status).toEqual(200);
       expect(responsePUT.body).toEqual(responsePUT.body);
     });
+    ctx.succeed('done');
+    ctx = null;
   });
-  ctx.succeed('done');
-  ctx = null;
 });
 
 const createPOSTPayload = () => {

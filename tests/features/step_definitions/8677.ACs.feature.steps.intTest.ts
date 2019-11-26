@@ -1,7 +1,6 @@
 import {defineFeature, loadFeature} from 'jest-cucumber';
 import supertest from "supertest";
 import path from 'path';
-import {cloneDeep} from 'lodash';
 import mockData from "../../resources/technical-records.json";
 import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
