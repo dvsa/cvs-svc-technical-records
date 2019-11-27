@@ -12,6 +12,10 @@ functions:
     method: PUT
     path: /vehicles/:vin
     function: updateTechRecords
+- downloadDocument:
+    method: GET
+    path: /vehicles/:vin/download-file/:filename
+    function: downloadDocument
 s3:
   local:
     endpoint: http://localhost:7000

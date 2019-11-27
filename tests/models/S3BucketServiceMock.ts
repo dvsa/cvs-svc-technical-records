@@ -17,7 +17,7 @@ interface IBucket {
  * Service for mocking the S3BucketService
  */
 class S3BucketServiceMock {
-  public static buckets: IBucket[] = [{bucketName: "cvs-local-adr-pdfs", files: []}];
+  public static buckets: IBucket[] = [{bucketName: "cvs-local-adr-pdfs", files: ["1.base64"]}];
   public readonly s3Client: S3 = new S3();
 
   /**

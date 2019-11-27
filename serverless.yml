@@ -142,6 +142,17 @@ functions:
             parameters:
               paths:
                 vin: true
+  downloadDocument:
+    handler: src/handler.handler
+    events:
+      - http:
+          path: vehicles/{vin}/download-file/{filename}
+          method: get
+          request:
+            parameters:
+              paths:
+                vin: true
+                filename: true
 
 resources:
   Resources:
