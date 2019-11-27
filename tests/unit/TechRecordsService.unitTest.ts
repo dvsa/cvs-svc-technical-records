@@ -6,6 +6,9 @@ import {HTTPRESPONSE, STATUS} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import S3BucketServiceMock from "../models/S3BucketServiceMock";
 import {cloneDeep} from "lodash";
+import HTTPResponse from "../../src/models/HTTPResponse";
+import * as fs from "fs";
+import * as path from "path";
 
 const s3BucketServiceMock = new S3BucketServiceMock();
 
@@ -567,4 +570,50 @@ describe("updateTechRecord", () => {
   });
 
 });
+
+describe("downloadDocument", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+  context("when downloading a document that exists in S3", () => {
+    it("should return the document", async () => {
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          downloadFile: () => {
+            return Promise.resolve(new HTTPResponse(200, "base64 encoded string"));
+          }
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+      process.env.BUCKET = "local";
+      const document: string = await techRecordsService.downloadFile("1.base64");
+      const file: Buffer = fs.readFileSync(path.resolve(__dirname, `../resources/signatures/1.base64`));
+      expect(document).toEqual(file.toString("base64"));
+    });
+  });
+
+  context("when downloading a document that does not exist in S3", () => {
+    it("should return error 500 No such Key", async () => {
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          downloadFile: () => {
+            return Promise.resolve(new HTTPResponse(200, "base64 encoded string"));
+          }
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+      process.env.BUCKET = "local";
+      try {
+        expect(await techRecordsService.downloadFile("someKey.pdf")).toThrowError();
+      } catch (errorResponse) {
+        expect(errorResponse).toBeInstanceOf(HTTPError);
+        expect(errorResponse.statusCode).toEqual(500);
+        expect(errorResponse.body).toEqual(HTTPRESPONSE.S3_DOWNLOAD_ERROR);
+      }
+    });
+  });
+});
+
 
