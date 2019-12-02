@@ -33,8 +33,8 @@ export const convertToResponse = (dbObj: any) => { // Needed to convert an objec
     const responseObj = Object.assign({}, dbObj);
 
     // Adding primary and secondary VRMs in the same array
-    const vrms: any = [{ isPrimary: true }];
-    if (responseObj.primaryVrm) { vrms[0].vrm = responseObj.primaryVrm; }
+    const vrms: any = [];
+    if (responseObj.primaryVrm) { vrms.push({ vrm: responseObj.primaryVrm, isPrimary: true }); }
     if (responseObj.secondaryVrms) {
         for (const secondaryVrm of responseObj.secondaryVrms) {
             vrms.push({vrm: secondaryVrm, isPrimary: false});
