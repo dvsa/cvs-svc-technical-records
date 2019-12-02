@@ -2,10 +2,13 @@ import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
 import ITechRecord from "../../@Types/ITechRecord";
-import S3BucketServiceMock from "../models/S3BucketServiceMock";
-
-const s3BucketServiceMock = new S3BucketServiceMock();
 import {HTTPRESPONSE} from "../../src/assets/Enums";
+import S3BucketService from "../../src/services/S3BucketService";
+import S3 from "aws-sdk/clients/s3";
+
+jest.mock("../../src/services/S3BucketService");
+jest.mock("aws-sdk/clients/s3");
+const s3BucketServiceMock = new S3BucketService(new S3());
 
 describe("insertTechRecordsList", () => {
   context("database call inserts items", () => {
