@@ -87,7 +87,10 @@ class TechRecordsService {
 
   public formatTechRecordItemForResponse(techRecordItem: ITechRecordWrapper) {
     // Adding primary and secondary VRMs in the same array
-    const vrms = [{vrm: techRecordItem.primaryVrm, isPrimary: true}];
+    const vrms = [];
+    if (techRecordItem.primaryVrm) {
+      vrms.push({vrm: techRecordItem.primaryVrm, isPrimary: true});
+    }
     if (techRecordItem.secondaryVrms) {
       for (const secondaryVrm of techRecordItem.secondaryVrms) {
         vrms.push({vrm: secondaryVrm, isPrimary: false});
