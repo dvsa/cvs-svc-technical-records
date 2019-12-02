@@ -7389,5 +7389,736 @@
     ],
     "trailerId": "C456789",
     "vin": "T12111002"
+  },
+  {
+    "partialVin": "777775",
+    "trailerId": "C777775",
+    "vin": "ABCDEFGH777775",
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": null,
+          "additionalNotes": {
+            "guidanceNotes": [
+              null
+            ],
+            "number": [
+              null
+            ]
+          },
+          "adrTypeApprovalNo": null,
+          "applicantDetails": {
+            "city": null,
+            "name": null,
+            "postcode": null,
+            "street": null,
+            "town": null
+          },
+          "batteryListNumber": "H903",
+          "compatibilityGroupJ": null,
+          "listStatementApplicable": false,
+          "memosApply": [
+            null
+          ],
+          "permittedDangerousGoods": null,
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": null,
+              "tankCode": null,
+              "tankManufacturer": null,
+              "tankManufacturerSerialNo": null,
+              "tankTypeAppNo": null,
+              "tc2Details": {
+                "tc2IntermediateApprovalNo": null,
+                "tc2IntermediateExpiryDate": null,
+                "tc2Type": null
+              },
+              "tc3Details": [
+                {
+                  "tc3PeriodicExpiryDate": null,
+                  "tc3PeriodicNumber": null,
+                  "tc3Type": null
+                },
+                {
+                  "tc3PeriodicExpiryDate": null,
+                  "tc3PeriodicNumber": null,
+                  "tc3Type": null
+                }
+              ],
+              "yearOfManufacture": null
+            },
+            "tankStatement": {
+              "productList": "789",
+              "productListRefNo": "123",
+              "productListUnNo": null,
+              "statement": null,
+              "substancesPermitted": "Substances (class UN number and if necessary packing group and proper shipping name) may be carried"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": null,
+            "type": "rigid battery tank"
+          }
+        },
+        "antilockBrakingSystem": true,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 113,
+              "leverLength": 125,
+              "springBrakeParking": true
+            },
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "p",
+          "description": "petrol/oil tanker"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdsdg",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "couplingCenterToRearAxleMax": 900,
+        "couplingCenterToRearAxleMin": 1000,
+        "couplingCenterToRearTrlMax": 700,
+        "couplingCenterToRearTrlMin": 800,
+        "couplingType": "F",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1200
+            }
+          ],
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "firstUseDate": "2019-06-24",
+        "frontAxleToRearAxle": 1700,
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "loadSensingValve": false,
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxLoadOnCoupling": 7000,
+        "model": "F06",
+        "noOfAxles": 2,
+        "notes": "some note",
+        "ntaNumber": "123456",
+        "rearAxleToRearTrl": 400,
+        "reasonForCreation": "new trailer",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "statusCode": "current",
+        "suspensionType": "Y",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleType": "trl"
+      }
+    ]
+  },
+  {
+    "partialVin": "777776",
+    "trailerId": "C777776",
+    "vin": "ABCDEFGH777776",
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": null,
+          "additionalNotes": {
+            "guidanceNotes": [
+              null
+            ],
+            "number": [
+              null
+            ]
+          },
+          "adrTypeApprovalNo": null,
+          "applicantDetails": {
+            "city": null,
+            "name": null,
+            "postcode": null,
+            "street": null,
+            "town": null
+          },
+          "batteryListNumber": "H903",
+          "compatibilityGroupJ": false,
+          "listStatementApplicable": true,
+          "memosApply": [
+            null
+          ],
+          "permittedDangerousGoods": null,
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": null,
+              "tankCode": null,
+              "tankManufacturer": null,
+              "tankManufacturerSerialNo": null,
+              "tankTypeAppNo": null,
+              "tc2Details": {
+                "tc2IntermediateApprovalNo": null,
+                "tc2IntermediateExpiryDate": null,
+                "tc2Type": null
+              },
+              "tc3Details": [],
+              "yearOfManufacture": null
+            },
+            "tankStatement": {
+              "productList": null,
+              "productListRefNo": null,
+              "productListUnNo": null,
+              "statement": null,
+              "substancesPermitted": "Substances (class UN number and if necessary packing group and proper shipping name) may be carried"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": null,
+            "type": "semi trailer battery"
+          }
+        },
+        "antilockBrakingSystem": true,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 113,
+              "leverLength": 125,
+              "springBrakeParking": true
+            },
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "p",
+          "description": "petrol/oil tanker"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdsdg",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "couplingCenterToRearAxleMax": 900,
+        "couplingCenterToRearAxleMin": 1000,
+        "couplingCenterToRearTrlMax": 700,
+        "couplingCenterToRearTrlMin": 800,
+        "couplingType": "F",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1200
+            }
+          ],
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "firstUseDate": "2019-06-24",
+        "frontAxleToRearAxle": 1700,
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "loadSensingValve": false,
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxLoadOnCoupling": 7000,
+        "model": "F06",
+        "noOfAxles": 2,
+        "notes": "some note",
+        "ntaNumber": "123456",
+        "rearAxleToRearTrl": 400,
+        "reasonForCreation": "new trailer",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "statusCode": "current",
+        "suspensionType": "Y",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleType": "trl"
+      }
+    ]
+  },
+  {
+    "partialVin": "777778",
+    "trailerId": "C777778",
+    "vin": "ABCDEFGH777778",
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": null,
+          "additionalNotes": {
+            "guidanceNotes": [
+              null
+            ],
+            "number": [
+              null
+            ]
+          },
+          "adrTypeApprovalNo": null,
+          "applicantDetails": {
+            "city": "London",
+            "name": "Mr A N",
+            "postcode": "W5 5YZ",
+            "street": "Fox Road",
+            "town": "London"
+          },
+          "batteryListNumber": "H903",
+          "compatibilityGroupJ": true,
+          "listStatementApplicable": true,
+          "memosApply": [
+            "07/09 3mth leak ext"
+          ],
+          "permittedDangerousGoods": [
+            "FP <61 (FL)",
+            "AT",
+            "Class 5.1 Hydrogen Peroxide (OX)",
+            "MEMU",
+            "Carbon Disulphide",
+            "Hydrogen",
+            "Explosives (type 2)",
+            "Explosives (type 3)"
+          ],
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": null,
+              "tankCode": null,
+              "tankManufacturer": null,
+              "tankManufacturerSerialNo": null,
+              "tankTypeAppNo": null,
+              "tc2Details": {
+                "tc2IntermediateApprovalNo": "TPE6536-01",
+                "tc2IntermediateExpiryDate": "2019-10-01",
+                "tc2Type": "initial"
+              },
+              "tc3Details": [
+                {
+                  "tc3PeriodicExpiryDate": "2019-10-01",
+                  "tc3PeriodicNumber": "TPE6536-02",
+                  "tc3Type": "periodic"
+                }
+              ],
+              "yearOfManufacture": null
+            },
+            "tankStatement": {
+              "productList": "789",
+              "productListRefNo": "111",
+              "productListUnNo": [
+                "UN7269",
+                "UN26289"
+              ],
+              "statement": "4789237",
+              "substancesPermitted": "Substances (class UN number and if necessary packing group and proper shipping name) may be carried"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": null,
+            "type": "semi trailer battery"
+          }
+        },
+        "antilockBrakingSystem": true,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 113,
+              "leverLength": 125,
+              "springBrakeParking": true
+            },
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "p",
+          "description": "petrol/oil tanker"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdsdg",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "couplingCenterToRearAxleMax": 900,
+        "couplingCenterToRearAxleMin": 1000,
+        "couplingCenterToRearTrlMax": 700,
+        "couplingCenterToRearTrlMin": 800,
+        "couplingType": "F",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1200
+            }
+          ],
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "firstUseDate": "2019-06-24",
+        "frontAxleToRearAxle": 1700,
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "loadSensingValve": false,
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxLoadOnCoupling": 7000,
+        "model": "F06",
+        "noOfAxles": 2,
+        "notes": "some note",
+        "ntaNumber": "123456",
+        "rearAxleToRearTrl": 400,
+        "reasonForCreation": "new trailer",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "statusCode": "current",
+        "suspensionType": "Y",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleType": "trl"
+      }
+    ]
+  },
+  {
+    "partialVin": "777779",
+    "trailerId": "C777779",
+    "vin": "ABCDEFGH777779",
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": null,
+          "additionalNotes": {
+            "guidanceNotes": [
+              null
+            ],
+            "number": [
+              null
+            ]
+          },
+          "adrTypeApprovalNo": null,
+          "applicantDetails": {
+            "city": "London",
+            "name": "Mr A N",
+            "postcode": "W5 5YZ",
+            "street": "Fox Road",
+            "town": "London"
+          },
+          "batteryListNumber": "H903",
+          "compatibilityGroupJ": true,
+          "listStatementApplicable": true,
+          "memosApply": [
+            "07/09 3mth leak ext"
+          ],
+          "permittedDangerousGoods": [
+            "FP <61 (FL)",
+            "AT",
+            "Class 5.1 Hydrogen Peroxide (OX)",
+            "MEMU",
+            "Carbon Disulphide",
+            "Hydrogen",
+            "Explosives (type 2)",
+            "Explosives (type 3)"
+          ],
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": null,
+              "tankCode": null,
+              "tankManufacturer": null,
+              "tankManufacturerSerialNo": null,
+              "tankTypeAppNo": null,
+              "tc2Details": {
+                "tc2IntermediateApprovalNo": "TPE6536-01",
+                "tc2IntermediateExpiryDate": "2019-10-01",
+                "tc2Type": "initial"
+              },
+              "tc3Details": [
+                {
+                  "tc3PeriodicExpiryDate": "2019-10-01",
+                  "tc3PeriodicNumber": "TPE6536-02",
+                  "tc3Type": "periodic"
+                }
+              ],
+              "yearOfManufacture": null
+            },
+            "tankStatement": {
+              "productList": "789",
+              "productListRefNo": "111",
+              "productListUnNo": [
+                "UN7269",
+                "UN26289"
+              ],
+              "statement": "4789237",
+              "substancesPermitted": "Substances permitted under the tank code and any special provisions specified in 9 may be carried"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": null,
+            "type": "semi trailer battery"
+          }
+        },
+        "antilockBrakingSystem": true,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 113,
+              "leverLength": 125,
+              "springBrakeParking": true
+            },
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "p",
+          "description": "petrol/oil tanker"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdsdg",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "couplingCenterToRearAxleMax": 900,
+        "couplingCenterToRearAxleMin": 1000,
+        "couplingCenterToRearTrlMax": 700,
+        "couplingCenterToRearTrlMin": 800,
+        "couplingType": "F",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1200
+            }
+          ],
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "firstUseDate": "2019-06-24",
+        "frontAxleToRearAxle": 1700,
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "loadSensingValve": false,
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxLoadOnCoupling": 7000,
+        "model": "F06",
+        "noOfAxles": 2,
+        "notes": "some note",
+        "ntaNumber": "123456",
+        "rearAxleToRearTrl": 400,
+        "reasonForCreation": "new trailer",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "statusCode": "current",
+        "suspensionType": "Y",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleType": "trl"
+      }
+    ]
   }
 ]
