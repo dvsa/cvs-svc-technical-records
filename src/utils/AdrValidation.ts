@@ -39,7 +39,7 @@ const typeFe: string[] = [
   'Rigid battery',
   'Full drawbar box body',
   'Full drawbar sheeted load',
-  ' Full drawbar tank',
+  'Full drawbar tank',
   'Full drawbar skeletal',
   'Full drawbar battery',
   'Centre axle box body',
@@ -64,28 +64,7 @@ const tc3Types: string[] = [
   "exceptional"
 ];
 
-export const validatePayload = (payload: any) => {
-  let isBatteryOrTank = false;
-  let isBattery = false;
-  if (payload.adrDetails && payload.adrDetails.vehicleDetails && payload.adrDetails.vehicleDetails.type) {
-    const vehicleDetailsType = payload.adrDetails.vehicleDetails.type.toLowerCase();
-    if (vehicleDetailsType.indexOf("battery") !== -1) {
-      isBattery = true;
-    }
-    if ((vehicleDetailsType.indexOf("battery") !== -1) || (vehicleDetailsType.indexOf("tank") !== -1)) {
-      isBatteryOrTank = true;
-    }
-  } else {
-    return {
-      error: {
-        details: "Payload is not valid"
-      }
-    };
-  }
-  return techRecordValidation.validate(payload, {context: {isTankOrBattery: isBatteryOrTank, isBattery: isBattery}});
-};
-
-const adrValidation = Joi.object().keys({
+export const adrValidation = Joi.object().keys({
   vehicleDetails: Joi.object().keys({
     type: Joi.string().required(),
     approvalDate: Joi.date().format("YYYY-MM-DD").required()
@@ -169,11 +148,6 @@ const adrValidation = Joi.object().keys({
     }).forbidden()
   })
 }).required();
-
-const techRecordValidation = Joi.object().keys({
-  reasonForCreation: Joi.string().max(60).required(),
-  adrDetails: adrValidation
-});
 
 export const metaData = {
   adrDetails: {

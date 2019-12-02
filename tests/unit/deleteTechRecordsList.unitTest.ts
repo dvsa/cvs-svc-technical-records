@@ -2,9 +2,12 @@ import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import techRecords from "../resources/technical-records.json";
 import {HTTPRESPONSE} from "../../src/assets/Enums";
-import S3BucketServiceMock from "../models/S3BucketServiceMock";
+import S3BucketService from "../../src/services/S3BucketService";
+import S3 from "aws-sdk/clients/s3";
 
-const s3BucketServiceMock = new S3BucketServiceMock();
+jest.mock("../../src/services/S3BucketService");
+jest.mock("aws-sdk/clients/s3");
+const s3BucketServiceMock = new S3BucketService(new S3());
 const recordIds = techRecords.map((record) => [record.partialVin, record.vin]);
 
 describe("deleteTechRecordsList", () => {

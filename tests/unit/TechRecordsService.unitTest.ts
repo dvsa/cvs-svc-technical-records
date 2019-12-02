@@ -4,13 +4,17 @@ import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
 import {HTTPRESPONSE, STATUS} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import S3BucketServiceMock from "../models/S3BucketServiceMock";
+import S3BucketService from "../../src/services/S3BucketService";
 import {cloneDeep} from "lodash";
 import HTTPResponse from "../../src/models/HTTPResponse";
 import * as fs from "fs";
 import * as path from "path";
+import S3 from "aws-sdk/clients/s3";
+import {AWSError, Response} from "aws-sdk";
 
-const s3BucketServiceMock = new S3BucketServiceMock();
+jest.mock("../../src/services/S3BucketService");
+jest.mock("aws-sdk/clients/s3");
+const s3BucketServiceMock = new S3BucketService(new S3());
 
 describe("getTechRecordsList", () => {
   afterEach(() => {
@@ -437,65 +441,21 @@ describe("updateTechRecord", () => {
             }
           };
         });
-        const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
-        techRecord.techRecord[0].adrDetails.documents = [];
-        const recordToUpdate: any = {
-          vin: techRecord.vin,
-          partialVin: techRecord.partialVin,
-          primaryVrm: techRecord.primaryVrm,
-          techRecord:
-            [{
-              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
-              adrDetails: techRecord.techRecord[0].adrDetails
-            }]
-        };
-        process.env.BUCKET = "local";
-        const response: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["nsa7zXuM/5iYmrCM2kzmT"]);
-        expect(response).toBeDefined();
-        expect(response.vin).toEqual("ABCDEFGH777777");
-      });
-
-      it("should return Error 500 if upload is not successful", async () => {
-        const MockDAO = jest.fn().mockImplementation(() => {
-          return null;
-        });
-        const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
-        const recordToUpdate: any = {vin: "123456656"};
-        process.env.BUCKET = "non-existing-bucket";
-        try {
-          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["nsa7zXuM/5iYmrCM2kzmT"])).toThrowError();
-        } catch (errorResponse) {
-          expect(errorResponse).toBeInstanceOf(HTTPError);
-          expect(errorResponse.statusCode).toEqual(500);
-          expect(errorResponse.body).toEqual(HTTPRESPONSE.S3_ERROR);
-        }
-      });
-    });
-
-    context("and the user wants to upload documents", () => {
-      it("should return the updated document with the correct documents array", async () => {
-        // @ts-ignore
-        const techRecord: any = cloneDeep(records[29]);
-        const MockDAO = jest.fn().mockImplementation(() => {
+        const S3Mock = jest.fn().mockImplementation(() => {
           return {
-            updateSingle: () => {
+            upload: () => {
               return Promise.resolve({
-                Attributes: techRecord
-              });
-            },
-            getBySearchTerm: () => {
-              return Promise.resolve({
-                Items: [cloneDeep(records[29])],
-                Count: 1,
-                ScannedCount: 1
+                Location: `http://localhost:7000/local/someFilename`,
+                ETag: "621c9c14d75958d4c3ed8ad77c80cde1",
+                Bucket: "local",
+                Key: `${process.env.BRANCH}/someFilename`
               });
             }
           };
         });
         const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+        const s3Mock = new S3Mock();
+        const techRecordsService = new TechRecordsService(mockDAO, s3Mock);
         techRecord.techRecord[0].adrDetails.documents = [];
         const recordToUpdate: any = {
           vin: techRecord.vin,
@@ -507,7 +467,6 @@ describe("updateTechRecord", () => {
               adrDetails: techRecord.techRecord[0].adrDetails
             }]
         };
-        process.env.BUCKET = "local";
         const response: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["nsa7zXuM/5iYmrCM2kzmT"]);
         expect(response).toBeDefined();
         expect(response.vin).toEqual("ABCDEFGH777777");
@@ -517,10 +476,24 @@ describe("updateTechRecord", () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return null;
         });
+        const S3Mock = jest.fn().mockImplementation(() => {
+          return {
+            upload: () => {
+              const error: Error = new Error();
+              Object.assign(error, {
+                message: "The specified bucket does not exist.",
+                code: "NoSuchBucket",
+                statusCode: 404,
+                retryable: false
+              });
+              return Promise.reject(error);
+            }
+          };
+        });
         const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+        const s3Mock = new S3Mock();
+        const techRecordsService = new TechRecordsService(mockDAO, s3Mock);
         const recordToUpdate: any = {vin: "123456656"};
-        process.env.BUCKET = "non-existing-bucket";
         try {
           expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["nsa7zXuM/5iYmrCM2kzmT"])).toThrowError();
         } catch (errorResponse) {
@@ -551,13 +524,16 @@ describe("updateTechRecord", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
-      // @ts-ignore
-      const techRecord: ITechRecordWrapper = cloneDeep(records[0]);
+      const techRecord: any = cloneDeep(records[31]);
       techRecord.partialVin = "012345";
       techRecord.vin = "XMGDE02FS0H012345";
       techRecord.primaryVrm = "JY58FPP";
-      techRecord.techRecord[0].bodyType.description = "new tech record";
-      techRecord.techRecord[0].grossGbWeight = 5555;
+      const reasonForCreation = techRecord.techRecord[0].reasonForCreation;
+      const adrDetails = techRecord.techRecord[0].adrDetails;
+      techRecord.techRecord = [{
+        reasonForCreation,
+        adrDetails
+      }];
 
       try {
         expect(await techRecordsService.updateTechRecord(techRecord, msUserDetails)).toThrowError();
@@ -568,7 +544,6 @@ describe("updateTechRecord", () => {
       }
     });
   });
-
 });
 
 describe("downloadDocument", () => {
@@ -584,9 +559,31 @@ describe("downloadDocument", () => {
           }
         };
       });
+      const S3Mock = jest.fn().mockImplementation(() => {
+        return {
+          download: () => {
+            const fileToDownload: Buffer = fs.readFileSync(path.resolve(__dirname, `../resources/signatures/1.base64`));
+            const data: S3.Types.GetObjectOutput = {
+              Body: fileToDownload,
+              ContentLength: fileToDownload.length,
+              ETag: "621c9c14d75958d4c3ed8ad77c80cde1",
+              LastModified: new Date(),
+              Metadata: {}
+            };
+
+            const response = new Response<S3.Types.GetObjectOutput, AWSError>();
+            Object.assign(response, {data});
+
+            return Promise.resolve({
+              $response: response,
+              ...data
+            });
+          }
+        };
+      });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
-      process.env.BUCKET = "local";
+      const s3Mock = new S3Mock();
+      const techRecordsService = new TechRecordsService(mockDAO, s3Mock);
       const document: string = await techRecordsService.downloadFile("1.base64");
       const file: Buffer = fs.readFileSync(path.resolve(__dirname, `../resources/signatures/1.base64`));
       expect(document).toEqual(file.toString("base64"));
@@ -602,9 +599,23 @@ describe("downloadDocument", () => {
           }
         };
       });
+      const S3Mock = jest.fn().mockImplementation(() => {
+        return {
+          download: () => {
+            const error: Error = new Error();
+            Object.assign(error, {
+              message: "The specified key does not exist.",
+              code: "NoSuchKey",
+              statusCode: 404,
+              retryable: false
+            });
+            return Promise.reject(error);
+          }
+        };
+      });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
-      process.env.BUCKET = "local";
+      const s3Mock = new S3Mock();
+      const techRecordsService = new TechRecordsService(mockDAO, s3Mock);
       try {
         expect(await techRecordsService.downloadFile("someKey.pdf")).toThrowError();
       } catch (errorResponse) {

@@ -6,7 +6,7 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {HTTPRESPONSE, STATUS, UPDATE_TYPE} from "../assets/Enums";
 import * as _ from "lodash";
 import * as uuid from "uuid";
-import {validatePayload} from "../utils/AdrValidation";
+import {validatePayload} from "../utils/PayloadValidation";
 import S3BucketService from "./S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
 
@@ -108,11 +108,11 @@ class TechRecordsService {
       if (techRecord.adrDetails) {
         if (techRecord.adrDetails.documents) {
           techRecord.adrDetails.documents = techRecord.adrDetails.documents.map((document: string) => {
-            const filename = document.split("/");
-            if (filename.length > 1) {
-              return document.split("/")[1];
+            const filenameParts = document.split("/");
+            if (filenameParts.length > 1) {
+              return filenameParts[1];
             } else {
-              return filename[0];
+              return filenameParts[0];
             }
           });
         } else {
@@ -178,15 +178,15 @@ class TechRecordsService {
   }
 
   private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, documents?: string[]) {
+    const isAdrValid = validatePayload(techRecord.techRecord[0]);
+    if (isAdrValid.error) {
+      throw new HTTPError(500, isAdrValid.error.details);
+    }
     return this.getTechRecordsList(techRecord.vin, STATUS.ALL)
       .then((data: ITechRecordWrapper) => {
-        const isAdrValid = validatePayload(techRecord.techRecord[0]);
-        if (isAdrValid.error) {
-          throw new HTTPError(500, isAdrValid.error.details);
-        }
         const oldTechRec = this.getTechRecordToArchive(data);
         oldTechRec.statusCode = STATUS.ARCHIVED;
-        const newRecord = JSON.parse(JSON.stringify(oldTechRec));
+        const newRecord: any = _.cloneDeep(oldTechRec);
         newRecord.statusCode = STATUS.CURRENT;
         _.merge(newRecord, techRecord.techRecord[0]);
         if (techRecord.techRecord[0].adrDetails && techRecord.techRecord[0].adrDetails.documents) {

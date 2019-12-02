@@ -5,7 +5,7 @@ import mockData from "../../resources/technical-records.json";
 import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {UPDATE_TYPE} from "../../../src/assets/Enums";
-import {validatePayload} from "../../../src/utils/AdrValidation";
+import {validatePayload} from "../../../src/utils/PayloadValidation";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
