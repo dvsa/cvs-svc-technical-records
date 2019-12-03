@@ -29,7 +29,7 @@ describe("insertTechRecordsList", () => {
 
       // @ts-ignore
       const data: ITechRecord[] = await techRecordsService.insertTechRecordsList(records);
-      expect(data.length).toEqual(42);
+      expect(data.length).toEqual(43);
     });
 
     it("should return nothing", async () => {
