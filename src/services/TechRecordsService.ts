@@ -183,7 +183,7 @@ class TechRecordsService {
   private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, documents?: string[]) {
     const isAdrValid = validatePayload(techRecord.techRecord[0]);
     if (isAdrValid.error) {
-      throw new HTTPError(500, isAdrValid.error.details);
+      return Promise.reject({statusCode: 500, body: isAdrValid.error.details});
     }
     return this.getTechRecordsList(techRecord.vin, STATUS.ALL)
       .then((data: ITechRecordWrapper) => {
