@@ -8240,7 +8240,8 @@
             "approvalDate": "2019-10-10"
           },
           "permittedDangerousGoods": [
-            "FP <61 (FL)"
+            "FP <61 (FL)",
+            "Explosives (type 3)"
           ],
           "additionalExaminerNotes": "string",
           "applicantDetails": {
