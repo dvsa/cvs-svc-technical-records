@@ -197,7 +197,7 @@ class TechRecordsService {
         }
         if (documents && documents.length) {
           if (newRecord.adrDetails) {
-            if (newRecord.adrDetails.documents) {
+            if (newRecord.adrDetails.documents && newRecord.adrDetails.documents.length) {
               newRecord.adrDetails.documents = newRecord.adrDetails.documents.concat(documents);
             } else {
               newRecord.adrDetails.documents = documents;
