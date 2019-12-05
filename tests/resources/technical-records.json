@@ -7668,7 +7668,7 @@
   },
   {
     "partialVin": "111000",
-    "primaryVrm": "CT71000",
+    "primaryVrm": "112233Z",
     "secondaryVrms": [],
     "techRecord": [
       {
@@ -9262,6 +9262,167 @@
     ],
     "trailerId": "C109902",
     "vin": "ABCDEFGH999999"
+  },
+  {
+    "partialVin": "666666",
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 113,
+              "leverLength": 125,
+              "springBrakeParking": true
+            },
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "X",
+          "description": "hgv"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dtpNumber": "sdsdg"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1200
+            }
+          ],
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "firstUseDate": "2019-06-24",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxLoadOnCoupling": 7000,
+        "model": "F06",
+        "noOfAxles": 2,
+        "notes": "some note",
+        "ntaNumber": "123456",
+        "reasonForCreation": "new trailer",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "statusCode": "current",
+        "suspensionType": "Y",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleType": "hgv",
+        "adrDetails": {
+          "vehicleDetails": {
+            "type": "Centre axle battery",
+            "approvalDate": "2019-10-10"
+          },
+          "listStatementApplicable": true,
+          "batteryListNumber": "12345678",
+          "declarationsSeen": true,
+          "brakeDeclarationsSeen": true,
+          "brakeDeclarationIssuer": "dvsa",
+          "brakeEndurance": true,
+          "weight": 123,
+          "compatibilityGroupJ": true,
+          "documents": [],
+          "permittedDangerousGoods": [
+            "FP <61 (FL)",
+            "Explosives (type 3)"
+          ],
+          "additionalExaminerNotes": "string",
+          "applicantDetails": {
+            "name": " ",
+            "street": "string",
+            "town": "  ",
+            "city": "string",
+            "postcode": null
+          },
+          "memosApply": [
+            "07/09 3mth leak ext"
+          ],
+          "additionalNotes": {
+            "number": [
+              "1",
+              "2"
+            ],
+            "guidanceNotes": [
+              "New certificate requested"
+            ]
+          },
+          "adrTypeApprovalNo": "type",
+          "tank": {
+            "tankDetails": {
+              "tankManufacturer": null,
+              "yearOfManufacture": 0,
+              "tankCode": "string",
+              "tc2Details": {
+                "tc2Type": "initial",
+                "tc2IntermediateApprovalNo": "456789",
+                "tc2IntermediateExpiryDate": "2020-12-30"
+              },
+              "specialProvisions": "string",
+              "tankManufacturerSerialNo": "string",
+              "tankTypeAppNo": "string"
+            },
+            "tankStatement": {
+              "substancesPermitted": "Substances permitted under the tank code and any special provisions specified in 9 may be carried",
+              "statement": "string",
+              "productList": "string"
+            }
+          }
+        }
+      }
+    ],
+    "vin": "ABCDEFGH666666"
   },
   {
     "partialVin": "222203",
