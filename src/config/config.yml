@@ -16,11 +16,16 @@ functions:
     method: GET
     path: /vehicles/:vin/download-file/:filename
     function: downloadDocument
+- updateTechRecordStatus:
+    method: POST
+    path: /vehicles/:vin
+    function: updateTechRecordStatus
 s3:
   local:
     endpoint: http://localhost:7000
     s3ForcePathStyle: true
   remote: {}
+
 dynamodb:
   local:
     params:

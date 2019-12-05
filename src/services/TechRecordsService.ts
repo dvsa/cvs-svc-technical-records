@@ -297,6 +297,18 @@ class TechRecordsService {
         throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
       });
   }
+
+    public async updateTechRecordStatus(vin: string, newStatus = STATUS.CURRENT) {
+      const techRecordWrapper: ITechRecordWrapper = await this.getTechRecordsList(vin, STATUS.ALL);
+      const provisionalTechRecords = techRecordWrapper.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.PROVISIONAL);
+      if (provisionalTechRecords.length === 1) {
+        provisionalTechRecords[0].statusCode = STATUS.ARCHIVED;
+        techRecordWrapper.techRecord.push({...techRecordWrapper.techRecord[0], statusCode: newStatus}); // TODO fix bug here
+        return await this.techRecordsDAO.updateSingle(techRecordWrapper);
+      } else {
+        throw new HTTPError(400, "The tech record status cannot be updated to " + newStatus);
+      }
+    }
 }
 
 export default TechRecordsService;
