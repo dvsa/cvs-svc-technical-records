@@ -7596,7 +7596,7 @@
             "street": null,
             "town": null
           },
-          "batteryListNumber": "H903",
+          "batteryListNumber": null,
           "compatibilityGroupJ": false,
           "listStatementApplicable": true,
           "memosApply": [
