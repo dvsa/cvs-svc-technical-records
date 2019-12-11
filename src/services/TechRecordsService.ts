@@ -3,12 +3,13 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
 import {ManagedUpload, Metadata} from "aws-sdk/clients/s3";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {HTTPRESPONSE, STATUS, UPDATE_TYPE} from "../assets/Enums";
+import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
 import * as _ from "lodash";
 import * as uuid from "uuid";
 import {validatePayload} from "../utils/PayloadValidation";
 import S3BucketService from "./S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
+import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -24,8 +25,8 @@ class TechRecordsService {
     this.s3BucketService = s3BucketService;
   }
 
-  public getTechRecordsList(searchTerm: string, status: string) {
-    return this.techRecordsDAO.getBySearchTerm(searchTerm)
+  public getTechRecordsList(searchTerm: string, status: string, searchCriteria: ISearchCriteria) {
+    return this.techRecordsDAO.getBySearchTerm(searchTerm, searchCriteria)
       .then((data: any) => {
         if (data.Count === 0) {
           throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
@@ -185,7 +186,7 @@ class TechRecordsService {
     if (isAdrValid.error) {
       return Promise.reject({statusCode: 500, body: isAdrValid.error.details});
     }
-    return this.getTechRecordsList(techRecord.vin, STATUS.ALL)
+    return this.getTechRecordsList(techRecord.vin, STATUS.ALL, SEARCHCRITERIA.ALL)
       .then((data: ITechRecordWrapper) => {
         const oldTechRec = this.getTechRecordToArchive(data);
         oldTechRec.statusCode = STATUS.ARCHIVED;

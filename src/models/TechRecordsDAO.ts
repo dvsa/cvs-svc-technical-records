@@ -2,7 +2,9 @@ import Configuration from "../utils/Configuration";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
 import QueryInput = DocumentClient.QueryInput;
-// @ts-ignore
+import {SEARCHCRITERIA} from "../assets/Enums";
+import {ISearchCriteria} from "../../@Types/ISearchCriteria";
+
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
 let AWS: { DynamoDB: { DocumentClient: new (arg0: any) => DocumentClient; }; };
@@ -17,24 +19,12 @@ const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
 
 class TechRecordsDAO {
   private readonly tableName: string;
-  private readonly ONLY_DIGITS_REGEX: RegExp;
-  private readonly TRAILER_REGEX: RegExp;
 
   constructor() {
     this.tableName = dbConfig.table;
-    this.ONLY_DIGITS_REGEX = /^\d+$/;
-    this.TRAILER_REGEX = /^[a-zA-Z]\d{6}$/;
   }
 
-  public isTrailerId(searchTerm: string) {
-    // Exactly 8 numbers
-    const isAllNumbersTrailerId = searchTerm.length === 8 && this.ONLY_DIGITS_REGEX.test(searchTerm);
-    // A letter followed by exactly 6 numbers
-    const isLetterAndNumbersTrailerId = this.TRAILER_REGEX.test(searchTerm);
-    return isAllNumbersTrailerId || isLetterAndNumbersTrailerId;
-  }
-
-  public getBySearchTerm(searchTerm: string) {
+  public getBySearchTerm(searchTerm: string, searchCriteria: ISearchCriteria) {
     const query: QueryInput = {
       TableName: this.tableName,
       KeyConditionExpression: "",
@@ -42,7 +32,7 @@ class TechRecordsDAO {
       ExpressionAttributeValues: {}
     };
 
-    if (searchTerm.length >= 9) { // Query for a full VIN
+    if (isVinSearch(searchTerm, searchCriteria)) { // Query for a full VIN
       // The partial VIN is a primary index, and is always required
       Object.assign(query.ExpressionAttributeValues, {
         ":vin": searchTerm,
@@ -56,7 +46,7 @@ class TechRecordsDAO {
 
       // And create the query
       query.KeyConditionExpression = "#partialVin = :partialVin AND #vin = :vin";
-    } else if (this.isTrailerId(searchTerm)) { // Query for a Trailer ID
+    } else if (isTrailerSearch(searchTerm, searchCriteria)) { // Query for a Trailer ID
       Object.assign(query, { IndexName: "TrailerIdIndex" });
 
       Object.assign(query.ExpressionAttributeValues, {
@@ -66,7 +56,7 @@ class TechRecordsDAO {
         "#trailerId": "trailerId"
       });
       query.KeyConditionExpression = "#trailerId = :trailerId";
-    } else if (searchTerm.length === 6 && this.ONLY_DIGITS_REGEX.test(searchTerm)) { // Query for a partial VIN
+    } else if (isPartialVinSearch(searchTerm, searchCriteria)) { // Query for a partial VIN
       Object.assign(query.ExpressionAttributeValues, {
         ":partialVin": searchTerm
       });
@@ -75,7 +65,7 @@ class TechRecordsDAO {
         "#partialVin": "partialVin"
       });
       query.KeyConditionExpression = "#partialVin = :partialVin";
-    } else if (searchTerm.length >= 3 && searchTerm.length <= 8) { // Query for a VRM
+    } else if (isVrmSearch(searchTerm, searchCriteria)) { // Query for a VRM
       // If we are queried a VRM, we need to specify we are using the VRM index
       Object.assign(query, { IndexName: "VRMIndex" });
 
@@ -176,4 +166,31 @@ class TechRecordsDAO {
   }
 }
 
-export default TechRecordsDAO;
+const ONLY_DIGITS_REGEX: RegExp = /^\d+$/;
+const TRAILER_REGEX: RegExp = /^[a-zA-Z]\d{6}$/;
+
+const isVinSearch = (searchTerm: string, searchCriteria: ISearchCriteria): boolean => {
+  return SEARCHCRITERIA.VIN === searchCriteria || SEARCHCRITERIA.ALL === searchCriteria && searchTerm.length >= 9;
+};
+
+const isTrailerSearch = (searchTerm: string, searchCriteria: ISearchCriteria): boolean => {
+  return SEARCHCRITERIA.TRAILERID === searchCriteria || SEARCHCRITERIA.ALL === searchCriteria && isTrailerId(searchTerm);
+};
+
+const isPartialVinSearch = (searchTerm: string, searchCriteria: ISearchCriteria): boolean => {
+  return SEARCHCRITERIA.PARTIALVIN === searchCriteria || SEARCHCRITERIA.ALL === searchCriteria && searchTerm.length === 6 && ONLY_DIGITS_REGEX.test(searchTerm);
+};
+
+const isVrmSearch = (searchTerm: string, searchCriteria: ISearchCriteria): boolean => {
+  return SEARCHCRITERIA.VRM === searchCriteria || SEARCHCRITERIA.ALL === searchCriteria && searchTerm.length >= 3 && searchTerm.length <= 8;
+};
+
+const isTrailerId = (searchTerm: string): boolean => {
+  // Exactly 8 numbers
+  const isAllNumbersTrailerId = searchTerm.length === 8 && ONLY_DIGITS_REGEX.test(searchTerm);
+  // A letter followed by exactly 6 numbers
+  const isLetterAndNumbersTrailerId = TRAILER_REGEX.test(searchTerm);
+  return isAllNumbersTrailerId || isLetterAndNumbersTrailerId;
+};
+
+export {TechRecordsDAO as default, isTrailerSearch, isPartialVinSearch, isTrailerId, isVinSearch, isVrmSearch} ;

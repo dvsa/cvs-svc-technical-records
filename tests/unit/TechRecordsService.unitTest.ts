@@ -2,7 +2,7 @@
 import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
-import {HTTPRESPONSE, STATUS} from "../../src/assets/Enums";
+import {HTTPRESPONSE, SEARCHCRITERIA, STATUS} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import S3BucketService from "../../src/services/S3BucketService";
 import {cloneDeep} from "lodash";
@@ -38,7 +38,7 @@ describe("getTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
 
-      const returnedRecords: any = await techRecordsService.getTechRecordsList("1B7GG36N12S678410", STATUS.CURRENT);
+      const returnedRecords: any = await techRecordsService.getTechRecordsList("1B7GG36N12S678410", STATUS.CURRENT, SEARCHCRITERIA.ALL);
       expect(returnedRecords).not.toEqual(undefined);
       expect(returnedRecords).not.toEqual({});
       expect(returnedRecords).toEqual(techRecord);
@@ -66,7 +66,7 @@ describe("getTechRecordsList", () => {
 
         expectedResult.techRecord.splice(0, 1);
         expectedResult = techRecordsService.formatTechRecordItemForResponse(expectedResult);
-        const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011911", STATUS.PROVISIONAL_OVER_CURRENT);
+        const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011911", STATUS.PROVISIONAL_OVER_CURRENT, SEARCHCRITERIA.ALL);
         expect(returnedRecords).toEqual(expectedResult);
       });
     });
@@ -90,7 +90,7 @@ describe("getTechRecordsList", () => {
         let expectedResult: ITechRecordWrapper = JSON.parse(JSON.stringify(records[10]));
         expectedResult.techRecord.splice(1, 1);
         expectedResult = techRecordsService.formatTechRecordItemForResponse(expectedResult);
-        const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011933", STATUS.PROVISIONAL_OVER_CURRENT);
+        const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011933", STATUS.PROVISIONAL_OVER_CURRENT, SEARCHCRITERIA.ALL);
         expect(returnedRecords).toEqual(expectedResult);
       });
     });
@@ -112,7 +112,7 @@ describe("getTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
-      const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011900", "all");
+      const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011900", "all", SEARCHCRITERIA.ALL);
       expect(returnedRecords).not.toEqual(undefined);
       expect(returnedRecords).not.toEqual({});
       expect(returnedRecords.techRecord.length).toEqual(10);
@@ -136,7 +136,7 @@ describe("getTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       try {
-        expect(await techRecordsService.getTechRecordsList("Rhubarb", "Potato")).toThrowError();
+        expect(await techRecordsService.getTechRecordsList("Rhubarb", "Potato", SEARCHCRITERIA.ALL)).toThrowError();
       } catch (errorResponse) {
         expect(errorResponse.statusCode).toEqual(404);
         expect(errorResponse.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
@@ -160,7 +160,7 @@ describe("getTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       try {
-        expect(await techRecordsService.getTechRecordsList("", "")).toThrowError();
+        expect(await techRecordsService.getTechRecordsList("", "", SEARCHCRITERIA.ALL)).toThrowError();
       } catch (errorResponse) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(404);
@@ -186,7 +186,7 @@ describe("getTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       try {
-        expect(await techRecordsService.getTechRecordsList("", "")).toThrowError();
+        expect(await techRecordsService.getTechRecordsList("", "", SEARCHCRITERIA.ALL)).toThrowError();
       } catch (errorResponse) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(500);
@@ -212,7 +212,7 @@ describe("getTechRecordsList", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
       try {
-        expect(await techRecordsService.getTechRecordsList("", "")).toThrowError();
+        expect(await techRecordsService.getTechRecordsList("", "", SEARCHCRITERIA.ALL)).toThrowError();
       } catch (errorResponse) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(422);
@@ -240,7 +240,7 @@ describe("getTechRecordsList", () => {
       techRecordWithNumber.techRecord[0].euroStandard = 0;
       const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithNumber), s3BucketServiceMock);
 
-      const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);
+      const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT, SEARCHCRITERIA.ALL);
       expect(typeof returnedRecords.techRecord[0].euroStandard).toBe("string");
       expect(returnedRecords.techRecord[0].euroStandard).toBe("0");
     });
@@ -250,7 +250,7 @@ describe("getTechRecordsList", () => {
       techRecordWithString.techRecord[0].euroStandard = "test";
       const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithString), s3BucketServiceMock);
 
-      const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);
+      const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT, SEARCHCRITERIA.ALL);
       expect(typeof returnedRecords.techRecord[0].euroStandard).toBe("string");
       expect(returnedRecords.techRecord[0].euroStandard).toBe("test");
     });
@@ -260,7 +260,7 @@ describe("getTechRecordsList", () => {
       techRecordWithNull.techRecord[0].euroStandard = null;
       const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithNull), s3BucketServiceMock);
 
-      const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT);
+      const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT, SEARCHCRITERIA.ALL);
       expect(returnedRecords.techRecord[0].euroStandard).toBe(null);
     });
   });

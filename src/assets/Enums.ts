@@ -22,6 +22,14 @@ export enum STATUS {
     ALL = "all"
 }
 
+export enum SEARCHCRITERIA {
+    ALL = "all",
+    VIN = "vin",
+    VRM = "vrm",
+    PARTIALVIN = "partialVin",
+    TRAILERID = "trailerId"
+}
+
 export enum UPDATE_TYPE {
     ADR = "adrUpdate"
 }
