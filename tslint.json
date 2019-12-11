@@ -28,6 +28,7 @@
         //     true,
         //     "methods"
         // ],
-        "interface-name": false
+        "interface-name": false,
+        "whitespace": false
     }
 }

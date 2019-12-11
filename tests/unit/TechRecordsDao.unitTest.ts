@@ -1,10 +1,101 @@
-import TechRecordsDao from "../../src/models/TechRecordsDAO";
+import TechRecordsDao, {isPartialVinSearch, isTrailerSearch, isVinSearch, isVrmSearch} from "../../src/models/TechRecordsDAO";
 import AWS from "aws-sdk";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import mockData from "../resources/technical-records.json";
 import {cloneDeep} from "lodash";
+import {SEARCHCRITERIA} from "../../src/assets/Enums";
 
 describe("TechRecordsDAO", () => {
+  describe("is Search Type functions", () => {
+    describe("isVinSearch", () => {
+      describe("searchCriteria is VIN and non-vin format searchTerm", () => {
+        it("still returns true", () => {
+          expect(isVinSearch("1", "vin")).toEqual(true);
+        });
+      });
+      describe("searchCriteria is ALL and valid vin format searchTerm", () => {
+        it("returns true", () => {
+          expect(isVinSearch("1234567890", "all")).toEqual(true);
+        });
+      });
+      describe("searchCriteria is ALL and non-vin format searchTerm", () => {
+        it("returns false", () => {
+          expect(isVinSearch("1", "all")).toEqual(false);
+        });
+      });
+      describe("searchCriteria is not VIN or ALL", () => {
+        it("returns false", () => {
+          expect(isVinSearch("1234567890", "vrm")).toEqual(false);
+        });
+      });
+    });
+    describe("isTrailerSearch", () => {
+      describe("searchCriteria is TRAILERID and non-trailer format searchTerm", () => {
+        it("still returns true", () => {
+          expect(isTrailerSearch("1", "trailerId")).toEqual(true);
+        });
+      });
+      describe("searchCriteria is ALL and valid trailer format searchTerm", () => {
+        it("returns true", () => {
+          expect(isTrailerSearch("12345678", "all")).toEqual(true);
+        });
+      });
+      describe("searchCriteria is ALL and non-trailer format searchTerm", () => {
+        it("returns false", () => {
+          expect(isTrailerSearch("1", "all")).toEqual(false);
+        });
+      });
+      describe("searchCriteria is not TRAILERID or ALL", () => {
+        it("returns false", () => {
+          expect(isTrailerSearch("12345678", "vin")).toEqual(false);
+        });
+      });
+    });
+    describe("isPartialVinSearch", () => {
+      describe("searchCriteria is PARTIALVIN and non-partialVin format searchTerm", () => {
+        it("still returns true", () => {
+          expect(isPartialVinSearch("1", "partialVin")).toEqual(true);
+        });
+      });
+      describe("searchCriteria is ALL and valid partialVin format searchTerm", () => {
+        it("returns true", () => {
+          expect(isPartialVinSearch("123456", "all")).toEqual(true);
+        });
+      });
+      describe("searchCriteria is ALL and non-partialVin format searchTerm", () => {
+        it("returns false", () => {
+          expect(isPartialVinSearch("1", "all")).toEqual(false);
+        });
+      });
+      describe("searchCriteria is not PARTIALVIN or ALL", () => {
+        it("returns false", () => {
+          expect(isPartialVinSearch("123456", "vin")).toEqual(false);
+        });
+      });
+    });
+    describe("isVrmSearch", () => {
+      describe("searchCriteria is VRM and non-VRM format searchTerm", () => {
+        it("still returns true", () => {
+          expect(isVrmSearch("1", "vrm")).toEqual(true);
+        });
+      });
+      describe("searchCriteria is ALL and valid VRM format searchTerm", () => {
+        it("returns true", () => {
+          expect(isVrmSearch("1234", "all")).toEqual(true);
+        });
+      });
+      describe("searchCriteria is ALL and non-VRM format searchTerm", () => {
+        it("returns false", () => {
+          expect(isVrmSearch("1", "all")).toEqual(false);
+        });
+      });
+      describe("searchCriteria is not VRM or ALL", () => {
+        it("returns false", () => {
+          expect(isVrmSearch("1234", "vin")).toEqual(false);
+        });
+      });
+    });
+  });
   context("getBySearchTerm", () => {
     context("builds correct request", () => {
       beforeEach(() => {
@@ -34,7 +125,7 @@ describe("TechRecordsDAO", () => {
           IndexName: "TrailerIdIndex"
         };
         const techRecordsDao = new TechRecordsDao();
-        await techRecordsDao.getBySearchTerm("Q000001");
+        await techRecordsDao.getBySearchTerm("Q000001", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -53,7 +144,7 @@ describe("TechRecordsDAO", () => {
         };
 
         const techRecordsDao = new TechRecordsDao();
-        await techRecordsDao.getBySearchTerm("12345678");
+        await techRecordsDao.getBySearchTerm("12345678", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -73,7 +164,7 @@ describe("TechRecordsDAO", () => {
         };
 
         const techRecordsDao = new TechRecordsDao();
-        await techRecordsDao.getBySearchTerm("1234567890");
+        await techRecordsDao.getBySearchTerm("1234567890", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -91,7 +182,7 @@ describe("TechRecordsDAO", () => {
         };
 
         const techRecordsDao = new TechRecordsDao();
-        await techRecordsDao.getBySearchTerm("123456");
+        await techRecordsDao.getBySearchTerm("123456", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -110,7 +201,7 @@ describe("TechRecordsDAO", () => {
         };
 
         const techRecordsDao = new TechRecordsDao();
-        await techRecordsDao.getBySearchTerm("1234567A");
+        await techRecordsDao.getBySearchTerm("1234567A", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -128,7 +219,7 @@ describe("TechRecordsDAO", () => {
           IndexName: "VRMIndex"
         };
         const techRecordsDao = new TechRecordsDao();
-        await techRecordsDao.getBySearchTerm("67A");
+        await techRecordsDao.getBySearchTerm("67A", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -143,7 +234,7 @@ describe("TechRecordsDAO", () => {
         };
 
         const techRecordsDao = new TechRecordsDao();
-        await techRecordsDao.getBySearchTerm("7A");
+        await techRecordsDao.getBySearchTerm("7A", SEARCHCRITERIA.ALL);
         expect(stub).toStrictEqual(expectedCall);
       });
     });

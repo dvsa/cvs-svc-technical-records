@@ -1,11 +1,12 @@
-import TechRecordsDAO from "../models/TechRecordsDAO";
-import TechRecordsService from "../services/TechRecordsService";
-import HTTPResponse from "../models/HTTPResponse";
+import { S3 } from "aws-sdk";
 import ITechRecord from "../../@Types/ITechRecord";
-import {STATUS} from "../assets/Enums";
-import {metaData} from "../utils/AdrValidation";
+import {ISearchCriteria} from "../../@Types/ISearchCriteria";
+import {SEARCHCRITERIA, STATUS} from "../assets/Enums";
+import TechRecordsDAO from "../models/TechRecordsDAO";
+import HTTPResponse from "../models/HTTPResponse";
+import TechRecordsService from "../services/TechRecordsService";
 import S3BucketService from "../services/S3BucketService";
-import S3 = require("aws-sdk/clients/s3");
+import {metaData} from "../utils/AdrValidation";
 
 const getTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -13,6 +14,7 @@ const getTechRecords = (event: any) => {
   const techRecordsService = new TechRecordsService(techRecordsDAO, s3BucketService);
 
   const status: string = (event.queryStringParameters) ? event.queryStringParameters.status : STATUS.PROVISIONAL_OVER_CURRENT;
+  const searchCriteria: ISearchCriteria = (event.queryStringParameters?.searchCriteria) ? event.queryStringParameters.searchCriteria : SEARCHCRITERIA.ALL;
   const metadata: string = (event.queryStringParameters) ? event.queryStringParameters.metadata : null;
   const searchIdentifier: string = (event.pathParameters) ? event.pathParameters.searchIdentifier : null;
 
@@ -20,7 +22,8 @@ const getTechRecords = (event: any) => {
   if (!searchIdentifier || searchIdentifier.length < 3 || searchIdentifier.length > 21) {
     return Promise.resolve(new HTTPResponse(400, "The search identifier should be between 3 and 21 characters."));
   }
-  return techRecordsService.getTechRecordsList(searchIdentifier, status)
+
+  return techRecordsService.getTechRecordsList(searchIdentifier, status, searchCriteria)
     .then((data: ITechRecord[]) => {
       if (metadata === "true") {
         Object.assign(data, {metadata: metaData});
