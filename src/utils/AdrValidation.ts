@@ -118,7 +118,7 @@ export const adrValidation = Joi.object().keys({
     then: Joi.object().keys({
       tankDetails: Joi.object().keys({
         tankManufacturer: Joi.string().max(70).required(),
-        yearOfManufacture: Joi.number().max(4).required(),
+        yearOfManufacture: Joi.number().max(9999).required(),
         tankManufacturerSerialNo: Joi.string().max(50).required(),
         tankTypeAppNo: Joi.string().max(65).required(),
         tankCode: Joi.string().max(30).required(),
