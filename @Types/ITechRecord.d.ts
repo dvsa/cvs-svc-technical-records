@@ -74,7 +74,7 @@ export default interface ITechRecord {
   departmentalVehicleMarker: boolean;
   alterationMarker: boolean;
   approvalType: string;
-  approvalTypeNumber: string;
+  approvalTypeNumber;
   variantNumber: string;
   variantVersionNumber: string;
   make: string;
@@ -140,16 +140,20 @@ interface Axle {
   weights: {
     kerbWeight: number;
     ladenWeight: number;
-    gbWeight: number;
-    designWeight: number;
-    eecWeight: number;
+    axleWeightProperties: {
+      gbWeight: number;
+      designWeight: number;
+      eecWeight: number;
+    }
   };
   tyres: {
-    tyreSize: string;
-    plyRating: string;
-    fitmentCode: string;
-    dataTrAxles: number;
-    tyreCode: number;
+    axleTyrePropertie: {
+      tyreSize: string;
+      plyRating: string;
+      fitmentCode: string;
+      dataTrAxles: number;
+      tyreCode: number;
+    }
     speedCategorySymbol: string;
   };
 }
