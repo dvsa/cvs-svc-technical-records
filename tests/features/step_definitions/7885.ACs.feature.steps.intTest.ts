@@ -76,6 +76,7 @@ const createPOSTPayload = () => {
   const newTechRec = cloneDeep(mockData[0]);
   newTechRec.vin = Date.now().toString();
   newTechRec.partialVin = newTechRec.vin.substr(newTechRec.vin.length - 6);
+  // @ts-ignore
   newTechRec.techRecord[0].bodyType.description = "New Tech Record";
   newTechRec.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
   newTechRec.trailerId = Math.floor(100000 + Math.random() * 900000).toString();
