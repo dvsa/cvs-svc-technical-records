@@ -147,7 +147,7 @@ export const adrValidation = Joi.object().keys({
       tankStatement: Joi.object().forbidden()
     }).forbidden()
   })
-}).required();
+}).optional();
 
 export const metaData = {
   adrDetails: {
