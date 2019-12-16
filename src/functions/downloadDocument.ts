@@ -10,8 +10,8 @@ const downloadDocument = (event: any) => {
   const techRecordsService = new TechRecordsService(techRecordsDAO, s3BucketService);
   const ONLY_DIGITS_AND_NUMBERS: RegExp = /^[A-Za-z0-9]+$/;
 
-  const vin: string = event.pathParameters.vin;
-  const filename: string = event.pathParameters.filename;
+  const vin: string = event.pathParameters ? event.pathParameters.vin : null;
+  const filename: string = event.queryStringParameters ? event.queryStringParameters.filename : null;
 
   // searchTerm too long or too short
   if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 9) {
@@ -19,7 +19,7 @@ const downloadDocument = (event: any) => {
   }
 
   if (!filename) {
-    return Promise.resolve(new HTTPResponse(400, "Invalid path parameter 'filename'"));
+    return Promise.resolve(new HTTPResponse(400, "Invalid query parameter 'filename'"));
   }
 
   return techRecordsService.downloadFile(filename)

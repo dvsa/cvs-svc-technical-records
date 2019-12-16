@@ -40,17 +40,18 @@ describe("The lambda function handler", () => {
         expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
       });
 
-      it("should call the /vehicles/{vin}/download-file/{filename} function with correct event payload", async () => {
+      it("should call the /vehicles/{vin}/download-file?filename=someFilename.pdf function with correct event payload", async () => {
         // Specify your event, with correct path, payload etc
         const vehicleRecordEvent = {
-          path: "/vehicles/YV31MEC18GA011944/download-file/someFilename.pdf",
+          path: "/vehicles/YV31MEC18GA011944/download-file",
           pathParameters: {
-            vin: "YV31MEC18GA011944",
-            filename: "someFilename.pdf"
+            vin: "YV31MEC18GA011944"
           },
           resource: "/vehicles",
           httpMethod: "GET",
-          queryStringParameters: null
+          queryStringParameters: {
+            filename: "someFilename.pdf"
+          }
         };
 
         let ctx: any = mockContext(opts);
@@ -61,6 +62,7 @@ describe("The lambda function handler", () => {
         });
 
         const result = await handler(vehicleRecordEvent, ctx);
+        console.log("RESULT", result);
         ctx.succeed(result);
         ctx = null;
         expect(result.statusCode).toEqual(200);
