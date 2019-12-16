@@ -14,7 +14,7 @@ functions:
     function: updateTechRecords
 - downloadDocument:
     method: GET
-    path: /vehicles/:vin/download-file/:filename
+    path: /vehicles/:vin/download-file
     function: downloadDocument
 - updateTechRecordStatus:
     method: PUT
