@@ -121,7 +121,7 @@ defineFeature(feature, test => {
       expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
     });
     and('the adrDetails{} object contains all the attributes from both CVSB-8464 + CVSB-8714', () => {
-      const toValidate = {
+      const toValidate: any = {
         reasonForCreation: response.body.techRecord[1].reasonForCreation,
         adrDetails: response.body.techRecord[1].adrDetails
       };
