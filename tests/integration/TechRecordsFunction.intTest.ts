@@ -431,9 +431,11 @@ describe("downloadDocument", () => {
 
           await LambdaTester(DownloadDocumentFunction)
             .event({
-              path: `/vehicles/${techRecord.vin}/download-file/someFilename.pdf`,
+              path: `/vehicles/${techRecord.vin}/download-file?filename=someFilename.pdf`,
               pathParameters: {
-                vin: null,
+                vin: null
+              },
+              queryStringParameters: {
                 filename: "someFilename.pdf"
               }
             })
@@ -449,9 +451,11 @@ describe("downloadDocument", () => {
           const techRecord = cloneDeep(records[1]);
           await LambdaTester(DownloadDocumentFunction)
             .event({
-              path: `/vehicles/${techRecord.vin}/download-file/someFilename.pdf`,
+              path: `/vehicles/${techRecord.vin}/download-file?filename=someFilename.pdf`,
               pathParameters: {
-                vin: "ABCDEF5",
+                vin: "ABCDEF5"
+              },
+              queryStringParameters: {
                 filename: "someFilename.pdf"
               }
             })
@@ -468,9 +472,11 @@ describe("downloadDocument", () => {
 
           await LambdaTester(DownloadDocumentFunction)
             .event({
-              path: `/vehicles/${techRecord.vin}/download-file/someFilename.pdf`,
+              path: `/vehicles/${techRecord.vin}/download-file?filename=someFilename.pdf`,
               pathParameters: {
-                vin: "tech-r#cord$",
+                vin: "tech-r#cord$"
+              },
+              queryStringParameters: {
                 filename: "someFilename.pdf"
               }
             })
@@ -487,19 +493,17 @@ describe("downloadDocument", () => {
 
           await LambdaTester(DownloadDocumentFunction)
             .event({
-              path: `/vehicles/${techRecord.vin}/download-file/someFilename.pdf`,
+              path: `/vehicles/${techRecord.vin}/download-file?filename=someFilename.pdf`,
               pathParameters: {
-                vin: `${techRecord.vin}`,
-                filename: null
+                vin: `${techRecord.vin}`
               }
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(result.body).toEqual('"Invalid path parameter \'filename\'"');
+              expect(result.body).toEqual('"Invalid query parameter \'filename\'"');
             });
         });
       });
     });
   });
 });
-
