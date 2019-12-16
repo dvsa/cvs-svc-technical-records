@@ -65,67 +65,60 @@ functions:
   getTechRecords:
     handler: src/handler.handler
     events:
-    - http:
-        path: vehicles/{searchIdentifier}/tech-records
-        method: get
-        request:
-          parameters:
-            paths:
-              searchIdentifier: true
-            querystrings:
-              status: false
-              metadata: false
-              filename: false
-        documentation:
-          summary: "Get Vehicle Technical Records list"
-          description: "Retrieves the Vehicle Technical Records for the input searchIdentifier, which can be the VRM, the last 6 digits of the VIN or the full VIN"
-          parameters:
-            - name: searchIdentifier
-              in: path
-              description: The attribute to search a vehicle technical record by, which can be either the VRM, the last 6 digits of the VIN or the full VIN"
-              required: true
-              schema:
-                type: string
-            - name: status?
-              in: path
-              description: The status code of a vehicle technical record"
-              required: true
-              schema:
-                type: string
-            - name: metadata?
-              in: path
-              description: Applicable only to ADR details. Query param for returning the list of values that are selectable on the front end
-              required: false
-              schema:
-                type: string
-            - name: filename?
-              in: path
-              description: Applicable only to ADR details. Query param for downloading a document from S3. If specified, GET endpoint will return only the Base64 encoded string
-              required: false
-              schema:
-                type: string
-          methodResposes:
-            - statusCode: 200
-              responseBody:
-                description: "List of Vehicle Technical Records"
-              responseModels:
-                "application/json": "VehicleTechnicalRecords"
-            - statusCode: 404
-              responseBody:
-                description: "No resources match the search criteria"
-              responseModels:
-                content:
-                  application/json:
-                    schema:
-                      type: string
-            - statusCode: 422
-              responseBody:
-                description: "Multiple results found"
-              responseModels:
-                content:
-                  application/json:
-                    schema:
-                      type: string
+      - http:
+          path: vehicles/{searchIdentifier}/tech-records
+          method: get
+          request:
+            parameters:
+              paths:
+                searchIdentifier: true
+              querystrings:
+                status: false
+                metadata: false
+          documentation:
+            summary: "Get Vehicle Technical Records list"
+            description: "Retrieves the Vehicle Technical Records for the input searchIdentifier, which can be the VRM, the last 6 digits of the VIN or the full VIN"
+            parameters:
+              - name: searchIdentifier
+                in: path
+                description: The attribute to search a vehicle technical record by, which can be either the VRM, the last 6 digits of the VIN or the full VIN"
+                required: true
+                schema:
+                  type: string
+              - name: status?
+                in: path
+                description: The status code of a vehicle technical record"
+                required: true
+                schema:
+                  type: string
+              - name: metadata?
+                in: path
+                description: Applicable only to ADR details. Query param for returning the list of values that are selectable on the front end
+                required: false
+                schema:
+                  type: string
+            methodResposes:
+              - statusCode: 200
+                responseBody:
+                  description: "List of Vehicle Technical Records"
+                responseModels:
+                  "application/json": "VehicleTechnicalRecords"
+              - statusCode: 404
+                responseBody:
+                  description: "No resources match the search criteria"
+                responseModels:
+                  content:
+                    application/json:
+                      schema:
+                        type: string
+              - statusCode: 422
+                responseBody:
+                  description: "Multiple results found"
+                responseModels:
+                  content:
+                    application/json:
+                      schema:
+                        type: string
   postTechRecords:
     handler: src/handler.handler
     events:
@@ -146,12 +139,13 @@ functions:
     handler: src/handler.handler
     events:
       - http:
-          path: vehicles/{vin}/download-file/{filename}
+          path: vehicles/{vin}/download-file
           method: get
           request:
             parameters:
               paths:
                 vin: true
+              querystrings:
                 filename: true
   updateTechRecordStatus:
     handler: src/handler.handler
@@ -171,24 +165,24 @@ resources:
       Properties:
         TableName: cvs-local-technical-records
         AttributeDefinitions:
-        - AttributeName: partialVin
-          AttributeType: S
-        - AttributeName: vin
-          AttributeType: S
-        - AttributeName: primaryVrm
-          AttributeType: S
-        - AttributeName: trailerId
-          AttributeType: S
+          - AttributeName: partialVin
+            AttributeType: S
+          - AttributeName: vin
+            AttributeType: S
+          - AttributeName: primaryVrm
+            AttributeType: S
+          - AttributeName: trailerId
+            AttributeType: S
         KeySchema:
-        - AttributeName: partialVin
-          KeyType: HASH
-        - AttributeName: vin
-          KeyType: RANGE
+          - AttributeName: partialVin
+            KeyType: HASH
+          - AttributeName: vin
+            KeyType: RANGE
         GlobalSecondaryIndexes:
           - IndexName: VRMIndex
             KeySchema:
-            - AttributeName: primaryVrm
-              KeyType: HASH
+              - AttributeName: primaryVrm
+                KeyType: HASH
             Projection:
               NonKeyAttributes:
                 - primaryVrm
@@ -202,8 +196,8 @@ resources:
               WriteCapacityUnits: '1'
           - IndexName: TrailerIdIndex
             KeySchema:
-            - AttributeName: trailerId
-              KeyType: HASH
+              - AttributeName: trailerId
+                KeyType: HASH
             Projection:
               NonKeyAttributes:
                 - primaryVrm

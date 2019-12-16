@@ -1,25 +1,25 @@
 functions:
-- getTechRecords:
-    method: GET
-    path: /vehicles/{+proxy}/tech-records/
-    proxy: :searchIdentifier
-    function: getTechRecords
-- postTechRecords:
-    method: POST
-    path: /vehicles
-    function: postTechRecords
-- updateTechRecords:
-    method: PUT
-    path: /vehicles/:vin
-    function: updateTechRecords
-- downloadDocument:
-    method: GET
-    path: /vehicles/:vin/download-file/:filename
-    function: downloadDocument
-- updateTechRecordStatus:
-    method: PUT
-    path: /vehicles/update-status/:vin
-    function: updateTechRecordStatus
+  - getTechRecords:
+      method: GET
+      path: /vehicles/{+proxy}/tech-records/
+      proxy: :searchIdentifier
+      function: getTechRecords
+  - postTechRecords:
+      method: POST
+      path: /vehicles
+      function: postTechRecords
+  - updateTechRecords:
+      method: PUT
+      path: /vehicles/:vin
+      function: updateTechRecords
+  - downloadDocument:
+      method: GET
+      path: /vehicles/:vin/download-file
+      function: downloadDocument
+  - updateTechRecordStatus:
+      method: PUT
+      path: /vehicles/update-status/:vin
+      function: updateTechRecordStatus
 s3:
   local:
     endpoint: http://localhost:7000
