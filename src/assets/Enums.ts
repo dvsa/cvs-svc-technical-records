@@ -65,3 +65,9 @@ export enum EU_VEHICLE_CATEGORY {
     L6E = "l6e",
     L7E = "l7e"
 }
+
+export enum VEHICLE_TYPE {
+    HGV = "hgv",
+    TRL = "trl",
+    PSV = "psv"
+}
