@@ -1,22 +1,21 @@
-import * as Joi from "@hapi/joi";
-import {adrValidation} from "./AdrValidation";
+import {hgvValidation} from "./HgvValidations";
+import ITechRecord from "../../@Types/ITechRecord";
+import {VEHICLE_TYPE} from "../assets/Enums";
 
-const techRecordValidation = Joi.object().keys({
-  reasonForCreation: Joi.string().max(60).required(),
-  adrDetails: adrValidation
-});
-
-export const validatePayload = (payload: any) => {
-  let isTankOrBattery = false;
-  let isBattery = false;
-  if (payload.adrDetails && payload.adrDetails.vehicleDetails && payload.adrDetails.vehicleDetails.type) {
-    const vehicleDetailsType = payload.adrDetails.vehicleDetails.type.toLowerCase();
-    if (vehicleDetailsType.indexOf("battery") !== -1) {
-      isBattery = true;
+export const validatePayload = (payload: ITechRecord) => {
+  if (payload.vehicleType === VEHICLE_TYPE.HGV || payload.vehicleType === VEHICLE_TYPE.TRL) {
+    let isTankOrBattery = false;
+    let isBattery = false;
+    if (payload.adrDetails && payload.adrDetails.vehicleDetails && payload.adrDetails.vehicleDetails.type) {
+      const vehicleDetailsType = payload.adrDetails.vehicleDetails.type.toLowerCase();
+      if (vehicleDetailsType.indexOf("battery") !== -1) {
+        isBattery = true;
+      }
+      if ((vehicleDetailsType.indexOf("battery") !== -1) || (vehicleDetailsType.indexOf("tank") !== -1)) {
+        isTankOrBattery = true;
+      }
     }
-    if ((vehicleDetailsType.indexOf("battery") !== -1) || (vehicleDetailsType.indexOf("tank") !== -1)) {
-      isTankOrBattery = true;
-    }
+    return hgvValidation.validate(payload, {context: {isTankOrBattery, isBattery}});
   } else {
     return {
       error: {
@@ -24,5 +23,4 @@ export const validatePayload = (payload: any) => {
       }
     };
   }
-  return techRecordValidation.validate(payload, {context: {isTankOrBattery, isBattery}});
 };

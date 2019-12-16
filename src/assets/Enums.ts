@@ -34,3 +34,9 @@ export enum SEARCHCRITERIA {
 export enum UPDATE_TYPE {
     ADR = "adrUpdate"
 }
+
+export enum VEHICLE_TYPE {
+    HGV = "hgv",
+    TRL = "trl",
+    PSV = "psv"
+}

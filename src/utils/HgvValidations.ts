@@ -2,6 +2,8 @@
 const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
+import {adrValidation} from "./AdrValidation";
+
 const statusCode: string[] = [
   "archived",
   "current",
@@ -192,7 +194,7 @@ const populateAxleSpacing = (parent: any, helpers: any) => {
 
 };
 
-export const hgvValidations = Joi.object().keys({
+export const hgvValidation = Joi.object().keys({
   statusCode: Joi.string().valid(...statusCode).required(),
   vehicleType: Joi.string().valid(...vehicleType).required(),
   regnDate: Joi.date().format("YYYY-MM-DD").required(),
@@ -302,5 +304,6 @@ export const hgvValidations = Joi.object().keys({
     plateIssuer: Joi.string().max(150).optional()
   })).optional(),
   notes: Joi.string().optional(),
-  reasonForCreation: Joi.string().max(100).required()
+  reasonForCreation: Joi.string().max(100).required(),
+  adrDetails: adrValidation
 }).required();

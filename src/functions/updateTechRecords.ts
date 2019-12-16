@@ -13,7 +13,7 @@ const updateTechRecords = (event: any) => {
 
   const techRec = event.body ? event.body.techRecord : null;
   const msUserDetails = event.body ? event.body.msUserDetails : null;
-  const vin = event.pathParameters.vin;
+  const vin = event.pathParameters ? event.pathParameters.vin : null;
   const filesToUpload: string[] = event.body ? event.body.files : null;
 
   if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 9) {
