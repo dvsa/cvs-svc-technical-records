@@ -74,7 +74,7 @@ export default interface ITechRecord {
   departmentalVehicleMarker: boolean;
   alterationMarker: boolean;
   approvalType: string;
-  approvalTypeNumber;
+  approvalTypeNumber: string;
   variantNumber: string;
   variantVersionNumber: string;
   make: string;
