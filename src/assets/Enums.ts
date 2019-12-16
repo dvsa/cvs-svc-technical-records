@@ -41,3 +41,9 @@ export enum VEHICLE_TYPE {
     TRL = "trl",
     PSV = "psv"
 }
+
+export enum VEHICLE_TYPE {
+    HGV = "hgv",
+    TRL = "trl",
+    PSV = "psv"
+}
