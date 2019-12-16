@@ -386,7 +386,7 @@ describe("updateTechRecord", () => {
       const techRecordWithAdr: any = cloneDeep(records[30]);
       techRecord.techRecord[0].bodyType.description = "new tech record";
       techRecord.techRecord[0].grossGbWeight = 5555;
-      const vrms = [{vrm: "CT70VRL", isPrimary: true}, {vrm: "CT56DRG", isPrimary: false}];
+      const vrms = [{vrm: "CT80VRL", isPrimary: true}, {vrm: "CT56DRG", isPrimary: false}];
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           updateSingle: () => {

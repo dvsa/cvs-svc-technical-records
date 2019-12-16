@@ -4632,7 +4632,7 @@
   {
     "vin": "P012301270123",
     "partialVin": "270123",
-    "primaryVrm": "CT70VRL",
+    "primaryVrm": "CT80VRL",
     "secondaryVrms": [
       "CT56DRG"
     ],
