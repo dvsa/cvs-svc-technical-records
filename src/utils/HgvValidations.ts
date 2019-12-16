@@ -174,21 +174,21 @@ const fitmentCode: string[] = [
   "single"
 ];
 
-const populateVehicleClassCode = (parent, helpers) => {
+const populateVehicleClassCode = (parent: any, helpers: any) => {
   if (parent.description === "motorbikes over 200cc or with a sidecar") {
     return "2";
   }
   throw new Error("Not valid");
 };
 
-const populateBodyTypeCode = (parent, helpers) => {
+const populateBodyTypeCode = (parent: any, helpers: any) => {
   if (parent.description === "articulated") {
     return "a";
   }
   throw new Error("Not valid");
 };
 
-const populateAxleSpacing = (parent, helpers) => {
+const populateAxleSpacing = (parent: any, helpers: any) => {
 
 };
 
