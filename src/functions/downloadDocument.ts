@@ -10,7 +10,7 @@ const downloadDocument = (event: any) => {
   const techRecordsService = new TechRecordsService(techRecordsDAO, s3BucketService);
   const ONLY_DIGITS_AND_NUMBERS: RegExp = /^[A-Za-z0-9]+$/;
 
-  const vin: string = event.pathParameters.vin;
+  const vin: string = event.pathParameters ? event.pathParameters.vin : null;
   const filename: string = event.queryStringParameters ? event.queryStringParameters.filename : null;
 
   // searchTerm too long or too short
