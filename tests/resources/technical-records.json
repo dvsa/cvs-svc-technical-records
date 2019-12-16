@@ -5301,6 +5301,10 @@
             "FP <61 (FL)"
           ],
           "additionalExaminerNotes": "string",
+          "documents": [
+            "5f820b43-5c0d-4dd5-9822-95c7b5dd5be8.pdf",
+            "6240dd8a-108b-4754-a8d7-5ccb88c482c7.pdf"
+          ],
           "applicantDetails": {
             "name": "string",
             "street": "string",
