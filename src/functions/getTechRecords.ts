@@ -13,7 +13,7 @@ const getTechRecords = (event: any) => {
   const s3BucketService = new S3BucketService(new S3());
   const techRecordsService = new TechRecordsService(techRecordsDAO, s3BucketService);
 
-  const status: string = (event.queryStringParameters) ? event.queryStringParameters.status : STATUS.PROVISIONAL_OVER_CURRENT;
+  const status: string = (event.queryStringParameters?.status) ? event.queryStringParameters.status : STATUS.PROVISIONAL_OVER_CURRENT;
   const searchCriteria: ISearchCriteria = (event.queryStringParameters?.searchCriteria) ? event.queryStringParameters.searchCriteria : SEARCHCRITERIA.ALL;
   const metadata: string = (event.queryStringParameters) ? event.queryStringParameters.metadata : null;
   const searchIdentifier: string = (event.pathParameters) ? event.pathParameters.searchIdentifier : null;
