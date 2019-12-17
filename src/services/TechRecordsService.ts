@@ -6,9 +6,10 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
 import * as _ from "lodash";
 import * as uuid from "uuid";
-import {validatePayload} from "../utils/PayloadValidation";
+import {validatePayload, validatePrimaryVrm, validateSecondaryVrms} from "../utils/PayloadValidation";
 import S3BucketService from "./S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
+import HTTPResponse from "../models/HTTPResponse";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 
 /**
@@ -128,7 +129,17 @@ class TechRecordsService {
     return techRecordItem;
   }
 
-  public insertTechRecord(techRecord: ITechRecordWrapper) {
+  public insertTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
+    const isPayloadValid = validatePayload(techRecord.techRecord[0]);
+    if (isPayloadValid.error) {
+      return Promise.reject({statusCode: 500, body: isPayloadValid.error.details});
+    }
+    console.log(techRecord.primaryVrm, techRecord.secondaryVrms);
+    if (!this.validateVrms(techRecord)) {
+      return Promise.reject({statusCode: 500, body: "Primary or secondaryVrms are not valid"});
+    }
+    console.log(techRecord.primaryVrm, techRecord.secondaryVrms);
+    this.setDetailsPOST(techRecord.techRecord[0], msUserDetails);
     return this.techRecordsDAO.createSingle(techRecord)
       .then((data: any) => {
         return data;
@@ -136,6 +147,33 @@ class TechRecordsService {
       .catch((error: any) => {
         throw new HTTPError(error.statusCode, error.message);
       });
+  }
+
+  private validateVrms(techRecord: ITechRecordWrapper) {
+    let areVrmsValid = true;
+    if (techRecord.primaryVrm) {
+      const isValid = validatePrimaryVrm.validate(techRecord.primaryVrm);
+      if (isValid.error) {
+        areVrmsValid = false;
+        delete techRecord.primaryVrm;
+      }
+    }
+    if (techRecord.secondaryVrms) {
+      const isValid = validateSecondaryVrms.validate(techRecord.secondaryVrms);
+      if (isValid.error) {
+        areVrmsValid = false;
+        delete techRecord.secondaryVrms;
+      }
+    }
+    return areVrmsValid;
+  }
+
+  private setDetailsPOST(techRecord: ITechRecord, msUserDetails: any) {
+    const date = new Date().toISOString();
+    techRecord.createdAt = date;
+    techRecord.createdByName = msUserDetails.msUser;
+    techRecord.createdById = msUserDetails.msOid;
+    techRecord.statusCode = STATUS.PROVISIONAL;
   }
 
   public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, files?: string[]) {
@@ -189,9 +227,8 @@ class TechRecordsService {
     return this.getTechRecordsList(techRecord.vin, STATUS.ALL, SEARCHCRITERIA.ALL)
       .then((data: ITechRecordWrapper) => {
         const oldTechRec = this.getTechRecordToArchive(data);
-        oldTechRec.statusCode = STATUS.ARCHIVED;
         const newRecord: any = _.cloneDeep(oldTechRec);
-        newRecord.statusCode = STATUS.CURRENT;
+        oldTechRec.statusCode = STATUS.ARCHIVED;
         _.merge(newRecord, techRecord.techRecord[0]);
         if (techRecord.techRecord[0].adrDetails && techRecord.techRecord[0].adrDetails.documents) {
           newRecord.adrDetails.documents = techRecord.techRecord[0].adrDetails.documents;
@@ -249,7 +286,12 @@ class TechRecordsService {
     oldTechRecord.lastUpdatedAt = date;
     oldTechRecord.lastUpdatedByName = msUserDetails.msUser;
     oldTechRecord.lastUpdatedById = msUserDetails.msOid;
-    oldTechRecord.updateType = UPDATE_TYPE.ADR;
+
+    let updateType = UPDATE_TYPE.TECH_RECORD_UPDATE;
+    if (newTechRecord.adrDetails || oldTechRecord.adrDetails) {
+      updateType = _.isEqual(newTechRecord.adrDetails, oldTechRecord.adrDetails) ? UPDATE_TYPE.TECH_RECORD_UPDATE : UPDATE_TYPE.ADR;
+    }
+    oldTechRecord.updateType = updateType;
   }
 
   public uploadFile(file: string, vin: string): Promise<ManagedUpload.SendData> {
