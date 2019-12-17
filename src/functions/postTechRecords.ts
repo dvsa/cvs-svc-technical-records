@@ -5,6 +5,7 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import S3BucketService from "../services/S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
 import ITechRecord from "../../@Types/ITechRecord";
+import {validatePrimaryVrm, validateSecondaryVrms} from "../utils/PayloadValidation";
 
 const postTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -18,7 +19,7 @@ const postTechRecords = (event: any) => {
   const secondaryVrms = event.body ? event.body.secondaryVrms : null;
 
   if (!vin) {
-    return Promise.resolve(new HTTPResponse(400, "Invalid body field 'vin'"));
+    return Promise.resolve(new HTTPResponse(400, "Invalid path parameter 'vin'"));
   }
 
   if (!techRec || !techRec.length) {
