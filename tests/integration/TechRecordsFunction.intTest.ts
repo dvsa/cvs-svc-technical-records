@@ -8,6 +8,11 @@ import records from "../resources/technical-records.json";
 import {cloneDeep} from "lodash";
 import {HTTPRESPONSE} from "../../src/assets/Enums";
 
+const msUserDetails = {
+  msUser: "dorel",
+  msOid: "1234545"
+};
+
 describe("getTechRecords", () => {
   beforeAll(async () => {
     jest.restoreAllMocks();
@@ -111,12 +116,18 @@ describe("postTechRecords", () => {
   context("when trying to create a new vehicle", () => {
     context("and the vehicle was found", () => {
       it("should return error 400", async () => {
-        const techRecord = cloneDeep(records[0]);
+        const techRecord: any = cloneDeep(records[43]);
+        delete techRecord.techRecord[0].statusCode;
+        const payload = {
+          vin: techRecord.vin,
+          msUserDetails,
+          techRecord: techRecord.techRecord
+        };
 
         await LambdaTester(PostTechRecordsFunction)
           .event({
             path: "/vehicles",
-            body: techRecord
+            body: payload
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(400);
@@ -127,17 +138,20 @@ describe("postTechRecords", () => {
 
     context("and the vehicle was not found", () => {
       it("should return 201 created", async () => {
-        const techRecord = cloneDeep(records[0]);
-
+        const techRecord: any = cloneDeep(records[43]);
+        delete techRecord.techRecord[0].statusCode;
         techRecord.vin = Date.now().toString();
-        techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
-        techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-        techRecord.trailerId = Math.floor(100000 + Math.random() * 900000).toString();
+
+        const payload = {
+          vin: techRecord.vin,
+          msUserDetails,
+          techRecord: techRecord.techRecord
+        };
 
         await LambdaTester(PostTechRecordsFunction)
           .event({
             path: "/vehicles",
-            body: techRecord
+            body: payload
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(201);
@@ -148,15 +162,19 @@ describe("postTechRecords", () => {
 
     context("and the techRecord array is empty", () => {
       it("should return 400 invalid TechRecord", async () => {
-        const techRecord = cloneDeep(records[0]);
-
+        const techRecord: any = cloneDeep(records[43]);
+        delete techRecord.techRecord[0].statusCode;
         techRecord.vin = Date.now().toString();
-        techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
-        techRecord.techRecord = [];
+
+        const payload = {
+          vin: techRecord.vin,
+          msUserDetails,
+          techRecord: []
+        };
         await LambdaTester(PostTechRecordsFunction)
           .event({
             path: "/vehicles",
-            body: techRecord
+            body: payload
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(400);
@@ -179,7 +197,7 @@ describe("postTechRecords", () => {
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(400);
-            expect(result.body).toEqual('"Body is not a valid TechRecord"');
+            expect(result.body).toEqual('"Invalid path parameter \'vin\'"');
           });
       });
     });
@@ -201,22 +219,15 @@ describe("updateTechRecords", () => {
     await populateDatabase();
   });
 
-  const msUserDetails = {
-    msUser: "dorel",
-    msOid: "1234545"
-  };
-
   context("when trying to update a vehicle", () => {
     context("and the path parameter VIN is valid", () => {
       context("and the vehicle was found", () => {
         it("should return 200 and the updated vehicle", async () => {
-          const techRecord: any = cloneDeep(records[29]);
+          const techRecord: any = cloneDeep(records[43]);
+          delete techRecord.techRecord[0].statusCode;
           const payload = {
             msUserDetails,
-            techRecord: [{
-              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
-              adrDetails: techRecord.techRecord[0].adrDetails
-            }]
+            techRecord: techRecord.techRecord
           };
           const vin = techRecord.vin;
           delete techRecord.vin;
@@ -239,16 +250,13 @@ describe("updateTechRecords", () => {
 
       context("and the vehicle was not found", () => {
         it("should return 404 Not found", async () => {
-          const techRecord: any = cloneDeep(records[29]);
+          const techRecord: any = cloneDeep(records[43]);
+          delete techRecord.techRecord[0].statusCode;
           const payload = {
             msUserDetails,
-            techRecord: [{
-              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
-              adrDetails: techRecord.techRecord[0].adrDetails
-            }]
+            techRecord: techRecord.techRecord
           };
           const vin = Date.now().toString();
-          techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
               path: `/vehicles/${vin}`,
@@ -258,6 +266,7 @@ describe("updateTechRecords", () => {
               body: payload
             })
             .expectResolve((result: any) => {
+              console.log("RESPONSE", result);
               expect(result.statusCode).toEqual(404);
               expect(JSON.parse(result.body)).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
             });

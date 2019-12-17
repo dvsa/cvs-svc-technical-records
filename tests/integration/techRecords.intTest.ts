@@ -385,7 +385,7 @@ describe("techRecords", () => {
               expect(res.status).toEqual(200);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body.techRecord[1].statusCode).toEqual("provisional");
+              expect(res.body.techRecord[1].statusCode).toEqual("current");
               expect(res.body.techRecord[0].statusCode).toEqual("archived");
             });
           });
