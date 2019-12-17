@@ -195,7 +195,6 @@ const populateAxleSpacing = (parent: any, helpers: any) => {
 };
 
 export const hgvValidation = Joi.object().keys({
-  statusCode: Joi.string().valid(...statusCode).required(),
   vehicleType: Joi.string().valid(...vehicleType).required(),
   regnDate: Joi.date().format("YYYY-MM-DD").required(),
   manufactureYear: Joi.number().max(9999).required(),
