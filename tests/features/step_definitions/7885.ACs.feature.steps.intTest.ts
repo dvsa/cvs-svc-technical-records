@@ -73,26 +73,34 @@ defineFeature(feature, test => {
 });
 
 const createPOSTPayload = () => {
-  const newTechRec = cloneDeep(mockData[0]);
-  newTechRec.vin = Date.now().toString();
-  newTechRec.partialVin = newTechRec.vin.substr(newTechRec.vin.length - 6);
-  newTechRec.techRecord[0].bodyType.description = "New Tech Record";
-  newTechRec.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-  newTechRec.trailerId = Math.floor(100000 + Math.random() * 900000).toString();
-  return newTechRec;
-};
-
-const createPUTPayload = () => {
-  const techRec: any = cloneDeep(mockData[29]);
+  const newTechRec = cloneDeep(mockData[43]);
+  const vin = Date.now().toString();
+  const partialVin = newTechRec.vin.substr(newTechRec.vin.length - 6);
+  newTechRec.techRecord[0].bodyType.description = "skeletal";
+  const primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
+  delete newTechRec.techRecord[0].statusCode;
   const payload = {
     msUserDetails: {
       msUser: "dorel",
       msOid: "1234545"
     },
-    techRecord: [{
-      reasonForCreation: techRec.techRecord[0].reasonForCreation,
-      adrDetails: techRec.techRecord[0].adrDetails
-    }]
+    vin,
+    partialVin,
+    primaryVrm,
+    techRecord: newTechRec.techRecord
+  };
+  return payload;
+};
+
+const createPUTPayload = () => {
+  const techRec: any = cloneDeep(mockData[43]);
+  delete techRec.techRecord[0].statusCode;
+  const payload = {
+    msUserDetails: {
+      msUser: "dorel",
+      msOid: "1234545"
+    },
+    techRecord: techRec.techRecord
   };
   return payload;
 };

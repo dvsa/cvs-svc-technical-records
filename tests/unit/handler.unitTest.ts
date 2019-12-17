@@ -7,6 +7,7 @@ import TechRecordsService from "../../src/services/TechRecordsService";
 import * as postTechRecords from "../../src/functions/postTechRecords";
 import * as updateTechRecords from "../../src/functions/updateTechRecords";
 import mockData from "../resources/technical-records.json";
+import {cloneDeep} from "lodash";
 
 jest.mock("../../src/services/TechRecordsService");
 const opts = Object.assign({
@@ -100,12 +101,20 @@ describe("The lambda function handler", () => {
       it("should call /vehicles function with correct event payload", async () => {
         let ctx: any = mockContext(opts);
         // Specify your event, with correct path, payload etc
+        const payload = {
+          msUserDetails: {
+            msUser: "user",
+            msOid: "12345"
+          },
+          vin: "12345678910",
+          techRecord: cloneDeep(mockData[26]).techRecord
+        };
         const vehicleRecordEvent = {
           path: "/vehicles",
           pathParameters: null,
           resource: "/vehicles/{searchIdentifier}/tech-records",
           httpMethod: "POST",
-          body: JSON.stringify(mockData[0]),
+          body: JSON.stringify(payload),
           queryStringParameters: null
         };
 
@@ -128,7 +137,7 @@ describe("The lambda function handler", () => {
             msUser: "dorel",
             msOid: "12314234"
           },
-          techRecord: mockData[31].techRecord
+          techRecord: mockData[26].techRecord
         };
         const vehicleRecordEvent = {
           path: "/vehicles/XMGDE02FS0H999987",

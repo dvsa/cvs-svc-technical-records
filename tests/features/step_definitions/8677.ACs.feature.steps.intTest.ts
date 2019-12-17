@@ -6,6 +6,8 @@ import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {UPDATE_TYPE} from "../../../src/assets/Enums";
 import {validatePayload} from "../../../src/utils/PayloadValidation";
+import {cloneDeep} from "lodash";
+import {adrValidation} from "../../../src/utils/AdrValidation";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -47,7 +49,7 @@ defineFeature(feature, test => {
     });
     then('I am able to create a new identical tech record with the adrDetails{} object on it', () => {
       expect(response.status).toEqual(200);
-      expect(response.body.techRecord[1].statusCode).toEqual("current");
+      expect(response.body.techRecord[1].statusCode).toEqual("provisional");
       expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
     });
     and('the existing tech record (without the adrDetails{} object on it) is archived', () => {
@@ -69,7 +71,7 @@ defineFeature(feature, test => {
     let response: any;
 
     given('I am a consumer of the vehicles API', () => {
-      requestUrl = 'vehicles/ABCDEFGH777777';
+      requestUrl = 'vehicles/ABCDEFGH654321';
     });
     when('I call the vehicles API via the PUT method', async () => {
       const putPayload = createPUTPayload();
@@ -103,8 +105,8 @@ defineFeature(feature, test => {
     let requestUrlGET: string;
 
     given('I am a consumer of the vehicles API', () => {
-      requestUrl = 'vehicles/ABCDEFGH777777';
-      requestUrlGET = 'vehicles/ABCDEFGH777777/tech-records?status=all';
+      requestUrl = 'vehicles/ABCDEFGH654321';
+      requestUrlGET = 'vehicles/ABCDEFGH654321/tech-records?status=all';
     });
     when('I call the vehicles API via the GET method', async () => {
       const putPayload = createPUTPayload();
@@ -121,11 +123,11 @@ defineFeature(feature, test => {
       expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
     });
     and('the adrDetails{} object contains all the attributes from both CVSB-8464 + CVSB-8714', () => {
-      const toValidate: any = {
-        reasonForCreation: response.body.techRecord[1].reasonForCreation,
-        adrDetails: response.body.techRecord[1].adrDetails
-      };
-      const isAdrValid = validatePayload(toValidate);
+      delete response.body.techRecord[1].createdByName;
+      delete response.body.techRecord[1].createdAt;
+      delete response.body.techRecord[1].createdById;
+      delete response.body.techRecord[1].statusCode;
+      const isAdrValid = validatePayload(response.body.techRecord[1]);
       expect(isAdrValid).not.toHaveProperty("error");
     });
     ctx.succeed('done');
@@ -152,7 +154,7 @@ defineFeature(feature, test => {
         createdById: Microsoft AD OID, of the person who performed this action
        */
       expect(response.status).toEqual(200);
-      expect(response.body.techRecord[1].statusCode).toEqual("current");
+      expect(response.body.techRecord[1].statusCode).toEqual("provisional");
       expect(response.body.techRecord[1].createdAt).toBeDefined();
       expect(response.body.techRecord[1].createdByName).toBeDefined();
       expect(response.body.techRecord[1].createdById).toBeDefined();
@@ -181,7 +183,7 @@ defineFeature(feature, test => {
     let response: any;
 
     given('I am a consumer of the vehicles API', () => {
-      requestUrl = 'vehicles/ABCDEFGH777777';
+      requestUrl = 'vehicles/ABCDEFGH654321';
     });
     when('I update adrDetails{} as per AC2 above', async () => {
       const putPayload = createPUTPayload();
@@ -218,16 +220,15 @@ defineFeature(feature, test => {
 });
 
 const createPUTPayload = () => {
-  const adrDetails: any = mockData[29].techRecord[0].adrDetails;
+  const techRec: any = cloneDeep(mockData[43]);
+  techRec.techRecord[0].reasonForCreation = "adr update";
+  delete techRec.techRecord[0].statusCode;
   const payload = {
     msUserDetails: {
       msUser: "dorel",
       msOid: "1234545"
     },
-    techRecord: [{
-      reasonForCreation: "adr update",
-      adrDetails: adrDetails
-    }]
+    techRecord: techRec.techRecord
   };
   return payload;
 };
