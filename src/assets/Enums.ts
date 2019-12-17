@@ -11,7 +11,8 @@ export enum HTTPRESPONSE {
     INTERNAL_SERVER_ERROR = "Internal Server Error",
     MORE_THAN_ONE_MATCH = "The provided partial VIN returned more than one match.",
     S3_ERROR = "Upload on S3 failed",
-    S3_DOWNLOAD_ERROR = "Cannot download document from S3"
+    S3_DOWNLOAD_ERROR = "Cannot download document from S3",
+    NO_STATUS_UPDATE_REQUIRED = "No status update required"
 }
 
 export enum STATUS {

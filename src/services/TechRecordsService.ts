@@ -298,17 +298,32 @@ class TechRecordsService {
       });
   }
 
-    public async updateTechRecordStatus(vin: string, newStatus = STATUS.CURRENT) {
-      const techRecordWrapper: ITechRecordWrapper = await this.getTechRecordsList(vin, STATUS.ALL);
-      const provisionalTechRecords = techRecordWrapper.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.PROVISIONAL);
-      if (provisionalTechRecords.length === 1) {
-        provisionalTechRecords[0].statusCode = STATUS.ARCHIVED;
-        techRecordWrapper.techRecord.push({...techRecordWrapper.techRecord[0], statusCode: newStatus}); // TODO fix bug here
-        return await this.techRecordsDAO.updateSingle(techRecordWrapper);
-      } else {
-        throw new HTTPError(400, "The tech record status cannot be updated to " + newStatus);
-      }
+  public async updateTechRecordStatusCode(vin: string, newStatus: STATUS = STATUS.CURRENT) {
+    const techRecordWrapper: ITechRecordWrapper = await this.getTechRecordsList(vin, STATUS.ALL);
+    const provisionalTechRecords = techRecordWrapper.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.PROVISIONAL);
+    if (provisionalTechRecords.length === 1) {
+      provisionalTechRecords[0].statusCode = STATUS.ARCHIVED;
+      techRecordWrapper.techRecord.push({...techRecordWrapper.techRecord[0], statusCode: newStatus});
+      return await this.techRecordsDAO.updateSingle(techRecordWrapper);
+    } else {
+      throw new HTTPError(400, "The tech record status cannot be updated to " + newStatus);
     }
+  }
+
+  public static isStatusUpdateRequired(testStatus: string, testResult: string, testTypeId: string): boolean {
+    return testStatus === "submitted" && testResult === "pass" &&
+        (this.isTestTypeFirstTest(testTypeId) || this.isTestTypeNotifiableAlteration(testTypeId));
+  }
+
+  private static isTestTypeFirstTest(testTypeId: string): boolean {
+    const firstTestIds = ["41", "95", "65", "66", "67", "103", "104", "82", "83", "119", "120"];
+    return firstTestIds.includes(testTypeId);
+  }
+
+  private static isTestTypeNotifiableAlteration(testTypeId: string): boolean {
+    const notifiableAlterationIds = ["47", "48"];
+    return notifiableAlterationIds.includes(testTypeId);
+  }
 }
 
 export default TechRecordsService;

@@ -17,8 +17,8 @@ functions:
     path: /vehicles/:vin/download-file/:filename
     function: downloadDocument
 - updateTechRecordStatus:
-    method: POST
-    path: /vehicles/:vin
+    method: PUT
+    path: /vehicles/update-status/:vin
     function: updateTechRecordStatus
 s3:
   local:
