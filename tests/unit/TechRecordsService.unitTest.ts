@@ -289,8 +289,12 @@ describe("insertTechRecord", () => {
       techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
       techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
       techRecord.techRecord[0].bodyType.description = "new tech record";
+      const msUserDetails = {
+        msUser: "dorel",
+        msOid: "1234545"
+      };
 
-      const data: any = await techRecordsService.insertTechRecord(techRecord);
+      const data: any = await techRecordsService.insertTechRecord(techRecord, msUserDetails);
       expect(data).not.toEqual(undefined);
       expect(Object.keys(data).length).toEqual(0);
     });
@@ -315,7 +319,7 @@ describe("insertTechRecord", () => {
       techRecord.primaryVrm = "JY58FPP";
 
       try {
-        expect(await techRecordsService.insertTechRecord(techRecord)).toThrowError();
+        expect(await techRecordsService.insertTechRecord(techRecord, {})).toThrowError();
       } catch (errorResponse) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(400);

@@ -4,29 +4,48 @@ import HTTPResponse from "../models/HTTPResponse";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import S3BucketService from "../services/S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
+import ITechRecord from "../../@Types/ITechRecord";
+import {validatePrimaryVrm, validateSecondaryVrms} from "../utils/PayloadValidation";
 
 const postTechRecords = (event: any) => {
-    const techRecordsDAO = new TechRecordsDAO();
-    const s3BucketService = new S3BucketService(new S3());
-    const techRecordsService = new TechRecordsService(techRecordsDAO, s3BucketService);
+  const techRecordsDAO = new TechRecordsDAO();
+  const s3BucketService = new S3BucketService(new S3());
+  const techRecordsService = new TechRecordsService(techRecordsDAO, s3BucketService);
 
-    const payload: ITechRecordWrapper = event.body;
+  const techRec: ITechRecord[] = event.body ? event.body.techRecord : null;
+  const msUserDetails = event.body ? event.body.msUserDetails : null;
+  const vin = event.body ? event.body.vin : null;
+  const primaryVrm = event.body ? event.body.primaryVrm : null;
+  const secondaryVrms = event.body ? event.body.secondaryVrms : null;
 
-    if (!payload || !(payload.techRecord && payload.techRecord.length)) {
-        return Promise.resolve(new HTTPResponse(400, "Body is not a valid TechRecord"));
-    }
+  if (!vin) {
+    return Promise.resolve(new HTTPResponse(400, "Invalid path parameter 'vin'"));
+  }
 
-    // TODO: validate payload for every type of vehicle(psv, hgv, trl) - will be done in a future ticket
+  if (!techRec || !techRec.length) {
+    return Promise.resolve(new HTTPResponse(400, "Body is not a valid TechRecord"));
+  }
 
-    payload.partialVin = payload.vin.substr(payload.vin.length - 6);
-    return techRecordsService.insertTechRecord(payload)
-        .then((data: any) => {
-            return new HTTPResponse(201, "Technical Record created");
-        })
-        .catch((error: any) => {
-            console.log(error);
-            return new HTTPResponse(error.statusCode, error.body);
-        });
+  if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
+    return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
+  }
+
+  const techRecord: ITechRecordWrapper = {
+    vin,
+    partialVin: vin.substr(vin.length - 6),
+    techRecord: techRec,
+    primaryVrm,
+    secondaryVrms
+  };
+
+  return techRecordsService.insertTechRecord(techRecord, msUserDetails)
+    .then((data: any) => {
+      return new HTTPResponse(201, "Technical Record created");
+    })
+    .catch((error: any) => {
+      console.log(error);
+      return new HTTPResponse(error.statusCode, error.body);
+    });
 };
 
 export {postTechRecords};
