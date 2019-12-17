@@ -30,18 +30,22 @@ describe("TechRecords", () => {
 
   it("should detect exported path /vehicles", async () => {
     // @ts-ignore
-    const techRecord: ITechRecordWrapper = cloneDeep(mockData[0]);
-    techRecord.vin = Date.now().toString();
+    const techRecord: ITechRecordWrapper = cloneDeep(mockData[43]);
+    const vin = Date.now().toString();
     techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
     techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-    techRecord.trailerId = Math.floor(100000 + Math.random() * 900000).toString();
-
+    delete techRecord.techRecord[0].statusCode;
+    const payload = {
+      msUserDetails,
+      vin,
+      techRecord: techRecord.techRecord
+    };
     const vehicleRecordEvent = {
       path: "/vehicles",
       pathParameters: null,
       resource: "/vehicles/{searchIdentifier}/tech-records",
       httpMethod: "POST",
-      body: JSON.stringify(techRecord),
+      body: JSON.stringify(payload),
       queryStringParameters: null
     };
 
@@ -59,19 +63,17 @@ describe("TechRecords", () => {
 
   it("should detect exported path /vehicles/{vin}", async () => {
     // @ts-ignore
-    const techRecord: ITechRecordWrapper = cloneDeep(mockData[29]);
+    const techRecord: ITechRecordWrapper = cloneDeep(mockData[43]);
     delete techRecord.vin;
+    delete techRecord.techRecord[0].statusCode;
     const payload = {
       msUserDetails,
-      techRecord: [{
-        reasonForCreation: techRecord.techRecord[0].reasonForCreation,
-        adrDetails: techRecord.techRecord[0].adrDetails
-      }]
+      techRecord: techRecord.techRecord
     };
     const vehicleRecordEvent = {
-      path: "/vehicles/ABCDEFGH777777",
+      path: "/vehicles/ABCDEFGH654321",
       pathParameters: {
-        vin: "ABCDEFGH777777"
+        vin: "ABCDEFGH654321"
       },
       resource: "/vehicles/{vin}",
       httpMethod: "PUT",

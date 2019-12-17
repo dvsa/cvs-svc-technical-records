@@ -204,20 +204,16 @@ export const hgvValidation = Joi.object().keys({
     parkingBrakeMrk: Joi.boolean().optional(),
     axleNumber: Joi.number().max(99999).required(),
     weights: Joi.object().keys({
-      axleWeightProperties: Joi.object().keys({
-        gbWeight: Joi.number().max(99999).required(),
-        eecWeight: Joi.number().max(99999).optional(),
-        designWeight: Joi.number().max(99999).required()
-      }).required()
+      gbWeight: Joi.number().max(99999).required(),
+      eecWeight: Joi.number().max(99999).optional(),
+      designWeight: Joi.number().max(99999).required()
     }).required(),
     tyres: Joi.object().keys({
-      axleTyreProperties: Joi.object().keys({
-        tyreCode: Joi.number().max(9999).required(),
-        tyreSize: Joi.string().max(12).required(),
-        plyRating: Joi.string().max(2).required(),
-        fitmentCode: Joi.string().valid(...fitmentCode).required(),
-        dataTrAxles: Joi.number().max(999).optional()
-      }).required()
+      tyreCode: Joi.number().max(9999).required(),
+      tyreSize: Joi.string().max(12).required(),
+      plyRating: Joi.string().max(2).required(),
+      fitmentCode: Joi.string().valid(...fitmentCode).required(),
+      dataTrAxles: Joi.number().max(999).optional()
     }).required(),
   })).required(),
   speedLimiterMrk: Joi.boolean().default(false),

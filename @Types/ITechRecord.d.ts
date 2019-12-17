@@ -140,20 +140,16 @@ interface Axle {
   weights: {
     kerbWeight: number;
     ladenWeight: number;
-    axleWeightProperties: {
-      gbWeight: number;
-      designWeight: number;
-      eecWeight: number;
-    }
+    gbWeight: number;
+    designWeight: number;
+    eecWeight: number;
   };
   tyres: {
-    axleTyrePropertie: {
-      tyreSize: string;
-      plyRating: string;
-      fitmentCode: string;
-      dataTrAxles: number;
-      tyreCode: number;
-    }
+    tyreSize: string;
+    plyRating: string;
+    fitmentCode: string;
+    dataTrAxles: number;
+    tyreCode: number;
     speedCategorySymbol: string;
   };
 }

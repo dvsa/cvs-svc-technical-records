@@ -4666,6 +4666,22 @@
         "roadFriendly": true,
         "drawbarCouplingFitted": true,
         "euroStandard": "7",
+        "dtpNumber": "string",
+        "fuelPropulsionSystem": "string",
+        "roadFriendly": true,
+        "drawbarCouplingFitted": true,
+        "offRoad": true,
+        "numberOfWheelsDriven": 2,
+        "euVehicleCategory": "string",
+        "emissionsLimit": 2,
+        "departmentalVehicleMarker": true,
+        "alterationMarker": true,
+        "approvalType": "abc",
+        "approvalTypeNumber": "abcd",
+        "variantNumber": "string",
+        "variantVersionNumber": "string",
+        "make": "string",
+        "model": "string",
         "dimensions": {
           "length": 7500,
           "width": 2200
@@ -8288,6 +8304,167 @@
     ],
     "trailerId": "C109902",
     "vin": "ABCDEFGH999999"
+  },
+  {
+    "vin": "ABCDEFGH654321",
+    "partialVin": "654321",
+    "primaryVrm": "LKJH654",
+    "secondaryVrms": [
+      "POI9876"
+    ],
+    "techRecord": [
+      {
+        "vehicleType": "hgv",
+        "statusCode": "current",
+        "regnDate": "2019-12-13",
+        "manufactureYear": 0,
+        "noOfAxles": 0,
+        "dtpNumber": "DTPNUM",
+        "speedLimiterMrk": true,
+        "tachoExemptMrk": true,
+        "drawbarCouplingFitted": true,
+        "euroStandard": "string",
+        "fuelPropulsionSystem": "DieselPetrol",
+        "offRoad": true,
+        "roadFriendly": true,
+        "vehicleClass": {
+          "code": "2",
+          "description": "motorbikes over 200cc or with a sidecar"
+        },
+        "vehicleConfiguration": "rigid",
+        "numberOfWheelsDriven": 0,
+        "euVehicleCategory": "m1",
+        "emissionsLimit": 0,
+        "approvalType": "NTA",
+        "approvalTypeNumber": "string",
+        "variantNumber": "22",
+        "variantVersionNumber": "3435",
+        "grossEecWeight": 0,
+        "trainEecWeight": 0,
+        "maxTrainEecWeight": 0,
+        "make": "string",
+        "model": "string",
+        "functionCode": "A",
+        "bodyType": {
+          "code": "a",
+          "description": "articulated"
+        },
+        "conversionRefNo": "string",
+        "grossGbWeight": 6,
+        "grossDesignWeight": 0,
+        "trainGbWeight": 0,
+        "trainDesignWeight": 0,
+        "maxTrainGbWeight": 0,
+        "maxTrainDesignWeight": 0,
+        "tyreUseCode": "2",
+        "axles": [
+          {
+            "axleNumber": 0,
+            "parkingBrakeMrk": true,
+            "weights": {
+              "gbWeight": 0,
+              "eecWeight": 0,
+              "designWeight": 0
+            },
+            "tyres": {
+              "tyreCode": 0,
+              "tyreSize": "string",
+              "plyRating": "a",
+              "fitmentCode": "double",
+              "dataTrAxles": 0
+            }
+          }
+        ],
+        "dimensions": {
+          "length": 0,
+          "width": 0,
+          "axleSpacing": [
+            {
+              "axles": "string",
+              "value": 0
+            }
+          ]
+        },
+        "frontAxleTo5thWheelMin": 0,
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelCouplingMin": 0,
+        "frontAxleTo5thWheelCouplingMax": 0,
+        "frontAxleToRearAxle": 0,
+        "ntaNumber": "string",
+        "notes": "string",
+        "applicantDetails": {
+          "name": "string",
+          "address1": "string",
+          "address2": "string",
+          "postTown": "string",
+          "address3": "string",
+          "postCode": "string",
+          "emailAddress": "string",
+          "telephoneNumber": "string"
+        },
+        "microfilm": {
+          "microfilmDocumentType": "PSV Miscellaneous",
+          "microfilmRollNumber": "12367",
+          "microfilmSerialNumber": "1234"
+        },
+        "plates": [
+          {
+            "plateSerialNumber": "string",
+            "plateIssueDate": "2019-12-13",
+            "plateReasonForIssue": "Free replacement",
+            "plateIssuer": "string"
+          }
+        ],
+        "reasonForCreation": "string",
+        "adrDetails": {
+          "vehicleDetails": {
+            "type": "Centre axle battery",
+            "approvalDate": "2019-10-10"
+          },
+          "permittedDangerousGoods": [
+            "FP <61 (FL)"
+          ],
+          "additionalExaminerNotes": "string",
+          "applicantDetails": {
+            "name": "string",
+            "street": "string",
+            "town": "string",
+            "city": "string",
+            "postcode": "string"
+          },
+          "memosApply": [
+            "07/09 3mth leak ext"
+          ],
+          "additionalNotes": {
+            "number": [
+              "1",
+              "2"
+            ],
+            "guidanceNotes": [
+              "New certificate requested"
+            ]
+          },
+          "tank": {
+            "tankDetails": {
+              "tankManufacturer": "string",
+              "yearOfManufacture": 0,
+              "tankCode": "string",
+              "tc2Details": {
+                "tc2Type": "initial"
+              },
+              "specialProvisions": "string",
+              "tankManufacturerSerialNo": "string",
+              "tankTypeAppNo": "string"
+            },
+            "tankStatement": {
+              "substancesPermitted": "Substances permitted under the tank code and any special provisions specified in 9 may be carried",
+              "statement": "string",
+              "productList": "string"
+            }
+          }
+        }
+      }
+    ]
   },
   {
     "partialVin": "222203",

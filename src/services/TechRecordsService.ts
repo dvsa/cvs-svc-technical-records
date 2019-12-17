@@ -134,11 +134,9 @@ class TechRecordsService {
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 500, body: isPayloadValid.error.details});
     }
-    console.log(techRecord.primaryVrm, techRecord.secondaryVrms);
     if (!this.validateVrms(techRecord)) {
       return Promise.reject({statusCode: 500, body: "Primary or secondaryVrms are not valid"});
     }
-    console.log(techRecord.primaryVrm, techRecord.secondaryVrms);
     this.setDetailsPOST(techRecord.techRecord[0], msUserDetails);
     return this.techRecordsDAO.createSingle(techRecord)
       .then((data: any) => {

@@ -9,6 +9,11 @@ import {HTTPRESPONSE} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
 
+const msUserDetails = {
+  msUser: "dorel",
+  msOid: "1234545"
+};
+
 describe("techRecords", () => {
   describe("getTechRecords", () => {
     beforeAll(async () => {
@@ -288,13 +293,18 @@ describe("techRecords", () => {
         context("and the payload is valid", () => {
           context("and that vehicle does not exist", () => {
             it("should return status 201 Technical Record created", async () => {
-              const newTechRec = cloneDeep(mockData[0]);
-              newTechRec.vin = Date.now().toString();
-              newTechRec.partialVin = newTechRec.vin.substr(newTechRec.vin.length - 6);
-              newTechRec.techRecord[0].bodyType.description = "New Tech Record";
-              newTechRec.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-              newTechRec.trailerId = Math.floor(100000 + Math.random() * 900000).toString();
-              const res = await request.post("vehicles").send(newTechRec);
+              const techRec: any = cloneDeep(mockData[43]);
+              const vin = Date.now().toString();
+              techRec.techRecord[0].bodyType.description = "skeletal";
+              const primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
+              delete techRec.techRecord[0].statusCode;
+              const payload = {
+                msUserDetails,
+                vin,
+                primaryVrm,
+                techRecord: techRec.techRecord
+              };
+              const res = await request.post("vehicles").send(payload);
               expect(res.status).toEqual(201);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
@@ -304,8 +314,14 @@ describe("techRecords", () => {
 
           context("and that vehicle does exist", () => {
             it("should return status 400 The conditional request failed", async () => {
-              const newTechRec = cloneDeep(mockData[0]);
-              const res = await request.post("vehicles").send(newTechRec);
+              const techRec: any = cloneDeep(mockData[43]);
+              delete techRec.techRecord[0].statusCode;
+              const payload = {
+                msUserDetails,
+                vin: techRec.vin,
+                techRecord: techRec.techRecord
+              };
+              const res = await request.post("vehicles").send(payload);
               expect(res.status).toEqual(400);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
@@ -317,9 +333,14 @@ describe("techRecords", () => {
         context("and the payload is invalid", () => {
           context("and the techRecord array is empty", () => {
             it("should return status 400 The conditional request failed", async () => {
-              const newTechRec = cloneDeep(mockData[0]);
-              newTechRec.techRecord = [];
-              const res = await request.post("vehicles").send(newTechRec);
+              const techRec: any = cloneDeep(mockData[43]);
+              delete techRec.techRecord[0].statusCode;
+              const payload = {
+                msUserDetails,
+                vin: techRec.vin,
+                techRecord: []
+              };
+              const res = await request.post("vehicles").send(payload);
               expect(res.status).toEqual(400);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
@@ -349,47 +370,37 @@ describe("techRecords", () => {
         await emptyDatabase();
       });
 
-      const msUserDetails = {
-        msUser: "dorel",
-        msOid: "1234545"
-      };
-
       context("and when trying to update a vehicle", () => {
         context("and the path parameter VIN is valid", () => {
           context("and that vehicle does exist", () => {
             it("should return status 200 and the updated vehicle", async () => {
               // @ts-ignore
-              const techRec: ITechRecordWrapper = cloneDeep(mockData[30]);
+              const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
+              delete techRec.techRecord[0].statusCode;
               const payload = {
                 msUserDetails,
-                techRecord: [{
-                  reasonForCreation: techRec.techRecord[0].reasonForCreation,
-                  adrDetails: techRec.techRecord[0].adrDetails
-                }]
+                techRecord: techRec.techRecord
               };
               const res = await request.put(`vehicles/${techRec.vin}`).send(payload);
               expect(res.status).toEqual(200);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body.techRecord[techRec.techRecord.length].statusCode).toEqual("current");
-              expect(res.body.techRecord[techRec.techRecord.length - 2].statusCode).toEqual("archived");
+              expect(res.body.techRecord[1].statusCode).toEqual("current");
+              expect(res.body.techRecord[0].statusCode).toEqual("archived");
             });
           });
 
           context("and that vehicle does not exist", () => {
             it("should return error status 404 No resources match the search criteria", async () => {
               // @ts-ignore
-              const techRec: ITechRecordWrapper = cloneDeep(mockData[30]);
-              techRec.vin = Date.now().toString();
-              techRec.partialVin = techRec.vin.substr(techRec.vin.length - 6);
+              const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
+              delete techRec.techRecord[0].statusCode;
+              const vin = Date.now().toString();
               const payload = {
                 msUserDetails,
-                techRecord: [{
-                  reasonForCreation: techRec.techRecord[0].reasonForCreation,
-                  adrDetails: techRec.techRecord[0].adrDetails
-                }]
+                techRecord: techRec.techRecord
               };
-              const res = await request.put(`vehicles/${techRec.vin}`).send(payload);
+              const res = await request.put(`vehicles/${vin}`).send(payload);
               expect(res.status).toEqual(404);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
