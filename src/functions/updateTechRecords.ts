@@ -28,8 +28,6 @@ const updateTechRecords = (event: any) => {
     return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
   }
 
-  // TODO: validate payload for every type of vehicle(psv, hgv, trl) - will be done in a future ticket
-
   const techRecord: ITechRecordWrapper = {
     vin,
     partialVin: vin.substr(vin.length - 6),

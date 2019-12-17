@@ -32,7 +32,8 @@ export enum SEARCHCRITERIA {
 }
 
 export enum UPDATE_TYPE {
-    ADR = "adrUpdate"
+    ADR = "adrUpdate",
+    TECH_RECORD_UPDATE = "techRecordUpdate"
 }
 
 export enum VEHICLE_TYPE {
