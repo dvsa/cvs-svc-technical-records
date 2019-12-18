@@ -160,6 +160,28 @@ describe("postTechRecords", () => {
       });
     });
 
+    context("and the msUserDetails is not provided", () => {
+      it("should return 400 Microsoft user details not provided", async () => {
+        const techRecord: any = cloneDeep(records[43]);
+        delete techRecord.techRecord[0].statusCode;
+        techRecord.vin = Date.now().toString();
+
+        const payload = {
+          vin: techRecord.vin,
+          techRecord: techRecord.techRecord
+        };
+        await LambdaTester(PostTechRecordsFunction)
+          .event({
+            path: "/vehicles",
+            body: payload
+          })
+          .expectResolve((result: any) => {
+            expect(result.statusCode).toEqual(400);
+            expect(result.body).toEqual('"Microsoft user details not provided"');
+          });
+      });
+    });
+
     context("and the techRecord array is empty", () => {
       it("should return 400 invalid TechRecord", async () => {
         const techRecord: any = cloneDeep(records[43]);
@@ -242,8 +264,8 @@ describe("updateTechRecords", () => {
             .expectResolve((result: any) => {
               const updatedTechRes = JSON.parse(result.body);
               expect(result.statusCode).toEqual(200);
-              expect(updatedTechRes.techRecord[techRecord.techRecord.length].statusCode).toEqual("current");
-              // expect(updatedTechRes.techRecord[techRecord.techRecord.length - 1].statusCode).toEqual("archived");
+              expect(updatedTechRes.techRecord[techRecord.techRecord.length].statusCode).toEqual("provisional");
+              expect(updatedTechRes.techRecord[techRecord.techRecord.length - 1].statusCode).toEqual("archived");
             });
         });
       });
@@ -356,9 +378,6 @@ describe("updateTechRecords", () => {
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
               path: `/vehicles/${vin}`,
-              pathParameters: {
-                vin: null
-              },
               body: techRecord
             })
             .expectResolve((result: any) => {
@@ -441,9 +460,6 @@ describe("downloadDocument", () => {
           await LambdaTester(DownloadDocumentFunction)
             .event({
               path: `/vehicles/${techRecord.vin}/download-file?filename=someFilename.pdf`,
-              pathParameters: {
-                vin: null
-              },
               queryStringParameters: {
                 filename: "someFilename.pdf"
               }
