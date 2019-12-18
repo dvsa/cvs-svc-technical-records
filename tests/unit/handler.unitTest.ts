@@ -150,6 +150,34 @@ describe("The lambda function handler", () => {
         expect(TechRecordsService.prototype.updateTechRecord).toHaveBeenCalled();
       });
 
+      it("should call the update-status function with correct event payload", async () => {
+        let ctx: any = mockContext(opts);
+
+        const vehicleRecordEvent = {
+          path: "/vehicles/update-status/XMGDE02FS0H999987",
+          pathParameters: {
+            vin: "XMGDE02FS0H999987"
+          },
+          resource: "/vehicles/update-status/{vin}",
+          httpMethod: "PUT",
+          queryStringParameters: {
+            testStatus: "submitted",
+            testResult: "pass",
+            testTypeId: "41",
+          },
+        };
+        TechRecordsService.isStatusUpdateRequired = jest.fn().mockReturnValue(true);
+        TechRecordsService.prototype.updateTechRecordStatusCode = jest.fn().mockImplementation(() => {
+          return Promise.resolve(new HTTPResponse(200, {}));
+        });
+        const result = await handler(vehicleRecordEvent, ctx);
+        ctx.succeed(result);
+        ctx = null;
+
+        expect(result.statusCode).toEqual(200);
+        expect(TechRecordsService.prototype.updateTechRecordStatusCode).toHaveBeenCalled();
+      });
+
       it("should return error on empty event", async () => {
         let ctx: any = mockContext(opts);
         const result = await handler(null, ctx);
