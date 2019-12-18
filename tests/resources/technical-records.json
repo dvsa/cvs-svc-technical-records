@@ -8620,5 +8620,235 @@
     ],
     "trailerId": "P123403",
     "vin": "PDY3222222203"
+  },
+  {
+    "partialVin": "22021979",
+    "primaryVrm": "B99XFX",
+    "secondaryVrms": [
+      "B999XFX"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "reasonForCreation": null,
+        "regnDate": null,
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": null
+        },
+        "vehicleConfiguration": null,
+        "vehicleType": "hgv"
+      }
+    ],
+    "vin": "VIN1"
+  },
+  {
+    "partialVin": "091180",
+    "primaryVrm": "LONGESTVRM",
+    "secondaryVrms": [
+      "SHORT"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "reasonForCreation": null,
+        "regnDate": null,
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": null
+        },
+        "vehicleConfiguration": null,
+        "vehicleType": "hgv"
+      }
+    ],
+    "vin": "P012301091180"
   }
 ]
