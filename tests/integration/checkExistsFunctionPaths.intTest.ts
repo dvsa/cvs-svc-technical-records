@@ -91,7 +91,7 @@ describe("TechRecords", () => {
     expect(response).toBeDefined();
     expect(response.statusCode).toEqual(200);
     expect(JSON.parse(response.body).techRecord[0].statusCode).toEqual("archived");
-    expect(JSON.parse(response.body).techRecord[1].statusCode).toEqual("current");
+    expect(JSON.parse(response.body).techRecord[1].statusCode).toEqual("provisional");
 
   });
 });

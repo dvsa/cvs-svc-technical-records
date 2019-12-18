@@ -177,21 +177,19 @@ const fitmentCode: string[] = [
 ];
 
 const populateVehicleClassCode = (parent: any, helpers: any) => {
-  if (parent.description === "motorbikes over 200cc or with a sidecar") {
-    return "2";
-  }
-  throw new Error("Not valid");
+  // if (parent.description === "motorbikes over 200cc or with a sidecar") {
+  //   return "2";
+  // }
+  // throw new Error("Not valid");
+  return "2";
 };
 
 const populateBodyTypeCode = (parent: any, helpers: any) => {
-  if (parent.description === "articulated") {
-    return "a";
-  }
-  throw new Error("Not valid");
-};
-
-const populateAxleSpacing = (parent: any, helpers: any) => {
-
+  // if (parent.description === "articulated") {
+  //   return "a";
+  // }
+  // throw new Error("Not valid");
+  return "a";
 };
 
 export const hgvValidation = Joi.object().keys({
@@ -300,5 +298,11 @@ export const hgvValidation = Joi.object().keys({
   })).optional(),
   notes: Joi.string().optional(),
   reasonForCreation: Joi.string().max(100).required(),
-  adrDetails: adrValidation
+  adrDetails: adrValidation,
+  createdAt: Joi.string().optional(),
+  createdByName: Joi.string().optional(),
+  createdById: Joi.string().optional(),
+  lastUpdatedAt: Joi.string().optional(),
+  lastUpdatedByName: Joi.string().optional(),
+  lastUpdatedById: Joi.string().optional()
 }).required();
