@@ -7,7 +7,6 @@ import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {UPDATE_TYPE} from "../../../src/assets/Enums";
 import {validatePayload} from "../../../src/utils/PayloadValidation";
 import {cloneDeep} from "lodash";
-import {adrValidation} from "../../../src/utils/AdrValidation";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -80,7 +79,7 @@ defineFeature(feature, test => {
     });
     then('I am able to create a new identical tech record with the updated adrDetails{} object on it', () => {
       expect(response.status).toEqual(200);
-      expect(response.body.techRecord[1].statusCode).toEqual("current");
+      expect(response.body.techRecord[1].statusCode).toEqual("provisional");
       expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
       expect(response.body.techRecord[1].adrDetails.additionalExaminerNotes).toEqual("new notes");
     });
@@ -196,7 +195,7 @@ defineFeature(feature, test => {
         createdById: Microsoft AD OID, of the person who performed this action
        */
       expect(response.status).toEqual(200);
-      expect(response.body.techRecord[1].statusCode).toEqual("current");
+      expect(response.body.techRecord[1].statusCode).toEqual("provisional");
       expect(response.body.techRecord[1].createdAt).toBeDefined();
       expect(response.body.techRecord[1].createdByName).toBeDefined();
       expect(response.body.techRecord[1].createdById).toBeDefined();
