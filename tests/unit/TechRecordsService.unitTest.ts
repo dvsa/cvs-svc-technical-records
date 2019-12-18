@@ -286,7 +286,6 @@ describe("insertTechRecord", () => {
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
       techRecord.vin = Date.now().toString();
-      techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
       techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
       techRecord.techRecord[0].bodyType.description = "skeletal";
       delete techRecord.techRecord[0].statusCode;
@@ -298,6 +297,66 @@ describe("insertTechRecord", () => {
       const data: any = await techRecordsService.insertTechRecord(techRecord, msUserDetails);
       expect(data).not.toEqual(undefined);
       expect(Object.keys(data).length).toEqual(0);
+    });
+
+    it("should return validation error 500", async () => {
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          createSingle: () => {
+            return Promise.resolve({});
+          }
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+
+      // @ts-ignore
+      const techRecord: ITechRecordWrapper = cloneDeep(records[29]);
+      techRecord.vin = Date.now().toString();
+      techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
+      techRecord.techRecord[0].bodyType.description = "whatever";
+      delete techRecord.techRecord[0].statusCode;
+      const msUserDetails = {
+        msUser: "dorel",
+        msOid: "1234545"
+      };
+
+      try {
+        expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
+      } catch (errorResponse) {
+        expect(errorResponse.statusCode).toEqual(500);
+      }
+    });
+
+    it("should return Primary or secondaryVrms are not valid error 500", async () => {
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          createSingle: () => {
+            return Promise.resolve({});
+          }
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+
+      // @ts-ignore
+      const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
+      techRecord.vin = Date.now().toString();
+      techRecord.primaryVrm = "invalidPrimaryVrm";
+      techRecord.secondaryVrms = ["invalidSecondaryVrm"];
+      techRecord.techRecord[0].bodyType.description = "skeletal";
+      delete techRecord.techRecord[0].statusCode;
+      const msUserDetails = {
+        msUser: "dorel",
+        msOid: "1234545"
+      };
+
+      try {
+        expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
+      } catch (errorResponse) {
+        expect(errorResponse.statusCode).toEqual(500);
+        expect(errorResponse.body).toEqual("Primary or secondaryVrms are not valid");
+      }
     });
   });
 
@@ -337,12 +396,12 @@ describe("updateTechRecord", () => {
   };
   context("when updating a technical record for an existing vehicle", () => {
     it("should return the updated document", async () => {
-      const techRecord: any = cloneDeep(records[43]);
+      const techRecord: any = cloneDeep(records[44]);
       techRecord.techRecord[0].bodyType.description = "skeletal";
       techRecord.techRecord[0].grossGbWeight = 5555;
       techRecord.techRecord[0].adrDetails.vehicleDetails.type = "Centre axle tank";
       delete techRecord.techRecord[0].statusCode;
-      const vrms = [{vrm: "LKJH654", isPrimary: true}, {vrm: "POI9876", isPrimary: false}];
+      const vrms = [{vrm: "BBBB333", isPrimary: true}, {vrm: "CCCC444", isPrimary: false}];
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           updateSingle: () => {
@@ -352,7 +411,7 @@ describe("updateTechRecord", () => {
           },
           getBySearchTerm: () => {
             return Promise.resolve({
-              Items: [cloneDeep(records[43])],
+              Items: [cloneDeep(records[44])],
               Count: 1,
               ScannedCount: 1
             });
@@ -367,7 +426,7 @@ describe("updateTechRecord", () => {
       expect(updatedTechRec).not.toHaveProperty("primaryVrm");
       expect(updatedTechRec).not.toHaveProperty("partialVin");
       expect(updatedTechRec).not.toHaveProperty("secondaryVrms");
-      expect(updatedTechRec.vin).toEqual("ABCDEFGH654321");
+      expect(updatedTechRec.vin).toEqual("ABCDEFGH444444");
       expect(updatedTechRec.vrms).toStrictEqual(vrms);
       expect(updatedTechRec.techRecord[0].bodyType.description).toEqual("skeletal");
       expect(updatedTechRec.techRecord[0].grossGbWeight).toEqual(5555);
@@ -488,6 +547,51 @@ describe("updateTechRecord", () => {
         const response: any = await techRecordsService.updateTechRecord(techRecord, msUserDetails, ["nsa7zXuM/5iYmrCM2kzmT"]);
         expect(response).toBeDefined();
         expect(response.vin).toEqual("ABCDEFGH654321");
+        expect(response.techRecord[response.techRecord.length - 1].adrDetails.documents.indexOf("1234")).not.toEqual(-1);
+      });
+
+      it("should get the latest archived record and return the documents array without the branch name", async () => {
+        // @ts-ignore
+        const techRecord: any = cloneDeep(records[44]);
+        const returnedTechRec: any = cloneDeep(records[44]);
+        techRecord.techRecord[1].adrDetails.documents = ["CVSB-XYZ/1234"];
+        returnedTechRec.techRecord[0].statusCode = "archived";
+        returnedTechRec.techRecord[1].statusCode = "archived";
+        delete techRecord.techRecord[0].statusCode;
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            updateSingle: () => {
+              return Promise.resolve({
+                Attributes: techRecord
+              });
+            },
+            getBySearchTerm: () => {
+              return Promise.resolve({
+                Items: [returnedTechRec],
+                Count: 1,
+                ScannedCount: 1
+              });
+            }
+          };
+        });
+        const S3Mock = jest.fn().mockImplementation(() => {
+          return {
+            upload: () => {
+              return Promise.resolve({
+                Location: `http://localhost:7000/local/someFilename`,
+                ETag: "621c9c14d75958d4c3ed8ad77c80cde1",
+                Bucket: "local",
+                Key: `${process.env.BRANCH}/someFilename`
+              });
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const s3Mock = new S3Mock();
+        const techRecordsService = new TechRecordsService(mockDAO, s3Mock);
+        const response: any = await techRecordsService.updateTechRecord(techRecord, msUserDetails, ["nsa7zXuM/5iYmrCM2kzmT"]);
+        expect(response).toBeDefined();
+        expect(response.vin).toEqual("ABCDEFGH444444");
         expect(response.techRecord[response.techRecord.length - 1].adrDetails.documents.indexOf("1234")).not.toEqual(-1);
       });
 
