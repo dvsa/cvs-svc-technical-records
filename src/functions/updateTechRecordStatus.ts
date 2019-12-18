@@ -1,16 +1,15 @@
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
-import {APIGatewayEvent} from "aws-lambda";
 import {STATUS, HTTPRESPONSE} from "../assets/Enums";
 import S3BucketService from "../services/S3BucketService";
 import { S3 } from "aws-sdk";
 
-export async function updateTechRecordStatus(event: APIGatewayEvent) {
+export async function updateTechRecordStatus(event: any) {
     const s3BucketService = new S3BucketService(new S3());
     const techRecordsService = new TechRecordsService(new TechRecordsDAO(), s3BucketService);
 
-    const vin = event.pathParameters!.vin;
+    const vin: string = event.pathParameters!.vin;
     const testStatus: string = event.queryStringParameters!.testStatus;
     const testResult: string = event.queryStringParameters!.testResult;
     const testTypeId: string = event.queryStringParameters!.testTypeId;
