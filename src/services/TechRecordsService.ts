@@ -304,7 +304,8 @@ class TechRecordsService {
     if (provisionalTechRecords.length === 1) {
       provisionalTechRecords[0].statusCode = STATUS.ARCHIVED;
       techRecordWrapper.techRecord.push({...techRecordWrapper.techRecord[0], statusCode: newStatus});
-      return await this.techRecordsDAO.updateSingle(techRecordWrapper);
+      const updatedTechRecord =  await this.techRecordsDAO.updateSingle(techRecordWrapper);
+      return this.formatTechRecordItemForResponse(updatedTechRecord.Attributes as ITechRecordWrapper);
     } else {
       throw new HTTPError(400, "The tech record status cannot be updated to " + newStatus);
     }
