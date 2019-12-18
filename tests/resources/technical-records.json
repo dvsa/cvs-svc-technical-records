@@ -5337,8 +5337,7 @@
             },
             "tankStatement": {
               "substancesPermitted": "Substances permitted under the tank code and any special provisions specified in 9 may be carried",
-              "statement": "string",
-              "productList": "string"
+              "statement": "string"
             }
           }
         }
@@ -5504,8 +5503,12 @@
             },
             "tankStatement": {
               "substancesPermitted": "Substances permitted under the tank code and any special provisions specified in 9 may be carried",
-              "statement": "string",
-              "productList": "string"
+              "productListRefNo": "123456",
+              "productList": "string",
+              "productListUnNo": [
+                "string1",
+                "string2"
+              ]
             }
           }
         }
