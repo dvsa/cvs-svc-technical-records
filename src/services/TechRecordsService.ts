@@ -194,7 +194,7 @@ class TechRecordsService {
           return this.manageUpdateLogic(techRecord, msUserDetails, documents);
         })
         .catch((error: any) => {
-          throw new HTTPError(500, HTTPRESPONSE.S3_ERROR);
+          throw new HTTPError(500, error);
         });
     } else {
       return this.manageUpdateLogic(techRecord, msUserDetails);
