@@ -63,7 +63,6 @@ describe("The lambda function handler", () => {
         });
 
         const result = await handler(vehicleRecordEvent, ctx);
-        console.log("RESULT", result);
         ctx.succeed(result);
         ctx = null;
         expect(result.statusCode).toEqual(200);
