@@ -622,7 +622,7 @@ describe("updateTechRecord", () => {
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(500);
-          expect(errorResponse.body).toEqual(HTTPRESPONSE.S3_ERROR);
+          expect(errorResponse.body.message).toEqual("The specified bucket does not exist.");
         }
       });
     });
