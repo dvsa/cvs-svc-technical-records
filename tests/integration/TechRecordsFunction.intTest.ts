@@ -288,7 +288,6 @@ describe("updateTechRecords", () => {
               body: payload
             })
             .expectResolve((result: any) => {
-              console.log("RESPONSE", result);
               expect(result.statusCode).toEqual(404);
               expect(JSON.parse(result.body)).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
             });

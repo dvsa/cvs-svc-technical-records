@@ -124,7 +124,6 @@ defineFeature(feature, test => {
       expect(response.body.techRecord[0].statusCode).toEqual("archived");
     });
     and('the appropriate audit attributes are set on the new updated tech record', () => {
-      console.log("RESPONSE", responseGET);
       expect(responseGET.body.techRecord[1]).toHaveProperty("createdAt");
       expect(responseGET.body.techRecord[1]).toHaveProperty("createdByName");
       expect(responseGET.body.techRecord[1]).toHaveProperty("createdById");
