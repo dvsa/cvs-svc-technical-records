@@ -94,43 +94,47 @@ defineFeature(feature, test => {
     ctx = null;
   });
 
-  // test('PUT request: HGV vehicle is updated, and the appropriate attributes are automatically set', ({given, when, then, and}) => {
-  //   let ctx: any = mockContext(opts);
-  //
-  //   let requestUrl: string;
-  //   let response: any;
-  //   let responseGET: any;
-  //   let requestUrlGET: string;
-  //
-  //   given('I am a consumer of the vehicles API', () => {
-  //     requestUrl = 'vehicles/ABCDEFGH654321';
-  //     requestUrlGET = 'vehicles/ABCDEFGH654321/tech-records?status=all';
-  //   });
-  //   when('I call the vehicles API via the GET method', async () => {
-  //     const putPayload = createPUTPayload();
-  //     putPayload.techRecord[0].adrDetails.additionalExaminerNotes = "new notes";
-  //     response = await request.put(requestUrl).send(putPayload);
-  //     responseGET = await request.get(requestUrl);
-  //   });
-  //   then('the JSON response contains the entire vehicle object', () => {
-  //     expect(response.status).toEqual(200);
-  //     expect(response.body.techRecord.length).toEqual(2);
-  //   });
-  //   and('this JSON response contains the adrDetails{} object', () => {
-  //     expect(response.body.techRecord[0]).toHaveProperty("adrDetails");
-  //     expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
-  //   });
-  //   and('the adrDetails{} object contains all the attributes from both CVSB-8464 + CVSB-8714', () => {
-  //     delete response.body.techRecord[1].createdByName;
-  //     delete response.body.techRecord[1].createdAt;
-  //     delete response.body.techRecord[1].createdById;
-  //     delete response.body.techRecord[1].statusCode;
-  //     const isAdrValid = validatePayload(response.body.techRecord[1]);
-  //     expect(isAdrValid).not.toHaveProperty("error");
-  //   });
-  //   ctx.succeed('done');
-  //   ctx = null;
-  // });
+  test('PUT request: HGV vehicle is updated, and the appropriate attributes are automatically set', ({given, when, then, and}) => {
+    let ctx: any = mockContext(opts);
+
+    let requestUrl: string;
+    let response: any;
+    let responseGET: any;
+    let requestUrlGET: string;
+
+    given('I am the vehicles backend service', () => {
+      requestUrl = 'vehicles/ABCDEFGH654321';
+      requestUrlGET = 'vehicles/ABCDEFGH654321/tech-records?status=all';
+    });
+    when('an existing HGV vehicle is updated via the PUT verb', async () => {
+      const putPayload = createPUTPayload();
+      putPayload.techRecord[0].grossEecWeight = 33;
+      response = await request.put(requestUrl).send(putPayload);
+      responseGET = await request.get(requestUrlGET);
+    });
+    then('my PUT action adheres to the HGV validations, present in the linked excel, columns D-E', () => {
+      expect(response.status).toEqual(200);
+      expect(response.body.techRecord.length).toEqual(2);
+    });
+    and('a new identical tech record is created, with the same status, and the updated attributes on it', () => {
+      expect(response.body.techRecord[1].statusCode).toEqual("provisional");
+      expect(response.body.techRecord[1].grossEecWeight).toEqual(33);
+    });
+    and('the previous "pre-update" tech record still exists in DynamoDB, with it\'s status set to archived', () => {
+      expect(response.body.techRecord[0].statusCode).toEqual("archived");
+    });
+    and('the appropriate audit attributes are set on the new updated tech record', () => {
+      console.log("RESPONSE", responseGET);
+      expect(responseGET.body.techRecord[1]).toHaveProperty("createdAt");
+      expect(responseGET.body.techRecord[1]).toHaveProperty("createdByName");
+      expect(responseGET.body.techRecord[1]).toHaveProperty("createdById");
+    });
+    and('I am only able to update attributes within the techRecord[] array', () => {
+      expect(response.body.vrms.length).toEqual(2);
+    });
+    ctx.succeed('done');
+    ctx = null;
+  });
 });
 
 const createPUTPayload = () => {
@@ -141,6 +145,8 @@ const createPUTPayload = () => {
       msUser: "dorel",
       msOid: "1234545"
     },
+    primaryVrm: "ALKH567",
+    secondaryVrms: ["POI9876", "YYY9876"],
     techRecord: techRec.techRecord
   };
   return payload;
