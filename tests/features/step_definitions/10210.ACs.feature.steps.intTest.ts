@@ -84,19 +84,16 @@ defineFeature(feature, test => {
     let response: any;
 
     given('I am a consumer of the vehicles API', () => {
-      requestUrl = 'vehicles/ABCDEFGH654321/tech-records';
+      requestUrl = 'vehicles';
     });
     when('I call the vehicles API via the POST method with unexpected values for a field that accepts only specific values', async () => {
-      response = await request.get(requestUrl);
+      const postPayload = createPOSTPayload();
+      postPayload.techRecord[0].fuelPropulsionSystem = "biscuit";
+      response = await request.post(requestUrl).send(postPayload);
     });
     then('I am given the 400 error code', () => {
-      expect(response.status).toEqual(200);
-      expect(response.body.techRecord[0].statusCode).toEqual("provisional");
-      expect(response.body.techRecord[0]).toHaveProperty("grossEecWeight");
-      expect(response.body.techRecord[0]).toHaveProperty("dtpNumber");
-      expect(response.body.techRecord[0]).toHaveProperty("make");
-      expect(response.body.techRecord[0]).toHaveProperty("model");
-
+      expect(response.status).toEqual(400);
+      expect(response.body[0].message).toEqual('"fuelPropulsionSystem" must be one of [DieselPetrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
     });
     ctx.succeed('done');
     ctx = null;
@@ -109,19 +106,16 @@ defineFeature(feature, test => {
     let response: any;
 
     given('I am a consumer of the vehicles API', () => {
-      requestUrl = 'vehicles/ABCDEFGH654321/tech-records';
+      requestUrl = 'vehicles';
     });
     when('I call the vehicles API via the POST method using a field which has a field value outside of the min/max length for that field', async () => {
-      response = await request.get(requestUrl);
+      const postPayload = createPOSTPayload();
+      postPayload.techRecord[0].manufactureYear = 123456;
+      response = await request.post(requestUrl).send(postPayload);
     });
     then('I am given the 400 error code', () => {
-      expect(response.status).toEqual(200);
-      expect(response.body.techRecord[0].statusCode).toEqual("provisional");
-      expect(response.body.techRecord[0]).toHaveProperty("grossEecWeight");
-      expect(response.body.techRecord[0]).toHaveProperty("dtpNumber");
-      expect(response.body.techRecord[0]).toHaveProperty("make");
-      expect(response.body.techRecord[0]).toHaveProperty("model");
-
+      expect(response.status).toEqual(400);
+      expect(response.body[0].message).toEqual('"manufactureYear" must be less than or equal to 9999');
     });
     ctx.succeed('done');
     ctx = null;
