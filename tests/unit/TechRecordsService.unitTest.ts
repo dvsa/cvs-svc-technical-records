@@ -326,11 +326,11 @@ describe("insertTechRecord", () => {
       try {
         expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
       } catch (errorResponse) {
-        expect(errorResponse.statusCode).toEqual(500);
+        expect(errorResponse.statusCode).toEqual(400);
       }
     });
 
-    it("should return Primary or secondaryVrms are not valid error 500", async () => {
+    it("should return Primary or secondaryVrms are not valid error 400", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           createSingle: () => {
@@ -356,7 +356,7 @@ describe("insertTechRecord", () => {
       try {
         expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
       } catch (errorResponse) {
-        expect(errorResponse.statusCode).toEqual(500);
+        expect(errorResponse.statusCode).toEqual(400);
         expect(errorResponse.body).toEqual("Primary or secondaryVrms are not valid");
       }
     });

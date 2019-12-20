@@ -32,9 +32,9 @@ custom:
     start:
       port: 8003
       inMemory: true
-      migrate: false
-      seed: false
-      noStart: true
+      migrate: true
+      seed: true
+      noStart: false
     seed:
       technical-records:
         sources:
