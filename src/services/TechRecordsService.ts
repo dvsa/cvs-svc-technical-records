@@ -136,10 +136,10 @@ class TechRecordsService {
   public insertTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
     const isPayloadValid = validatePayload(techRecord.techRecord[0]);
     if (isPayloadValid.error) {
-      return Promise.reject({statusCode: 500, body: isPayloadValid.error.details});
+      return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
     }
     if (!this.validateVrms(techRecord)) {
-      return Promise.reject({statusCode: 500, body: "Primary or secondaryVrms are not valid"});
+      return Promise.reject({statusCode: 400, body: "Primary or secondaryVrms are not valid"});
     }
     this.setAuditDetailsAndStatusCodeForNewRecord(techRecord.techRecord[0], msUserDetails);
     return this.techRecordsDAO.createSingle(techRecord)
