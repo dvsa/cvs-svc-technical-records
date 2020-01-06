@@ -197,7 +197,7 @@ class TechRecordsService {
           return this.manageUpdateLogic(techRecord, msUserDetails, documents);
         })
         .catch((error: any) => {
-          throw new HTTPError(500, error);
+          throw new HTTPError(error.statusCode, error);
         });
     } else {
       return this.manageUpdateLogic(techRecord, msUserDetails);
@@ -223,7 +223,7 @@ class TechRecordsService {
   private createAndArchiveTechRecord(techRecord: { vin: string, techRecord: ITechRecord[] }, msUserDetails: any, documents?: string[]) {
     const isPayloadValid = validatePayload(techRecord.techRecord[0]);
     if (isPayloadValid.error) {
-      return Promise.reject({statusCode: 500, body: isPayloadValid.error.details});
+      return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
     }
     return this.getTechRecordsList(techRecord.vin, STATUS.ALL, SEARCHCRITERIA.ALL)
       .then((data: ITechRecordWrapper) => {
