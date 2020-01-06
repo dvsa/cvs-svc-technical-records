@@ -42,11 +42,11 @@ class S3BucketService {
    * @param bucketName - the bucket from which to download
    * @param fileName - the name of the file
    */
-  public download(bucketName: string, fileName: string): Promise<string> {
-    return this.s3Client.getSignedUrlPromise("getObject", {
+  public download(bucketName: string, fileName: string): Promise<PromiseResult<S3.Types.GetObjectOutput, AWSError>> {
+    return this.s3Client.getObject({
       Bucket: bucketName,
       Key: `${process.env.BRANCH}/${fileName}`,
-    });
+    }).promise();
   }
 }
 
