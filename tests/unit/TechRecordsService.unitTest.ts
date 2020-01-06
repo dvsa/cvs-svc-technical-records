@@ -538,7 +538,7 @@ describe("updateTechRecord", () => {
           expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails)).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
-          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.statusCode).toEqual(400);
           expect(errorResponse.body).toEqual("Payload is not valid");
         }
       });
@@ -658,7 +658,7 @@ describe("updateTechRecord", () => {
           expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["nsa7zXuM/5iYmrCM2kzmT"])).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
-          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.statusCode).toEqual(404);
           expect(errorResponse.body.message).toEqual("The specified bucket does not exist.");
         }
       });
