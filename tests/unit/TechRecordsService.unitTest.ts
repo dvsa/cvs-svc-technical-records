@@ -504,7 +504,7 @@ describe("updateTechRecord", () => {
     });
 
     context("and the payload doesn't pass the validation", () => {
-      it("should return error 500 Payload is not valid", async () => {
+      it("should return error 400 Payload is not valid", async () => {
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[31]);
         const MockDAO = jest.fn().mockImplementation(() => {
