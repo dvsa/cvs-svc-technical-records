@@ -301,7 +301,7 @@ describe("insertTechRecord", () => {
   });
 
   context("when trying to create a new technical record with invalid payload", () => {
-    it("should return validation error 500", async () => {
+    it("should return validation error 400", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           createSingle: () => {
