@@ -4,8 +4,6 @@ import path from "path";
 import mockData from "../../resources/technical-records.json";
 import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
-import {UPDATE_TYPE} from "../../../src/assets/Enums";
-import {validatePayload} from "../../../src/utils/PayloadValidation";
 import {cloneDeep} from "lodash";
 
 const url = "http://localhost:3005/";
@@ -33,7 +31,7 @@ defineFeature(feature, (test) => {
     await populateDatabase();
   });
 
-  test("AC1. GET request: All attributes applicable to HGVs are returned", ({given, when, then, and}) => {
+  test("AC1. GET request: All attributes applicable to HGVs are returned", ({given, when, then}) => {
     let ctx: any = mockContext(opts);
 
     let requestUrl: string;
