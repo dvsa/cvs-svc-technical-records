@@ -130,6 +130,10 @@ defineFeature(feature, test => {
     });
     and('I am only able to update attributes within the techRecord[] array', () => {
       expect(response.body.vrms.length).toEqual(2);
+      expect(response.body.vrms[0].vrm).toEqual("LKJH654");
+      expect(response.body.vrms[0].isPrimary).toEqual(true);
+      expect(response.body.vrms[1].vrm).toEqual("POI9876");
+      expect(response.body.vrms[1].isPrimary).toEqual(false);
     });
     ctx.succeed('done');
     ctx = null;
