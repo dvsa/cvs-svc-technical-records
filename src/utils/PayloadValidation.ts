@@ -3,6 +3,7 @@ import ITechRecord from "../../@Types/ITechRecord";
 import {VEHICLE_TYPE} from "../assets/Enums";
 import Joi from "@hapi/joi";
 
+// This will be expanded to other validations in the future. Currently validating only HGVs.
 export const validatePayload = (payload: ITechRecord) => {
   if (payload.vehicleType === VEHICLE_TYPE.HGV || payload.vehicleType === VEHICLE_TYPE.TRL) {
     let isTankOrBattery = false;
