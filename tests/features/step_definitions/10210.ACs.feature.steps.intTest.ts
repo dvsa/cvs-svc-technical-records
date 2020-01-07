@@ -4,8 +4,6 @@ import path from "path";
 import mockData from "../../resources/technical-records.json";
 import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
-import {UPDATE_TYPE} from "../../../src/assets/Enums";
-import {validatePayload} from "../../../src/utils/PayloadValidation";
 import {cloneDeep} from "lodash";
 
 const url = "http://localhost:3005/";
