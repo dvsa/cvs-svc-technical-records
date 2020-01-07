@@ -298,7 +298,9 @@ describe("insertTechRecord", () => {
       expect(data).not.toEqual(undefined);
       expect(Object.keys(data).length).toEqual(0);
     });
+  });
 
+  context("when trying to create a new technical record with invalid payload", () => {
     it("should return validation error 500", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
