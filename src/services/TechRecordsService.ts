@@ -9,7 +9,6 @@ import * as uuid from "uuid";
 import {validatePayload, validatePrimaryVrm, validateSecondaryVrms} from "../utils/PayloadValidation";
 import S3BucketService from "./S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
-import HTTPResponse from "../models/HTTPResponse";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 
 /**
@@ -137,7 +136,7 @@ class TechRecordsService {
     if (!this.validateVrms(techRecord)) {
       return Promise.reject({statusCode: 500, body: "Primary or secondaryVrms are not valid"});
     }
-    this.setDetailsPOST(techRecord.techRecord[0], msUserDetails);
+    this.setAuditDetailsAndStatusCodeForNewRecord(techRecord.techRecord[0], msUserDetails);
     return this.techRecordsDAO.createSingle(techRecord)
       .then((data: any) => {
         return data;
@@ -153,22 +152,19 @@ class TechRecordsService {
       const isValid = validatePrimaryVrm.validate(techRecord.primaryVrm);
       if (isValid.error) {
         areVrmsValid = false;
-        delete techRecord.primaryVrm;
       }
     }
     if (techRecord.secondaryVrms) {
       const isValid = validateSecondaryVrms.validate(techRecord.secondaryVrms);
       if (isValid.error) {
         areVrmsValid = false;
-        delete techRecord.secondaryVrms;
       }
     }
     return areVrmsValid;
   }
 
-  private setDetailsPOST(techRecord: ITechRecord, msUserDetails: any) {
-    const date = new Date().toISOString();
-    techRecord.createdAt = date;
+  private setAuditDetailsAndStatusCodeForNewRecord(techRecord: ITechRecord, msUserDetails: any) {
+    techRecord.createdAt = new Date().toISOString();
     techRecord.createdByName = msUserDetails.msUser;
     techRecord.createdById = msUserDetails.msOid;
     techRecord.statusCode = STATUS.PROVISIONAL;
