@@ -219,7 +219,7 @@ describe("postTechRecords", () => {
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(400);
-            expect(result.body).toEqual('"Invalid path parameter \'vin\'"');
+            expect(result.body).toEqual('"Invalid body field \'vin\'"');
           });
       });
     });
@@ -461,6 +461,9 @@ describe("downloadDocument", () => {
               path: `/vehicles/${techRecord.vin}/download-file?filename=someFilename.pdf`,
               queryStringParameters: {
                 filename: "someFilename.pdf"
+              },
+              pathParameters: {
+                vin: null
               }
             })
             .expectResolve((result: any) => {

@@ -4,12 +4,6 @@ const Joi = require("@hapi/joi")
 
 import {adrValidation} from "./AdrValidation";
 
-const statusCode: string[] = [
-  "archived",
-  "current",
-  "provisional"
-];
-
 const vehicleType: string[] = [
   "psv",
   "trl",
@@ -24,20 +18,6 @@ const fuelPropulsionSystem: string[] = [
   "Fuel cell",
   "LNG",
   "Other"
-];
-
-const vehicleClassCode: string[] = [
-  "2",
-  "n",
-  "s",
-  "1",
-  "t",
-  "l",
-  "3",
-  "v",
-  "4",
-  "7",
-  "5"
 ];
 
 const vehicleClassDescription: string[] = [
