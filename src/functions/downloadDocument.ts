@@ -23,7 +23,7 @@ const downloadDocument = (event: any) => {
   }
 
   return techRecordsService.downloadFile(filename)
-    .then((document: string) => {
+    .then((document: any) => {
       return new HTTPResponse(200, document);
     })
     .catch((error: any) => {
