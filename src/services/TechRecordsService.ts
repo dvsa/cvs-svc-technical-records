@@ -158,7 +158,7 @@ class TechRecordsService {
           return this.manageUpdateLogic(techRecord, msUserDetails, documents);
         })
         .catch((error: any) => {
-          throw new HTTPError(500, HTTPRESPONSE.S3_ERROR);
+          throw new HTTPError(500, error.message);
         });
     } else {
       return this.manageUpdateLogic(techRecord, msUserDetails);
@@ -253,19 +253,29 @@ class TechRecordsService {
   }
 
   public uploadFile(file: string, vin: string): Promise<ManagedUpload.SendData> {
-    const buffer: Buffer = Buffer.from(file, "base64");
+    const fileParts = file.split(";base64,");
+    const fileNameAndType = fileParts[0].split(";data:");
+    if (fileNameAndType.length < 2) {
+      return Promise.reject({statusCode: 500, message: "Filename not provided"});
+    }
+    const fileType = fileNameAndType[1];
+    const nameAndExtension = fileNameAndType[0].split(".");
+    const fileExtension = nameAndExtension[nameAndExtension.length - 1];
+    const buffer: Buffer = Buffer.from(fileParts[1], "base64");
     const metadata: Metadata = {
       "vin": vin,
       "file-size": buffer.byteLength.toString(),
-      "file-format": "pdf"
+      "file-format": fileType
     };
-    return this.s3BucketService.upload(`cvs-${process.env.BUCKET}-adr-pdfs`, `${uuid.v4()}.pdf`, buffer, metadata);
+    return this.s3BucketService.upload(`cvs-${process.env.BUCKET}-adr-pdfs`, `${uuid.v4()}.${fileExtension}`, buffer, metadata);
   }
 
   public downloadFile(filename: string) {
     return this.s3BucketService.download(`cvs-${process.env.BUCKET}-adr-pdfs`, filename)
       .then((result: S3.Types.GetObjectOutput) => {
-        return result.Body!.toString("base64");
+        const type = result.Metadata && result.Metadata["file-format"] ? result.Metadata["file-format"] : "application/octet-stream";
+        const fileBuffer: S3.Types.Body = result.Body as Buffer;
+        return {...fileBuffer, type};
       })
       .catch((error: any) => {
         console.error(error);
