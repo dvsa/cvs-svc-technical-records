@@ -676,11 +676,11 @@ describe("downloadDocument", () => {
   });
   context("when downloading a document that exists in S3", () => {
     it("should return the document", async () => {
-      const file: Buffer = fs.readFileSync(path.resolve(__dirname, `../resources/signatures/1.base64`));
+      const fileBuffer: Buffer = fs.readFileSync(path.resolve(__dirname, `../resources/signatures/1.base64`));
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           downloadFile: () => {
-            return Promise.resolve({...file, type: "application/pdf"});
+            return Promise.resolve({fileBuffer, fileType: "application/pdf"});
           }
         };
       });
@@ -712,8 +712,7 @@ describe("downloadDocument", () => {
       const s3Mock = new S3Mock();
       const techRecordsService = new TechRecordsService(mockDAO, s3Mock);
       const document: any = await techRecordsService.downloadFile("1.base64");
-      expect(document).toEqual({...file, type: "application/pdf"});
-    });
+      expect(document).toEqual({fileBuffer, fileType: "application/pdf"});    });
   });
 
   context("when downloading a document that does not exist in S3", () => {

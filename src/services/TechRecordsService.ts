@@ -274,8 +274,8 @@ class TechRecordsService {
     return this.s3BucketService.download(`cvs-${process.env.BUCKET}-adr-pdfs`, filename)
       .then((result: S3.Types.GetObjectOutput) => {
         const type = result.Metadata && result.Metadata["file-format"] ? result.Metadata["file-format"] : "application/octet-stream";
-        const fileBuffer: S3.Types.Body = result.Body as Buffer;
-        return {...fileBuffer, type};
+        const fileBuffer = result.Body;
+        return {fileBuffer, fileType: type};
       })
       .catch((error: any) => {
         console.error(error);
