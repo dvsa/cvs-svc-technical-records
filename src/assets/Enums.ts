@@ -3,7 +3,8 @@ export enum ERRORS {
     DynamoDBConfigNotDefined = "DynamoDB config is not defined in the config file.",
     LambdaInvokeConfigNotDefined = "Lambda Invoke config is not defined in the config file.",
     EventIsEmpty = "Event is empty",
-    NoBranch = "Please define BRANCH environment variable"
+    NoBranch = "Please define BRANCH environment variable",
+    FilenameNotProvided = "Filename not provided"
 }
 
 export enum HTTPRESPONSE {

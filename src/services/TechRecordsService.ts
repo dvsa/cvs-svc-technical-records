@@ -3,13 +3,14 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
 import {ManagedUpload, Metadata} from "aws-sdk/clients/s3";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
+import {ERRORS, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
 import * as _ from "lodash";
 import * as uuid from "uuid";
 import {validatePayload} from "../utils/PayloadValidation";
 import S3BucketService from "./S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
+import IFile from "../../@Types/IFile";
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -138,34 +139,45 @@ class TechRecordsService {
       });
   }
 
-  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, files?: string[]) {
+  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, files?: IFile[]) {
+    const documents: string[] = [];
     if (files && files.length) {
       const promises = [];
       for (const file of files) {
-        promises.push(this.uploadFile(file, techRecord.vin));
-      }
-      return Promise.all(promises)
-        .then((uploadedData: ManagedUpload.SendData[]) => {
-          const documents: string[] = [];
-          if (uploadedData && uploadedData.length) {
-            for (const uploaded of uploadedData) {
-              const filename = uploaded.Key.split("/")[1];
-              documents.push(filename);
-            }
-          } else {
-            throw new HTTPError(500, HTTPRESPONSE.S3_ERROR);
+        if (file.toUpload) {
+          promises.push(this.uploadFile(file, techRecord.vin));
+        } else {
+          if (!file.filename) {
+            return Promise.reject({statusCode: 500, body: ERRORS.FilenameNotProvided});
           }
-          return this.manageUpdateLogic(techRecord, msUserDetails, documents);
-        })
-        .catch((error: any) => {
-          throw new HTTPError(500, error.message);
-        });
+          documents.push(file.filename);
+        }
+      }
+      if (promises.length) {
+        return Promise.all(promises)
+          .then((uploadedData: ManagedUpload.SendData[]) => {
+            if (uploadedData && uploadedData.length) {
+              for (const uploaded of uploadedData) {
+                const filename = uploaded.Key.split("/")[1];
+                documents.push(filename);
+              }
+            } else {
+              throw new HTTPError(500, HTTPRESPONSE.S3_ERROR);
+            }
+            return this.manageUpdateLogic(techRecord, msUserDetails, documents);
+          })
+          .catch((error: any) => {
+            throw new HTTPError(500, error.body || error.message);
+          });
+      } else {
+        return this.manageUpdateLogic(techRecord, msUserDetails, documents);
+      }
     } else {
-      return this.manageUpdateLogic(techRecord, msUserDetails);
+      return this.manageUpdateLogic(techRecord, msUserDetails, documents);
     }
   }
 
-  private manageUpdateLogic(techRecord: ITechRecordWrapper, msUserDetails: any, documents?: string[]) {
+  private manageUpdateLogic(techRecord: ITechRecordWrapper, msUserDetails: any, documents: string[]) {
     return this.createAndArchiveTechRecord(techRecord, msUserDetails, documents)
       .then((data: ITechRecordWrapper) => {
         return this.techRecordsDAO.updateSingle(data)
@@ -173,7 +185,7 @@ class TechRecordsService {
             return this.formatTechRecordItemForResponse(updatedData.Attributes);
           })
           .catch((error: any) => {
-            throw new HTTPError(error.statusCode, error.message);
+            throw new HTTPError(error.statusCode, error.body);
           });
       })
       .catch((error: any) => {
@@ -181,7 +193,7 @@ class TechRecordsService {
       });
   }
 
-  private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, documents?: string[]) {
+  private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, documents: string[]) {
     const isAdrValid = validatePayload(techRecord.techRecord[0]);
     if (isAdrValid.error) {
       return Promise.reject({statusCode: 500, body: isAdrValid.error.details});
@@ -193,17 +205,8 @@ class TechRecordsService {
         const newRecord: any = _.cloneDeep(oldTechRec);
         newRecord.statusCode = STATUS.CURRENT;
         _.merge(newRecord, techRecord.techRecord[0]);
-        if (techRecord.techRecord[0].adrDetails && techRecord.techRecord[0].adrDetails.documents) {
-          newRecord.adrDetails.documents = techRecord.techRecord[0].adrDetails.documents;
-        }
-        if (documents && documents.length) {
-          if (newRecord.adrDetails) {
-            if (newRecord.adrDetails.documents && newRecord.adrDetails.documents.length) {
-              newRecord.adrDetails.documents = newRecord.adrDetails.documents.concat(documents);
-            } else {
-              newRecord.adrDetails.documents = documents;
-            }
-          }
+        if (techRecord.techRecord[0].adrDetails) {
+          newRecord.adrDetails.documents = documents;
         }
         this.setAuditDetails(newRecord, oldTechRec, msUserDetails);
         data.techRecord.push(newRecord);
@@ -252,14 +255,13 @@ class TechRecordsService {
     oldTechRecord.updateType = UPDATE_TYPE.ADR;
   }
 
-  public uploadFile(file: string, vin: string): Promise<ManagedUpload.SendData> {
-    const fileParts = file.split(";base64,");
-    const fileNameAndType = fileParts[0].split(";data:");
-    if (fileNameAndType.length < 2) {
-      return Promise.reject({statusCode: 500, message: "Filename not provided"});
+  public uploadFile(file: IFile, vin: string): Promise<ManagedUpload.SendData> {
+    const fileParts = file.base64String.split(";base64,");
+    if (!file.filename) {
+      return Promise.reject({statusCode: 500, body: ERRORS.FilenameNotProvided});
     }
-    const fileType = fileNameAndType[1];
-    const nameAndExtension = fileNameAndType[0].split(".");
+    const fileType = fileParts[0].substring(5);
+    const nameAndExtension = file.filename.split(".");
     const fileExtension = nameAndExtension[nameAndExtension.length - 1];
     const buffer: Buffer = Buffer.from(fileParts[1], "base64");
     const metadata: Metadata = {
@@ -275,7 +277,7 @@ class TechRecordsService {
       .then((result: S3.Types.GetObjectOutput) => {
         const type = result.Metadata && result.Metadata["file-format"] ? result.Metadata["file-format"] : "application/octet-stream";
         const fileBuffer = result.Body;
-        return {fileBuffer, fileType: type};
+        return {fileBuffer, contentType: type};
       })
       .catch((error: any) => {
         console.error(error);
@@ -317,7 +319,7 @@ class TechRecordsService {
       techRecordWrapper.techRecord.push({...techRecordWrapper.techRecord[0], statusCode: newStatus});
       let updatedTechRecord;
       try {
-        updatedTechRecord =  await this.techRecordsDAO.updateSingle(techRecordWrapper);
+        updatedTechRecord = await this.techRecordsDAO.updateSingle(techRecordWrapper);
       } catch (error) {
         throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
       }
@@ -329,7 +331,7 @@ class TechRecordsService {
 
   public static isStatusUpdateRequired(testStatus: string, testResult: string, testTypeId: string): boolean {
     return testStatus === "submitted" && testResult === "pass" &&
-        (this.isTestTypeFirstTest(testTypeId) || this.isTestTypeNotifiableAlteration(testTypeId));
+      (this.isTestTypeFirstTest(testTypeId) || this.isTestTypeNotifiableAlteration(testTypeId));
   }
 
   private static isTestTypeFirstTest(testTypeId: string): boolean {
