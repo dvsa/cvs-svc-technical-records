@@ -25,7 +25,7 @@ class TechRecordsService {
     this.s3BucketService = s3BucketService;
   }
 
-  public getTechRecordsList(searchTerm: string, status: string, searchCriteria: ISearchCriteria) {
+  public getTechRecordsList(searchTerm: string, status: string, searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL) {
     return this.techRecordsDAO.getBySearchTerm(searchTerm, searchCriteria)
       .then((data: any) => {
         if (data.Count === 0) {
