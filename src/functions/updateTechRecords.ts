@@ -4,6 +4,7 @@ import HTTPResponse from "../models/HTTPResponse";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import S3BucketService from "../services/S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
+import IFile from "../../@Types/IFile";
 
 const updateTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -14,7 +15,7 @@ const updateTechRecords = (event: any) => {
   const techRec = event.body ? event.body.techRecord : null;
   const msUserDetails = event.body ? event.body.msUserDetails : null;
   const vin = event.pathParameters.vin;
-  const filesToUpload: string[] = event.body ? event.body.files : null;
+  const filesToUpload: IFile[] = event.body ? event.body.files : null;
 
   if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 9) {
     return Promise.resolve(new HTTPResponse(400, "Invalid path parameter 'vin'"));

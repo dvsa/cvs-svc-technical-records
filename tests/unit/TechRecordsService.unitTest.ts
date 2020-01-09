@@ -2,7 +2,7 @@
 import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
-import {HTTPRESPONSE, SEARCHCRITERIA, STATUS} from "../../src/assets/Enums";
+import {ERRORS, HTTPRESPONSE, SEARCHCRITERIA, STATUS} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import S3BucketService from "../../src/services/S3BucketService";
 import {cloneDeep} from "lodash";
@@ -464,6 +464,17 @@ describe("updateTechRecord", () => {
     });
 
     context("and the user wants to upload documents", () => {
+      const files = [{
+        toUpload: true,
+        filename: "someFilename.pdf",
+        base64String: "data:application/pdf;base64,JVBERi0xLjMKJcTl8uXrp/Og0MTGCjQgMCBvYmoKPDwgL0x"
+      },
+        {
+          toUpload: false,
+          filename: "existingFilename.pdf",
+          base64String: ""
+        }
+      ];
       it("should return the updated document with the correct documents array", async () => {
         // @ts-ignore
         const techRecord: any = cloneDeep(records[29]);
@@ -509,7 +520,7 @@ describe("updateTechRecord", () => {
               adrDetails: techRecord.techRecord[0].adrDetails
             }]
         };
-        const response: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["filename.pdf;data:application/pdf;base64,nsa7zXuM/5iYmrCM2kzmT"]);
+        const response: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, files);
         expect(response).toBeDefined();
         expect(response.vin).toEqual("ABCDEFGH777777");
       });
@@ -559,13 +570,13 @@ describe("updateTechRecord", () => {
               adrDetails: techRecord.techRecord[0].adrDetails
             }]
         };
-        const response: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["filename.pdf;data:application/pdf;base64,nsa7zXuM/5iYmrCM2kzmT"]);
+        const response: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, files);
         expect(response).toBeDefined();
         expect(response.vin).toEqual("ABCDEFGH777777");
         expect(response.techRecord[response.techRecord.length - 1].adrDetails.documents.indexOf("1234")).not.toEqual(-1);
       });
 
-      it("should return Error 500 Filename not provided if filename is not provided", async () => {
+      it("should return Error 500 The specified bucket does not exist.", async () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return null;
         });
@@ -587,12 +598,38 @@ describe("updateTechRecord", () => {
         const s3Mock = new S3Mock();
         const techRecordsService = new TechRecordsService(mockDAO, s3Mock);
         const recordToUpdate: any = {vin: "123456656"};
+        const wrongFilesFormat: any = [{
+          toUpload: false,
+          base64String: "data:application/pdf;base64,JVBERi0xLjMKJcTl8uXrp/Og0MTGCjQgMCBvYmoKPDwgL0x"
+        }];
         try {
-          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["data:application/pdf;base64,nsa7zXuM/5iYmrCM2kzmT"])).toThrowError();
+          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, wrongFilesFormat)).toThrowError();
         } catch (errorResponse) {
-          expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(500);
-          expect(errorResponse.body).toEqual("Filename not provided");
+          expect(errorResponse.body).toEqual(ERRORS.FilenameNotProvided);
+        }
+      });
+
+      it("should return Error 500 Filename not provided if the uploaded file doesn't contain the filename", async () => {
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return null;
+        });
+        const S3Mock = jest.fn().mockImplementation(() => {
+          return null;
+        });
+        const mockDAO = new MockDAO();
+        const s3Mock = new S3Mock();
+        const techRecordsService = new TechRecordsService(mockDAO, s3Mock);
+        const recordToUpdate: any = {vin: "123456656"};
+        const wrongFilesFormat: any = [{
+          toUpload: true,
+          base64String: "data:application/pdf;base64,JVBERi0xLjMKJcTl8uXrp/Og0MTGCjQgMCBvYmoKPDwgL0x"
+        }];
+        try {
+          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, wrongFilesFormat)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.body).toEqual(ERRORS.FilenameNotProvided);
         }
       });
 
@@ -619,12 +656,53 @@ describe("updateTechRecord", () => {
         const techRecordsService = new TechRecordsService(mockDAO, s3Mock);
         const recordToUpdate: any = {vin: "123456656"};
         try {
-          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, ["filename.pdf;data:application/pdf;base64,nsa7zXuM/5iYmrCM2kzmT"])).toThrowError();
+          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, files)).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(500);
           expect(errorResponse.body).toEqual("The specified bucket does not exist.");
         }
+      });
+
+      it("should skip the upload if the user doesn't upload any new files and return the existing uploaded files", async () => {
+        const techRecord: any = cloneDeep(records[29]);
+        techRecord.techRecord[0].adrDetails.documents = ["existingFile.pdf"];
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            updateSingle: () => {
+              return Promise.resolve({
+                Attributes: techRecord
+              });
+            },
+            getBySearchTerm: () => {
+              return Promise.resolve({
+                Items: [cloneDeep(records[29])],
+                Count: 1,
+                ScannedCount: 1
+              });
+            }
+          };
+        });
+        const S3Mock = jest.fn().mockImplementation(() => {
+          return null;
+        });
+        const mockDAO = new MockDAO();
+        const s3Mock = new S3Mock();
+        const techRecordsService = new TechRecordsService(mockDAO, s3Mock);
+        const recordToUpdate: any = {
+          vin: techRecord.vin,
+          partialVin: techRecord.partialVin,
+          primaryVrm: techRecord.primaryVrm,
+          techRecord:
+            [{
+              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
+              adrDetails: techRecord.techRecord[0].adrDetails
+            }]
+        };
+        const existingFiles = [{toUpload: false, filename: "existingFile.pdf", base64String: ""}];
+        const response: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, existingFiles);
+        expect(response).toBeDefined();
+        expect(response.techRecord[response.techRecord.length - 1].adrDetails.documents[0]).toEqual("existingFile.pdf");
       });
     });
   });
@@ -680,7 +758,7 @@ describe("downloadDocument", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           downloadFile: () => {
-            return Promise.resolve({fileBuffer, fileType: "application/pdf"});
+            return Promise.resolve({fileBuffer, contentType: "application/pdf"});
           }
         };
       });
@@ -712,7 +790,8 @@ describe("downloadDocument", () => {
       const s3Mock = new S3Mock();
       const techRecordsService = new TechRecordsService(mockDAO, s3Mock);
       const document: any = await techRecordsService.downloadFile("1.base64");
-      expect(document).toEqual({fileBuffer, fileType: "application/pdf"});    });
+      expect(document).toEqual({fileBuffer, contentType: "application/pdf"});
+    });
   });
 
   context("when downloading a document that does not exist in S3", () => {
