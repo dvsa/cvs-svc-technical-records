@@ -20,7 +20,7 @@ const fuelPropulsionSystem: string[] = [
   "Other"
 ];
 
-const vehicleClassDescription: string[] = [
+export const vehicleClassDescription: string[] = [
   "motorbikes over 200cc or with a sidecar",
   "not applicable",
   "small psv (ie: less than or equal to 22 seats)",
@@ -77,7 +77,7 @@ const approvalType: string[] = [
   "ECSSTA"
 ];
 
-const bodyTypeDescription: string[] = [
+export const bodyTypeDescription: string[] = [
   "articulated",
   "single decker",
   "double decker",
@@ -164,20 +164,64 @@ const fitmentCode: string[] = [
   "single"
 ];
 
-const populateVehicleClassCode = (parent: any, helpers: any) => {
-  // if (parent.description === "motorbikes over 200cc or with a sidecar") {
-  //   return "2";
-  // }
-  // throw new Error("Not valid");
-  return "2";
+export const populateVehicleClassCode = (parent: any, helpers: any) => {
+  switch (parent.description) {
+    case "motorbikes over 200cc or with a sidecar":
+      return "2";
+    case "not applicable":
+      return "n";
+    case "small psv (ie: less than or equal to 22 seats)":
+      return "s";
+    case "motorbikes up to 200cc":
+      return "1";
+    case "trailer":
+      return "t";
+    case "large psv(ie: greater than 23 seats)":
+      return "l";
+    case "3 wheelers":
+      return "3";
+    case "heavy goods vehicle":
+      return "v";
+    case "MOT class 4":
+      return "4";
+    case "MOT class 7":
+      return "7";
+    case "MOT class 5":
+      return "5";
+    default:
+      throw new Error("Not valid");
+  }
 };
 
-const populateBodyTypeCode = (parent: any, helpers: any) => {
-  // if (parent.description === "articulated") {
-  //   return "a";
-  // }
-  // throw new Error("Not valid");
-  return "a";
+export const populateBodyTypeCode = (parent: any, helpers: any) => {
+  switch (parent.description) {
+    case "articulated":
+      return "a";
+    case "single decker":
+      return "s";
+    case "double decker":
+      return "d";
+    case "other":
+      return "o";
+    case "petrol/oil tanker":
+      return "p";
+    case "skeletal":
+      return "k";
+    case "tipper":
+      return "t";
+    case "box":
+      return "b";
+    case "flat":
+      return "f";
+    case "refuse":
+      return "r";
+    case "skip loader":
+      return "s";
+    case "refrigerated":
+      return "c";
+    default:
+      throw new Error("Not valid");
+  }
 };
 
 export const hgvValidation = Joi.object().keys({
