@@ -225,6 +225,7 @@ class TechRecordsService {
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
     }
+    techRecord.techRecord[0] = isPayloadValid.value;
     return this.getTechRecordsList(techRecord.vin, STATUS.ALL, SEARCHCRITERIA.ALL)
       .then((data: ITechRecordWrapper) => {
         const oldTechRec = this.getTechRecordToArchive(data);

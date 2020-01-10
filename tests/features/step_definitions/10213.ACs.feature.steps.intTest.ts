@@ -1,0 +1,117 @@
+import {defineFeature, loadFeature} from "jest-cucumber";
+import supertest from "supertest";
+import path from "path";
+import mockData from "../../resources/technical-records.json";
+import mockContext from "aws-lambda-mock-context";
+import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
+import {cloneDeep} from "lodash";
+
+const url = "http://localhost:3005/";
+const request = supertest(url);
+const opts = Object.assign({
+  timeout: 1.5
+});
+
+const feature = loadFeature(path.resolve(__dirname, "../10213.ACs.feature"));
+
+defineFeature(feature, (test) => {
+  beforeAll(async () => {
+    await emptyDatabase();
+  });
+
+  beforeEach(async () => {
+    await populateDatabase();
+  });
+
+  afterEach(async () => {
+    await emptyDatabase();
+  });
+
+  afterAll(async () => {
+    await populateDatabase();
+  });
+
+  // test("AC1. PUT: Attempt to update a new vehicle without a mandatory field", ({given, when, then}) => {
+  //   let ctx: any = mockContext(opts);
+  //
+  //   let requestUrl: string;
+  //   let response: any;
+  //
+  //   given("I am a consumer of the vehicles API", () => {
+  //     requestUrl = "vehicles/ABCDEFGH654321";
+  //   });
+  //   when("I call the vehicles API via the PUT method without a mandatory field in the request body", async () => {
+  //     const postPayload = createPUTPayload();
+  //     delete postPayload.techRecord[0].manufactureYear;
+  //     response = await request.put(requestUrl).send(postPayload);
+  //   });
+  //   then("I am given the 400 error code", () => {
+  //     expect(response.status).toEqual(400);
+  //     expect(response.body[0].message).toEqual('"manufactureYear" is required');
+  //   });
+  //   ctx.succeed("done");
+  //   ctx = null;
+  // });
+
+  test("AC2. POST: Vehicle class code is autopopulated", ({given, when, then, and}) => {
+    let ctx: any = mockContext(opts);
+
+    let requestUrl: string;
+    let response: any;
+
+    given("I am a consumer of the vehicles API", () => {
+      requestUrl = "vehicles/ABCDEFGH654321";
+    });
+    and('I have completed the "vehicle class description" field', async () => {
+      const postPayload = createPUTPayload();
+      postPayload.techRecord[0].unladenWeight = 0;
+      response = await request.put(requestUrl).send(postPayload);
+    });
+    when("I submit my request via the POST method", () => {
+      expect(response.status).toEqual(400);
+      expect(response.body[0].message).toEqual('"unladenWeight" is not allowed');
+    });
+    then("the corresponding vehicle class code is autopopulated, as per the linked excel", () => {
+      expect(response.status).toEqual(400);
+      expect(response.body[0].message).toEqual('"unladenWeight" is not allowed');
+    });
+    ctx.succeed("done");
+    ctx = null;
+  });
+
+  // test("AC3. PUT: Attempt to update a new vehicle with unexpected values for a field that accepts only specific values", ({given, when, then}) => {
+  //   let ctx: any = mockContext(opts);
+  //
+  //   let requestUrl: string;
+  //   let response: any;
+  //
+  //   given("I am a consumer of the vehicles API", () => {
+  //     requestUrl = "vehicles/ABCDEFGH654321";
+  //   });
+  //   when("I call the vehicles API via the PUT method with unexpected values for a field that accepts only specific values", async () => {
+  //     const postPayload = createPUTPayload();
+  //     postPayload.techRecord[0].fuelPropulsionSystem = "biscuit";
+  //     response = await request.put(requestUrl).send(postPayload);
+  //   });
+  //   then("I am given the 400 error code", () => {
+  //     expect(response.status).toEqual(400);
+  //     expect(response.body[0].message).toEqual('"fuelPropulsionSystem" must be one of [DieselPetrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
+  //   });
+  //   ctx.succeed("done");
+  //   ctx = null;
+  // });
+
+});
+
+const createPUTPayload = () => {
+  const techRec: any = cloneDeep(mockData[43]);
+  delete techRec.techRecord[0].statusCode;
+  const payload = {
+    msUserDetails: {
+      msUser: "dorel",
+      msOid: "1234545"
+    },
+    techRecord: techRec.techRecord
+  };
+  return payload;
+};
