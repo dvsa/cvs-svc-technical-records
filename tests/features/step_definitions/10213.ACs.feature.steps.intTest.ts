@@ -12,6 +12,20 @@ const opts = Object.assign({
   timeout: 1.5
 });
 
+const createPOSTPayload = () => {
+  const techRec: any = cloneDeep(mockData[43]);
+  delete techRec.techRecord[0].statusCode;
+  const payload = {
+    msUserDetails: {
+      msUser: "dorel",
+      msOid: "1234545"
+    },
+    vin: Date.now().toString(),
+    techRecord: techRec.techRecord
+  };
+  return payload;
+};
+
 const feature = loadFeature(path.resolve(__dirname, "../10213.ACs.feature"));
 
 defineFeature(feature, (test) => {
@@ -31,87 +45,89 @@ defineFeature(feature, (test) => {
     await populateDatabase();
   });
 
-  // test("AC1. PUT: Attempt to update a new vehicle without a mandatory field", ({given, when, then}) => {
-  //   let ctx: any = mockContext(opts);
-  //
-  //   let requestUrl: string;
-  //   let response: any;
-  //
-  //   given("I am a consumer of the vehicles API", () => {
-  //     requestUrl = "vehicles/ABCDEFGH654321";
-  //   });
-  //   when("I call the vehicles API via the PUT method without a mandatory field in the request body", async () => {
-  //     const postPayload = createPUTPayload();
-  //     delete postPayload.techRecord[0].manufactureYear;
-  //     response = await request.put(requestUrl).send(postPayload);
-  //   });
-  //   then("I am given the 400 error code", () => {
-  //     expect(response.status).toEqual(400);
-  //     expect(response.body[0].message).toEqual('"manufactureYear" is required');
-  //   });
-  //   ctx.succeed("done");
-  //   ctx = null;
-  // });
-
-  test("AC2. POST: Vehicle class code is autopopulated", ({given, when, then, and}) => {
+  test("AC1. POST: Partial VIN is autopopulated", ({given, when, then, and}) => {
     let ctx: any = mockContext(opts);
 
-    let requestUrl: string;
-    let response: any;
+    let requestUrlPOST: string;
+    let requestUrlGET: string;
+    const postPayload = createPOSTPayload();
+    let responsePOST: any;
+    let responseGET: any;
+    const partialVin: string = postPayload.vin.substr(postPayload.vin.length - 6);
 
     given("I am a consumer of the vehicles API", () => {
-      requestUrl = "vehicles/ABCDEFGH654321";
+      requestUrlPOST = "vehicles";
+      requestUrlGET = `vehicles/${partialVin}/tech-records`;
     });
-    and('I have completed the "vehicle class description" field', async () => {
-      const postPayload = createPUTPayload();
-      postPayload.techRecord[0].unladenWeight = 0;
-      response = await request.put(requestUrl).send(postPayload);
+    and("I have completed the \"vin\" field", () => {
+      expect(postPayload.vin).toBeDefined();
     });
-    when("I submit my request via the POST method", () => {
-      expect(response.status).toEqual(400);
-      expect(response.body[0].message).toEqual('"unladenWeight" is not allowed');
+    when("I submit my request via the POST method", async () => {
+      responsePOST = await request.post(requestUrlPOST).send(postPayload);
     });
-    then("the corresponding vehicle class code is autopopulated, as per the linked excel", () => {
-      expect(response.status).toEqual(400);
-      expect(response.body[0].message).toEqual('"unladenWeight" is not allowed');
+    then("the partialVin is autopopulated, as the last 6 digits of the vin", async () => {
+      responseGET = await request.get(requestUrlGET);
+      expect(responseGET.body.vin).toEqual(postPayload.vin);
     });
     ctx.succeed("done");
     ctx = null;
   });
 
-  // test("AC3. PUT: Attempt to update a new vehicle with unexpected values for a field that accepts only specific values", ({given, when, then}) => {
-  //   let ctx: any = mockContext(opts);
-  //
-  //   let requestUrl: string;
-  //   let response: any;
-  //
-  //   given("I am a consumer of the vehicles API", () => {
-  //     requestUrl = "vehicles/ABCDEFGH654321";
-  //   });
-  //   when("I call the vehicles API via the PUT method with unexpected values for a field that accepts only specific values", async () => {
-  //     const postPayload = createPUTPayload();
-  //     postPayload.techRecord[0].fuelPropulsionSystem = "biscuit";
-  //     response = await request.put(requestUrl).send(postPayload);
-  //   });
-  //   then("I am given the 400 error code", () => {
-  //     expect(response.status).toEqual(400);
-  //     expect(response.body[0].message).toEqual('"fuelPropulsionSystem" must be one of [DieselPetrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
-  //   });
-  //   ctx.succeed("done");
-  //   ctx = null;
-  // });
+  test("AC2. POST: Vehicle class code is autopopulated", ({given, when, then, and}) => {
+    let ctx: any = mockContext(opts);
 
+    let requestUrlPOST: string;
+    let requestUrlGET: string;
+    const postPayload = createPOSTPayload();
+    let responsePOST: any;
+    let responseGET: any;
+
+    given("I am a consumer of the vehicles API", () => {
+      requestUrlPOST = "vehicles";
+      requestUrlGET = `vehicles/${postPayload.vin}/tech-records`;
+    });
+    and("I have completed the \"vehicle class description\" field", () => {
+      postPayload.techRecord[0].vehicleClass = {
+        description: "MOT class 4"
+      };
+    });
+    when("I submit my request via the POST method", async () => {
+      responsePOST = await request.post(requestUrlPOST).send(postPayload);
+    });
+    then("the corresponding vehicle class code is autopopulated, as per the linked excel", async () => {
+      responseGET = await request.get(requestUrlGET);
+      expect(responseGET.body.techRecord[0].vehicleClass.code).toEqual("4");
+    });
+    ctx.succeed("done");
+    ctx = null;
+  });
+
+  test("AC3. POST: Body type code is autopopulated", ({given, when, then, and}) => {
+    let ctx: any = mockContext(opts);
+
+    let requestUrlPOST: string;
+    let requestUrlGET: string;
+    const postPayload = createPOSTPayload();
+    let responsePOST: any;
+    let responseGET: any;
+
+    given("I am a consumer of the vehicles API", () => {
+      requestUrlPOST = "vehicles";
+      requestUrlGET = `vehicles/${postPayload.vin}/tech-records`;
+    });
+    and("I have completed the \"body type description\" field", () => {
+      postPayload.techRecord[0].bodyType = {
+        description: "skeletal"
+      };
+    });
+    when("I submit my request via the POST method", async () => {
+      responsePOST = await request.post(requestUrlPOST).send(postPayload);
+    });
+    then("the corresponding body type code is autopopulated, as per the linked excel", async () => {
+      responseGET = await request.get(requestUrlGET);
+      expect(responseGET.body.techRecord[0].bodyType.code).toEqual("k");
+    });
+    ctx.succeed("done");
+    ctx = null;
+  });
 });
-
-const createPUTPayload = () => {
-  const techRec: any = cloneDeep(mockData[43]);
-  delete techRec.techRecord[0].statusCode;
-  const payload = {
-    msUserDetails: {
-      msUser: "dorel",
-      msOid: "1234545"
-    },
-    techRecord: techRec.techRecord
-  };
-  return payload;
-};
