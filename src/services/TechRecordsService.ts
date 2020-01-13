@@ -141,6 +141,7 @@ class TechRecordsService {
     if (!this.validateVrms(techRecord)) {
       return Promise.reject({statusCode: 400, body: "Primary or secondaryVrms are not valid"});
     }
+    techRecord.techRecord[0] = isPayloadValid.value;
     this.setAuditDetailsAndStatusCodeForNewRecord(techRecord.techRecord[0], msUserDetails);
     return this.techRecordsDAO.createSingle(techRecord)
       .then((data: any) => {
