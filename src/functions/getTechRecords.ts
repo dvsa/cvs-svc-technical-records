@@ -7,6 +7,8 @@ import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsService from "../services/TechRecordsService";
 import S3BucketService from "../services/S3BucketService";
 import {metaData} from "../utils/AdrValidation";
+import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import {isValidSearchCriteria} from "../utils/PayloadValidation";
 
 const getTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -23,11 +25,24 @@ const getTechRecords = (event: any) => {
     return Promise.resolve(new HTTPResponse(400, "The search identifier should be between 3 and 21 characters."));
   }
 
+  // TODO Not currently used. Probably should be. isValidSearchCriteria() just returns true to bypass at  the moment.
+  if(!isValidSearchCriteria(searchCriteria)) {
+    return Promise.resolve(new HTTPResponse(400, "The search criteria specified is not valid."));
+  }
+
   return techRecordsService.getTechRecordsList(searchIdentifier, status, searchCriteria)
-    .then((data: ITechRecord[]) => {
-      if (metadata === "true") {
-        Object.assign(data, {metadata: metaData});
+    .then((data: ITechRecordWrapper | ITechRecordWrapper[]) => {
+
+      if(!(data instanceof Array)) {
+        return new HTTPResponse(200, Array.of(data));
       }
+
+      if (metadata === "true") {
+        data.forEach( ( record ) => {
+          Object.assign(record, {metadata: metaData});
+        });
+      }
+
       return new HTTPResponse(200, data);
     })
     .catch((error: any) => {

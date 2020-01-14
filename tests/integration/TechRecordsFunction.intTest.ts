@@ -57,9 +57,10 @@ describe("getTechRecords", () => {
             }
           })
           .expectResolve((result: any) => {
+            const record = JSON.parse(result.body)[0];
             expect(result.statusCode).toEqual(200);
-            expect(JSON.parse(result.body).vin).toEqual("XMGDE02FS0H012345");
-            expect(JSON.parse(result.body)).toHaveProperty("metadata");
+            expect(record.vin).toEqual("XMGDE02FS0H012345");
+            expect(record).toHaveProperty("metadata");
           });
       });
     });
@@ -120,6 +121,7 @@ describe("postTechRecords", () => {
         delete techRecord.techRecord[0].statusCode;
         const payload = {
           vin: techRecord.vin,
+          systemNumber: techRecord.systemNumber,
           primaryVrm: techRecord.primaryVrm,
           msUserDetails,
           techRecord: techRecord.techRecord
@@ -145,6 +147,7 @@ describe("postTechRecords", () => {
 
         const payload = {
           vin: techRecord.vin,
+          systemNumber: techRecord.systemNumber,
           msUserDetails,
           primaryVrm: Math.floor(100000 + Math.random() * 900000).toString(),
           techRecord: techRecord.techRecord
@@ -192,6 +195,7 @@ describe("postTechRecords", () => {
 
         const payload = {
           vin: techRecord.vin,
+          systemNumber: techRecord.systemNumber,
           msUserDetails,
           techRecord: []
         };
@@ -251,6 +255,7 @@ describe("updateTechRecords", () => {
           delete techRecord.techRecord[0].statusCode;
           const payload = {
             msUserDetails,
+            systemNumber: techRecord.systemNumber,
             techRecord: techRecord.techRecord
           };
           const vin = techRecord.vin;
@@ -278,6 +283,7 @@ describe("updateTechRecords", () => {
           delete techRecord.techRecord[0].statusCode;
           const payload = {
             msUserDetails,
+            systemNumber: "NOT A SYSTEM NUMBER",
             techRecord: techRecord.techRecord
           };
           const vin = Date.now().toString();

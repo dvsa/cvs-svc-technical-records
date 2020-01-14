@@ -41,13 +41,13 @@ describe("getTechRecordsList", () => {
       const returnedRecords: any = await techRecordsService.getTechRecordsList("1B7GG36N12S678410", STATUS.CURRENT, SEARCHCRITERIA.ALL);
       expect(returnedRecords).not.toEqual(undefined);
       expect(returnedRecords).not.toEqual({});
-      expect(returnedRecords).toEqual(techRecord);
+      expect(returnedRecords).toEqual(Array.of(techRecord));
     });
   });
 
   context("and the statusCode by which we query is provisional_over_current", () => {
     context("and the result is a techRecord with one provisional entry and one current one", () => {
-      it("should return the provisional entry", async () => {
+      it("should return an array containing the provisional entry", async () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             getBySearchTerm: () => {
@@ -67,12 +67,12 @@ describe("getTechRecordsList", () => {
         expectedResult.techRecord.splice(0, 1);
         expectedResult = techRecordsService.formatTechRecordItemForResponse(expectedResult);
         const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011911", STATUS.PROVISIONAL_OVER_CURRENT, SEARCHCRITERIA.ALL);
-        expect(returnedRecords).toEqual(expectedResult);
+        expect(returnedRecords).toEqual(Array.of(expectedResult));
       });
     });
 
     context("and the result is a techRecord with one archived entry and one current one", () => {
-      it("should return the current entry", async () => {
+      it("should return an array containing the current entry", async () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             getBySearchTerm: () => {
@@ -91,7 +91,7 @@ describe("getTechRecordsList", () => {
         expectedResult.techRecord.splice(1, 1);
         expectedResult = techRecordsService.formatTechRecordItemForResponse(expectedResult);
         const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011933", STATUS.PROVISIONAL_OVER_CURRENT, SEARCHCRITERIA.ALL);
-        expect(returnedRecords).toEqual(expectedResult);
+        expect(returnedRecords).toEqual(Array.of(expectedResult));
       });
     });
   });
@@ -113,9 +113,9 @@ describe("getTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
       const returnedRecords = await techRecordsService.getTechRecordsList("YV31MEC18GA011900", "all", SEARCHCRITERIA.ALL);
-      expect(returnedRecords).not.toEqual(undefined);
-      expect(returnedRecords).not.toEqual({});
-      expect(returnedRecords.techRecord.length).toEqual(10);
+      expect(returnedRecords[0]).not.toEqual(undefined);
+      expect(returnedRecords[0]).not.toEqual({});
+      expect(returnedRecords[0].techRecord.length).toEqual(10);
     });
   });
 
@@ -195,14 +195,17 @@ describe("getTechRecordsList", () => {
     });
   });
 
-  context("when db returns too many results", () => {
-    it("should return 422 - More Than One Match", async () => {
-
+  context("when db returns more than 1 result", () => {
+    it("should return all in an array", async () => {
+      const retVals = [
+        {techRecord: [{statusCode: "Banana"}]},
+        {techRecord: [{statusCode: "Cucumber"}]}
+      ];
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
             return Promise.resolve({
-              Items: undefined,
+              Items: retVals,
               Count: 2,
               ScannedCount: 2
             });
@@ -211,13 +214,9 @@ describe("getTechRecordsList", () => {
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
-      try {
-        expect(await techRecordsService.getTechRecordsList("", "", SEARCHCRITERIA.ALL)).toThrowError();
-      } catch (errorResponse) {
-        expect(errorResponse).toBeInstanceOf(HTTPError);
-        expect(errorResponse.statusCode).toEqual(422);
-        expect(errorResponse.body).toEqual(HTTPRESPONSE.MORE_THAN_ONE_MATCH);
-      }
+      expect.assertions(1);
+      const retVal = await techRecordsService.getTechRecordsList("", "all", SEARCHCRITERIA.ALL);
+      expect(retVal).toEqual(retVals);
     });
   });
 
@@ -241,8 +240,8 @@ describe("getTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithNumber), s3BucketServiceMock);
 
       const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT, SEARCHCRITERIA.ALL);
-      expect(typeof returnedRecords.techRecord[0].euroStandard).toBe("string");
-      expect(returnedRecords.techRecord[0].euroStandard).toBe("0");
+      expect(typeof returnedRecords[0].techRecord[0].euroStandard).toBe("string");
+      expect(returnedRecords[0].techRecord[0].euroStandard).toBe("0");
     });
 
     it("should return euroStandard as a string when the field is already a string", async () => {
@@ -251,8 +250,8 @@ describe("getTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithString), s3BucketServiceMock);
 
       const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT, SEARCHCRITERIA.ALL);
-      expect(typeof returnedRecords.techRecord[0].euroStandard).toBe("string");
-      expect(returnedRecords.techRecord[0].euroStandard).toBe("test");
+      expect(typeof returnedRecords[0].techRecord[0].euroStandard).toBe("string");
+      expect(returnedRecords[0].techRecord[0].euroStandard).toBe("test");
     });
 
     it("should return euroStandard as null if it has been set as null", async () => {
@@ -261,7 +260,7 @@ describe("getTechRecordsList", () => {
       const techRecordsService = new TechRecordsService(new MockDAO(techRecordWithNull), s3BucketServiceMock);
 
       const returnedRecords = await techRecordsService.getTechRecordsList("P012301012938", STATUS.PROVISIONAL_OVER_CURRENT, SEARCHCRITERIA.ALL);
-      expect(returnedRecords.techRecord[0].euroStandard).toBe(null);
+      expect(returnedRecords[0].techRecord[0].euroStandard).toBe(null);
     });
   });
 

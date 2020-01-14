@@ -3,7 +3,8 @@ export enum ERRORS {
     DynamoDBConfigNotDefined = "DynamoDB config is not defined in the config file.",
     LambdaInvokeConfigNotDefined = "Lambda Invoke config is not defined in the config file.",
     EventIsEmpty = "Event is empty",
-    NoBranch = "Please define BRANCH environment variable"
+    NoBranch = "Please define BRANCH environment variable",
+    NO_UNIQUE_RECORD = "Failed to uniquely identify record"
 }
 
 export enum HTTPRESPONSE {
@@ -28,7 +29,8 @@ export enum SEARCHCRITERIA {
     VIN = "vin",
     VRM = "vrm",
     PARTIALVIN = "partialVin",
-    TRAILERID = "trailerId"
+    TRAILERID = "trailerId",
+    SYSTEM_NUMBER = "systemNumber"
 }
 
 export enum UPDATE_TYPE {

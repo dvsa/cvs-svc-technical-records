@@ -14,7 +14,7 @@ const opts = Object.assign({
 
 const feature = loadFeature(path.resolve(__dirname, "../7743.ACs.feature"));
 
-defineFeature(feature, (test) => {
+defineFeature(feature, ( test ) => {
   beforeAll(async () => {
     await emptyDatabase();
   });
@@ -44,7 +44,7 @@ defineFeature(feature, (test) => {
     });
     then("the JSON response returns ALL technical records for that VIN/VRM (ALL STATUSES)", () => {
       expect(response.status).toEqual(200);
-      expect(response.body.techRecord.length).toEqual(mockData[8].techRecord.length);
+      expect(response.body[0].techRecord.length).toEqual(mockData[8].techRecord.length);
     });
     ctx.succeed("done");
     ctx = null;

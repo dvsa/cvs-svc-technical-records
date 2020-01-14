@@ -15,7 +15,7 @@ const opts = Object.assign({
 });
 const feature = loadFeature(path.resolve(__dirname, "../4924.ACs.feature"));
 
-defineFeature(feature, (test) => {
+defineFeature(feature, ( test ) => {
   beforeAll(async () => {
     await emptyDatabase();
   });
@@ -50,7 +50,7 @@ defineFeature(feature, (test) => {
     });
     then("the system returns a body message containing a single CompleteTechRecord", () => {
       expect(expectedResponse).toEqual(response.body);
-      const techRecord: ITechRecord[] = response.body.techRecord;
+      const techRecord: ITechRecord[] = response.body[0].techRecord;
       expect(techRecord[0].adrDetails).toBeTruthy();
     });
     and("the system returns an HTTP status code 200 OK", () => {
@@ -75,26 +75,6 @@ defineFeature(feature, (test) => {
     });
     then("the system returns an HTTP status code 404", () => {
       expect(response.status).toEqual(404);
-    });
-    ctx.succeed("done");
-    ctx = null;
-  });
-
-  test("AC3 Multiple results returned", ({ given, when, then, and }) => {
-    let ctx: any = mockContext(opts);
-
-    let requestUrl: string;
-    let response: any;
-    given("I am an API Consumer", () => {
-      requestUrl = "vehicles/678413/tech-records";
-    });
-    when("I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records", async () => {
-      response = await request.get(requestUrl);
-    });
-    and("multiple results found (more than one CompleteTechRecord object is returned)", () => {
-    });
-    then("the system returns an HTTP status code 422", () => {
-      expect(response.status).toEqual(422);
     });
     ctx.succeed("done");
     ctx = null;

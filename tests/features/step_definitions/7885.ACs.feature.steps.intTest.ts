@@ -3,19 +3,23 @@ import supertest from "supertest";
 import path from "path";
 
 const url = "http://localhost:3005/";
-const request = supertest(url);
+
 import mockData from "../../resources/technical-records.json";
 import {cloneDeep} from "lodash";
 import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 
-const opts = Object.assign({
-  timeout: 1
-});
+const feature = loadFeature(path.resolve(__dirname, "../7885.ACs.feature"));
+
+defineFeature(feature, ( test ) => {
+  const request = supertest(url);
+  const opts = Object.assign({
+    timeout: 1
+  });
 
 const feature = loadFeature(path.resolve(__dirname, "../7885.ACs.feature"));
 
-defineFeature(feature, (test) => {
+defineFeature(feature, test => {
   beforeAll(async () => {
     await emptyDatabase();
   });
@@ -46,7 +50,7 @@ defineFeature(feature, (test) => {
     given("I am a consumer of the vehicles API", () => {
       requestUrlPOST = "vehicles/";
       requestUrlPUT = "vehicles/1B7GG36N12S678410";
-      requestUrlGET = "vechicles/1B7GG36N12S678410/tech-records";
+      requestUrlGET = "vehicles/1B7GG36N12S678410/tech-records";
     });
     when("I call the vehicles API", async () => {
       const postPayload = createPOSTPayload();
@@ -100,6 +104,7 @@ const createPUTPayload = () => {
       msUser: "dorel",
       msOid: "1234545"
     },
+    systemNumber: "10000002",
     techRecord: techRec.techRecord
   };
   return payload;
