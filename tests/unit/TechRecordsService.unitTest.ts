@@ -666,7 +666,6 @@ describe("updateTechRecord", () => {
 
       it("should skip the upload if the user doesn't upload any new files and return the existing uploaded files", async () => {
         const techRecord: any = cloneDeep(records[29]);
-        techRecord.techRecord[0].adrDetails.documents = ["existingFile.pdf"];
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             updateSingle: () => {
@@ -676,7 +675,7 @@ describe("updateTechRecord", () => {
             },
             getBySearchTerm: () => {
               return Promise.resolve({
-                Items: [cloneDeep(records[29])],
+                Items: [techRecord],
                 Count: 1,
                 ScannedCount: 1
               });
@@ -685,6 +684,9 @@ describe("updateTechRecord", () => {
         });
         const S3Mock = jest.fn().mockImplementation(() => {
           return null;
+        });
+        S3Mock.prototype.update = jest.fn().mockImplementation(() => {
+          return Promise.resolve(new HTTPResponse(200, {}));
         });
         const mockDAO = new MockDAO();
         const s3Mock = new S3Mock();
@@ -700,9 +702,8 @@ describe("updateTechRecord", () => {
             }]
         };
         const existingFiles = [{toUpload: false, filename: "existingFile.pdf", base64String: ""}];
-        const response: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, existingFiles);
-        expect(response).toBeDefined();
-        expect(response.techRecord[response.techRecord.length - 1].adrDetails.documents[0]).toEqual("existingFile.pdf");
+        await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, existingFiles);
+        expect(S3Mock.prototype.update).not.toHaveBeenCalled();
       });
     });
   });
