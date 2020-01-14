@@ -45,8 +45,10 @@ Feature: Retrieve (v7) - Update the endpoint to retrieve the technical records
     And no data is found
     Then the system returns an HTTP status code 404
 
-  Scenario: AC4 Multiple results returned
-    Given I am an API Consumer
-    When I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records
-    And multiple results found (more than one CompleteTechRecord object is returned)
-    Then the system returns an HTTP status code 422
+#  Superceded by 10752
+#
+#  Scenario: AC4 Multiple results returned
+#    Given I am an API Consumer
+#    When I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records
+#    And multiple results found (more than one CompleteTechRecord object is returned)
+#    Then the system returns an HTTP status code 422

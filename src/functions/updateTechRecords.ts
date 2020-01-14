@@ -32,6 +32,7 @@ const updateTechRecords = (event: any) => {
 
   const techRecord: ITechRecordWrapper = {
     vin,
+    systemNumber: event.body.systemNumber,
     partialVin: vin.substr(vin.length - 6),
     techRecord: techRec
   };

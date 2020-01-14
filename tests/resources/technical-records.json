@@ -7,6 +7,7 @@
     "vin": "XMGDE02FS0H012345",
     "partialVin": "012345",
     "trailerId": "09876543",
+    "systemNumber": "10000001",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -114,6 +115,7 @@
     ],
     "vin": "1B7GG36N12S678410",
     "partialVin": "678410",
+    "systemNumber": "10000002",
     "techRecord": [
       {
         "createdAt": "2019-01-16T12:24:38.027Z",
@@ -222,6 +224,7 @@
     "vin": "XMGDE02FS0H012461",
     "partialVin": "012461",
     "trailerId": "A456789",
+    "systemNumber": "10000003",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -329,6 +332,7 @@
     ],
     "vin": "1B7GG36N12S021430",
     "partialVin": "021430",
+    "systemNumber": "10000004",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -436,6 +440,7 @@
     ],
     "vin": "1B7GG36N12S678413",
     "partialVin": "678413",
+    "systemNumber": "10000005",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -543,6 +548,7 @@
     ],
     "vin": "YV31MEC18GA678413",
     "partialVin": "678413",
+    "systemNumber": "10000006",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -650,6 +656,7 @@
     ],
     "vin": "XMGDE02FS0H012356",
     "partialVin": "012356",
+    "systemNumber": "10000007",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -774,6 +781,7 @@
     ],
     "vin": "XMGDE02FS0H012432",
     "partialVin": "012432",
+    "systemNumber": "10000008",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -881,6 +889,7 @@
     ],
     "vin": "YV31MEC18GA011900",
     "partialVin": "011900",
+    "systemNumber": "10000009",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -2031,6 +2040,7 @@
     ],
     "vin": "YV31MEC18GA011911",
     "partialVin": "011911",
+    "systemNumber": "10000010",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -2269,6 +2279,7 @@
     ],
     "vin": "YV31MEC18GA011933",
     "partialVin": "011933",
+    "systemNumber": "10000011",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -2507,6 +2518,7 @@
     ],
     "vin": "YV31MEC18GA011944",
     "partialVin": "011944",
+    "systemNumber": "10000012",
     "techRecord": [
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -2742,6 +2754,7 @@
     "vin": "P012301230123",
     "partialVin": "230123",
     "primaryVrm": "CT70VRL",
+    "systemNumber": "10000013",
     "secondaryVrms": [
       "CT96DRG"
     ],
@@ -2852,6 +2865,7 @@
     "vin": "T12341234",
     "partialVin": "341234",
     "trailerId": "C000001",
+    "systemNumber": "10000014",
     "techRecord": [
       {
         "createdAt": "2019-06-24T10:26:54.903Z",
@@ -2970,6 +2984,7 @@
     "vin": "T12341237",
     "partialVin": "341237",
     "trailerId": "C000002",
+    "systemNumber": "10000015",
     "techRecord": [
       {
         "createdAt": "2019-06-24T10:26:54.903Z",
@@ -3066,6 +3081,7 @@
   },
   {
     "partialVin": "768594",
+    "systemNumber": "10000016",
     "techRecord": [
       {
         "brakes": {
@@ -3243,6 +3259,7 @@
   {
     "partialVin": "957486",
     "primaryVrm": "AD35GHT",
+    "systemNumber": "10000017",
     "secondaryVrms": [
       "CT96DRG"
     ],
@@ -3398,6 +3415,7 @@
   {
     "partialVin": "293847",
     "primaryVrm": "CO79ERT",
+    "systemNumber": "10000018",
     "secondaryVrms": [
       "CT96DRG"
     ],
@@ -3537,6 +3555,7 @@
   },
   {
     "partialVin": "111111",
+    "systemNumber": "10000019",
     "techRecord": [
       {
         "brakes": {
@@ -3733,6 +3752,7 @@
   },
   {
     "partialVin": "876765",
+    "systemNumber": "10000020",
     "techRecord": [
       {
         "antilockBrakingSystem": true,
@@ -3891,6 +3911,7 @@
   {
     "partialVin": "012938",
     "primaryVrm": "GH389BH",
+    "systemNumber": "10000021",
     "secondaryVrms": [
       "CT96DRG"
     ],
@@ -4016,6 +4037,7 @@
   {
     "partialVin": "000000",
     "primaryVrm": "AA00AAA",
+    "systemNumber": "10000022",
     "secondaryVrms": [
       "CT96DRG"
     ],
@@ -4216,6 +4238,7 @@
   {
     "partialVin": "098765",
     "primaryVrm": "VM14MDT",
+    "systemNumber": "10000023",
     "secondaryVrms": [
       "TF14PTH"
     ],
@@ -4308,6 +4331,7 @@
     "vin": "T12765432",
     "partialVin": "765432",
     "trailerId": "D000001",
+    "systemNumber": "10000024",
     "techRecord": [
       {
         "createdAt": "2019-06-24T10:26:54.903Z",
@@ -4424,6 +4448,7 @@
     "vin": "T13541234",
     "partialVin": "541234",
     "trailerId": "Q000001",
+    "systemNumber": "10000025",
     "techRecord": [
       {
         "createdAt": "2019-06-24T10:26:54.903Z",
@@ -4515,6 +4540,7 @@
     "vin": "T72741234",
     "partialVin": "741234",
     "trailerId": "C100001",
+    "systemNumber": "10000026",
     "techRecord": [
       {
         "createdAt": "2019-06-24T10:26:54.903Z",
@@ -4633,6 +4659,7 @@
     "vin": "P012301270123",
     "partialVin": "270123",
     "primaryVrm": "CT80VRL",
+    "systemNumber": "10000027",
     "secondaryVrms": [
       "CT56DRG"
     ],
@@ -4742,6 +4769,7 @@
   {
     "partialVin": "270556",
     "primaryVrm": "CT70HHH",
+    "systemNumber": "10000028",
     "secondaryVrms": [
       "CT56HGV"
     ],
@@ -4951,6 +4979,7 @@
   },
   {
     "partialVin": "741999",
+    "systemNumber": "10000029",
     "techRecord": [
       {
         "antilockBrakingSystem": true,
@@ -5180,6 +5209,7 @@
   },
   {
     "partialVin": "777777",
+    "systemNumber": "10000030",
     "techRecord": [
       {
         "antilockBrakingSystem": true,
@@ -5345,6 +5375,7 @@
   },
   {
     "partialVin": "888888",
+    "systemNumber": "10000031",
     "techRecord": [
       {
         "antilockBrakingSystem": true,
@@ -5674,6 +5705,7 @@
     "vin": "P1234567890123",
     "partialVin": "890123",
     "primaryVrm": "YYY3456",
+    "systemNumber": "10000032",
     "secondaryVrms": [
       "CT96DRG"
     ],
@@ -6061,6 +6093,7 @@
   {
     "partialVin": "230000",
     "primaryVrm": "CT70000",
+    "systemNumber": "10000033",
     "secondaryVrms": [
       "CT96000",
       "CT96001",
@@ -6380,6 +6413,7 @@
   {
     "partialVin": "230001",
     "primaryVrm": "CT70001",
+    "systemNumber": "10000034",
     "secondaryVrms": [
       "CT98000"
     ],
@@ -6681,6 +6715,7 @@
   {
     "partialVin": "230002",
     "primaryVrm": "CT70002",
+    "systemNumber": "10000035",
     "secondaryVrms": [
       "CT97001"
     ],
@@ -6796,6 +6831,7 @@
   {
     "partialVin": "111000",
     "primaryVrm": "CT71000",
+    "systemNumber": "10000036",
     "secondaryVrms": [],
     "techRecord": [
       {
@@ -7128,6 +7164,7 @@
   {
     "partialVin": "111001",
     "primaryVrm": "CT71001",
+    "systemNumber": "10000037",
     "secondaryVrms": [],
     "techRecord": [
       {
@@ -7271,6 +7308,7 @@
   {
     "partialVin": "111002",
     "primaryVrm": "CT71002",
+    "systemNumber": "10000038",
     "secondaryVrms": [],
     "techRecord": [
       {
@@ -7385,108 +7423,7 @@
         },
         "vehicleConfiguration": null,
         "vehicleType": "trl"
-  },
-  {
-    "vin": "GYFC26269R240355",
-    "partialVin": "240355",
-    "primaryVrm": "NKPILNCN",
-    "secondaryVrms": null,
-    "techRecord": [{
-      "axles": [{
-          "tyres": {
-            "tyreCode": 6066,
-            "tyreSize": "MEPBXOX49CXC",
-            "plyRating": "WY",
-            "datatraxles": 319,
-            "fitmentCode": "single"
-          },
-          "weights": {
-            "gbWeight": 31432,
-            "designWeight": 23921
-          },
-          "axleNumber": 6,
-          "parkingBrakeMrk": "Y"
-        },
-        {
-          "tyres": {
-            "tyreCode": 6066,
-            "tyreSize": "MEPBXOX49CXC",
-            "plyRating": "WY",
-            "datatraxles": 319,
-            "fitmentCode": "single",
-            "speedCategorySymbol": "43 mph"
-          },
-          "weights": {
-            "gbWeight": 31432,
-            "designWeight": 23921
-          },
-          "axleNumber": 5,
-          "parkingBrakeMrk": "Y"
-        },
-        {
-          "tyres": {
-            "tyreCode": 6066,
-            "tyreSize": "MEPBXOX49CXC",
-            "plyRating": "WY",
-            "datatraxles": 319,
-            "fitmentCode": "single"
-          },
-          "weights": {
-            "gbWeight": 31432,
-            "designWeight": 23921
-          },
-          "axleNumber": 4,
-          "parkingBrakeMrk": "Y"
-        }
-      ],
-      "brakes": {
-        "dtpNumber": "dtpn"
-      },
-      "bodyType": {
-        "code": "D",
-        "description": "double decker"
-      },
-      "regnDate": "2017-08-27 00:00:00.000000",
-      "createdAt": "2019-03-11T14:33:27.000000Z",
-      "noOfAxles": 3,
-      "ntaNumber": "DASVZKFBYMFCBTELBBWHCOXXWBHUNV3711183985",
-      "statusCode": "confirmed",
-      "make": "OTXD TDPM GRSE",
-      "functionCode": "HBUL DOST PREJ",
-      "vehicleType": "hgv",
-      "model": "CHEF VHYZ RFFZ",
-      "vehicleClass": {
-        "code": "N",
-        "description": "not applicable"
-      },
-      "grossGbWeight": 57151,
-      "lastUpdatedAt": "2019-03-11T14:33:27.000000Z",
-      "tachoExemptMrk": "N",
-      "conversionRefNo": "HGRNJQ55UU",
-      "manufactureYear": 2014,
-      "speedLimiterMrk": "Y",
-      "grossDesignWeight": 98204,
-      "trainGbWeight": 20356,
-      "trainDesignWeight": 40568,
-      "maxTrainGbWeight": 34789,
-      "maxTrainDesignWeight": 65789,
-      "tyreUseCode": "used",
-      "roadFriendly": "N",
-      "euroStandard": 4,
-      "dimensions": {
-        "length": 300,
-        "width": 300
-      },
-      "frontAxleTo5thWheelMin": 20,
-      "frontAxleTo5thWheelMax": 30,
-      "frontVehicleTo5thWheelCouplingMin": 30,
-      "frontVehicleTo5thWheelCouplingMax": 20,
-      "drawbarCouplingFitted": "N",
-      "notes": "note",
-      "reasonForCreation": "XYUDXG",
-      "vehicleConfiguration": "rigid"
-    }]
-  }
+      }
     ],
     "trailerId": "C456789",
     "vin": "T12111002"
@@ -7495,6 +7432,7 @@
     "partialVin": "777775",
     "trailerId": "C777775",
     "vin": "ABCDEFGH777775",
+    "systemNumber": "10000039",
     "techRecord": [
       {
         "adrDetails": {
@@ -7677,6 +7615,7 @@
     "partialVin": "777776",
     "trailerId": "C777776",
     "vin": "ABCDEFGH777776",
+    "systemNumber": "10000040",
     "techRecord": [
       {
         "adrDetails": {
@@ -7848,6 +7787,7 @@
     "partialVin": "777778",
     "trailerId": "C777778",
     "vin": "ABCDEFGH777778",
+    "systemNumber": "1000041",
     "techRecord": [
       {
         "adrDetails": {
@@ -8037,6 +7977,7 @@
     "partialVin": "777779",
     "trailerId": "C777779",
     "vin": "ABCDEFGH777779",
+    "systemNumber": "1000042",
     "techRecord": [
       {
         "adrDetails": {
@@ -8224,6 +8165,7 @@
   },
   {
     "partialVin": "999999",
+    "systemNumber": "1000043",
     "techRecord": [
       {
         "antilockBrakingSystem": true,
@@ -8393,6 +8335,7 @@
   {
     "partialVin": "222203",
     "primaryVrm": "X2TRX",
+    "systemNumber": "1000044",
     "secondaryVrms": [],
     "techRecord": [
       {
@@ -8725,6 +8668,7 @@
   {
     "partialVin": "22021979",
     "primaryVrm": "B99XFX",
+    "systemNumber": "1000045",
     "secondaryVrms": [
       "B999XFX"
     ],
@@ -8840,6 +8784,7 @@
   {
     "partialVin": "091180",
     "primaryVrm": "LONGESTVRM",
+    "systemNumber": "1000046",
     "secondaryVrms": [
       "SHORT"
     ],

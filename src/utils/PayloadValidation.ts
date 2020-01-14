@@ -1,5 +1,6 @@
 import * as Joi from "@hapi/joi";
 import {adrValidation} from "./AdrValidation";
+import {SEARCHCRITERIA} from "../assets/Enums";
 
 const techRecordValidation = Joi.object().keys({
   reasonForCreation: Joi.string().max(60).required(),
@@ -25,4 +26,10 @@ export const validatePayload = (payload: any) => {
     };
   }
   return techRecordValidation.validate(payload, {context: {isTankOrBattery, isBattery}});
+};
+
+export const isValidSearchCriteria = (specifiedCriteria: string): boolean => {
+  const vals: string[] = Object.values(SEARCHCRITERIA);
+  // return vals.includes(specifiedCriteria); //TODO reinstate for proper input validation
+  return true;
 };

@@ -13,8 +13,10 @@ Feature: Iteration on technical records API specs to cover ADR details
     And no data is found
     Then the system returns an HTTP status code 404
 
-  Scenario: AC3 Multiple results returned
-    Given I am an API Consumer
-    When I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records
-    And multiple results found (more than one CompleteTechRecord object is returned)
-    Then the system returns an HTTP status code 422
+#  Made redundant by 10752
+#
+#  Scenario: AC3 Multiple results returned
+#    Given I am an API Consumer
+#    When I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records
+#    And multiple results found (more than one CompleteTechRecord object is returned)
+#    Then the system returns an HTTP status code 422

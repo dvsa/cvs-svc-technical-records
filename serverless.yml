@@ -175,12 +175,14 @@ resources:
           AttributeType: S
         - AttributeName: vin
           AttributeType: S
+        - AttributeName: systemNumber
+          AttributeType: S
         - AttributeName: primaryVrm
           AttributeType: S
         - AttributeName: trailerId
           AttributeType: S
         KeySchema:
-        - AttributeName: partialVin
+        - AttributeName: systemNumber
           KeyType: HASH
         - AttributeName: vin
           KeyType: RANGE
@@ -193,6 +195,7 @@ resources:
               NonKeyAttributes:
                 - primaryVrm
                 - secondaryVrms
+                - systemNumber
                 - vin
                 - techRecord
                 - trailerId
@@ -208,6 +211,58 @@ resources:
               NonKeyAttributes:
                 - primaryVrm
                 - secondaryVrms
+                - systemNumber
+                - vin
+                - techRecord
+                - trailerId
+              ProjectionType: INCLUDE
+            ProvisionedThroughput:
+              ReadCapacityUnits: '1'
+              WriteCapacityUnits: '1'
+          - IndexName: VinIndex
+            KeySchema:
+              - AttributeName: vin
+                KeyType: HASH
+            Projection:
+              NonKeyAttributes:
+                - partialVin
+                - primaryVrm
+                - secondaryVrms
+                - systemNumber
+                - vin
+                - techRecord
+                - trailerId
+              ProjectionType: INCLUDE
+            ProvisionedThroughput:
+              ReadCapacityUnits: '1'
+              WriteCapacityUnits: '1'
+          - IndexName: PartialVinIndex
+            KeySchema:
+              - AttributeName: partialVin
+                KeyType: HASH
+            Projection:
+              NonKeyAttributes:
+                - primaryVrm
+                - secondaryVrms
+                - systemNumber
+                - vin
+                - partialVin
+                - techRecord
+                - trailerId
+              ProjectionType: INCLUDE
+            ProvisionedThroughput:
+              ReadCapacityUnits: '1'
+              WriteCapacityUnits: '1'
+          - IndexName: SysNumIndex
+            KeySchema:
+              - AttributeName: systemNumber
+                KeyType: HASH
+            Projection:
+              NonKeyAttributes:
+                - partialVin
+                - primaryVrm
+                - secondaryVrms
+                - systemNumber
                 - vin
                 - techRecord
                 - trailerId

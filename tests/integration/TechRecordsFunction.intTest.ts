@@ -52,9 +52,10 @@ describe("getTechRecords", () => {
             }
           })
           .expectResolve((result: any) => {
+            const record = JSON.parse(result.body)[0];
             expect(result.statusCode).toEqual(200);
-            expect(JSON.parse(result.body).vin).toEqual("XMGDE02FS0H012345");
-            expect(JSON.parse(result.body)).toHaveProperty("metadata");
+            expect(record.vin).toEqual("XMGDE02FS0H012345");
+            expect(record).toHaveProperty("metadata");
           });
       });
     });
@@ -213,6 +214,7 @@ describe("updateTechRecords", () => {
           const techRecord: any = cloneDeep(records[29]);
           const payload = {
             msUserDetails,
+            systemNumber: techRecord.systemNumber,
             techRecord: [{
               reasonForCreation: techRecord.techRecord[0].reasonForCreation,
               adrDetails: techRecord.techRecord[0].adrDetails
@@ -242,6 +244,7 @@ describe("updateTechRecords", () => {
           const techRecord: any = cloneDeep(records[29]);
           const payload = {
             msUserDetails,
+            systemNumber: "NOT A SYSTEM NUMBER",
             techRecord: [{
               reasonForCreation: techRecord.techRecord[0].reasonForCreation,
               adrDetails: techRecord.techRecord[0].adrDetails

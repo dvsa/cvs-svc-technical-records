@@ -74,12 +74,12 @@ describe("techRecords", () => {
 
       context("and the vehicle has more than one tech record", () => {
         it("should return all tech records for that VRM", async () => {
-          const res = await request.get("vehicles/C47WLL/tech-records?status=all");
+          const res: supertest.Response = await request.get("vehicles/C47WLL/tech-records?status=all");
           expect(res.status).toEqual(200);
           expect(res.header["access-control-allow-origin"]).toEqual("*");
           expect(res.header["access-control-allow-credentials"]).toEqual("true");
           expect(convertToResponse(mockData[8])).toEqual(res.body);
-          expect(res.body.techRecord.length).toEqual(mockData[8].techRecord.length);
+          expect(res.body[0].techRecord.length).toEqual(mockData[8].techRecord.length);
         });
       });
     });
@@ -136,17 +136,17 @@ describe("techRecords", () => {
           expect(res.header["access-control-allow-origin"]).toEqual("*");
           expect(res.header["access-control-allow-credentials"]).toEqual("true");
           expect(convertToResponse(mockData[8])).toEqual(res.body);
-          expect(res.body.techRecord.length).toEqual(mockData[8].techRecord.length);
+          expect(res.body[0].techRecord.length).toEqual(mockData[8].techRecord.length);
         });
       });
 
       context("and the partial VIN provided returns more than one match", () => {
-        it("should return 422", async () => {
+        it("should return an array of all matches", async () => {
           const res = await request.get("vehicles/678413/tech-records");
-          expect(res.status).toEqual(422);
+          expect(res.status).toEqual(200);
           expect(res.header["access-control-allow-origin"]).toEqual("*");
           expect(res.header["access-control-allow-credentials"]).toEqual("true");
-          expect(res.body).toEqual("The provided partial VIN returned more than one match.");
+          expect(res.body).toHaveLength(2);
         });
       });
     });
@@ -203,7 +203,7 @@ describe("techRecords", () => {
           expect(res.header["access-control-allow-origin"]).toEqual("*");
           expect(res.header["access-control-allow-credentials"]).toEqual("true");
           expect(convertToResponse(mockData[8])).toEqual(res.body);
-          expect(res.body.techRecord.length).toEqual(mockData[8].techRecord.length);
+          expect(res.body[0].techRecord.length).toEqual(mockData[8].techRecord.length);
         });
       });
     });
@@ -260,7 +260,7 @@ describe("techRecords", () => {
           expect(res.header["access-control-allow-origin"]).toEqual("*");
           expect(res.header["access-control-allow-credentials"]).toEqual("true");
           expect(convertToResponse(mockData[0])).toEqual(res.body);
-          expect(res.body.techRecord.length).toEqual(mockData[0].techRecord.length);
+          expect(res.body[0].techRecord.length).toEqual(mockData[0].techRecord.length);
         });
       });
     });
@@ -363,6 +363,7 @@ describe("techRecords", () => {
               const techRec: ITechRecordWrapper = cloneDeep(mockData[30]);
               const payload = {
                 msUserDetails,
+                systemNumber: techRec.systemNumber,
                 techRecord: [{
                   reasonForCreation: techRec.techRecord[0].reasonForCreation,
                   adrDetails: techRec.techRecord[0].adrDetails
@@ -372,6 +373,7 @@ describe("techRecords", () => {
               expect(res.status).toEqual(200);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
+              expect(res.body.techRecord).toHaveLength(techRec.techRecord.length + 1);
               expect(res.body.techRecord[techRec.techRecord.length].statusCode).toEqual("current");
               expect(res.body.techRecord[techRec.techRecord.length - 2].statusCode).toEqual("archived");
             });
@@ -385,6 +387,7 @@ describe("techRecords", () => {
               techRec.partialVin = techRec.vin.substr(techRec.vin.length - 6);
               const payload = {
                 msUserDetails,
+                systemNumber: "NOT A VALID SYSTEM NUMBER",
                 techRecord: [{
                   reasonForCreation: techRec.techRecord[0].reasonForCreation,
                   adrDetails: techRec.techRecord[0].adrDetails

@@ -1,6 +1,6 @@
-import {defineFeature, loadFeature} from 'jest-cucumber';
+import {defineFeature, loadFeature} from "jest-cucumber";
 import supertest from "supertest";
-import path from 'path';
+import path from "path";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -8,12 +8,14 @@ import {convertTo7051Response, emptyDatabase, populateDatabase} from "../../util
 import mockData from "../../resources/technical-records.json";
 import * as _ from "lodash";
 import mockContext from "aws-lambda-mock-context";
+import ITechRecord from "../../../@Types/ITechRecord";
+import ITechRecordWrapper from "../../../@Types/ITechRecordWrapper";
 const opts = Object.assign({
   timeout: 1
 });
 const feature = loadFeature(path.resolve(__dirname, "../7051.ACs.feature"));
 
-defineFeature(feature, test => {
+defineFeature(feature, ( test ) => {
   beforeAll(async () => {
     await emptyDatabase();
   });
@@ -30,17 +32,17 @@ defineFeature(feature, test => {
     await populateDatabase();
   });
 
-  test('AC1.1 API Consumer retrieve the Vehicle Technical Records for - ' +
+  test("AC1.1 API Consumer retrieve the Vehicle Technical Records for - " +
     'query parameter "status" not provided & vehicle has both "current" and "provisional" technical records', ({given, when, then, and}) => {
     let ctx: any = mockContext(opts);
 
     let requestUrl: string;
     let response: any;
     let expectedResponse: any;
-    given('I am an API Consumer', () => {
-      requestUrl = 'vehicles/YV31MEC18GA011911/tech-records';
+    given("I am an API Consumer", () => {
+      requestUrl = "vehicles/YV31MEC18GA011911/tech-records";
     });
-    when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records', async () => {
+    when("I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records", async () => {
       response = await request.get(requestUrl);
     });
     and('for the identified vehicle in the database there is a Technical Record with the "statusCode" = "current"', () => {
@@ -54,31 +56,31 @@ defineFeature(feature, test => {
     then('for the query parameter "status", the default value "provisional_over_current" will be taken into account', () => {
       expectedResponse = convertTo7051Response(_.cloneDeep(mockData[9]), 1);
     });
-    and('the system returns a body message containing a single CompleteTechRecord', () => {
+    and("the system returns a body message containing a single CompleteTechRecord", () => {
       expect(expectedResponse).toEqual(response.body);
     });
     and('the statusCode of the Technical Records "provisional"', () => {
       const isStatusPresent = isStatusCodePresent(response.body, "provisional");
       expect(isStatusPresent).toBe(true);
     });
-    and('the system returns an HTTP status code 200 OK', () => {
+    and("the system returns an HTTP status code 200 OK", () => {
       expect(response.status).toEqual(200);
     });
-    ctx.succeed('done');
+    ctx.succeed("done");
     ctx = null;
   });
 
-  test('AC1.2 API Consumer retrieve the Vehicle Technical Records for - ' +
+  test("AC1.2 API Consumer retrieve the Vehicle Technical Records for - " +
     'query parameter "status" not provided & vehicle has only one "current" OR "provisional" technical record', ({given, when, then, and}) => {
     let ctx: any = mockContext(opts);
 
     let requestUrl: string;
     let response: any;
     let expectedResponse: any;
-    given('I am an API Consumer', () => {
-      requestUrl = 'vehicles/021430/tech-records';
+    given("I am an API Consumer", () => {
+      requestUrl = "vehicles/021430/tech-records";
     });
-    when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records', async () => {
+    when("I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records", async () => {
       response = await request.get(requestUrl);
     });
     and('the query parameter "status" is not provided', () => {
@@ -92,7 +94,7 @@ defineFeature(feature, test => {
     then('for the query parameter "status", the default value "provisional_over_current" will be taken into account', () => {
       expectedResponse = convertTo7051Response(_.cloneDeep(mockData[3]), 0);
     });
-    and('the system returns a body message containing a single CompleteTechRecord', () => {
+    and("the system returns a body message containing a single CompleteTechRecord", () => {
       expect(expectedResponse).toEqual(response.body);
     });
     and('the specific Technical Record found in database is returned - "current" or "provisional" as it is in the database', () => {
@@ -100,24 +102,24 @@ defineFeature(feature, test => {
       const isCurrent = isStatusCodePresent(response.body, "current");
       expect((isProvisional || isCurrent)).toBe(true);
     });
-    and('the system returns an HTTP status code 200 OK', () => {
+    and("the system returns an HTTP status code 200 OK", () => {
       expect(response.status).toEqual(200);
     });
-    ctx.succeed('done');
+    ctx.succeed("done");
     ctx = null;
   });
 
-  test('AC2.1 API Consumer retrieve the Vehicle Technical Records for - ' +
+  test("AC2.1 API Consumer retrieve the Vehicle Technical Records for - " +
     'query parameter "status" is "provisional_over_current" & vehicle has both "current" and "provisional" technical records', ({given, when, then, and}) => {
     let ctx: any = mockContext(opts);
 
     let requestUrl: string;
     let response: any;
     let expectedResponse: any;
-    given('I am an API Consumer', () => {
-      requestUrl = 'vehicles/CT70HHH/tech-records?';
+    given("I am an API Consumer", () => {
+      requestUrl = "vehicles/CT70HHH/tech-records?";
     });
-    when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records?status=provisional_over_current', async () => {
+    when("I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records?status=provisional_over_current", async () => {
       const status = "status=provisional_over_current";
       requestUrl += status;
       response = await request.get(requestUrl);
@@ -132,7 +134,7 @@ defineFeature(feature, test => {
       const isProvisional = isStatusCodePresent(mockData[27], "provisional");
       expect(isProvisional).toBe(true);
     });
-    then('the system returns a body message containing a single CompleteTechRecord', () => {
+    then("the system returns a body message containing a single CompleteTechRecord", () => {
       expectedResponse = convertTo7051Response(_.cloneDeep(mockData[27]), 0);
       expect(expectedResponse).toEqual(response.body);
     });
@@ -140,24 +142,24 @@ defineFeature(feature, test => {
       const isProvisional = isStatusCodePresent(response.body, "provisional");
       expect(isProvisional).toBe(true);
     });
-    and('the system returns an HTTP status code 200 OK', () => {
+    and("the system returns an HTTP status code 200 OK", () => {
       expect(response.status).toEqual(200);
     });
-    ctx.succeed('done');
+    ctx.succeed("done");
     ctx = null;
   });
 
-  test('AC2.2 API Consumer retrieve the Vehicle Technical Records for - ' +
+  test("AC2.2 API Consumer retrieve the Vehicle Technical Records for - " +
     'query parameter "status" is "provisional_over_current" & vehicle has only one "current" OR "provisional" technical record', ({given, when, then, and}) => {
     let ctx: any = mockContext(opts);
 
     let requestUrl: string;
     let response: any;
     let expectedResponse: any;
-    given('I am an API Consumer', () => {
-      requestUrl = 'vehicles/T72741234/tech-records?';
+    given("I am an API Consumer", () => {
+      requestUrl = "vehicles/T72741234/tech-records?";
     });
-    when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records?status=provisional_over_current', async () => {
+    when("I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records?status=provisional_over_current", async () => {
       const status = "status=provisional_over_current";
       requestUrl += status;
       response = await request.get(requestUrl);
@@ -170,7 +172,7 @@ defineFeature(feature, test => {
       expect((isProvisional || isCurrent)).toBe(true);
       expect((isProvisional && isCurrent)).toBe(false);
     });
-    then('the system returns a body message containing a single CompleteTechRecord', () => {
+    then("the system returns a body message containing a single CompleteTechRecord", () => {
       expectedResponse = convertTo7051Response(_.cloneDeep(mockData[25]), 0);
       expect(expectedResponse).toEqual(response.body);
     });
@@ -179,56 +181,61 @@ defineFeature(feature, test => {
       const isCurrent = isStatusCodePresent(response.body, "current");
       expect((isProvisional || isCurrent)).toBe(true);
     });
-    and('the system returns an HTTP status code 200 OK', () => {
+    and("the system returns an HTTP status code 200 OK", () => {
       expect(response.status).toEqual(200);
     });
-    ctx.succeed('done');
+    ctx.succeed("done");
     ctx = null;
   });
 
-  test('AC3 No data returned', ({given, when, then, and}) => {
+  test("AC3 No data returned", ({given, when, then, and}) => {
     let ctx: any = mockContext(opts);
 
     let requestUrl: string;
     let response: any;
-    given('I am an API Consumer', () => {
-      requestUrl = 'vehicles/T72745555/tech-records?status=provisional_over_current';
+    given("I am an API Consumer", () => {
+      requestUrl = "vehicles/T72745555/tech-records?status=provisional_over_current";
     });
-    when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records', async () => {
+    when("I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records", async () => {
       response = await request.get(requestUrl);
     });
-    and('no data is found', () => {
-    });
-    then('the system returns an HTTP status code 404', () => {
+    and("no data is found", () => { return; });
+    then("the system returns an HTTP status code 404", () => {
       expect(response.status).toEqual(404);
     });
-    ctx.succeed('done');
+    ctx.succeed("done");
     ctx = null;
   });
 
-  test('AC4 Multiple results returned', ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
-    let requestUrl: string;
-    let response: any;
-    given('I am an API Consumer', () => {
-      requestUrl = 'vehicles/678413/tech-records';
-    });
-    when('I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records', async () => {
-      response = await request.get(requestUrl);
-    });
-    and('multiple results found (more than one CompleteTechRecord object is returned)', () => {
-    });
-    then('the system returns an HTTP status code 422', () => {
-      expect(response.status).toEqual(422);
-    });
-    ctx.succeed('done');
-    ctx = null;
-  });
+  // test("AC4 Multiple results returned", ({given, when, then, and}) => {
+  //   let ctx: any = mockContext(opts);
+  //
+  //   let requestUrl: string;
+  //   let response: any;
+  //   const partialVin = "678413";
+  //   given("I am an API Consumer", () => {
+  //     requestUrl = "vehicles/" + partialVin + "/tech-records";
+  //   });
+  //   when("I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records", async () => {
+  //     response = await request.get(requestUrl);
+  //   });
+  //   and("multiple results found (more than one CompleteTechRecord object is returned)", () => {
+  //     expect(mockData.filter(( entry ) => entry.partialVin === partialVin ).length > 1).toBeTruthy();
+  //   });
+  //   then("the system returns an HTTP status code 422", () => {
+  //     expect(response.status).toEqual(422);
+  //   });
+  //   ctx.succeed("done");
+  //   ctx = null;
+  // });
 });
 
 const isStatusCodePresent = (completeTechRecord: any, status: string) => {
+  // tslint:disable-next-line:no-shadowed-variable
   let isStatusCodePresent = false;
+  if(completeTechRecord instanceof Array) {
+    completeTechRecord = completeTechRecord[0];
+  }
   completeTechRecord.techRecord.forEach((record: any) => {
     if (record.statusCode === status) {
       isStatusCodePresent = true;

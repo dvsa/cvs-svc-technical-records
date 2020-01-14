@@ -63,6 +63,7 @@ describe("TechRecords", () => {
     delete techRecord.vin;
     const payload = {
       msUserDetails,
+      systemNumber: techRecord.systemNumber,
       techRecord: [{
         reasonForCreation: techRecord.techRecord[0].reasonForCreation,
         adrDetails: techRecord.techRecord[0].adrDetails
