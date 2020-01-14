@@ -3,7 +3,7 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
 import {ManagedUpload, Metadata} from "aws-sdk/clients/s3";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
+import {ERRORS, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
 import * as _ from "lodash";
 import * as uuid from "uuid";
 import {
@@ -30,25 +30,21 @@ class TechRecordsService {
     this.s3BucketService = s3BucketService;
   }
 
-  public getTechRecordsList(searchTerm: string, status: string, searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL) {
+  public getTechRecordsList(searchTerm: string, status: string, searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL): Promise<ITechRecordWrapper[]> {
     return this.techRecordsDAO.getBySearchTerm(searchTerm, searchCriteria)
       .then((data: any) => {
         if (data.Count === 0) {
           throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
         }
 
-        if (data.Count > 1) {
-          throw new HTTPError(422, HTTPRESPONSE.MORE_THAN_ONE_MATCH);
-        }
-
         // Formatting the object for lambda function
-        let techRecordItem = data.Items[0];
+        let techRecordItems: ITechRecordWrapper[] = data.Items;
         if (status !== STATUS.ALL) {
-          techRecordItem = this.filterTechRecordsByStatus(techRecordItem, status);
+          techRecordItems = this.filterTechRecordsByStatus(techRecordItems, status);
         }
-        techRecordItem = this.formatTechRecordItemForResponse(techRecordItem);
+        techRecordItems = this.formatTechRecordItemsForResponse(techRecordItems);
 
-        return techRecordItem;
+        return techRecordItems;
       })
       .catch((error: any) => {
         if (!(error instanceof HTTPError)) {
@@ -60,8 +56,19 @@ class TechRecordsService {
       });
   }
 
-  private filterTechRecordsByStatus(techRecordItem: ITechRecordWrapper, status: string) {
-    const originalTechRecordItem = JSON.parse(JSON.stringify(techRecordItem));
+  private filterTechRecordsByStatus(techRecordItems: ITechRecordWrapper[], status: string): ITechRecordWrapper[] {
+    const recordsToReturn = [];
+    for(let techRecordItem of techRecordItems) {
+      techRecordItem = this.filterTechRecordsForIndividualVehicleByStatus(techRecordItem, status);
+      if(techRecordItem.techRecord.length > 0) {
+        recordsToReturn.push(techRecordItem);
+      }
+    }
+    return recordsToReturn;
+  }
+
+  private filterTechRecordsForIndividualVehicleByStatus(techRecordItem: ITechRecordWrapper, status: string): ITechRecordWrapper {
+    const originalTechRecordItem = _.cloneDeep(techRecordItem);
     let provisionalOverCurrent = false;
     if (status === STATUS.PROVISIONAL_OVER_CURRENT) {
       provisionalOverCurrent = true;
@@ -81,7 +88,7 @@ class TechRecordsService {
     }
 
     if (provisionalOverCurrent && ((length === techRecordItem.techRecord.length) || (0 === techRecordItem.techRecord.length))) {
-      techRecordItem = this.filterTechRecordsByStatus(originalTechRecordItem, STATUS.CURRENT);
+      techRecordItem = this.filterTechRecordsForIndividualVehicleByStatus(originalTechRecordItem, STATUS.CURRENT);
     }
 
     if (techRecordItem.techRecord.length <= 0) {
@@ -89,6 +96,15 @@ class TechRecordsService {
     }
 
     return techRecordItem;
+  }
+
+  public formatTechRecordItemsForResponse(techRecordItems: ITechRecordWrapper[]) {
+    const recordsToReturn = [];
+    for(let techRecordItem of techRecordItems) {
+      techRecordItem = this.formatTechRecordItemForResponse(techRecordItem);
+      recordsToReturn.push(techRecordItem);
+    }
+    return recordsToReturn;
   }
 
   public formatTechRecordItemForResponse(techRecordItem: ITechRecordWrapper) {
@@ -230,7 +246,13 @@ class TechRecordsService {
     techRecord.techRecord[0] = isPayloadValid.value;
     return this.getTechRecordsList(techRecord.vin, STATUS.ALL, SEARCHCRITERIA.ALL)
       .then((data: ITechRecordWrapper) => {
-        const oldTechRec = this.getTechRecordToArchive(data);
+        if(data.length !== 1) {
+          // systemNumber search should return a unique record
+          throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
+        }
+        const uniqueRecord = data[0];
+        const oldTechRec = this.getTechRecordToArchive(uniqueRecord);
+        oldTechRec.statusCode = STATUS.ARCHIVED;
         const newRecord: any = _.cloneDeep(oldTechRec);
         oldTechRec.statusCode = STATUS.ARCHIVED;
         _.mergeWith(newRecord, techRecord.techRecord[0], this.arrayCustomizer);
@@ -248,8 +270,8 @@ class TechRecordsService {
         }
         this.setAuditDetails(newRecord, oldTechRec, msUserDetails);
         populateFields(newRecord);
-        data.techRecord.push(newRecord);
-        return data;
+        uniqueRecord.techRecord.push(newRecord);
+        return uniqueRecord;
       })
       .catch((error: any) => {
         throw new HTTPError(error.statusCode, error.body);
@@ -353,14 +375,19 @@ class TechRecordsService {
   }
 
   public async updateTechRecordStatusCode(vin: string, newStatus: STATUS = STATUS.CURRENT) {
-    const techRecordWrapper: ITechRecordWrapper = await this.getTechRecordsList(vin, STATUS.ALL);
-    const provisionalTechRecords = techRecordWrapper.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.PROVISIONAL);
+    const techRecordWrapper: ITechRecordWrapper[] = await this.getTechRecordsList(vin, STATUS.ALL);
+    if(techRecordWrapper.length !== 1) {
+      // systemNumber search should return a single record
+      throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
+    }
+    const uniqueRecord = techRecordWrapper[0];
+    const provisionalTechRecords = uniqueRecord.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.PROVISIONAL);
     if (provisionalTechRecords.length === 1) {
       provisionalTechRecords[0].statusCode = STATUS.ARCHIVED;
-      techRecordWrapper.techRecord.push({...techRecordWrapper.techRecord[0], statusCode: newStatus});
+      uniqueRecord.techRecord.push({...uniqueRecord.techRecord[0], statusCode: newStatus});
       let updatedTechRecord;
       try {
-        updatedTechRecord = await this.techRecordsDAO.updateSingle(techRecordWrapper);
+        updatedTechRecord = await this.techRecordsDAO.updateSingle(uniqueRecord);
       } catch (error) {
         throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
       }

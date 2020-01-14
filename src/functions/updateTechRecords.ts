@@ -30,8 +30,9 @@ const updateTechRecords = (event: any) => {
     return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
   }
 
-  const techRecord: {vin: string, techRecord: ITechRecord[]} = {
+  const techRecord: ITechRecordWrapper = {
     vin,
+    systemNumber: event.body.systemNumber,
     techRecord: techRec
   };
   return techRecordsService.updateTechRecord(techRecord, msUserDetails, filesToUpload)

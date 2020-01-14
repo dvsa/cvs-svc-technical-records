@@ -4,7 +4,6 @@ import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
 import QueryInput = DocumentClient.QueryInput;
 import {SEARCHCRITERIA} from "../assets/Enums";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
-import {populatePartialVin} from "../utils/PayloadValidation";
 
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
@@ -28,34 +27,44 @@ class TechRecordsDAO {
   public getBySearchTerm(searchTerm: string, searchCriteria: ISearchCriteria) {
     const query: QueryInput = {
       TableName: this.tableName,
+      IndexName: "",
       KeyConditionExpression: "",
       ExpressionAttributeNames: {},
       ExpressionAttributeValues: {}
     };
 
-    if (isVinSearch(searchTerm, searchCriteria)) { // Query for a full VIN
-      // The partial VIN is a primary index, and is always required
+    if (isSysNumSearch(searchCriteria)) { // Query for a full VIN
       Object.assign(query.ExpressionAttributeValues, {
-        ":vin": searchTerm,
-        ":partialVin": searchTerm.substring(searchTerm.length - 6)
+        ":systemNumber": searchTerm
       });
 
       Object.assign(query.ExpressionAttributeNames, {
-        "#vin": "vin",
-        "#partialVin": "partialVin"
+        "#systemNumber": "systemNumber"
       });
 
-      // And create the query
-      query.KeyConditionExpression = "#partialVin = :partialVin AND #vin = :vin";
-    } else if (isTrailerSearch(searchTerm, searchCriteria)) { // Query for a Trailer ID
-      Object.assign(query, { IndexName: "TrailerIdIndex" });
+      query.IndexName = "SysNumIndex";
+      query.KeyConditionExpression = "#systemNumber = :systemNumber";
+    } else if (isVinSearch(searchTerm, searchCriteria)) { // Query for a full VIN
+      Object.assign(query, { IndexName: "VinIndex" });
+      Object.assign(query.ExpressionAttributeValues, {
+        ":vin": searchTerm
+      });
 
+      Object.assign(query.ExpressionAttributeNames, {
+        "#vin": "vin"
+      });
+
+      query.IndexName = "VinIndex";
+      query.KeyConditionExpression = "#vin = :vin";
+    } else if (isTrailerSearch(searchTerm, searchCriteria)) { // Query for a Trailer ID
       Object.assign(query.ExpressionAttributeValues, {
         ":trailerId": searchTerm
       });
       Object.assign(query.ExpressionAttributeNames, {
         "#trailerId": "trailerId"
       });
+
+      query.IndexName = "TrailerIdIndex";
       query.KeyConditionExpression = "#trailerId = :trailerId";
     } else if (isPartialVinSearch(searchTerm, searchCriteria)) { // Query for a partial VIN
       Object.assign(query.ExpressionAttributeValues, {
@@ -65,11 +74,10 @@ class TechRecordsDAO {
       Object.assign(query.ExpressionAttributeNames, {
         "#partialVin": "partialVin"
       });
+
+      query.IndexName = "PartialVinIndex";
       query.KeyConditionExpression = "#partialVin = :partialVin";
     } else if (isVrmSearch(searchTerm, searchCriteria)) { // Query for a VRM
-      // If we are queried a VRM, we need to specify we are using the VRM index
-      Object.assign(query, { IndexName: "VRMIndex" });
-
       Object.assign(query.ExpressionAttributeValues, {
         ":vrm": searchTerm
       });
@@ -78,6 +86,7 @@ class TechRecordsDAO {
         "#vrm": "primaryVrm"
       });
 
+      query.IndexName = "VRMIndex";
       query.KeyConditionExpression = "#vrm = :vrm";
     }
     return dbClient.query(query).promise();
@@ -87,31 +96,31 @@ class TechRecordsDAO {
     const query = {
       TableName: this.tableName,
       Item: techRecord,
-      ConditionExpression: "vin <> :vin AND partialVin <> :partialVin",
+      ConditionExpression: "vin <> :vin AND systemNumber <> :systemNumber",
       ExpressionAttributeValues: {
         ":vin": techRecord.vin,
-        ":partialVin": techRecord.partialVin
+        ":systemNumber": techRecord.systemNumber
       }
     };
     return dbClient.put(query).promise();
   }
 
   public updateSingle(techRecord: ITechRecordWrapper) {
-    techRecord.partialVin = populatePartialVin(techRecord.vin);
+
     const query = {
       TableName: this.tableName,
       Key: {
-        partialVin: techRecord.partialVin,
+        systemNumber: techRecord.systemNumber,
         vin: techRecord.vin
       },
       UpdateExpression: "set #techRecord = :techRecord",
       ExpressionAttributeNames: {
         "#techRecord": "techRecord"
       },
-      ConditionExpression: "vin = :vin AND partialVin = :partialVin",
+      ConditionExpression: "vin = :vin AND systemNumber = :systemNumber",
       ExpressionAttributeValues: {
         ":vin": techRecord.vin,
-        ":partialVin": techRecord.partialVin,
+        ":systemNumber": techRecord.systemNumber,
         ":techRecord": techRecord.techRecord
       },
       ReturnValues: "ALL_NEW"
@@ -145,7 +154,7 @@ class TechRecordsDAO {
           {
             Key:
             {
-              partialVin: primaryKey,
+              systemNumber: primaryKey,
               vin: secondaryKey
             }
           }
@@ -168,6 +177,10 @@ class TechRecordsDAO {
 
 const ONLY_DIGITS_REGEX: RegExp = /^\d+$/;
 const TRAILER_REGEX: RegExp = /^[a-zA-Z]\d{6}$/;
+
+const isSysNumSearch = (searchCriteria: ISearchCriteria): boolean => {
+  return SEARCHCRITERIA.SYSTEM_NUMBER === searchCriteria;
+};
 
 const isVinSearch = (searchTerm: string, searchCriteria: ISearchCriteria): boolean => {
   return SEARCHCRITERIA.VIN === searchCriteria || SEARCHCRITERIA.ALL === searchCriteria && searchTerm.length >= 9;

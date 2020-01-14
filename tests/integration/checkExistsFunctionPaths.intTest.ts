@@ -38,6 +38,7 @@ describe("TechRecords", () => {
     const payload = {
       msUserDetails,
       vin,
+      systemNumber: techRecord.systemNumber,
       primaryVrm: techRecord.primaryVrm,
       techRecord: techRecord.techRecord
     };
@@ -69,6 +70,7 @@ describe("TechRecords", () => {
     delete techRecord.techRecord[0].statusCode;
     const payload = {
       msUserDetails,
+      systemNumber: techRecord.systemNumber,
       techRecord: techRecord.techRecord
     };
     const vehicleRecordEvent = {

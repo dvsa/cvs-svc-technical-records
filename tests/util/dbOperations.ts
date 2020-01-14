@@ -69,17 +69,18 @@ export const convertToResponse = (dbObj: any) => { // Needed to convert an objec
         }
       });
 
-    return responseObj;
+    return Array.of(responseObj);
 };
 
 export const convertTo7051Response = (dbObj: any, resolvedRecordIndex: number) => { // Needed to convert an object from the database to a response object
-    const responseObj = convertToResponse(_.cloneDeep(dbObj));
+    const responseObjArray = convertToResponse(_.cloneDeep(dbObj));
 
+    for(const responseObj of responseObjArray) {
+        // replace techRecord with resolvedRecordIndex
+        const resolvedRecord = _.cloneDeep(responseObj.techRecord[resolvedRecordIndex]);
+        responseObj.techRecord.length = 0;
+        responseObj.techRecord.push(resolvedRecord);
+    }
 
-    // replace techRecord with resolvedRecordIndex
-    const resolvedRecord = _.cloneDeep(responseObj.techRecord[resolvedRecordIndex]);
-    responseObj.techRecord.length = 0;
-    responseObj.techRecord.push(resolvedRecord);
-
-    return responseObj;
+    return responseObjArray;
 };

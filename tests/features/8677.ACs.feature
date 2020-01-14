@@ -4,7 +4,7 @@ Feature: VTM ADR - Backend Service Updates For Vehicles API Spec
     Given I am a consumer of the vehicles API
     When I call the vehicles API via the PUT method
     Then I am able to create a new identical tech record with the adrDetails{} object on it
-    And the existing tech record (without the adrDetails{} object on it) is archived
+    And the existing tech record is archived
     And my PUT action adheres to the adrDetails{} API validations, present in the attached updated API spec
 
   Scenario: AC2. PUT: Update adrDetails{} object on an existing tech record

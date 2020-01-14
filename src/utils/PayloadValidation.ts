@@ -2,6 +2,7 @@ import {hgvValidation, populateBodyTypeCode, populateVehicleClassCode} from "./H
 import ITechRecord from "../../@Types/ITechRecord";
 import {VEHICLE_TYPE} from "../assets/Enums";
 import Joi from "@hapi/joi";
+import {SEARCHCRITERIA} from "../assets/Enums";
 
 // This will be expanded to other validations in the future. Currently validating only HGVs.
 export const validatePayload = (payload: ITechRecord) => {
@@ -37,4 +38,10 @@ export const populatePartialVin = (vin: string) => {
 export const populateFields = (techRecord: ITechRecord) => {
   techRecord.bodyType.code = populateBodyTypeCode(techRecord.bodyType.description);
   techRecord.vehicleClass.code = populateVehicleClassCode(techRecord.vehicleClass.description);
+};
+
+export const isValidSearchCriteria = (specifiedCriteria: string): boolean => {
+  const vals: string[] = Object.values(SEARCHCRITERIA);
+  // return vals.includes(specifiedCriteria); //TODO reinstate for proper input validation
+  return true;
 };

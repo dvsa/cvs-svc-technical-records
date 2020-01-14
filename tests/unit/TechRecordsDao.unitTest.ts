@@ -152,14 +152,13 @@ describe("TechRecordsDAO", () => {
       it("for Full VIN (>9 chars)", async () => {
         const expectedCall = {
           TableName: "cvs-local-technical-records",
-          KeyConditionExpression: "#partialVin = :partialVin AND #vin = :vin",
+          IndexName: "VinIndex",
+          KeyConditionExpression: "#vin = :vin",
           ExpressionAttributeNames: {
-            "#vin": "vin",
-            "#partialVin": "partialVin"
+            "#vin": "vin"
           },
           ExpressionAttributeValues: {
-            ":vin": "1234567890",
-            ":partialVin": "567890"
+            ":vin": "1234567890"
           }
         };
 
@@ -172,6 +171,7 @@ describe("TechRecordsDAO", () => {
       it("for Partial VIN (6 digits)", async () => {
         const expectedCall = {
           TableName: "cvs-local-technical-records",
+          IndexName: "PartialVinIndex",
           KeyConditionExpression: "#partialVin = :partialVin",
           ExpressionAttributeNames: {
             "#partialVin": "partialVin"
@@ -229,6 +229,7 @@ describe("TechRecordsDAO", () => {
         const expectedCall = {
           TableName: "cvs-local-technical-records",
           KeyConditionExpression: "",
+          IndexName: "",
           ExpressionAttributeNames: {},
           ExpressionAttributeValues: {},
         };
@@ -262,10 +263,10 @@ describe("TechRecordsDAO", () => {
         const expectedCall = {
           TableName: "cvs-local-technical-records",
           Item: techRecord,
-          ConditionExpression: "vin <> :vin AND partialVin <> :partialVin",
+          ConditionExpression: "vin <> :vin AND systemNumber <> :systemNumber",
           ExpressionAttributeValues: {
             ":vin": "XMGDE02FS0H012345",
-            ":partialVin": "012345"
+            ":systemNumber": "10000001"
           }
         };
         const techRecordsDao = new TechRecordsDao();
@@ -276,15 +277,15 @@ describe("TechRecordsDAO", () => {
       it("for invalid TechRecord", async () => {
         const techRecord: any = cloneDeep(mockData[0]);
 
-        delete techRecord.partialVin;
+        delete techRecord.systemNumber;
         delete techRecord.vin;
         const expectedCall = {
           TableName: "cvs-local-technical-records",
           Item: techRecord,
-          ConditionExpression: "vin <> :vin AND partialVin <> :partialVin",
+          ConditionExpression: "vin <> :vin AND systemNumber <> :systemNumber",
           ExpressionAttributeValues: {
             ":vin": undefined,
-            ":partialVin": undefined
+            ":systemNumber": undefined
           }
         };
         const techRecordsDao = new TechRecordsDao();

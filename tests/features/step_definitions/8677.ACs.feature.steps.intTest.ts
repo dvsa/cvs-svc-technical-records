@@ -16,7 +16,7 @@ const opts = Object.assign({
 
 const feature = loadFeature(path.resolve(__dirname, "../8677.ACs.feature"));
 
-defineFeature(feature, (test) => {
+defineFeature(feature, ( test ) => {
   beforeAll(async () => {
     await emptyDatabase();
   });
@@ -51,8 +51,8 @@ defineFeature(feature, (test) => {
       expect(response.body.techRecord[1].statusCode).toEqual("provisional");
       expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
     });
-    and("the existing tech record (without the adrDetails{} object on it) is archived", () => {
-      expect(response.body.techRecord[0]).not.toHaveProperty("adrDetails");
+    and("the existing tech record is archived", () => {
+      expect(response.body.techRecord[0].reasonForCreation).toEqual("new trailer");
       expect(response.body.techRecord[0].statusCode).toEqual("archived");
     });
     and("my PUT action adheres to the adrDetails{} API validations, present in the attached updated API spec", () => {
@@ -227,6 +227,7 @@ const createPUTPayload = () => {
       msUser: "dorel",
       msOid: "1234545"
     },
+    systemNumber: "10000030",
     techRecord: techRec.techRecord
   };
   return payload;

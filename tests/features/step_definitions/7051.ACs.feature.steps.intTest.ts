@@ -8,12 +8,14 @@ import {convertTo7051Response, emptyDatabase, populateDatabase} from "../../util
 import mockData from "../../resources/technical-records.json";
 import * as _ from "lodash";
 import mockContext from "aws-lambda-mock-context";
+import ITechRecord from "../../../@Types/ITechRecord";
+import ITechRecordWrapper from "../../../@Types/ITechRecordWrapper";
 const opts = Object.assign({
   timeout: 1
 });
 const feature = loadFeature(path.resolve(__dirname, "../7051.ACs.feature"));
 
-defineFeature(feature, (test) => {
+defineFeature(feature, ( test ) => {
   beforeAll(async () => {
     await emptyDatabase();
   });
@@ -197,8 +199,7 @@ defineFeature(feature, (test) => {
     when("I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records", async () => {
       response = await request.get(requestUrl);
     });
-    and("no data is found", () => {
-    });
+    and("no data is found", () => { return; });
     then("the system returns an HTTP status code 404", () => {
       expect(response.status).toEqual(404);
     });
@@ -206,29 +207,35 @@ defineFeature(feature, (test) => {
     ctx = null;
   });
 
-  test("AC4 Multiple results returned", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
-    let requestUrl: string;
-    let response: any;
-    given("I am an API Consumer", () => {
-      requestUrl = "vehicles/678413/tech-records";
-    });
-    when("I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records", async () => {
-      response = await request.get(requestUrl);
-    });
-    and("multiple results found (more than one CompleteTechRecord object is returned)", () => {
-    });
-    then("the system returns an HTTP status code 422", () => {
-      expect(response.status).toEqual(422);
-    });
-    ctx.succeed("done");
-    ctx = null;
-  });
+  // test("AC4 Multiple results returned", ({given, when, then, and}) => {
+  //   let ctx: any = mockContext(opts);
+  //
+  //   let requestUrl: string;
+  //   let response: any;
+  //   const partialVin = "678413";
+  //   given("I am an API Consumer", () => {
+  //     requestUrl = "vehicles/" + partialVin + "/tech-records";
+  //   });
+  //   when("I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records", async () => {
+  //     response = await request.get(requestUrl);
+  //   });
+  //   and("multiple results found (more than one CompleteTechRecord object is returned)", () => {
+  //     expect(mockData.filter(( entry ) => entry.partialVin === partialVin ).length > 1).toBeTruthy();
+  //   });
+  //   then("the system returns an HTTP status code 422", () => {
+  //     expect(response.status).toEqual(422);
+  //   });
+  //   ctx.succeed("done");
+  //   ctx = null;
+  // });
 });
 
 const isStatusCodePresent = (completeTechRecord: any, status: string) => {
+  // tslint:disable-next-line:no-shadowed-variable
   let isStatusPresent = false;
+  if(completeTechRecord instanceof Array) {
+    completeTechRecord = completeTechRecord[0];
+  }
   completeTechRecord.techRecord.forEach((record: any) => {
     if (record.statusCode === status) {
       isStatusPresent = true;
