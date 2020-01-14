@@ -40,7 +40,7 @@ describe("The lambda function handler", () => {
         expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
       });
 
-      it("should call the /vehicles/{vin}/download-file?filename=someFilename.pdf function with correct event payload", async () => {
+      it("should call the downloadFile function with correct event payload", async () => {
         // Specify your event, with correct path, payload etc
         const vehicleRecordEvent = {
           path: "/vehicles/YV31MEC18GA011944/download-file",
@@ -68,7 +68,7 @@ describe("The lambda function handler", () => {
         expect(TechRecordsService.prototype.downloadFile).toHaveBeenCalled();
       });
 
-      it("should call the /vehicles/{searchIdentifier}/tech-records function with correct event payload", async () => {
+      it("should call the getTechRecordsList function with correct event payload", async () => {
         // Specify your event, with correct path, payload etc
         const vehicleRecordEvent = {
           path: "/vehicles/12345678/tech-records",
@@ -96,7 +96,7 @@ describe("The lambda function handler", () => {
         expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
       });
 
-      it("should call /vehicles function with correct event payload", async () => {
+      it("should call insertTechRecord function with correct event payload", async () => {
         let ctx: any = mockContext(opts);
         // Specify your event, with correct path, payload etc
         const vehicleRecordEvent = {
@@ -119,7 +119,7 @@ describe("The lambda function handler", () => {
         expect(TechRecordsService.prototype.insertTechRecord).toHaveBeenCalled();
       });
 
-      it("should call /vehicles/{vin} function with correct event payload", async () => {
+      it("should call updateTechRecord function with correct event payload", async () => {
         let ctx: any = mockContext(opts);
         // Specify your event, with correct path, payload etc
         const payload = {

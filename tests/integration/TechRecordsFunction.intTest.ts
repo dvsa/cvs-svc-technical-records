@@ -487,8 +487,8 @@ describe("downloadDocument", () => {
         });
       });
 
-      context("and the path parameter FILENAME is null", () => {
-        it("should return 400 Invalid path parameter 'filename'", async () => {
+      context("and the query parameter FILENAME is null", () => {
+        it("should return 400 Invalid query parameter 'filename'", async () => {
           const techRecord = cloneDeep(records[1]);
 
           await LambdaTester(DownloadDocumentFunction)
