@@ -47,7 +47,7 @@ defineFeature(feature, (test) => {
       expect(response.status).toEqual(200);
       expect(response.body.techRecord[0].statusCode).toEqual("provisional");
       expect(response.body.techRecord[0]).toHaveProperty("grossEecWeight");
-      expect(response.body.techRecord[0]).toHaveProperty("dtpNumber");
+      expect(response.body.techRecord[0].brakes).toHaveProperty("dtpNumber");
       expect(response.body.techRecord[0]).toHaveProperty("make");
       expect(response.body.techRecord[0]).toHaveProperty("model");
 

@@ -8320,7 +8320,9 @@
         "regnDate": "2019-12-13",
         "manufactureYear": 0,
         "noOfAxles": 0,
-        "dtpNumber": "DTPNUM",
+        "brakes": {
+          "dtpNumber": "DTPNUM"
+        },
         "speedLimiterMrk": true,
         "tachoExemptMrk": true,
         "drawbarCouplingFitted": true,
@@ -8482,7 +8484,9 @@
         "regnDate": "2019-12-13",
         "manufactureYear": 0,
         "noOfAxles": 0,
-        "dtpNumber": "DTPNUM",
+        "brakes": {
+          "dtpNumber": "DTPNUM"
+        },
         "speedLimiterMrk": true,
         "tachoExemptMrk": true,
         "drawbarCouplingFitted": true,
@@ -8634,7 +8638,9 @@
         "regnDate": "2019-12-13",
         "manufactureYear": 0,
         "noOfAxles": 0,
-        "dtpNumber": "DTPNUM",
+        "brakes": {
+          "dtpNumber": "DTPNUM"
+        },
         "speedLimiterMrk": true,
         "tachoExemptMrk": true,
         "drawbarCouplingFitted": true,
