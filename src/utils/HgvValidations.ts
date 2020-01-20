@@ -177,7 +177,9 @@ export const hgvValidation = Joi.object().keys({
   regnDate: Joi.date().format("YYYY-MM-DD").required(),
   manufactureYear: Joi.number().max(9999).required(),
   noOfAxles: Joi.number().max(99).required(),
-  dtpNumber: Joi.string().max(6).required(),
+  brakes: Joi.object().keys({
+    dtpNumber: Joi.string().max(6).required(),
+  }).required(),
   axles: Joi.array().items(Joi.object().keys({
     parkingBrakeMrk: Joi.boolean().optional(),
     axleNumber: Joi.number().max(99999).required(),
