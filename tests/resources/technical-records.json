@@ -9,6 +9,9 @@
     "trailerId": "09876543",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "DAF",
@@ -20,12 +23,12 @@
           "description": "single decker"
         },
         "manufactureYear": 2008,
-        "regnDate": "2008-09-24",
         "coifDate": "2008-04-23",
         "ntaNumber": "1",
         "conversionRefNo": "1",
         "seatsLowerDeck": 22,
         "seatsUpperDeck": 0,
+        "euVehicleCategory": "m2",
         "standingCapacity": 26,
         "speedRestriction": 0,
         "speedLimiterMrk": false,
@@ -116,6 +119,9 @@
     "partialVin": "678410",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2019-01-16T12:24:38.027Z",
         "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
         "chassisMake": "Mercedes",
@@ -224,6 +230,9 @@
     "trailerId": "A456789",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Leyland",
@@ -331,6 +340,9 @@
     "partialVin": "021430",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "DAF",
@@ -438,6 +450,9 @@
     "partialVin": "678413",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "DAF",
@@ -545,6 +560,9 @@
     "partialVin": "678413",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Volvo",
@@ -652,6 +670,9 @@
     "partialVin": "012356",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Mercedes",
@@ -776,6 +797,9 @@
     "partialVin": "012432",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Leyland",
@@ -883,6 +907,9 @@
     "partialVin": "011900",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Volvo",
@@ -2033,6 +2060,9 @@
     "partialVin": "011911",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Volvo",
@@ -2271,6 +2301,9 @@
     "partialVin": "011933",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Volvo",
@@ -2509,6 +2542,9 @@
     "partialVin": "011944",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Volvo",
@@ -2747,6 +2783,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -2854,6 +2893,9 @@
     "trailerId": "C000001",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -2972,6 +3014,9 @@
     "trailerId": "C000002",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -3068,6 +3113,9 @@
     "partialVin": "768594",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -3248,6 +3296,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -3403,6 +3454,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -3539,6 +3593,9 @@
     "partialVin": "111111",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -3735,6 +3792,9 @@
     "partialVin": "876765",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "antilockBrakingSystem": true,
         "brakes": {
           "brakeCodeOriginal": "12412",
@@ -3896,6 +3956,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -4021,6 +4084,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -4221,6 +4287,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -4310,6 +4379,9 @@
     "trailerId": "D000001",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -4426,6 +4498,9 @@
     "trailerId": "Q000001",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -4517,6 +4592,9 @@
     "trailerId": "C100001",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -4638,6 +4716,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -4763,6 +4844,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "axles": [
           {
             "axleNumber": 1,
@@ -4969,6 +5053,9 @@
     "partialVin": "741999",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "antilockBrakingSystem": true,
         "axles": [
           {
@@ -5201,6 +5288,9 @@
         "antilockBrakingSystem": true,
         "axles": [
           {
+            "vehicleSubclass": [
+              "string"
+            ],
             "axleNumber": 1,
             "tyres": {
               "dataTrAxles": 345,
@@ -5363,6 +5453,9 @@
     "partialVin": "888888",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "antilockBrakingSystem": true,
         "axles": [
           {
@@ -5695,6 +5788,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -6084,6 +6180,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "axles": [
           {
             "axleNumber": 1,
@@ -6401,6 +6500,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "axles": [
           {
             "axleNumber": 1,
@@ -6702,6 +6804,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "axles": [
           {
             "axleNumber": 1,
@@ -6815,6 +6920,9 @@
     "secondaryVrms": [],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "axles": [
           {
             "axleNumber": 1,
@@ -7147,6 +7255,9 @@
     "secondaryVrms": [],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "axles": [
           {
             "axleNumber": 1,
@@ -7290,6 +7401,9 @@
     "secondaryVrms": [],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "axles": [
           {
             "axleNumber": 1,
@@ -7412,6 +7526,9 @@
     "vin": "ABCDEFGH777775",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
@@ -7594,6 +7711,9 @@
     "vin": "ABCDEFGH777776",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
@@ -7765,6 +7885,9 @@
     "vin": "ABCDEFGH777778",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
@@ -7954,6 +8077,9 @@
     "vin": "ABCDEFGH777779",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
@@ -8141,6 +8267,9 @@
     "partialVin": "999999",
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "antilockBrakingSystem": true,
         "axles": [
           {
@@ -8793,6 +8922,9 @@
     "secondaryVrms": [],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "axles": [
           {
             "axleNumber": 1,
@@ -9088,7 +9220,6 @@
           "width": 2200
         },
         "drawbarCouplingFitted": true,
-        "firstUseDate": "2019-06-24",
         "frontAxleToRearAxle": 1700,
         "grossDesignWeight": 1900,
         "grossGbWeight": 1400,
@@ -9113,7 +9244,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "euVehicleCategory": "o1"
       }
     ],
     "trailerId": "P123403",
@@ -9127,6 +9259,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "axles": [
           {
             "axleNumber": 1,
@@ -9216,7 +9351,6 @@
         "notes": null,
         "ntaNumber": null,
         "reasonForCreation": null,
-        "regnDate": null,
         "roadFriendly": false,
         "speedLimiterMrk": null,
         "statusCode": "current",
@@ -9242,6 +9376,9 @@
     ],
     "techRecord": [
       {
+        "vehicleSubclass": [
+          "string"
+        ],
         "axles": [
           {
             "axleNumber": 1,
@@ -9344,7 +9481,8 @@
           "description": null
         },
         "vehicleConfiguration": null,
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "euVehicleCategory": "n2"
       }
     ],
     "vin": "P012301091180"
@@ -16922,5 +17060,549 @@
       }
     ],
     "vin": "A00037502"
+  },
+  {
+    "partialVin": "038789",
+    "primaryVrm": "D3C3H11",
+    "secondaryVrms": [
+      "E5F1I00"
+    ],
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": "Additional Examiner Notes",
+          "additionalNotes": {
+            "guidanceNotes": [],
+            "number": [
+              "2"
+            ]
+          },
+          "adrTypeApprovalNo": null,
+          "applicantDetails": {
+            "city": "*",
+            "name": "*********",
+            "postcode": "********",
+            "street": "*****",
+            "town": "***"
+          },
+          "batteryListNumber": null,
+          "brakeDeclarationIssuer": null,
+          "brakeDeclarationsSeen": null,
+          "brakeEndurance": false,
+          "compatibilityGroupJ": null,
+          "declarationsSeen": true,
+          "documents": [
+            "235AD361ADA35A3180257DAA003FF549_A00038789_filename3.pdf",
+            "235AD361ADA35A3180257DAA003FF549_A00038789_filename2.pdf",
+            "235AD361ADA35A3180257DAA003FF549_A00038789_filename1.pdf"
+          ],
+          "listStatementApplicable": false,
+          "memosApply": [],
+          "permittedDangerousGoods": [
+            "AT"
+          ],
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": null,
+              "tankCode": " LGAF",
+              "tankManufacturer": "CLAYTON",
+              "tankManufacturerSerialNo": "CC2338/96",
+              "tankTypeAppNo": "GB/FT/TC/GB/TV/QU/3254",
+              "tc2Details": {
+                "tc2IntermediateApprovalNo": "4257",
+                "tc2IntermediateExpiryDate": "2002-10-09",
+                "tc2Type": null
+              },
+              "tc3Details": [
+                {
+                  "tc3PeriodicExpiryDate": "2018-08-03",
+                  "tc3PeriodicNumber": "GB/M/15/027264",
+                  "tc3Type": null
+                }
+              ],
+              "yearOfManufacture": "1996"
+            },
+            "tankStatement": {
+              "productList": " ",
+              "productListRefNo": null,
+              "productListUnNo": [
+                null
+              ],
+              "statement": "B",
+              "substancesPermitted": "B"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": "2017-12-07",
+            "type": "SEMI TRAILER TANK"
+          },
+          "weight": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": "16",
+              "tyreCode": 292,
+              "tyreSize": "11-22.5"
+            },
+            "weights": {
+              "designWeight": 6610,
+              "gbWeight": 6100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": "16",
+              "tyreCode": 292,
+              "tyreSize": "11-22.5"
+            },
+            "weights": {
+              "designWeight": 6610,
+              "gbWeight": 6100
+            }
+          },
+          {
+            "axleNumber": 3,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": "16",
+              "tyreCode": 292,
+              "tyreSize": "11-22.5"
+            },
+            "weights": {
+              "designWeight": 9400,
+              "gbWeight": 9400
+            }
+          },
+          {
+            "axleNumber": 4,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": "16",
+              "tyreCode": 292,
+              "tyreSize": "11-22.5"
+            },
+            "weights": {
+              "designWeight": 9400,
+              "gbWeight": 9400
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "2537A"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2019-03-23T13:38:06.000000Z",
+        "dimensions": {
+          "length": 0,
+          "width": 0
+        },
+        "drawbarCouplingFitted": false,
+        "euroStandard": null,
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelMin": 0,
+        "frontVehicleTo5thWheelCouplingMax": 0,
+        "frontVehicleTo5thWheelCouplingMin": 0,
+        "functionCode": "R",
+        "grossDesignWeight": 30490,
+        "grossGbWeight": 30490,
+        "lastUpdatedAt": "2020-01-10T14:03:58.000000Z",
+        "make": "SCAMMELL",
+        "manufactureYear": 1981,
+        "maxTrainDesignWeight": 0,
+        "maxTrainGbWeight": 0,
+        "model": "A754222",
+        "noOfAxles": 4,
+        "notes": " ",
+        "ntaNumber": "0000330441",
+        "reasonForCreation": " ",
+        "regnDate": "1981-01-02",
+        "roadFriendly": null,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 0,
+        "trainGbWeight": 0,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      }
+    ],
+    "vin": "A00038781"
+  },
+  {
+    "partialVin": "911250",
+    "primaryVrm": "QW123RT",
+    "secondaryVrms": [
+      "RT321WQ"
+    ],
+    "techRecord": [
+      {
+        "vehicleSubclass": [
+          "string"
+        ],
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "reasonForCreation": null,
+        "regnDate": null,
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": null
+        },
+        "vehicleConfiguration": null,
+        "vehicleType": "car",
+        "euVehicleCategory": "m1"
+      }
+    ],
+    "vin": "P0123010911250"
+  },
+  {
+    "partialVin": "951264",
+    "primaryVrm": "AS234TY",
+    "secondaryVrms": [
+      "AS432TY"
+    ],
+    "techRecord": [
+      {
+        "vehicleSubclass": [
+          "string"
+        ],
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "reasonForCreation": null,
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": null
+        },
+        "vehicleConfiguration": null,
+        "vehicleType": "lgv",
+        "euVehicleCategory": "n1"
+      }
+    ],
+    "vin": "P0123010951264"
+  },
+  {
+    "partialVin": "956789",
+    "primaryVrm": "ZX345CV",
+    "secondaryVrms": [
+      "CV543XZ"
+    ],
+    "techRecord": [
+      {
+        "vehicleSubclass": [
+          "string"
+        ],
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "reasonForCreation": null,
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": null
+        },
+        "vehicleConfiguration": null,
+        "vehicleType": "motorcycle",
+        "euVehicleCategory": "L1e-A"
+      }
+    ],
+    "vin": "P0123010956789"
   }
 ]
