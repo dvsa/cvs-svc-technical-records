@@ -8,12 +8,8 @@ const techRecordValidation = Joi.object().keys({
 
 export const validatePayload = (payload: any) => {
   let isTankOrBattery = false;
-  let isBattery = false;
   if (payload.adrDetails && payload.adrDetails.vehicleDetails && payload.adrDetails.vehicleDetails.type) {
     const vehicleDetailsType = payload.adrDetails.vehicleDetails.type.toLowerCase();
-    if (vehicleDetailsType.indexOf("battery") !== -1) {
-      isBattery = true;
-    }
     if ((vehicleDetailsType.indexOf("battery") !== -1) || (vehicleDetailsType.indexOf("tank") !== -1)) {
       isTankOrBattery = true;
     }
@@ -24,5 +20,5 @@ export const validatePayload = (payload: any) => {
       }
     };
   }
-  return techRecordValidation.validate(payload, {context: {isTankOrBattery, isBattery}});
+  return techRecordValidation.validate(payload, {context: {isTankOrBattery}});
 };
