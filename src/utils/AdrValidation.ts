@@ -66,25 +66,25 @@ const tc3Types: string[] = [
 
 export const adrValidation = Joi.object().keys({
   vehicleDetails: Joi.object().keys({
-    type: Joi.string().required(),
-    approvalDate: Joi.date().format("YYYY-MM-DD").required()
+    type: Joi.string().required().allow(null),
+    approvalDate: Joi.date().format("YYYY-MM-DD").required().allow(null)
   }).required(),
-  permittedDangerousGoods: Joi.array().items(Joi.string()).min(1).required(),
+  permittedDangerousGoods: Joi.array().items(Joi.string()).min(1).required().allow(null),
   compatibilityGroupJ: Joi.boolean().optional().allow(null),
   additionalExaminerNotes: Joi.string().optional().allow(null),
   applicantDetails: Joi.object().keys({
-    name: Joi.string().max(150).required(),
-    street: Joi.string().max(150).required(),
-    town: Joi.string().max(100).required(),
-    city: Joi.string().max(100).required(),
-    postcode: Joi.string().max(25).required()
+    name: Joi.string().max(150).required().allow(null),
+    street: Joi.string().max(150).required().allow(null),
+    town: Joi.string().max(100).required().allow(null),
+    city: Joi.string().max(100).required().allow(null),
+    postcode: Joi.string().max(25).required().allow(null)
   }).required(),
   memosApply: Joi.array().items(Joi.string().allow(null)).optional().allow(null),
   documents: Joi.array().items(Joi.string().allow(null)).optional().allow(null),
   listStatementApplicable: Joi.boolean().optional().allow(null),
   batteryListNumber: Joi.any().when("listStatementApplicable", {
     is: Joi.boolean().valid(true).required(),
-    then: Joi.string().max(8).required(),
+    then: Joi.string().max(8).required().allow(null),
     otherwise: Joi.valid(null)
   }),
   brakeDeclarationsSeen: Joi.boolean().optional().allow(null),
@@ -92,7 +92,7 @@ export const adrValidation = Joi.object().keys({
   brakeEndurance: Joi.boolean().optional().allow(null),
   weight: Joi.any().when("brakeEndurance", {
     is: Joi.boolean().valid(true).required(),
-    then: Joi.string().max(8).required(),
+    then: Joi.string().max(8).required().allow(null),
     otherwise: Joi.valid(null)
   }),
   declarationsSeen: Joi.boolean().optional().allow(null),
@@ -105,11 +105,11 @@ export const adrValidation = Joi.object().keys({
     is: Joi.boolean().valid(true).required(),
     then: Joi.object().keys({
       tankDetails: Joi.object().keys({
-        tankManufacturer: Joi.string().max(70).required(),
-        yearOfManufacture: Joi.number().max(9999).required(),
-        tankManufacturerSerialNo: Joi.string().max(50).required(),
-        tankTypeAppNo: Joi.string().max(65).required(),
-        tankCode: Joi.string().max(30).required(),
+        tankManufacturer: Joi.string().max(70).required().allow(null),
+        yearOfManufacture: Joi.number().max(9999).required().allow(null),
+        tankManufacturerSerialNo: Joi.string().max(50).required().allow(null),
+        tankTypeAppNo: Joi.string().max(65).required().allow(null),
+        tankCode: Joi.string().max(30).required().allow(null),
         specialProvisions: Joi.string().max(1024).optional().allow(null),
         tc2Details: Joi.object().keys({
           tc2Type: Joi.string().valid(...tc2Types).optional().allow(null),
@@ -123,7 +123,7 @@ export const adrValidation = Joi.object().keys({
         })).optional().allow(null)
       }).required(),
       tankStatement: Joi.object().keys({
-        substancesPermitted: Joi.string().required(),
+        substancesPermitted: Joi.string().required().allow(null),
         statement: Joi.string().max(1500).optional().allow(null),
         productListRefNo: Joi.string().optional().allow(null),
         productListUnNo: Joi.array().items(Joi.string().allow(null)).optional().allow(null),
