@@ -79,24 +79,4 @@ defineFeature(feature, ( test ) => {
     ctx.succeed("done");
     ctx = null;
   });
-
-  // test("AC3 Multiple results returned", ({ given, when, then, and }) => {
-  //   let ctx: any = mockContext(opts);
-  //
-  //   let requestUrl: string;
-  //   let response: any;
-  //   given("I am an API Consumer", () => {
-  //     requestUrl = "vehicles/678413/tech-records";
-  //   });
-  //   when("I send a request to AWS_CVS_DOMAIN/vehicles/{searchIdentifier}/tech-records", async () => {
-  //     response = await request.get(requestUrl);
-  //   });
-  //   and("multiple results found (more than one CompleteTechRecord object is returned)", () => {
-  //   });
-  //   then("the system returns an HTTP status code 422", () => {
-  //     expect(response.status).toEqual(422);
-  //   });
-  //   ctx.succeed("done");
-  //   ctx = null;
-  // });
 });

@@ -195,31 +195,30 @@ describe("getTechRecordsList", () => {
     });
   });
 
-  // context("when db returns too many results", () => {
-  //   it("should return 422 - More Than One Match", async () => {
-  //
-  //     const MockDAO = jest.fn().mockImplementation(() => {
-  //       return {
-  //         getBySearchTerm: () => {
-  //           return Promise.resolve({
-  //             Items: undefined,
-  //             Count: 2,
-  //             ScannedCount: 2
-  //           });
-  //         }
-  //       };
-  //     });
-  //     const mockDAO = new MockDAO();
-  //     const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
-  //     try {
-  //       expect(await techRecordsService.getTechRecordsList("", "", SEARCHCRITERIA.ALL)).toThrowError();
-  //     } catch (errorResponse) {
-  //       expect(errorResponse).toBeInstanceOf(HTTPError);
-  //       expect(errorResponse.statusCode).toEqual(422);
-  //       expect(errorResponse.body).toEqual(HTTPRESPONSE.MORE_THAN_ONE_MATCH);
-  //     }
-  //   });
-  // });
+  context("when db returns more than 1 result", () => {
+    it("should return all in an array", async () => {
+      const retVals = [
+        {techRecord: [{statusCode: "Banana"}]},
+        {techRecord: [{statusCode: "Cucumber"}]}
+      ];
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve({
+              Items: retVals,
+              Count: 2,
+              ScannedCount: 2
+            });
+          }
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+      expect.assertions(1);
+      const retVal = await techRecordsService.getTechRecordsList("", "all", SEARCHCRITERIA.ALL);
+      expect(retVal).toEqual(retVals);
+    });
+  });
 
   context("when searching for a vehicle with euroStandard field set", () => {
 
