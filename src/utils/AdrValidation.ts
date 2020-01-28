@@ -67,7 +67,7 @@ const tc3Types: string[] = [
 export const adrValidation = Joi.object().keys({
   vehicleDetails: Joi.object().keys({
     type: Joi.string().required().allow(null),
-    approvalDate: Joi.date().format("YYYY-MM-DD").required().allow(null)
+    approvalDate: Joi.date().format("YYYY-MM-DD").raw().required().allow(null)
   }).required(),
   permittedDangerousGoods: Joi.array().items(Joi.string()).min(1).required().allow(null),
   compatibilityGroupJ: Joi.boolean().optional().allow(null),
@@ -114,12 +114,12 @@ export const adrValidation = Joi.object().keys({
         tc2Details: Joi.object().keys({
           tc2Type: Joi.string().valid(...tc2Types).optional().allow(null),
           tc2IntermediateApprovalNo: Joi.string().max(70).optional().allow(null),
-          tc2IntermediateExpiryDate: Joi.date().format("YYYY-MM-DD").optional().allow(null)
+          tc2IntermediateExpiryDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null)
         }).optional().allow(null),
         tc3Details: Joi.array().items(Joi.object().keys({
           tc3Type: Joi.string().valid(...tc3Types).optional().allow(null),
           tc3PeriodicNumber: Joi.string().max(75).optional().allow(null),
-          tc3PeriodicExpiryDate: Joi.date().format("YYYY-MM-DD").optional().allow(null)
+          tc3PeriodicExpiryDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null)
         })).optional().allow(null)
       }).required(),
       tankStatement: Joi.object().keys({

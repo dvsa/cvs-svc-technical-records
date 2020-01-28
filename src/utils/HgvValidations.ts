@@ -226,7 +226,7 @@ export const populateBodyTypeCode = (parent: any, helpers: any) => {
 
 export const hgvValidation = Joi.object().keys({
   vehicleType: Joi.string().valid(...vehicleType).required().allow(null),
-  regnDate: Joi.date().format("YYYY-MM-DD").optional().allow(null),
+  regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
   manufactureYear: Joi.number().min(0).max(9999).required().allow(null),
   noOfAxles: Joi.number().min(0).max(99).required().allow(null),
   brakes: Joi.object().keys({
@@ -326,7 +326,7 @@ export const hgvValidation = Joi.object().keys({
   }).optional().allow(null),
   plates: Joi.array().items(Joi.object().keys({
     plateSerialNumber: Joi.string().max(12).optional().allow(null),
-    plateIssueDate: Joi.date().format("YYYY-MM-DD").optional().allow(null),
+    plateIssueDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
     plateReasonForIssue: Joi.string().valid(...plateReasonForIssue).optional().allow(null),
     plateIssuer: Joi.string().max(150).optional().allow(null)
   })).optional().allow(null),
