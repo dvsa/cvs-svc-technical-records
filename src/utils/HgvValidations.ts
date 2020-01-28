@@ -58,7 +58,15 @@ const euVehicleCategory: string[] = [
   "o1",
   "o2",
   "o3",
-  "o4"
+  "o4",
+  "l1e-a",
+  "l1e",
+  "l2e",
+  "l3e",
+  "l4e",
+  "l5e",
+  "l6e",
+  "l7e"
 ];
 
 const approvalType: string[] = [
@@ -173,118 +181,118 @@ const populateBodyTypeCode = (parent: any, helpers: any) => {
 };
 
 export const hgvValidation = Joi.object().keys({
-  vehicleType: Joi.string().valid(...vehicleType).required(),
-  regnDate: Joi.date().format("YYYY-MM-DD").required(),
-  manufactureYear: Joi.number().max(9999).required(),
-  noOfAxles: Joi.number().max(99).required(),
+  vehicleType: Joi.string().valid(...vehicleType).required().allow(null),
+  regnDate: Joi.date().format("YYYY-MM-DD").optional().allow(null),
+  manufactureYear: Joi.number().max(9999).required().allow(null),
+  noOfAxles: Joi.number().max(99).required().allow(null),
   brakes: Joi.object().keys({
-    dtpNumber: Joi.string().max(6).required(),
+    dtpNumber: Joi.string().max(6).required().allow(null),
   }).required(),
   axles: Joi.array().items(Joi.object().keys({
-    parkingBrakeMrk: Joi.boolean().optional(),
-    axleNumber: Joi.number().max(99999).required(),
+    parkingBrakeMrk: Joi.boolean().optional().allow(null),
+    axleNumber: Joi.number().max(99999).required().allow(null),
     weights: Joi.object().keys({
-      gbWeight: Joi.number().max(99999).required(),
-      eecWeight: Joi.number().max(99999).optional(),
-      designWeight: Joi.number().max(99999).required()
+      gbWeight: Joi.number().max(99999).required().allow(null),
+      eecWeight: Joi.number().max(99999).optional().allow(null),
+      designWeight: Joi.number().max(99999).required().allow(null)
     }).required(),
     tyres: Joi.object().keys({
-      tyreCode: Joi.number().max(9999).required(),
-      tyreSize: Joi.string().max(12).required(),
-      plyRating: Joi.string().max(2).required(),
-      fitmentCode: Joi.string().valid(...fitmentCode).required(),
-      dataTrAxles: Joi.number().max(999).optional()
+      tyreCode: Joi.number().max(9999).required().allow(null),
+      tyreSize: Joi.string().max(12).required().allow(null),
+      plyRating: Joi.string().max(2).required().allow(null),
+      fitmentCode: Joi.string().valid(...fitmentCode).required().allow(null),
+      dataTrAxles: Joi.number().max(999).optional().allow(null)
     }).required(),
   })).required(),
   speedLimiterMrk: Joi.boolean().default(false),
   tachoExemptMrk: Joi.boolean().default(false),
-  euroStandard: Joi.string().required(),
-  fuelPropulsionSystem: Joi.string().valid(...fuelPropulsionSystem).required(),
+  euroStandard: Joi.string().required().allow(null),
+  fuelPropulsionSystem: Joi.string().valid(...fuelPropulsionSystem).required().allow(null),
   roadFriendly: Joi.boolean().default(false),
   drawbarCouplingFitted: Joi.boolean().default(false),
   vehicleClass: Joi.object().keys({
     code: Joi.any().when("description", {
-      is: Joi.string().valid(...vehicleClassDescription).required(),
+      is: Joi.string().valid(...vehicleClassDescription).required().allow(null),
       then: Joi.string().default(populateVehicleClassCode),
       otherwise: Joi.object().forbidden()
     }),
     description: Joi.string().valid(...vehicleClassDescription).required()
   }).required(),
-  vehicleConfiguration: Joi.string().valid(...vehicleConfiguration).required(),
+  vehicleConfiguration: Joi.string().valid(...vehicleConfiguration).required().allow(null),
   offRoad: Joi.boolean().optional().default(false),
-  numberOfWheelsDriven: Joi.number().max(9999).required(),
-  euVehicleCategory: Joi.string().valid(...euVehicleCategory).required(),
-  emissionsLimit: Joi.number().max(99).optional(),
+  numberOfWheelsDriven: Joi.number().max(9999).required().allow(null),
+  euVehicleCategory: Joi.string().valid(...euVehicleCategory).required().allow(null),
+  emissionsLimit: Joi.number().max(99).optional().allow(null),
   departmentalVehicleMarker: Joi.boolean().default(false),
   alterationMarker: Joi.boolean().default(false),
-  approvalType: Joi.string().valid(...approvalType).required(),
-  approvalTypeNumber: Joi.string().max(25).optional(),
-  ntaNumber: Joi.string().max(40).optional(),
-  variantNumber: Joi.string().max(25).optional(),
-  variantVersionNumber: Joi.string().max(35).optional(),
-  make: Joi.string().max(30).required(),
-  model: Joi.string().max(30).required(),
+  approvalType: Joi.string().valid(...approvalType).required().allow(null),
+  approvalTypeNumber: Joi.string().max(25).optional().allow(null),
+  ntaNumber: Joi.string().max(40).optional().allow(null),
+  variantNumber: Joi.string().max(25).optional().allow(null),
+  variantVersionNumber: Joi.string().max(35).optional().allow(null),
+  make: Joi.string().max(30).required().allow(null),
+  model: Joi.string().max(30).required().allow(null),
   bodyType: Joi.object().keys({
     code: Joi.any().when("description", {
-      is: Joi.string().valid(...bodyTypeDescription).required(),
+      is: Joi.string().valid(...bodyTypeDescription).required().allow(null),
       then: Joi.string().default(populateBodyTypeCode),
       otherwise: Joi.object().forbidden()
     }),
     description: Joi.string().valid(...bodyTypeDescription).required()
   }).required(),
-  functionCode: Joi.string().max(1).optional(),
-  conversionRefNo: Joi.string().max(10).optional(),
-  grossGbWeight: Joi.number().min(0).max(99999).required(),
-  grossEecWeight: Joi.number().min(0).max(99999).optional(),
-  grossDesignWeight: Joi.number().min(0).max(99999).required(),
-  trainGbWeight: Joi.number().min(0).max(99999).required(),
-  trainEecWeight: Joi.number().min(0).max(99999).optional(),
-  trainDesignWeight: Joi.number().min(0).max(99999).optional(),
-  maxTrainGbWeight: Joi.number().min(0).max(99999).required(),
-  maxTrainEecWeight: Joi.number().min(0).max(99999).optional(),
-  maxTrainDesignWeight: Joi.number().min(0).max(99999).optional(),
-  tyreUseCode: Joi.string().max(2).optional(),
+  functionCode: Joi.string().max(1).optional().allow(null),
+  conversionRefNo: Joi.string().max(10).optional().allow(null),
+  grossGbWeight: Joi.number().min(0).max(99999).required().allow(null),
+  grossEecWeight: Joi.number().min(0).max(99999).optional().allow(null),
+  grossDesignWeight: Joi.number().min(0).max(99999).required().allow(null),
+  trainGbWeight: Joi.number().min(0).max(99999).required().allow(null),
+  trainEecWeight: Joi.number().min(0).max(99999).optional().allow(null),
+  trainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
+  maxTrainGbWeight: Joi.number().min(0).max(99999).required().allow(null),
+  maxTrainEecWeight: Joi.number().min(0).max(99999).optional().allow(null),
+  maxTrainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
+  tyreUseCode: Joi.string().max(2).optional().allow(null),
   dimensions: Joi.object().keys({
-    length: Joi.number().max(99999).required(),
-    width: Joi.number().max(99999).required(),
+    length: Joi.number().max(99999).required().allow(null),
+    width: Joi.number().max(99999).required().allow(null),
     axleSpacing: Joi.array().items(Joi.object().keys({
-      value: Joi.number().max(99999).optional(),
+      value: Joi.number().max(99999).optional().allow(null),
       axles: Joi.string().optional()
     })).optional()
   }).required(),
-  frontAxleToRearAxle: Joi.number().max(99999).required(),
-  frontAxleTo5thWheelCouplingMin: Joi.number().max(99999).optional(),
-  frontAxleTo5thWheelCouplingMax: Joi.number().max(99999).optional(),
-  frontAxleTo5thWheelMin: Joi.number().max(99999).required(),
-  frontAxleTo5thWheelMax: Joi.number().max(99999).required(),
+  frontAxleToRearAxle: Joi.number().max(99999).required().allow(null),
+  frontAxleTo5thWheelCouplingMin: Joi.number().max(99999).optional().allow(null),
+  frontAxleTo5thWheelCouplingMax: Joi.number().max(99999).optional().allow(null),
+  frontAxleTo5thWheelMin: Joi.number().max(99999).required().allow(null),
+  frontAxleTo5thWheelMax: Joi.number().max(99999).required().allow(null),
   applicantDetails: Joi.object().keys({
-    name: Joi.string().max(150).required(),
-    address1: Joi.string().max(60).required(),
-    address2: Joi.string().max(60).required(),
-    postTown: Joi.string().max(60).required(),
-    address3: Joi.string().max(60).optional(),
-    postCode: Joi.string().max(12).optional(),
-    telephoneNumber: Joi.string().max(25).optional(),
-    emailAddress: Joi.string().max(255).optional()
+    name: Joi.string().max(150).required().allow(null),
+    address1: Joi.string().max(60).required().allow(null),
+    address2: Joi.string().max(60).required().allow(null),
+    postTown: Joi.string().max(60).required().allow(null),
+    address3: Joi.string().max(60).optional().allow(null),
+    postCode: Joi.string().max(12).optional().allow(null),
+    telephoneNumber: Joi.string().max(25).optional().allow(null),
+    emailAddress: Joi.string().max(255).optional().allow(null)
   }).required(),
   microfilm: Joi.object().keys({
-    microfilmDocumentType: Joi.string().valid(...microfilmDocumentType).optional(),
-    microfilmRollNumber: Joi.string().max(5).optional(),
-    microfilmSerialNumber: Joi.string().max(4).optional()
-  }).optional(),
+    microfilmDocumentType: Joi.string().valid(...microfilmDocumentType).optional().allow(null),
+    microfilmRollNumber: Joi.string().max(5).optional().allow(null),
+    microfilmSerialNumber: Joi.string().max(4).optional().allow(null)
+  }).optional().allow(null),
   plates: Joi.array().items(Joi.object().keys({
-    plateSerialNumber: Joi.string().max(12).optional(),
-    plateIssueDate: Joi.date().format("YYYY-MM-DD").optional(),
-    plateReasonForIssue: Joi.string().valid(...plateReasonForIssue).optional(),
-    plateIssuer: Joi.string().max(150).optional()
-  })).optional(),
-  notes: Joi.string().optional(),
-  reasonForCreation: Joi.string().max(100).required(),
+    plateSerialNumber: Joi.string().max(12).optional().allow(null),
+    plateIssueDate: Joi.date().format("YYYY-MM-DD").optional().allow(null),
+    plateReasonForIssue: Joi.string().valid(...plateReasonForIssue).optional().allow(null),
+    plateIssuer: Joi.string().max(150).optional().allow(null)
+  })).optional().allow(null),
+  notes: Joi.string().optional().allow(null),
+  reasonForCreation: Joi.string().max(100).required().allow(null),
   adrDetails: adrValidation,
-  createdAt: Joi.string().optional(),
+  createdAt: Joi.string().optional().allow(null),
   createdByName: Joi.string().optional(),
   createdById: Joi.string().optional(),
-  lastUpdatedAt: Joi.string().optional(),
+  lastUpdatedAt: Joi.string().optional().allow(null),
   lastUpdatedByName: Joi.string().optional(),
   lastUpdatedById: Joi.string().optional()
 }).required();
