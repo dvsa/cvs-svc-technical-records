@@ -596,6 +596,46 @@ describe("updateTechRecord", () => {
         }
       });
     });
+
+    context("and the payload contains nulls for all N/A and optional fields", () => {
+      it("should pass the validation and update the record", async () => {
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[71]);
+        techRecord.techRecord[0].reasonForCreation = "Try to update with a lot of null fields";
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            updateSingle: () => {
+              return Promise.resolve({
+                Attributes: techRecord
+              });
+            },
+            getBySearchTerm: () => {
+              return Promise.resolve({
+                Items: [cloneDeep(records[71])],
+                Count: 1,
+                ScannedCount: 1
+              });
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+        const recordToUpdate: any = {
+          vin: techRecord.vin,
+          partialVin: techRecord.partialVin,
+          primaryVrm: techRecord.primaryVrm,
+          techRecord:
+            [{
+              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
+              adrDetails: techRecord.techRecord[0].adrDetails
+            }]
+        };
+        const updatedTechRec: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails);
+        expect(updatedTechRec).not.toEqual(undefined);
+        expect(updatedTechRec).not.toEqual({});
+        expect(updatedTechRec.techRecord[0].reasonForCreation).toEqual("Try to update with a lot of null fields");
+      });
+    });
   });
 
   context("when trying to update a technical record for non existing vehicle", () => {
