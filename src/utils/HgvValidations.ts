@@ -199,7 +199,7 @@ export const hgvValidation = Joi.object().keys({
     tyres: Joi.object().keys({
       tyreCode: Joi.number().max(9999).required().allow(null),
       tyreSize: Joi.string().max(12).required().allow(null),
-      plyRating: Joi.string().max(2).required().allow(null),
+      plyRating: Joi.string().max(2).optional().allow(null),
       fitmentCode: Joi.string().valid(...fitmentCode).required().allow(null),
       dataTrAxles: Joi.number().max(999).optional().allow(null)
     }).required(),
