@@ -4,6 +4,7 @@ import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
 import QueryInput = DocumentClient.QueryInput;
 import {SEARCHCRITERIA} from "../assets/Enums";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
+import {populatePartialVin} from "../utils/PayloadValidation";
 
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
@@ -96,12 +97,11 @@ class TechRecordsDAO {
   }
 
   public updateSingle(techRecord: ITechRecordWrapper) {
-    const partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
-
+    techRecord.partialVin = populatePartialVin(techRecord.vin);
     const query = {
       TableName: this.tableName,
       Key: {
-        partialVin,
+        partialVin: techRecord.partialVin,
         vin: techRecord.vin
       },
       UpdateExpression: "set #techRecord = :techRecord",
@@ -111,7 +111,7 @@ class TechRecordsDAO {
       ConditionExpression: "vin = :vin AND partialVin = :partialVin",
       ExpressionAttributeValues: {
         ":vin": techRecord.vin,
-        ":partialVin": partialVin,
+        ":partialVin": techRecord.partialVin,
         ":techRecord": techRecord.techRecord
       },
       ReturnValues: "ALL_NEW"
