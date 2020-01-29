@@ -5,6 +5,7 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import S3BucketService from "../services/S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
 import ITechRecord from "../../@Types/ITechRecord";
+import {populatePartialVin} from "../utils/PayloadValidation";
 
 const postTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -32,7 +33,7 @@ const postTechRecords = (event: any) => {
 
   const techRecord: ITechRecordWrapper = {
     vin,
-    partialVin: vin.substr(vin.length - 6),
+    partialVin: populatePartialVin(vin),
     techRecord: techRec,
     primaryVrm,
     secondaryVrms

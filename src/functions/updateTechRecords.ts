@@ -4,6 +4,8 @@ import HTTPResponse from "../models/HTTPResponse";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import S3BucketService from "../services/S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
+import {populatePartialVin} from "../utils/PayloadValidation";
+import ITechRecord from "../../@Types/ITechRecord";
 
 const updateTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -16,7 +18,7 @@ const updateTechRecords = (event: any) => {
   const vin = event.pathParameters ? event.pathParameters.vin : null;
   const filesToUpload: string[] = event.body ? event.body.files : null;
 
-  if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 9 || vin.length > 21) {
+  if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 3 || vin.length > 21) {
     return Promise.resolve(new HTTPResponse(400, "Invalid path parameter 'vin'"));
   }
 
@@ -28,9 +30,8 @@ const updateTechRecords = (event: any) => {
     return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
   }
 
-  const techRecord: ITechRecordWrapper = {
+  const techRecord: {vin: string, techRecord: ITechRecord[]} = {
     vin,
-    partialVin: vin.substr(vin.length - 6),
     techRecord: techRec
   };
   return techRecordsService.updateTechRecord(techRecord, msUserDetails, filesToUpload)
@@ -41,7 +42,6 @@ const updateTechRecords = (event: any) => {
       console.log(error);
       return new HTTPResponse(error.statusCode, error.body);
     });
-
 };
 
 export {updateTechRecords};

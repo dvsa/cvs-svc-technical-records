@@ -423,25 +423,12 @@ describe("techRecords", () => {
         });
 
         context("and the path parameter VIN is invalid", () => {
-          context("and the path parameter VIN is null", () => {
+          context("and the path parameter VIN is shorter than 3 characters", () => {
             it("should return 400 Invalid path parameter 'vin'", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
               techRec.techRecord = [];
-              const res = await request.put(`vehicles/null`).send(techRec);
-              expect(res.status).toEqual(400);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body).toEqual("Invalid path parameter \'vin\'");
-            });
-          });
-
-          context("and the path parameter VIN is shorter than 9 characters", () => {
-            it("should return 400 Invalid path parameter 'vin'", async () => {
-              // @ts-ignore
-              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-              techRec.techRecord = [];
-              const res = await request.put(`vehicles/ABCDEF5`).send(techRec);
+              const res = await request.put(`vehicles/AB`).send(techRec);
               expect(res.status).toEqual(400);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
