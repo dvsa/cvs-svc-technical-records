@@ -6,7 +6,12 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
 import * as _ from "lodash";
 import * as uuid from "uuid";
-import {validatePayload, validatePrimaryVrm, validateSecondaryVrms} from "../utils/PayloadValidation";
+import {
+  populatePartialVin,
+  validatePayload,
+  validatePrimaryVrm,
+  validateSecondaryVrms
+} from "../utils/PayloadValidation";
 import S3BucketService from "./S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
@@ -170,7 +175,7 @@ class TechRecordsService {
     techRecord.statusCode = STATUS.PROVISIONAL;
   }
 
-  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, files?: string[]) {
+  public updateTechRecord(techRecord: {vin: string, techRecord: ITechRecord[]}, msUserDetails: any, files?: string[]) {
     if (files && files.length) {
       const promises = [];
       for (const file of files) {
@@ -197,7 +202,7 @@ class TechRecordsService {
     }
   }
 
-  private manageUpdateLogic(techRecord: ITechRecordWrapper, msUserDetails: any, documents?: string[]) {
+  private manageUpdateLogic(techRecord: {vin: string, techRecord: ITechRecord[]}, msUserDetails: any, documents?: string[]) {
     return this.createAndArchiveTechRecord(techRecord, msUserDetails, documents)
       .then((data: ITechRecordWrapper) => {
         return this.techRecordsDAO.updateSingle(data)
@@ -213,7 +218,7 @@ class TechRecordsService {
       });
   }
 
-  private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any, documents?: string[]) {
+  private createAndArchiveTechRecord(techRecord: {vin: string, techRecord: ITechRecord[]}, msUserDetails: any, documents?: string[]) {
     const isPayloadValid = validatePayload(techRecord.techRecord[0]);
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 500, body: isPayloadValid.error.details});

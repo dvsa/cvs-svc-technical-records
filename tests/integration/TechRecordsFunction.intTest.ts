@@ -386,7 +386,7 @@ describe("updateTechRecords", () => {
         });
       });
 
-      context("and the path parameter VIN is shorter than 9 characters", () => {
+      context("and the path parameter VIN is shorter than 3 characters", () => {
         it("should return 400 Invalid path parameter 'vin'", async () => {
           const techRecord = cloneDeep(records[1]);
 
@@ -398,7 +398,7 @@ describe("updateTechRecords", () => {
             .event({
               path: `/vehicles/${vin}`,
               pathParameters: {
-                vin: "ABCDEF5"
+                vin: "AB"
               },
               body: techRecord
             })

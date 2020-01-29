@@ -25,3 +25,10 @@ export const validatePayload = (payload: ITechRecord) => {
 
 export const validatePrimaryVrm = Joi.string().min(1).max(9);
 export const validateSecondaryVrms = Joi.array().items(Joi.string().min(1).max(9)).min(1);
+export const populatePartialVin = (vin: string) => {
+  if (vin.length < 6) {
+    return vin;
+  } else {
+    return vin.substr(vin.length - 6);
+  }
+};
