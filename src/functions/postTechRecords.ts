@@ -10,6 +10,7 @@ const postTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
   const s3BucketService = new S3BucketService(new S3());
   const techRecordsService = new TechRecordsService(techRecordsDAO, s3BucketService);
+  const ONLY_DIGITS_AND_NUMBERS: RegExp = /^[A-Za-z0-9]+$/;
 
   const techRec: ITechRecord[] = event.body ? event.body.techRecord : null;
   const msUserDetails = event.body ? event.body.msUserDetails : null;
@@ -17,7 +18,7 @@ const postTechRecords = (event: any) => {
   const primaryVrm = event.body ? event.body.primaryVrm : null;
   const secondaryVrms = event.body ? event.body.secondaryVrms : null;
 
-  if (!vin) {
+  if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 9 || vin.length > 21) {
     return Promise.resolve(new HTTPResponse(400, "Invalid body field 'vin'"));
   }
 
