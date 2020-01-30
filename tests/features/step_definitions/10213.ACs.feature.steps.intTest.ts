@@ -21,6 +21,7 @@ const createPOSTPayload = () => {
       msOid: "1234545"
     },
     vin: Date.now().toString(),
+    primaryVrm: Math.floor(100000 + Math.random() * 900000).toString(),
     techRecord: techRec.techRecord
   };
   return payload;
