@@ -319,6 +319,7 @@ describe("techRecords", () => {
               const payload = {
                 msUserDetails,
                 vin: techRec.vin,
+                primaryVrm: techRec.primaryVrm,
                 techRecord: techRec.techRecord
               };
               const res = await request.post("vehicles").send(payload);

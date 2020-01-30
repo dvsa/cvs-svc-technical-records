@@ -38,6 +38,7 @@ describe("TechRecords", () => {
     const payload = {
       msUserDetails,
       vin,
+      primaryVrm: techRecord.primaryVrm,
       techRecord: techRecord.techRecord
     };
     const vehicleRecordEvent = {

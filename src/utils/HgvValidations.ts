@@ -204,12 +204,12 @@ export const hgvValidation = Joi.object().keys({
       dataTrAxles: Joi.number().min(0).max(999).optional().allow(null)
     }).required(),
   })).required(),
-  speedLimiterMrk: Joi.boolean().default(false),
-  tachoExemptMrk: Joi.boolean().default(false),
+  speedLimiterMrk: Joi.boolean().required(),
+  tachoExemptMrk: Joi.boolean().required(),
   euroStandard: Joi.string().required().allow(null),
   fuelPropulsionSystem: Joi.string().valid(...fuelPropulsionSystem).required().allow(null),
-  roadFriendly: Joi.boolean().default(false),
-  drawbarCouplingFitted: Joi.boolean().default(false),
+  roadFriendly: Joi.boolean().required(),
+  drawbarCouplingFitted: Joi.boolean().required(),
   vehicleClass: Joi.object().keys({
     code: Joi.any().when("description", {
       is: Joi.string().valid(...vehicleClassDescription).required().allow(null),
@@ -219,7 +219,7 @@ export const hgvValidation = Joi.object().keys({
     description: Joi.string().valid(...vehicleClassDescription).required()
   }).required(),
   vehicleConfiguration: Joi.string().valid(...vehicleConfiguration).required().allow(null),
-  offRoad: Joi.boolean().optional().default(false),
+  offRoad: Joi.boolean().optional().required(),
   numberOfWheelsDriven: Joi.number().min(0).max(9999).required().allow(null),
   euVehicleCategory: Joi.string().valid(...euVehicleCategory).required().allow(null),
   emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
