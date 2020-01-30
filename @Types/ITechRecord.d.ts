@@ -1,11 +1,11 @@
 export default interface ITechRecord {
   createdAt: string;
-  createdByName: string,
-  createdById: string,
+  createdByName: string;
+  createdById: string;
   lastUpdatedAt: string;
-  lastUpdatedByName?: string,
-  lastUpdatedById?: string,
-  updateType?: string,
+  lastUpdatedByName?: string;
+  lastUpdatedById?: string;
+  updateType?: string;
   chassisMake: string;
   chassisModel: string;
   bodyMake: string;
@@ -15,14 +15,17 @@ export default interface ITechRecord {
     description: string
   };
   manufactureYear: number;
-  regnDate: string;
+  regnDate?: string;
   coifDate: string;
   ntaNumber: string;
+  coifSerialNumber: string;
+  coifCertifierName: string;
   conversionRefNo: string;
   seatsLowerDeck: number;
   seatsUpperDeck: number;
   standingCapacity: number;
   speedLimiterMrk: boolean;
+  speedRestriction: number;
   tachoExemptMrk: boolean;
   dispensations: string;
   remarks: string;
@@ -42,11 +45,12 @@ export default interface ITechRecord {
   vehicleType: string;
   vehicleSize: string;
   vehicleConfiguration: string;
-  euroStandard?: string,
-  adrDetails?: AdrDetails,
+  euroStandard?: string;
+  adrDetails?: AdrDetails;
   brakes: {
     brakeCode: string,
     brakeCodeOriginal: string,
+    dtpNumber: string;
     dataTrBrakeOne: string,
     dataTrBrakeTwo: string,
     dataTrBrakeThree: string,
@@ -63,14 +67,15 @@ export default interface ITechRecord {
       parkingBrakeForceB: number
     }
   };
-  dtpNumber: string;
   fuelPropulsionSystem: string;
   roadFriendly: boolean;
   drawbarCouplingFitted: boolean;
   offRoad: boolean;
   numberOfWheelsDriven: number;
+  numberOfSeatbelts: string;
+  seatbeltInstallationApprovalDate?: string;
   euVehicleCategory: string;
-  emissionsLimit: number;
+  emissionsLimit?: number;
   departmentalVehicleMarker: boolean;
   alterationMarker: boolean;
   approvalType: string;
@@ -79,6 +84,7 @@ export default interface ITechRecord {
   variantVersionNumber: string;
   make: string;
   model: string;
+  modelLiteral: string;
   functionCode: string;
   grossEecWeight: number;
   trainGbWeight: number;
@@ -99,39 +105,42 @@ export default interface ITechRecord {
   plates: Plates[];
   notes: string;
   axles: Axle[];
+  dda: Dda;
+
 }
 
 interface Dimensions {
   length: number;
   width: number;
+  height?: number;
   axleSpacing: [{
     axles: string;
     value: number;
-  }]
+  }];
 }
 
 interface Plates {
-    plateSerialNumber: string;
-    plateIssueDate: string;
-    plateReasonForIssue: string;
-    plateIssuer: string;
+  plateSerialNumber: string;
+  plateIssueDate: string;
+  plateReasonForIssue: string;
+  plateIssuer: string;
 }
 
 interface Microfilm {
-    microfilmDocumentType: string;
-    microfilmRollNumber: string;
-    microfilmSerialNumber: string;
+  microfilmDocumentType: string;
+  microfilmRollNumber: string;
+  microfilmSerialNumber: string;
 }
 
 interface ApplicantDetails {
-    name: string;
-    address1: string;
-    address2: string;
-    postTown: string;
-    address3: string;
-    postCode: string;
-    telephoneNumber: string;
-    emailAddress: string;
+  name: string;
+  address1: string;
+  address2: string;
+  postTown: string;
+  address3: string;
+  postCode: string;
+  telephoneNumber: string;
+  emailAddress: string;
 }
 
 interface Axle {
@@ -154,35 +163,50 @@ interface Axle {
   };
 }
 
+interface Dda {
+  certificateIssued: boolean;
+  wheelchairCapacity: number;
+  wheelchairFittings: string;
+  wheelchairLiftPresent: boolean;
+  wheelchairLiftInformation: string;
+  wheelchairRampPresent: boolean;
+  wheelchairRampInformation: string;
+  minEmergencyExits: number;
+  outswing: string;
+  ddaSchedules: string;
+  seatbeltsFitted: string;
+  ddaNotes: string;
+}
+
 interface AdrDetails {
   vehicleDetails: {
     type: string,
     approvalDate: string
-  },
-  listStatementApplicable?: boolean,
-  batteryListNumber?: string,
-  declarationsSeen?: boolean,
-  brakeDeclarationsSeen?: boolean,
-  brakeDeclarationIssuer?: string,
-  brakeEndurance?: boolean,
-  weight?: string,
-  compatibilityGroupJ?: boolean,
-  documents?: string[],
-  permittedDangerousGoods: string[],
-  additionalExaminerNotes?: string,
+  };
+  listStatementApplicable?: boolean;
+  batteryListNumber?: string;
+  declarationsSeen?: boolean;
+  brakeDeclarationsSeen?: boolean;
+  brakeDeclarationIssuer?: string;
+  brakeEndurance?: boolean;
+  weight?: string;
+  compatibilityGroupJ?: boolean;
+  documents?: string[];
+  permittedDangerousGoods: string[];
+  additionalExaminerNotes?: string;
   applicantDetails: {
-    name: string,
-    street: string,
-    town: string,
-    city: string,
-    postcode: string
-  },
-  memosApply?: string[],
+    name: string;
+    street: string;
+    town: string;
+    city: string;
+    postcode: string;
+  };
+  memosApply?: string[];
   additionalNotes?: {
     number?: string[],
     guidanceNotes?: string[]
-  },
-  adrTypeApprovalNo?: string,
+  };
+  adrTypeApprovalNo?: string;
   tank?: {
     tankDetails?: {
       tankManufacturer?: string
@@ -209,5 +233,5 @@ interface AdrDetails {
       productListUnNo?: string[],
       productList?: string
     }
-  }
+  };
 }
