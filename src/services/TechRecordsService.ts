@@ -153,7 +153,9 @@ class TechRecordsService {
 
   private validateVrms(techRecord: ITechRecordWrapper) {
     let areVrmsValid = true;
-    if (techRecord.primaryVrm) {
+    if (!techRecord.primaryVrm) {
+      areVrmsValid = false;
+    } else {
       const isValid = validatePrimaryVrm.validate(techRecord.primaryVrm);
       if (isValid.error) {
         areVrmsValid = false;
@@ -175,7 +177,7 @@ class TechRecordsService {
     techRecord.statusCode = STATUS.PROVISIONAL;
   }
 
-  public updateTechRecord(techRecord: {vin: string, techRecord: ITechRecord[]}, msUserDetails: any, files?: string[]) {
+  public updateTechRecord(techRecord: { vin: string, techRecord: ITechRecord[] }, msUserDetails: any, files?: string[]) {
     if (files && files.length) {
       const promises = [];
       for (const file of files) {
@@ -202,7 +204,7 @@ class TechRecordsService {
     }
   }
 
-  private manageUpdateLogic(techRecord: {vin: string, techRecord: ITechRecord[]}, msUserDetails: any, documents?: string[]) {
+  private manageUpdateLogic(techRecord: { vin: string, techRecord: ITechRecord[] }, msUserDetails: any, documents?: string[]) {
     return this.createAndArchiveTechRecord(techRecord, msUserDetails, documents)
       .then((data: ITechRecordWrapper) => {
         return this.techRecordsDAO.updateSingle(data)
@@ -218,7 +220,7 @@ class TechRecordsService {
       });
   }
 
-  private createAndArchiveTechRecord(techRecord: {vin: string, techRecord: ITechRecord[]}, msUserDetails: any, documents?: string[]) {
+  private createAndArchiveTechRecord(techRecord: { vin: string, techRecord: ITechRecord[] }, msUserDetails: any, documents?: string[]) {
     const isPayloadValid = validatePayload(techRecord.techRecord[0]);
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 500, body: isPayloadValid.error.details});
@@ -348,7 +350,7 @@ class TechRecordsService {
       techRecordWrapper.techRecord.push({...techRecordWrapper.techRecord[0], statusCode: newStatus});
       let updatedTechRecord;
       try {
-        updatedTechRecord =  await this.techRecordsDAO.updateSingle(techRecordWrapper);
+        updatedTechRecord = await this.techRecordsDAO.updateSingle(techRecordWrapper);
       } catch (error) {
         throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
       }
@@ -360,7 +362,7 @@ class TechRecordsService {
 
   public static isStatusUpdateRequired(testStatus: string, testResult: string, testTypeId: string): boolean {
     return testStatus === "submitted" && testResult === "pass" &&
-        (this.isTestTypeFirstTest(testTypeId) || this.isTestTypeNotifiableAlteration(testTypeId));
+      (this.isTestTypeFirstTest(testTypeId) || this.isTestTypeNotifiableAlteration(testTypeId));
   }
 
   private static isTestTypeFirstTest(testTypeId: string): boolean {

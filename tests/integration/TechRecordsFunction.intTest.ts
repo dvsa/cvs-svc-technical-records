@@ -120,6 +120,7 @@ describe("postTechRecords", () => {
         delete techRecord.techRecord[0].statusCode;
         const payload = {
           vin: techRecord.vin,
+          primaryVrm: techRecord.primaryVrm,
           msUserDetails,
           techRecord: techRecord.techRecord
         };
@@ -145,6 +146,7 @@ describe("postTechRecords", () => {
         const payload = {
           vin: techRecord.vin,
           msUserDetails,
+          primaryVrm: Math.floor(100000 + Math.random() * 900000).toString(),
           techRecord: techRecord.techRecord
         };
 

@@ -330,35 +330,70 @@ describe("insertTechRecord", () => {
       }
     });
 
-    it("should return Primary or secondaryVrms are not valid error 500", async () => {
-      const MockDAO = jest.fn().mockImplementation(() => {
-        return {
-          createSingle: () => {
-            return Promise.resolve({});
-          }
+    context("and the primaryVRM is missing from the record", () => {
+      it("should return Primary or secondaryVrms are not valid error 500", async () => {
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            createSingle: () => {
+              return Promise.resolve({});
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
+        techRecord.vin = Date.now().toString();
+        techRecord.secondaryVrms = ["invalidSecondaryVrm"];
+        techRecord.techRecord[0].bodyType.description = "skeletal";
+        delete techRecord.techRecord[0].statusCode;
+        delete techRecord.primaryVrm;
+        const msUserDetails = {
+          msUser: "dorel",
+          msOid: "1234545"
         };
+
+        try {
+          expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.body).toEqual("Primary or secondaryVrms are not valid");
+        }
       });
-      const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+    });
 
-      // @ts-ignore
-      const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
-      techRecord.vin = Date.now().toString();
-      techRecord.primaryVrm = "invalidPrimaryVrm";
-      techRecord.secondaryVrms = ["invalidSecondaryVrm"];
-      techRecord.techRecord[0].bodyType.description = "skeletal";
-      delete techRecord.techRecord[0].statusCode;
-      const msUserDetails = {
-        msUser: "dorel",
-        msOid: "1234545"
-      };
+    context("and the primaryVrm and secondaryVrms are not valid", () => {
+      it("should return Primary or secondaryVrms are not valid error 500", async () => {
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            createSingle: () => {
+              return Promise.resolve({});
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
 
-      try {
-        expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
-      } catch (errorResponse) {
-        expect(errorResponse.statusCode).toEqual(500);
-        expect(errorResponse.body).toEqual("Primary or secondaryVrms are not valid");
-      }
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
+        techRecord.vin = Date.now().toString();
+        techRecord.primaryVrm = "invalidPrimaryVrm";
+        techRecord.secondaryVrms = ["invalidSecondaryVrm"];
+        techRecord.techRecord[0].bodyType.description = "skeletal";
+        delete techRecord.techRecord[0].statusCode;
+        const msUserDetails = {
+          msUser: "dorel",
+          msOid: "1234545"
+        };
+
+        try {
+          expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.body).toEqual("Primary or secondaryVrms are not valid");
+        }
+      });
     });
   });
 
