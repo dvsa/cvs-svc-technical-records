@@ -6,7 +6,7 @@ import {
   vehicleClassDescription,
   populateBodyTypeCode,
   populateVehicleClassCode
-} from "../../src/utils/HgvValidations";
+} from "../../src/utils/ValidationEnums";
 import ITechRecord from "../../@Types/ITechRecord";
 
 const createPayload = () => {
