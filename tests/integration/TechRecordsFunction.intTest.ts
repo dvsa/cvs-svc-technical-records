@@ -140,7 +140,7 @@ describe("postTechRecords", () => {
       it("should return 201 created", async () => {
         const techRecord: any = cloneDeep(records[43]);
         delete techRecord.techRecord[0].statusCode;
-        techRecord.vin = Date.now().toString();
+        techRecord.vin = Date.now().toString().substring(8);
 
         const payload = {
           vin: techRecord.vin,

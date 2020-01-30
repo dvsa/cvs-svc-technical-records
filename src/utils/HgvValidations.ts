@@ -183,25 +183,25 @@ const populateBodyTypeCode = (parent: any, helpers: any) => {
 export const hgvValidation = Joi.object().keys({
   vehicleType: Joi.string().valid(...vehicleType).required().allow(null),
   regnDate: Joi.date().format("YYYY-MM-DD").optional().allow(null),
-  manufactureYear: Joi.number().max(9999).required().allow(null),
-  noOfAxles: Joi.number().max(99).required().allow(null),
+  manufactureYear: Joi.number().min(0).max(9999).required().allow(null),
+  noOfAxles: Joi.number().min(0).max(99).required().allow(null),
   brakes: Joi.object().keys({
     dtpNumber: Joi.string().max(6).required().allow(null),
   }).required(),
   axles: Joi.array().items(Joi.object().keys({
     parkingBrakeMrk: Joi.boolean().optional().allow(null),
-    axleNumber: Joi.number().max(99999).required().allow(null),
+    axleNumber: Joi.number().min(0).max(99999).required().allow(null),
     weights: Joi.object().keys({
-      gbWeight: Joi.number().max(99999).required().allow(null),
-      eecWeight: Joi.number().max(99999).optional().allow(null),
-      designWeight: Joi.number().max(99999).required().allow(null)
+      gbWeight: Joi.number().min(0).max(99999).required().allow(null),
+      eecWeight: Joi.number().min(0).max(99999).optional().allow(null),
+      designWeight: Joi.number().min(0).max(99999).required().allow(null)
     }).required(),
     tyres: Joi.object().keys({
-      tyreCode: Joi.number().max(9999).required().allow(null),
+      tyreCode: Joi.number().min(0).max(9999).required().allow(null),
       tyreSize: Joi.string().max(12).required().allow(null),
       plyRating: Joi.string().max(2).optional().allow(null),
       fitmentCode: Joi.string().valid(...fitmentCode).required().allow(null),
-      dataTrAxles: Joi.number().max(999).optional().allow(null)
+      dataTrAxles: Joi.number().min(0).max(999).optional().allow(null)
     }).required(),
   })).required(),
   speedLimiterMrk: Joi.boolean().default(false),
@@ -220,9 +220,9 @@ export const hgvValidation = Joi.object().keys({
   }).required(),
   vehicleConfiguration: Joi.string().valid(...vehicleConfiguration).required().allow(null),
   offRoad: Joi.boolean().optional().default(false),
-  numberOfWheelsDriven: Joi.number().max(9999).required().allow(null),
+  numberOfWheelsDriven: Joi.number().min(0).max(9999).required().allow(null),
   euVehicleCategory: Joi.string().valid(...euVehicleCategory).required().allow(null),
-  emissionsLimit: Joi.number().max(99).optional().allow(null),
+  emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
   departmentalVehicleMarker: Joi.boolean().default(false),
   alterationMarker: Joi.boolean().default(false),
   approvalType: Joi.string().valid(...approvalType).required().allow(null),
@@ -253,18 +253,18 @@ export const hgvValidation = Joi.object().keys({
   maxTrainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
   tyreUseCode: Joi.string().max(2).optional().allow(null),
   dimensions: Joi.object().keys({
-    length: Joi.number().max(99999).required().allow(null),
-    width: Joi.number().max(99999).required().allow(null),
+    length: Joi.number().min(0).max(99999).required().allow(null),
+    width: Joi.number().min(0).max(99999).required().allow(null),
     axleSpacing: Joi.array().items(Joi.object().keys({
-      value: Joi.number().max(99999).optional().allow(null),
+      value: Joi.number().min(0).max(99999).optional().allow(null),
       axles: Joi.string().optional()
     })).optional()
   }).required(),
-  frontAxleToRearAxle: Joi.number().max(99999).required().allow(null),
-  frontAxleTo5thWheelCouplingMin: Joi.number().max(99999).optional().allow(null),
-  frontAxleTo5thWheelCouplingMax: Joi.number().max(99999).optional().allow(null),
-  frontAxleTo5thWheelMin: Joi.number().max(99999).required().allow(null),
-  frontAxleTo5thWheelMax: Joi.number().max(99999).required().allow(null),
+  frontAxleToRearAxle: Joi.number().min(0).max(99999).required().allow(null),
+  frontAxleTo5thWheelCouplingMin: Joi.number().min(0).max(99999).optional().allow(null),
+  frontAxleTo5thWheelCouplingMax: Joi.number().min(0).max(99999).optional().allow(null),
+  frontAxleTo5thWheelMin: Joi.number().min(0).max(99999).required().allow(null),
+  frontAxleTo5thWheelMax: Joi.number().min(0).max(99999).required().allow(null),
   applicantDetails: Joi.object().keys({
     name: Joi.string().max(150).required().allow(null),
     address1: Joi.string().max(60).required().allow(null),
