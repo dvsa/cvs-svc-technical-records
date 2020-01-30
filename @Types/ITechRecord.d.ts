@@ -15,7 +15,7 @@ export default interface ITechRecord {
     description: string
   };
   manufactureYear: number;
-  regnDate: string;
+  regnDate?: string;
   coifDate: string;
   ntaNumber: string;
   coifSerialNumber: string;
