@@ -1,10 +1,9 @@
 import {hgvValidation, populateBodyTypeCode, populateVehicleClassCode} from "./HgvValidations";
 import ITechRecord from "../../@Types/ITechRecord";
-import {VEHICLE_TYPE} from "../assets/Enums";
+import {VEHICLE_TYPE, SEARCHCRITERIA} from "../assets/Enums";
 import Joi from "@hapi/joi";
-import {SEARCHCRITERIA} from "../assets/Enums";
+import {psvValidation} from "./PsvValidations";
 
-// This will be expanded to other validations in the future. Currently validating only HGVs.
 export const validatePayload = (payload: ITechRecord) => {
   if (payload.vehicleType === VEHICLE_TYPE.HGV) {
     let isTankOrBattery = false;
@@ -15,6 +14,8 @@ export const validatePayload = (payload: ITechRecord) => {
       }
     }
     return hgvValidation.validate(payload, {context: {isTankOrBattery}});
+  } else if (payload.vehicleType === VEHICLE_TYPE.PSV) {
+    return psvValidation.validate(payload);
   } else {
     return {
       error: {
