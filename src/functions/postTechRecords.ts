@@ -19,7 +19,7 @@ const postTechRecords = (event: any) => {
   const primaryVrm = event.body ? event.body.primaryVrm : null;
   const secondaryVrms = event.body ? event.body.secondaryVrms : null;
 
-  if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 3 || vin.length > 21) {
+  if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 3 || vin.length > 21 || typeof vin !== "string") {
     return Promise.resolve(new HTTPResponse(400, "Invalid body field 'vin'"));
   }
 
