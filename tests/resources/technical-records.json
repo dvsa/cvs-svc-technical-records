@@ -9359,7 +9359,7 @@
         "trainGbWeight": null,
         "tyreUseCode": null,
         "vehicleClass": {
-          "code": "v",
+          "code": "2",
           "description": null
         },
         "vehicleConfiguration": null,
