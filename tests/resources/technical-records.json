@@ -9354,12 +9354,13 @@
         "roadFriendly": false,
         "speedLimiterMrk": null,
         "statusCode": "current",
+        "numberOfWheelsDriven": 3,
         "tachoExemptMrk": null,
         "trainDesignWeight": null,
         "trainGbWeight": null,
         "tyreUseCode": null,
         "vehicleClass": {
-          "code": "2",
+          "code": "4",
           "description": null
         },
         "vehicleConfiguration": null,
