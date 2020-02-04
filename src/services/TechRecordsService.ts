@@ -3,7 +3,7 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
 import {ManagedUpload, Metadata} from "aws-sdk/clients/s3";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
+import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE, VEHICLE_TYPE} from "../assets/Enums";
 import * as _ from "lodash";
 import * as uuid from "uuid";
 import {
@@ -138,7 +138,8 @@ class TechRecordsService {
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
     }
-    if (!this.validateVrms(techRecord)) {
+    const vehicleType = techRecord.techRecord[0].vehicleType;
+    if ((vehicleType === VEHICLE_TYPE.PSV || vehicleType === VEHICLE_TYPE.HGV) && !this.validateVrms(techRecord)) {
       return Promise.reject({statusCode: 400, body: "Primary or secondaryVrms are not valid"});
     }
     techRecord.techRecord[0] = isPayloadValid.value;

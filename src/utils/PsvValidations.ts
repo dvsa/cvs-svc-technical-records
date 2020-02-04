@@ -6,8 +6,8 @@ import {
   approvalType,
   bodyTypeDescription, euVehicleCategory, fitmentCode,
   fuelPropulsionSystem, microfilmDocumentType, plateReasonForIssue,
-  populateBodyTypeCode,
-  populateVehicleClassCode, speedCategorySymbol, vehicleClassDescription,
+  populateBodyTypeCode, populateBrakeCode, populateBrakeCodeOriginal,
+  populateVehicleClassCode, retarderBrake, speedCategorySymbol, vehicleClassDescription,
   vehicleConfiguration, vehicleSize, vehicleType
 } from "./ValidationEnums";
 
@@ -16,14 +16,16 @@ export const psvValidation = Joi.object().keys({
   regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
   manufactureYear: Joi.number().min(0).max(9999).required().allow(null),
   noOfAxles: Joi.number().min(0).max(99).required().allow(null),
+  brakeCode: Joi.string().default(populateBrakeCode),
   brakes: Joi.object().keys({
     dtpNumber: Joi.string().max(6).required().allow(null),
     brakeCode: Joi.string().max(6).required().allow(null),
-    dataTrBrakeOne: Joi.string().max(6).required().allow(null),
-    dataTrBrakeTwo: Joi.string().max(6).required().allow(null),
-    dataTrBrakeThree: Joi.string().max(6).required().allow(null),
-    retarderBrakeOne: Joi.string().max(6).required().allow(null),
-    retarderBrakeTwo: Joi.string().max(6).required().allow(null),
+    brakeCodeOriginal: Joi.string().default(populateBrakeCodeOriginal),
+    dataTrBrakeOne: Joi.string().max(60).required().allow(null),
+    dataTrBrakeTwo: Joi.string().max(60).required().allow(null),
+    dataTrBrakeThree: Joi.string().max(60).required().allow(null),
+    retarderBrakeOne: Joi.string().valid(...retarderBrake).optional().allow(null),
+    retarderBrakeTwo: Joi.string().valid(...retarderBrake).optional().allow(null),
     brakeForceWheelsNotLocked: Joi.object().keys({
       parkingBrakeForceA: Joi.number().min(0).max(99999).required().allow(null),
       secondaryBrakeForceA: Joi.number().min(0).max(99999).required().allow(null),
@@ -36,7 +38,7 @@ export const psvValidation = Joi.object().keys({
     }).required()
   }).required(),
   dda: Joi.object().keys({
-    certificateIssued: Joi.boolean().default(false),
+    certificateIssued: Joi.boolean().default(false).allow(null),
     wheelchairCapacity: Joi.number().min(0).max(99).optional().allow(null),
     wheelchairFittings: Joi.string().max(250).optional().allow(null),
     wheelchairLiftPresent: Joi.boolean().optional().allow(null),
@@ -62,7 +64,7 @@ export const psvValidation = Joi.object().keys({
       tyreCode: Joi.number().min(0).max(9999).required().allow(null),
       tyreSize: Joi.string().max(12).required().allow(null),
       plyRating: Joi.string().max(2).optional().allow(null),
-      speedCategorySymbol: Joi.string().valid(...speedCategorySymbol).optional().allow(null),
+      speedCategorySymbol: Joi.string().valid(...speedCategorySymbol).required().allow(null),
       fitmentCode: Joi.string().valid(...fitmentCode).required().allow(null),
       dataTrAxles: Joi.number().min(0).max(999).optional().allow(null)
     }).required(),
@@ -121,13 +123,13 @@ export const psvValidation = Joi.object().keys({
   grossDesignWeight: Joi.number().min(0).max(99999).required().allow(null),
   unladenWeight: Joi.number().min(0).max(99999).optional().allow(null),
   trainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
-  maxTrainGbWeight: Joi.number().min(0).max(99999).required().allow(null),
+  maxTrainGbWeight: Joi.number().min(0).max(99999).optional().allow(null),
   dimensions: Joi.object().keys({
     length: Joi.number().min(0).max(99999).optional().allow(null),
     width: Joi.number().min(0).max(99999).optional().allow(null),
     height: Joi.number().min(0).max(99999).optional().allow(null),
   }).required(),
-  frontAxleToRearAxle: Joi.number().min(0).max(99999).required().allow(null),
+  frontAxleToRearAxle: Joi.number().min(0).max(99999).optional().allow(null),
   remarks: Joi.string().max(1024).optional().allow(null),
   dispensations: Joi.string().max(160).optional().allow(null),
   applicantDetails: Joi.object().keys({
@@ -151,7 +153,6 @@ export const psvValidation = Joi.object().keys({
     plateReasonForIssue: Joi.string().valid(...plateReasonForIssue).optional().allow(null),
     plateIssuer: Joi.string().max(150).optional().allow(null)
   })).optional().allow(null),
-  notes: Joi.string().optional().allow(null),
   reasonForCreation: Joi.string().max(100).required().allow(null),
   createdAt: Joi.string().optional().allow(null),
   createdByName: Joi.string().optional(),
