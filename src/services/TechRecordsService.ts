@@ -2,7 +2,7 @@ import HTTPError from "../models/HTTPError";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {ERRORS, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE, EU_VEHICLE_CATEGORY} from "../assets/Enums";
+import {ERRORS, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE, VEHICLE_TYPE, EU_VEHICLE_CATEGORY} from "../assets/Enums";
 import * as _ from "lodash";
 import {
   populateFields,
@@ -136,7 +136,8 @@ class TechRecordsService {
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
     }
-    if (!this.validateVrms(techRecord)) {
+    const vehicleType = techRecord.techRecord[0].vehicleType;
+    if ((vehicleType === VEHICLE_TYPE.PSV || vehicleType === VEHICLE_TYPE.HGV) && !this.validateVrms(techRecord)) {
       return Promise.reject({statusCode: 400, body: "Primary or secondaryVrms are not valid"});
     }
     techRecord.techRecord[0] = isPayloadValid.value;
