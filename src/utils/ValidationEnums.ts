@@ -181,6 +181,15 @@ export const vehicleSize: string[] = [
   "large"
 ];
 
+export const retarderBrake: string[] = [
+  "electric",
+  "exhaust",
+  "friction",
+  "hydraulic",
+  "other",
+  "none",
+];
+
 export const populateVehicleClassCode = (parent: any, helpers: any) => {
   switch (parent.description) {
     case "motorbikes over 200cc or with a sidecar":
@@ -239,4 +248,12 @@ export const populateBodyTypeCode = (parent: any, helpers: any) => {
     default:
       throw new Error("Not valid");
   }
+};
+
+export const populateBrakeCodeOriginal = (parent: any, helpers: any) => {
+  return parent.brakeCode.substring(parent.brakeCode.length - 3);
+};
+
+export const populateBrakeCode = (parent: any, helpers: any) => {
+  return parent.brakes.brakeCode;
 };
