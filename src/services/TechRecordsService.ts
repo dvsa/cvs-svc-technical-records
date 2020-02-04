@@ -232,7 +232,7 @@ class TechRecordsService {
         const oldTechRec = this.getTechRecordToArchive(data);
         const newRecord: any = _.cloneDeep(oldTechRec);
         oldTechRec.statusCode = STATUS.ARCHIVED;
-        _.merge(newRecord, techRecord.techRecord[0]);
+        _.mergeWith(newRecord, techRecord.techRecord[0], this.arrayCustomizer);
         if (techRecord.techRecord[0].adrDetails && techRecord.techRecord[0].adrDetails.documents) {
           newRecord.adrDetails.documents = techRecord.techRecord[0].adrDetails.documents;
         }
@@ -252,6 +252,12 @@ class TechRecordsService {
       .catch((error: any) => {
         throw new HTTPError(error.statusCode, error.body);
       });
+  }
+
+  private arrayCustomizer(oldValue: any, newValue: any) {
+    if (_.isArray(oldValue) && _.isArray(newValue)) {
+      return newValue;
+    }
   }
 
   private getTechRecordToArchive(techRecord: ITechRecordWrapper) {
