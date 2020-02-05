@@ -507,6 +507,7 @@ describe("updateTechRecord", () => {
       it("should return error 400 Payload is not valid", async () => {
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[31]);
+        techRecord.techRecord[0].vehicleType = "motorbike";
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             updateSingle: () => {
@@ -539,7 +540,7 @@ describe("updateTechRecord", () => {
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(400);
-          expect(errorResponse.body).toEqual("Payload is not valid");
+          expect(errorResponse.body).toEqual("\"vehicleType\" must be one of [hgv, psv, trl]");
         }
       });
     });
