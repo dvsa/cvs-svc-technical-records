@@ -1,4 +1,6 @@
 /* tslint:disable */
+import ITechRecord from "../../@Types/ITechRecord";
+
 const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
@@ -164,8 +166,8 @@ const fitmentCode: string[] = [
   "single"
 ];
 
-export const populateVehicleClassCode = (parent: any, helpers: any) => {
-  switch (parent.description) {
+export const populateVehicleClassCode = (description: string) => {
+  switch (description) {
     case "motorbikes over 200cc or with a sidecar":
       return "2";
     case "not applicable":
@@ -193,8 +195,8 @@ export const populateVehicleClassCode = (parent: any, helpers: any) => {
   }
 };
 
-export const populateBodyTypeCode = (parent: any, helpers: any) => {
-  switch (parent.description) {
+export const populateBodyTypeCode = (description: string) => {
+  switch (description) {
     case "articulated":
       return "a";
     case "single decker":
@@ -257,7 +259,7 @@ export const hgvValidation = Joi.object().keys({
   vehicleClass: Joi.object().keys({
     code: Joi.any().when("description", {
       is: Joi.string().valid(...vehicleClassDescription).required().allow(null),
-      then: Joi.string().default(populateVehicleClassCode),
+      then: Joi.string().optional(),
       otherwise: Joi.object().forbidden()
     }),
     description: Joi.string().valid(...vehicleClassDescription).required()
@@ -279,7 +281,7 @@ export const hgvValidation = Joi.object().keys({
   bodyType: Joi.object().keys({
     code: Joi.any().when("description", {
       is: Joi.string().valid(...bodyTypeDescription).required().allow(null),
-      then: Joi.string().default(populateBodyTypeCode),
+      then: Joi.string().optional(),
       otherwise: Joi.object().forbidden()
     }),
     description: Joi.string().valid(...bodyTypeDescription).required()
@@ -307,8 +309,8 @@ export const hgvValidation = Joi.object().keys({
   frontAxleToRearAxle: Joi.number().min(0).max(99999).required().allow(null),
   frontAxleTo5thWheelCouplingMin: Joi.number().min(0).max(99999).optional().allow(null),
   frontAxleTo5thWheelCouplingMax: Joi.number().min(0).max(99999).optional().allow(null),
-  frontAxleTo5thWheelMin: Joi.number().min(0).max(99999).required().allow(null),
-  frontAxleTo5thWheelMax: Joi.number().min(0).max(99999).required().allow(null),
+  frontAxleTo5thWheelMin: Joi.number().min(0).max(99999).optional().allow(null),
+  frontAxleTo5thWheelMax: Joi.number().min(0).max(99999).optional().allow(null),
   applicantDetails: Joi.object().keys({
     name: Joi.string().max(150).required().allow(null),
     address1: Joi.string().max(60).required().allow(null),

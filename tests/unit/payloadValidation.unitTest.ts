@@ -1,6 +1,6 @@
 import {cloneDeep} from "lodash";
 import mockData from "../resources/technical-records.json";
-import {validatePayload} from "../../src/utils/PayloadValidation";
+import {populateFields} from "../../src/utils/PayloadValidation";
 import {
   bodyTypeDescription,
   vehicleClassDescription,
@@ -58,8 +58,8 @@ describe("payloadValidation", () => {
         const payload: ITechRecord = createPayload();
         for (const vehicleClass of vehicleClassDescription) {
           payload.vehicleClass.description = vehicleClass;
-          const validatedPayload = validatePayload(payload);
-          expect(validatedPayload.value.vehicleClass.code).toEqual(vehicleClassMap[vehicleClass]);
+          populateFields(payload);
+          expect(payload.vehicleClass.code).toEqual(vehicleClassMap[vehicleClass]);
         }
       });
 
@@ -67,8 +67,8 @@ describe("payloadValidation", () => {
         const payload: ITechRecord = createPayload();
         for (const bodyType of bodyTypeDescription) {
           payload.bodyType.description = bodyType;
-          const validatedPayload = validatePayload(payload);
-          expect(validatedPayload.value.bodyType.code).toEqual(bodyTypeMap[bodyType]);
+          populateFields(payload);
+          expect(payload.bodyType.code).toEqual(bodyTypeMap[bodyType]);
         }
       });
     });
@@ -76,7 +76,7 @@ describe("payloadValidation", () => {
     context("and the payload is invalid", () => {
       it("should throw Error: Not valid if vehicle class description is not an accepted field", () => {
         try {
-          expect(populateVehicleClassCode({description: "whatever"}, null)).toThrowError();
+          expect(populateVehicleClassCode("whatever")).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(Error);
           expect(errorResponse.message).toEqual("Not valid");
@@ -85,7 +85,7 @@ describe("payloadValidation", () => {
 
       it("should throw Error: Not valid if body type description is not an accepted field", () => {
         try {
-          expect(populateBodyTypeCode({description: "whatever"}, null)).toThrowError();
+          expect(populateBodyTypeCode( "whatever")).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(Error);
           expect(errorResponse.message).toEqual("Not valid");
