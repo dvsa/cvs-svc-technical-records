@@ -7,7 +7,7 @@ import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums
 import * as _ from "lodash";
 import * as uuid from "uuid";
 import {
-  populatePartialVin,
+  populateFields,
   validatePayload,
   validatePrimaryVrm,
   validateSecondaryVrms
@@ -142,6 +142,7 @@ class TechRecordsService {
       return Promise.reject({statusCode: 400, body: "Primary or secondaryVrms are not valid"});
     }
     techRecord.techRecord[0] = isPayloadValid.value;
+    populateFields(techRecord.techRecord[0]);
     this.setAuditDetailsAndStatusCodeForNewRecord(techRecord.techRecord[0], msUserDetails);
     return this.techRecordsDAO.createSingle(techRecord)
       .then((data: any) => {
@@ -246,6 +247,7 @@ class TechRecordsService {
           }
         }
         this.setAuditDetails(newRecord, oldTechRec, msUserDetails);
+        populateFields(newRecord);
         data.techRecord.push(newRecord);
         return data;
       })
