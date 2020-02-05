@@ -5,7 +5,7 @@ import Joi from "@hapi/joi";
 
 // This will be expanded to other validations in the future. Currently validating only HGVs.
 export const validatePayload = (payload: ITechRecord) => {
-  if (payload.vehicleType === VEHICLE_TYPE.HGV || payload.vehicleType === VEHICLE_TYPE.TRL) {
+  if (payload.vehicleType === VEHICLE_TYPE.HGV) {
     let isTankOrBattery = false;
     if (payload.adrDetails && payload.adrDetails.vehicleDetails && payload.adrDetails.vehicleDetails.type) {
       const vehicleDetailsType = payload.adrDetails.vehicleDetails.type.toLowerCase();
@@ -17,7 +17,7 @@ export const validatePayload = (payload: ITechRecord) => {
   } else {
     return {
       error: {
-        details: "Payload is not valid"
+        details: "\"vehicleType\" must be one of [hgv, psv, trl]"
       }
     };
   }
