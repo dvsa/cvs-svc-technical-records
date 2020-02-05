@@ -1,8 +1,9 @@
-import {hgvValidation, populateBodyTypeCode, populateVehicleClassCode} from "./HgvValidations";
+import {hgvValidation} from "./HgvValidations";
 import ITechRecord from "../../@Types/ITechRecord";
 import {VEHICLE_TYPE} from "../assets/Enums";
 import Joi from "@hapi/joi";
 import {psvValidation} from "./PsvValidations";
+import {populateBodyTypeCode, populateVehicleClassCode} from "./ValidationEnums";
 
 export const validatePayload = (payload: ITechRecord) => {
   if (payload.vehicleType === VEHICLE_TYPE.HGV) {
@@ -27,16 +28,3 @@ export const validatePayload = (payload: ITechRecord) => {
 
 export const validatePrimaryVrm = Joi.string().min(1).max(9);
 export const validateSecondaryVrms = Joi.array().items(Joi.string().min(1).max(9)).min(1);
-
-export const populatePartialVin = (vin: string) => {
-  if (vin.length < 6) {
-    return vin;
-  } else {
-    return vin.substr(vin.length - 6);
-  }
-};
-
-export const populateFields = (techRecord: ITechRecord) => {
-  techRecord.bodyType.code = populateBodyTypeCode(techRecord.bodyType.description);
-  techRecord.vehicleClass.code = populateVehicleClassCode(techRecord.vehicleClass.description);
-};

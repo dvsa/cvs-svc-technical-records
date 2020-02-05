@@ -1,11 +1,10 @@
 import {cloneDeep} from "lodash";
 import mockData from "../resources/technical-records.json";
-import {populateFields} from "../../src/utils/PayloadValidation";
 import {
   bodyTypeDescription,
   vehicleClassDescription,
   populateBodyTypeCode,
-  populateVehicleClassCode
+  populateVehicleClassCode, populateFields
 } from "../../src/utils/ValidationEnums";
 import ITechRecord from "../../@Types/ITechRecord";
 

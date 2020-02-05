@@ -4,7 +4,7 @@ import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
 import QueryInput = DocumentClient.QueryInput;
 import {SEARCHCRITERIA} from "../assets/Enums";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
-import {populatePartialVin} from "../utils/PayloadValidation";
+import {populatePartialVin} from "../utils/ValidationEnums";
 
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */

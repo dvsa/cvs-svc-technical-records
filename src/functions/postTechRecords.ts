@@ -5,7 +5,7 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import S3BucketService from "../services/S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
 import ITechRecord from "../../@Types/ITechRecord";
-import {populatePartialVin} from "../utils/PayloadValidation";
+import {populatePartialVin} from "../utils/ValidationEnums";
 
 const postTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
