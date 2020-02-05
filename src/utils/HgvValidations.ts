@@ -8,9 +8,7 @@ import {adrValidation} from "./AdrValidation";
 import {
   approvalType,
   bodyTypeDescription, euVehicleCategory, fitmentCode,
-  fuelPropulsionSystem, microfilmDocumentType, plateReasonForIssue,
-  populateBodyTypeCode,
-  populateVehicleClassCode, vehicleClassDescription,
+  fuelPropulsionSystem, microfilmDocumentType, plateReasonForIssue, vehicleClassDescription,
   vehicleConfiguration, vehicleType
 } from "./ValidationEnums";
 
@@ -57,8 +55,8 @@ export const hgvValidation = Joi.object().keys({
   numberOfWheelsDriven: Joi.number().min(0).max(9999).required().allow(null),
   euVehicleCategory: Joi.string().valid(...euVehicleCategory).required(),
   emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
-  departmentalVehicleMarker: Joi.boolean().default(false),
-  alterationMarker: Joi.boolean().default(false),
+  departmentalVehicleMarker: Joi.boolean().optional(),
+  alterationMarker: Joi.boolean().optional(),
   approvalType: Joi.string().valid(...approvalType).required(),
   approvalTypeNumber: Joi.string().max(25).optional().allow(null),
   ntaNumber: Joi.string().max(40).optional().allow(null),

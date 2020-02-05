@@ -5,12 +5,12 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {ERRORS, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE, VEHICLE_TYPE, EU_VEHICLE_CATEGORY} from "../assets/Enums";
 import * as _ from "lodash";
 import {
-  populateFields,
   validatePayload,
   validatePrimaryVrm,
   validateSecondaryVrms
 } from "../utils/PayloadValidation";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
+import {populateFields} from "../utils/ValidationEnums";
 import HTTPResponse from "../models/HTTPResponse";
 import { STATUS_CODES } from "http";
 

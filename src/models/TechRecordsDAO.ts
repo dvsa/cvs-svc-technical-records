@@ -4,6 +4,7 @@ import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
 import QueryInput = DocumentClient.QueryInput;
 import {SEARCHCRITERIA} from "../assets/Enums";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
+import {populatePartialVin} from "../utils/ValidationEnums";
 
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
@@ -106,7 +107,7 @@ class TechRecordsDAO {
   }
 
   public updateSingle(techRecord: ITechRecordWrapper) {
-
+    techRecord.partialVin = populatePartialVin(techRecord.vin);
     const query = {
       TableName: this.tableName,
       Key: {
