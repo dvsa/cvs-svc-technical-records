@@ -1,3 +1,6 @@
+import ITechRecord from "../../@Types/ITechRecord";
+import {VEHICLE_TYPE} from "../assets/Enums";
+
 export const vehicleType: string[] = [
   "psv",
   "trl",
@@ -190,8 +193,8 @@ export const retarderBrake: string[] = [
   "none",
 ];
 
-export const populateVehicleClassCode = (parent: any, helpers: any) => {
-  switch (parent.description) {
+export const populateVehicleClassCode = (description: string) => {
+  switch (description) {
     case "motorbikes over 200cc or with a sidecar":
       return "2";
     case "not applicable":
@@ -219,8 +222,8 @@ export const populateVehicleClassCode = (parent: any, helpers: any) => {
   }
 };
 
-export const populateBodyTypeCode = (parent: any, helpers: any) => {
-  switch (parent.description) {
+export const populateBodyTypeCode = (description: string) => {
+  switch (description) {
     case "articulated":
       return "a";
     case "single decker":
@@ -250,10 +253,20 @@ export const populateBodyTypeCode = (parent: any, helpers: any) => {
   }
 };
 
-export const populateBrakeCodeOriginal = (parent: any, helpers: any) => {
-  return parent.brakeCode.substring(parent.brakeCode.length - 3);
+export const populatePartialVin = (vin: string) => {
+  if (vin.length < 6) {
+    return vin;
+  } else {
+    return vin.substr(vin.length - 6);
+  }
 };
 
-export const populateBrakeCode = (parent: any, helpers: any) => {
-  return parent.brakes.brakeCode;
+export const populateFields = (techRecord: ITechRecord) => {
+  techRecord.bodyType.code = populateBodyTypeCode(techRecord.bodyType.description);
+  techRecord.vehicleClass.code = populateVehicleClassCode(techRecord.vehicleClass.description);
+  if (techRecord.vehicleType === VEHICLE_TYPE.PSV) {
+    techRecord.brakes.brakeCodeOriginal = techRecord.brakes.brakeCode.substring(techRecord.brakes.brakeCode.length - 3);
+    techRecord.brakeCode = techRecord.brakes.brakeCode;
+  }
 };
+
