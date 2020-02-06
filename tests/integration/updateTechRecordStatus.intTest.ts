@@ -1,10 +1,7 @@
 import {emptyDatabase, populateDatabase} from "../util/dbOperations";
-import records from "../resources/technical-records.json";
 import LambdaTester from "lambda-tester";
 import {HTTPRESPONSE, STATUS} from "../../src/assets/Enums";
-import {cloneDeep} from "lodash";
 import {updateTechRecordStatus} from "../../src/functions/updateTechRecordStatus";
-import {APIGatewayEvent} from "aws-lambda";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 
 describe("UpdateTechRecordStatus", () => {

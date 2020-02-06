@@ -1,19 +1,16 @@
-import { S3 } from "aws-sdk";
 import ITechRecord from "../../@Types/ITechRecord";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 import {SEARCHCRITERIA, STATUS} from "../assets/Enums";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsService from "../services/TechRecordsService";
-import S3BucketService from "../services/S3BucketService";
 import {metaData} from "../utils/AdrValidation";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {isValidSearchCriteria} from "../utils/PayloadValidation";
 
 const getTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
-  const s3BucketService = new S3BucketService(new S3());
-  const techRecordsService = new TechRecordsService(techRecordsDAO, s3BucketService);
+  const techRecordsService = new TechRecordsService(techRecordsDAO);
 
   const status: string = (event.queryStringParameters?.status) ? event.queryStringParameters.status : STATUS.PROVISIONAL_OVER_CURRENT;
   const searchCriteria: ISearchCriteria = (event.queryStringParameters?.searchCriteria) ? event.queryStringParameters.searchCriteria : SEARCHCRITERIA.ALL;

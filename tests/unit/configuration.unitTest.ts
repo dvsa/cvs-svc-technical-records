@@ -6,17 +6,14 @@ describe("The configuration service", () => {
         process.env.BRANCH = "local";
         const configService = Configuration.getInstance();
         const functions = configService.getFunctions();
-        expect(functions.length).toEqual(5);
+        expect(functions.length).toEqual(4);
         expect(functions[0].name).toEqual("getTechRecords");
         expect(functions[1].name).toEqual("postTechRecords");
         expect(functions[2].name).toEqual("updateTechRecords");
-        expect(functions[3].name).toEqual("downloadDocument");
-        expect(functions[4].name).toEqual("updateTechRecordStatus");
+        expect(functions[3].name).toEqual("updateTechRecordStatus");
 
         const DBConfig = configService.getDynamoDBConfig();
-        const S3Config = configService.getS3Config();
         expect(DBConfig).toEqual(configService.getConfig().dynamodb.local);
-        expect(S3Config).toEqual(configService.getConfig().s3.local);
 
         // No Endpoints for this service
       });
@@ -25,12 +22,11 @@ describe("The configuration service", () => {
         process.env.BRANCH = "local-global";
         const configService = Configuration.getInstance();
         const functions = configService.getFunctions();
-        expect(functions.length).toEqual(5);
+        expect(functions.length).toEqual(4);
         expect(functions[0].name).toEqual("getTechRecords");
         expect(functions[1].name).toEqual("postTechRecords");
         expect(functions[2].name).toEqual("updateTechRecords");
-        expect(functions[3].name).toEqual("downloadDocument");
-        expect(functions[4].name).toEqual("updateTechRecordStatus");
+        expect(functions[3].name).toEqual("updateTechRecordStatus");
 
         const DBConfig = configService.getDynamoDBConfig();
         expect(DBConfig).toEqual(configService.getConfig().dynamodb["local-global"]);
@@ -42,12 +38,11 @@ describe("The configuration service", () => {
         process.env.BRANCH = "CVSB-XXX";
         const configService = Configuration.getInstance();
         const functions = configService.getFunctions();
-        expect(functions.length).toEqual(5);
+        expect(functions.length).toEqual(4);
         expect(functions[0].name).toEqual("getTechRecords");
         expect(functions[1].name).toEqual("postTechRecords");
         expect(functions[2].name).toEqual("updateTechRecords");
-        expect(functions[3].name).toEqual("downloadDocument");
-        expect(functions[4].name).toEqual("updateTechRecordStatus");
+        expect(functions[3].name).toEqual("updateTechRecordStatus");
 
         const DBConfig = configService.getDynamoDBConfig();
         expect(DBConfig).toEqual(configService.getConfig().dynamodb.remote);
@@ -72,15 +67,6 @@ describe("The configuration service", () => {
           config.getDynamoDBConfig();
         } catch (e) {
           expect(e.message).toEqual("DynamoDB config is not defined in the config file.");
-        }
-      });
-
-      it("should return an error for missing S3 Config from getS3Config", () => {
-        const config = new Configuration("../../tests/resources/badConfig.yml");
-        try {
-          config.getS3Config();
-        } catch (e) {
-          expect(e.message).toEqual("S3 config is not defined in the config file.");
         }
       });
     });

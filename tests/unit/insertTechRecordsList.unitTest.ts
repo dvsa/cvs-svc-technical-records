@@ -3,12 +3,6 @@ import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
 import ITechRecord from "../../@Types/ITechRecord";
 import {HTTPRESPONSE} from "../../src/assets/Enums";
-import S3BucketService from "../../src/services/S3BucketService";
-import S3 from "aws-sdk/clients/s3";
-
-jest.mock("../../src/services/S3BucketService");
-jest.mock("aws-sdk/clients/s3");
-const s3BucketServiceMock = new S3BucketService(new S3());
 
 describe("insertTechRecordsList", () => {
   context("database call inserts items", () => {
@@ -25,7 +19,7 @@ describe("insertTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+      const techRecordsService = new TechRecordsService(mockDAO);
 
       // @ts-ignore
       const data: ITechRecord[] = await techRecordsService.insertTechRecordsList(records);
@@ -41,7 +35,7 @@ describe("insertTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+      const techRecordsService = new TechRecordsService(mockDAO);
 
       // @ts-ignore //Required because it decided records was different from the last time it was used otherwise
       const data: ITechRecord[] = await techRecordsService.insertTechRecordsList(records);
@@ -59,7 +53,7 @@ describe("insertTechRecordsList", () => {
         };
       });
       const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+      const techRecordsService = new TechRecordsService(mockDAO);
 
       try {
         // @ts-ignore

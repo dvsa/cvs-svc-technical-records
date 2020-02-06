@@ -2,12 +2,9 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import {STATUS, HTTPRESPONSE} from "../assets/Enums";
-import S3BucketService from "../services/S3BucketService";
-import { S3 } from "aws-sdk";
 
 export async function updateTechRecordStatus(event: any) {
-    const s3BucketService = new S3BucketService(new S3());
-    const techRecordsService = new TechRecordsService(new TechRecordsDAO(), s3BucketService);
+    const techRecordsService = new TechRecordsService(new TechRecordsDAO());
 
     const systemNumber: string = event.pathParameters!.systemNumber;
     const testStatus: string = event.queryStringParameters!.testStatus;

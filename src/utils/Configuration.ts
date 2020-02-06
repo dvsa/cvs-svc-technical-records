@@ -1,6 +1,6 @@
 // @ts-ignore
 import yml from "node-yaml";
-import {IFunctions, IParams, IS3Config} from "../../@Types/Configuration";
+import {IFunctions, IParams} from "../../@Types/Configuration";
 import {ERRORS} from "../assets/Enums";
 
 class Configuration {
@@ -94,21 +94,6 @@ class Configuration {
     }
 
     return this.config.dynamodb[env];
-  }
-
-  /**
-   * Retrieves the S3 config
-   * @returns IS3Config
-   */
-  public getS3Config(): IS3Config {
-    if (!this.config.s3) {
-      throw new Error("S3 config is not defined in the config file.");
-    }
-
-    // Not defining BRANCH will default to local
-    const env: string = (!process.env.BRANCH || process.env.BRANCH === "local") ? "local" : "remote";
-
-    return this.config.s3[env];
   }
 }
 

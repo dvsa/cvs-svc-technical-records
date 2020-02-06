@@ -41,33 +41,6 @@ describe("The lambda function handler", () => {
         expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
       });
 
-      it("should call the /vehicles/{vin}/download-file?filename=someFilename.pdf function with correct event payload", async () => {
-        // Specify your event, with correct path, payload etc
-        const vehicleRecordEvent = {
-          path: "/vehicles/YV31MEC18GA011944/download-file",
-          pathParameters: {
-            vin: "YV31MEC18GA011944"
-          },
-          resource: "/vehicles",
-          httpMethod: "GET",
-          queryStringParameters: {
-            filename: "someFilename.pdf"
-          }
-        };
-
-        let ctx: any = mockContext(opts);
-
-        // Stub out the actual functions
-        TechRecordsService.prototype.downloadFile = jest.fn().mockImplementation(() => {
-          return Promise.resolve(new HTTPResponse(200, {}));
-        });
-
-        const result = await handler(vehicleRecordEvent, ctx);
-        ctx.succeed(result);
-        ctx = null;
-        expect(result.statusCode).toEqual(200);
-        expect(TechRecordsService.prototype.downloadFile).toHaveBeenCalled();
-      });
 
       it("should call the /vehicles/{searchIdentifier}/tech-records function with correct event payload", async () => {
         // Specify your event, with correct path, payload etc
@@ -249,12 +222,11 @@ describe("The configuration service", () => {
       process.env.BRANCH = "local";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toEqual(5);
+      expect(functions.length).toEqual(4);
       expect(functions[0].name).toEqual("getTechRecords");
       expect(functions[1].name).toEqual("postTechRecords");
       expect(functions[2].name).toEqual("updateTechRecords");
-      expect(functions[3].name).toEqual("downloadDocument");
-      expect(functions[4].name).toEqual("updateTechRecordStatus");
+      expect(functions[3].name).toEqual("updateTechRecordStatus");
 
 
       const DBConfig = configService.getDynamoDBConfig();
@@ -267,12 +239,11 @@ describe("The configuration service", () => {
       process.env.BRANCH = "local-global";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toEqual(5);
+      expect(functions.length).toEqual(4);
       expect(functions[0].name).toEqual("getTechRecords");
       expect(functions[1].name).toEqual("postTechRecords");
       expect(functions[2].name).toEqual("updateTechRecords");
-      expect(functions[3].name).toEqual("downloadDocument");
-      expect(functions[4].name).toEqual("updateTechRecordStatus");
+      expect(functions[3].name).toEqual("updateTechRecordStatus");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(configService.getConfig().dynamodb["local-global"]);
@@ -284,12 +255,11 @@ describe("The configuration service", () => {
       process.env.BRANCH = "CVSB-XXX";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toEqual(5);
+      expect(functions.length).toEqual(4);
       expect(functions[0].name).toEqual("getTechRecords");
       expect(functions[1].name).toEqual("postTechRecords");
       expect(functions[2].name).toEqual("updateTechRecords");
-      expect(functions[3].name).toEqual("downloadDocument");
-      expect(functions[4].name).toEqual("updateTechRecordStatus");
+      expect(functions[3].name).toEqual("updateTechRecordStatus");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(configService.getConfig().dynamodb.remote);
