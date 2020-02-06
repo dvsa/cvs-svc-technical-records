@@ -22,10 +22,6 @@ plugins:
   - serverless-plugin-typescript
 
 custom:
-  s3:
-    host: s3
-    port: 7000
-    directory: /tmp
   serverless-offline:
     port: 3005
   dynamodb:
@@ -135,18 +131,6 @@ functions:
             parameters:
               paths:
                 vin: true
-  downloadDocument:
-    handler: src/handler.handler
-    events:
-      - http:
-          path: vehicles/{vin}/download-file
-          method: get
-          request:
-            parameters:
-              paths:
-                vin: true
-              querystrings:
-                filename: true
   updateTechRecordStatus:
     handler: src/handler.handler
 

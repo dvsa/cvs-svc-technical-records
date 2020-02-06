@@ -2,15 +2,12 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import S3BucketService from "../services/S3BucketService";
-import S3 = require("aws-sdk/clients/s3");
 import ITechRecord from "../../@Types/ITechRecord";
 import {populatePartialVin} from "../utils/PayloadValidation";
 
 const postTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
-  const s3BucketService = new S3BucketService(new S3());
-  const techRecordsService = new TechRecordsService(techRecordsDAO, s3BucketService);
+  const techRecordsService = new TechRecordsService(techRecordsDAO);
   const ONLY_DIGITS_AND_NUMBERS: RegExp = /^[A-Za-z0-9]+$/;
 
   const techRec: ITechRecord[] = event.body ? event.body.techRecord : null;

@@ -1,19 +1,16 @@
 import HTTPError from "../models/HTTPError";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
-import {ManagedUpload, Metadata} from "aws-sdk/clients/s3";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {ERRORS, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
 import * as _ from "lodash";
-import * as uuid from "uuid";
+import {validatePayload} from "../utils/PayloadValidation";
 import {
   populateFields,
   validatePayload,
   validatePrimaryVrm,
   validateSecondaryVrms
 } from "../utils/PayloadValidation";
-import S3BucketService from "./S3BucketService";
-import S3 = require("aws-sdk/clients/s3");
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 
 /**
@@ -23,11 +20,9 @@ import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 
 class TechRecordsService {
   private techRecordsDAO: TechRecordsDAO;
-  private s3BucketService: S3BucketService;
 
-  constructor(techRecordsDAO: TechRecordsDAO, s3BucketService: S3BucketService) {
+  constructor(techRecordsDAO: TechRecordsDAO) {
     this.techRecordsDAO = techRecordsDAO;
-    this.s3BucketService = s3BucketService;
   }
 
   public getTechRecordsList(searchTerm: string, status: string, searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL): Promise<ITechRecordWrapper[]> {
@@ -130,20 +125,6 @@ class TechRecordsService {
       if (techRecord.euroStandard !== undefined && techRecord.euroStandard !== null) {
         techRecord.euroStandard = techRecord.euroStandard.toString();
       }
-      if (techRecord.adrDetails) {
-        if (techRecord.adrDetails.documents) {
-          techRecord.adrDetails.documents = techRecord.adrDetails.documents.map((document: string) => {
-            const filenameParts = document.split("/");
-            if (filenameParts.length > 1) {
-              return filenameParts[1];
-            } else {
-              return filenameParts[0];
-            }
-          });
-        } else {
-          techRecord.adrDetails.documents = [];
-        }
-      }
     });
 
     return techRecordItem;
@@ -195,35 +176,12 @@ class TechRecordsService {
     techRecord.statusCode = STATUS.PROVISIONAL;
   }
 
-  public updateTechRecord(techRecord: { vin: string, techRecord: ITechRecord[] }, msUserDetails: any, files?: string[]) {
-    if (files && files.length) {
-      const promises = [];
-      for (const file of files) {
-        promises.push(this.uploadFile(file, techRecord.vin));
-      }
-      return Promise.all(promises)
-        .then((uploadedData: ManagedUpload.SendData[]) => {
-          const documents: string[] = [];
-          if (uploadedData && uploadedData.length) {
-            for (const uploaded of uploadedData) {
-              const filename = uploaded.Key.split("/")[1];
-              documents.push(filename);
-            }
-          } else {
-            throw new HTTPError(500, HTTPRESPONSE.S3_ERROR);
-          }
-          return this.manageUpdateLogic(techRecord, msUserDetails, documents);
-        })
-        .catch((error: any) => {
-          throw new HTTPError(error.statusCode, error);
-        });
-    } else {
-      return this.manageUpdateLogic(techRecord, msUserDetails);
-    }
+  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
+    return this.manageUpdateLogic(techRecord, msUserDetails);
   }
 
-  private manageUpdateLogic(techRecord: { vin: string, techRecord: ITechRecord[] }, msUserDetails: any, documents?: string[]) {
-    return this.createAndArchiveTechRecord(techRecord, msUserDetails, documents)
+  private manageUpdateLogic(techRecord: { vin: string, techRecord: ITechRecord[] }, msUserDetails: any) {
+    return this.createAndArchiveTechRecord(techRecord, msUserDetails)
       .then((data: ITechRecordWrapper) => {
         return this.techRecordsDAO.updateSingle(data)
           .then((updatedData: any) => {
@@ -238,7 +196,7 @@ class TechRecordsService {
       });
   }
 
-  private createAndArchiveTechRecord(techRecord: { vin: string, techRecord: ITechRecord[] }, msUserDetails: any, documents?: string[]) {
+  private createAndArchiveTechRecord(techRecord: { vin: string, techRecord: ITechRecord[] }, msUserDetails: any) {
     const isPayloadValid = validatePayload(techRecord.techRecord[0]);
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
@@ -255,18 +213,6 @@ class TechRecordsService {
         const newRecord: any = _.cloneDeep(oldTechRec);
         oldTechRec.statusCode = STATUS.ARCHIVED;
         _.mergeWith(newRecord, techRecord.techRecord[0], this.arrayCustomizer);
-        if (techRecord.techRecord[0].adrDetails && techRecord.techRecord[0].adrDetails.documents) {
-          newRecord.adrDetails.documents = techRecord.techRecord[0].adrDetails.documents;
-        }
-        if (documents && documents.length) {
-          if (newRecord.adrDetails) {
-            if (newRecord.adrDetails.documents && newRecord.adrDetails.documents.length) {
-              newRecord.adrDetails.documents = newRecord.adrDetails.documents.concat(documents);
-            } else {
-              newRecord.adrDetails.documents = documents;
-            }
-          }
-        }
         this.setAuditDetails(newRecord, oldTechRec, msUserDetails);
         populateFields(newRecord);
         uniqueRecord.techRecord.push(newRecord);
@@ -324,27 +270,6 @@ class TechRecordsService {
       updateType = _.isEqual(newTechRecord.adrDetails, oldTechRecord.adrDetails) ? UPDATE_TYPE.TECH_RECORD_UPDATE : UPDATE_TYPE.ADR;
     }
     oldTechRecord.updateType = updateType;
-  }
-
-  public uploadFile(file: string, vin: string): Promise<ManagedUpload.SendData> {
-    const buffer: Buffer = Buffer.from(file, "base64");
-    const metadata: Metadata = {
-      "vin": vin,
-      "file-size": buffer.byteLength.toString(),
-      "file-format": "pdf"
-    };
-    return this.s3BucketService.upload(`cvs-${process.env.BUCKET}-adr-pdfs`, `${uuid.v4()}.pdf`, buffer, metadata);
-  }
-
-  public downloadFile(filename: string) {
-    return this.s3BucketService.download(`cvs-${process.env.BUCKET}-adr-pdfs`, filename)
-      .then((result: S3.Types.GetObjectOutput) => {
-        return result.Body!.toString("base64");
-      })
-      .catch((error: any) => {
-        console.error(error);
-        throw new HTTPError(500, HTTPRESPONSE.S3_DOWNLOAD_ERROR);
-      });
   }
 
   public insertTechRecordsList(techRecordItems: ITechRecordWrapper[]) {
