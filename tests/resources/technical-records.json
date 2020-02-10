@@ -16800,91 +16800,20 @@
     ],
     "techRecord": [
       {
-        "adrDetails": {
-          "additionalExaminerNotes": "Additional Examiner Notes",
-          "additionalNotes": {
-            "guidanceNotes": [
-            ],
-            "number": [
-              "3"
-            ]
-          },
-          "adrTypeApprovalNo": null,
-          "applicantDetails": {
-            "city": "*******",
-            "name": "************",
-            "postcode": "*****",
-            "street": "*****",
-            "town": "*"
-          },
-          "batteryListNumber": "T662",
-          "brakeDeclarationIssuer": null,
-          "brakeDeclarationsSeen": null,
-          "brakeEndurance": false,
-          "compatibilityGroupJ": null,
-          "declarationsSeen": true,
-          "documents": [
-            "BE6966DBE532039780257603002829B3_A00037501_filename1.pdf",
-            "BE6966DBE532039780257603002829B3_A00037501_filename2.pdf",
-            "BE6966DBE532039780257603002829B3_A00037501_filename3.pdf"
-          ],
-          "listStatementApplicable": true,
-          "memosApply": [
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
-          "tank": {
-            "tankDetails": {
-              "specialProvisions": null,
-              "tankCode": "C342BH",
-              "tankManufacturer": "CHESTERFIELD CYLINDERS",
-              "tankManufacturerSerialNo": "T662",
-              "tankTypeAppNo": "GB/TV/PS2505",
-              "tc2Details": {
-                "tc2IntermediateApprovalNo": "2974",
-                "tc2IntermediateExpiryDate": null,
-                "tc2Type": null
-              },
-              "tc3Details": [
-                {
-                  "tc3PeriodicExpiryDate": "2024-04-12",
-                  "tc3PeriodicNumber": "GB/P/19/003050/REV 1",
-                  "tc3Type": null
-                }
-              ],
-              "yearOfManufacture": "1987"
-            },
-            "tankStatement": {
-              "productList": "COMPRESSED HYDROGEN GAS, ADR CLASS 2A, ADR ITEM 1\\xf8(b)",
-              "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
-              "statement": "B",
-              "substancesPermitted": "B"
-            }
-          },
-          "vehicleDetails": {
-            "approvalDate": "2019-05-10",
-            "type": "SEMI TRAILER BATTERY"
-          },
-          "weight": null
-        },
         "axles": [
           {
             "axleNumber": 1,
             "parkingBrakeMrk": false,
             "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
+              "dataTrAxles": 2,
+              "fitmentCode": "single",
               "plyRating": " ",
               "tyreCode": 462,
               "tyreSize": "12-22.5"
             },
             "weights": {
               "designWeight": 7500,
+              "eecWeight": 7500,
               "gbWeight": 7100
             }
           },
@@ -16892,409 +16821,100 @@
             "axleNumber": 2,
             "parkingBrakeMrk": false,
             "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
+              "dataTrAxles": 2,
+              "fitmentCode": "double",
               "plyRating": " ",
               "tyreCode": 462,
               "tyreSize": "12-22.5"
             },
             "weights": {
               "designWeight": 13000,
-              "gbWeight": 9500
-            }
-          },
-          {
-            "axleNumber": 3,
-            "parkingBrakeMrk": false,
-            "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
-              "plyRating": " ",
-              "tyreCode": 462,
-              "tyreSize": "12-22.5"
-            },
-            "weights": {
-              "designWeight": 13000,
+              "eecWeight": 10000,
               "gbWeight": 9500
             }
           }
         ],
         "bodyType": {
-          "code": "x",
           "description": "other"
         },
         "brakes": {
           "dtpNumber": "3798A"
         },
         "conversionRefNo": " ",
-        "createdAt": "2019-05-14T16:41:10.000000Z",
         "dimensions": {
-          "length": 0,
-          "width": 0
+          "length": 10000,
+          "width": 2000,
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 10000
+            }
+          ]
         },
         "drawbarCouplingFitted": false,
-        "euroStandard": null,
-        "frontAxleTo5thWheelMax": 0,
-        "frontAxleTo5thWheelMin": 0,
-        "frontVehicleTo5thWheelCouplingMax": 0,
-        "frontVehicleTo5thWheelCouplingMin": 0,
-        "functionCode": "A",
-        "grossDesignWeight": 33500,
-        "grossGbWeight": 24390,
-        "lastUpdatedAt": "2020-01-10T14:03:58.000000Z",
-        "make": "VOLVO",
-        "manufactureYear": 1984,
-        "maxTrainDesignWeight": 0,
-        "maxTrainGbWeight": 0,
-        "model": "F12-33",
-        "noOfAxles": 3,
-        "notes": " ",
-        "ntaNumber": "0000412556",
-        "reasonForCreation": " ",
-        "regnDate": "1985-01-01",
-        "roadFriendly": false,
-        "speedLimiterMrk": false,
-        "statusCode": "archived",
-        "tachoExemptMrk": false,
-        "trainDesignWeight": 59500,
-        "trainGbWeight": 38000,
-        "tyreUseCode": "2B",
-        "vehicleClass": {
-          "code": "v",
-          "description": "heavy goods vehicle"
-        },
-        "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
-      },
-      {
-        "adrDetails": {
-          "additionalExaminerNotes": "Additional Examiner Notes",
-          "additionalNotes": {
-            "guidanceNotes": [
-            ],
-            "number": [
-              "3"
-            ]
-          },
-          "adrTypeApprovalNo": null,
-          "applicantDetails": {
-            "city": "*******",
-            "name": "************",
-            "postcode": "*****",
-            "street": "*****",
-            "town": "*"
-          },
-          "batteryListNumber": "T662",
-          "brakeDeclarationIssuer": null,
-          "brakeDeclarationsSeen": null,
-          "brakeEndurance": false,
-          "compatibilityGroupJ": null,
-          "declarationsSeen": true,
-          "documents": [
-            "BE6966DBE532039780257603002829B3_A00037501_filename1.pdf",
-            "BE6966DBE532039780257603002829B3_A00037501_filename2.pdf",
-            "BE6966DBE532039780257603002829B3_A00037501_filename3.pdf"
-          ],
-          "listStatementApplicable": true,
-          "memosApply": [
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
-          "tank": {
-            "tankDetails": {
-              "specialProvisions": null,
-              "tankCode": "C342BH",
-              "tankManufacturer": "CHESTERFIELD CYLINDERS",
-              "tankManufacturerSerialNo": "T662",
-              "tankTypeAppNo": "GB/TV/PS2505",
-              "tc2Details": {
-                "tc2IntermediateApprovalNo": "2974",
-                "tc2IntermediateExpiryDate": null,
-                "tc2Type": null
-              },
-              "tc3Details": [
-                {
-                  "tc3PeriodicExpiryDate": "2024-04-12",
-                  "tc3PeriodicNumber": "GB/P/19/003050/REV 1",
-                  "tc3Type": null
-                }
-              ],
-              "yearOfManufacture": "1987"
-            },
-            "tankStatement": {
-              "productList": "COMPRESSED HYDROGEN GAS, ADR CLASS 2A, ADR ITEM 1\\xf8(b)",
-              "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
-              "statement": "B",
-              "substancesPermitted": "B"
-            }
-          },
-          "vehicleDetails": {
-            "approvalDate": "2019-05-10",
-            "type": "SEMI TRAILER BATTERY"
-          },
-          "weight": null
-        },
-        "axles": [
-          {
-            "axleNumber": 1,
-            "parkingBrakeMrk": false,
-            "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
-              "plyRating": " ",
-              "tyreCode": 462,
-              "tyreSize": "12-22.5"
-            },
-            "weights": {
-              "designWeight": 7500,
-              "gbWeight": 7100
-            }
-          },
-          {
-            "axleNumber": 2,
-            "parkingBrakeMrk": false,
-            "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
-              "plyRating": " ",
-              "tyreCode": 462,
-              "tyreSize": "12-22.5"
-            },
-            "weights": {
-              "designWeight": 13000,
-              "gbWeight": 9500
-            }
-          },
-          {
-            "axleNumber": 3,
-            "parkingBrakeMrk": false,
-            "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
-              "plyRating": " ",
-              "tyreCode": 462,
-              "tyreSize": "12-22.5"
-            },
-            "weights": {
-              "designWeight": 13000,
-              "gbWeight": 9500
-            }
-          }
-        ],
-        "bodyType": {
-          "code": "x",
-          "description": "other"
-        },
-        "brakes": {
-          "dtpNumber": "3798A"
-        },
-        "conversionRefNo": " ",
-        "createdAt": "2019-05-14T16:41:10.000000Z",
-        "dimensions": {
-          "length": 0,
-          "width": 0
-        },
-        "drawbarCouplingFitted": false,
-        "euroStandard": null,
-        "frontAxleTo5thWheelMax": 0,
-        "frontAxleTo5thWheelMin": 0,
-        "frontVehicleTo5thWheelCouplingMax": 0,
-        "frontVehicleTo5thWheelCouplingMin": 0,
-        "functionCode": "A",
-        "grossDesignWeight": 33500,
-        "grossGbWeight": 26000,
-        "lastUpdatedAt": "2020-01-10T14:03:58.000000Z",
-        "make": "VOLVO",
-        "manufactureYear": 1984,
-        "maxTrainDesignWeight": 0,
-        "maxTrainGbWeight": 0,
-        "model": "F12-33",
-        "noOfAxles": 3,
-        "notes": " ",
-        "ntaNumber": "0000514836",
-        "reasonForCreation": " ",
-        "regnDate": "1985-01-01",
-        "roadFriendly": false,
-        "speedLimiterMrk": false,
-        "statusCode": "archived",
-        "tachoExemptMrk": false,
-        "trainDesignWeight": 59500,
-        "trainGbWeight": 41000,
-        "tyreUseCode": "2B",
-        "vehicleClass": {
-          "code": "v",
-          "description": "heavy goods vehicle"
-        },
-        "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
-      },
-      {
-        "adrDetails": {
-          "additionalExaminerNotes": "Additional Examiner Notes",
-          "additionalNotes": {
-            "guidanceNotes": [
-            ],
-            "number": [
-              "3"
-            ]
-          },
-          "adrTypeApprovalNo": null,
-          "applicantDetails": {
-            "city": "*******",
-            "name": "************",
-            "postcode": "*****",
-            "street": "*****",
-            "town": "*"
-          },
-          "batteryListNumber": "T662",
-          "brakeDeclarationIssuer": null,
-          "brakeDeclarationsSeen": null,
-          "brakeEndurance": false,
-          "compatibilityGroupJ": null,
-          "declarationsSeen": true,
-          "documents": [
-            "BE6966DBE532039780257603002829B3_A00037501_filename1.pdf",
-            "BE6966DBE532039780257603002829B3_A00037501_filename2.pdf",
-            "BE6966DBE532039780257603002829B3_A00037501_filename3.pdf"
-          ],
-          "listStatementApplicable": true,
-          "memosApply": [
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
-          "tank": {
-            "tankDetails": {
-              "specialProvisions": null,
-              "tankCode": "C342BH",
-              "tankManufacturer": "CHESTERFIELD CYLINDERS",
-              "tankManufacturerSerialNo": "T662",
-              "tankTypeAppNo": "GB/TV/PS2505",
-              "tc2Details": {
-                "tc2IntermediateApprovalNo": "2974",
-                "tc2IntermediateExpiryDate": null,
-                "tc2Type": null
-              },
-              "tc3Details": [
-                {
-                  "tc3PeriodicExpiryDate": "2024-04-12",
-                  "tc3PeriodicNumber": "GB/P/19/003050/REV 1",
-                  "tc3Type": null
-                }
-              ],
-              "yearOfManufacture": "1987"
-            },
-            "tankStatement": {
-              "productList": "COMPRESSED HYDROGEN GAS, ADR CLASS 2A, ADR ITEM 1\\xf8(b)",
-              "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
-              "statement": "B",
-              "substancesPermitted": "B"
-            }
-          },
-          "vehicleDetails": {
-            "approvalDate": "2019-05-10",
-            "type": "SEMI TRAILER BATTERY"
-          },
-          "weight": null
-        },
-        "axles": [
-          {
-            "axleNumber": 1,
-            "parkingBrakeMrk": false,
-            "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
-              "plyRating": " ",
-              "tyreCode": 462,
-              "tyreSize": "12-22.5"
-            },
-            "weights": {
-              "designWeight": 7500,
-              "gbWeight": 7100
-            }
-          },
-          {
-            "axleNumber": 2,
-            "parkingBrakeMrk": false,
-            "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
-              "plyRating": " ",
-              "tyreCode": 462,
-              "tyreSize": "12-22.5"
-            },
-            "weights": {
-              "designWeight": 13000,
-              "gbWeight": 9500
-            }
-          },
-          {
-            "axleNumber": 3,
-            "parkingBrakeMrk": false,
-            "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
-              "plyRating": " ",
-              "tyreCode": 462,
-              "tyreSize": "12-22.5"
-            },
-            "weights": {
-              "designWeight": 13000,
-              "gbWeight": 9500
-            }
-          }
-        ],
-        "bodyType": {
-          "code": "x",
-          "description": "other"
-        },
-        "brakes": {
-          "dtpNumber": "3798A"
-        },
-        "conversionRefNo": " ",
-        "createdAt": "2019-05-14T16:41:10.000000Z",
-        "dimensions": {
-          "length": 0,
-          "width": 0
-        },
-        "drawbarCouplingFitted": false,
-        "euroStandard": null,
-        "frontAxleTo5thWheelMax": 0,
-        "frontAxleTo5thWheelMin": 0,
-        "frontVehicleTo5thWheelCouplingMax": 0,
-        "frontVehicleTo5thWheelCouplingMin": 0,
+        "euroStandard": "2",
+        "fuelPropulsionSystem": "Electric",
+        "frontAxleToRearAxle": 1000,
+        "frontAxleTo5thWheelMax": 1000,
+        "frontAxleTo5thWheelMin": 1000,
+        "frontAxleTo5thWheelCouplingMax": 1000,
+        "frontAxleTo5thWheelCouplingMin": 1000,
         "functionCode": "A",
         "grossDesignWeight": 33500,
         "grossGbWeight": 25000,
-        "lastUpdatedAt": "2020-01-10T14:03:58.000000Z",
+        "grossEecWeight": 25000,
         "make": "VOLVO",
         "manufactureYear": 1984,
-        "maxTrainDesignWeight": 0,
+        "maxTrainDesignWeight": 2800,
+        "maxTrainEecWeight": 2500,
         "maxTrainGbWeight": 44000,
         "model": "F12-33",
         "noOfAxles": 3,
         "notes": " ",
         "ntaNumber": "0000514903",
-        "reasonForCreation": " ",
+        "reasonForCreation": "something",
         "regnDate": "1985-01-01",
         "roadFriendly": false,
         "speedLimiterMrk": false,
-        "statusCode": "current",
         "tachoExemptMrk": false,
         "trainDesignWeight": 59500,
         "trainGbWeight": 41000,
+        "trainEecWeight": 25000,
         "tyreUseCode": "2B",
+        "offRoad": false,
+        "numberOfWheelsDriven": 4,
+        "euVehicleCategory": "m1",
+        "emissionsLimit": 20,
+        "departmentalVehicleMarker": false,
+        "alterationMarker": false,
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "variantNumber": "324324",
+        "variantVersionNumber": "345",
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************",
+          "emailAddress": "*************"
+        },
+        "microfilm": {
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346",
+          "microfilmSerialNumber": "1234"
+        },
+        "plates": [
+          {
+            "plateSerialNumber": "123456",
+            "plateIssueDate": "2100-12-31",
+            "plateReasonForIssue": "Replacement",
+            "plateIssuer": "issuer"
+          }
+        ],
         "vehicleClass": {
-          "code": "v",
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
@@ -17302,194 +16922,5 @@
       }
     ],
     "vin": "A00037502"
-  },
-  {
-    "partialVin": "038789",
-    "primaryVrm": "D3C3H11",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
-    "techRecord": [
-      {
-        "adrDetails": {
-          "additionalExaminerNotes": "Additional Examiner Notes",
-          "additionalNotes": {
-            "guidanceNotes": [],
-            "number": [
-              "2"
-            ]
-          },
-          "adrTypeApprovalNo": null,
-          "applicantDetails": {
-            "city": "*",
-            "name": "*********",
-            "postcode": "********",
-            "street": "*****",
-            "town": "***"
-          },
-          "batteryListNumber": null,
-          "brakeDeclarationIssuer": null,
-          "brakeDeclarationsSeen": null,
-          "brakeEndurance": false,
-          "compatibilityGroupJ": null,
-          "declarationsSeen": true,
-          "documents": [
-            "235AD361ADA35A3180257DAA003FF549_A00038789_filename3.pdf",
-            "235AD361ADA35A3180257DAA003FF549_A00038789_filename2.pdf",
-            "235AD361ADA35A3180257DAA003FF549_A00038789_filename1.pdf"
-          ],
-          "listStatementApplicable": false,
-          "memosApply": [],
-          "permittedDangerousGoods": [
-            "AT"
-          ],
-          "tank": {
-            "tankDetails": {
-              "specialProvisions": null,
-              "tankCode": " LGAF",
-              "tankManufacturer": "CLAYTON",
-              "tankManufacturerSerialNo": "CC2338/96",
-              "tankTypeAppNo": "GB/FT/TC/GB/TV/QU/3254",
-              "tc2Details": {
-                "tc2IntermediateApprovalNo": "4257",
-                "tc2IntermediateExpiryDate": "2002-10-09",
-                "tc2Type": null
-              },
-              "tc3Details": [
-                {
-                  "tc3PeriodicExpiryDate": "2018-08-03",
-                  "tc3PeriodicNumber": "GB/M/15/027264",
-                  "tc3Type": null
-                }
-              ],
-              "yearOfManufacture": "1996"
-            },
-            "tankStatement": {
-              "productList": " ",
-              "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
-              "statement": "B",
-              "substancesPermitted": "B"
-            }
-          },
-          "vehicleDetails": {
-            "approvalDate": "2017-12-07",
-            "type": "SEMI TRAILER TANK"
-          },
-          "weight": null
-        },
-        "axles": [
-          {
-            "axleNumber": 1,
-            "parkingBrakeMrk": null,
-            "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
-              "plyRating": "16",
-              "tyreCode": 292,
-              "tyreSize": "11-22.5"
-            },
-            "weights": {
-              "designWeight": 6610,
-              "gbWeight": 6100
-            }
-          },
-          {
-            "axleNumber": 2,
-            "parkingBrakeMrk": null,
-            "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
-              "plyRating": "16",
-              "tyreCode": 292,
-              "tyreSize": "11-22.5"
-            },
-            "weights": {
-              "designWeight": 6610,
-              "gbWeight": 6100
-            }
-          },
-          {
-            "axleNumber": 3,
-            "parkingBrakeMrk": null,
-            "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
-              "plyRating": "16",
-              "tyreCode": 292,
-              "tyreSize": "11-22.5"
-            },
-            "weights": {
-              "designWeight": 9400,
-              "gbWeight": 9400
-            }
-          },
-          {
-            "axleNumber": 4,
-            "parkingBrakeMrk": null,
-            "tyres": {
-              "dataTrAxles": null,
-              "fitmentCode": null,
-              "plyRating": "16",
-              "tyreCode": 292,
-              "tyreSize": "11-22.5"
-            },
-            "weights": {
-              "designWeight": 9400,
-              "gbWeight": 9400
-            }
-          }
-        ],
-        "bodyType": {
-          "code": "x",
-          "description": "other"
-        },
-        "brakes": {
-          "dtpNumber": "2537A"
-        },
-        "conversionRefNo": " ",
-        "createdAt": "2019-03-23T13:38:06.000000Z",
-        "dimensions": {
-          "length": 0,
-          "width": 0
-        },
-        "drawbarCouplingFitted": false,
-        "euroStandard": null,
-        "frontAxleTo5thWheelMax": 0,
-        "frontAxleTo5thWheelMin": 0,
-        "frontVehicleTo5thWheelCouplingMax": 0,
-        "frontVehicleTo5thWheelCouplingMin": 0,
-        "functionCode": "R",
-        "grossDesignWeight": 30490,
-        "grossGbWeight": 30490,
-        "lastUpdatedAt": "2020-01-10T14:03:58.000000Z",
-        "make": "SCAMMELL",
-        "manufactureYear": 1981,
-        "maxTrainDesignWeight": 0,
-        "maxTrainGbWeight": 0,
-        "model": "A754222",
-        "noOfAxles": 4,
-        "notes": " ",
-        "ntaNumber": "0000330441",
-        "reasonForCreation": " ",
-        "regnDate": "1981-01-02",
-        "roadFriendly": null,
-        "speedLimiterMrk": false,
-        "statusCode": "current",
-        "tachoExemptMrk": false,
-        "trainDesignWeight": 0,
-        "trainGbWeight": 0,
-        "tyreUseCode": "2B",
-        "vehicleClass": {
-          "code": "v",
-          "description": "heavy goods vehicle"
-        },
-        "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
-      }
-    ],
-    "vin": "A00038781"
   }
 ]

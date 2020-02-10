@@ -665,11 +665,11 @@ describe("updateTechRecord", () => {
       });
     });
 
-    context("and the payload contains nulls for all N/A and optional fields", () => {
+    context("and the payload contains nulls for all N/A and optional fields for ADR", () => {
       it("should pass the validation and update the record", async () => {
         // @ts-ignore
-        const techRecord: ITechRecordWrapper = cloneDeep(records[71]);
-        techRecord.techRecord[0].reasonForCreation = "Try to update with a lot of null fields";
+        const techRecord: ITechRecordWrapper = cloneDeep(records[72]);
+        techRecord.techRecord[0].reasonForCreation = "Try to update ADR with a lot of null fields";
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             updateSingle: () => {
@@ -679,7 +679,7 @@ describe("updateTechRecord", () => {
             },
             getBySearchTerm: () => {
               return Promise.resolve({
-                Items: [cloneDeep(records[71])],
+                Items: [cloneDeep(records[72])],
                 Count: 1,
                 ScannedCount: 1
               });
@@ -690,18 +690,12 @@ describe("updateTechRecord", () => {
         const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
         const recordToUpdate: any = {
           vin: techRecord.vin,
-          partialVin: techRecord.partialVin,
-          primaryVrm: techRecord.primaryVrm,
-          techRecord:
-            [{
-              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
-              adrDetails: techRecord.techRecord[0].adrDetails
-            }]
+          techRecord: techRecord.techRecord
         };
         const updatedTechRec: any = await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails);
         expect(updatedTechRec).not.toEqual(undefined);
         expect(updatedTechRec).not.toEqual({});
-        expect(updatedTechRec.techRecord[0].reasonForCreation).toEqual("Try to update with a lot of null fields");
+        expect(updatedTechRec.techRecord[0].reasonForCreation).toEqual("Try to update ADR with a lot of null fields");
       });
     });
   });
