@@ -3,7 +3,6 @@ import ITechRecord from "../../@Types/ITechRecord";
 import {VEHICLE_TYPE} from "../assets/Enums";
 import Joi from "@hapi/joi";
 import {psvValidation} from "./PsvValidations";
-import {populateBodyTypeCode, populateVehicleClassCode} from "./ValidationEnums";
 
 export const validatePayload = (payload: ITechRecord) => {
   if (payload.vehicleType === VEHICLE_TYPE.HGV) {
