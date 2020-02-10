@@ -73,7 +73,7 @@ defineFeature(feature, (test) => {
 });
 
 const createPOSTPayload = () => {
-  const newTechRec = cloneDeep(mockData[43]);
+  const newTechRec: any = cloneDeep(mockData[43]);
   const vin = Date.now().toString();
   const partialVin = newTechRec.vin.substr(newTechRec.vin.length - 6);
   newTechRec.techRecord[0].bodyType.description = "skeletal";
