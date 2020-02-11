@@ -8,7 +8,7 @@ import {
   fuelPropulsionSystem, microfilmDocumentType, plateReasonForIssue,
   retarderBrake, speedCategorySymbol, vehicleClassDescription,
   vehicleConfiguration, vehicleSize, vehicleType
-} from "./ValidationEnums";
+} from "./ValidationUtils";
 
 export const psvValidation = Joi.object().keys({
   vehicleType: Joi.string().valid(...vehicleType).required(),

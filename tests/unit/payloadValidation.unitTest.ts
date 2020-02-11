@@ -5,11 +5,11 @@ import {
   vehicleClassDescription,
   populateBodyTypeCode,
   populateVehicleClassCode, populateFields
-} from "../../src/utils/ValidationEnums";
+} from "../../src/utils/ValidationUtils";
 import ITechRecord from "../../@Types/ITechRecord";
 
 const createPayload = () => {
-  const techRec: any = cloneDeep(mockData[43]);
+  const techRec: any = cloneDeep(mockData[73]);
   techRec.techRecord[0].reasonForCreation = "some reason for update";
   delete techRec.techRecord[0].statusCode;
   delete techRec.techRecord[0].createdByName;
@@ -70,6 +70,14 @@ describe("payloadValidation", () => {
           expect(payload.bodyType.code).toEqual(bodyTypeMap[bodyType]);
         }
       });
+
+      it("should autopopulate the brake code fields", () => {
+        const payload: ITechRecord = createPayload();
+        payload.brakes.brakeCode = "123456";
+        populateFields(payload);
+        expect(payload.brakes.brakeCodeOriginal).toEqual("456");
+        expect(payload.brakeCode).toEqual("123456");
+      });
     });
 
     context("and the payload is invalid", () => {
@@ -84,7 +92,7 @@ describe("payloadValidation", () => {
 
       it("should throw Error: Not valid if body type description is not an accepted field", () => {
         try {
-          expect(populateBodyTypeCode( "whatever")).toThrowError();
+          expect(populateBodyTypeCode("whatever")).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(Error);
           expect(errorResponse.message).toEqual("Not valid");

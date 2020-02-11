@@ -14,7 +14,7 @@ import {
 import S3BucketService from "./S3BucketService";
 import S3 = require("aws-sdk/clients/s3");
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
-import {populateFields} from "../utils/ValidationEnums";
+import {populateFields} from "../utils/ValidationUtils";
 
 /**
  * Fetches the entire list of Technical Records from the database.
