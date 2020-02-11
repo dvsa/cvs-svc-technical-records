@@ -10,7 +10,7 @@ import {
   validateSecondaryVrms
 } from "../utils/PayloadValidation";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
-import {populateFields} from "../utils/ValidationEnums";
+import {populateFields} from "../utils/ValidationUtils";
 import HTTPResponse from "../models/HTTPResponse";
 import { STATUS_CODES } from "http";
 

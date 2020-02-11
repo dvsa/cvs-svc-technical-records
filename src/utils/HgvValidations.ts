@@ -10,7 +10,7 @@ import {
   bodyTypeDescription, euVehicleCategory, fitmentCode,
   fuelPropulsionSystem, microfilmDocumentType, plateReasonForIssue, vehicleClassDescription,
   vehicleConfiguration, vehicleType
-} from "./ValidationEnums";
+} from "./ValidationUtils";
 
 export const hgvValidation = Joi.object().keys({
   vehicleType: Joi.string().valid(...vehicleType).required(),
