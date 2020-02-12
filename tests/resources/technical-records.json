@@ -6906,7 +6906,7 @@
         "tyreUseCode": null,
         "vehicleClass": {
           "code": "v",
-          "description": null
+          "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": null,
         "vehicleType": "hgv"
@@ -7511,7 +7511,7 @@
         "tyreUseCode": "2B",
         "vehicleClass": {
           "code": "t",
-          "description": null
+          "description": "trailer"
         },
         "vehicleConfiguration": null,
         "vehicleType": "trl"
@@ -9361,7 +9361,7 @@
         "tyreUseCode": null,
         "vehicleClass": {
           "code": "4",
-          "description": null
+          "description": "3 wheelers"
         },
         "vehicleConfiguration": null,
         "vehicleType": "hgv"
@@ -9478,8 +9478,8 @@
         "trainGbWeight": null,
         "tyreUseCode": null,
         "vehicleClass": {
-          "code": "v",
-          "description": null
+          "code": "4",
+          "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": null,
         "vehicleType": "hgv",
@@ -17361,7 +17361,7 @@
         "tyreUseCode": null,
         "vehicleClass": {
           "code": "v",
-          "description": null
+          "description": "3 wheelers"
         },
         "vehicleConfiguration": null,
         "vehicleType": "car",
@@ -17479,7 +17479,7 @@
         "tyreUseCode": null,
         "vehicleClass": {
           "code": "v",
-          "description": null
+          "description": "3 wheelers"
         },
         "vehicleConfiguration": null,
         "vehicleType": "lgv",
@@ -17597,7 +17597,7 @@
         "tyreUseCode": null,
         "vehicleClass": {
           "code": "v",
-          "description": null
+          "description": "3 wheelers"
         },
         "vehicleConfiguration": null,
         "vehicleType": "motorcycle",
