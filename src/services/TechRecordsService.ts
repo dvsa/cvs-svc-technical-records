@@ -223,9 +223,9 @@ class TechRecordsService {
       });
   }
 
-  private arrayCustomizer(oldValue: any, newValue: any) {
-    if (_.isArray(oldValue) && _.isArray(newValue)) {
-      return newValue;
+  private arrayCustomizer(objValue: any, srcValue: any) {
+    if (_.isArray(objValue) && _.isArray(srcValue)) {
+      return srcValue;
     }
   }
 
