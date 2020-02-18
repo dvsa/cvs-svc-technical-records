@@ -1,14 +1,9 @@
 /* tslint:disable */
-import {axlesSchema, brakesSchema, commonSchema, tyresSchema, weightsSchema} from "./CommonSchema";
-
 const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
-import {
-  bodyTypeDescription,
-  retarderBrake, speedCategorySymbol, vehicleClassDescription,
-  vehicleSize
-} from "./ValidationUtils";
+import {retarderBrake, speedCategorySymbol, vehicleSize} from "./ValidationUtils";
+import {axlesSchema, brakesSchema, commonSchema, tyresSchema, weightsSchema} from "./CommonSchema";
 
 export const psvValidation = commonSchema.keys({
   brakeCode: Joi.string().optional(),
@@ -53,7 +48,7 @@ export const psvValidation = commonSchema.keys({
     tyres: tyresSchema.keys({
       speedCategorySymbol: Joi.string().valid(...speedCategorySymbol).required(),
     }).required(),
-  })).required(),
+  })).min(1).required(),
   seatsLowerDeck: Joi.number().min(0).max(999).required(),
   seatsUpperDeck: Joi.number().min(0).max(99).required(),
   standingCapacity: Joi.number().min(0).max(999).required(),

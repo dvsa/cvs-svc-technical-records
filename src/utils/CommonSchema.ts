@@ -33,13 +33,37 @@ export const axlesSchema = Joi.object().keys({
   tyres: tyresSchema
 });
 
+export const platesSchema = Joi.object().keys({
+  plateSerialNumber: Joi.string().max(12).optional().allow(null),
+  plateIssueDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
+  plateReasonForIssue: Joi.string().valid(...plateReasonForIssue).optional().allow(null),
+  plateIssuer: Joi.string().max(150).optional().allow(null)
+});
+
+export const microfilmSchema = Joi.object().keys({
+  microfilmDocumentType: Joi.string().valid(...microfilmDocumentType).optional().allow(null),
+  microfilmRollNumber: Joi.string().max(5).optional().allow(null),
+  microfilmSerialNumber: Joi.string().max(4).optional().allow(null)
+}).optional().allow(null);
+
+export const applicantDetailsSchema = Joi.object().keys({
+  name: Joi.string().max(150).required(),
+  address1: Joi.string().max(60).required(),
+  address2: Joi.string().max(60).required(),
+  postTown: Joi.string().max(60).required(),
+  address3: Joi.string().max(60).optional().allow(null),
+  postCode: Joi.string().max(12).optional().allow(null),
+  telephoneNumber: Joi.string().max(25).optional().allow(null),
+  emailAddress: Joi.string().max(255).optional().allow(null)
+}).required();
+
 export const commonSchema = Joi.object().keys({
   vehicleType: Joi.string().valid(...vehicleType).required(),
   regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
   manufactureYear: Joi.number().min(0).max(9999).required(),
   noOfAxles: Joi.number().min(0).max(99).required(),
   brakes: brakesSchema,
-  axles: Joi.array().items(axlesSchema).required(),
+  axles: Joi.array().items(axlesSchema).min(1).required(),
   speedLimiterMrk: Joi.boolean().required(),
   tachoExemptMrk: Joi.boolean().required(),
   euroStandard: Joi.string().required(),
@@ -76,27 +100,9 @@ export const commonSchema = Joi.object().keys({
   grossGbWeight: Joi.number().min(0).max(99999).required(),
   grossDesignWeight: Joi.number().min(0).max(99999).required(),
   trainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
-  applicantDetails: Joi.object().keys({
-    name: Joi.string().max(150).required(),
-    address1: Joi.string().max(60).required(),
-    address2: Joi.string().max(60).required(),
-    postTown: Joi.string().max(60).required(),
-    address3: Joi.string().max(60).optional().allow(null),
-    postCode: Joi.string().max(12).optional().allow(null),
-    telephoneNumber: Joi.string().max(25).optional().allow(null),
-    emailAddress: Joi.string().max(255).optional().allow(null)
-  }).required(),
-  microfilm: Joi.object().keys({
-    microfilmDocumentType: Joi.string().valid(...microfilmDocumentType).optional().allow(null),
-    microfilmRollNumber: Joi.string().max(5).optional().allow(null),
-    microfilmSerialNumber: Joi.string().max(4).optional().allow(null)
-  }).optional().allow(null),
-  plates: Joi.array().items(Joi.object().keys({
-    plateSerialNumber: Joi.string().max(12).optional().allow(null),
-    plateIssueDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
-    plateReasonForIssue: Joi.string().valid(...plateReasonForIssue).optional().allow(null),
-    plateIssuer: Joi.string().max(150).optional().allow(null)
-  })).optional().allow(null),
+  applicantDetails: applicantDetailsSchema,
+  microfilm: microfilmSchema,
+  plates: Joi.array().items(platesSchema).optional().allow(null),
   reasonForCreation: Joi.string().max(100).required(),
   createdAt: Joi.string().optional().allow(null),
   createdByName: Joi.string().optional(),
