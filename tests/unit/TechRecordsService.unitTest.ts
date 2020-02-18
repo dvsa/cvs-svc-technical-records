@@ -301,68 +301,6 @@ describe("insertTechRecord", () => {
   });
 
   context("when trying to create a new technical record with invalid payload", () => {
-    it("should return validation error 500", async () => {
-      const MockDAO = jest.fn().mockImplementation(() => {
-        return {
-          createSingle: () => {
-            return Promise.resolve({});
-          }
-        };
-      });
-      const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
-
-      // @ts-ignore
-      const techRecord: ITechRecordWrapper = cloneDeep(records[29]);
-      techRecord.vin = Date.now().toString();
-      techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-      techRecord.techRecord[0].bodyType.description = "whatever";
-      delete techRecord.techRecord[0].statusCode;
-      const msUserDetails = {
-        msUser: "dorel",
-        msOid: "1234545"
-      };
-
-      try {
-        expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
-      } catch (errorResponse) {
-        expect(errorResponse.statusCode).toEqual(400);
-      }
-    });
-
-    it("should return Primary or secondaryVrms are not valid error 400", async () => {
-      const MockDAO = jest.fn().mockImplementation(() => {
-        return {
-          createSingle: () => {
-            return Promise.resolve({});
-          }
-        };
-      });
-      const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
-
-      // @ts-ignore
-      const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
-      techRecord.vin = Date.now().toString();
-      techRecord.primaryVrm = "invalidPrimaryVrm";
-      techRecord.secondaryVrms = ["invalidSecondaryVrm"];
-      techRecord.techRecord[0].bodyType.description = "skeletal";
-      delete techRecord.techRecord[0].statusCode;
-      const msUserDetails = {
-        msUser: "dorel",
-        msOid: "1234545"
-      };
-
-      try {
-        expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
-      } catch (errorResponse) {
-        expect(errorResponse.statusCode).toEqual(400);
-        expect(errorResponse.body).toEqual("Primary or secondaryVrms are not valid");
-      }
-    });
-  });
-
-  context("when trying to create a new technical record with invalid payload", () => {
     it("should return validation error 400", async () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
@@ -393,7 +331,7 @@ describe("insertTechRecord", () => {
     });
 
     context("and the primaryVRM is missing from the record", () => {
-      it("should return Primary or secondaryVrms are not valid error 500", async () => {
+      it("should return Primary or secondaryVrms are not valid error 400", async () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             createSingle: () => {
@@ -426,7 +364,7 @@ describe("insertTechRecord", () => {
     });
 
     context("and the primaryVrm and secondaryVrms are not valid", () => {
-      it("should return Primary or secondaryVrms are not valid error 500", async () => {
+      it("should return Primary or secondaryVrms are not valid error 400", async () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             createSingle: () => {
