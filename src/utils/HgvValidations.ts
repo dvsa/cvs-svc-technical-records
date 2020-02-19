@@ -266,7 +266,7 @@ export const hgvValidation = Joi.object().keys({
   }).required(),
   vehicleConfiguration: Joi.string().valid(...vehicleConfiguration).required(),
   offRoad: Joi.boolean().optional().required(),
-  numberOfWheelsDriven: Joi.number().min(0).max(9999).required(),
+  numberOfWheelsDriven: Joi.number().min(0).max(9999).required().allow(null),
   euVehicleCategory: Joi.string().valid(...euVehicleCategory).required(),
   emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
   departmentalVehicleMarker: Joi.boolean().default(false),

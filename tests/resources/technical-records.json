@@ -106,7 +106,8 @@
               "tyreCode": 733
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -216,7 +217,8 @@
               "tyreCode": 456
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -327,7 +329,8 @@
               "tyreCode": 438
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -437,7 +440,8 @@
               "tyreCode": 735
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -547,7 +551,8 @@
               "tyreCode": 735
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -657,7 +662,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -784,7 +790,8 @@
               "tyreCode": 456
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -894,7 +901,8 @@
               "tyreCode": 434
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -1021,7 +1029,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -1135,7 +1144,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -1249,7 +1259,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -1363,7 +1374,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -1477,7 +1489,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -1591,7 +1604,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -1705,7 +1719,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -1819,7 +1834,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -1933,7 +1949,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -2047,7 +2064,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -2174,7 +2192,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -2288,7 +2307,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -2415,7 +2435,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -2529,7 +2550,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -2656,7 +2678,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2018-04-20T04:20:00.027Z",
@@ -2770,7 +2793,8 @@
               "tyreCode": 390
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -2883,7 +2907,8 @@
               "tyreCode": 5678
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -3004,7 +3029,8 @@
               "springBrakeParking": true
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -3105,7 +3131,8 @@
               "springBrakeParking": true
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -3282,7 +3309,8 @@
           "code": "t",
           "description": "trailer"
         },
-        "vehicleConfiguration": "other"
+        "vehicleConfiguration": "other",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "0285678",
@@ -3441,7 +3469,8 @@
           "code": "v",
           "description": "heavy goods vehicle"
         },
-        "vehicleConfiguration": "centre axle drawbar"
+        "vehicleConfiguration": "centre axle drawbar",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P012301957486"
@@ -3584,7 +3613,8 @@
           "code": "v",
           "description": "heavy goods vehicle"
         },
-        "vehicleConfiguration": "semi-car transporter"
+        "vehicleConfiguration": "semi-car transporter",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P012301293847"
@@ -3782,7 +3812,8 @@
           "code": "t",
           "description": "trailer"
         },
-        "vehicleConfiguration": "drawbar"
+        "vehicleConfiguration": "drawbar",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "C234567",
@@ -3942,7 +3973,8 @@
           "code": "t",
           "description": "trailer"
         },
-        "vehicleConfiguration": "dolly"
+        "vehicleConfiguration": "dolly",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "C456789",
@@ -4071,7 +4103,8 @@
           "code": "v",
           "description": "heavy goods vehicle"
         },
-        "vehicleConfiguration": "full drawbar"
+        "vehicleConfiguration": "full drawbar",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P012301012938"
@@ -4274,7 +4307,8 @@
           "code": "v",
           "description": "heavy goods vehicle"
         },
-        "vehicleConfiguration": "dolly"
+        "vehicleConfiguration": "dolly",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P012301000000"
@@ -4368,7 +4402,8 @@
           "code": "v",
           "description": "heavy goods vehicle"
         },
-        "vehicleConfiguration": "other"
+        "vehicleConfiguration": "other",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P012301098765"
@@ -4488,7 +4523,8 @@
               "springBrakeParking": true
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -4582,7 +4618,8 @@
               "springBrakeParking": true
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -4703,7 +4740,8 @@
               "springBrakeParking": true
             }
           }
-        ]
+        ],
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -4721,8 +4759,8 @@
         ],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
-        "make": "Isuzu",
-        "model": "FM",
+        "make": "string",
+        "model": "string",
         "functionCode": "A",
         "brakeCode": "178202",
         "bodyType": {
@@ -4749,8 +4787,6 @@
         "euroStandard": "7",
         "dtpNumber": "string",
         "fuelPropulsionSystem": "string",
-        "roadFriendly": true,
-        "drawbarCouplingFitted": true,
         "offRoad": true,
         "numberOfWheelsDriven": 2,
         "euVehicleCategory": "string",
@@ -4761,8 +4797,6 @@
         "approvalTypeNumber": "abcd",
         "variantNumber": "string",
         "variantVersionNumber": "string",
-        "make": "string",
-        "model": "string",
         "dimensions": {
           "length": 7500,
           "width": 2200
@@ -4944,7 +4978,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "semi-car transporter",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "axles": [
@@ -5044,7 +5079,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "semi-car transporter",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P012301270556"
@@ -5164,7 +5200,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       },
       {
         "antilockBrakingSystem": true,
@@ -5275,7 +5312,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "C100002",
@@ -5443,7 +5481,8 @@
               "productList": "string"
             }
           }
-        }
+        },
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "C108802",
@@ -5613,7 +5652,8 @@
               "productList": "string"
             }
           }
-        }
+        },
+        "numberOfWheelsDriven": null
       },
       {
         "antilockBrakingSystem": true,
@@ -5773,7 +5813,8 @@
               "productList": "string"
             }
           }
-        }
+        },
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "C198899",
@@ -5914,7 +5955,8 @@
               "New certificate requested"
             ]
           }
-        }
+        },
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2019-06-25T10:26:54.903Z",
@@ -6040,7 +6082,8 @@
               "New certificate requested"
             ]
           }
-        }
+        },
+        "numberOfWheelsDriven": null
       },
       {
         "createdAt": "2019-06-26T10:26:54.903Z",
@@ -6166,7 +6209,8 @@
               "New certificate requested"
             ]
           }
-        }
+        },
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -6283,7 +6327,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "semi-car transporter",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "axles": [
@@ -6384,7 +6429,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "semi-car transporter",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "axles": [
@@ -6487,7 +6533,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "semi-car transporter",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P012301230000"
@@ -6601,7 +6648,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "semi-car transporter",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "axles": [
@@ -6702,7 +6750,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "  ",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "axles": [
@@ -6791,7 +6840,8 @@
           "description": "  "
         },
         "vehicleConfiguration": "  ",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P012301230001"
@@ -6909,7 +6959,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "other",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P012301230002"
@@ -7109,7 +7160,8 @@
           "description": " "
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       },
       {
         "axles": [
@@ -7243,7 +7295,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "C123456",
@@ -7389,7 +7442,8 @@
           "description": " "
         },
         "vehicleConfiguration": " ",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "C345678",
@@ -7514,7 +7568,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "other",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "C456789",
@@ -7701,7 +7756,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -7875,7 +7931,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -8067,7 +8124,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -8259,7 +8317,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ]
   },
@@ -8428,7 +8487,8 @@
               "productList": "string"
             }
           }
-        }
+        },
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "C109902",
@@ -8464,7 +8524,7 @@
           "description": "motorbikes over 200cc or with a sidecar"
         },
         "vehicleConfiguration": "rigid",
-        "numberOfWheelsDriven": 0,
+        "numberOfWheelsDriven": null,
         "euVehicleCategory": "m1",
         "emissionsLimit": 0,
         "approvalType": "NTA",
@@ -8628,7 +8688,7 @@
           "description": "motorbikes over 200cc or with a sidecar"
         },
         "vehicleConfiguration": "rigid",
-        "numberOfWheelsDriven": 0,
+        "numberOfWheelsDriven": null,
         "euVehicleCategory": "m1",
         "emissionsLimit": 0,
         "approvalType": "NTA",
@@ -8782,7 +8842,7 @@
           "description": "motorbikes over 200cc or with a sidecar"
         },
         "vehicleConfiguration": "rigid",
-        "numberOfWheelsDriven": 0,
+        "numberOfWheelsDriven": null,
         "euVehicleCategory": "m1",
         "emissionsLimit": 0,
         "approvalType": "NTA",
@@ -9111,7 +9171,8 @@
           "description": " "
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       },
       {
         "axles": [
@@ -9245,7 +9306,8 @@
         },
         "vehicleConfiguration": "drawbar",
         "vehicleType": "trl",
-        "euVehicleCategory": "o1"
+        "euVehicleCategory": "o1",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "P123403",
@@ -9363,7 +9425,8 @@
           "description": "3 wheelers"
         },
         "vehicleConfiguration": "other",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "VIN1"
@@ -9482,7 +9545,8 @@
         },
         "vehicleConfiguration": "other",
         "vehicleType": "hgv",
-        "euVehicleCategory": "n2"
+        "euVehicleCategory": "n2",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P012301091180"
@@ -9494,8 +9558,7 @@
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "1"
             ]
@@ -9520,8 +9583,7 @@
             "2B26F39344FD8BA7002567BC0034F668_A00000529_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 3"
           ],
@@ -9621,8 +9683,7 @@
         "couplingType": " ",
         "createdAt": "2019-07-08T10:35:13.000000Z",
         "dimensions": {
-          "axleSpacing": [
-          ],
+          "axleSpacing": [],
           "length": 12600,
           "width": 2500
         },
@@ -9651,14 +9712,14 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "1"
             ]
@@ -9683,8 +9744,7 @@
             "2B26F39344FD8BA7002567BC0034F668_A00000529_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 3"
           ],
@@ -9818,14 +9878,14 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "1"
             ]
@@ -9850,8 +9910,7 @@
             "2B26F39344FD8BA7002567BC0034F668_A00000529_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 3"
           ],
@@ -10009,14 +10068,14 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "1"
             ]
@@ -10041,8 +10100,7 @@
             "2B26F39344FD8BA7002567BC0034F668_A00000529_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 3"
           ],
@@ -10200,7 +10258,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "B3966774",
@@ -10244,8 +10303,7 @@
             "E0DFA2DE1019D4FC802573620034C7A4_A00004801_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 2"
           ],
@@ -10363,7 +10421,9 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "euVehicleCategory": "n2",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00004801"
@@ -10375,8 +10435,7 @@
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "1A E4*98/91*98/91*0013*00"
             ]
@@ -10401,8 +10460,7 @@
             "83A41D571ABA8F2C80257362003B4688_A00004965_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 2"
           ],
@@ -10556,7 +10614,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "B3989825",
@@ -10596,8 +10655,7 @@
             "BB7A75A53F29BFF5802573600047CFF7_A00004989_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -10752,7 +10810,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
@@ -10785,8 +10844,7 @@
             "BB7A75A53F29BFF5802573600047CFF7_A00004989_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -10941,7 +10999,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
@@ -10974,8 +11033,7 @@
             "BB7A75A53F29BFF5802573600047CFF7_A00004989_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -11134,7 +11192,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "B3966098",
@@ -11147,8 +11206,7 @@
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "1A"
             ]
@@ -11173,8 +11231,7 @@
             "BD81A888A0C3253B802574900038785C_A00009889_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 2"
           ],
@@ -11274,8 +11331,7 @@
         "couplingType": "F",
         "createdAt": "2019-02-27T11:40:17.000000Z",
         "dimensions": {
-          "axleSpacing": [
-          ],
+          "axleSpacing": [],
           "length": 13000,
           "width": 2550
         },
@@ -11304,14 +11360,14 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "1A"
             ]
@@ -11336,8 +11392,7 @@
             "BD81A888A0C3253B802574900038785C_A00009889_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 2"
           ],
@@ -11471,7 +11526,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "B3888928",
@@ -11488,8 +11544,7 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "1A"
             ]
@@ -11514,8 +11569,7 @@
             "E15595ADF4D77530802577D70034CADF_A00023353_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 2"
           ],
@@ -11633,14 +11687,14 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "1A"
             ]
@@ -11665,8 +11719,7 @@
             "E15595ADF4D77530802577D70034CADF_A00023353_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 2"
           ],
@@ -11784,7 +11837,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00023353"
@@ -11796,8 +11850,7 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3 E5 105R 04001"
             ]
@@ -11822,8 +11875,7 @@
             "8CF50C38B196AE51802578C700307E57_A00026621_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -11944,8 +11996,7 @@
         "couplingType": " ",
         "createdAt": "2019-01-23T08:08:28.000000Z",
         "dimensions": {
-          "axleSpacing": [
-          ],
+          "axleSpacing": [],
           "length": 13353,
           "width": 2500
         },
@@ -11974,7 +12025,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "B3938127",
@@ -11987,8 +12039,7 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "2"
             ]
@@ -12013,8 +12064,7 @@
             "31C477788B4CA29A80257C68004ED884_A00032509_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "AT"
           ],
@@ -12172,7 +12222,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "B4165134",
@@ -12189,8 +12240,7 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "1&3 E4 105R 06 0018 EXT.19"
             ]
@@ -12215,8 +12265,7 @@
             "E910A01BFD3F77408025839E00329C0F_A00034477_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT",
@@ -12337,7 +12386,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00034477"
@@ -12349,8 +12399,7 @@
         "adrDetails": {
           "additionalExaminerNotes": "VACCUM INTEGRITY TEST CARRIED OUT 08/04/2008. 2S/2M STATEMENT FOR STN TO CHECK 2010 TEST.",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "2"
             ]
@@ -12375,8 +12424,7 @@
             "0048C35876C20A44002567BC0034E2C6_A00037313_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "AT"
           ],
@@ -12530,7 +12578,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "B3933169",
@@ -12547,8 +12596,7 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -12573,8 +12621,7 @@
             "BE6966DBE532039780257603002829B3_A00037501_filename3.pdf"
           ],
           "listStatementApplicable": true,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -12708,14 +12755,14 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -12740,8 +12787,7 @@
             "BE6966DBE532039780257603002829B3_A00037501_filename3.pdf"
           ],
           "listStatementApplicable": true,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -12875,14 +12921,14 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -12907,8 +12953,7 @@
             "BE6966DBE532039780257603002829B3_A00037501_filename3.pdf"
           ],
           "listStatementApplicable": true,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -13042,7 +13087,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00037501"
@@ -13081,8 +13127,7 @@
             "FBDF089EF4DDF6AB802575D00037CCB6_A00037985_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT",
@@ -13238,7 +13283,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "B4036851",
@@ -13255,8 +13301,7 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "2"
             ]
@@ -13281,8 +13326,7 @@
             "235AD361ADA35A3180257DAA003FF549_A00038789_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "AT"
           ],
@@ -13430,7 +13474,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00038789"
@@ -13446,8 +13491,7 @@
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -13472,8 +13516,7 @@
             "9D56178058C0D0B8002567BC0034F08F_A00039009_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -13592,14 +13635,14 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -13624,8 +13667,7 @@
             "9D56178058C0D0B8002567BC0034F08F_A00039009_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -13744,7 +13786,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00039009"
@@ -13886,8 +13929,7 @@
         "couplingType": "F",
         "createdAt": "2016-10-17T14:42:12.000000Z",
         "dimensions": {
-          "axleSpacing": [
-          ],
+          "axleSpacing": [],
           "length": 0,
           "width": 0
         },
@@ -13916,7 +13958,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
@@ -14072,8 +14115,7 @@
         "couplingType": " ",
         "createdAt": "2016-11-21T07:42:29.000000Z",
         "dimensions": {
-          "axleSpacing": [
-          ],
+          "axleSpacing": [],
           "length": 0,
           "width": 0
         },
@@ -14102,7 +14144,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
@@ -14258,8 +14301,7 @@
         "couplingType": "S",
         "createdAt": "2017-08-14T09:23:31.000000Z",
         "dimensions": {
-          "axleSpacing": [
-          ],
+          "axleSpacing": [],
           "length": 13600,
           "width": 2550
         },
@@ -14288,7 +14330,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "B3693123",
@@ -14332,8 +14375,7 @@
             "0B045D0AF7F4A69B802576E2004C0851_A00060613_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT",
@@ -14484,7 +14526,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00060613"
@@ -14500,8 +14543,7 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -14526,8 +14568,7 @@
             "8093E75347EE809E80257BF20037D17E_A00111773_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT",
@@ -14677,14 +14718,14 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -14709,8 +14750,7 @@
             "8093E75347EE809E80257BF20037D17E_A00111773_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT",
@@ -14860,14 +14900,14 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -14892,8 +14932,7 @@
             "8093E75347EE809E80257BF20037D17E_A00111773_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT",
@@ -15043,7 +15082,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00111773"
@@ -15086,8 +15126,7 @@
             "5C2F2B2D238BA2BD8025732300387F7A_A00128821_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -15206,7 +15245,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00128821"
@@ -15245,8 +15285,7 @@
             "27C0E0688125EB03802583F900313A97_A00132865_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT",
@@ -15382,7 +15421,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "B4029203",
@@ -15399,8 +15439,7 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               null
             ]
@@ -15425,8 +15464,7 @@
             "094D4DF90A3E3A63802581BF003B87C6_A00124509_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 3"
           ],
@@ -15544,7 +15582,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00124509"
@@ -15581,11 +15620,9 @@
           "brakeEndurance": true,
           "compatibilityGroupJ": true,
           "declarationsSeen": true,
-          "documents": [
-          ],
+          "documents": [],
           "listStatementApplicable": true,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -15704,7 +15741,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00425867"
@@ -15747,8 +15785,7 @@
             "D33199E2D81F3E7F80258472003F68E7_A00041485_filename1.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "Explosives: Type 2"
           ],
@@ -15881,7 +15918,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00041485"
@@ -15897,8 +15935,7 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -15923,8 +15960,7 @@
             "1C43858D27B40B6E80257D49002D0CAA_A00082777_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -16058,14 +16094,14 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -16090,8 +16126,7 @@
             "1C43858D27B40B6E80257D49002D0CAA_A00082777_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -16225,14 +16260,14 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -16257,8 +16292,7 @@
             "1C43858D27B40B6E80257D49002D0CAA_A00082777_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -16392,14 +16426,14 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -16424,8 +16458,7 @@
             "1C43858D27B40B6E80257D49002D0CAA_A00082777_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -16559,14 +16592,14 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       },
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -16591,8 +16624,7 @@
             "1C43858D27B40B6E80257D49002D0CAA_A00082777_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -16726,7 +16758,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00082777"
@@ -16738,8 +16771,7 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
+            "guidanceNotes": [],
             "number": [
               "3"
             ]
@@ -16764,8 +16796,7 @@
             "3803A48603D2440A802570DD0036C574_A00052593_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
+          "memosApply": [],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT"
@@ -16924,7 +16955,8 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "semi-trailer",
-        "vehicleType": "trl"
+        "vehicleType": "trl",
+        "numberOfWheelsDriven": null
       }
     ],
     "trailerId": "B4259594",
@@ -17245,7 +17277,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "rigid",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "A00038781"
@@ -17350,7 +17383,6 @@
         "notes": null,
         "ntaNumber": null,
         "reasonForCreation": null,
-        "regnDate": null,
         "roadFriendly": false,
         "speedLimiterMrk": null,
         "statusCode": "current",
@@ -17364,7 +17396,8 @@
         },
         "vehicleConfiguration": "other",
         "vehicleType": "car",
-        "euVehicleCategory": "m1"
+        "euVehicleCategory": "m1",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P0123010911250"
@@ -17482,7 +17515,8 @@
         },
         "vehicleConfiguration": "other",
         "vehicleType": "lgv",
-        "euVehicleCategory": "n1"
+        "euVehicleCategory": "n1",
+        "numberOfWheelsDriven": null
       }
     ],
     "vin": "P0123010951264"
@@ -17590,9 +17624,9 @@
         "roadFriendly": false,
         "speedLimiterMrk": null,
         "statusCode": "current",
-        "numberOfWheelsDriven": 3,
         "tachoExemptMrk": null,
         "trainDesignWeight": null,
+        "numberOfWheelsDriven": 2,
         "trainGbWeight": null,
         "tyreUseCode": null,
         "vehicleClass": {
@@ -17601,7 +17635,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleType": "motorcycle",
-        "euVehicleCategory": "l1e-a"
+        "euVehicleCategory": "l1e-A"
       }
     ],
     "vin": "P0123010956789"
