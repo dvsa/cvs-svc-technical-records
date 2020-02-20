@@ -77,7 +77,7 @@ export const commonSchema = Joi.object().keys({
     description: Joi.string().valid(...vehicleClassDescription).required()
   }).required(),
   vehicleConfiguration: Joi.string().valid(...vehicleConfiguration).required(),
-  numberOfWheelsDriven: Joi.number().min(0).max(9999).required(),
+  numberOfWheelsDriven: Joi.number().min(0).max(9999).required().allow(null),
   euVehicleCategory: Joi.string().valid(...euVehicleCategory).required(),
   emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
   departmentalVehicleMarker: Joi.boolean().optional(),
