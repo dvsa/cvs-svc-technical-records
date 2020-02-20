@@ -97,7 +97,7 @@ defineFeature(feature, (test) => {
 });
 
 const createPOSTPayload = () => {
-  const techRec: any = cloneDeep(mockData[73]);
+  const techRec: any = cloneDeep(mockData[74]);
   delete techRec.techRecord[0].statusCode;
   techRec.techRecord[0].numberOfSeatbelts = "26";
   const payload = {
