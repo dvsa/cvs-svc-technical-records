@@ -9,7 +9,7 @@ import {
 import ITechRecord from "../../@Types/ITechRecord";
 
 const createPayload = () => {
-  const techRec: any = cloneDeep(mockData[73]);
+  const techRec: any = cloneDeep(mockData[74]);
   techRec.techRecord[0].reasonForCreation = "some reason for update";
   delete techRec.techRecord[0].statusCode;
   delete techRec.techRecord[0].createdByName;
