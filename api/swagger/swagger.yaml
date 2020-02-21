@@ -416,11 +416,11 @@ components:
         createdAt:
           type: string
           format: date-time
-          description: 'Used for all vehicle types - PSV, HGV and TRL'
+          description: 'Used for all vehicle types'
         lastUpdatedAt:
           type: string
           format: date-time
-          description: 'Used for all vehicle types - PSV, HGV and TRL'
+          description: 'Used for all vehicle types'
         make:
           type: string
           maxLength: 30
@@ -448,6 +448,7 @@ components:
         numberOfWheelsDriven:
           type: number
           maximum: 9999
+          description: Used for motorcycles to derive the test codes for specialist tests.
         euVehicleCategory:
           type: string
           enum:
@@ -461,6 +462,14 @@ components:
             - o2
             - o3
             - o4
+            - l1e-a
+            - l1e
+            - l2e
+            - l3e
+            - l4e
+            - l5e
+            - l6e
+            - l7e
         emissionsLimit:
           type: number
           maximum: 99
@@ -572,11 +581,11 @@ components:
         regnDate:
           type: string
           format: date
-          description: Used only for PSV and HGV
+          nullable: true
         firstUseDate:
           type: string
           format: date
-          description: Used only for TRL
+          nullable: true
         coifDate:
           type: string
           format: date
@@ -839,12 +848,21 @@ components:
             than or equal to 22 seats, 1 = Motorbikes upto 200cc, T = Trailer, L
             = LARGE PSV (ie. greater than 23 seats), 3 = 3 wheelers, V = Heavy
             Goods Vehicle
+        vehicleSubclass:
+          type: array
+          items:
+            type: string
+          nullable: true
+          description: Used for car and lgv.
         vehicleType:
           type: string
           enum:
             - psv
             - hgv
             - trl
+            - car
+            - lgv
+            - motorcycle
           description: 'Used for all vehicle types - PSV, HGV and TRL'
         vehicleSize:
           type: string
@@ -871,6 +889,10 @@ components:
           $ref: '#/components/schemas/brakes'
         axles:
           $ref: '#/components/schemas/axles'
+        recordCompleteness:
+          type: string
+          description: Defines the level of completeness for a tech record. If it is set to "skeleton" then it means the vehicle does not meet the minimum requirements to be tested. If it is "testable" it means the vehicle meets the minimum requirements to be tested but is not complete from a business perspective. If "complete" then the vehicle it is complete form a business perspective also.
+
     techRecordsPUT_POST:
       type: array
       items:
@@ -1141,49 +1163,43 @@ components:
               weights:
                 type: object
                 properties:
-                  axleWeightProperties:
-                    type: object
-                    properties:
-                      gbWeight:
-                        type: number
-                        maximum: 99999
-                        description: 'Used for all vehicle types - PSV, HGV and TRL'
-                      eecWeight:
-                        type: number
-                        maximum: 99999
-                        nullable: true
-                      designWeight:
-                        type: number
-                        maximum: 99999
-                        description: 'Used for all vehicle types - PSV, HGV and TRL'
+                  gbWeight:
+                    type: number
+                    maximum: 99999
+                    description: 'Used for all vehicle types - PSV, HGV and TRL'
+                  eecWeight:
+                    type: number
+                    maximum: 99999
+                    nullable: true
+                  designWeight:
+                    type: number
+                    maximum: 99999
+                    description: 'Used for all vehicle types - PSV, HGV and TRL'
               tyres:
                 type: object
                 properties:
-                  axleTyreProperties:
-                    type: object
-                    properties:
-                      tyreCode:
-                        type: number
-                        maximum: 9999
-                        description: 'Used for all vehicle types - PSV, HGV and TRL'
-                      tyreSize:
-                        type: string
-                        maxLength: 12
-                        description: 'Used for all vehicle types - PSV, HGV and TRL'
-                      plyRating:
-                        type: string
-                        maxLength: 2
-                        description: 'Used for all vehicle types - PSV, HGV and TRL. Optional for HGV'
-                      fitmentCode:
-                        type: string
-                        enum:
-                          - double
-                          - single
-                        description: 'Used for all vehicle types - PSV, HGV and TRL'
-                      dataTrAxles:
-                        type: number
-                        maximum: 999
-                        description: 'Used for all vehicle types - PSV, HGV and TRL. Optional for HGV'
+                  tyreCode:
+                    type: number
+                    maximum: 9999
+                    description: 'Used for all vehicle types - PSV, HGV and TRL'
+                  tyreSize:
+                    type: string
+                    maxLength: 12
+                    description: 'Used for all vehicle types - PSV, HGV and TRL'
+                  plyRating:
+                    type: string
+                    maxLength: 2
+                    description: 'Used for all vehicle types - PSV, HGV and TRL. Optional for HGV'
+                  fitmentCode:
+                    type: string
+                    enum:
+                      - double
+                      - single
+                    description: 'Used for all vehicle types - PSV, HGV and TRL'
+                  dataTrAxles:
+                    type: number
+                    maximum: 999
+                    description: 'Used for all vehicle types - PSV, HGV and TRL. Optional for HGV'
         dimensions:
           type: object
           properties:
