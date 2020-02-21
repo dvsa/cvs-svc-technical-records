@@ -6,6 +6,12 @@ const Joi = require("@hapi/joi")
 
 import {adrValidation} from "./AdrValidation";
 
+export const recordCompleteness: string[] = [
+  "skeleton",
+  "testable",
+  "complete"
+];
+
 const vehicleType: string[] = [
   "psv",
   "trl",
@@ -340,5 +346,6 @@ export const hgvValidation = Joi.object().keys({
   createdById: Joi.string().optional(),
   lastUpdatedAt: Joi.string().optional().allow(null),
   lastUpdatedByName: Joi.string().optional(),
-  lastUpdatedById: Joi.string().optional()
+  lastUpdatedById: Joi.string().optional(),
+  recordCompleteness: Joi.string().valid(...recordCompleteness).required()
 }).required();

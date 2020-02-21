@@ -99,6 +99,7 @@ export default interface ITechRecord {
   plates: Plates[];
   notes: string;
   axles: Axle[];
+  recordCompleteness: string;
 }
 
 interface Dimensions {
