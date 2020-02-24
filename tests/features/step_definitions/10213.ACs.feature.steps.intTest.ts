@@ -22,6 +22,7 @@ const createPOSTPayload = () => {
     },
     vin: Date.now().toString(),
     primaryVrm: Math.floor(100000 + Math.random() * 900000).toString(),
+    systemNumber: Math.floor(100000 + Math.random() * 900000).toString(),
     techRecord: techRec.techRecord
   };
   return payload;
@@ -65,10 +66,11 @@ defineFeature(feature, (test) => {
     });
     when("I submit my request via the POST method", async () => {
       responsePOST = await request.post(requestUrlPOST).send(postPayload);
+      expect(responsePOST.status).toEqual(201);
     });
     then("the partialVin is autopopulated, as the last 6 digits of the vin", async () => {
       responseGET = await request.get(requestUrlGET);
-      expect(responseGET.body.vin).toEqual(postPayload.vin);
+      expect(responseGET.body[0].vin).toEqual(postPayload.vin);
     });
     ctx.succeed("done");
     ctx = null;
@@ -97,7 +99,7 @@ defineFeature(feature, (test) => {
     });
     then("the corresponding vehicle class code is autopopulated, as per the linked excel", async () => {
       responseGET = await request.get(requestUrlGET);
-      expect(responseGET.body.techRecord[0].vehicleClass.code).toEqual("4");
+      expect(responseGET.body[0].techRecord[0].vehicleClass.code).toEqual("4");
     });
     ctx.succeed("done");
     ctx = null;
@@ -126,7 +128,7 @@ defineFeature(feature, (test) => {
     });
     then("the corresponding body type code is autopopulated, as per the linked excel", async () => {
       responseGET = await request.get(requestUrlGET);
-      expect(responseGET.body.techRecord[0].bodyType.code).toEqual("k");
+      expect(responseGET.body[0].techRecord[0].bodyType.code).toEqual("k");
     });
     ctx.succeed("done");
     ctx = null;

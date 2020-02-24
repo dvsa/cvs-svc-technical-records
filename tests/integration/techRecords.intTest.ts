@@ -391,8 +391,8 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
               expect(res.body.techRecord).toHaveLength(techRec.techRecord.length + 1);
-              expect(res.body.techRecord[techRec.techRecord.length].statusCode).toEqual("current");
-              expect(res.body.techRecord[techRec.techRecord.length - 2].statusCode).toEqual("archived");
+              expect(res.body.techRecord[techRec.techRecord.length].statusCode).toEqual("provisional");
+              expect(res.body.techRecord[techRec.techRecord.length - 1].statusCode).toEqual("archived");
             });
           });
 

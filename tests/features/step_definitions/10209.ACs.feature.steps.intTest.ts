@@ -45,11 +45,11 @@ defineFeature(feature, (test) => {
     });
     then("I return all the attributes applicable to HGV, from the linked excel", () => {
       expect(response.status).toEqual(200);
-      expect(response.body.techRecord[0].statusCode).toEqual("provisional");
-      expect(response.body.techRecord[0]).toHaveProperty("grossEecWeight");
-      expect(response.body.techRecord[0].brakes).toHaveProperty("dtpNumber");
-      expect(response.body.techRecord[0]).toHaveProperty("make");
-      expect(response.body.techRecord[0]).toHaveProperty("model");
+      expect(response.body[0].techRecord[0].statusCode).toEqual("provisional");
+      expect(response.body[0].techRecord[0]).toHaveProperty("grossEecWeight");
+      expect(response.body[0].techRecord[0].brakes).toHaveProperty("dtpNumber");
+      expect(response.body[0].techRecord[0]).toHaveProperty("make");
+      expect(response.body[0].techRecord[0]).toHaveProperty("model");
 
     });
     ctx.succeed("done");
@@ -76,17 +76,17 @@ defineFeature(feature, (test) => {
     });
     and("the appropriate audit attributes are set on this new tech record", async () => {
       responseGET = await request.get(requestUrl + `/${postPayload.vin}/tech-records`);
-      expect(responseGET.body.techRecord[0]).toHaveProperty("createdAt");
-      expect(responseGET.body.techRecord[0]).toHaveProperty("createdByName");
-      expect(responseGET.body.techRecord[0]).toHaveProperty("createdById");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdAt");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdByName");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdById");
     });
     and("the 'statusCode' of this new tech record is always 'provisional'", () => {
-      expect(responseGET.body.techRecord[0].statusCode).toEqual("provisional");
+      expect(responseGET.body[0].techRecord[0].statusCode).toEqual("provisional");
     });
     and("I am able to POST attributes residing anywhere on the vehicle object", () => {
-      expect(responseGET.body.techRecord[0].grossEecWeight).toEqual(22);
-      expect(responseGET.body.vrms[0].vrm).toEqual("ALKH567");
-      expect(responseGET.body.vrms[0].isPrimary).toEqual(true);
+      expect(responseGET.body[0].techRecord[0].grossEecWeight).toEqual(22);
+      expect(responseGET.body[0].vrms[0].vrm).toEqual("ALKH567");
+      expect(responseGET.body[0].vrms[0].isPrimary).toEqual(true);
     });
     ctx.succeed("done");
     ctx = null;
@@ -122,9 +122,9 @@ defineFeature(feature, (test) => {
       expect(response.body.techRecord[0].statusCode).toEqual("archived");
     });
     and("the appropriate audit attributes are set on the new updated tech record", () => {
-      expect(responseGET.body.techRecord[1]).toHaveProperty("createdAt");
-      expect(responseGET.body.techRecord[1]).toHaveProperty("createdByName");
-      expect(responseGET.body.techRecord[1]).toHaveProperty("createdById");
+      expect(responseGET.body[0].techRecord[1]).toHaveProperty("createdAt");
+      expect(responseGET.body[0].techRecord[1]).toHaveProperty("createdByName");
+      expect(responseGET.body[0].techRecord[1]).toHaveProperty("createdById");
     });
     and("I am only able to update attributes within the techRecord[] array", () => {
       expect(response.body.vrms.length).toEqual(2);
@@ -163,6 +163,7 @@ const createPOSTPayload = () => {
       msOid: "1234545"
     },
     vin: Date.now().toString(),
+    systemNumber: Date.now().toString(),
     primaryVrm: "ALKH567",
     techRecord: techRec.techRecord
   };

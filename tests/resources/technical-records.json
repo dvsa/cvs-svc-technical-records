@@ -8699,7 +8699,8 @@
           }
         }
       }
-    ]
+    ],
+    "systemNumber": "1000047"
   },
   {
     "vin": "ABCDEFGH444444",
@@ -9017,7 +9018,8 @@
           }
         }
       }
-    ]
+    ],
+    "systemNumber": "1000048"
   },
   {
     "partialVin": "222203",
@@ -10309,7 +10311,8 @@
       }
     ],
     "trailerId": "B3966774",
-    "vin": "A00000529"
+    "vin": "A00000529",
+    "systemNumber": "1000049"
   },
   {
     "partialVin": "004801",
@@ -10472,7 +10475,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00004801"
+    "vin": "A00004801",
+    "systemNumber": "1000050"
   },
   {
     "partialVin": "004965",
@@ -10665,7 +10669,8 @@
       }
     ],
     "trailerId": "B3989825",
-    "vin": "A00004965"
+    "vin": "A00004965",
+    "systemNumber": "1000051"
   },
   {
     "partialVin": "004989",
@@ -11243,7 +11248,8 @@
       }
     ],
     "trailerId": "B3966098",
-    "vin": "A00004989"
+    "vin": "A00004989",
+    "systemNumber": "1000052"
   },
   {
     "partialVin": "009889",
@@ -11577,7 +11583,8 @@
       }
     ],
     "trailerId": "B3888928",
-    "vin": "A00009889"
+    "vin": "A00009889",
+    "systemNumber": "1000053"
   },
   {
     "partialVin": "023353",
@@ -11887,7 +11894,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00023353"
+    "vin": "A00023353",
+    "systemNumber": "1000054"
   },
   {
     "partialVin": "026621",
@@ -12076,7 +12084,8 @@
       }
     ],
     "trailerId": "B3938127",
-    "vin": "A00026621"
+    "vin": "A00026621",
+    "systemNumber": "1000055"
   },
   {
     "partialVin": "032509",
@@ -12273,7 +12282,8 @@
       }
     ],
     "trailerId": "B4165134",
-    "vin": "A00032509"
+    "vin": "A00032509",
+    "systemNumber": "1000056"
   },
   {
     "partialVin": "034477",
@@ -12436,7 +12446,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00034477"
+    "vin": "A00034477",
+    "systemNumber": "1000057"
   },
   {
     "partialVin": "037313",
@@ -12629,7 +12640,8 @@
       }
     ],
     "trailerId": "B3933169",
-    "vin": "A00037313"
+    "vin": "A00037313",
+    "systemNumber": "1000058"
   },
   {
     "partialVin": "037501",
@@ -13137,7 +13149,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00037501"
+    "vin": "A00037501",
+    "systemNumber": "1000059"
   },
   {
     "partialVin": "037985",
@@ -13334,7 +13347,8 @@
       }
     ],
     "trailerId": "B4036851",
-    "vin": "A00037985"
+    "vin": "A00037985",
+    "systemNumber": "1000060"
   },
   {
     "partialVin": "038789",
@@ -13524,7 +13538,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00038789"
+    "vin": "A00038789",
+    "systemNumber": "1000061"
   },
   {
     "partialVin": "039009",
@@ -13836,7 +13851,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00039009"
+    "vin": "A00039009",
+    "systemNumber": "1000062"
   },
   {
     "partialVin": "047469",
@@ -14381,7 +14397,8 @@
       }
     ],
     "trailerId": "B3693123",
-    "vin": "A00047469"
+    "vin": "A00047469",
+    "systemNumber": "1000063"
   },
   {
     "partialVin": "060613",
@@ -14576,7 +14593,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00060613"
+    "vin": "A00060613",
+    "systemNumber": "1000064"
   },
   {
     "partialVin": "111773",
@@ -15132,7 +15150,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00111773"
+    "vin": "A00111773",
+    "systemNumber": "1000065"
   },
   {
     "partialVin": "128821",
@@ -15295,7 +15314,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00128821"
+    "vin": "A00128821",
+    "systemNumber": "1000066"
   },
   {
     "partialVin": "132865",
@@ -15472,7 +15492,8 @@
       }
     ],
     "trailerId": "B4029203",
-    "vin": "A00132865"
+    "vin": "A00132865",
+    "systemNumber": "1000067"
   },
   {
     "partialVin": "124509",
@@ -15632,7 +15653,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00124509"
+    "vin": "A00124509",
+    "systemNumber": "1000068"
   },
   {
     "partialVin": "425867",
@@ -15791,7 +15813,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00425867"
+    "vin": "A00425867",
+    "systemNumber": "1000069"
   },
   {
     "partialVin": "041485",
@@ -15968,7 +15991,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00041485"
+    "vin": "A00041485",
+    "systemNumber": "1000070"
   },
   {
     "partialVin": "082777",
@@ -16808,7 +16832,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00082777"
+    "vin": "A00082777",
+    "systemNumber": "1000071"
   },
   {
     "partialVin": "052593",
@@ -17006,7 +17031,8 @@
       }
     ],
     "trailerId": "B4259594",
-    "vin": "A00052593"
+    "vin": "A00052593",
+    "systemNumber": "1000072"
   },
   {
     "partialVin": "037501",
@@ -17137,7 +17163,8 @@
         "vehicleType": "hgv"
       }
     ],
-    "vin": "A00037502"
+    "vin": "A00037502",
+    "systemNumber": "1000073"
   },
   {
     "partialVin": "038789",
@@ -17327,7 +17354,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "A00038781"
+    "vin": "A00038781",
+    "systemNumber": "1000074"
   },
   {
     "partialVin": "911250",
@@ -17446,7 +17474,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "P0123010911250"
+    "vin": "P0123010911250",
+    "systemNumber": "1000075"
   },
   {
     "partialVin": "951264",
@@ -17565,7 +17594,8 @@
         "numberOfWheelsDriven": null
       }
     ],
-    "vin": "P0123010951264"
+    "vin": "P0123010951264",
+    "systemNumber": "1000076"
   },
   {
     "partialVin": "956789",
@@ -17684,7 +17714,8 @@
         "euVehicleCategory": "l1e-A"
       }
     ],
-    "vin": "P0123010956789"
+    "vin": "P0123010956789",
+    "systemNumber": "1000077"
   },
   {
     "vin": "GYFC26269R240355",
@@ -17692,101 +17723,104 @@
     "primaryVrm": "NKPILNCN",
     "systemNumber": "1000047",
     "secondaryVrms": null,
-    "techRecord": [{
-      "axles": [{
-        "tyres": {
-          "tyreCode": 6066,
-          "tyreSize": "MEPBXOX49CXC",
-          "plyRating": "WY",
-          "datatraxles": 319,
-          "fitmentCode": "single"
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "tyres": {
+              "tyreCode": 6066,
+              "tyreSize": "MEPBXOX49CXC",
+              "plyRating": "WY",
+              "datatraxles": 319,
+              "fitmentCode": "single"
+            },
+            "weights": {
+              "gbWeight": 31432,
+              "designWeight": 23921
+            },
+            "axleNumber": 6,
+            "parkingBrakeMrk": "Y"
+          },
+          {
+            "tyres": {
+              "tyreCode": 6066,
+              "tyreSize": "MEPBXOX49CXC",
+              "plyRating": "WY",
+              "datatraxles": 319,
+              "fitmentCode": "single",
+              "speedCategorySymbol": "43 mph"
+            },
+            "weights": {
+              "gbWeight": 31432,
+              "designWeight": 23921
+            },
+            "axleNumber": 5,
+            "parkingBrakeMrk": "Y"
+          },
+          {
+            "tyres": {
+              "tyreCode": 6066,
+              "tyreSize": "MEPBXOX49CXC",
+              "plyRating": "WY",
+              "datatraxles": 319,
+              "fitmentCode": "single"
+            },
+            "weights": {
+              "gbWeight": 31432,
+              "designWeight": 23921
+            },
+            "axleNumber": 4,
+            "parkingBrakeMrk": "Y"
+          }
+        ],
+        "brakes": {
+          "dtpNumber": "dtpn"
         },
-        "weights": {
-          "gbWeight": 31432,
-          "designWeight": 23921
+        "bodyType": {
+          "code": "D",
+          "description": "double decker"
         },
-        "axleNumber": 6,
-        "parkingBrakeMrk": "Y"
-      },
-        {
-          "tyres": {
-            "tyreCode": 6066,
-            "tyreSize": "MEPBXOX49CXC",
-            "plyRating": "WY",
-            "datatraxles": 319,
-            "fitmentCode": "single",
-            "speedCategorySymbol": "43 mph"
-          },
-          "weights": {
-            "gbWeight": 31432,
-            "designWeight": 23921
-          },
-          "axleNumber": 5,
-          "parkingBrakeMrk": "Y"
+        "regnDate": "2017-08-27 00:00:00.000000",
+        "createdAt": "2019-03-11T14:33:27.000000Z",
+        "noOfAxles": 3,
+        "ntaNumber": "DASVZKFBYMFCBTELBBWHCOXXWBHUNV3711183985",
+        "statusCode": "confirmed",
+        "make": "OTXD TDPM GRSE",
+        "functionCode": "HBUL DOST PREJ",
+        "vehicleType": "hgv",
+        "model": "CHEF VHYZ RFFZ",
+        "vehicleClass": {
+          "code": "N",
+          "description": "not applicable"
         },
-        {
-          "tyres": {
-            "tyreCode": 6066,
-            "tyreSize": "MEPBXOX49CXC",
-            "plyRating": "WY",
-            "datatraxles": 319,
-            "fitmentCode": "single"
-          },
-          "weights": {
-            "gbWeight": 31432,
-            "designWeight": 23921
-          },
-          "axleNumber": 4,
-          "parkingBrakeMrk": "Y"
-        }
-      ],
-      "brakes": {
-        "dtpNumber": "dtpn"
-      },
-      "bodyType": {
-        "code": "D",
-        "description": "double decker"
-      },
-      "regnDate": "2017-08-27 00:00:00.000000",
-      "createdAt": "2019-03-11T14:33:27.000000Z",
-      "noOfAxles": 3,
-      "ntaNumber": "DASVZKFBYMFCBTELBBWHCOXXWBHUNV3711183985",
-      "statusCode": "confirmed",
-      "make": "OTXD TDPM GRSE",
-      "functionCode": "HBUL DOST PREJ",
-      "vehicleType": "hgv",
-      "model": "CHEF VHYZ RFFZ",
-      "vehicleClass": {
-        "code": "N",
-        "description": "not applicable"
-      },
-      "grossGbWeight": 57151,
-      "lastUpdatedAt": "2019-03-11T14:33:27.000000Z",
-      "tachoExemptMrk": "N",
-      "conversionRefNo": "HGRNJQ55UU",
-      "manufactureYear": 2014,
-      "speedLimiterMrk": "Y",
-      "grossDesignWeight": 98204,
-      "trainGbWeight": 20356,
-      "trainDesignWeight": 40568,
-      "maxTrainGbWeight": 34789,
-      "maxTrainDesignWeight": 65789,
-      "tyreUseCode": "used",
-      "roadFriendly": "N",
-      "euroStandard": 4,
-      "dimensions": {
-        "length": 300,
-        "width": 300
-      },
-      "frontAxleTo5thWheelMin": 20,
-      "frontAxleTo5thWheelMax": 30,
-      "frontVehicleTo5thWheelCouplingMin": 30,
-      "frontVehicleTo5thWheelCouplingMax": 20,
-      "drawbarCouplingFitted": "N",
-      "notes": "note",
-      "reasonForCreation": "XYUDXG",
-      "vehicleConfiguration": "rigid"
-    }]
+        "grossGbWeight": 57151,
+        "lastUpdatedAt": "2019-03-11T14:33:27.000000Z",
+        "tachoExemptMrk": "N",
+        "conversionRefNo": "HGRNJQ55UU",
+        "manufactureYear": 2014,
+        "speedLimiterMrk": "Y",
+        "grossDesignWeight": 98204,
+        "trainGbWeight": 20356,
+        "trainDesignWeight": 40568,
+        "maxTrainGbWeight": 34789,
+        "maxTrainDesignWeight": 65789,
+        "tyreUseCode": "used",
+        "roadFriendly": "N",
+        "euroStandard": 4,
+        "dimensions": {
+          "length": 300,
+          "width": 300
+        },
+        "frontAxleTo5thWheelMin": 20,
+        "frontAxleTo5thWheelMax": 30,
+        "frontVehicleTo5thWheelCouplingMin": 30,
+        "frontVehicleTo5thWheelCouplingMax": 20,
+        "drawbarCouplingFitted": "N",
+        "notes": "note",
+        "reasonForCreation": "XYUDXG",
+        "vehicleConfiguration": "rigid"
+      }
+    ]
   },
   {
     "partialVin": "484009",
