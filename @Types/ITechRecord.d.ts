@@ -107,6 +107,23 @@ export default interface ITechRecord {
   axles: Axle[];
   dda: Dda;
   recordCompleteness: string;
+  firstUseDate: string;
+  suspensionType: string;
+  couplingType: string;
+  maxLoadOnCoupling: number;
+  frameDescription: string;
+  loadSensingValve: boolean;
+  antilockBrakingSystem: boolean;
+  rearAxleToRearTrl: number;
+  couplingCenterToRearAxleMin: number;
+  couplingCenterToRearAxleMax: number;
+  couplingCenterToRearTrlMin: number;
+  couplingCenterToRearTrlMax: number;
+  centreOfRearmostAxleToRearOfTrl: number;
+  purchaserDetails: PurchaserDetails;
+  manufacturerDetails: ManufacturerDetails;
+  authIntoService: AuthIntoService;
+  lettersOfAuth: LettersOfAuth;
 }
 
 interface Dimensions {
@@ -143,6 +160,30 @@ interface ApplicantDetails {
   emailAddress: string;
 }
 
+interface PurchaserDetails extends ApplicantDetails {
+  faxNumber: string;
+  purchaserNotes: string;
+}
+
+interface ManufacturerDetails extends ApplicantDetails {
+  faxNumber: string;
+  manufacturerNotes: string;
+}
+
+interface LettersOfAuth {
+  letterType: string;
+  letterDateRequested: string;
+  letterContents: string;
+}
+
+interface AuthIntoService {
+  cocIssueDate: string;
+  dateReceived: string;
+  datePending: string;
+  dateAuthorised: string;
+  dateRejected: string;
+}
+
 interface Axle {
   parkingBrakeMrk: boolean;
   axleNumber: number;
@@ -152,6 +193,9 @@ interface Axle {
     gbWeight: number;
     designWeight: number;
     eecWeight: number;
+    brakeActuator: number;
+    leverLength: number;
+    springBrakeParking: boolean;
   };
   tyres: {
     tyreSize: string;

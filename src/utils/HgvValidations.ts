@@ -3,12 +3,13 @@ const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
 import {axlesSchema, commonSchema, weightsSchema} from "./CommonSchema";
+import {euVehicleCategory, fuelPropulsionSystem} from "./ValidationUtils";
 import {adrValidation} from "./AdrValidation";
 
 export const hgvValidation = commonSchema.keys({
   axles: Joi.array().items(axlesSchema.keys({
     weights: weightsSchema.keys({
-      eecWeight: Joi.number().min(0).max(99999).optional().allow(null),
+      eecWeight: Joi.number().min(0).max(99999).optional().allow(null)
     }).required(),
   })).min(1).required(),
   roadFriendly: Joi.boolean().required(),
@@ -16,6 +17,14 @@ export const hgvValidation = commonSchema.keys({
   offRoad: Joi.boolean().optional().required(),
   make: Joi.string().max(30).required(),
   model: Joi.string().max(30).required(),
+  speedLimiterMrk: Joi.boolean().required(),
+  tachoExemptMrk: Joi.boolean().required(),
+  euroStandard: Joi.string().required(),
+  fuelPropulsionSystem: Joi.string().valid(...fuelPropulsionSystem).required(),
+  euVehicleCategory: Joi.string().valid(...euVehicleCategory).required(),
+  numberOfWheelsDriven: Joi.number().min(0).max(9999).required().allow(null),
+  emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
+  trainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
   grossEecWeight: Joi.number().min(0).max(99999).optional().allow(null),
   trainGbWeight: Joi.number().min(0).max(99999).required(),
   trainEecWeight: Joi.number().min(0).max(99999).optional().allow(null),

@@ -16,6 +16,7 @@ const postTechRecords = (event: any) => {
   const primaryVrm = event.body ? event.body.primaryVrm : null;
   const secondaryVrms = event.body ? event.body.secondaryVrms : null;
   const sysNum = event.body ? event.body.systemNumber : null;
+  const trailerId = event.body ? event.body.trailerId : null;
 
   if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 3 || vin.length > 21 || typeof vin !== "string") {
     return Promise.resolve(new HTTPResponse(400, "Invalid body field 'vin'"));
@@ -35,7 +36,8 @@ const postTechRecords = (event: any) => {
     techRecord: techRec,
     systemNumber: sysNum,
     primaryVrm,
-    secondaryVrms
+    secondaryVrms,
+    trailerId
   };
 
   return techRecordsService.insertTechRecord(techRecord, msUserDetails)

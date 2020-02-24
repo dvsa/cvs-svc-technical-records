@@ -3,9 +3,8 @@ const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
 import {
-  approvalType,
-  bodyTypeDescription, euVehicleCategory, fitmentCode,
-  fuelPropulsionSystem, microfilmDocumentType, plateReasonForIssue, vehicleClassDescription,
+  approvalType, bodyTypeDescription, fitmentCode,
+  microfilmDocumentType, plateReasonForIssue, vehicleClassDescription,
   vehicleConfiguration, vehicleType, recordCompleteness
 } from "./ValidationUtils";
 
@@ -65,10 +64,6 @@ export const commonSchema = Joi.object().keys({
   noOfAxles: Joi.number().min(0).max(99).required(),
   brakes: brakesSchema,
   axles: Joi.array().items(axlesSchema).min(1).required(),
-  speedLimiterMrk: Joi.boolean().required(),
-  tachoExemptMrk: Joi.boolean().required(),
-  euroStandard: Joi.string().required(),
-  fuelPropulsionSystem: Joi.string().valid(...fuelPropulsionSystem).required(),
   vehicleClass: Joi.object().keys({
     code: Joi.any().when("description", {
       is: Joi.string().valid(...vehicleClassDescription).required(),
@@ -78,9 +73,6 @@ export const commonSchema = Joi.object().keys({
     description: Joi.string().valid(...vehicleClassDescription).required()
   }).required(),
   vehicleConfiguration: Joi.string().valid(...vehicleConfiguration).required(),
-  numberOfWheelsDriven: Joi.number().min(0).max(9999).required().allow(null),
-  euVehicleCategory: Joi.string().valid(...euVehicleCategory).required(),
-  emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
   departmentalVehicleMarker: Joi.boolean().optional(),
   alterationMarker: Joi.boolean().optional(),
   approvalType: Joi.string().valid(...approvalType).required(),
@@ -100,7 +92,6 @@ export const commonSchema = Joi.object().keys({
   conversionRefNo: Joi.string().max(10).optional().allow(null),
   grossGbWeight: Joi.number().min(0).max(99999).required(),
   grossDesignWeight: Joi.number().min(0).max(99999).required(),
-  trainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
   applicantDetails: applicantDetailsSchema,
   microfilm: microfilmSchema,
   plates: Joi.array().items(platesSchema).optional().allow(null),

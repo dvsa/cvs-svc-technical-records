@@ -2,7 +2,13 @@
 const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
-import {retarderBrake, speedCategorySymbol, vehicleSize} from "./ValidationUtils";
+import {
+  euVehicleCategory,
+  fuelPropulsionSystem,
+  retarderBrake,
+  speedCategorySymbol,
+  vehicleSize
+} from "./ValidationUtils";
 import {axlesSchema, brakesSchema, commonSchema, tyresSchema, weightsSchema} from "./CommonSchema";
 
 export const psvValidation = commonSchema.keys({
@@ -52,6 +58,14 @@ export const psvValidation = commonSchema.keys({
   seatsLowerDeck: Joi.number().min(0).max(999).required(),
   seatsUpperDeck: Joi.number().min(0).max(99).required(),
   standingCapacity: Joi.number().min(0).max(999).required(),
+  speedLimiterMrk: Joi.boolean().required(),
+  tachoExemptMrk: Joi.boolean().required(),
+  euroStandard: Joi.string().required(),
+  fuelPropulsionSystem: Joi.string().valid(...fuelPropulsionSystem).required(),
+  euVehicleCategory: Joi.string().valid(...euVehicleCategory).required(),
+  numberOfWheelsDriven: Joi.number().min(0).max(9999).required().allow(null),
+  emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
+  trainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
   vehicleSize: Joi.string().valid(...vehicleSize).required(),
   numberOfSeatbelts: Joi.string().max(99).required(),
   seatbeltInstallationApprovalDate: Joi.string().optional().allow(null),
