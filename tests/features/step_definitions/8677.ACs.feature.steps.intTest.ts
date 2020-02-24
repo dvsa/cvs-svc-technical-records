@@ -52,7 +52,7 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
     });
     and("the existing tech record is archived", () => {
-      expect(response.body.techRecord[0].reasonForCreation).toEqual("new trailer");
+      expect(response.body.techRecord[0].reasonForCreation).toEqual("new vehicle");
       expect(response.body.techRecord[0].statusCode).toEqual("archived");
     });
     and("my PUT action adheres to the adrDetails{} API validations, present in the attached updated API spec", () => {

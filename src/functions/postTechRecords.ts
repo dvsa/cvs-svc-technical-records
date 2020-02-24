@@ -18,6 +18,7 @@ const postTechRecords = (event: any) => {
   const vin = event.body ? event.body.vin : null;
   const primaryVrm = event.body ? event.body.primaryVrm : null;
   const secondaryVrms = event.body ? event.body.secondaryVrms : null;
+  const sysNum = event.body ? event.body.systemNumber : null;
 
   if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 3 || vin.length > 21 || typeof vin !== "string") {
     return Promise.resolve(new HTTPResponse(400, "Invalid body field 'vin'"));
@@ -35,6 +36,7 @@ const postTechRecords = (event: any) => {
     vin,
     partialVin: populatePartialVin(vin),
     techRecord: techRec,
+    systemNumber: sysNum,
     primaryVrm,
     secondaryVrms
   };

@@ -17,9 +17,6 @@ defineFeature(feature, ( test ) => {
     timeout: 1
   });
 
-const feature = loadFeature(path.resolve(__dirname, "../7885.ACs.feature"));
-
-defineFeature(feature, test => {
   beforeAll(async () => {
     await emptyDatabase();
   });
@@ -83,30 +80,28 @@ const createPOSTPayload = () => {
   newTechRec.techRecord[0].bodyType.description = "skeletal";
   const primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
   delete newTechRec.techRecord[0].statusCode;
-  const payload = {
+  return {
     msUserDetails: {
       msUser: "dorel",
       msOid: "1234545"
     },
     vin,
     partialVin,
+    systemNumber: Date.now().toString(),
     primaryVrm,
     techRecord: newTechRec.techRecord
   };
-  return payload;
 };
 
 const createPUTPayload = () => {
-  const techRec: any = cloneDeep(mockData[43]);
-  delete techRec.techRecord[0].statusCode;
-  const payload = {
-    msUserDetails: {
-      msUser: "dorel",
-      msOid: "1234545"
-    },
-    systemNumber: "10000002",
-    techRecord: techRec.techRecord
+    const techRec: any = cloneDeep(mockData[43]);
+    delete techRec.techRecord[0].statusCode;
+    return {
+      msUserDetails: {
+        msUser: "dorel",
+        msOid: "1234545"
+      },
+      systemNumber: "10000002",
+      techRecord: techRec.techRecord
+    };
   };
-  return payload;
-};
-

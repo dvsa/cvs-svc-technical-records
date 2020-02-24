@@ -245,14 +245,13 @@ class TechRecordsService {
     }
     techRecord.techRecord[0] = isPayloadValid.value;
     return this.getTechRecordsList(techRecord.vin, STATUS.ALL, SEARCHCRITERIA.ALL)
-      .then((data: ITechRecordWrapper) => {
+      .then((data: ITechRecordWrapper[]) => {
         if(data.length !== 1) {
           // systemNumber search should return a unique record
           throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
         }
         const uniqueRecord = data[0];
         const oldTechRec = this.getTechRecordToArchive(uniqueRecord);
-        oldTechRec.statusCode = STATUS.ARCHIVED;
         const newRecord: any = _.cloneDeep(oldTechRec);
         oldTechRec.statusCode = STATUS.ARCHIVED;
         _.mergeWith(newRecord, techRecord.techRecord[0], this.arrayCustomizer);
