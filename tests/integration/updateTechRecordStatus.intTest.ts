@@ -48,13 +48,13 @@ describe("UpdateTechRecordStatus", () => {
         });
 
         it("should return 200 and the updated vehicle if it has a provisional techRecord", async () => {
-            const vin: string = "P012301270123";
+            const systemNumber: string = "10000027";
             expect.assertions(4);
             await LambdaTester(updateTechRecordStatus)
                 .event({
-                    path: "/vehicles/update-status/" + vin,
+                    path: "/vehicles/update-status/" + systemNumber,
                     pathParameters: {
-                        vin,
+                      systemNumber,
                     },
                     queryStringParameters: {
                         testStatus: "submitted",
@@ -74,13 +74,13 @@ describe("UpdateTechRecordStatus", () => {
         });
 
         it("should return 400 if the vehicle status cannot be updated", async () => {
-            const vin: string = "P012301230123";
+            const systemNumber: string = "10000013";
             expect.assertions(2);
             await LambdaTester(updateTechRecordStatus)
                 .event({
-                    path: "/vehicles/update-status/" + vin,
+                    path: "/vehicles/update-status/" + systemNumber,
                     pathParameters: {
-                        vin,
+                      systemNumber,
                     },
                     queryStringParameters: {
                         testStatus: "submitted",
@@ -97,13 +97,13 @@ describe("UpdateTechRecordStatus", () => {
         });
 
         it("should return 404 if the vehicle does not exist", async () => {
-            const vin: string = "XXX";
+            const systemNumber: string = "XXX";
             expect.assertions(2);
             await LambdaTester(updateTechRecordStatus)
                 .event({
-                    path: "/vehicles/update-status/" + vin,
+                    path: "/vehicles/update-status/" + systemNumber,
                     pathParameters: {
-                        vin,
+                      systemNumber,
                     },
                     queryStringParameters: {
                         testStatus: "submitted",

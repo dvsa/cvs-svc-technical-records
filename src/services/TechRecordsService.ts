@@ -373,8 +373,8 @@ class TechRecordsService {
       });
   }
 
-  public async updateTechRecordStatusCode(vin: string, newStatus: STATUS = STATUS.CURRENT) {
-    const techRecordWrapper: ITechRecordWrapper[] = await this.getTechRecordsList(vin, STATUS.ALL);
+  public async updateTechRecordStatusCode(systemNumber: string, newStatus: STATUS = STATUS.CURRENT) {
+    const techRecordWrapper: ITechRecordWrapper[] = await this.getTechRecordsList(systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER);
     if(techRecordWrapper.length !== 1) {
       // systemNumber search should return a single record
       throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);

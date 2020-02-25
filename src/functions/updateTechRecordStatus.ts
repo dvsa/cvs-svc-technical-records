@@ -9,7 +9,7 @@ export async function updateTechRecordStatus(event: any) {
     const s3BucketService = new S3BucketService(new S3());
     const techRecordsService = new TechRecordsService(new TechRecordsDAO(), s3BucketService);
 
-    const vin: string = event.pathParameters!.vin;
+    const systemNumber: string = event.pathParameters!.systemNumber;
     const testStatus: string = event.queryStringParameters!.testStatus;
     const testResult: string = event.queryStringParameters!.testResult;
     const testTypeId: string = event.queryStringParameters!.testTypeId;
@@ -19,7 +19,7 @@ export async function updateTechRecordStatus(event: any) {
         return new HTTPResponse(200, HTTPRESPONSE.NO_STATUS_UPDATE_REQUIRED);
     }
     try {
-        const updatedTechRec = await techRecordsService.updateTechRecordStatusCode(vin, newStatus );
+        const updatedTechRec = await techRecordsService.updateTechRecordStatusCode(systemNumber, newStatus );
         return new HTTPResponse(200, updatedTechRec);
     } catch (error) {
         return new HTTPResponse(error.statusCode, error.body);
