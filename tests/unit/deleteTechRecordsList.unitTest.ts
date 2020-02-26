@@ -8,7 +8,7 @@ import S3 from "aws-sdk/clients/s3";
 jest.mock("../../src/services/S3BucketService");
 jest.mock("aws-sdk/clients/s3");
 const s3BucketServiceMock = new S3BucketService(new S3());
-const recordIds = techRecords.map((record) => [record.partialVin, record.vin]);
+const recordIds = techRecords.map((record) => [record.partialVin, record.vin]) as string[][];
 
 describe("deleteTechRecordsList", () => {
   context("database call deletes items", () => {

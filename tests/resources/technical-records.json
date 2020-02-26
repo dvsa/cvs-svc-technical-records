@@ -17758,5 +17758,15 @@
       }
     ],
     "vin": "P0123010956789"
+  },
+  {
+    "primaryVrm": "ZZ345ZV",
+    "secondaryVrms": [],
+    "vin": " ",
+    "partialVin": " ",
+    "systemNumber": "137",
+    "techRecord": [{
+      "recordCompleteness": "skeleton"
+    }]
   }
 ]
