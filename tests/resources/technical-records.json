@@ -18356,5 +18356,15 @@
       }
     ],
     "vin": "1CPADDYTEST484009"
+  },
+  {
+    "primaryVrm": "ZZ345ZV",
+    "secondaryVrms": [],
+    "vin": " ",
+    "partialVin": " ",
+    "systemNumber": "137",
+    "techRecord": [{
+      "recordCompleteness": "skeleton"
+    }]
   }
 ]
