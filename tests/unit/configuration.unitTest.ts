@@ -15,7 +15,6 @@ describe("The configuration service", () => {
 
         const DBConfig = configService.getDynamoDBConfig();
         expect(DBConfig).toEqual(configService.getConfig().dynamodb.local);
-
         // No Endpoints for this service
       });
 
