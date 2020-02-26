@@ -31,7 +31,7 @@ const getTechRecords = (event: any) => {
   }
 
   return techRecordsService.getTechRecordsList(searchIdentifier, status, searchCriteria)
-    .then((data: ITechRecordWrapper | ITechRecordWrapper[]) => {
+    .then((data: ITechRecordWrapper[]) => {
 
       if(!(data instanceof Array)) {
         return new HTTPResponse(200, Array.of(data));

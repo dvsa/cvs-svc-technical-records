@@ -33,7 +33,7 @@ class TechRecordsDAO {
       ExpressionAttributeValues: {}
     };
 
-    if (isSysNumSearch(searchCriteria)) { // Query for a full VIN
+    if (isSysNumSearch(searchCriteria)) { // Query for a specific System Number
       Object.assign(query.ExpressionAttributeValues, {
         ":systemNumber": searchTerm
       });
