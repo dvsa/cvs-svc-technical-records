@@ -267,6 +267,14 @@ describe("insertTechRecord", () => {
         return {
           createSingle: () => {
             return Promise.resolve({});
+          },
+          getTrailerId: () => {
+            return Promise.resolve({
+              trailerId: "C530001",
+              trailerLetter: "C",
+              sequenceNumber: 530001,
+              testNumberKey: 2
+            });
           }
         };
       });
@@ -274,10 +282,8 @@ describe("insertTechRecord", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
 
       // @ts-ignore
-      const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
+      const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
       techRecord.vin = Date.now().toString();
-      techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-      techRecord.techRecord[0].bodyType.description = "skeletal";
       delete techRecord.techRecord[0].statusCode;
       const msUserDetails = {
         msUser: "dorel",
@@ -409,6 +415,124 @@ describe("insertTechRecord", () => {
         expect(errorResponse.statusCode).toEqual(400);
         expect(errorResponse.body).toEqual("The conditional request failed");
       }
+    });
+  });
+
+  context("when trying to create a new trailer", () => {
+    context("and the trailer id generation is successfull", () => {
+      it("should set the correct trailerId on the vehicle", async () => {
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getTrailerId: () => {
+              return Promise.resolve({
+                trailerId: "C530001",
+                trailerLetter: "C",
+                sequenceNumber: 530001,
+                testNumberKey: 2
+              });
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
+        techRecord.vin = Date.now().toString();
+        delete techRecord.trailerId;
+        delete techRecord.techRecord[0].statusCode;
+
+        await techRecordsService.setTrailerId(techRecord);
+        expect(techRecord.trailerId).toEqual("C530001");
+      });
+    });
+    context("and the trailer id generation failed", () => {
+      context("and the trailer id object doesn't contain the trailerId attribute", () => {
+        it("should return error 500 TrailerId generation failed", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getTrailerId: () => {
+                return Promise.resolve({
+                  trailerLetter: "C",
+                  sequenceNumber: 530001,
+                  testNumberKey: 2
+                });
+              }
+            };
+          });
+          const mockDAO = new MockDAO();
+          const techRecordsService = new TechRecordsService(mockDAO);
+
+          // @ts-ignore
+          const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
+          techRecord.vin = Date.now().toString();
+          delete techRecord.trailerId;
+          delete techRecord.techRecord[0].statusCode;
+
+          try {
+            expect(await techRecordsService.setTrailerId(techRecord)).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual(ERRORS.TrailerIdGenerationFailed);
+          }
+        });
+      });
+
+      context("and the trailer id object contains the error attribute", () => {
+        it("should return error 500 TrailerId generation failed", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getTrailerId: () => {
+                return Promise.resolve({
+                  error: "Some error from test-number microservice"
+                });
+              }
+            };
+          });
+          const mockDAO = new MockDAO();
+          const techRecordsService = new TechRecordsService(mockDAO);
+
+          // @ts-ignore
+          const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
+          techRecord.vin = Date.now().toString();
+          delete techRecord.trailerId;
+          delete techRecord.techRecord[0].statusCode;
+
+          try {
+            expect(await techRecordsService.setTrailerId(techRecord)).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual("Some error from test-number microservice");
+          }
+        });
+      });
+
+      context("and the test-number microservice returned an error", () => {
+        it("should return error 500", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getTrailerId: () => {
+                return Promise.reject("Error from test-number microservice");
+              }
+            };
+          });
+          const mockDAO = new MockDAO();
+          const techRecordsService = new TechRecordsService(mockDAO);
+
+          // @ts-ignore
+          const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
+          techRecord.vin = Date.now().toString();
+          delete techRecord.trailerId;
+          delete techRecord.techRecord[0].statusCode;
+
+          try {
+            expect(await techRecordsService.setTrailerId(techRecord)).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual("Error from test-number microservice");
+          }
+        });
+      });
     });
   });
 });

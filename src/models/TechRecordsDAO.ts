@@ -5,6 +5,7 @@ import QueryInput = DocumentClient.QueryInput;
 import {SEARCHCRITERIA} from "../assets/Enums";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 import {populatePartialVin} from "../utils/ValidationUtils";
+import {LambdaService} from "../services/LambdaService";
 
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
@@ -20,9 +21,14 @@ const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
 
 class TechRecordsDAO {
   private readonly tableName: string;
+  private static lambdaInvokeEndpoints: any;
 
   constructor() {
     this.tableName = dbConfig.table;
+
+    if (!TechRecordsDAO.lambdaInvokeEndpoints) {
+      TechRecordsDAO.lambdaInvokeEndpoints = Configuration.getInstance().getEndpoints();
+    }
   }
 
   public getBySearchTerm(searchTerm: string, searchCriteria: ISearchCriteria) {
@@ -127,6 +133,16 @@ class TechRecordsDAO {
       ReturnValues: "ALL_NEW"
     };
     return dbClient.update(query).promise();
+  }
+
+  public getTrailerId(): any {
+    const event = {
+      path: "/trailerId/",
+      httpMethod: "POST",
+      resource: "/trailerId/"
+    };
+
+    return LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.getTrailerId.name, event);
   }
 
   public createMultiple(techRecordItems: ITechRecordWrapper[]) {

@@ -31,9 +31,9 @@ describe("The configuration service", () => {
         expect(functions[4].name).toEqual("updateEuVehicleCategory");
 
         const DBConfig = configService.getDynamoDBConfig();
+        const EndpointsConfig = configService.getEndpoints();
         expect(DBConfig).toEqual(configService.getConfig().dynamodb["local-global"]);
-
-        // No Endpoints for this service
+        expect(EndpointsConfig).toEqual(configService.getConfig().endpoints["local-global"]);
       });
 
       it("should return remote versions of the config by default", () => {
@@ -48,9 +48,9 @@ describe("The configuration service", () => {
         expect(functions[4].name).toEqual("updateEuVehicleCategory");
 
         const DBConfig = configService.getDynamoDBConfig();
+        const EndpointsConfig = configService.getEndpoints();
         expect(DBConfig).toEqual(configService.getConfig().dynamodb.remote);
-
-        // No Endpoints for this service
+        expect(EndpointsConfig).toEqual(configService.getConfig().endpoints.remote);
       });
     });
 
@@ -70,6 +70,15 @@ describe("The configuration service", () => {
           config.getDynamoDBConfig();
         } catch (e) {
           expect(e.message).toEqual("DynamoDB config is not defined in the config file.");
+        }
+      });
+
+      it("should return an error for missing endpoints Config from getEndpoints", () => {
+        const config = new Configuration("../../tests/resources/badConfig.yml");
+        try {
+          config.getEndpoints();
+        } catch (e) {
+          expect(e.message).toEqual("Endpoints were not defined in the config file.");
         }
       });
     });

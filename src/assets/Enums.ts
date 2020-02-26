@@ -4,7 +4,8 @@ export enum ERRORS {
     LambdaInvokeConfigNotDefined = "Lambda Invoke config is not defined in the config file.",
     EventIsEmpty = "Event is empty",
     NoBranch = "Please define BRANCH environment variable",
-    NO_UNIQUE_RECORD = "Failed to uniquely identify record"
+    NO_UNIQUE_RECORD = "Failed to uniquely identify record",
+    TrailerIdGenerationFailed = "TrailerId generation failed!"
 }
 
 export enum HTTPRESPONSE {
