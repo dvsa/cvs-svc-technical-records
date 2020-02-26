@@ -41,3 +41,18 @@ dynamodb:
 serverless:
   basePath: /${BRANCH}
   port: 3005
+endpoints:
+  local-global:
+    params:
+      apiVersion: '2015-03-31'
+      region: eu-west-1
+      endpoint: http://localhost:4000
+    functions:
+      getTrailerId:
+        name: cvs-svc-global-dev-generateTestNumber
+  remote:
+    params:
+      apiVersion: '2015-03-31'
+    functions:
+      getTrailerId:
+        name: test-number-${BRANCH}
