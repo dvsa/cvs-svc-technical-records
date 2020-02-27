@@ -7686,9 +7686,7 @@
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-              null
-            ],
+            "guidanceNotes": [],
             "number": [
               null
             ]
@@ -7874,9 +7872,7 @@
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-              null
-            ],
+            "guidanceNotes": [],
             "number": [
               null
             ]
@@ -8051,9 +8047,7 @@
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-              null
-            ],
+            "guidanceNotes": [],
             "number": [
               null
             ]
@@ -8246,9 +8240,7 @@
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
-            "guidanceNotes": [
-              null
-            ],
+            "guidanceNotes": [],
             "number": [
               null
             ]
@@ -18363,8 +18355,10 @@
     "vin": " ",
     "partialVin": " ",
     "systemNumber": "137",
-    "techRecord": [{
-      "recordCompleteness": "skeleton"
-    }]
+    "techRecord": [
+      {
+        "recordCompleteness": "skeleton"
+      }
+    ]
   }
 ]
