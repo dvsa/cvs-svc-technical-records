@@ -84,3 +84,9 @@ and change the serverless.yml so that Custom > DynamoDB >
        noStart: false
 
 **NB: Do not push these changes. They are for local running only**
+
+To test the `updateTechRecordStatus` function, invoke locally with:
+```bash
+BRANCH=local ./node_modules/serverless/bin/serverless invoke local -f updateTechRecordStatus --data '{"path":"/vehicles/update-status/10000027","pathParameters":{"systemNumber":"10000027"},"queryStringParameters":{"testStatus":"submitted","testResult":"pass","testTypeId":"41"},"httpMethod":"PUT"}'
+```
+
