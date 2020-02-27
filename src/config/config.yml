@@ -18,7 +18,7 @@ functions:
     function: downloadDocument
 - updateTechRecordStatus:
     method: PUT
-    path: /vehicles/update-status/:vin
+    path: /vehicles/update-status/:systemNumber
     function: updateTechRecordStatus
 s3:
   local:

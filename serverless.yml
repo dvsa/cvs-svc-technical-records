@@ -149,14 +149,6 @@ functions:
                 filename: true
   updateTechRecordStatus:
     handler: src/handler.handler
-    events:
-      - http:
-          path: vehicles/{vin}
-          method: post
-          request:
-            parameters:
-              paths:
-                vin: true
 
 resources:
   Resources:
