@@ -383,7 +383,6 @@ describe("techRecords", () => {
             it("should return status 200 and the updated vehicle", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
-              delete techRec.techRecord[0].statusCode;
               const payload = {
                 msUserDetails,
                 systemNumber: techRec.systemNumber,
@@ -403,7 +402,6 @@ describe("techRecords", () => {
             it("should return error status 404 No resources match the search criteria", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
-              delete techRec.techRecord[0].statusCode;
               const vin = Date.now().toString();
               const payload = {
                 msUserDetails,

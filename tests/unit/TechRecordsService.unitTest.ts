@@ -542,7 +542,6 @@ describe("updateTechRecord", () => {
       techRecord.techRecord[0].bodyType.description = "skeletal";
       techRecord.techRecord[0].grossGbWeight = 5555;
       techRecord.techRecord[0].adrDetails.vehicleDetails.type = "Centre axle tank";
-      delete techRecord.techRecord[0].statusCode;
       const vrms = [{vrm: "BBBB333", isPrimary: true}, {vrm: "CCCC444", isPrimary: false}];
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
@@ -580,7 +579,6 @@ describe("updateTechRecord", () => {
       techRecord.techRecord[0].grossGbWeight = 5555;
       techRecord.techRecord[0].adrDetails.vehicleDetails.type = "Artic tractor";
       delete techRecord.techRecord[0].adrDetails.memosApply;
-      delete techRecord.techRecord[0].statusCode;
       delete techRecord.techRecord[0].adrDetails.tank;
       const vrms = [{vrm: "LKJH654", isPrimary: true}, {vrm: "POI9876", isPrimary: false}];
       const MockDAO = jest.fn().mockImplementation(() => {
@@ -646,6 +644,66 @@ describe("updateTechRecord", () => {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(400);
           expect(errorResponse.body).toEqual("\"vehicleType\" must be one of [hgv, psv, trl]");
+        }
+      });
+    });
+
+    context("and the user wants to update an archived record", () => {
+      it("should return error 400 Cannot update an archived record", async () => {
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[31]);
+        const MockDAO = jest.fn().mockImplementation();
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+        const recordToUpdate: any = {
+          techRecord: techRecord.techRecord
+        };
+        try {
+          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(400);
+          expect(errorResponse.body).toEqual(ERRORS.CannotUpdateArchivedRecord);
+        }
+      });
+    });
+
+    context("and the user wants to update a record which doesn't have the specified statusCode", () => {
+      it("should return error 500 Vehicle has no tech-records with status {statusCode}", async () => {
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
+        const MockDAO = jest.fn().mockImplementation();
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+        const recordToUpdate: any = {
+          techRecord: techRecord.techRecord
+        };
+        try {
+          expect(await techRecordsService.getTechRecordToArchive(recordToUpdate, STATUS.CURRENT)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.body).toEqual("Vehicle has no tech-records with status current");
+        }
+      });
+    });
+
+    context("and the user wants to update a record which doesn't have the specified statusCode", () => {
+      it("should return error 500 Vehicle has no tech-records with status {statusCode}", async () => {
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
+        const MockDAO = jest.fn().mockImplementation();
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+        const recordToUpdate: any = {
+          techRecord: [techRecord.techRecord[0], techRecord.techRecord[0]]
+        };
+        try {
+          expect(await techRecordsService.getTechRecordToArchive(recordToUpdate, STATUS.PROVISIONAL)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.body).toEqual("Vehicle has more than one tech-record with status provisional");
         }
       });
     });
