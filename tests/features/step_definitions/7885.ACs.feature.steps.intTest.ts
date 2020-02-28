@@ -40,7 +40,7 @@ defineFeature(feature, ( test ) => {
 
     given("I am a consumer of the vehicles API", () => {
       requestUrlPOST = "vehicles/";
-      requestUrlPUT = "vehicles/1B7GG36N12S678410";
+      requestUrlPUT = "vehicles/ABCDEFGH654321";
       requestUrlGET = "vehicles/1B7GG36N12S678410/tech-records";
     });
     when("I call the vehicles API", async () => {
@@ -55,7 +55,7 @@ defineFeature(feature, ( test ) => {
 
       expect(responsePUT.status).toEqual(200);
       expect(responsePUT.body.techRecord[0].statusCode).toEqual("archived");
-      expect(responsePUT.body.techRecord[1].statusCode).toEqual("current");
+      expect(responsePUT.body.techRecord[1].statusCode).toEqual("provisional");
     });
     and("I am still able to perform a GET request", async () => {
       responseGET = await request.get(requestUrlGET);
@@ -86,14 +86,14 @@ const createPOSTPayload = () => {
 };
 
 const createPUTPayload = () => {
-    const techRec: any = cloneDeep(mockData[43]);
-    delete techRec.techRecord[0].statusCode;
-    return {
-      msUserDetails: {
-        msUser: "dorel",
-        msOid: "1234545"
-      },
-      systemNumber: "10000002",
-      techRecord: techRec.techRecord
-    };
+  const techRec: any = cloneDeep(mockData[43]);
+  const payload = {
+    msUserDetails: {
+      msUser: "dorel",
+      msOid: "1234545"
+    },
+    systemNumber: "10000002",
+    techRecord: techRec.techRecord
   };
+  return payload;
+};

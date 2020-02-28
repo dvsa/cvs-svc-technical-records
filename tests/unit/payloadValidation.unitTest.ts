@@ -11,7 +11,6 @@ import {VEHICLE_TYPE, BODY_TYPE_DESCRIPTION, VEHICLE_CLASS_DESCRIPTION} from "..
 const createPayload = () => {
   const techRec: any = cloneDeep(mockData[74]);
   techRec.techRecord[0].reasonForCreation = "some reason for update";
-  delete techRec.techRecord[0].statusCode;
   delete techRec.techRecord[0].createdByName;
   delete techRec.techRecord[0].createdAt;
   delete techRec.techRecord[0].createdById;
