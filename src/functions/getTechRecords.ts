@@ -18,7 +18,7 @@ const getTechRecords = (event: any) => {
   const status: string = (event.queryStringParameters?.status) ? event.queryStringParameters.status : STATUS.PROVISIONAL_OVER_CURRENT;
   const searchCriteria: ISearchCriteria = (event.queryStringParameters?.searchCriteria) ? event.queryStringParameters.searchCriteria : SEARCHCRITERIA.ALL;
   const metadata: string = (event.queryStringParameters) ? event.queryStringParameters.metadata : null;
-  const searchIdentifier: string = (event.pathParameters) ? event.pathParameters.searchIdentifier : null;
+  const searchIdentifier: string | null = (event.pathParameters) ? decodeURIComponent(event.pathParameters.searchIdentifier) : null;
 
   // searchTerm too long or too short
   if (!searchIdentifier || searchIdentifier.length < 3 || searchIdentifier.length > 21) {

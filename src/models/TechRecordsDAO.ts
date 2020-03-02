@@ -176,6 +176,7 @@ class TechRecordsDAO {
 }
 
 const ONLY_DIGITS_REGEX: RegExp = /^\d+$/;
+const DIGITS_AND_SPECIAL_REGEX: RegExp = /^[\d /\\*-]+$/;
 const TRAILER_REGEX: RegExp = /^[a-zA-Z]\d{6}$/;
 
 const isSysNumSearch = (searchCriteria: ISearchCriteria): boolean => {
@@ -191,7 +192,7 @@ const isTrailerSearch = (searchTerm: string, searchCriteria: ISearchCriteria): b
 };
 
 const isPartialVinSearch = (searchTerm: string, searchCriteria: ISearchCriteria): boolean => {
-  return SEARCHCRITERIA.PARTIALVIN === searchCriteria || SEARCHCRITERIA.ALL === searchCriteria && searchTerm.length === 6 && ONLY_DIGITS_REGEX.test(searchTerm);
+  return SEARCHCRITERIA.PARTIALVIN === searchCriteria || SEARCHCRITERIA.ALL === searchCriteria && searchTerm.length === 6 && DIGITS_AND_SPECIAL_REGEX.test(searchTerm);
 };
 
 const isVrmSearch = (searchTerm: string, searchCriteria: ISearchCriteria): boolean => {
