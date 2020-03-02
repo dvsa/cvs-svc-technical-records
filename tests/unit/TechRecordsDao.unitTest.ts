@@ -28,6 +28,11 @@ describe("TechRecordsDAO", () => {
           expect(isVinSearch("1234567890", "vrm")).toEqual(false);
         });
       });
+      describe("searchCriteria is ALL and valid vin format searchTerm containing special characters", () => {
+        it("returns true", () => {
+          expect(isVinSearch("YV31ME00000 1/\\*-1", "all")).toEqual(true);
+        });
+      });
     });
     describe("isTrailerSearch", () => {
       describe("searchCriteria is TRAILERID and non-trailer format searchTerm", () => {
@@ -48,6 +53,11 @@ describe("TechRecordsDAO", () => {
       describe("searchCriteria is not TRAILERID or ALL", () => {
         it("returns false", () => {
           expect(isTrailerSearch("12345678", "vin")).toEqual(false);
+        });
+      });
+      describe("searchCriteria is ALL and non-trailerId format searchTerm (with special characters)", () => {
+        it("returns false", () => {
+          expect(isTrailerSearch(" /\\*-678", "all")).toEqual(false);
         });
       });
     });
@@ -72,6 +82,21 @@ describe("TechRecordsDAO", () => {
           expect(isPartialVinSearch("123456", "vin")).toEqual(false);
         });
       });
+      describe("searchCriteria is ALL and partialVin format containing special characters", () => {
+        it("returns true", () => {
+          expect(isPartialVinSearch(" /\\*-6", "all")).toEqual(true);
+        });
+      });
+      describe("searchCriteria is ALL and non-partialVin format containing special characters", () => {
+        it("returns false", () => {
+          expect(isPartialVinSearch(" /\\*-A", "all")).toEqual(false);
+        });
+      });
+      describe("searchCriteria is PARTIALVIN and partialVin format containing special characters", () => {
+        it("returns true", () => {
+          expect(isPartialVinSearch(" /\\*-6", "partialVin")).toEqual(true);
+        });
+      });
     });
     describe("isVrmSearch", () => {
       describe("searchCriteria is VRM and non-VRM format searchTerm", () => {
@@ -92,6 +117,11 @@ describe("TechRecordsDAO", () => {
       describe("searchCriteria is not VRM or ALL", () => {
         it("returns false", () => {
           expect(isVrmSearch("1234", "vin")).toEqual(false);
+        });
+      });
+      describe("searchCriteria is ALL and valid VRM format searchTerm (with special characters)", () => {
+        it("returns true", () => {
+          expect(isVrmSearch("12 34", "all")).toEqual(true);
         });
       });
     });
