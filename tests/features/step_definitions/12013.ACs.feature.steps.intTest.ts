@@ -50,12 +50,12 @@ defineFeature(feature, (test) => {
       response = await request.get(requestUrl + searchIdentifier + "/tech-records");
     });
     then("the searchIdentifier value is URL decoded before making the search in the DB", () => {
-      expectedResponse = convertToResponse(cloneDeep(mockData[77]));
+      expectedResponse = convertToResponse(cloneDeep(mockData[85]));
       expect(expectedResponse).toEqual(response.body);
       expect(response.status).toEqual(200);
     });
     and("the search is performed using the decoded value of the searchIdentifier", () => {
-      expect(response.body.vin).toEqual(VIN);
+      expect(response.body[0].vin).toEqual(VIN);
     });
     ctx.succeed("done");
     ctx = null;
