@@ -109,38 +109,6 @@ paths:
           description: Unauthorised Access
         '404':
           description: Operation not supported
-  '/vehicles/{vin}/download-file':
-    get:
-      summary: 'Download a document from S3'
-      tags:
-        - downloadDocument
-      parameters:
-        - in: path
-          name: vin
-          schema:
-            type: string
-            minLength: 3
-            maxLength: 21
-          required: true
-          description: This represents the full VIN
-        - in: query
-          name: filename
-          required: true
-          schema:
-            type: string
-            description: The name of the file (provided in the documents[] array, present on adrDetails{} object) to be downloaded from S3.
-      operationId: downloadDocument
-      responses:
-        '200':
-          description: Returns the document as a Base64 encoded string
-        '401':
-          description: Not authenticated
-        '403':
-          description: Unauthorised Access
-        '404':
-          description: Operation not supported
-        '500':
-          description: Cannot download file from S3
   '/vehicles/{vin}':
     put:
       summary: 'Update a tech record, for a particular VIN'
@@ -361,16 +329,6 @@ components:
     completeTechRecordPUT:
       type: object
       properties:
-        files:
-          nullable: true
-          description: >-
-            This files[] array will contain a base64 string version of
-            each file to be uploaded. This will only be used when
-            the user is uploading. If not uploading files, this field
-            can be left out.
-          type: array
-          items:
-            type: string
         msUserDetails:
           type: object
           properties:

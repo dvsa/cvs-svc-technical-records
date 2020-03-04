@@ -12,19 +12,10 @@ functions:
     method: PUT
     path: /vehicles/:vin
     function: updateTechRecords
-- downloadDocument:
-    method: GET
-    path: /vehicles/:vin/download-file
-    function: downloadDocument
 - updateTechRecordStatus:
     method: PUT
     path: /vehicles/update-status/:systemNumber
     function: updateTechRecordStatus
-s3:
-  local:
-    endpoint: http://localhost:7000
-    s3ForcePathStyle: true
-  remote: {}
 
 dynamodb:
   local:
