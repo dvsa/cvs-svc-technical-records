@@ -4,7 +4,6 @@ import ITechRecord from "../../@Types/ITechRecord";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {ERRORS, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
 import * as _ from "lodash";
-import {validatePayload} from "../utils/PayloadValidation";
 import {
   populateFields,
   validatePayload,

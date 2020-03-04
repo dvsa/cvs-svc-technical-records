@@ -8,7 +8,3 @@ export interface IParams {
 export interface IFunctions {
     [s: string]: IParams
 }
-
-interface IS3Config {
-    endpoint: string;
-}
