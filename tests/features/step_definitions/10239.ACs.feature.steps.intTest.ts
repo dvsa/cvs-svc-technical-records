@@ -45,14 +45,14 @@ defineFeature(feature, (test) => {
     });
     then("I return all the attributes applicable to PSV, from the linked excel", () => {
       expect(response.status).toEqual(200);
-      expect(response.body.techRecord[0].statusCode).toEqual("current");
-      expect(response.body.techRecord[0]).toHaveProperty("numberOfWheelsDriven");
-      expect(response.body.techRecord[0].brakes).toHaveProperty("brakeCode");
-      expect(response.body.techRecord[0].brakes).toHaveProperty("dataTrBrakeOne");
-      expect(response.body.techRecord[0]).toHaveProperty("dda");
-      expect(response.body.techRecord[0].dda).toHaveProperty("certificateIssued");
-      expect(response.body.techRecord[0]).toHaveProperty("numberOfSeatbelts");
-      expect(response.body.techRecord[0]).toHaveProperty("seatbeltInstallationApprovalDate");
+      expect(response.body[0].techRecord[0].statusCode).toEqual("current");
+      expect(response.body[0].techRecord[0]).toHaveProperty("numberOfWheelsDriven");
+      expect(response.body[0].techRecord[0].brakes).toHaveProperty("brakeCode");
+      expect(response.body[0].techRecord[0].brakes).toHaveProperty("dataTrBrakeOne");
+      expect(response.body[0].techRecord[0]).toHaveProperty("dda");
+      expect(response.body[0].techRecord[0].dda).toHaveProperty("certificateIssued");
+      expect(response.body[0].techRecord[0]).toHaveProperty("numberOfSeatbelts");
+      expect(response.body[0].techRecord[0]).toHaveProperty("seatbeltInstallationApprovalDate");
 
     });
     ctx.succeed("done");
@@ -79,17 +79,17 @@ defineFeature(feature, (test) => {
     });
     and("the appropriate audit attributes are set on this new tech record", async () => {
       responseGET = await request.get(requestUrl + `/${postPayload.vin}/tech-records`);
-      expect(responseGET.body.techRecord[0]).toHaveProperty("createdAt");
-      expect(responseGET.body.techRecord[0]).toHaveProperty("createdByName");
-      expect(responseGET.body.techRecord[0]).toHaveProperty("createdById");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdAt");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdByName");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdById");
     });
     and("the 'statusCode' of this new tech record is always 'provisional'", () => {
-      expect(responseGET.body.techRecord[0].statusCode).toEqual("provisional");
+      expect(responseGET.body[0].techRecord[0].statusCode).toEqual("provisional");
     });
     and("I am able to POST attributes residing anywhere on the vehicle object", () => {
-      expect(responseGET.body.techRecord[0].numberOfSeatbelts).toEqual("26");
-      expect(responseGET.body.vrms[0].vrm).toEqual("BLMN906");
-      expect(responseGET.body.vrms[0].isPrimary).toEqual(true);
+      expect(responseGET.body[0].techRecord[0].numberOfSeatbelts).toEqual("26");
+      expect(responseGET.body[0].vrms[0].vrm).toEqual("BLMN906");
+      expect(responseGET.body[0].vrms[0].isPrimary).toEqual(true);
     });
     ctx.succeed("done");
     ctx = null;
@@ -107,6 +107,7 @@ const createPOSTPayload = () => {
     },
     vin: Date.now().toString(),
     primaryVrm: "BLMN906",
+    systemNumber: Math.floor(100000 + Math.random() * 900000).toString(),
     techRecord: techRec.techRecord
   };
   return payload;

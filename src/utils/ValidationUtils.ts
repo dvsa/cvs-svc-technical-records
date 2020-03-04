@@ -193,6 +193,12 @@ export const retarderBrake: string[] = [
   "none",
 ];
 
+export const recordCompleteness: string[] = [
+  "complete",
+  "testable",
+  "skeleton"
+];
+
 export const populateVehicleClassCode = (description: string) => {
   switch (description) {
     case "motorbikes over 200cc or with a sidecar":

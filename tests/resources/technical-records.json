@@ -17473,8 +17473,10 @@
     ],
     "vin": "ABCDEPSV000666",
     "partialVin": "000666",
+    "systemNumber": "9999999",
     "techRecord": [
       {
+        "recordCompleteness": "complete",
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "DAF",
@@ -17982,6 +17984,7 @@
     "secondaryVrms": null,
     "techRecord": [
       {
+        "recordCompleteness": "complete",
         "axles": [
           {
             "tyres": {
@@ -18084,6 +18087,7 @@
     "systemNumber": "10044326",
     "techRecord": [
       {
+        "recordCompleteness": "complete",
         "axles": [
           {
             "axleNumber": 1,
@@ -18285,6 +18289,7 @@
     "systemNumber": "10044320",
     "techRecord": [
       {
+        "recordCompleteness": "complete",
         "axles": [
           {
             "axleNumber": 1,
@@ -18396,6 +18401,7 @@
     "systemNumber": "12055422",
     "techRecord": [
       {
+        "recordCompleteness": "complete",
         "axles": [
           {
             "axleNumber": 1,
