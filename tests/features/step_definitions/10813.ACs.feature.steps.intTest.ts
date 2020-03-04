@@ -61,16 +61,16 @@ defineFeature(feature, (test) => {
       expect(response.body.techRecord[0].statusCode).toEqual("archived");
     });
     and("the appropriate audit attributes are set on the new updated tech record", () => {
-      expect(responseGET.body.techRecord[1]).toHaveProperty("createdAt");
-      expect(responseGET.body.techRecord[1]).toHaveProperty("createdByName");
-      expect(responseGET.body.techRecord[1]).toHaveProperty("createdById");
+      expect(responseGET.body[0].techRecord[1]).toHaveProperty("createdAt");
+      expect(responseGET.body[0].techRecord[1]).toHaveProperty("createdByName");
+      expect(responseGET.body[0].techRecord[1]).toHaveProperty("createdById");
     });
     and("the appropriate audit attributes are set on the \"pre-update\" tech record (lastUpdatedByName, lastUpdatedByID, lastUpdatedAt, updateType: techRecordUpdate)", () => {
-      expect(responseGET.body.techRecord[0]).toHaveProperty("lastUpdatedByName");
-      expect(responseGET.body.techRecord[0]).toHaveProperty("lastUpdatedById");
-      expect(responseGET.body.techRecord[0]).toHaveProperty("lastUpdatedAt");
-      expect(responseGET.body.techRecord[0]).toHaveProperty("updateType");
-      expect(responseGET.body.techRecord[0].updateType).toEqual("techRecordUpdate");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("lastUpdatedByName");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("lastUpdatedById");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("lastUpdatedAt");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("updateType");
+      expect(responseGET.body[0].techRecord[0].updateType).toEqual("techRecordUpdate");
     });
     and("I am only able to update attributes within the techRecord[] array", () => {
       expect(response.body.vrms.length).toEqual(2);

@@ -6,7 +6,7 @@ import {
   approvalType,
   bodyTypeDescription, euVehicleCategory, fitmentCode,
   fuelPropulsionSystem, microfilmDocumentType, plateReasonForIssue, vehicleClassDescription,
-  vehicleConfiguration, vehicleType
+  vehicleConfiguration, vehicleType, recordCompleteness
 } from "./ValidationUtils";
 
 export const brakesSchema = Joi.object().keys({
@@ -58,6 +58,7 @@ export const applicantDetailsSchema = Joi.object().keys({
 }).required();
 
 export const commonSchema = Joi.object().keys({
+  recordCompleteness: Joi.string().valid(...recordCompleteness).required(),
   vehicleType: Joi.string().valid(...vehicleType).required(),
   regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
   manufactureYear: Joi.number().min(0).max(9999).required(),

@@ -18,7 +18,6 @@ const createPOSTPayload = () => {
     },
     primaryVrm: Math.floor(100000 + Math.random() * 900000).toString(),
     vin: Date.now().toString(),
-    primaryVrm: Math.floor(100000 + Math.random() * 900000).toString(),
     systemNumber: Math.floor(100000 + Math.random() * 900000).toString(),
     techRecord: techRec.techRecord
   };
