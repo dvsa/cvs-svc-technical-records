@@ -72,7 +72,7 @@ export const psvValidation = commonSchema.keys({
     length: Joi.number().min(0).max(99999).optional().allow(null),
     width: Joi.number().min(0).max(99999).optional().allow(null),
     height: Joi.number().min(0).max(99999).optional().allow(null),
-  }).required(),
+  }).optional().allow(null),
   frontAxleToRearAxle: Joi.number().min(0).max(99999).optional().allow(null),
   remarks: Joi.string().max(1024).optional().allow(null),
   dispensations: Joi.string().max(160).optional().allow(null),
