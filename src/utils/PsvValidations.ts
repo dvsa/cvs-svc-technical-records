@@ -85,5 +85,5 @@ export const psvValidation = commonSchema.keys({
     postCode: Joi.string().max(12).optional().allow(null),
     telephoneNumber: Joi.string().max(25).optional().allow(null),
     emailAddress: Joi.string().max(255).optional().allow(null)
-  }).required()
+  }).optional().allow(null)
 }).required();
