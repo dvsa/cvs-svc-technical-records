@@ -193,12 +193,12 @@ export const retarderBrake: string[] = [
   "none",
 ];
 
-<<<<<<< HEAD
 export const recordCompleteness: string[] = [
   "complete",
   "testable",
   "skeleton"
-=======
+];
+
 export const frameDescription: string[] = [
   "Channel section",
   "Space frame",
@@ -214,7 +214,6 @@ export const frameDescription: string[] = [
 export const letterType: string[] = [
   "Trailer authorization",
   "Trailer Rejection"
->>>>>>> trailer validations
 ];
 
 export const populateVehicleClassCode = (description: string) => {
