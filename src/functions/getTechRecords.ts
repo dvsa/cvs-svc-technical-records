@@ -3,7 +3,7 @@ import {SEARCHCRITERIA, STATUS} from "../assets/Enums";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsService from "../services/TechRecordsService";
-import {metaData} from "../utils/AdrValidation";
+import {metaData} from "../utils/metadataEnums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {isValidSearchCriteria} from "../utils/PayloadValidation";
 

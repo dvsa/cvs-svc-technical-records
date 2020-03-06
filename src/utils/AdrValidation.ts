@@ -2,58 +2,6 @@
 const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
-const memosApplyFe: string[] = [
-  '07/09 3mth leak ext'
-];
-
-const substancesPermittedFe: string[] = [
-  'Substances permitted under the tank code and any special provisions specified in 9 may be carried',
-  'Substances (Class UN number and if necessary packing group and proper shipping name) may be carried'
-];
-
-const guidanceNotesFe: string[] = [
-  'New certificate requested'
-];
-
-const numberFe: string[] = [
-  '1', '1A', '2', '3', 'V1B', 'T1B'
-];
-
-const permittedDangerousGoodsFe: string[] = [
-  'FP <61 (FL)',
-  'AT',
-  'Class 5.1 Hydrogen Peroxide (OX)',
-  'MEMU',
-  'Carbon Disulphide',
-  'Hydrogen',
-  'Explosives (type 2)',
-  'Explosives (type 3)'
-];
-
-const typeFe: string[] = [
-  'Artic tractor',
-  'Rigid box body',
-  'Rigid sheeted load',
-  'Rigid tank',
-  'Rigid skeletal',
-  'Rigid battery',
-  'Full drawbar box body',
-  'Full drawbar sheeted load',
-  'Full drawbar tank',
-  'Full drawbar skeletal',
-  'Full drawbar battery',
-  'Centre axle box body',
-  'Centre axle sheeted load',
-  'Centre axle tank',
-  'Centre axle skeletal',
-  'Centre axle battery',
-  'Semi trailer box body',
-  'Semi trailer sheeted load',
-  'Semi trailer tank',
-  'Semi trailer skeletal',
-  'Semi trailer battery'
-];
-
 const tc2Types: string[] = [
   "initial"
 ];
@@ -165,22 +113,3 @@ export const validateOnlyAdr = Joi.object().keys({
   adrDetails: adrValidation.required(),
   reasonForCreation: Joi.string().max(100).required()
 }).required();
-
-export const metaData = {
-  adrDetails: {
-    memosApplyFe,
-    tank: {
-      tankStatement: {
-        substancesPermittedFe
-      }
-    },
-    additionalNotes: {
-      guidanceNotesFe,
-      numberFe
-    },
-    permittedDangerousGoodsFe,
-    vehicleDetails: {
-      typeFe
-    }
-  }
-};
