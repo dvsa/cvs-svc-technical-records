@@ -110,7 +110,6 @@ const createPOSTPayload = () => {
     },
     vin: Date.now().toString(),
     primaryVrm: "ALKH567",
-    systemNumber: Date.now().toString(),
     techRecord: techRec.techRecord
   };
   return payload;

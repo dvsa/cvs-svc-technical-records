@@ -118,30 +118,6 @@ describe("postTechRecords", () => {
   });
 
   context("when trying to create a new vehicle", () => {
-    context("and the vehicle was found", () => {
-      it("should return error 400", async () => {
-        const techRecord: any = cloneDeep(records[43]);
-        delete techRecord.techRecord[0].statusCode;
-        const payload = {
-          vin: techRecord.vin,
-          systemNumber: techRecord.systemNumber,
-          primaryVrm: techRecord.primaryVrm,
-          msUserDetails,
-          techRecord: techRecord.techRecord
-        };
-
-        await LambdaTester(PostTechRecordsFunction)
-          .event({
-            path: "/vehicles",
-            body: payload
-          })
-          .expectResolve((result: any) => {
-            expect(result.statusCode).toEqual(400);
-            expect(result.body).toEqual('"The conditional request failed"');
-          });
-      });
-    });
-
     context("and the vehicle was not found", () => {
       it("should return 201 created", async () => {
         const techRecord: any = cloneDeep(records[43]);
@@ -149,8 +125,7 @@ describe("postTechRecords", () => {
         techRecord.vin = Date.now().toString().substring(8);
 
         const payload = {
-          vin: Date.now().toString(),
-          systemNumber: Date.now().toString(),
+          vin: techRecord.vin,
           msUserDetails,
           primaryVrm: Math.floor(100000 + Math.random() * 900000).toString(),
           techRecord: techRecord.techRecord
@@ -198,7 +173,6 @@ describe("postTechRecords", () => {
 
         const payload = {
           vin: techRecord.vin,
-          systemNumber: techRecord.systemNumber,
           msUserDetails,
           techRecord: []
         };

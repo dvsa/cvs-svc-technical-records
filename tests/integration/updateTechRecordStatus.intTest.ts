@@ -47,7 +47,7 @@ describe("UpdateTechRecordStatus", () => {
         });
 
         it("should return 200 and the updated vehicle if it has a provisional techRecord", async () => {
-            const systemNumber: string = "10000027";
+            const systemNumber: string = "11000027";
             expect.assertions(4);
             await LambdaTester(updateTechRecordStatus)
                 .event({
@@ -73,7 +73,7 @@ describe("UpdateTechRecordStatus", () => {
         });
 
         it("should return 400 if the vehicle status cannot be updated", async () => {
-            const systemNumber: string = "10000013";
+            const systemNumber: string = "11000013";
             expect.assertions(2);
             await LambdaTester(updateTechRecordStatus)
                 .event({

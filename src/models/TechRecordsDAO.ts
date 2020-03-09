@@ -142,7 +142,17 @@ class TechRecordsDAO {
       resource: "/trailerId/"
     };
 
-    return LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.getTrailerId.name, event);
+    return LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
+  }
+
+  public getSystemNumber(): any {
+    const event = {
+      path: "/system-number/",
+      httpMethod: "POST",
+      resource: "/system-number/"
+    };
+
+    return LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
   }
 
   public createMultiple(techRecordItems: ITechRecordWrapper[]) {

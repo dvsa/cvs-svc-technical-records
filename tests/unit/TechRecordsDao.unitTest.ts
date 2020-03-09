@@ -296,7 +296,7 @@ describe("TechRecordsDAO", () => {
           ConditionExpression: "vin <> :vin AND systemNumber <> :systemNumber",
           ExpressionAttributeValues: {
             ":vin": "XMGDE02FS0H012345",
-            ":systemNumber": "10000001"
+            ":systemNumber": "11000001"
           }
         };
         const techRecordsDao = new TechRecordsDao();

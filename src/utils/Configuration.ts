@@ -101,11 +101,11 @@ class Configuration {
       throw new Error("Endpoints were not defined in the config file.");
     }
 
-    // Not defining BRANCH will default to local-global
+    // Not defining BRANCH will default to local
     let env;
     switch (process.env.BRANCH) {
-      case "local-global":
-        env = "local-global";
+      case "local":
+        env = "local";
         break;
       default:
         env = "remote";
