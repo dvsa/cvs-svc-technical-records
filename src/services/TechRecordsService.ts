@@ -245,7 +245,7 @@ class TechRecordsService {
     const isPayloadValid = validatePayload(techRecord.techRecord[0], false);
     this.checkValidationErrors(isPayloadValid);
     techRecord.techRecord[0] = isPayloadValid.value;
-    return this.getTechRecordsList(techRecord.vin, STATUS.ALL, SEARCHCRITERIA.VIN)
+    return this.getTechRecordsList(techRecord.systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER)
       .then((data: ITechRecordWrapper[]) => {
         if (data.length !== 1) {
           // systemNumber search should return a unique record
