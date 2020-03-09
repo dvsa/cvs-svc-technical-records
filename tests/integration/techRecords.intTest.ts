@@ -303,7 +303,6 @@ describe("techRecords", () => {
               const payload = {
                 msUserDetails,
                 vin,
-                systemNumber: Date.now().toString(),
                 primaryVrm,
                 techRecord: techRec.techRecord
               };
@@ -312,25 +311,6 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
               expect(res.body).toEqual("Technical Record created");
-            });
-          });
-
-          context("and that vehicle does exist", () => {
-            it("should return status 400 The conditional request failed", async () => {
-              const techRec: any = cloneDeep(mockData[43]);
-              delete techRec.techRecord[0].statusCode;
-              const payload = {
-                msUserDetails,
-                vin: techRec.vin,
-                systemNumber: techRec.systemNumber,
-                primaryVrm: techRec.primaryVrm,
-                techRecord: techRec.techRecord
-              };
-              const res = await request.post("vehicles").send(payload);
-              expect(res.status).toEqual(400);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body).toEqual("The conditional request failed");
             });
           });
         });

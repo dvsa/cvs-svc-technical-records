@@ -131,9 +131,9 @@ const createPUTPayload = () => {
       msOid: "1234545"
     },
     primaryVrm: "ALKH567",
+    systemNumber: techRec.systemNumber,
     secondaryVrms: ["POI9876", "YYY9876"],
-    techRecord: techRec.techRecord,
-    systemNumber: "1000047"
+    techRecord: techRec.techRecord
   };
   return payload;
 };
@@ -148,7 +148,6 @@ const createPOSTPayload = () => {
       msOid: "1234545"
     },
     vin: Date.now().toString(),
-    systemNumber: Date.now().toString(),
     primaryVrm: "ALKH567",
     techRecord: techRec.techRecord
   };

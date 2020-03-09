@@ -53,9 +53,9 @@ class TechRecordsService {
 
   private filterTechRecordsByStatus(techRecordItems: ITechRecordWrapper[], status: string): ITechRecordWrapper[] {
     const recordsToReturn = [];
-    for(let techRecordItem of techRecordItems) {
+    for (let techRecordItem of techRecordItems) {
       techRecordItem = this.filterTechRecordsForIndividualVehicleByStatus(techRecordItem, status);
-      if(techRecordItem.techRecord.length > 0) {
+      if (techRecordItem.techRecord.length > 0) {
         recordsToReturn.push(techRecordItem);
       }
     }
@@ -95,7 +95,7 @@ class TechRecordsService {
 
   public formatTechRecordItemsForResponse(techRecordItems: ITechRecordWrapper[]) {
     const recordsToReturn = [];
-    for(let techRecordItem of techRecordItems) {
+    for (let techRecordItem of techRecordItems) {
       techRecordItem = this.formatTechRecordItemForResponse(techRecordItem);
       recordsToReturn.push(techRecordItem);
     }
@@ -135,6 +135,7 @@ class TechRecordsService {
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
     }
+    await this.generateSystemNumber(techRecord);
     if (!this.validateVrms(techRecord)) {
       return Promise.reject({statusCode: 400, body: "Primary or secondaryVrms are not valid"});
     }
@@ -151,6 +152,21 @@ class TechRecordsService {
       .catch((error: any) => {
         throw new HTTPError(error.statusCode, error.message);
       });
+  }
+
+  public async generateSystemNumber(techRecord: ITechRecordWrapper) {
+    try {
+      const systemNumberObj = await this.techRecordsDAO.getSystemNumber();
+      if (systemNumberObj.error) {
+        return Promise.reject({statusCode: 500, body: systemNumberObj.error});
+      }
+      if (!systemNumberObj.systemNumber) {
+        return Promise.reject({statusCode: 500, body: ERRORS.SystemNumberGenerationFailed});
+      }
+      techRecord.systemNumber = systemNumberObj.systemNumber;
+    } catch (error) {
+      return Promise.reject({statusCode: 500, body: error});
+    }
   }
 
   public async setTrailerId(techRecord: ITechRecordWrapper) {
@@ -223,7 +239,7 @@ class TechRecordsService {
     techRecord.techRecord[0] = isPayloadValid.value;
     return this.getTechRecordsList(techRecord.systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER)
       .then((data: ITechRecordWrapper[]) => {
-        if(data.length !== 1) {
+        if (data.length !== 1) {
           // systemNumber search should return a unique record
           throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
         }
@@ -319,7 +335,7 @@ class TechRecordsService {
 
   public async updateTechRecordStatusCode(systemNumber: string, newStatus: STATUS = STATUS.CURRENT) {
     const techRecordWrapper: ITechRecordWrapper[] = await this.getTechRecordsList(systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER);
-    if(techRecordWrapper.length !== 1) {
+    if (techRecordWrapper.length !== 1) {
       // systemNumber search should return a single record
       throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
     }

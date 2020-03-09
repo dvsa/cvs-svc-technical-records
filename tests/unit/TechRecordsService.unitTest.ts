@@ -268,6 +268,7 @@ describe("insertTechRecord", () => {
           createSingle: () => {
             return Promise.resolve({});
           },
+          getSystemNumber: () => Promise.resolve({systemNumber: "10000001", testNumberKey: 3}),
           getTrailerId: () => {
             return Promise.resolve({
               trailerId: "C530001",
@@ -283,6 +284,7 @@ describe("insertTechRecord", () => {
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
       delete techRecord.techRecord[0].statusCode;
+      delete techRecord.systemNumber;
       const msUserDetails = {
         msUser: "dorel",
         msOid: "1234545"
@@ -300,7 +302,8 @@ describe("insertTechRecord", () => {
         return {
           createSingle: () => {
             return Promise.resolve({});
-          }
+          },
+          getSystemNumber: () => Promise.resolve({systemNumber: "10000001", testNumberKey: 3})
         };
       });
       const techRecordsService = new TechRecordsService(new MockDAO());
@@ -309,6 +312,7 @@ describe("insertTechRecord", () => {
       const techRecord: ITechRecordWrapper = cloneDeep(records[29]);
       techRecord.techRecord[0].bodyType.description = "whatever";
       delete techRecord.techRecord[0].statusCode;
+      delete techRecord.systemNumber;
       const msUserDetails = {
         msUser: "dorel",
         msOid: "1234545"
@@ -327,7 +331,8 @@ describe("insertTechRecord", () => {
           return {
             createSingle: () => {
               return Promise.resolve({});
-            }
+            },
+            getSystemNumber: () => Promise.resolve({systemNumber: "10000001", testNumberKey: 3})
           };
         });
         const techRecordsService = new TechRecordsService(new MockDAO());
@@ -338,6 +343,7 @@ describe("insertTechRecord", () => {
         techRecord.techRecord[0].bodyType.description = "skeletal";
         delete techRecord.techRecord[0].statusCode;
         delete techRecord.primaryVrm;
+        delete techRecord.systemNumber;
         const msUserDetails = {
           msUser: "dorel",
           msOid: "1234545"
@@ -358,7 +364,8 @@ describe("insertTechRecord", () => {
           return {
             createSingle: () => {
               return Promise.resolve({});
-            }
+            },
+            getSystemNumber: () => Promise.resolve({systemNumber: "10000001", testNumberKey: 3})
           };
         });
         const techRecordsService = new TechRecordsService(new MockDAO());
@@ -369,6 +376,7 @@ describe("insertTechRecord", () => {
         techRecord.secondaryVrms = ["invalidSecondaryVrm"];
         techRecord.techRecord[0].bodyType.description = "skeletal";
         delete techRecord.techRecord[0].statusCode;
+        delete techRecord.systemNumber;
         const msUserDetails = {
           msUser: "dorel",
           msOid: "1234545"
@@ -390,7 +398,8 @@ describe("insertTechRecord", () => {
         return {
           createSingle: () => {
             return Promise.reject({statusCode: 400, message: "The conditional request failed"});
-          }
+          },
+          getSystemNumber: () => Promise.resolve({systemNumber: "10000001", testNumberKey: 3})
         };
       });
       const techRecordsService = new TechRecordsService(new MockDAO());
@@ -398,6 +407,7 @@ describe("insertTechRecord", () => {
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
       delete techRecord.techRecord[0].statusCode;
+      delete techRecord.systemNumber;
       try {
         expect(await techRecordsService.insertTechRecord(techRecord, {})).toThrowError();
       } catch (errorResponse) {
@@ -509,6 +519,120 @@ describe("insertTechRecord", () => {
 
           try {
             expect(await techRecordsService.setTrailerId(techRecord)).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual("Error from test-number microservice");
+          }
+        });
+      });
+    });
+  });
+
+  context("when trying to create a new vehicle", () => {
+    context("and the system number generation is successfull", () => {
+      it("should set the correct system number on the vehicle", async () => {
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getSystemNumber: () => {
+              return Promise.resolve({
+                systemNumber: "10001111",
+                testNumberKey: 3
+              });
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
+        techRecord.vin = Date.now().toString();
+        delete techRecord.trailerId;
+        delete techRecord.techRecord[0].statusCode;
+
+        await techRecordsService.generateSystemNumber(techRecord);
+        expect(techRecord.systemNumber).toEqual("10001111");
+      });
+    });
+    context("and the system number generation failed", () => {
+      context("and the system number object doesn't contain the systemNumber attribute", () => {
+        it("should return error 500 System Number generation failed", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getSystemNumber: () => {
+                return Promise.resolve({
+                  testNumberKey: 3
+                });
+              }
+            };
+          });
+          const mockDAO = new MockDAO();
+          const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+
+          // @ts-ignore
+          const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
+          techRecord.vin = Date.now().toString();
+          delete techRecord.trailerId;
+          delete techRecord.techRecord[0].statusCode;
+
+          try {
+            expect(await techRecordsService.generateSystemNumber(techRecord)).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual(ERRORS.SystemNumberGenerationFailed);
+          }
+        });
+      });
+
+      context("and the system number object contains the error attribute", () => {
+        it("should return error 500 System Number generation failed", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getSystemNumber: () => {
+                return Promise.resolve({
+                  error: "Some error from test-number microservice"
+                });
+              }
+            };
+          });
+          const mockDAO = new MockDAO();
+          const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+
+          // @ts-ignore
+          const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
+          techRecord.vin = Date.now().toString();
+          delete techRecord.trailerId;
+          delete techRecord.techRecord[0].statusCode;
+
+          try {
+            expect(await techRecordsService.generateSystemNumber(techRecord)).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual("Some error from test-number microservice");
+          }
+        });
+      });
+
+      context("and the test-number microservice returned an error", () => {
+        it("should return error 500", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getSystemNumber: () => {
+                return Promise.reject("Error from test-number microservice");
+              }
+            };
+          });
+          const mockDAO = new MockDAO();
+          const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+
+          // @ts-ignore
+          const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
+          techRecord.vin = Date.now().toString();
+          delete techRecord.trailerId;
+          delete techRecord.techRecord[0].statusCode;
+
+          try {
+            expect(await techRecordsService.generateSystemNumber(techRecord)).toThrowError();
           } catch (errorResponse) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual("Error from test-number microservice");

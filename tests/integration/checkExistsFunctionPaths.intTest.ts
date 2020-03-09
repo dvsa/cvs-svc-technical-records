@@ -41,7 +41,6 @@ describe("TechRecords", () => {
     const payload = {
       msUserDetails,
       vin,
-      systemNumber: Date.now().toString(),
       primaryVrm: techRecord.primaryVrm,
       techRecord: techRecord.techRecord
     };

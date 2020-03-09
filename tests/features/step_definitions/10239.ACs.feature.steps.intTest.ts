@@ -107,7 +107,6 @@ const createPOSTPayload = () => {
     },
     vin: Date.now().toString(),
     primaryVrm: "BLMN906",
-    systemNumber: Math.floor(100000 + Math.random() * 900000).toString(),
     techRecord: techRec.techRecord
   };
   return payload;
