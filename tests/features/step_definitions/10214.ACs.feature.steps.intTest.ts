@@ -11,13 +11,11 @@ const request = supertest(url);
 
 const createPUTPayload = () => {
   const techRec: any = cloneDeep(mockData[43]);
-  delete techRec.techRecord[0].statusCode;
   const payload = {
     msUserDetails: {
       msUser: "dorel",
       msOid: "1234545"
     },
-    systemNumber: techRec.systemNumber,
     techRecord: techRec.techRecord
   };
   return payload;
@@ -50,7 +48,7 @@ defineFeature(feature, (test) => {
     let responseGET: any;
 
     given("I am a consumer of the vehicles API", () => {
-      requestUrlPUT = "vehicles/ABCDEFGH654321";
+      requestUrlPUT = "vehicles/1100047";
       requestUrlGET = `vehicles/ABCDEFGH654321/tech-records?status=all`;
     });
     and("I have completed the \"vehicle class description\" field", () => {
@@ -77,7 +75,7 @@ defineFeature(feature, (test) => {
     let responseGET: any;
 
     given("I am a consumer of the vehicles API", () => {
-      requestUrlPUT = "vehicles/ABCDEFGH654321";
+      requestUrlPUT = "vehicles/1100047";
       requestUrlGET = `vehicles/ABCDEFGH654321/tech-records?status=all`;
     });
     and("I have completed the \"body type description\" field", () => {

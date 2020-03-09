@@ -88,7 +88,7 @@ defineFeature(feature, (test) => {
     let requestUrlGET: string;
 
     given("I am the vehicles backend service", () => {
-      requestUrl = "vehicles/ABCDEFGH654321";
+      requestUrl = "vehicles/1100047";
       requestUrlGET = "vehicles/ABCDEFGH654321/tech-records?status=all";
     });
     when("an existing HGV vehicle is updated via the PUT verb", async () => {
@@ -135,15 +135,11 @@ defineFeature(feature, (test) => {
 
 const createPUTPayload = () => {
   const techRec: any = cloneDeep(mockData[43]);
-  delete techRec.techRecord[0].statusCode;
   const payload = {
     msUserDetails: {
       msUser: "dorel",
       msOid: "1234545"
     },
-    primaryVrm: "ALKH567",
-    systemNumber: techRec.systemNumber,
-    secondaryVrms: ["POI9876", "YYY9876"],
     techRecord: techRec.techRecord
   };
   return payload;

@@ -40,7 +40,7 @@ defineFeature(feature, (test) => {
     let requestUrlGET: string;
 
     given("I am the vehicles backend service", () => {
-      requestUrl = "vehicles/ABCDEPSV000666";
+      requestUrl = "vehicles/9999999";
       requestUrlGET = "vehicles/ABCDEPSV000666/tech-records?status=all";
     });
     when("an existing PSV vehicle is updated via the PUT verb", async () => {
@@ -86,15 +86,11 @@ defineFeature(feature, (test) => {
 
 const createPUTPayload = () => {
   const techRec: any = cloneDeep(mockData[74]);
-  delete techRec.techRecord[0].statusCode;
   const payload = {
     msUserDetails: {
       msUser: "dorel",
       msOid: "1234545"
     },
-    primaryVrm: "ALKH567",
-    systemNumber: techRec.systemNumber,
-    secondaryVrms: ["POI9876", "YYY9876"],
     techRecord: techRec.techRecord
   };
   return payload;

@@ -8,7 +8,6 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 const postTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
   const techRecordsService = new TechRecordsService(techRecordsDAO);
-  const ONLY_DIGITS_AND_NUMBERS: RegExp = /^[A-Za-z0-9]+$/;
 
   const techRec: ITechRecord[] = event.body ? event.body.techRecord : null;
   const msUserDetails = event.body ? event.body.msUserDetails : null;
@@ -16,7 +15,7 @@ const postTechRecords = (event: any) => {
   const primaryVrm = event.body ? event.body.primaryVrm : null;
   const secondaryVrms = event.body ? event.body.secondaryVrms : null;
 
-  if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 3 || vin.length > 21 || typeof vin !== "string") {
+  if (!vin || vin.length < 3 || vin.length > 21 || typeof vin !== "string") {
     return Promise.resolve(new HTTPResponse(400, "Invalid body field 'vin'"));
   }
 
