@@ -5,7 +5,8 @@ export enum ERRORS {
     EventIsEmpty = "Event is empty",
     NoBranch = "Please define BRANCH environment variable",
     NO_UNIQUE_RECORD = "Failed to uniquely identify record",
-    TrailerIdGenerationFailed = "TrailerId generation failed!"
+    TrailerIdGenerationFailed = "TrailerId generation failed!",
+    SystemNumberGenerationFailed = "System Number generation failed!"
 }
 
 export enum HTTPRESPONSE {

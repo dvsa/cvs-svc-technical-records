@@ -83,6 +83,16 @@ and change the serverless.yml so that Custom > DynamoDB >
        seed: true
        noStart: false
 
+### Local Running > Integration Tests
+In order for the POST integration tests to pass locally you need to do the following:
+- run the test-number microservice locally
+- in the test-number microservice package.json add BRANCH=local in the start script
+- eg: "start": "BRANCH=local node_modules/serverless/bin/serverless offline start",
+- in test-number change the serverless.yml so that Custom > DynamoDB >
+*      migrate: true
+       seed: true
+       noStart: false
+
 **NB: Do not push these changes. They are for local running only**
 
 To test the `updateTechRecordStatus` function, invoke locally with:

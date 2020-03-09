@@ -14,8 +14,10 @@ describe("The configuration service", () => {
         expect(functions[4].name).toEqual("updateEuVehicleCategory");
 
         const DBConfig = configService.getDynamoDBConfig();
+        const EndpointsConfig = configService.getEndpoints();
+
         expect(DBConfig).toEqual(configService.getConfig().dynamodb.local);
-        // No Endpoints for this service
+        expect(EndpointsConfig).toEqual(configService.getConfig().endpoints.local);
       });
 
       it("should return local-global versions of the config if specified", () => {
@@ -30,9 +32,7 @@ describe("The configuration service", () => {
         expect(functions[4].name).toEqual("updateEuVehicleCategory");
 
         const DBConfig = configService.getDynamoDBConfig();
-        const EndpointsConfig = configService.getEndpoints();
         expect(DBConfig).toEqual(configService.getConfig().dynamodb["local-global"]);
-        expect(EndpointsConfig).toEqual(configService.getConfig().endpoints["local-global"]);
       });
 
       it("should return remote versions of the config by default", () => {
