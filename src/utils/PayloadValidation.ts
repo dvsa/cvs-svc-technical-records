@@ -48,7 +48,9 @@ export const validatePayload = (payload: ITechRecord, validateEntireRecord: bool
 };
 
 export const validatePrimaryVrm = Joi.string().min(1).max(9);
-export const validateSecondaryVrms = Joi.array().items(Joi.string().min(1).max(9)).min(1);
+export const validateSecondaryVrms = Joi.array().items(Joi.string().min(1).max(9));
+export const validateTrailerId = Joi.string().min(7).max(8);
+
 
 export const isValidSearchCriteria = (specifiedCriteria: string): boolean => {
   const vals: string[] = Object.values(SEARCHCRITERIA);

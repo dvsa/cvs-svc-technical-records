@@ -358,18 +358,16 @@ describe("techRecords", () => {
       });
 
       context("and when trying to update a vehicle", () => {
-        context("and the path parameter VIN is valid", () => {
+        context("and the path parameter systemNumber is valid", () => {
           context("and that vehicle does exist", () => {
             it("should return status 200 and the updated vehicle", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
-              delete techRec.techRecord[0].statusCode;
               const payload = {
                 msUserDetails,
-                systemNumber: techRec.systemNumber,
                 techRecord: techRec.techRecord
               };
-              const res = await request.put(`vehicles/${techRec.vin}`).send(payload);
+              const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
               expect(res.status).toEqual(200);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
@@ -383,14 +381,13 @@ describe("techRecords", () => {
             it("should return error status 404 No resources match the search criteria", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
-              const vin = Date.now().toString();
-              delete techRec.techRecord[0].statusCode;
+              const systemNumber = "NOT A VALID SYSTEM NUMBER";
               const payload = {
                 msUserDetails,
-                systemNumber: "NOT A VALID SYSTEM NUMBER",
+                systemNumber,
                 techRecord: techRec.techRecord
               };
-              const res = await request.put(`vehicles/${vin}`).send(payload);
+              const res = await request.put(`vehicles/${systemNumber}`).send(payload);
               expect(res.status).toEqual(404);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
@@ -403,39 +400,11 @@ describe("techRecords", () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
               techRec.techRecord = [];
-              const res = await request.put(`vehicles/${techRec.vin}`).send(techRec);
+              const res = await request.put(`vehicles/${techRec.systemNumber}`).send(techRec);
               expect(res.status).toEqual(400);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
               expect(res.body.errors).toContain("Body is not a valid TechRecord");
-            });
-          });
-        });
-
-        context("and the path parameter VIN is invalid", () => {
-          context("and the path parameter VIN is shorter than 3 characters", () => {
-            it("should return 400 Invalid path parameter 'vin'", async () => {
-              // @ts-ignore
-              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-              techRec.techRecord = [];
-              const res = await request.put(`vehicles/AB`).send(techRec);
-              expect(res.status).toEqual(400);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body.errors).toContain("Invalid path parameter \'vin\'");
-            });
-          });
-
-          context("and the path parameter VIN contains non alphanumeric characters", () => {
-            it("should return 400 Invalid path parameter 'vin'", async () => {
-              // @ts-ignore
-              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-              techRec.techRecord = [];
-              const res = await request.put(`vehicles/t@ch-r#cord$`).send(techRec);
-              expect(res.status).toEqual(400);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body.errors).toContain("Invalid path parameter \'vin\'");
             });
           });
         });

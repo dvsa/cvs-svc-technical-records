@@ -10,7 +10,7 @@ functions:
     function: postTechRecords
 - updateTechRecords:
     method: PUT
-    path: /vehicles/:vin
+    path: /vehicles/:systemNumber
     function: updateTechRecords
 - updateTechRecordStatus:
     method: PUT
@@ -56,4 +56,4 @@ endpoints:
     functions:
       numberGenerationService:
         name: test-number-${BRANCH}
-allowAdrUpdatesOnly: true
+allowAdrUpdatesOnly: false

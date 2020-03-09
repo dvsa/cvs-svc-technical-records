@@ -7,14 +7,13 @@ import {formatErrorMessage} from "../utils/formatErrorMessage";
 const updateTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
   const techRecordsService = new TechRecordsService(techRecordsDAO);
-  const ONLY_DIGITS_AND_NUMBERS: RegExp = /^[A-Za-z0-9]+$/;
 
   const techRec = event.body ? event.body.techRecord : null;
   const msUserDetails = event.body ? event.body.msUserDetails : null;
-  const vin = event.pathParameters ? event.pathParameters.vin : null;
+  const systemNumber = event.pathParameters ? event.pathParameters.systemNumber : null;
 
-  if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 3 || vin.length > 21) {
-    return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Invalid path parameter 'vin'")));
+  if (!systemNumber) {
+    return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Invalid path parameter 'systemNumber'")));
   }
 
   if (!techRec || !techRec.length) {
@@ -26,8 +25,11 @@ const updateTechRecords = (event: any) => {
   }
 
   const techRecord: ITechRecordWrapper = {
-    vin,
-    systemNumber: event.body.systemNumber,
+    vin: event.body.vin,
+    systemNumber,
+    secondaryVrms: event.body.secondaryVrms,
+    primaryVrm: event.body.primaryVrm,
+    trailerId: event.body.trailerId,
     techRecord: techRec
   };
   return techRecordsService.updateTechRecord(techRecord, msUserDetails)

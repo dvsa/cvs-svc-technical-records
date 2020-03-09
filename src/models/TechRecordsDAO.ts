@@ -1,6 +1,6 @@
 import Configuration from "../utils/Configuration";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
+import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import QueryInput = DocumentClient.QueryInput;
 import {SEARCHCRITERIA} from "../assets/Enums";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
@@ -13,7 +13,7 @@ let AWS: { DynamoDB: { DocumentClient: new (arg0: any) => DocumentClient; }; };
 if (process.env._X_AMZN_TRACE_ID) {
   AWS = require("aws-xray-sdk").captureAWS(require("aws-sdk"));
 } else {
-  console.log("Serverless Offline detected; skipping AWS X-Ray setup")
+  console.log("Serverless Offline detected; skipping AWS X-Ray setup");
   AWS = require("aws-sdk");
 }
 /* tslint:enable */
@@ -52,7 +52,7 @@ class TechRecordsDAO {
       query.IndexName = "SysNumIndex";
       query.KeyConditionExpression = "#systemNumber = :systemNumber";
     } else if (isVinSearch(searchTerm, searchCriteria)) { // Query for a full VIN
-      Object.assign(query, { IndexName: "VinIndex" });
+      Object.assign(query, {IndexName: "VinIndex"});
       Object.assign(query.ExpressionAttributeValues, {
         ":vin": searchTerm
       });
@@ -120,10 +120,7 @@ class TechRecordsDAO {
         systemNumber: techRecord.systemNumber,
         vin: techRecord.vin
       },
-      UpdateExpression: "set #techRecord = :techRecord",
-      ExpressionAttributeNames: {
-        "#techRecord": "techRecord"
-      },
+      UpdateExpression: "set techRecord = :techRecord",
       ConditionExpression: "vin = :vin AND systemNumber = :systemNumber",
       ExpressionAttributeValues: {
         ":vin": techRecord.vin,
@@ -132,6 +129,24 @@ class TechRecordsDAO {
       },
       ReturnValues: "ALL_NEW"
     };
+    if (techRecord.primaryVrm) {
+      query.UpdateExpression += ", primaryVrm = :primaryVrm";
+      Object.assign(query.ExpressionAttributeValues, {
+        ":primaryVrm": techRecord.primaryVrm
+      });
+    }
+    if (techRecord.secondaryVrms && techRecord.secondaryVrms.length) {
+      query.UpdateExpression += ", secondaryVrms = :secondaryVrms";
+      Object.assign(query.ExpressionAttributeValues, {
+        ":secondaryVrms": techRecord.secondaryVrms
+      });
+    }
+    if (techRecord.trailerId) {
+      query.UpdateExpression += ", trailerId = :trailerId";
+      Object.assign(query.ExpressionAttributeValues, {
+        ":trailerId": techRecord.trailerId
+      });
+    }
     return dbClient.update(query).promise();
   }
 
@@ -178,13 +193,13 @@ class TechRecordsDAO {
       params.RequestItems[this.tableName].push(
         {
           DeleteRequest:
-          {
-            Key:
             {
-              systemNumber: primaryKey,
-              vin: secondaryKey
+              Key:
+                {
+                  systemNumber: primaryKey,
+                  vin: secondaryKey
+                }
             }
-          }
         }
       );
     });
@@ -195,9 +210,9 @@ class TechRecordsDAO {
   public generatePartialParams(): any {
     return {
       RequestItems:
-      {
-        [this.tableName]: []
-      }
+        {
+          [this.tableName]: []
+        }
     };
   }
 }

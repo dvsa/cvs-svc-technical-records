@@ -6,7 +6,9 @@ export enum ERRORS {
     NO_BRANCH = "Please define BRANCH environment variable",
     NO_UNIQUE_RECORD = "Failed to uniquely identify record",
     TRAILER_ID_GENERATION_FAILED = "TrailerId generation failed!",
-    SYSTEM_NUMBER_GENERATION_FAILED = "System Number generation failed!"
+    SYSTEM_NUMBER_GENERATION_FAILED = "System Number generation failed!",
+    CANNOT_UPDATE_ARCHIVED_RECORD = "You are not allowed to update an archived tech-record"
+
 }
 
 export enum HTTPRESPONSE {

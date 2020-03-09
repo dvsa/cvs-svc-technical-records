@@ -324,4 +324,131 @@ describe("TechRecordsDAO", () => {
       });
     });
   });
+
+  context("updateSingle", () => {
+    beforeEach(() => {
+      jest.resetModules();
+    });
+    // Mock once
+    let stub: any = null;
+    AWS.DynamoDB.DocumentClient.prototype.update = jest.fn().mockImplementation((params: DocumentClient.Update) => {
+      return {
+        promise: () => {
+          stub = params;
+          return Promise.resolve([]);
+        }
+      };
+    });
+    context("builds correct request when only primaryVrm is updated", () => {
+      it("should return the correct query", async () => {
+        const techRecord: any = cloneDeep(mockData[0]);
+        delete techRecord.secondaryVrms;
+        delete techRecord.trailerId;
+
+        const expectedCall = {
+          TableName: "cvs-local-technical-records",
+          Key: {
+            systemNumber: "11000001",
+            vin: "XMGDE02FS0H012345"
+          },
+          UpdateExpression: "set techRecord = :techRecord, primaryVrm = :primaryVrm",
+          ConditionExpression: "vin = :vin AND systemNumber = :systemNumber",
+          ExpressionAttributeValues: {
+            ":vin": "XMGDE02FS0H012345",
+            ":systemNumber": "11000001",
+            ":techRecord": techRecord.techRecord,
+            ":primaryVrm": "JY58FPP"
+          },
+          ReturnValues: "ALL_NEW"
+        };
+        const techRecordsDao = new TechRecordsDao();
+        await techRecordsDao.updateSingle(techRecord);
+        expect(stub).toStrictEqual(expectedCall);
+      });
+    });
+
+    context("builds correct request when only secondaryVrms are updated", () => {
+      it("should return the correct query", async () => {
+        const techRecord: any = cloneDeep(mockData[0]);
+        delete techRecord.primaryVrm;
+        delete techRecord.trailerId;
+
+        const expectedCall = {
+          TableName: "cvs-local-technical-records",
+          Key: {
+            systemNumber: "11000001",
+            vin: "XMGDE02FS0H012345"
+          },
+          UpdateExpression: "set techRecord = :techRecord, secondaryVrms = :secondaryVrms",
+          ConditionExpression: "vin = :vin AND systemNumber = :systemNumber",
+          ExpressionAttributeValues: {
+            ":vin": "XMGDE02FS0H012345",
+            ":systemNumber": "11000001",
+            ":techRecord": techRecord.techRecord,
+            ":secondaryVrms": ["609859Z"]
+          },
+          ReturnValues: "ALL_NEW"
+        };
+        const techRecordsDao = new TechRecordsDao();
+        await techRecordsDao.updateSingle(techRecord);
+        expect(stub).toStrictEqual(expectedCall);
+      });
+    });
+
+    context("builds correct request when only trailerId is updated", () => {
+      it("should return the correct query", async () => {
+        const techRecord: any = cloneDeep(mockData[0]);
+        delete techRecord.secondaryVrms;
+        delete techRecord.primaryVrm;
+
+        const expectedCall = {
+          TableName: "cvs-local-technical-records",
+          Key: {
+            systemNumber: "11000001",
+            vin: "XMGDE02FS0H012345"
+          },
+          UpdateExpression: "set techRecord = :techRecord, trailerId = :trailerId",
+          ConditionExpression: "vin = :vin AND systemNumber = :systemNumber",
+          ExpressionAttributeValues: {
+            ":vin": "XMGDE02FS0H012345",
+            ":systemNumber": "11000001",
+            ":techRecord": techRecord.techRecord,
+            ":trailerId": "09876543"
+          },
+          ReturnValues: "ALL_NEW"
+        };
+        const techRecordsDao = new TechRecordsDao();
+        await techRecordsDao.updateSingle(techRecord);
+        expect(stub).toStrictEqual(expectedCall);
+      });
+    });
+
+    context("builds correct request when only all attributes are updated", () => {
+      it("should return the correct query", async () => {
+        const techRecord: any = cloneDeep(mockData[0]);
+
+        const expectedCall = {
+          TableName: "cvs-local-technical-records",
+          Key: {
+            systemNumber: "11000001",
+            vin: "XMGDE02FS0H012345"
+          },
+          UpdateExpression: "set techRecord = :techRecord, primaryVrm = :primaryVrm, secondaryVrms = :secondaryVrms, trailerId = :trailerId",
+          ConditionExpression: "vin = :vin AND systemNumber = :systemNumber",
+          ExpressionAttributeValues: {
+            ":vin": "XMGDE02FS0H012345",
+            ":systemNumber": "11000001",
+            ":techRecord": techRecord.techRecord,
+            ":primaryVrm": "JY58FPP",
+            ":secondaryVrms": ["609859Z"],
+            ":trailerId": "09876543"
+          },
+          ReturnValues: "ALL_NEW"
+        };
+        const techRecordsDao = new TechRecordsDao();
+        await techRecordsDao.updateSingle(techRecord);
+        expect(stub).toStrictEqual(expectedCall);
+      });
+    });
+  });
 });

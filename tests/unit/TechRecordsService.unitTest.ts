@@ -668,7 +668,6 @@ describe("updateTechRecord", () => {
       techRecord.techRecord[0].bodyType.description = "skeletal";
       techRecord.techRecord[0].grossGbWeight = 5555;
       techRecord.techRecord[0].adrDetails.vehicleDetails.type = "Centre axle tank";
-      delete techRecord.techRecord[0].statusCode;
       const vrms = [{vrm: "BBBB333", isPrimary: true}, {vrm: "CCCC444", isPrimary: false}];
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
@@ -705,7 +704,6 @@ describe("updateTechRecord", () => {
       techRecord.techRecord[0].grossGbWeight = 5555;
       techRecord.techRecord[0].adrDetails.vehicleDetails.type = "Artic tractor";
       delete techRecord.techRecord[0].adrDetails.memosApply;
-      delete techRecord.techRecord[0].statusCode;
       delete techRecord.techRecord[0].adrDetails.tank;
       const vrms = [{vrm: "LKJH654", isPrimary: true}, {vrm: "POI9876", isPrimary: false}];
       const MockDAO = jest.fn().mockImplementation(() => {
@@ -772,6 +770,262 @@ describe("updateTechRecord", () => {
         }
       });
     });
+
+    context("and the user wants to update an archived record", () => {
+      it("should return error 400 Cannot update an archived record", async () => {
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[31]);
+        const MockDAO = jest.fn().mockImplementation();
+        const techRecordsService = new TechRecordsService(new MockDAO());
+        try {
+          expect(await techRecordsService.updateTechRecord(techRecord, msUserDetails)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(400);
+          expect(errorResponse.body.errors).toContain(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
+        }
+      });
+    });
+
+    context("and the user wants to update a record which doesn't have the specified statusCode", () => {
+      it("should return error 404 Vehicle has no tech-records with status {statusCode}", async () => {
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
+        const MockDAO = jest.fn().mockImplementation();
+        const techRecordsService = new TechRecordsService(new MockDAO());
+        try {
+          expect(await techRecordsService.getTechRecordToArchive(techRecord, STATUS.CURRENT)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(404);
+          expect(errorResponse.body).toEqual("Vehicle has no tech-records with status current");
+        }
+      });
+    });
+
+    context("and the user wants to update a record which doesn't have the specified statusCode", () => {
+      it("should return error 500 Vehicle has no tech-records with status {statusCode}", async () => {
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
+        const MockDAO = jest.fn().mockImplementation();
+        const techRecordsService = new TechRecordsService(new MockDAO());
+        const recordToUpdate: any = {
+          techRecord: [techRecord.techRecord[0], techRecord.techRecord[0]]
+        };
+        try {
+          expect(await techRecordsService.getTechRecordToArchive(recordToUpdate, STATUS.PROVISIONAL)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.body).toEqual("Vehicle has more than one tech-record with status provisional");
+        }
+      });
+    });
+
+    context("and the user wants to update an attribute outside of the techRecords array", () => {
+      context("and the user wants to update the primaryVrm", () => {
+        context("and the new primaryVrm is valid", () => {
+          context("and the primaryVrm is not present on another vehicle", () => {
+            it("should set the new primaryVrm on the vehicle and update reason for creation", async () => {
+              const techRecord: any = cloneDeep(records[43]);
+              techRecord.vrms = [{isPrimary: true, vrm: "LKJH654"}];
+              const MockDAO = jest.fn().mockImplementation(() => {
+                return {
+                  getBySearchTerm: () => {
+                    return Promise.resolve({
+                      Items: [],
+                      Count: 0,
+                      ScannedCount: 1
+                    });
+                  }
+                };
+              });
+              const techRecordsService = new TechRecordsService(new MockDAO());
+              const payload: any = cloneDeep(records[43]);
+              payload.techRecord[0].reasonForCreation = "Updated VRM";
+              payload.primaryVrm = "ABCD943";
+              await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload);
+              expect(techRecord.primaryVrm).toEqual("ABCD943");
+              expect(techRecord.secondaryVrms.length).toEqual(2);
+              expect(techRecord.secondaryVrms).toContain("LKJH654");
+              expect(payload.techRecord[0].reasonForCreation).toEqual(`VRM updated from LKJH654 to ABCD943. Updated VRM`);
+            });
+
+            context("and the vehicle didn't have VRMs", () => {
+              it("should not append undefined into secondaryVrms array", async () => {
+                const techRecord: any = cloneDeep(records[43]);
+                techRecord.vrms = [];
+                delete techRecord.secondaryVrms;
+                delete techRecord.primaryVrm;
+                const MockDAO = jest.fn().mockImplementation(() => {
+                  return {
+                    getBySearchTerm: () => {
+                      return Promise.resolve({
+                        Items: [],
+                        Count: 0,
+                        ScannedCount: 1
+                      });
+                    }
+                  };
+                });
+                const techRecordsService = new TechRecordsService(new MockDAO());
+                const payload: any = cloneDeep(techRecord);
+                payload.techRecord[0].reasonForCreation = "Updated VRM";
+                payload.primaryVrm = "ABCD943";
+                await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload);
+                expect(techRecord.primaryVrm).toEqual("ABCD943");
+                expect(techRecord.secondaryVrms.length).toEqual(0);
+              });
+            });
+          });
+          context("and the primaryVrm is already present on another vehicle", () => {
+            it("should return Error 400 primaryVrm already exists", async () => {
+              const techRecord: any = cloneDeep(records[43]);
+              techRecord.vrms = [{isPrimary: true, vrm: "LKJH654"}];
+              const MockDAO = jest.fn().mockImplementation(() => {
+                return {
+                  getBySearchTerm: () => {
+                    return Promise.resolve({
+                      Items: [techRecord],
+                      Count: 1,
+                      ScannedCount: 1
+                    });
+                  }
+                };
+              });
+              const techRecordsService = new TechRecordsService(new MockDAO());
+              const payload: any = cloneDeep(records[43]);
+              payload.primaryVrm = "ABCD943";
+              try {
+                expect(await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload)).toThrowError();
+              } catch (errorResponse) {
+                expect(errorResponse.statusCode).toEqual(400);
+                expect(errorResponse.body.errors).toContain("Primary VRM ABCD943 already exists");
+              }
+            });
+          });
+        });
+        context("and the new primaryVrm is invalid", () => {
+          it("should return Error 400 PrimaryVrm is invalid", async () => {
+            const techRecord: any = cloneDeep(records[43]);
+            techRecord.vrms = [{isPrimary: true, vrm: "LKJH654"}];
+            const MockDAO = jest.fn().mockImplementation();
+            const techRecordsService = new TechRecordsService(new MockDAO());
+            const payload: any = cloneDeep(records[43]);
+            payload.primaryVrm = "ABCD94329339239";
+            try {
+              expect(await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload)).toThrowError();
+            } catch (errorResponse) {
+              expect(errorResponse.statusCode).toEqual(400);
+              expect(errorResponse.body.errors).toContain("PrimaryVrm is invalid");
+            }
+          });
+        });
+      });
+
+      context("and the user wants to update the trailerId", () => {
+        context("and the new trailerId is valid", () => {
+          context("and the trailerId is not present on another vehicle", () => {
+            it("should set the new trailerId on the vehicle and update reason for creation", async () => {
+              const techRecord: any = cloneDeep(records[78]);
+              techRecord.trailerId = "MMMP324";
+              techRecord.vrms = [];
+              const MockDAO = jest.fn().mockImplementation(() => {
+                return {
+                  getBySearchTerm: () => {
+                    return Promise.resolve({
+                      Items: [],
+                      Count: 0,
+                      ScannedCount: 1
+                    });
+                  }
+                };
+              });
+              const techRecordsService = new TechRecordsService(new MockDAO());
+              const payload: any = cloneDeep(records[78]);
+              payload.techRecord[0].reasonForCreation = "Updated TrailerId";
+              payload.trailerId = "ABCD943";
+              await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload);
+              expect(techRecord.trailerId).toEqual("ABCD943");
+              expect(payload.techRecord[0].reasonForCreation).toEqual(`Trailer Id updated from MMMP324 to ABCD943. Updated TrailerId`);
+            });
+          });
+          context("and the trailerId is already present on another vehicle", () => {
+            it("should return Error 400 trailerId already exists", async () => {
+              const techRecord: any = cloneDeep(records[78]);
+              techRecord.vrms = [];
+              const MockDAO = jest.fn().mockImplementation(() => {
+                return {
+                  getBySearchTerm: () => {
+                    return Promise.resolve({
+                      Items: [techRecord],
+                      Count: 1,
+                      ScannedCount: 1
+                    });
+                  }
+                };
+              });
+              const techRecordsService = new TechRecordsService(new MockDAO());
+              const payload: any = cloneDeep(records[78]);
+              payload.trailerId = "ABCD943";
+              try {
+                expect(await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload)).toThrowError();
+              } catch (errorResponse) {
+                expect(errorResponse.statusCode).toEqual(400);
+                expect(errorResponse.body.errors).toContain("TrailerId ABCD943 already exists");
+              }
+            });
+          });
+        });
+        context("and the new trailerId is invalid", () => {
+          it("should return Error 400 PrimaryVrm is invalid", async () => {
+            const techRecord: any = cloneDeep(records[78]);
+            techRecord.vrms = [];
+            const MockDAO = jest.fn().mockImplementation();
+            const techRecordsService = new TechRecordsService(new MockDAO());
+            const payload: any = cloneDeep(records[78]);
+            payload.trailerId = "ABCD94329339239";
+            try {
+              expect(await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload)).toThrowError();
+            } catch (errorResponse) {
+              expect(errorResponse.statusCode).toEqual(400);
+              expect(errorResponse.body.errors).toContain("TrailerId is invalid");
+            }
+          });
+        });
+      });
+
+      context("and the user wants to update the secondaryVrms", () => {
+        context("and the new secondaryVrms are valid", () => {
+          it("should set the new secondaryVrms on the vehicle", async () => {
+            const techRecord: any = cloneDeep(records[43]);
+            techRecord.vrms = [];
+            const MockDAO = jest.fn().mockImplementation();
+            const techRecordsService = new TechRecordsService(new MockDAO());
+            const payload: any = cloneDeep(records[43]);
+            payload.secondaryVrms = ["ABCD943"];
+            await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload);
+            expect(techRecord.secondaryVrms).toEqual(["ABCD943"]);
+          });
+        });
+        context("and the new secondaryVrms are invalid", () => {
+          it("should return Error 400 SecondaryVrms are invalid", async () => {
+            const techRecord: any = cloneDeep(records[78]);
+            techRecord.vrms = [];
+            const MockDAO = jest.fn().mockImplementation();
+            const techRecordsService = new TechRecordsService(new MockDAO());
+            const payload: any = cloneDeep(records[78]);
+            payload.secondaryVrms = ["ABCD94329339239"];
+            try {
+              expect(await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload)).toThrowError();
+            } catch (errorResponse) {
+              expect(errorResponse.statusCode).toEqual(400);
+              expect(errorResponse.body.errors).toContain("SecondaryVrms are invalid");
+            }
+          });
+        });
+      });
+    });
   });
 
   context("when trying to update a technical record for non existing vehicle", () => {
@@ -808,6 +1062,7 @@ describe("updateTechRecord", () => {
     });
   });
 });
+
 describe("updateEuVehicleCategory", () => {
   afterEach(() => {
     jest.restoreAllMocks();
@@ -819,7 +1074,7 @@ describe("updateEuVehicleCategory", () => {
   context("when updating a euVehicleCategory for an existing vehicle where the value is null", () => {
     it("should update the euVehicleCategory with the value provided", async () => {
       const expectedTechRecord = cloneDeep<ITechRecordWrapper>(records[22]);
-      const systemNumber="10000023";
+      const systemNumber = "10000023";
       const newEuVehicleCategory = "m1";
       expectedTechRecord.techRecord[0].euVehicleCategory = newEuVehicleCategory;
       const MockDAO = jest.fn().mockImplementation(() => {
@@ -842,7 +1097,7 @@ describe("updateEuVehicleCategory", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
       const response: HTTPResponse | HTTPError = await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1);
-      const updatedTechRec: ITechRecordWrapper=  JSON.parse(response.body);
+      const updatedTechRec: ITechRecordWrapper = JSON.parse(response.body);
       expect(response.statusCode).toEqual(200);
       expect(updatedTechRec.techRecord[0].euVehicleCategory).toEqual(newEuVehicleCategory);
     });
@@ -850,7 +1105,7 @@ describe("updateEuVehicleCategory", () => {
 
   context("when updating a euVehicleCategory for an existing vehicle where the value is not null", () => {
     it("should update the euVehicleCategory with the value provided", async () => {
-      const systemNumber="10000001";
+      const systemNumber = "10000001";
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {

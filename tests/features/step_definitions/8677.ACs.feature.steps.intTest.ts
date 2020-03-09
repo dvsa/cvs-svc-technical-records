@@ -34,7 +34,7 @@ defineFeature(feature, ( test ) => {
     let response: any;
 
     given("I am a consumer of the vehicles API", () => {
-      requestUrl = "vehicles/ABCDEFGH654321";
+      requestUrl = "vehicles/1100047";
     });
     when("I call the vehicles API via the PUT method", async () => {
       const putPayload = createPUTPayload();
@@ -60,7 +60,7 @@ defineFeature(feature, ( test ) => {
     let response: any;
 
     given("I am a consumer of the vehicles API", () => {
-      requestUrl = "vehicles/ABCDEFGH654321";
+      requestUrl = "vehicles/1100047";
     });
     when("I call the vehicles API via the PUT method", async () => {
       const putPayload = createPUTPayload();
@@ -90,7 +90,7 @@ defineFeature(feature, ( test ) => {
     let requestUrlGET: string;
 
     given("I am a consumer of the vehicles API", () => {
-      requestUrl = "vehicles/ABCDEFGH654321";
+      requestUrl = "vehicles/1100047";
       requestUrlGET = "vehicles/ABCDEFGH654321/tech-records?status=all";
     });
     when("I call the vehicles API via the GET method", async () => {
@@ -122,7 +122,7 @@ defineFeature(feature, ( test ) => {
     let response: any;
 
     given("I am a consumer of the vehicles API", () => {
-      requestUrl = "vehicles/ABCDEFGH654321";
+      requestUrl = "vehicles/1100047";
     });
     when("I add adrDetails{} as per AC1 above", async () => {
       const putPayload = createPUTPayload();
@@ -160,7 +160,7 @@ defineFeature(feature, ( test ) => {
     let response: any;
 
     given("I am a consumer of the vehicles API", () => {
-      requestUrl = "vehicles/ABCDEFGH654321";
+      requestUrl = "vehicles/1100047";
     });
     when("I update adrDetails{} as per AC2 above", async () => {
       const putPayload = createPUTPayload();
@@ -197,13 +197,11 @@ defineFeature(feature, ( test ) => {
 const createPUTPayload = () => {
   const techRec: any = cloneDeep(mockData[43]);
   techRec.techRecord[0].reasonForCreation = "adr update";
-  delete techRec.techRecord[0].statusCode;
   const payload = {
     msUserDetails: {
       msUser: "dorel",
       msOid: "1234545"
     },
-    systemNumber: techRec.systemNumber,
     techRecord: techRec.techRecord
   };
   return payload;
