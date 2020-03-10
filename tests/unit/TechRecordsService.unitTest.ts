@@ -542,7 +542,7 @@ describe("insertTechRecord", () => {
           };
         });
         const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+        const techRecordsService = new TechRecordsService(mockDAO);
 
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
@@ -567,7 +567,7 @@ describe("insertTechRecord", () => {
             };
           });
           const mockDAO = new MockDAO();
-          const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+          const techRecordsService = new TechRecordsService(mockDAO);
 
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
@@ -596,7 +596,7 @@ describe("insertTechRecord", () => {
             };
           });
           const mockDAO = new MockDAO();
-          const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+          const techRecordsService = new TechRecordsService(mockDAO);
 
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
@@ -623,7 +623,7 @@ describe("insertTechRecord", () => {
             };
           });
           const mockDAO = new MockDAO();
-          const techRecordsService = new TechRecordsService(mockDAO, s3BucketServiceMock);
+          const techRecordsService = new TechRecordsService(mockDAO);
 
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
