@@ -653,13 +653,9 @@ describe("updateTechRecord", () => {
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[31]);
         const MockDAO = jest.fn().mockImplementation();
-        const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO);
-        const recordToUpdate: any = {
-          techRecord: techRecord.techRecord
-        };
+        const techRecordsService = new TechRecordsService(new MockDAO());
         try {
-          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails)).toThrowError();
+          expect(await techRecordsService.updateTechRecord(techRecord, msUserDetails)).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(400);
@@ -673,13 +669,9 @@ describe("updateTechRecord", () => {
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
         const MockDAO = jest.fn().mockImplementation();
-        const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO);
-        const recordToUpdate: any = {
-          techRecord: techRecord.techRecord
-        };
+        const techRecordsService = new TechRecordsService(new MockDAO());
         try {
-          expect(await techRecordsService.getTechRecordToArchive(recordToUpdate, STATUS.CURRENT)).toThrowError();
+          expect(await techRecordsService.getTechRecordToArchive(techRecord, STATUS.CURRENT)).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(500);
