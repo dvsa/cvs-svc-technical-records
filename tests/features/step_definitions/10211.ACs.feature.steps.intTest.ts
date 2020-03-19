@@ -2,15 +2,11 @@ import {defineFeature, loadFeature} from "jest-cucumber";
 import supertest from "supertest";
 import path from "path";
 import mockData from "../../resources/technical-records.json";
-import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {cloneDeep} from "lodash";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
-const opts = Object.assign({
-  timeout: 1.5
-});
 
 const feature = loadFeature(path.resolve(__dirname, "../10211.ACs.feature"));
 
@@ -32,8 +28,6 @@ defineFeature(feature, (test) => {
   });
 
   test("AC1. PUT: Attempt to update a new vehicle without a mandatory field", ({given, when, then}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
 
@@ -49,13 +43,9 @@ defineFeature(feature, (test) => {
       expect(response.status).toEqual(400);
       expect(response.body[0].message).toEqual('"manufactureYear" is required');
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC2. PUT: Attempt to update a new vehicle with a not applicable field", ({given, when, then}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
 
@@ -71,13 +61,9 @@ defineFeature(feature, (test) => {
       expect(response.status).toEqual(400);
       expect(response.body[0].message).toEqual('"unladenWeight" is not allowed');
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC3. PUT: Attempt to update a new vehicle with unexpected values for a field that accepts only specific values", ({given, when, then}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
 
@@ -93,13 +79,9 @@ defineFeature(feature, (test) => {
       expect(response.status).toEqual(400);
       expect(response.body[0].message).toEqual('"fuelPropulsionSystem" must be one of [DieselPetrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC4. PUT: Attempt to update a new vehicle, using a field which has a field value outside of the min/max length for that field", ({given, when, then}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
 
@@ -115,8 +97,6 @@ defineFeature(feature, (test) => {
       expect(response.status).toEqual(400);
       expect(response.body[0].message).toEqual('"manufactureYear" must be less than or equal to 9999');
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 });
 

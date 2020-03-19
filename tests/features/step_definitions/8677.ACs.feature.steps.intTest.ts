@@ -2,7 +2,6 @@ import {defineFeature, loadFeature} from "jest-cucumber";
 import supertest from "supertest";
 import path from "path";
 import mockData from "../../resources/technical-records.json";
-import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {UPDATE_TYPE} from "../../../src/assets/Enums";
 import {validatePayload} from "../../../src/utils/PayloadValidation";
@@ -10,9 +9,6 @@ import {cloneDeep} from "lodash";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
-const opts = Object.assign({
-  timeout: 1.5
-});
 
 const feature = loadFeature(path.resolve(__dirname, "../8677.ACs.feature"));
 
@@ -34,8 +30,6 @@ defineFeature(feature, ( test ) => {
   });
 
   test("AC1. PUT: Add adrDetails{} object onto an existing tech record", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
 
@@ -59,13 +53,9 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[1].reasonForCreation).toEqual("adr update");
       expect(response.body.techRecord[0].updateType).toEqual(UPDATE_TYPE.ADR);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC2. PUT: Update adrDetails{} object on an existing tech record", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
 
@@ -91,13 +81,9 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[1].reasonForCreation).toEqual("adr update");
       expect(response.body.techRecord[0].updateType).toEqual(UPDATE_TYPE.ADR);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC3. GET: All attributes are returned", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
     let responseGET: any;
@@ -129,13 +115,9 @@ defineFeature(feature, ( test ) => {
       const isAdrValid = validatePayload(response.body.techRecord[1]);
       expect(isAdrValid).not.toHaveProperty("error");
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC4. Adding of adrDetails{} is audited", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
 
@@ -171,13 +153,9 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[0].lastUpdatedById).toBeDefined();
       expect(response.body.techRecord[0].updateType).toBeDefined();
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC5. Adding of adrDetails{} is audited", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
 
@@ -213,8 +191,6 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[0].lastUpdatedById).toBeDefined();
       expect(response.body.techRecord[0].updateType).toBeDefined();
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 });
 

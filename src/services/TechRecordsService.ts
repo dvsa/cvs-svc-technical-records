@@ -2,7 +2,7 @@ import HTTPError from "../models/HTTPError";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {ERRORS, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
+import {ERRORS, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE, EU_VEHICLE_CATEGORY} from "../assets/Enums";
 import * as _ from "lodash";
 import {
   populateFields,
@@ -11,6 +11,8 @@ import {
   validateSecondaryVrms
 } from "../utils/PayloadValidation";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
+import HTTPResponse from "../models/HTTPResponse";
+import { STATUS_CODES } from "http";
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -333,6 +335,30 @@ class TechRecordsService {
   private static isTestTypeNotifiableAlteration(testTypeId: string): boolean {
     const notifiableAlterationIds = ["47", "48"];
     return notifiableAlterationIds.includes(testTypeId);
+  }
+
+  public async updateEuVehicleCategory(systemNumber: string, newEuVehicleCategory: EU_VEHICLE_CATEGORY): Promise<HTTPResponse | HTTPError> {
+    const techRecordWrapper: ITechRecordWrapper = (await this.getTechRecordsList(systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER))[0];
+    const nonArchivedTechRecord = techRecordWrapper.techRecord.filter((techRecord) => techRecord.statusCode !== STATUS.ARCHIVED);
+    if (nonArchivedTechRecord.length > 1) {
+        throw new HTTPError(400, HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD);
+    }
+    if(nonArchivedTechRecord[0].euVehicleCategory) {
+        return new HTTPResponse(200,HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED);
+      }
+    const statusCode = nonArchivedTechRecord[0].statusCode;
+    const newTechRecord: ITechRecord = {...nonArchivedTechRecord[0]};
+    nonArchivedTechRecord[0].statusCode = STATUS.ARCHIVED;
+    newTechRecord.euVehicleCategory = newEuVehicleCategory;
+    newTechRecord.statusCode = statusCode;
+    techRecordWrapper.techRecord.push(newTechRecord);
+    let updatedTechRecord;
+    try {
+          updatedTechRecord =  await this.techRecordsDAO.updateSingle(techRecordWrapper);
+        } catch (error) {
+          throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
+        }
+    return new HTTPResponse(200, this.formatTechRecordItemForResponse(updatedTechRecord.Attributes as ITechRecordWrapper));
   }
 }
 

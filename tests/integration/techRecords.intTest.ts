@@ -17,19 +17,19 @@ const msUserDetails = {
 describe("techRecords", () => {
   describe("getTechRecords", () => {
     beforeAll(async () => {
-      await emptyDatabase();
+      await populateDatabase();
     });
 
     beforeEach(async () => {
-      await populateDatabase();
+     // await populateDatabase();
     });
 
     afterEach(async () => {
-      await emptyDatabase();
+    //  await emptyDatabase();
     });
 
     afterAll(async () => {
-      await populateDatabase();
+      await emptyDatabase();
     });
 
     context("and when a search by VRM is done", () => {
@@ -274,19 +274,21 @@ describe("techRecords", () => {
   describe("postTechRecords", () => {
     context("when database is populated", () => {
       beforeAll(async () => {
-        await emptyDatabase();
+        // await emptyDatabase();
+        await populateDatabase();
       });
 
       afterAll(async () => {
-        await populateDatabase();
+        // await populateDatabase();
+        await emptyDatabase();
       });
 
       beforeEach(async () => {
-        await populateDatabase();
+        // await populateDatabase();
       });
 
       afterEach(async () => {
-        await emptyDatabase();
+        // await emptyDatabase();
       });
 
       context("and when trying to create a new vehicle", () => {
@@ -359,15 +361,16 @@ describe("techRecords", () => {
   describe("updateTechRecords", () => {
     context("when database is populated", () => {
       beforeAll(async () => {
-        await emptyDatabase();
+        // await emptyDatabase();
+        await populateDatabase();
       });
 
       afterAll(async () => {
-        await populateDatabase();
+       // await populateDatabase();
       });
 
       beforeEach(async () => {
-        await populateDatabase();
+       // await populateDatabase();
       });
 
       afterEach(async () => {

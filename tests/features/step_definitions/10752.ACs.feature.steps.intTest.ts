@@ -1,17 +1,12 @@
 import {defineFeature, loadFeature} from "jest-cucumber";
 import supertest from "supertest";
 import path from "path";
+import {convertToResponse, emptyDatabase, populateDatabase} from "../../util/dbOperations";
+import mockData from "../../resources/technical-records.json";
+import ITechRecordWrapper from "../../../@Types/ITechRecordWrapper";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
-import {convertToResponse, emptyDatabase, populateDatabase} from "../../util/dbOperations";
-import mockData from "../../resources/technical-records.json";
-import mockContext from "aws-lambda-mock-context";
-import ITechRecordWrapper from "../../../@Types/ITechRecordWrapper";
-
-const opts = Object.assign({
-  timeout: 1
-});
 const feature = loadFeature(path.resolve(__dirname, "../10752.ACs.feature"));
 
 defineFeature(feature, ( test ) => {
@@ -32,8 +27,6 @@ defineFeature(feature, ( test ) => {
   });
 
   test("AC1 API Consumer retrieve the Vehicle Technical Records", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
     let responseBody: ITechRecordWrapper[];
@@ -64,13 +57,9 @@ defineFeature(feature, ( test ) => {
     and("the system returns an HTTP status code 200 OK", () => {
       expect(response.status).toEqual(200);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC2 No data returned", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
 
@@ -90,8 +79,6 @@ defineFeature(feature, ( test ) => {
     then("the system returns an HTTP status code 404", () => {
       expect(response.status).toEqual(404);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
 });

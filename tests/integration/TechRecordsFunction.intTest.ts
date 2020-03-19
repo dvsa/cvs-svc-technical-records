@@ -15,16 +15,18 @@ const msUserDetails = {
 describe("getTechRecords", () => {
   beforeAll(async () => {
     jest.restoreAllMocks();
-    await emptyDatabase();
+    // await emptyDatabase();
+    await populateDatabase();
   });
   beforeEach(async () => {
-    await populateDatabase();
+    // await populateDatabase();
   });
   afterEach(async () => {
-    await emptyDatabase();
+    // await emptyDatabase();
   });
   afterAll(async () => {
-    await populateDatabase();
+    // await populateDatabase();
+    await emptyDatabase();
   });
   context("when the path is invalid", () => {
     it("should return 400", async () => {
@@ -101,16 +103,18 @@ describe("getTechRecords", () => {
 describe("postTechRecords", () => {
   beforeAll(async () => {
     jest.restoreAllMocks();
-    await emptyDatabase();
+    // await emptyDatabase();
+    await populateDatabase();
   });
   beforeEach(async () => {
-    await populateDatabase();
+    // await populateDatabase();
   });
   afterEach(async () => {
-    await emptyDatabase();
+    // await emptyDatabase();
   });
   afterAll(async () => {
-    await populateDatabase();
+    // await populateDatabase();
+    await emptyDatabase();
   });
 
   context("when trying to create a new vehicle", () => {

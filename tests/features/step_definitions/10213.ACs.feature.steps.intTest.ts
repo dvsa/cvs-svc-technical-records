@@ -2,15 +2,11 @@ import {defineFeature, loadFeature} from "jest-cucumber";
 import supertest from "supertest";
 import path from "path";
 import mockData from "../../resources/technical-records.json";
-import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {cloneDeep} from "lodash";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
-const opts = Object.assign({
-  timeout: 1.5
-});
 
 const createPOSTPayload = () => {
   const techRec: any = cloneDeep(mockData[43]);
@@ -48,8 +44,6 @@ defineFeature(feature, (test) => {
   });
 
   test("AC1. POST: Partial VIN is autopopulated", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrlPOST: string;
     let requestUrlGET: string;
     const postPayload = createPOSTPayload();
@@ -72,13 +66,9 @@ defineFeature(feature, (test) => {
       responseGET = await request.get(requestUrlGET);
       expect(responseGET.body[0].vin).toEqual(postPayload.vin);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC2. POST: Vehicle class code is autopopulated", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrlPOST: string;
     let requestUrlGET: string;
     const postPayload = createPOSTPayload();
@@ -101,13 +91,9 @@ defineFeature(feature, (test) => {
       responseGET = await request.get(requestUrlGET);
       expect(responseGET.body[0].techRecord[0].vehicleClass.code).toEqual("4");
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC3. POST: Body type code is autopopulated", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrlPOST: string;
     let requestUrlGET: string;
     const postPayload = createPOSTPayload();
@@ -130,7 +116,5 @@ defineFeature(feature, (test) => {
       responseGET = await request.get(requestUrlGET);
       expect(responseGET.body[0].techRecord[0].bodyType.code).toEqual("k");
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 });

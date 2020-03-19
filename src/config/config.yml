@@ -16,6 +16,10 @@ functions:
     method: PUT
     path: /vehicles/update-status/:systemNumber
     function: updateTechRecordStatus
+- updateEuVehicleCategory:
+    method: PUT
+    path: /vehicles/update-eu-vehicle-category/:systemNumber
+    function: updateEuVehicleCategory
 
 dynamodb:
   local:

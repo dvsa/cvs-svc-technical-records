@@ -2,15 +2,11 @@ import {defineFeature, loadFeature} from "jest-cucumber";
 import supertest from "supertest";
 import path from "path";
 import mockData from "../../resources/technical-records.json";
-import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase, convertToResponse} from "../../util/dbOperations";
 import {cloneDeep} from "lodash";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
-const opts = Object.assign({
-  timeout: 1.5
-});
 
 const feature = loadFeature(path.resolve(__dirname, "../12013.ACs.feature"));
 
@@ -32,8 +28,6 @@ defineFeature(feature, (test) => {
   });
 
   test("AC2 BE API consumer performs a GET call for tech records microservice", ({ given, when, then, and }) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
     let expectedResponse: any;
@@ -57,7 +51,5 @@ defineFeature(feature, (test) => {
     and("the search is performed using the decoded value of the searchIdentifier", () => {
       expect(response.body[0].vin).toEqual(VIN);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 });

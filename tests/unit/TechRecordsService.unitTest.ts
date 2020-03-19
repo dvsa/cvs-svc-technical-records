@@ -2,9 +2,10 @@
 import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
-import {HTTPRESPONSE, SEARCHCRITERIA, STATUS} from "../../src/assets/Enums";
+import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, EU_VEHICLE_CATEGORY} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
+import HTTPResponse from "../../src/models/HTTPResponse";
 
 describe("getTechRecordsList", () => {
   afterEach(() => {
@@ -570,4 +571,66 @@ describe("updateTechRecord", () => {
     });
   });
 });
+describe("updateEuVehicleCategory", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+  const msUserDetails = {
+    msUser: "dorel",
+    msOid: "1234545"
+  };
+  context("when updating a euVehicleCategory for an existing vehicle where the value is null", () => {
+    it("should update the euVehicleCategory with the value provided", async () => {
+      const expectedTechRecord = cloneDeep<ITechRecordWrapper>(records[22]);
+      const systemNumber="10000023";
+      const newEuVehicleCategory = "m1";
+      expectedTechRecord.techRecord[0].euVehicleCategory = newEuVehicleCategory;
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          updateSingle: () => {
+            return Promise.resolve({
+              Attributes: expectedTechRecord
+            });
+          },
+          getBySearchTerm: () => {
+            return Promise.resolve({
+              Items: [cloneDeep(records[22])],
+              Count: 1,
+              ScannedCount: 1
+            });
+          }
+        };
+      });
+      expect.assertions(2);
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+      const response: HTTPResponse | HTTPError = await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1);
+      const updatedTechRec: ITechRecordWrapper=  JSON.parse(response.body);
+      expect(response.statusCode).toEqual(200);
+      expect(updatedTechRec.techRecord[0].euVehicleCategory).toEqual(newEuVehicleCategory);
+    });
+  });
 
+  context("when updating a euVehicleCategory for an existing vehicle where the value is not null", () => {
+    it("should update the euVehicleCategory with the value provided", async () => {
+      const systemNumber="10000001";
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve({
+              Items: [cloneDeep(records[0])],
+              Count: 1,
+              ScannedCount: 1
+            });
+          }
+        };
+      });
+      expect.assertions(2);
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+      const response: HTTPResponse | HTTPError = await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1);
+      expect(response.statusCode).toEqual(200);
+      expect(response.body).toEqual(`"${HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED}"`);
+    });
+  });
+});
