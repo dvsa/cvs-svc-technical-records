@@ -6,7 +6,7 @@ import {
 } from "../../src/utils/ValidationUtils";
 import ITechRecord from "../../@Types/ITechRecord";
 import {validatePayload} from "../../src/utils/PayloadValidation";
-import {VEHICLE_TYPE, bodyTypeDescription, vehicleClassDescription} from "../../src/assets/Enums";
+import {VEHICLE_TYPE, BODY_TYPE_DESCRIPTION, VEHICLE_CLASS_DESCRIPTION} from "../../src/assets/Enums";
 
 const createPayload = () => {
   const techRec: any = cloneDeep(mockData[74]);
@@ -91,7 +91,7 @@ describe("payloadValidation", () => {
 
       it("should autopopulate the vehicle class code", () => {
         const payload: ITechRecord = createPayload();
-        for (const vehicleClass of vehicleClassDescription) {
+        for (const vehicleClass of VEHICLE_CLASS_DESCRIPTION) {
           payload.vehicleClass.description = vehicleClass;
           populateFields(payload);
           expect(payload.vehicleClass.code).toEqual(vehicleClassMap[vehicleClass]);
@@ -100,7 +100,7 @@ describe("payloadValidation", () => {
 
       it("should autopopulate the body type code", () => {
         const payload: ITechRecord = createPayload();
-        for (const bodyType of bodyTypeDescription) {
+        for (const bodyType of BODY_TYPE_DESCRIPTION) {
           payload.bodyType.description = bodyType;
           populateFields(payload);
           expect(payload.bodyType.code).toEqual(bodyTypeMap[bodyType]);

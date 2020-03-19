@@ -3,7 +3,7 @@ const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
 import {axlesSchema, commonSchema, weightsSchema} from "./CommonSchema";
-import {euVehicleCategory, fuelPropulsionSystem} from "../assets/Enums";
+import {FUEL_PROPULSION_SYSTEM} from "../assets/Enums";
 import {adrValidation} from "./AdrValidation";
 
 export const hgvValidation = commonSchema.keys({
@@ -20,8 +20,7 @@ export const hgvValidation = commonSchema.keys({
   speedLimiterMrk: Joi.boolean().required(),
   tachoExemptMrk: Joi.boolean().required(),
   euroStandard: Joi.string().required(),
-  fuelPropulsionSystem: Joi.string().valid(...fuelPropulsionSystem).required(),
-  euVehicleCategory: Joi.string().valid(...euVehicleCategory).required(),
+  fuelPropulsionSystem: Joi.string().valid(...FUEL_PROPULSION_SYSTEM).required(),
   numberOfWheelsDriven: Joi.number().min(0).max(9999).required().allow(null),
   emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
   trainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
