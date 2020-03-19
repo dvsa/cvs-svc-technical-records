@@ -6,7 +6,7 @@ import {
   approvalType, bodyTypeDescription, fitmentCode,
   microfilmDocumentType, plateReasonForIssue, vehicleClassDescription,
   vehicleConfiguration, vehicleType, recordCompleteness
-} from "./ValidationUtils";
+} from "../assets/Enums";
 
 export const brakesSchema = Joi.object().keys({
   dtpNumber: Joi.string().max(6).required(),
