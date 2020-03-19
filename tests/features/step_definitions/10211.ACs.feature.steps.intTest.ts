@@ -107,7 +107,8 @@ const createPUTPayload = () => {
       msUser: "dorel",
       msOid: "1234545"
     },
-    techRecord: techRec.techRecord
+    techRecord: techRec.techRecord,
+    systemNumber: "1000047",
   };
   return payload;
 };

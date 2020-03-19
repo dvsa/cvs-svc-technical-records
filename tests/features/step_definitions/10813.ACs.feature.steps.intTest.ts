@@ -93,7 +93,8 @@ const createPUTPayload = () => {
     },
     primaryVrm: "ALKH567",
     secondaryVrms: ["POI9876", "YYY9876"],
-    techRecord: techRec.techRecord
+    techRecord: techRec.techRecord,
+    systemNumber: "9999999"
   };
   return payload;
 };
