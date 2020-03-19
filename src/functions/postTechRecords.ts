@@ -1,9 +1,9 @@
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
-import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import ITechRecord from "../../@Types/ITechRecord";
 import {populatePartialVin} from "../utils/ValidationUtils";
+import ITechRecordPostPayload from "../../@Types/ITechRecordPostPayload";
 
 const postTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -28,7 +28,7 @@ const postTechRecords = (event: any) => {
     return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
   }
 
-  const techRecord: ITechRecordWrapper = {
+  const techRecord: ITechRecordPostPayload = {
     vin,
     partialVin: populatePartialVin(vin),
     techRecord: techRec,
