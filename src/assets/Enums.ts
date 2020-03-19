@@ -7,8 +7,14 @@ export enum ERRORS {
     NO_UNIQUE_RECORD = "Failed to uniquely identify record",
     TRAILER_ID_GENERATION_FAILED = "TrailerId generation failed!",
     SYSTEM_NUMBER_GENERATION_FAILED = "System Number generation failed!",
-    CANNOT_UPDATE_ARCHIVED_RECORD = "You are not allowed to update an archived tech-record"
-
+    CANNOT_UPDATE_ARCHIVED_RECORD = "You are not allowed to update an archived tech-record",
+    CANNOT_USE_UPDATE_TO_ARCHIVE = "Cannot use update API to archive tech record",
+    CANNOT_ARCHIVE_CHANGED_RECORD = "Cannot archive tech record with attribute changes",
+    CURRENT_OR_PROVISIONAL_RECORD_FOUND = "Has existing Current or Provisional record",
+    CANNOT_CHANGE_CURRENT_TO_PROVISIONAL = "Cannot change current status to provisional",
+    STATUS_CODE_SHOULD_BE_PROVISIONAL = "Status code should be provisional",
+    MISSING_PAYLOAD = "Missing payload!",
+    MISSING_USER = "Microsoft user details not provided"
 }
 
 export enum HTTPRESPONSE {
@@ -283,4 +289,10 @@ export const FRAME_DESCRIPTION: string[] = [
 export const LETTER_TYPE: string[] = [
     "Trailer authorization",
     "Trailer rejection"
+];
+
+export const STATUS_CODES: string[] = [
+    "current",
+    "provisional",
+    "archived"
 ];
