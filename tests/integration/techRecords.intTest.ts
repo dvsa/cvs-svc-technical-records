@@ -303,7 +303,7 @@ describe("techRecords", () => {
               const payload = {
                 msUserDetails,
                 vin,
-                systemNumber: techRec.systemNumber,
+                systemNumber: Date.now().toString(),
                 primaryVrm,
                 techRecord: techRec.techRecord
               };
