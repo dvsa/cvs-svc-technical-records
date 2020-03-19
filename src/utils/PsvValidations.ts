@@ -8,7 +8,7 @@ import {
   retarderBrake,
   speedCategorySymbol,
   vehicleSize
-} from "./ValidationUtils";
+} from "../assets/Enums";
 import {axlesSchema, brakesSchema, commonSchema, tyresSchema, weightsSchema} from "./CommonSchema";
 
 export const psvValidation = commonSchema.keys({

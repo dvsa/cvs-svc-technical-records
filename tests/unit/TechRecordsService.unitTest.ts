@@ -283,7 +283,6 @@ describe("insertTechRecord", () => {
 
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
-      techRecord.vin = Date.now().toString();
       delete techRecord.techRecord[0].statusCode;
       const msUserDetails = {
         msUser: "dorel",
@@ -310,8 +309,6 @@ describe("insertTechRecord", () => {
 
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[29]);
-      techRecord.vin = Date.now().toString();
-      techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
       techRecord.techRecord[0].bodyType.description = "whatever";
       delete techRecord.techRecord[0].statusCode;
       const msUserDetails = {
@@ -340,7 +337,6 @@ describe("insertTechRecord", () => {
 
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
-        techRecord.vin = Date.now().toString();
         techRecord.secondaryVrms = ["invalidSecondaryVrm"];
         techRecord.techRecord[0].bodyType.description = "skeletal";
         delete techRecord.techRecord[0].statusCode;
@@ -373,7 +369,6 @@ describe("insertTechRecord", () => {
 
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
-        techRecord.vin = Date.now().toString();
         techRecord.primaryVrm = "invalidPrimaryVrm";
         techRecord.secondaryVrms = ["invalidSecondaryVrm"];
         techRecord.techRecord[0].bodyType.description = "skeletal";
@@ -438,7 +433,6 @@ describe("insertTechRecord", () => {
 
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
-        techRecord.vin = Date.now().toString();
         delete techRecord.trailerId;
         delete techRecord.techRecord[0].statusCode;
 
@@ -465,7 +459,6 @@ describe("insertTechRecord", () => {
 
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
-          techRecord.vin = Date.now().toString();
           delete techRecord.trailerId;
           delete techRecord.techRecord[0].statusCode;
 
@@ -494,7 +487,6 @@ describe("insertTechRecord", () => {
 
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
-          techRecord.vin = Date.now().toString();
           delete techRecord.trailerId;
           delete techRecord.techRecord[0].statusCode;
 
@@ -521,7 +513,6 @@ describe("insertTechRecord", () => {
 
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
-          techRecord.vin = Date.now().toString();
           delete techRecord.trailerId;
           delete techRecord.techRecord[0].statusCode;
 

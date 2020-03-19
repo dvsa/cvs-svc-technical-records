@@ -3,7 +3,7 @@ const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
 import {applicantDetailsSchema, axlesSchema, brakesSchema, commonSchema, weightsSchema} from "./CommonSchema";
-import {frameDescription, letterType} from "./ValidationUtils";
+import {frameDescription, letterType} from "../assets/Enums";
 import {adrValidation} from "./AdrValidation";
 
 export const authIntoService = Joi.object().keys({

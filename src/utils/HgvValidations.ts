@@ -3,7 +3,7 @@ const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
 import {axlesSchema, commonSchema, weightsSchema} from "./CommonSchema";
-import {euVehicleCategory, fuelPropulsionSystem} from "./ValidationUtils";
+import {euVehicleCategory, fuelPropulsionSystem} from "../assets/Enums";
 import {adrValidation} from "./AdrValidation";
 
 export const hgvValidation = commonSchema.keys({
