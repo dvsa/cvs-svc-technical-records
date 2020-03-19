@@ -11,6 +11,7 @@ import {
 } from "../utils/PayloadValidation";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 import {populateFields} from "../utils/ValidationUtils";
+import ITechRecordPostPayload from "../../@Types/ITechRecordPostPayload";
 import HTTPResponse from "../models/HTTPResponse";
 
 /**
@@ -130,7 +131,7 @@ class TechRecordsService {
     return techRecordItem;
   }
 
-  public async insertTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
+  public async insertTechRecord(techRecord: ITechRecordPostPayload, msUserDetails: any) {
     const isPayloadValid = validatePayload(techRecord.techRecord[0]);
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
@@ -154,7 +155,7 @@ class TechRecordsService {
       });
   }
 
-  public async generateSystemNumber(techRecord: ITechRecordWrapper) {
+  public async generateSystemNumber(techRecord: ITechRecordPostPayload) {
     try {
       const systemNumberObj = await this.techRecordsDAO.getSystemNumber();
       if (systemNumberObj.error) {
@@ -169,7 +170,7 @@ class TechRecordsService {
     }
   }
 
-  public async setTrailerId(techRecord: ITechRecordWrapper) {
+  public async setTrailerId(techRecord: ITechRecordPostPayload) {
     try {
       const trailerIdObj = await this.techRecordsDAO.getTrailerId();
       if (trailerIdObj.error) {
@@ -184,7 +185,7 @@ class TechRecordsService {
     }
   }
 
-  private validateVrms(techRecord: ITechRecordWrapper) {
+  private validateVrms(techRecord: ITechRecordPostPayload) {
     let areVrmsValid = true;
     const vehicleType = techRecord.techRecord[0].vehicleType;
     if ((vehicleType === VEHICLE_TYPE.HGV || vehicleType === VEHICLE_TYPE.PSV) && !techRecord.primaryVrm) {

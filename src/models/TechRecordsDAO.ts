@@ -6,6 +6,7 @@ import {SEARCHCRITERIA} from "../assets/Enums";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 import {populatePartialVin} from "../utils/ValidationUtils";
 import {LambdaService} from "../services/LambdaService";
+import ITechRecordPostPayload from "../../@Types/ITechRecordPostPayload";
 
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
@@ -99,7 +100,7 @@ class TechRecordsDAO {
     return dbClient.query(query).promise();
   }
 
-  public createSingle(techRecord: ITechRecordWrapper) {
+  public createSingle(techRecord: ITechRecordPostPayload) {
     const query = {
       TableName: this.tableName,
       Item: techRecord,
