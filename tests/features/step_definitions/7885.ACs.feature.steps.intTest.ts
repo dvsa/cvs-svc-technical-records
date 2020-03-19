@@ -52,15 +52,14 @@ defineFeature(feature, ( test ) => {
     then("I am able to perform a PUT or POST request", () => {
       expect(responsePOST.status).toEqual(201);
       expect(responsePOST.body).toEqual("Technical Record created");
-
       expect(responsePUT.status).toEqual(200);
       expect(responsePUT.body.techRecord[0].statusCode).toEqual("archived");
       expect(responsePUT.body.techRecord[1].statusCode).toEqual("provisional");
     });
     and("I am still able to perform a GET request", async () => {
       responseGET = await request.get(requestUrlGET);
-      expect(responsePUT.status).toEqual(200);
-      expect(responsePUT.body).toEqual(responsePUT.body);
+      expect(responseGET.status).toEqual(200);
+      expect(responseGET.body[0].vin).toEqual("1B7GG36N12S678410");
     });
   });
 });
@@ -92,7 +91,7 @@ const createPUTPayload = () => {
       msUser: "dorel",
       msOid: "1234545"
     },
-    systemNumber: "10000002",
+    systemNumber: "1000047",
     techRecord: techRec.techRecord
   };
   return payload;
