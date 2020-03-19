@@ -133,6 +133,24 @@ functions:
                 vin: true
   updateTechRecordStatus:
     handler: src/handler.handler
+    events:
+      - http:
+          path: vehicles/{systemNumber}
+          method: post
+          request:
+            parameters:
+              paths:
+                systemNumber: true
+  updateEuVehicleCategory:
+    handler: src/handler.handler
+    events:
+      - http:
+          path: vehicles/update-eu-vehicle-category/{systemNumber}
+          method: put
+          request:
+            parameters:
+              paths:
+                systemNumber: true
 
 resources:
   Resources:

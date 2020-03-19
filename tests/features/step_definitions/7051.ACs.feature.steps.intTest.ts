@@ -1,18 +1,12 @@
 import {defineFeature, loadFeature} from "jest-cucumber";
 import supertest from "supertest";
 import path from "path";
-
-const url = "http://localhost:3005/";
-const request = supertest(url);
 import {convertTo7051Response, emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import mockData from "../../resources/technical-records.json";
 import * as _ from "lodash";
-import mockContext from "aws-lambda-mock-context";
-import ITechRecord from "../../../@Types/ITechRecord";
-import ITechRecordWrapper from "../../../@Types/ITechRecordWrapper";
-const opts = Object.assign({
-  timeout: 1
-});
+
+const url = "http://localhost:3005/";
+const request = supertest(url);
 const feature = loadFeature(path.resolve(__dirname, "../7051.ACs.feature"));
 
 defineFeature(feature, ( test ) => {
@@ -34,8 +28,6 @@ defineFeature(feature, ( test ) => {
 
   test("AC1.1 API Consumer retrieve the Vehicle Technical Records for - " +
     'query parameter "status" not provided & vehicle has both "current" and "provisional" technical records', ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
     let expectedResponse: any;
@@ -66,14 +58,10 @@ defineFeature(feature, ( test ) => {
     and("the system returns an HTTP status code 200 OK", () => {
       expect(response.status).toEqual(200);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC1.2 API Consumer retrieve the Vehicle Technical Records for - " +
     'query parameter "status" not provided & vehicle has only one "current" OR "provisional" technical record', ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
     let expectedResponse: any;
@@ -105,14 +93,10 @@ defineFeature(feature, ( test ) => {
     and("the system returns an HTTP status code 200 OK", () => {
       expect(response.status).toEqual(200);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC2.1 API Consumer retrieve the Vehicle Technical Records for - " +
     'query parameter "status" is "provisional_over_current" & vehicle has both "current" and "provisional" technical records', ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
     let expectedResponse: any;
@@ -145,14 +129,10 @@ defineFeature(feature, ( test ) => {
     and("the system returns an HTTP status code 200 OK", () => {
       expect(response.status).toEqual(200);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC2.2 API Consumer retrieve the Vehicle Technical Records for - " +
     'query parameter "status" is "provisional_over_current" & vehicle has only one "current" OR "provisional" technical record', ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
     let expectedResponse: any;
@@ -184,13 +164,9 @@ defineFeature(feature, ( test ) => {
     and("the system returns an HTTP status code 200 OK", () => {
       expect(response.status).toEqual(200);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("AC3 No data returned", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
     given("I am an API Consumer", () => {
@@ -203,12 +179,9 @@ defineFeature(feature, ( test ) => {
     then("the system returns an HTTP status code 404", () => {
       expect(response.status).toEqual(404);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   // test("AC4 Multiple results returned", ({given, when, then, and}) => {
-  //   let ctx: any = mockContext(opts);
   //
   //   let requestUrl: string;
   //   let response: any;
@@ -225,8 +198,6 @@ defineFeature(feature, ( test ) => {
   //   then("the system returns an HTTP status code 422", () => {
   //     expect(response.status).toEqual(422);
   //   });
-  //   ctx.succeed("done");
-  //   ctx = null;
   // });
 });
 

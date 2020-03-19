@@ -2,15 +2,11 @@ import {defineFeature, loadFeature} from "jest-cucumber";
 import supertest from "supertest";
 import path from "path";
 import mockData from "../../resources/technical-records.json";
-import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {cloneDeep} from "lodash";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
-const opts = Object.assign({
-  timeout: 1.5
-});
 
 const feature = loadFeature(path.resolve(__dirname, "../10209.ACs.feature"));
 
@@ -32,8 +28,6 @@ defineFeature(feature, (test) => {
   });
 
   test("AC1. GET request: All attributes applicable to HGVs are returned", ({given, when, then}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
 
@@ -52,13 +46,9 @@ defineFeature(feature, (test) => {
       expect(response.body[0].techRecord[0]).toHaveProperty("model");
 
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("POST request: HGV vehicle is created, and the appropriate attributes are automatically set", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
     let responseGET: any;
@@ -88,13 +78,9 @@ defineFeature(feature, (test) => {
       expect(responseGET.body[0].vrms[0].vrm).toEqual("ALKH567");
       expect(responseGET.body[0].vrms[0].isPrimary).toEqual(true);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 
   test("PUT request: HGV vehicle is updated, and the appropriate attributes are automatically set", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrl: string;
     let response: any;
     let responseGET: any;
@@ -133,8 +119,6 @@ defineFeature(feature, (test) => {
       expect(response.body.vrms[1].vrm).toEqual("POI9876");
       expect(response.body.vrms[1].isPrimary).toEqual(false);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 });
 

@@ -6,19 +6,21 @@ import {emptyDatabase, populateDatabase} from "../util/dbOperations";
 
 describe("TechRecordsDAO", () => {
   beforeAll(async () => {
-    await emptyDatabase();
+    // await emptyDatabase();
+    await populateDatabase();
   });
 
   beforeEach(async () => {
-    await populateDatabase();
+    // await populateDatabase();
   });
 
   afterEach(async () => {
-    await emptyDatabase();
+    // await emptyDatabase();
   });
 
   afterAll(async () => {
-    await populateDatabase();
+    // await populateDatabase();
+    await emptyDatabase();
   });
 
   context("createSingle", () => {

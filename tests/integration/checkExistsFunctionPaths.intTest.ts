@@ -1,26 +1,29 @@
 import {handler} from "../../src/handler";
-import mockContext from "aws-lambda-mock-context";
 import mockData from "../resources/technical-records.json";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
 import {emptyDatabase, populateDatabase} from "../util/dbOperations";
+import {Context} from "aws-lambda";
 
 describe("TechRecords", () => {
-
+  // @ts-ignore
+  const ctx: Context = null;
   beforeAll(async () => {
-    await emptyDatabase();
+    // await emptyDatabase();
+    await populateDatabase();
   });
 
   beforeEach(async () => {
-    await populateDatabase();
+    // await populateDatabase();
   });
 
   afterEach(async () => {
-    await emptyDatabase();
+    // await emptyDatabase();
   });
 
   afterAll(async () => {
-    await populateDatabase();
+    // await populateDatabase();
+    await emptyDatabase();
   });
 
   const msUserDetails = {
@@ -54,10 +57,7 @@ describe("TechRecords", () => {
     const opts = Object.assign({
       timeout: 1
     });
-    let ctx: any = mockContext(opts);
     const response = await handler(vehicleRecordEvent, ctx);
-    ctx.succeed(response);
-    ctx = null;
     expect(response).toBeDefined();
     expect(response.statusCode).toEqual(201);
     expect(JSON.parse(response.body)).toEqual("Technical Record created");
@@ -87,10 +87,7 @@ describe("TechRecords", () => {
     const opts = Object.assign({
       timeout: 1
     });
-    let ctx: any = mockContext(opts);
     const response = await handler(vehicleRecordEvent, ctx);
-    ctx.succeed(response);
-    ctx = null;
     expect(response).toBeDefined();
     expect(response.statusCode).toEqual(200);
     expect(JSON.parse(response.body).techRecord[0].statusCode).toEqual("archived");

@@ -1,20 +1,17 @@
 import {handler} from "../../src/handler";
 import Configuration from "../../src/utils/Configuration";
 import HTTPResponse from "../../src/models/HTTPResponse";
-import mockContext from "aws-lambda-mock-context";
 import event from "../resources/event.json";
 import TechRecordsService from "../../src/services/TechRecordsService";
-import * as postTechRecords from "../../src/functions/postTechRecords";
-import * as updateTechRecords from "../../src/functions/updateTechRecords";
 import mockData from "../resources/technical-records.json";
 import {cloneDeep} from "lodash";
+import {Context} from "aws-lambda";
 
 jest.mock("../../src/services/TechRecordsService");
-const opts = Object.assign({
-  timeout: 1
-});
 
 describe("The lambda function handler", () => {
+  // @ts-ignore
+  const ctx: Context = null;
   context("With correct Config", () => {
     context("should correctly handle incoming events", () => {
       it("should call functions with correct event payload", async () => {
@@ -26,17 +23,12 @@ describe("The lambda function handler", () => {
           httpMethod: "GET",
           queryStringParameters: null
         };
-
-        let ctx: any = mockContext(opts);
-
         // Stub out the actual functions
         TechRecordsService.prototype.getTechRecordsList = jest.fn().mockImplementation(() => {
           return Promise.resolve(new HTTPResponse(200, {}));
         });
 
         const result = await handler(vehicleRecordEvent, ctx);
-        ctx.succeed(result);
-        ctx = null;
         expect(result.statusCode).toEqual(200);
         expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
       });
@@ -56,22 +48,17 @@ describe("The lambda function handler", () => {
           }
         };
 
-        let ctx: any = mockContext(opts);
-
         // Stub out the actual functions
         TechRecordsService.prototype.getTechRecordsList = jest.fn().mockImplementation(() => {
           return Promise.resolve(new HTTPResponse(200, {}));
         });
 
         const result = await handler(vehicleRecordEvent, ctx);
-        ctx.succeed(result);
-        ctx = null;
         expect(result.statusCode).toEqual(200);
         expect(TechRecordsService.prototype.getTechRecordsList).toHaveBeenCalled();
       });
 
       it("should call /vehicles function with correct event payload", async () => {
-        let ctx: any = mockContext(opts);
         // Specify your event, with correct path, payload etc
         const payload = {
           msUserDetails: {
@@ -95,14 +82,11 @@ describe("The lambda function handler", () => {
           return Promise.resolve(new HTTPResponse(201, {}));
         });
         const result = await handler(vehicleRecordEvent, ctx);
-        ctx.succeed(result);
-        ctx = null;
         expect(result.statusCode).toEqual(201);
         expect(TechRecordsService.prototype.insertTechRecord).toHaveBeenCalled();
       });
 
       it("should call /vehicles/{vin} function with correct event payload", async () => {
-        let ctx: any = mockContext(opts);
         // Specify your event, with correct path, payload etc
         const payload = {
           msUserDetails: {
@@ -127,15 +111,11 @@ describe("The lambda function handler", () => {
           return Promise.resolve(new HTTPResponse(200, {}));
         });
         const result = await handler(vehicleRecordEvent, ctx);
-        ctx.succeed(result);
-        ctx = null;
         expect(result.statusCode).toEqual(200);
         expect(TechRecordsService.prototype.updateTechRecord).toHaveBeenCalled();
       });
 
       it("should call the update-status function with correct event payload", async () => {
-        let ctx: any = mockContext(opts);
-
         const vehicleRecordEvent = {
           path: "/vehicles/update-status/XMGDE02FS0H999987",
           pathParameters: {
@@ -154,18 +134,37 @@ describe("The lambda function handler", () => {
           return Promise.resolve(new HTTPResponse(200, {}));
         });
         const result = await handler(vehicleRecordEvent, ctx);
-        ctx.succeed(result);
-        ctx = null;
 
         expect(result.statusCode).toEqual(200);
         expect(TechRecordsService.prototype.updateTechRecordStatusCode).toHaveBeenCalled();
       });
 
+      it("should call the update-eu-vehicle-category function with correct event payload", async () => {
+        const vehicleRecordEvent = {
+          path: "/vehicles/update-eu-vehicle-category/10000027",
+          pathParameters: {
+            systemNumber: "10000027"
+          },
+          resource: "/vehicles/update-eu-vehicle-category/{systemNumber}",
+          httpMethod: "PUT",
+          queryStringParameters: {
+            euVehicleCategory: "m1"
+          }
+        };
+        const updateEuVehicleMock = jest.fn().mockImplementation(() => {
+          return Promise.resolve(new HTTPResponse(200, {}));
+        });
+        TechRecordsService.prototype.updateEuVehicleCategory = updateEuVehicleMock;
+        const result = await handler(vehicleRecordEvent, ctx);
+        expect.assertions(4);
+        expect(result.statusCode).toEqual(200);
+        expect(TechRecordsService.prototype.updateEuVehicleCategory).toHaveBeenCalled();
+        expect(updateEuVehicleMock.mock.calls[0][0]).toEqual("10000027");
+        expect(updateEuVehicleMock.mock.calls[0][1]).toEqual("m1");
+      });
+
       it("should return error on empty event", async () => {
-        let ctx: any = mockContext(opts);
         const result = await handler(null, ctx);
-        ctx.succeed(result);
-        ctx = null;
 
         expect(result).toBeInstanceOf(HTTPResponse);
         expect(result.statusCode).toEqual(400);
@@ -175,11 +174,7 @@ describe("The lambda function handler", () => {
       it("should return error on invalid body json", async () => {
         const invalidBodyEvent = Object.assign({}, event);
         invalidBodyEvent.body = '{"hello":}';
-
-        let ctx: any = mockContext(opts);
         const result = await handler(invalidBodyEvent, ctx);
-        ctx.succeed(result);
-        ctx = null;
         expect(result).toBeInstanceOf(HTTPResponse);
         expect(result.statusCode).toEqual(400);
         expect(result.body).toEqual(JSON.stringify("Body is not a valid JSON."));
@@ -188,11 +183,7 @@ describe("The lambda function handler", () => {
       it("should return a Route Not Found error on invalid path", async () => {
         const invalidPathEvent = Object.assign({}, event);
         invalidPathEvent.path = "/vehicles/123/doesntExist";
-
-        let ctx: any = mockContext(opts);
         const result = await handler(invalidPathEvent, ctx);
-        ctx.succeed(result);
-        ctx = null;
         expect(result.statusCode).toEqual(400);
         expect(result.body).toStrictEqual(JSON.stringify({error: `Route ${invalidPathEvent.httpMethod} ${invalidPathEvent.path} was not found.`}));
       });
@@ -205,10 +196,7 @@ describe("The lambda function handler", () => {
       const getFunctions = Configuration.prototype.getFunctions;
       Configuration.prototype.getFunctions = jest.fn().mockImplementation(() => []);
       const eventNoRoute = {httpMethod: "GET", path: ""};
-      let ctx: any = mockContext(opts);
       const result = await handler(eventNoRoute, ctx);
-      ctx.succeed(result);
-      ctx = null;
       expect(result.statusCode).toEqual(400);
       expect(result.body).toEqual(JSON.stringify({error: `Route ${eventNoRoute.httpMethod} ${eventNoRoute.path} was not found.`}));
       Configuration.prototype.getFunctions = getFunctions;
@@ -222,11 +210,12 @@ describe("The configuration service", () => {
       process.env.BRANCH = "local";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toEqual(4);
+      expect(functions.length).toEqual(5);
       expect(functions[0].name).toEqual("getTechRecords");
       expect(functions[1].name).toEqual("postTechRecords");
       expect(functions[2].name).toEqual("updateTechRecords");
       expect(functions[3].name).toEqual("updateTechRecordStatus");
+      expect(functions[4].name).toEqual("updateEuVehicleCategory");
 
 
       const DBConfig = configService.getDynamoDBConfig();
@@ -239,11 +228,12 @@ describe("The configuration service", () => {
       process.env.BRANCH = "local-global";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toEqual(4);
+      expect(functions.length).toEqual(5);
       expect(functions[0].name).toEqual("getTechRecords");
       expect(functions[1].name).toEqual("postTechRecords");
       expect(functions[2].name).toEqual("updateTechRecords");
       expect(functions[3].name).toEqual("updateTechRecordStatus");
+      expect(functions[4].name).toEqual("updateEuVehicleCategory");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(configService.getConfig().dynamodb["local-global"]);
@@ -255,11 +245,12 @@ describe("The configuration service", () => {
       process.env.BRANCH = "CVSB-XXX";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toEqual(4);
+      expect(functions.length).toEqual(5);
       expect(functions[0].name).toEqual("getTechRecords");
       expect(functions[1].name).toEqual("postTechRecords");
       expect(functions[2].name).toEqual("updateTechRecords");
       expect(functions[3].name).toEqual("updateTechRecordStatus");
+      expect(functions[4].name).toEqual("updateEuVehicleCategory");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(configService.getConfig().dynamodb.remote);

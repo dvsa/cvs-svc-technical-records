@@ -6,16 +6,12 @@ const url = "http://localhost:3005/";
 
 import mockData from "../../resources/technical-records.json";
 import {cloneDeep} from "lodash";
-import mockContext from "aws-lambda-mock-context";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 
 const feature = loadFeature(path.resolve(__dirname, "../7885.ACs.feature"));
 
 defineFeature(feature, ( test ) => {
   const request = supertest(url);
-  const opts = Object.assign({
-    timeout: 1
-  });
 
   beforeAll(async () => {
     await emptyDatabase();
@@ -34,8 +30,6 @@ defineFeature(feature, ( test ) => {
   });
 
   test("AC1. Vehicles API spec contains GET/POST/PUT/ verbs", ({given, when, then, and}) => {
-    let ctx: any = mockContext(opts);
-
     let requestUrlPOST: string;
     let requestUrlPUT: string;
     let requestUrlGET: string;
@@ -68,8 +62,6 @@ defineFeature(feature, ( test ) => {
       expect(responsePUT.status).toEqual(200);
       expect(responsePUT.body).toEqual(responsePUT.body);
     });
-    ctx.succeed("done");
-    ctx = null;
   });
 });
 
