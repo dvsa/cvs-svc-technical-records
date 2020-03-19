@@ -28,7 +28,7 @@ const postTechRecords = (event: any) => {
     return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
   }
 
-  const techRecord: any = {
+  const techRecord: ITechRecordWrapper = {
     vin,
     partialVin: populatePartialVin(vin),
     techRecord: techRec,
