@@ -4,7 +4,7 @@ export default interface ITechRecordWrapper {
     primaryVrm?: string;
     secondaryVrms?: string[];
     vin: string;
-    systemNumber: string;
+    systemNumber?: string;
     partialVin?: string;
     trailerId?: string;
     techRecord: ITechRecord[];
