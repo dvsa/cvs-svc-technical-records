@@ -3,7 +3,7 @@ const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
 import {applicantDetailsSchema, axlesSchema, brakesSchema, commonSchema, weightsSchema} from "./CommonSchema";
-import {frameDescription, letterType} from "../assets/Enums";
+import {FRAME_DESCRIPTION, LETTER_TYPE} from "../assets/Enums";
 import {adrValidation} from "./AdrValidation";
 
 export const authIntoService = Joi.object().keys({
@@ -15,7 +15,7 @@ export const authIntoService = Joi.object().keys({
 }).optional().allow(null);
 
 export const lettersOfAuth = Joi.object().keys({
-  letterType: Joi.string().valid(...letterType).optional().allow(null),
+  letterType: Joi.string().valid(...LETTER_TYPE).optional().allow(null),
   letterDateRequested: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
   letterContents: Joi.string().optional().allow(null)
 }).optional().allow(null);
@@ -25,7 +25,7 @@ export const trlValidation = commonSchema.keys({
   suspensionType: Joi.string().max(1).optional().allow(null),
   couplingType: Joi.string().max(1).optional().allow(null),
   maxLoadOnCoupling: Joi.number().min(0).max(99999).optional().allow(null),
-  frameDescription: Joi.string().valid(...frameDescription).optional().allow(null),
+  frameDescription: Joi.string().valid(...FRAME_DESCRIPTION).optional().allow(null),
   authIntoService: authIntoService,
   lettersOfAuth: lettersOfAuth,
   make: Joi.string().max(30).required(),

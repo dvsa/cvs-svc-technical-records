@@ -12,7 +12,6 @@ import {
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 import {populateFields} from "../utils/ValidationUtils";
 import HTTPResponse from "../models/HTTPResponse";
-import { STATUS_CODES } from "http";
 
 /**
  * Fetches the entire list of Technical Records from the database.

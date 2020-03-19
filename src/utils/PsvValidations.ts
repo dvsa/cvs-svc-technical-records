@@ -3,11 +3,10 @@ const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
 import {
-  euVehicleCategory,
-  fuelPropulsionSystem,
-  retarderBrake,
-  speedCategorySymbol,
-  vehicleSize
+  FUEL_PROPULSION_SYSTEM,
+  RETARDER_BRAKE,
+  SPEED_CATEGORY_SYMBOL,
+  VEHICLE_SIZE
 } from "../assets/Enums";
 import {axlesSchema, brakesSchema, commonSchema, tyresSchema, weightsSchema} from "./CommonSchema";
 
@@ -19,8 +18,8 @@ export const psvValidation = commonSchema.keys({
     dataTrBrakeOne: Joi.string().max(60).required(),
     dataTrBrakeTwo: Joi.string().max(60).required(),
     dataTrBrakeThree: Joi.string().max(60).required(),
-    retarderBrakeOne: Joi.string().valid(...retarderBrake).optional().allow(null),
-    retarderBrakeTwo: Joi.string().valid(...retarderBrake).optional().allow(null),
+    retarderBrakeOne: Joi.string().valid(...RETARDER_BRAKE).optional().allow(null),
+    retarderBrakeTwo: Joi.string().valid(...RETARDER_BRAKE).optional().allow(null),
     brakeForceWheelsNotLocked: Joi.object().keys({
       parkingBrakeForceA: Joi.number().min(0).max(99999).required(),
       secondaryBrakeForceA: Joi.number().min(0).max(99999).required(),
@@ -52,7 +51,7 @@ export const psvValidation = commonSchema.keys({
       kerbWeight: Joi.number().min(0).max(99999).required()
     }).required(),
     tyres: tyresSchema.keys({
-      speedCategorySymbol: Joi.string().valid(...speedCategorySymbol).required(),
+      speedCategorySymbol: Joi.string().valid(...SPEED_CATEGORY_SYMBOL).required(),
     }).required(),
   })).min(1).required(),
   seatsLowerDeck: Joi.number().min(0).max(999).required(),
@@ -61,12 +60,11 @@ export const psvValidation = commonSchema.keys({
   speedLimiterMrk: Joi.boolean().required(),
   tachoExemptMrk: Joi.boolean().required(),
   euroStandard: Joi.string().required(),
-  fuelPropulsionSystem: Joi.string().valid(...fuelPropulsionSystem).required(),
-  euVehicleCategory: Joi.string().valid(...euVehicleCategory).required(),
+  fuelPropulsionSystem: Joi.string().valid(...FUEL_PROPULSION_SYSTEM).required(),
   numberOfWheelsDriven: Joi.number().min(0).max(9999).required().allow(null),
   emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
   trainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
-  vehicleSize: Joi.string().valid(...vehicleSize).required(),
+  vehicleSize: Joi.string().valid(...VEHICLE_SIZE).required(),
   numberOfSeatbelts: Joi.string().max(99).required(),
   seatbeltInstallationApprovalDate: Joi.string().optional().allow(null),
   coifSerialNumber: Joi.string().max(8).optional().allow(null),

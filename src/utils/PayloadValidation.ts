@@ -27,7 +27,7 @@ export const validatePayload = (payload: ITechRecord) => {
   } else {
     return {
       error: {
-        details: "\"vehicleType\" must be one of [hgv, psv, trl]"
+        details: "\"VEHICLE_TYPE_VALIDATION\" must be one of [hgv, psv, trl]"
       }
     };
   }

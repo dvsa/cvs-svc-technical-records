@@ -3,9 +3,16 @@ const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
 import {
-  approvalType, bodyTypeDescription, fitmentCode,
-  microfilmDocumentType, plateReasonForIssue, vehicleClassDescription,
-  vehicleConfiguration, vehicleType, recordCompleteness
+  APPROVAL_TYPE,
+  BODY_TYPE_DESCRIPTION,
+  FITMENT_CODE,
+  MICROFILM_DOCUMENT_TYPE,
+  PLATE_REASON_FOR_ISSUE,
+  VEHICLE_CLASS_DESCRIPTION,
+  VEHICLE_CONFIGURATION,
+  VEHICLE_TYPE_VALIDATION,
+  RECORD_COMPLETENESS,
+  EU_VEHICLE_CATEGORY_VALIDATION
 } from "../assets/Enums";
 
 export const brakesSchema = Joi.object().keys({
@@ -21,7 +28,7 @@ export const tyresSchema = Joi.object().keys({
   tyreCode: Joi.number().min(0).max(9999).required(),
   tyreSize: Joi.string().max(12).required(),
   plyRating: Joi.string().max(2).optional().allow(null),
-  fitmentCode: Joi.string().valid(...fitmentCode).required(),
+  fitmentCode: Joi.string().valid(...FITMENT_CODE).required(),
   dataTrAxles: Joi.number().min(0).max(999).optional().allow(null)
 }).required();
 
@@ -35,12 +42,12 @@ export const axlesSchema = Joi.object().keys({
 export const platesSchema = Joi.object().keys({
   plateSerialNumber: Joi.string().max(12).optional().allow(null),
   plateIssueDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
-  plateReasonForIssue: Joi.string().valid(...plateReasonForIssue).optional().allow(null),
+  plateReasonForIssue: Joi.string().valid(...PLATE_REASON_FOR_ISSUE).optional().allow(null),
   plateIssuer: Joi.string().max(150).optional().allow(null)
 });
 
 export const microfilmSchema = Joi.object().keys({
-  microfilmDocumentType: Joi.string().valid(...microfilmDocumentType).optional().allow(null),
+  microfilmDocumentType: Joi.string().valid(...MICROFILM_DOCUMENT_TYPE).optional().allow(null),
   microfilmRollNumber: Joi.string().max(5).optional().allow(null),
   microfilmSerialNumber: Joi.string().max(4).optional().allow(null)
 }).optional().allow(null);
@@ -57,8 +64,9 @@ export const applicantDetailsSchema = Joi.object().keys({
 }).required();
 
 export const commonSchema = Joi.object().keys({
-  recordCompleteness: Joi.string().valid(...recordCompleteness).required(),
-  vehicleType: Joi.string().valid(...vehicleType).required(),
+  recordCompleteness: Joi.string().valid(...RECORD_COMPLETENESS).required(),
+  euVehicleCategory: Joi.string().valid(...EU_VEHICLE_CATEGORY_VALIDATION).required(),
+  vehicleType: Joi.string().valid(...VEHICLE_TYPE_VALIDATION).required(),
   regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
   manufactureYear: Joi.number().min(0).max(9999).required(),
   noOfAxles: Joi.number().min(0).max(99).required(),
@@ -66,27 +74,27 @@ export const commonSchema = Joi.object().keys({
   axles: Joi.array().items(axlesSchema).min(1).required(),
   vehicleClass: Joi.object().keys({
     code: Joi.any().when("description", {
-      is: Joi.string().valid(...vehicleClassDescription).required(),
+      is: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION).required(),
       then: Joi.string().optional(),
       otherwise: Joi.object().forbidden()
     }),
-    description: Joi.string().valid(...vehicleClassDescription).required()
+    description: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION).required()
   }).required(),
-  vehicleConfiguration: Joi.string().valid(...vehicleConfiguration).required(),
+  vehicleConfiguration: Joi.string().valid(...VEHICLE_CONFIGURATION).required(),
   departmentalVehicleMarker: Joi.boolean().optional(),
   alterationMarker: Joi.boolean().optional(),
-  approvalType: Joi.string().valid(...approvalType).required(),
+  approvalType: Joi.string().valid(...APPROVAL_TYPE).required(),
   approvalTypeNumber: Joi.string().max(25).optional().allow(null),
   ntaNumber: Joi.string().max(40).optional().allow(null),
   variantNumber: Joi.string().max(25).optional().allow(null),
   variantVersionNumber: Joi.string().max(35).optional().allow(null),
   bodyType: Joi.object().keys({
     code: Joi.any().when("description", {
-      is: Joi.string().valid(...bodyTypeDescription).required(),
+      is: Joi.string().valid(...BODY_TYPE_DESCRIPTION).required(),
       then: Joi.string().optional(),
       otherwise: Joi.object().forbidden()
     }),
-    description: Joi.string().valid(...bodyTypeDescription).required()
+    description: Joi.string().valid(...BODY_TYPE_DESCRIPTION).required()
   }).required(),
   functionCode: Joi.string().max(1).optional().allow(null),
   conversionRefNo: Joi.string().max(10).optional().allow(null),

@@ -1,4 +1,3 @@
-import ITechRecord from "../../@Types/ITechRecord";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 import {SEARCHCRITERIA, STATUS} from "../assets/Enums";
 import TechRecordsDAO from "../models/TechRecordsDAO";

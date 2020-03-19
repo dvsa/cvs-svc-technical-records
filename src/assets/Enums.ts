@@ -67,13 +67,13 @@ export enum EU_VEHICLE_CATEGORY {
     L7E = "l7e"
 }
 
-export const vehicleType: string[] = [
+export const VEHICLE_TYPE_VALIDATION: string[] = [
     "psv",
     "trl",
     "hgv"
 ];
 
-export const fuelPropulsionSystem: string[] = [
+export const FUEL_PROPULSION_SYSTEM: string[] = [
     "DieselPetrol",
     "Hybrid",
     "Electric",
@@ -83,7 +83,7 @@ export const fuelPropulsionSystem: string[] = [
     "Other"
 ];
 
-export const vehicleClassDescription: string[] = [
+export const VEHICLE_CLASS_DESCRIPTION: string[] = [
     "motorbikes over 200cc or with a sidecar",
     "not applicable",
     "small psv (ie: less than or equal to 22 seats)",
@@ -97,7 +97,7 @@ export const vehicleClassDescription: string[] = [
     "MOT class 5"
 ];
 
-export const vehicleConfiguration: string[] = [
+export const VEHICLE_CONFIGURATION: string[] = [
     "rigid",
     "articulated",
     "centre axle drawbar",
@@ -111,7 +111,7 @@ export const vehicleConfiguration: string[] = [
     "full drawbar"
 ];
 
-export const euVehicleCategory: string[] = [
+export const EU_VEHICLE_CATEGORY_VALIDATION: string[] = [
     "m1",
     "m2",
     "m3",
@@ -132,7 +132,7 @@ export const euVehicleCategory: string[] = [
     "l7e"
 ];
 
-export const approvalType: string[] = [
+export const APPROVAL_TYPE: string[] = [
     "NTA",
     "ECTA",
     "IVA",
@@ -140,7 +140,7 @@ export const approvalType: string[] = [
     "ECSSTA"
 ];
 
-export const bodyTypeDescription: string[] = [
+export const BODY_TYPE_DESCRIPTION: string[] = [
     "articulated",
     "single decker",
     "double decker",
@@ -155,7 +155,7 @@ export const bodyTypeDescription: string[] = [
     "refrigerated"
 ];
 
-export const microfilmDocumentType: string[] = [
+export const MICROFILM_DOCUMENT_TYPE: string[] = [
     "PSV Miscellaneous",
     "AAT - Trailer Annual Test",
     "AIV - HGV International App",
@@ -213,7 +213,7 @@ export const microfilmDocumentType: string[] = [
     "Tempo 100 Permit"
 ];
 
-export const plateReasonForIssue: string[] = [
+export const PLATE_REASON_FOR_ISSUE: string[] = [
     "Free replacement",
     "Replacement",
     "Destroyed",
@@ -222,12 +222,12 @@ export const plateReasonForIssue: string[] = [
     "Manual"
 ];
 
-export const fitmentCode: string[] = [
+export const FITMENT_CODE: string[] = [
     "double",
     "single"
 ];
 
-export const speedCategorySymbol: string[] = [
+export const SPEED_CATEGORY_SYMBOL: string[] = [
     "a7",
     "a8",
     "b",
@@ -245,12 +245,12 @@ export const speedCategorySymbol: string[] = [
     "q"
 ];
 
-export const vehicleSize: string[] = [
+export const VEHICLE_SIZE: string[] = [
     "small",
     "large"
 ];
 
-export const retarderBrake: string[] = [
+export const RETARDER_BRAKE: string[] = [
     "electric",
     "exhaust",
     "friction",
@@ -259,13 +259,13 @@ export const retarderBrake: string[] = [
     "none",
 ];
 
-export const recordCompleteness: string[] = [
+export const RECORD_COMPLETENESS: string[] = [
     "complete",
     "testable",
     "skeleton"
 ];
 
-export const frameDescription: string[] = [
+export const FRAME_DESCRIPTION: string[] = [
     "Channel section",
     "Space frame",
     "I section",
@@ -277,7 +277,7 @@ export const frameDescription: string[] = [
     "U section"
 ];
 
-export const letterType: string[] = [
+export const LETTER_TYPE: string[] = [
     "Trailer authorization",
     "Trailer Rejection"
 ];
