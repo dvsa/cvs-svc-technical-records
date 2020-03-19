@@ -34,7 +34,7 @@ defineFeature(feature, ( test ) => {
     let response: any;
 
     given("I am a consumer of the vehicles API", () => {
-      requestUrl = "vehicles/P012301270123";
+      requestUrl = "vehicles/ABCDEFGH654321";
     });
     when("I call the vehicles API via the PUT method", async () => {
       const putPayload = createPUTPayload();
@@ -46,12 +46,12 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
     });
     and("the existing tech record is archived", () => {
-      expect(response.body.techRecord[0].reasonForCreation).toEqual("new vehicle");
+      expect(response.body.techRecord[0].reasonForCreation).toEqual("string");
       expect(response.body.techRecord[0].statusCode).toEqual("archived");
     });
     and("my PUT action adheres to the adrDetails{} API validations, present in the attached updated API spec", () => {
       expect(response.body.techRecord[1].reasonForCreation).toEqual("adr update");
-      expect(response.body.techRecord[0].updateType).toEqual(UPDATE_TYPE.ADR);
+      expect(response.body.techRecord[0].updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
     });
   });
 
@@ -122,7 +122,7 @@ defineFeature(feature, ( test ) => {
     let response: any;
 
     given("I am a consumer of the vehicles API", () => {
-      requestUrl = "vehicles/P012301270123";
+      requestUrl = "vehicles/ABCDEFGH654321";
     });
     when("I add adrDetails{} as per AC1 above", async () => {
       const putPayload = createPUTPayload();
@@ -202,7 +202,7 @@ const createPUTPayload = () => {
       msUser: "dorel",
       msOid: "1234545"
     },
-    systemNumber: "10000030",
+    systemNumber: "1000047",
     techRecord: techRec.techRecord
   };
   return payload;

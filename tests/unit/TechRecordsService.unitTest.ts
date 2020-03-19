@@ -278,8 +278,7 @@ describe("insertTechRecord", () => {
           }
         };
       });
-      const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(new MockDAO());
 
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
@@ -304,8 +303,7 @@ describe("insertTechRecord", () => {
           }
         };
       });
-      const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(new MockDAO());
 
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[29]);
@@ -332,8 +330,7 @@ describe("insertTechRecord", () => {
             }
           };
         });
-        const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO);
+        const techRecordsService = new TechRecordsService(new MockDAO());
 
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
@@ -364,8 +361,7 @@ describe("insertTechRecord", () => {
             }
           };
         });
-        const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO);
+        const techRecordsService = new TechRecordsService(new MockDAO());
 
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
@@ -397,8 +393,7 @@ describe("insertTechRecord", () => {
           }
         };
       });
-      const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(new MockDAO());
 
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
@@ -428,8 +423,7 @@ describe("insertTechRecord", () => {
             }
           };
         });
-        const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO);
+        const techRecordsService = new TechRecordsService(new MockDAO());
 
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
@@ -454,8 +448,7 @@ describe("insertTechRecord", () => {
               }
             };
           });
-          const mockDAO = new MockDAO();
-          const techRecordsService = new TechRecordsService(mockDAO);
+          const techRecordsService = new TechRecordsService(new MockDAO());
 
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
@@ -482,8 +475,7 @@ describe("insertTechRecord", () => {
               }
             };
           });
-          const mockDAO = new MockDAO();
-          const techRecordsService = new TechRecordsService(mockDAO);
+          const techRecordsService = new TechRecordsService(new MockDAO());
 
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
@@ -508,8 +500,7 @@ describe("insertTechRecord", () => {
               }
             };
           });
-          const mockDAO = new MockDAO();
-          const techRecordsService = new TechRecordsService(mockDAO);
+          const techRecordsService = new TechRecordsService(new MockDAO());
 
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
@@ -559,8 +550,7 @@ describe("updateTechRecord", () => {
           }
         };
       });
-      const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(new MockDAO());
       const updatedTechRec: any = await techRecordsService.updateTechRecord(techRecord, msUserDetails);
       expect(updatedTechRec).not.toEqual(undefined);
       expect(updatedTechRec).not.toEqual({});
@@ -597,8 +587,7 @@ describe("updateTechRecord", () => {
           }
         };
       });
-      const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(new MockDAO());
       const updatedTechRec: any = await techRecordsService.updateTechRecord(techRecord, msUserDetails);
       expect(updatedTechRec.vin).toEqual("ABCDEFGH654321");
       expect(updatedTechRec.vrms).toStrictEqual(vrms);
@@ -627,8 +616,7 @@ describe("updateTechRecord", () => {
             }
           };
         });
-        const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO);
+        const techRecordsService = new TechRecordsService(new MockDAO());
         const recordToUpdate: any = {
           vin: techRecord.vin,
           partialVin: techRecord.partialVin,
@@ -685,8 +673,7 @@ describe("updateTechRecord", () => {
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
         const MockDAO = jest.fn().mockImplementation();
-        const mockDAO = new MockDAO();
-        const techRecordsService = new TechRecordsService(mockDAO);
+        const techRecordsService = new TechRecordsService(new MockDAO());
         const recordToUpdate: any = {
           techRecord: [techRecord.techRecord[0], techRecord.techRecord[0]]
         };
@@ -717,8 +704,7 @@ describe("updateTechRecord", () => {
           }
         };
       });
-      const mockDAO = new MockDAO();
-      const techRecordsService = new TechRecordsService(mockDAO);
+      const techRecordsService = new TechRecordsService(new MockDAO());
 
       const techRecord: any = cloneDeep(records[43]);
       delete techRecord.techRecord[0].statusCode;

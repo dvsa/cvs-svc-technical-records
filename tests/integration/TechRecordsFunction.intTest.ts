@@ -149,8 +149,8 @@ describe("postTechRecords", () => {
         techRecord.vin = Date.now().toString().substring(8);
 
         const payload = {
-          vin: techRecord.vin,
-          systemNumber: techRecord.systemNumber,
+          vin: Date.now().toString(),
+          systemNumber: Date.now().toString(),
           msUserDetails,
           primaryVrm: Math.floor(100000 + Math.random() * 900000).toString(),
           techRecord: techRecord.techRecord

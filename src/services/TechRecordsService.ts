@@ -199,7 +199,7 @@ class TechRecordsService {
     return this.manageUpdateLogic(techRecord, msUserDetails);
   }
 
-  private manageUpdateLogic(techRecord: { vin: string, techRecord: ITechRecord[] }, msUserDetails: any) {
+  private manageUpdateLogic(techRecord: ITechRecordWrapper, msUserDetails: any) {
     return this.createAndArchiveTechRecord(techRecord, msUserDetails)
       .then((data: ITechRecordWrapper) => {
         return this.techRecordsDAO.updateSingle(data)
@@ -215,7 +215,7 @@ class TechRecordsService {
       });
   }
 
-  private createAndArchiveTechRecord(techRecord: { vin: string, techRecord: ITechRecord[] }, msUserDetails: any) {
+  private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
     const {statusCode} = techRecord.techRecord[0];
     delete techRecord.techRecord[0].statusCode;
     if (statusCode === STATUS.ARCHIVED) {
@@ -226,7 +226,7 @@ class TechRecordsService {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
     }
     techRecord.techRecord[0] = isPayloadValid.value;
-    return this.getTechRecordsList(techRecord.vin, STATUS.ALL, SEARCHCRITERIA.ALL)
+    return this.getTechRecordsList(techRecord.systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER)
       .then((data: ITechRecordWrapper[]) => {
         if(data.length !== 1) {
           // systemNumber search should return a unique record
