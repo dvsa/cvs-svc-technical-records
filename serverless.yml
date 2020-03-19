@@ -151,6 +151,26 @@ functions:
             parameters:
               paths:
                 systemNumber: true
+  addProvisionalTechRecord:
+    handler: src/handler.handler
+    events:
+      - http:
+          path: /vehicles/add-provisional/{systemNumber}
+          method: post
+          request:
+            parameters:
+              paths:
+                systemNumber: true
+  archiveTechRecordStatus:
+    handler: src/handler.handler
+    events:
+      - http:
+          path: /vehicles/archive/{systemNumber}
+          method: put
+          request:
+            parameters:
+              paths:
+                systemNumber: true
 
 resources:
   Resources:

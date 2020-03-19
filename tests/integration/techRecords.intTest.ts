@@ -358,7 +358,7 @@ describe("techRecords", () => {
       });
 
       context("and when trying to update a vehicle", () => {
-        context("and the path parameter systemNumber is valid", () => {
+        context("and the path parameter VIN is valid", () => {
           context("and that vehicle does exist", () => {
             it("should return status 200 and the updated vehicle", async () => {
               // @ts-ignore
@@ -381,13 +381,14 @@ describe("techRecords", () => {
             it("should return error status 404 No resources match the search criteria", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
-              const systemNumber = "NOT A VALID SYSTEM NUMBER";
+              const vin = Date.now().toString();
+              delete techRec.techRecord[0].statusCode;
               const payload = {
                 msUserDetails,
-                systemNumber,
+                systemNumber: "NOT A VALID SYSTEM NUMBER",
                 techRecord: techRec.techRecord
               };
-              const res = await request.put(`vehicles/${systemNumber}`).send(payload);
+              const res = await request.put(`vehicles/${vin}`).send(payload);
               expect(res.status).toEqual(404);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
@@ -400,7 +401,7 @@ describe("techRecords", () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
               techRec.techRecord = [];
-              const res = await request.put(`vehicles/${techRec.systemNumber}`).send(techRec);
+              const res = await request.put(`vehicles/${techRec.vin}`).send(techRec);
               expect(res.status).toEqual(400);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
