@@ -1,12 +1,12 @@
 export enum ERRORS {
-    NotifyConfigNotDefined = "The Notify config is not defined in the config file.",
-    DynamoDBConfigNotDefined = "DynamoDB config is not defined in the config file.",
-    LambdaInvokeConfigNotDefined = "Lambda Invoke config is not defined in the config file.",
-    EventIsEmpty = "Event is empty",
-    NoBranch = "Please define BRANCH environment variable",
+    NOTIFY_CONFIG_NOT_DEFINED = "The Notify config is not defined in the config file.",
+    DYNAMO_DB_CONFIG_NOT_DEFINED = "DynamoDB config is not defined in the config file.",
+    LAMBDA_INVOKE_CONFIG_NOT_DEFINED = "Lambda Invoke config is not defined in the config file.",
+    EVENT_IS_EMPTY = "Event is empty",
+    NO_BRANCH = "Please define BRANCH environment variable",
     NO_UNIQUE_RECORD = "Failed to uniquely identify record",
-    TrailerIdGenerationFailed = "TrailerId generation failed!",
-    SystemNumberGenerationFailed = "System Number generation failed!"
+    TRAILER_ID_GENERATION_FAILED = "TrailerId generation failed!",
+    SYSTEM_NUMBER_GENERATION_FAILED = "System Number generation failed!"
 }
 
 export enum HTTPRESPONSE {

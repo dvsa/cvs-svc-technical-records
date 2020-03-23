@@ -440,7 +440,7 @@ describe("insertTechRecord", () => {
         delete techRecord.trailerId;
         delete techRecord.techRecord[0].statusCode;
 
-        await techRecordsService.setTrailerId(techRecord);
+        techRecord.trailerId = await techRecordsService.setTrailerId();
         expect(techRecord.trailerId).toEqual("C530001");
       });
     });
@@ -466,10 +466,10 @@ describe("insertTechRecord", () => {
           delete techRecord.techRecord[0].statusCode;
 
           try {
-            expect(await techRecordsService.setTrailerId(techRecord)).toThrowError();
+            expect(await techRecordsService.setTrailerId()).toThrowError();
           } catch (errorResponse) {
             expect(errorResponse.statusCode).toEqual(500);
-            expect(errorResponse.body).toEqual(ERRORS.TrailerIdGenerationFailed);
+            expect(errorResponse.body).toEqual(ERRORS.TRAILER_ID_GENERATION_FAILED);
           }
         });
       });
@@ -493,7 +493,7 @@ describe("insertTechRecord", () => {
           delete techRecord.techRecord[0].statusCode;
 
           try {
-            expect(await techRecordsService.setTrailerId(techRecord)).toThrowError();
+            expect(await techRecordsService.setTrailerId()).toThrowError();
           } catch (errorResponse) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual("Some error from test-number microservice");
@@ -518,7 +518,7 @@ describe("insertTechRecord", () => {
           delete techRecord.techRecord[0].statusCode;
 
           try {
-            expect(await techRecordsService.setTrailerId(techRecord)).toThrowError();
+            expect(await techRecordsService.setTrailerId()).toThrowError();
           } catch (errorResponse) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual("Error from test-number microservice");
@@ -550,7 +550,7 @@ describe("insertTechRecord", () => {
         delete techRecord.trailerId;
         delete techRecord.techRecord[0].statusCode;
 
-        await techRecordsService.generateSystemNumber(techRecord);
+        techRecord.systemNumber = await techRecordsService.generateSystemNumber();
         expect(techRecord.systemNumber).toEqual("10001111");
       });
     });
@@ -576,10 +576,10 @@ describe("insertTechRecord", () => {
           delete techRecord.techRecord[0].statusCode;
 
           try {
-            expect(await techRecordsService.generateSystemNumber(techRecord)).toThrowError();
+            expect(await techRecordsService.generateSystemNumber()).toThrowError();
           } catch (errorResponse) {
             expect(errorResponse.statusCode).toEqual(500);
-            expect(errorResponse.body).toEqual(ERRORS.SystemNumberGenerationFailed);
+            expect(errorResponse.body).toEqual(ERRORS.SYSTEM_NUMBER_GENERATION_FAILED);
           }
         });
       });
@@ -605,7 +605,7 @@ describe("insertTechRecord", () => {
           delete techRecord.techRecord[0].statusCode;
 
           try {
-            expect(await techRecordsService.generateSystemNumber(techRecord)).toThrowError();
+            expect(await techRecordsService.generateSystemNumber()).toThrowError();
           } catch (errorResponse) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual("Some error from test-number microservice");
@@ -632,7 +632,7 @@ describe("insertTechRecord", () => {
           delete techRecord.techRecord[0].statusCode;
 
           try {
-            expect(await techRecordsService.generateSystemNumber(techRecord)).toThrowError();
+            expect(await techRecordsService.generateSystemNumber()).toThrowError();
           } catch (errorResponse) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual("Error from test-number microservice");
