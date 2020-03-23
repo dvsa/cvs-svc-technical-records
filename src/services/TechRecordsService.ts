@@ -11,7 +11,6 @@ import {
 } from "../utils/PayloadValidation";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 import {populateFields} from "../utils/ValidationUtils";
-import ITechRecordPostPayload from "../../@Types/ITechRecordPostPayload";
 import HTTPResponse from "../models/HTTPResponse";
 
 /**
@@ -131,17 +130,17 @@ class TechRecordsService {
     return techRecordItem;
   }
 
-  public async insertTechRecord(techRecord: ITechRecordPostPayload, msUserDetails: any) {
+  public async insertTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
     const isPayloadValid = validatePayload(techRecord.techRecord[0]);
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
     }
-    await this.generateSystemNumber(techRecord);
+    techRecord.systemNumber = await this.generateSystemNumber();
     if (!this.validateVrms(techRecord)) {
       return Promise.reject({statusCode: 400, body: "Primary or secondaryVrms are not valid"});
     }
     if (techRecord.techRecord[0].vehicleType === VEHICLE_TYPE.TRL) {
-      await this.setTrailerId(techRecord);
+      techRecord.trailerId = await this.setTrailerId();
     }
     techRecord.techRecord[0] = isPayloadValid.value;
     populateFields(techRecord.techRecord[0]);
@@ -155,37 +154,37 @@ class TechRecordsService {
       });
   }
 
-  public async generateSystemNumber(techRecord: ITechRecordPostPayload) {
+  public async generateSystemNumber() {
     try {
       const systemNumberObj = await this.techRecordsDAO.getSystemNumber();
       if (systemNumberObj.error) {
         return Promise.reject({statusCode: 500, body: systemNumberObj.error});
       }
       if (!systemNumberObj.systemNumber) {
-        return Promise.reject({statusCode: 500, body: ERRORS.SystemNumberGenerationFailed});
+        return Promise.reject({statusCode: 500, body: ERRORS.SYSTEM_NUMBER_GENERATION_FAILED});
       }
-      techRecord.systemNumber = systemNumberObj.systemNumber;
+      return systemNumberObj.systemNumber;
     } catch (error) {
       return Promise.reject({statusCode: 500, body: error});
     }
   }
 
-  public async setTrailerId(techRecord: ITechRecordPostPayload) {
+  public async setTrailerId() {
     try {
       const trailerIdObj = await this.techRecordsDAO.getTrailerId();
       if (trailerIdObj.error) {
         return Promise.reject({statusCode: 500, body: trailerIdObj.error});
       }
       if (!trailerIdObj.trailerId) {
-        return Promise.reject({statusCode: 500, body: ERRORS.TrailerIdGenerationFailed});
+        return Promise.reject({statusCode: 500, body: ERRORS.TRAILER_ID_GENERATION_FAILED});
       }
-      techRecord.trailerId = trailerIdObj.trailerId;
+      return trailerIdObj.trailerId;
     } catch (error) {
       return Promise.reject({statusCode: 500, body: error});
     }
   }
 
-  private validateVrms(techRecord: ITechRecordPostPayload) {
+  private validateVrms(techRecord: ITechRecordWrapper) {
     let areVrmsValid = true;
     const vehicleType = techRecord.techRecord[0].vehicleType;
     if ((vehicleType === VEHICLE_TYPE.HGV || vehicleType === VEHICLE_TYPE.PSV) && !techRecord.primaryVrm) {
