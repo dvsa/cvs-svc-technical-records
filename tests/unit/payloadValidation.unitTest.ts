@@ -55,7 +55,6 @@ describe("payloadValidation", () => {
 
       it("should pass the validation and return the validated payload for TRL", () => {
         const techRec: any = cloneDeep(mockData[78]);
-        console.log("VINUL PULII", techRec.vin);
         delete techRec.techRecord[0].statusCode;
         delete techRec.techRecord[0].createdByName;
         delete techRec.techRecord[0].createdAt;
