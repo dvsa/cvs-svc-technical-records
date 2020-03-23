@@ -24,7 +24,7 @@ describe("updateEuVehicleCategory", () => {
 
     context("when trying to update a vehicle", () => {
         it("should not update the euVehcileCategory if it is already set", async () => {
-            const systemNumber: string = "10000027";
+            const systemNumber: string = "11000027";
             expect.assertions(2);
             await LambdaTester(updateEuVehicleCategory)
                 .event({
@@ -45,7 +45,7 @@ describe("updateEuVehicleCategory", () => {
         });
 
         it("should return 200 and the updated vehicle if it has a euVehicleCategory as undefined", async () => {
-            const systemNumber: string = "10000024";
+            const systemNumber: string = "11000024";
             expect.assertions(4);
             await LambdaTester(updateEuVehicleCategory)
                 .event({
@@ -69,7 +69,7 @@ describe("updateEuVehicleCategory", () => {
         });
 
         it("should return 200 and the updated vehicle if it has a euVehicleCategory as null", async () => {
-            const systemNumber: string = "10000023";
+            const systemNumber: string = "11000023";
             expect.assertions(4);
             await LambdaTester(updateEuVehicleCategory)
                 .event({
