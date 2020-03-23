@@ -8,7 +8,7 @@ class Configuration {
   private readonly config: any;
 
   constructor(configPath: string) {
-    if (!process.env.BRANCH) {throw new Error(ERRORS.NoBranch); }
+    if (!process.env.BRANCH) {throw new Error(ERRORS.NO_BRANCH); }
 
     const config = yml.readSync(configPath);
 
