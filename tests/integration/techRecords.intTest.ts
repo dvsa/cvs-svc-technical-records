@@ -383,6 +383,7 @@ describe("techRecords", () => {
             it("should return status 200 and the updated vehicle", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
+              delete techRec.techRecord[0].statusCode;
               const payload = {
                 msUserDetails,
                 systemNumber: techRec.systemNumber,
@@ -403,6 +404,7 @@ describe("techRecords", () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
               const vin = Date.now().toString();
+              delete techRec.techRecord[0].statusCode;
               const payload = {
                 msUserDetails,
                 systemNumber: "NOT A VALID SYSTEM NUMBER",

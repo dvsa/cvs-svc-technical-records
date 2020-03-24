@@ -216,11 +216,6 @@ class TechRecordsService {
   }
 
   private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
-    const {statusCode} = techRecord.techRecord[0];
-    delete techRecord.techRecord[0].statusCode;
-    if (statusCode === STATUS.ARCHIVED) {
-      return Promise.reject({statusCode: 400, body: ERRORS.CannotUpdateArchivedRecord});
-    }
     const isPayloadValid = validatePayload(techRecord.techRecord[0]);
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
@@ -233,7 +228,7 @@ class TechRecordsService {
           throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
         }
         const uniqueRecord = data[0];
-        const oldTechRec = this.getTechRecordToArchive(uniqueRecord, statusCode);
+        const oldTechRec = this.getTechRecordToArchive(uniqueRecord);
         const newRecord: any = _.cloneDeep(oldTechRec);
         oldTechRec.statusCode = STATUS.ARCHIVED;
         _.mergeWith(newRecord, techRecord.techRecord[0], this.arrayCustomizer);
@@ -253,16 +248,26 @@ class TechRecordsService {
     }
   }
 
-  public getTechRecordToArchive(techRecord: ITechRecordWrapper, statusCode: string) {
-    const recordsToArchive = techRecord.techRecord.filter((record) => {
-      return record.statusCode === statusCode;
-    });
-    if (recordsToArchive.length > 1) {
-      throw new HTTPError(500, `Vehicle has more than one tech-record with status ${statusCode}`);
-    } else if (recordsToArchive.length === 0) {
-      throw new HTTPError(404, `Vehicle has no tech-records with status ${statusCode}`);
+  private getTechRecordToArchive(techRecord: ITechRecordWrapper) {
+    let currentTechRecord = null;
+    let provisionalTechRecord = null;
+    for (const record of techRecord.techRecord) {
+      if (record.statusCode === STATUS.CURRENT) {
+        currentTechRecord = record;
+        break;
+      } else if (record.statusCode === STATUS.PROVISIONAL) {
+        provisionalTechRecord = record;
+      }
+    }
+    if (currentTechRecord) {
+      return currentTechRecord;
+    } else if (provisionalTechRecord) {
+      return provisionalTechRecord;
     } else {
-      return recordsToArchive[0];
+      techRecord.techRecord.sort((a, b) => {
+        return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
+      });
+      return techRecord.techRecord[0];
     }
   }
 
