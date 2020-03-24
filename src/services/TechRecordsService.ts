@@ -260,7 +260,7 @@ class TechRecordsService {
     if (recordsToArchive.length > 1) {
       throw new HTTPError(500, `Vehicle has more than one tech-record with status ${statusCode}`);
     } else if (recordsToArchive.length === 0) {
-      throw new HTTPError(500, `Vehicle has no tech-records with status ${statusCode}`);
+      throw new HTTPError(404, `Vehicle has no tech-records with status ${statusCode}`);
     } else {
       return recordsToArchive[0];
     }
