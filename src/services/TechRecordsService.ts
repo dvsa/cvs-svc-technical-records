@@ -237,7 +237,7 @@ class TechRecordsService {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
     }
     techRecord.techRecord[0] = isPayloadValid.value;
-    return this.getTechRecordsList(techRecord.systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER)
+    return this.getTechRecordsList(techRecord.vin, STATUS.ALL, SEARCHCRITERIA.VIN)
       .then((data: ITechRecordWrapper[]) => {
         if (data.length !== 1) {
           // systemNumber search should return a unique record
