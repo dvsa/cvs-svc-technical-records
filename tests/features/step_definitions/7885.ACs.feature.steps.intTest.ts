@@ -86,6 +86,7 @@ const createPOSTPayload = () => {
 
 const createPUTPayload = () => {
   const techRec: any = cloneDeep(mockData[43]);
+  delete techRec.techRecord[0].statusCode;
   const payload = {
     msUserDetails: {
       msUser: "dorel",
