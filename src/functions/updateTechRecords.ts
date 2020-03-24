@@ -11,7 +11,6 @@ const updateTechRecords = (event: any) => {
   const techRec = event.body ? event.body.techRecord : null;
   const msUserDetails = event.body ? event.body.msUserDetails : null;
   const vin = event.pathParameters ? event.pathParameters.vin : null;
-  const systemNumber = event.body ? event.body.systemNumber : null;
 
   if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 3 || vin.length > 21) {
     return Promise.resolve(new HTTPResponse(400, "Invalid path parameter 'vin'"));
@@ -25,13 +24,9 @@ const updateTechRecords = (event: any) => {
     return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
   }
 
-  if (!systemNumber) {
-    return Promise.resolve(new HTTPResponse(400, "System number not provided"));
-  }
-
   const techRecord: ITechRecordWrapper = {
     vin,
-    systemNumber,
+    systemNumber: event.body.systemNumber,
     techRecord: techRec
   };
   return techRecordsService.updateTechRecord(techRecord, msUserDetails)
