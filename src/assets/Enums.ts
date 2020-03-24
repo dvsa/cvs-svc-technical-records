@@ -279,5 +279,5 @@ export const FRAME_DESCRIPTION: string[] = [
 
 export const LETTER_TYPE: string[] = [
     "Trailer authorization",
-    "Trailer Rejection"
+    "Trailer rejection"
 ];
