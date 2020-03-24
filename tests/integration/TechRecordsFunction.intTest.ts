@@ -255,6 +255,7 @@ describe("updateTechRecords", () => {
       context("and the vehicle was found", () => {
         it("should return 200 and the updated vehicle", async () => {
           const techRecord: any = cloneDeep(records[43]);
+          delete techRecord.techRecord[0].statusCode;
           const payload = {
             msUserDetails,
             systemNumber: techRecord.systemNumber,

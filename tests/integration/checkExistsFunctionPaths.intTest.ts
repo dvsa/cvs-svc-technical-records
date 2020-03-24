@@ -67,6 +67,7 @@ describe("TechRecords", () => {
     // @ts-ignore
     const techRecord: ITechRecordWrapper = cloneDeep(mockData[43]);
     delete techRecord.vin;
+    delete techRecord.techRecord[0].statusCode;
     const payload = {
       msUserDetails,
       systemNumber: techRecord.systemNumber,
