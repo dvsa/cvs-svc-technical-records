@@ -93,6 +93,7 @@ describe("The lambda function handler", () => {
             msUser: "dorel",
             msOid: "12314234"
           },
+          systemNumber: mockData[26].systemNumber,
           techRecord: mockData[26].techRecord
         };
         const vehicleRecordEvent = {
