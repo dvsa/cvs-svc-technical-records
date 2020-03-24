@@ -440,8 +440,7 @@ describe("insertTechRecord", () => {
         delete techRecord.trailerId;
         delete techRecord.techRecord[0].statusCode;
 
-        techRecord.trailerId = await techRecordsService.setTrailerId();
-        expect(techRecord.trailerId).toEqual("C530001");
+        expect(await techRecordsService.setTrailerId()).toEqual("C530001");
       });
     });
     context("and the trailer id generation failed", () => {
@@ -550,8 +549,7 @@ describe("insertTechRecord", () => {
         delete techRecord.trailerId;
         delete techRecord.techRecord[0].statusCode;
 
-        techRecord.systemNumber = await techRecordsService.generateSystemNumber();
-        expect(techRecord.systemNumber).toEqual("10001111");
+        expect(await techRecordsService.generateSystemNumber()).toEqual("10001111");
       });
     });
     context("and the system number generation failed", () => {
