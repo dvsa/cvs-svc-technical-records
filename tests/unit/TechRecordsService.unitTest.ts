@@ -662,7 +662,7 @@ describe("updateTechRecord", () => {
           expect(await techRecordsService.getTechRecordToArchive(techRecord, STATUS.CURRENT)).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
-          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.statusCode).toEqual(404);
           expect(errorResponse.body).toEqual("Vehicle has no tech-records with status current");
         }
       });
