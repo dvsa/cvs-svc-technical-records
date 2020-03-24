@@ -1,0 +1,16 @@
+version: 1
+update_configs:
+- package_manager: "javascript"
+  directory: "/"
+  update_schedule: "live"
+  target_branch: "develop"
+  version_requirement_updates: increase_versions
+  default_reviewers:
+  - "KHodderDVSA"
+  - "castancu"
+  default_assignees:
+  - "KHodderDVSA"
+  - "castancu"
+  allowed_updates:
+  - match:
+      update_type: "security"
