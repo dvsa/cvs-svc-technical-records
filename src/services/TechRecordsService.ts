@@ -2,7 +2,15 @@ import HTTPError from "../models/HTTPError";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecord from "../../@Types/ITechRecord";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {ERRORS, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE, VEHICLE_TYPE, EU_VEHICLE_CATEGORY} from "../assets/Enums";
+import {
+  ERRORS,
+  HTTPRESPONSE,
+  SEARCHCRITERIA,
+  STATUS,
+  UPDATE_TYPE,
+  VEHICLE_TYPE,
+  EU_VEHICLE_CATEGORY
+} from "../assets/Enums";
 import * as _ from "lodash";
 import {
   validatePayload,
@@ -257,8 +265,9 @@ class TechRecordsService {
           throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
         }
         const uniqueRecord = data[0];
+        this.updateAttributesOutsideTechRecordsArray(uniqueRecord, techRecord);
         const oldTechRec = this.getTechRecordToArchive(uniqueRecord, statusCode);
-        const newRecord: any = _.cloneDeep(oldTechRec);
+        const newRecord: ITechRecord = _.cloneDeep(oldTechRec);
         oldTechRec.statusCode = STATUS.ARCHIVED;
         _.mergeWith(newRecord, techRecord.techRecord[0], this.arrayCustomizer);
         this.setAuditDetails(newRecord, oldTechRec, msUserDetails);
@@ -269,6 +278,25 @@ class TechRecordsService {
       .catch((error: any) => {
         throw new HTTPError(error.statusCode, error.body);
       });
+  }
+
+  public updateAttributesOutsideTechRecordsArray(uniqueRecord: any, techRecord: ITechRecordWrapper) {
+    let primaryVrm;
+    for (const vrm of uniqueRecord.vrms) {
+      if (vrm.isPrimary) {
+        primaryVrm = vrm.vrm;
+        break;
+      }
+    }
+    if (techRecord.primaryVrm && primaryVrm !== techRecord.primaryVrm) {
+      // do a get using primaryVrm -> if found -> return 400, else update primaryVrm
+    }
+    if (techRecord.trailerId && techRecord.techRecord[0].vehicleType === VEHICLE_TYPE.TRL && uniqueRecord.trailerId !== techRecord.trailerId) {
+      // do a get using trailerId -> if found -> return 400, else update trailerId
+    }
+    if (techRecord.secondaryVrms) {
+      uniqueRecord.secondaryVrms = techRecord.secondaryVrms;
+    }
   }
 
   private arrayCustomizer(objValue: any, srcValue: any) {
@@ -378,11 +406,11 @@ class TechRecordsService {
     const techRecordWrapper: ITechRecordWrapper = (await this.getTechRecordsList(systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER))[0];
     const nonArchivedTechRecord = techRecordWrapper.techRecord.filter((techRecord) => techRecord.statusCode !== STATUS.ARCHIVED);
     if (nonArchivedTechRecord.length > 1) {
-        throw new HTTPError(400, HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD);
+      throw new HTTPError(400, HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD);
     }
-    if(nonArchivedTechRecord[0].euVehicleCategory) {
-        return new HTTPResponse(200,HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED);
-      }
+    if (nonArchivedTechRecord[0].euVehicleCategory) {
+      return new HTTPResponse(200, HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED);
+    }
     const statusCode = nonArchivedTechRecord[0].statusCode;
     const newTechRecord: ITechRecord = {...nonArchivedTechRecord[0]};
     nonArchivedTechRecord[0].statusCode = STATUS.ARCHIVED;
@@ -391,10 +419,10 @@ class TechRecordsService {
     techRecordWrapper.techRecord.push(newTechRecord);
     let updatedTechRecord;
     try {
-          updatedTechRecord =  await this.techRecordsDAO.updateSingle(techRecordWrapper);
-        } catch (error) {
-          throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
-        }
+      updatedTechRecord = await this.techRecordsDAO.updateSingle(techRecordWrapper);
+    } catch (error) {
+      throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
+    }
     return new HTTPResponse(200, this.formatTechRecordItemForResponse(updatedTechRecord.Attributes as ITechRecordWrapper));
   }
 }

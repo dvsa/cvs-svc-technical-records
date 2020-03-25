@@ -15,6 +15,7 @@ const getTechRecords = (event: any) => {
   const searchCriteria: ISearchCriteria = (event.queryStringParameters?.searchCriteria) ? event.queryStringParameters.searchCriteria : SEARCHCRITERIA.ALL;
   const metadata: string = (event.queryStringParameters) ? event.queryStringParameters.metadata : null;
   const searchIdentifier: string | null = (event.pathParameters) ? decodeURIComponent(event.pathParameters.searchIdentifier) : null;
+  console.log("SEARCH", searchIdentifier);
 
   // searchTerm too long or too short
   if (!searchIdentifier || searchIdentifier.length < 3 || searchIdentifier.length > 21) {

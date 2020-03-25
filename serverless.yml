@@ -125,12 +125,12 @@ functions:
     handler: src/handler.handler
     events:
       - http:
-          path: vehicles/{vin}
+          path: vehicles/{systemNumber}
           method: put
           request:
             parameters:
               paths:
-                vin: true
+                systemNumber: true
   updateTechRecordStatus:
     handler: src/handler.handler
     events:
