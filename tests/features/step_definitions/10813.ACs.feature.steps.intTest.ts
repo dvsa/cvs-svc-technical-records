@@ -86,7 +86,6 @@ defineFeature(feature, (test) => {
 
 const createPUTPayload = () => {
   const techRec: any = cloneDeep(mockData[74]);
-  delete techRec.techRecord[0].statusCode;
   const payload = {
     msUserDetails: {
       msUser: "dorel",
