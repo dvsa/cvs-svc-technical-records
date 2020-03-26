@@ -15,11 +15,13 @@ import * as _ from "lodash";
 import {
   validatePayload,
   validatePrimaryVrm,
-  validateSecondaryVrms
+  validateSecondaryVrms, validateTrailerId
 } from "../utils/PayloadValidation";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 import {populateFields} from "../utils/ValidationUtils";
 import HTTPResponse from "../models/HTTPResponse";
+import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
+import QueryOutput = DocumentClient.QueryOutput;
 import {ValidationError, ValidationResult} from "@hapi/joi";
 import {formatErrorMessage} from "../utils/formatErrorMessage";
 
@@ -259,13 +261,13 @@ class TechRecordsService {
     this.checkValidationErrors(isPayloadValid);
     techRecord.techRecord[0] = isPayloadValid.value;
     return this.getTechRecordsList(techRecord.systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER)
-      .then((data: ITechRecordWrapper[]) => {
+      .then(async (data: ITechRecordWrapper[]) => {
         if (data.length !== 1) {
           // systemNumber search should return a unique record
           throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
         }
         const uniqueRecord = data[0];
-        this.updateAttributesOutsideTechRecordsArray(uniqueRecord, techRecord);
+        await this.updateAttributesOutsideTechRecordsArray(uniqueRecord, techRecord);
         const oldTechRec = this.getTechRecordToArchive(uniqueRecord, statusCode);
         const newRecord: ITechRecord = _.cloneDeep(oldTechRec);
         oldTechRec.statusCode = STATUS.ARCHIVED;
@@ -280,22 +282,50 @@ class TechRecordsService {
       });
   }
 
-  public updateAttributesOutsideTechRecordsArray(uniqueRecord: any, techRecord: ITechRecordWrapper) {
-    let primaryVrm;
+  public async updateAttributesOutsideTechRecordsArray(uniqueRecord: any, techRecord: ITechRecordWrapper) {
+    uniqueRecord.secondaryVrms = [];
     for (const vrm of uniqueRecord.vrms) {
       if (vrm.isPrimary) {
-        primaryVrm = vrm.vrm;
-        break;
+        uniqueRecord.primaryVrm = vrm.vrm;
+      } else {
+        uniqueRecord.secondaryVrms.push(vrm.vrm);
       }
     }
-    if (techRecord.primaryVrm && primaryVrm !== techRecord.primaryVrm) {
-      // do a get using primaryVrm -> if found -> return 400, else update primaryVrm
+    if (techRecord.secondaryVrms) {
+      const areSecondaryVrmsValid = validateSecondaryVrms.validate(techRecord.secondaryVrms);
+      if (areSecondaryVrmsValid.error) {
+        return Promise.reject({statusCode: 400, body: formatErrorMessage("SecondaryVrms are invalid")});
+      }
+      uniqueRecord.secondaryVrms = techRecord.secondaryVrms;
+    }
+    if (techRecord.primaryVrm && uniqueRecord.primaryVrm !== techRecord.primaryVrm) {
+      const isPrimaryVrmValid = validatePrimaryVrm.validate(techRecord.primaryVrm);
+      if (isPrimaryVrmValid.error) {
+        return Promise.reject({statusCode: 400, body: formatErrorMessage("PrimaryVrm is invalid")});
+      }
+      const primaryVrmRecords: QueryOutput = await this.techRecordsDAO.getBySearchTerm(techRecord.primaryVrm, SEARCHCRITERIA.VRM);
+      if (primaryVrmRecords.Count! > 0) {
+        return Promise.reject({statusCode: 400, body: formatErrorMessage(`Primary VRM ${techRecord.primaryVrm} already exists`)});
+      }
+      const previousVrm = uniqueRecord.primaryVrm;
+      if (previousVrm) {
+        uniqueRecord.secondaryVrms.push(previousVrm);
+      }
+      uniqueRecord.primaryVrm = techRecord.primaryVrm;
+      techRecord.techRecord[0].reasonForCreation = `VRM updated from ${previousVrm} to ${techRecord.primaryVrm}. ` + techRecord.techRecord[0].reasonForCreation;
     }
     if (techRecord.trailerId && techRecord.techRecord[0].vehicleType === VEHICLE_TYPE.TRL && uniqueRecord.trailerId !== techRecord.trailerId) {
-      // do a get using trailerId -> if found -> return 400, else update trailerId
-    }
-    if (techRecord.secondaryVrms) {
-      uniqueRecord.secondaryVrms = techRecord.secondaryVrms;
+      const isTrailerIdValid = validateTrailerId.validate(techRecord.trailerId);
+      if (isTrailerIdValid.error) {
+        return Promise.reject({statusCode: 400, body: formatErrorMessage("TrailerId is invalid")});
+      }
+      const trailerIdRecords: QueryOutput = await this.techRecordsDAO.getBySearchTerm(techRecord.trailerId, SEARCHCRITERIA.TRAILERID);
+      if (trailerIdRecords.Count! > 0) {
+        return Promise.reject({statusCode: 400, body: formatErrorMessage(`TrailerId ${techRecord.trailerId} already exists`)});
+      }
+      const previousTrailerId = uniqueRecord.trailerId;
+      uniqueRecord.trailerId = techRecord.trailerId;
+      techRecord.techRecord[0].reasonForCreation = `Trailer Id updated from ${previousTrailerId} to ${techRecord.trailerId}. ` + techRecord.techRecord[0].reasonForCreation;
     }
   }
 

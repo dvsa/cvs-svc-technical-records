@@ -41,7 +41,7 @@ defineFeature(feature, (test) => {
 
     given("I am a consumer of the vehicles API", () => {
       requestUrlPOST = "vehicles/";
-      requestUrlPUT = "vehicles/ABCDEFGH654321";
+      requestUrlPUT = "vehicles/1100047";
       requestUrlGET = "vehicles/1B7GG36N12S678410/tech-records";
     });
     when("I call the vehicles API", async () => {
@@ -93,7 +93,6 @@ const createPUTPayload = () => {
       msUser: "dorel",
       msOid: "1234545"
     },
-    systemNumber: techRec.systemNumber,
     techRecord: techRec.techRecord
   };
   return payload;

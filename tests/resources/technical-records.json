@@ -18054,6 +18054,7 @@
           "weight": null
         },
         "recordCompleteness": "complete",
+        "statusCode": "current",
         "euVehicleCategory": "o1",
         "approvalType": "NTA",
         "applicantDetails": {

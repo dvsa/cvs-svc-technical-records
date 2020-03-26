@@ -230,22 +230,20 @@ describe("updateTechRecords", () => {
   });
 
   context("when trying to update a vehicle", () => {
-    context("and the path parameter VIN is valid", () => {
+    context("and the path parameter systemNumber is valid", () => {
       context("and the vehicle was found", () => {
         it("should return 200 and the updated vehicle", async () => {
           const techRecord: any = cloneDeep(records[43]);
           const payload = {
             msUserDetails,
-            systemNumber: techRecord.systemNumber,
             techRecord: techRecord.techRecord
           };
-          const vin = techRecord.vin;
-          delete techRecord.vin;
+          const systemNumber = techRecord.systemNumber;
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
-              path: `/vehicles/${vin}`,
+              path: `/vehicles/${systemNumber}`,
               pathParameters: {
-                vin
+                systemNumber
               },
               body: payload
             })
@@ -262,17 +260,17 @@ describe("updateTechRecords", () => {
         it("should return 404 Not found", async () => {
           const techRecord: any = cloneDeep(records[43]);
           delete techRecord.techRecord[0].statusCode;
+          const systemNumber = "NOT A SYSTEM NUMBER";
           const payload = {
             msUserDetails,
-            systemNumber: "NOT A SYSTEM NUMBER",
+            systemNumber,
             techRecord: techRecord.techRecord
           };
-          const vin = Date.now().toString();
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
-              path: `/vehicles/${vin}`,
+              path: `/vehicles/${systemNumber}`,
               pathParameters: {
-                vin
+                systemNumber
               },
               body: payload
             })
@@ -290,14 +288,13 @@ describe("updateTechRecords", () => {
             msUserDetails,
             techRecord: []
           };
-          const vin = Date.now().toString();
-          techRecord.partialVin = vin.substr(vin.length - 6);
+          const systemNumber = Date.now().toString();
           techRecord.techRecord = [];
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
-              path: `/vehicles/${vin}`,
+              path: `/vehicles/${systemNumber}`,
               pathParameters: {
-                vin
+                systemNumber
               },
               body: payload
             })
@@ -317,14 +314,13 @@ describe("updateTechRecords", () => {
               adrDetails: techRecord.techRecord[0].adrDetails
             }]
           };
-          const vin = Date.now().toString();
-          techRecord.partialVin = vin.substr(vin.length - 6);
+          const systemNumber = Date.now().toString();
           techRecord.techRecord = [];
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
-              path: `/vehicles/${vin}`,
+              path: `/vehicles/${systemNumber}`,
               pathParameters: {
-                vin
+                systemNumber
               },
               body: payload
             })
@@ -337,12 +333,12 @@ describe("updateTechRecords", () => {
 
       context("and the event body is empty", () => {
         it("should return 400 invalid TechRecord", async () => {
-          const vin = Date.now().toString();
+          const systemNumber = Date.now().toString();
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
-              path: `/vehicles/${vin}`,
+              path: `/vehicles/${systemNumber}`,
               pathParameters: {
-                vin
+                systemNumber
               },
               body: undefined
             })
@@ -354,69 +350,18 @@ describe("updateTechRecords", () => {
       });
     });
 
-    context("and the path parameter VIN is invalid", () => {
-      context("and the path parameter VIN is null", () => {
-        it("should return 400 Invalid path parameter 'vin'", async () => {
+    context("and the path parameter systemNumber is invalid", () => {
+      context("and the path parameter systemNumber is null", () => {
+        it("should return 400 Invalid path parameter 'systemNumber'", async () => {
           const techRecord = cloneDeep(records[1]);
-
-          const vin = Date.now().toString();
-          techRecord.partialVin = vin.substr(vin.length - 6);
-          techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-          techRecord.techRecord = [];
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
-              path: `/vehicles/${vin}`,
+              path: `/vehicles/${techRecord.systemNumber}`,
               body: techRecord
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(JSON.parse(result.body).errors).toContain("Invalid path parameter \'vin\'");
-            });
-        });
-      });
-
-      context("and the path parameter VIN is shorter than 3 characters", () => {
-        it("should return 400 Invalid path parameter 'vin'", async () => {
-          const techRecord = cloneDeep(records[1]);
-
-          const vin = Date.now().toString();
-          techRecord.partialVin = vin.substr(vin.length - 6);
-          techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-          techRecord.techRecord = [];
-          await LambdaTester(UpdateTechRecordsFunction)
-            .event({
-              path: `/vehicles/${vin}`,
-              pathParameters: {
-                vin: "AB"
-              },
-              body: techRecord
-            })
-            .expectResolve((result: any) => {
-              expect(result.statusCode).toEqual(400);
-              expect(JSON.parse(result.body).errors).toContain("Invalid path parameter \'vin\'");
-            });
-        });
-      });
-
-      context("and the path parameter VIN contains non alphanumeric characters", () => {
-        it("should return 400 Invalid path parameter 'vin'", async () => {
-          const techRecord = cloneDeep(records[1]);
-
-          const vin = Date.now().toString();
-          techRecord.partialVin = vin.substr(vin.length - 6);
-          techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-          techRecord.techRecord = [];
-          await LambdaTester(UpdateTechRecordsFunction)
-            .event({
-              path: `/vehicles/${vin}`,
-              pathParameters: {
-                vin: "tech-r#cord$"
-              },
-              body: techRecord
-            })
-            .expectResolve((result: any) => {
-              expect(result.statusCode).toEqual(400);
-              expect(JSON.parse(result.body).errors).toContain("Invalid path parameter \'vin\'");
+              expect(JSON.parse(result.body).errors).toContain("Invalid path parameter \'systemNumber\'");
             });
         });
       });

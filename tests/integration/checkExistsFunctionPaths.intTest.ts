@@ -65,29 +65,23 @@ describe("TechRecords", () => {
     expect(JSON.parse(response.body)).toEqual("Technical Record created");
   });
 
-  it("should detect exported path /vehicles/{vin}", async () => {
+  it("should detect exported path /vehicles/{systemNumber}", async () => {
     // @ts-ignore
     const techRecord: ITechRecordWrapper = cloneDeep(mockData[43]);
-    delete techRecord.vin;
     const payload = {
       msUserDetails,
-      systemNumber: techRecord.systemNumber,
       techRecord: techRecord.techRecord
     };
     const vehicleRecordEvent = {
-      path: "/vehicles/ABCDEFGH654321",
+      path: "/vehicles/1100047",
       pathParameters: {
-        vin: "ABCDEFGH654321"
+        systemNumber: "1100047"
       },
-      resource: "/vehicles/{vin}",
+      resource: "/vehicles/{systemNumber}",
       httpMethod: "PUT",
-      body: JSON.stringify(payload),
-      queryStringParameters: null
+      body: JSON.stringify(payload)
     };
 
-    const opts = Object.assign({
-      timeout: 1
-    });
     const response = await handler(vehicleRecordEvent, ctx);
     expect(response).toBeDefined();
     expect(response.statusCode).toEqual(200);
