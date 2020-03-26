@@ -135,11 +135,10 @@ class TechRecordsService {
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
     }
-    const vehicleType = techRecord.techRecord[0].vehicleType;
-    if ((vehicleType === VEHICLE_TYPE.PSV || vehicleType === VEHICLE_TYPE.HGV) && !this.validateVrms(techRecord)) {
+    if (!this.validateVrms(techRecord)) {
       return Promise.reject({statusCode: 400, body: "Primary or secondaryVrms are not valid"});
     }
-    if (vehicleType === VEHICLE_TYPE.TRL) {
+    if (techRecord.techRecord[0].vehicleType === VEHICLE_TYPE.TRL) {
       await this.setTrailerId(techRecord);
     }
     techRecord.techRecord[0] = isPayloadValid.value;
@@ -171,7 +170,8 @@ class TechRecordsService {
 
   private validateVrms(techRecord: ITechRecordWrapper) {
     let areVrmsValid = true;
-    if (!techRecord.primaryVrm) {
+    const vehicleType = techRecord.techRecord[0].vehicleType;
+    if ((vehicleType === VEHICLE_TYPE.HGV || vehicleType === VEHICLE_TYPE.PSV) && !techRecord.primaryVrm) {
       areVrmsValid = false;
     } else {
       const isValid = validatePrimaryVrm.validate(techRecord.primaryVrm);
