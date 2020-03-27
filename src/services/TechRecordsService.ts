@@ -163,6 +163,7 @@ class TechRecordsService {
     if (!this.validateVrms(techRecord)) {
       return Promise.reject({statusCode: 400, body: "Primary or secondaryVrms are not valid"});
     }
+    techRecord.systemNumber = await this.generateSystemNumber();
     if (techRecord.techRecord[0].vehicleType === VEHICLE_TYPE.TRL) {
       techRecord.trailerId = await this.setTrailerId();
     }
