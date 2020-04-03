@@ -788,7 +788,7 @@ describe("updateTechRecord", () => {
     });
 
     context("and the user wants to update a record which doesn't have the specified statusCode", () => {
-      it("should return error 500 Vehicle has no tech-records with status {statusCode}", async () => {
+      it("should return error 404 Vehicle has no tech-records with status {statusCode}", async () => {
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
         const MockDAO = jest.fn().mockImplementation();

@@ -261,26 +261,25 @@ class TechRecordsService {
     const isPayloadValid = validatePayload(techRecord.techRecord[0], false);
     this.checkValidationErrors(isPayloadValid);
     techRecord.techRecord[0] = isPayloadValid.value;
-    return this.getTechRecordsList(techRecord.systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER)
-      .then(async (data: ITechRecordWrapper[]) => {
-        if (data.length !== 1) {
-          // systemNumber search should return a unique record
-          throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
-        }
-        const uniqueRecord = data[0];
-        await this.updateAttributesOutsideTechRecordsArray(uniqueRecord, techRecord);
-        const oldTechRec = this.getTechRecordToArchive(uniqueRecord, statusCode);
-        const newRecord: ITechRecord = _.cloneDeep(oldTechRec);
-        oldTechRec.statusCode = STATUS.ARCHIVED;
-        _.mergeWith(newRecord, techRecord.techRecord[0], this.arrayCustomizer);
-        this.setAuditDetails(newRecord, oldTechRec, msUserDetails);
-        populateFields(newRecord);
-        uniqueRecord.techRecord.push(newRecord);
-        return uniqueRecord;
-      })
-      .catch((error: any) => {
-        throw new HTTPError(error.statusCode, error.body);
-      });
+    try {
+      const data: ITechRecordWrapper[] = await this.getTechRecordsList(techRecord.systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER);
+      if (data.length !== 1) {
+        // systemNumber search should return a unique record
+        return Promise.reject({statusCode: 500, body: ERRORS.NO_UNIQUE_RECORD});
+      }
+      const uniqueRecord = data[0];
+      await this.updateAttributesOutsideTechRecordsArray(uniqueRecord, techRecord);
+      const oldTechRec = this.getTechRecordToArchive(uniqueRecord, statusCode);
+      const newRecord: ITechRecord = _.cloneDeep(oldTechRec);
+      oldTechRec.statusCode = STATUS.ARCHIVED;
+      _.mergeWith(newRecord, techRecord.techRecord[0], this.arrayCustomizer);
+      this.setAuditDetails(newRecord, oldTechRec, msUserDetails);
+      populateFields(newRecord);
+      uniqueRecord.techRecord.push(newRecord);
+      return uniqueRecord;
+    } catch (error) {
+      return Promise.reject({statusCode: error.statusCode, body: error.body});
+    }
   }
 
   public async updateAttributesOutsideTechRecordsArray(uniqueRecord: any, techRecord: ITechRecordWrapper) {
@@ -337,9 +336,7 @@ class TechRecordsService {
   }
 
   public getTechRecordToArchive(techRecord: ITechRecordWrapper, statusCode: string) {
-    const recordsToArchive = techRecord.techRecord.filter((record) => {
-      return record.statusCode === statusCode;
-    });
+    const recordsToArchive = techRecord.techRecord.filter((record) => record.statusCode === statusCode);
     if (recordsToArchive.length > 1) {
       throw new HTTPError(500, `Vehicle has more than one tech-record with status ${statusCode}`);
     } else if (recordsToArchive.length === 0) {
