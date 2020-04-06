@@ -17964,8 +17964,8 @@
         "trainGbWeight": null,
         "tyreUseCode": null,
         "vehicleClass": {
-          "code": "v",
-          "description": "3 wheelers"
+          "code": "1",
+          "description": "motorbikes up to 200cc"
         },
         "vehicleConfiguration": "rigid",
         "vehicleType": "motorcycle",
