@@ -6,6 +6,7 @@ import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, EU_VEHICLE_CATEGORY, ERRORS} from 
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
 import HTTPResponse from "../../src/models/HTTPResponse";
+import Configuration from "../../src/utils/Configuration";
 
 describe("getTechRecordsList", () => {
   afterEach(() => {
@@ -260,6 +261,12 @@ describe("getTechRecordsList", () => {
 describe("insertTechRecord", () => {
   afterEach(() => {
     jest.restoreAllMocks();
+  });
+  beforeAll(() => {
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(false);
+  });
+  afterAll(() => {
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(true);
   });
   context("when inserting a new technical record", () => {
     it("should return 201 Technical Record Created", async () => {
@@ -644,6 +651,12 @@ describe("insertTechRecord", () => {
 describe("updateTechRecord", () => {
   afterEach(() => {
     jest.restoreAllMocks();
+  });
+  beforeAll(() => {
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(false);
+  });
+  afterAll(() => {
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(true);
   });
   const msUserDetails = {
     msUser: "dorel",

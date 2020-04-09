@@ -7,6 +7,7 @@ import {
 import ITechRecord from "../../@Types/ITechRecord";
 import {validatePayload} from "../../src/utils/PayloadValidation";
 import {VEHICLE_TYPE, BODY_TYPE_DESCRIPTION, VEHICLE_CLASS_DESCRIPTION} from "../../src/assets/Enums";
+import Configuration from "../../src/utils/Configuration";
 
 const createPayload = () => {
   const techRec: any = cloneDeep(mockData[74]);
@@ -49,6 +50,12 @@ const bodyTypeMap: any = {
 };
 
 describe("payloadValidation", () => {
+  beforeAll(() => {
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(false);
+  });
+  afterAll(() => {
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(true);
+  });
   context("When validating the payload", () => {
     context("and the payload is valid", () => {
 
@@ -133,6 +140,28 @@ describe("payloadValidation", () => {
           expect(errorResponse.message).toEqual("Not valid");
         }
       });
+    });
+  });
+});
+
+describe("payload validation for adr feature flag", () => {
+  context("when the allowAdrUpdatesOnlyFlag config variable is set to TRUE", () => {
+    it("should validate only the adrDetails and reason for creation for TRL", () => {
+      const techRec: any = cloneDeep(mockData[29]);
+      const validatedPayload = validatePayload(techRec.techRecord[0]);
+      expect(validatedPayload.value).toBeDefined();
+      expect(validatedPayload.error).toEqual(undefined);
+      expect(validatedPayload.value.reasonForCreation).toEqual(techRec.techRecord[0].reasonForCreation);
+      expect(validatedPayload.value.adrDetails).toEqual(techRec.techRecord[0].adrDetails);
+    });
+
+    it("should validate only the adrDetails and reason for creation for HGV", () => {
+      const techRec: any = cloneDeep(mockData[43]);
+      const validatedPayload = validatePayload(techRec.techRecord[0]);
+      expect(validatedPayload.value).toBeDefined();
+      expect(validatedPayload.error).toEqual(undefined);
+      expect(validatedPayload.value.reasonForCreation).toEqual(techRec.techRecord[0].reasonForCreation);
+      expect(validatedPayload.value.adrDetails).toEqual(techRec.techRecord[0].adrDetails);
     });
   });
 });

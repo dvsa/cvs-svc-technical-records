@@ -4,6 +4,8 @@ import {VEHICLE_TYPE, SEARCHCRITERIA} from "../assets/Enums";
 import Joi from "@hapi/joi";
 import {psvValidation} from "./PsvValidations";
 import {trlValidation} from "./TrlValidations";
+import {validateOnlyAdr} from "./AdrValidation";
+import Configuration from "./Configuration";
 
 const checkIfTankOrBattery = (payload: ITechRecord) => {
   let isTankOrBattery = false;
@@ -18,12 +20,24 @@ const checkIfTankOrBattery = (payload: ITechRecord) => {
 
 export const validatePayload = (payload: ITechRecord) => {
   const isTankOrBattery = checkIfTankOrBattery(payload);
+  const context = {context: {isTankOrBattery}};
+  const allowAdrUpdatesOnlyFlag: boolean = Configuration.getInstance().getAllowAdrUpdatesOnlyFlag();
   if (payload.vehicleType === VEHICLE_TYPE.HGV) {
-    return hgvValidation.validate(payload, {context: {isTankOrBattery}});
+    if (allowAdrUpdatesOnlyFlag) {
+      Object.assign(context, {stripUnknown: true});
+      return validateOnlyAdr.validate({adrDetails: payload.adrDetails, reasonForCreation: payload.reasonForCreation}, context);
+    } else {
+      return hgvValidation.validate(payload, context);
+    }
   } else if (payload.vehicleType === VEHICLE_TYPE.PSV) {
     return psvValidation.validate(payload);
   } else if (payload.vehicleType === VEHICLE_TYPE.TRL) {
-    return trlValidation.validate(payload, {context: {isTankOrBattery}});
+    if (allowAdrUpdatesOnlyFlag) {
+      Object.assign(context, {stripUnknown: true});
+      return validateOnlyAdr.validate({adrDetails: payload.adrDetails, reasonForCreation: payload.reasonForCreation}, context);
+    } else {
+      return trlValidation.validate(payload, context);
+    }
   } else {
     return {
       error: {

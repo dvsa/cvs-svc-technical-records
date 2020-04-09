@@ -42,7 +42,7 @@ defineFeature(feature, (test) => {
     await populateDatabase();
   });
 
-  test("AC1. POST: Partial VIN is autopopulated", ({given, when, then, and}) => {
+  test.skip("AC1. POST: Partial VIN is autopopulated", ({given, when, then, and}) => {
     let requestUrlPOST: string;
     let requestUrlGET: string;
     const postPayload = createPOSTPayload();
@@ -67,7 +67,7 @@ defineFeature(feature, (test) => {
     });
   });
 
-  test("AC2. POST: Vehicle class code is autopopulated", ({given, when, then, and}) => {
+  test.skip("AC2. POST: Vehicle class code is autopopulated", ({given, when, then, and}) => {
     let requestUrlPOST: string;
     let requestUrlGET: string;
     const postPayload = createPOSTPayload();
@@ -92,7 +92,7 @@ defineFeature(feature, (test) => {
     });
   });
 
-  test("AC3. POST: Body type code is autopopulated", ({given, when, then, and}) => {
+  test.skip("AC3. POST: Body type code is autopopulated", ({given, when, then, and}) => {
     let requestUrlPOST: string;
     let requestUrlGET: string;
     const postPayload = createPOSTPayload();

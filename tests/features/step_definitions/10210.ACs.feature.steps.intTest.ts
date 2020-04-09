@@ -27,7 +27,7 @@ defineFeature(feature, (test) => {
     await populateDatabase();
   });
 
-  test("AC1. POST: Attempt to create a new vehicle without a mandatory field", ({given, when, then}) => {
+  test.skip("AC1. POST: Attempt to create a new vehicle without a mandatory field", ({given, when, then}) => {
     let requestUrl: string;
     let response: any;
 
@@ -45,7 +45,7 @@ defineFeature(feature, (test) => {
     });
   });
 
-  test("AC2. POST: Attempt to create a new vehicle with a not applicable field", ({given, when, then}) => {
+  test.skip("AC2. POST: Attempt to create a new vehicle with a not applicable field", ({given, when, then}) => {
     let requestUrl: string;
     let response: any;
 
@@ -63,7 +63,7 @@ defineFeature(feature, (test) => {
     });
   });
 
-  test("AC3. POST: Attempt to create a new vehicle with unexpected values for a field that accepts only specific values", ({given, when, then}) => {
+  test.skip("AC3. POST: Attempt to create a new vehicle with unexpected values for a field that accepts only specific values", ({given, when, then}) => {
     let requestUrl: string;
     let response: any;
 
@@ -81,7 +81,7 @@ defineFeature(feature, (test) => {
     });
   });
 
-  test("AC4. POST: Attempt to create a new vehicle, using a field which has a field value outside of the min/max length for that field", ({given, when, then}) => {
+  test.skip("AC4. POST: Attempt to create a new vehicle, using a field which has a field value outside of the min/max length for that field", ({given, when, then}) => {
     let requestUrl: string;
     let response: any;
 

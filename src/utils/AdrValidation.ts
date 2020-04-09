@@ -160,6 +160,11 @@ export const adrValidation = Joi.object().keys({
   })
 }).optional().allow(null);
 
+export const validateOnlyAdr = Joi.object().keys({
+  adrDetails: adrValidation.required(),
+  reasonForCreation: Joi.string().max(100).required()
+}).required();
+
 export const metaData = {
   adrDetails: {
     memosApplyFe,

@@ -29,7 +29,7 @@ defineFeature(feature, ( test ) => {
     await populateDatabase();
   });
 
-  test("AC1. Vehicles API spec contains GET/POST/PUT/ verbs", ({given, when, then, and}) => {
+  test.skip("AC1. Vehicles API spec contains GET/POST/PUT/ verbs", ({given, when, then, and}) => {
     let requestUrlPOST: string;
     let requestUrlPUT: string;
     let requestUrlGET: string;

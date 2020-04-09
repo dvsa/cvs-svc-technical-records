@@ -1,7 +1,4 @@
-/* tslint:disable */
-const Joi = require("@hapi/joi")
-  .extend(require("@hapi/joi-date"));
-
+import Joi from "@hapi/joi";
 import {axlesSchema, commonSchema, weightsSchema} from "./CommonSchema";
 import {FUEL_PROPULSION_SYSTEM} from "../assets/Enums";
 import {adrValidation} from "./AdrValidation";
