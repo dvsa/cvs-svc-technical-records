@@ -113,6 +113,14 @@ class Configuration {
 
     return this.config.endpoints[env];
   }
+
+  public getAllowAdrUpdatesOnlyFlag(): boolean {
+    return this.config.allowAdrUpdatesOnly || false;
+  }
+
+  public setAllowAdrUpdatesOnlyFlag(allowAdrUpdatesOnly: boolean) {
+    this.config.allowAdrUpdatesOnly = allowAdrUpdatesOnly;
+  }
 }
 
 export default Configuration;

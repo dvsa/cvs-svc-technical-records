@@ -48,7 +48,7 @@ defineFeature(feature, (test) => {
     });
   });
 
-  test("POST request: HGV vehicle is created, and the appropriate attributes are automatically set", ({given, when, then, and}) => {
+  test.skip("POST request: HGV vehicle is created, and the appropriate attributes are automatically set", ({given, when, then, and}) => {
     let requestUrl: string;
     let response: any;
     let responseGET: any;
@@ -80,7 +80,7 @@ defineFeature(feature, (test) => {
     });
   });
 
-  test("PUT request: HGV vehicle is updated, and the appropriate attributes are automatically set", ({given, when, then, and}) => {
+  test.skip("PUT request: HGV vehicle is updated, and the appropriate attributes are automatically set", ({given, when, then, and}) => {
     let requestUrl: string;
     let response: any;
     let responseGET: any;

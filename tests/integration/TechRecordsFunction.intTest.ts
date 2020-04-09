@@ -6,6 +6,7 @@ import {postTechRecords as PostTechRecordsFunction} from "../../src/functions/po
 import records from "../resources/technical-records.json";
 import {cloneDeep} from "lodash";
 import {HTTPRESPONSE} from "../../src/assets/Enums";
+import Configuration from "../../src/utils/Configuration";
 
 const msUserDetails = {
   msUser: "dorel",
@@ -105,6 +106,7 @@ describe("postTechRecords", () => {
     jest.restoreAllMocks();
     // await emptyDatabase();
     await populateDatabase();
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(false);
   });
   beforeEach(async () => {
     // await populateDatabase();
@@ -115,6 +117,7 @@ describe("postTechRecords", () => {
   afterAll(async () => {
     // await populateDatabase();
     await emptyDatabase();
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(true);
   });
 
   context("when trying to create a new vehicle", () => {
@@ -213,6 +216,7 @@ describe("updateTechRecords", () => {
   beforeAll(async () => {
     jest.restoreAllMocks();
     await emptyDatabase();
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(false);
   });
   beforeEach(async () => {
     await populateDatabase();
@@ -222,6 +226,7 @@ describe("updateTechRecords", () => {
   });
   afterAll(async () => {
     await populateDatabase();
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(true);
   });
 
   context("when trying to update a vehicle", () => {

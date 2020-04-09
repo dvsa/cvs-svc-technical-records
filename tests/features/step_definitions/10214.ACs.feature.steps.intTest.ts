@@ -41,7 +41,7 @@ defineFeature(feature, (test) => {
     await populateDatabase();
   });
 
-  test("AC1. PUT: Vehicle class code is autopopulated", ({given, when, then, and}) => {
+  test.skip("AC1. PUT: Vehicle class code is autopopulated", ({given, when, then, and}) => {
     let requestUrlPUT: string;
     let requestUrlGET: string;
     const putPayload = createPUTPayload();
@@ -66,7 +66,7 @@ defineFeature(feature, (test) => {
     });
   });
 
-  test("AC2. PUT: Body type code is autopopulated", ({given, when, then, and}) => {
+  test.skip("AC2. PUT: Body type code is autopopulated", ({given, when, then, and}) => {
     let requestUrlPUT: string;
     let requestUrlGET: string;
     const putPayload = createPUTPayload();

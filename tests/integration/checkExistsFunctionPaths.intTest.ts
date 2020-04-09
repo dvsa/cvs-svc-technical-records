@@ -4,6 +4,7 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
 import {emptyDatabase, populateDatabase} from "../util/dbOperations";
 import {Context} from "aws-lambda";
+import Configuration from "../../src/utils/Configuration";
 
 describe("TechRecords", () => {
   // @ts-ignore
@@ -11,6 +12,7 @@ describe("TechRecords", () => {
   beforeAll(async () => {
     // await emptyDatabase();
     await populateDatabase();
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(false);
   });
 
   beforeEach(async () => {
@@ -24,6 +26,7 @@ describe("TechRecords", () => {
   afterAll(async () => {
     // await populateDatabase();
     await emptyDatabase();
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(true);
   });
 
   const msUserDetails = {
