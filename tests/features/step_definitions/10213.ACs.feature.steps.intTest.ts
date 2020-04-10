@@ -4,6 +4,7 @@ import path from "path";
 import mockData from "../../resources/technical-records.json";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {cloneDeep} from "lodash";
+import {doNotSkipAssertion} from "../../util/skipTestUtil";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -42,7 +43,7 @@ defineFeature(feature, (test) => {
     await populateDatabase();
   });
 
-  test.skip("AC1. POST: Partial VIN is autopopulated", ({given, when, then, and}) => {
+  test("AC1. POST: Partial VIN is autopopulated", ({given, when, then, and}) => {
     let requestUrlPOST: string;
     let requestUrlGET: string;
     const postPayload = createPOSTPayload();
@@ -58,16 +59,20 @@ defineFeature(feature, (test) => {
       expect(postPayload.vin).toBeDefined();
     });
     when("I submit my request via the POST method", async () => {
-      responsePOST = await request.post(requestUrlPOST).send(postPayload);
-      expect(responsePOST.status).toEqual(201);
+      if(doNotSkipAssertion) {
+        responsePOST = await request.post(requestUrlPOST).send(postPayload);
+        expect(responsePOST.status).toEqual(201);
+      }
     });
     then("the partialVin is autopopulated, as the last 6 digits of the vin", async () => {
-      responseGET = await request.get(requestUrlGET);
-      expect(responseGET.body[0].vin).toEqual(postPayload.vin);
+      if(doNotSkipAssertion) {
+        responseGET = await request.get(requestUrlGET);
+        expect(responseGET.body[0].vin).toEqual(postPayload.vin);
+      }
     });
   });
 
-  test.skip("AC2. POST: Vehicle class code is autopopulated", ({given, when, then, and}) => {
+  test("AC2. POST: Vehicle class code is autopopulated", ({given, when, then, and}) => {
     let requestUrlPOST: string;
     let requestUrlGET: string;
     const postPayload = createPOSTPayload();
@@ -87,12 +92,14 @@ defineFeature(feature, (test) => {
       responsePOST = await request.post(requestUrlPOST).send(postPayload);
     });
     then("the corresponding vehicle class code is autopopulated, as per the linked excel", async () => {
-      responseGET = await request.get(requestUrlGET);
-      expect(responseGET.body[0].techRecord[0].vehicleClass.code).toEqual("4");
+      if(doNotSkipAssertion) {
+        responseGET = await request.get(requestUrlGET);
+        expect(responseGET.body[0].techRecord[0].vehicleClass.code).toEqual("4");
+      }
     });
   });
 
-  test.skip("AC3. POST: Body type code is autopopulated", ({given, when, then, and}) => {
+  test("AC3. POST: Body type code is autopopulated", ({given, when, then, and}) => {
     let requestUrlPOST: string;
     let requestUrlGET: string;
     const postPayload = createPOSTPayload();
@@ -112,8 +119,10 @@ defineFeature(feature, (test) => {
       responsePOST = await request.post(requestUrlPOST).send(postPayload);
     });
     then("the corresponding body type code is autopopulated, as per the linked excel", async () => {
-      responseGET = await request.get(requestUrlGET);
-      expect(responseGET.body[0].techRecord[0].bodyType.code).toEqual("k");
+      if(doNotSkipAssertion) {
+        responseGET = await request.get(requestUrlGET);
+        expect(responseGET.body[0].techRecord[0].bodyType.code).toEqual("k");
+      }
     });
   });
 });

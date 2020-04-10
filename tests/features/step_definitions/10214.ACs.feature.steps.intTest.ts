@@ -4,6 +4,7 @@ import path from "path";
 import mockData from "../../resources/technical-records.json";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {cloneDeep} from "lodash";
+import {doNotSkipAssertion} from "../../util/skipTestUtil";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -41,7 +42,7 @@ defineFeature(feature, (test) => {
     await populateDatabase();
   });
 
-  test.skip("AC1. PUT: Vehicle class code is autopopulated", ({given, when, then, and}) => {
+  test("AC1. PUT: Vehicle class code is autopopulated", ({given, when, then, and}) => {
     let requestUrlPUT: string;
     let requestUrlGET: string;
     const putPayload = createPUTPayload();
@@ -61,12 +62,14 @@ defineFeature(feature, (test) => {
       responsePUT = await request.put(requestUrlPUT).send(putPayload);
     });
     then("the corresponding vehicle class code is autopopulated, as per the linked excel", async () => {
-      responseGET = await request.get(requestUrlGET);
-      expect(responseGET.body[0].techRecord[1].vehicleClass.code).toEqual("4");
+      if(doNotSkipAssertion) {
+        responseGET = await request.get(requestUrlGET);
+        expect(responseGET.body[0].techRecord[1].vehicleClass.code).toEqual("4");
+      }
     });
   });
 
-  test.skip("AC2. PUT: Body type code is autopopulated", ({given, when, then, and}) => {
+  test("AC2. PUT: Body type code is autopopulated", ({given, when, then, and}) => {
     let requestUrlPUT: string;
     let requestUrlGET: string;
     const putPayload = createPUTPayload();
@@ -86,8 +89,10 @@ defineFeature(feature, (test) => {
       responsePUT = await request.put(requestUrlPUT).send(putPayload);
     });
     then("the corresponding body type code is autopopulated, as per the linked excel", async () => {
-      responseGET = await request.get(requestUrlGET);
-      expect(responseGET.body[0].techRecord[1].bodyType.code).toEqual("k");
+      if(doNotSkipAssertion) {
+        responseGET = await request.get(requestUrlGET);
+        expect(responseGET.body[0].techRecord[1].bodyType.code).toEqual("k");
+      }
     });
   });
 });
