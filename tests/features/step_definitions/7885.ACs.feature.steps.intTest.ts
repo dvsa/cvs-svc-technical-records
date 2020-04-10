@@ -7,6 +7,7 @@ const url = "http://localhost:3005/";
 import mockData from "../../resources/technical-records.json";
 import {cloneDeep} from "lodash";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
+import {doNotSkipAssertion} from "../../util/skipTestUtil";
 
 const feature = loadFeature(path.resolve(__dirname, "../7885.ACs.feature"));
 
@@ -29,7 +30,7 @@ defineFeature(feature, ( test ) => {
     await populateDatabase();
   });
 
-  test.skip("AC1. Vehicles API spec contains GET/POST/PUT/ verbs", ({given, when, then, and}) => {
+  test("AC1. Vehicles API spec contains GET/POST/PUT/ verbs", ({given, when, then, and}) => {
     let requestUrlPOST: string;
     let requestUrlPUT: string;
     let requestUrlGET: string;
@@ -50,16 +51,20 @@ defineFeature(feature, ( test ) => {
       responsePUT = await request.put(requestUrlPUT).send(putPayload);
     });
     then("I am able to perform a PUT or POST request", () => {
-      expect(responsePOST.status).toEqual(201);
-      expect(responsePOST.body).toEqual("Technical Record created");
-      expect(responsePUT.status).toEqual(200);
-      expect(responsePUT.body.techRecord[0].statusCode).toEqual("archived");
-      expect(responsePUT.body.techRecord[1].statusCode).toEqual("provisional");
+      if(doNotSkipAssertion) {
+        expect(responsePOST.status).toEqual(201);
+        expect(responsePOST.body).toEqual("Technical Record created");
+        expect(responsePUT.status).toEqual(200);
+        expect(responsePUT.body.techRecord[0].statusCode).toEqual("archived");
+        expect(responsePUT.body.techRecord[1].statusCode).toEqual("provisional");
+      }
     });
     and("I am still able to perform a GET request", async () => {
-      responseGET = await request.get(requestUrlGET);
-      expect(responseGET.status).toEqual(200);
-      expect(responseGET.body[0].vin).toEqual("1B7GG36N12S678410");
+      if(doNotSkipAssertion) {
+        responseGET = await request.get(requestUrlGET);
+        expect(responseGET.status).toEqual(200);
+        expect(responseGET.body[0].vin).toEqual("1B7GG36N12S678410");
+      }
     });
   });
 });

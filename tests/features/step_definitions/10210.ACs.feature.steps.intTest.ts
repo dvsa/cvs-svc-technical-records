@@ -4,6 +4,7 @@ import path from "path";
 import mockData from "../../resources/technical-records.json";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {cloneDeep} from "lodash";
+import {doNotSkipAssertion} from "../../util/skipTestUtil";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -27,7 +28,7 @@ defineFeature(feature, (test) => {
     await populateDatabase();
   });
 
-  test.skip("AC1. POST: Attempt to create a new vehicle without a mandatory field", ({given, when, then}) => {
+  test("AC1. POST: Attempt to create a new vehicle without a mandatory field", ({given, when, then}) => {
     let requestUrl: string;
     let response: any;
 
@@ -40,12 +41,14 @@ defineFeature(feature, (test) => {
       response = await request.post(requestUrl).send(postPayload);
     });
     then("I am given the 400 error code", () => {
-      expect(response.status).toEqual(400);
-      expect(response.body[0].message).toEqual('"manufactureYear" is required');
+      if(doNotSkipAssertion) {
+        expect(response.status).toEqual(400);
+        expect(response.body[0].message).toEqual('"manufactureYear" is required');
+      }
     });
   });
 
-  test.skip("AC2. POST: Attempt to create a new vehicle with a not applicable field", ({given, when, then}) => {
+  test("AC2. POST: Attempt to create a new vehicle with a not applicable field", ({given, when, then}) => {
     let requestUrl: string;
     let response: any;
 
@@ -58,12 +61,14 @@ defineFeature(feature, (test) => {
       response = await request.post(requestUrl).send(postPayload);
     });
     then("I am given the 400 error code", () => {
-      expect(response.status).toEqual(400);
-      expect(response.body[0].message).toEqual('"unladenWeight" is not allowed');
+      if(doNotSkipAssertion) {
+        expect(response.status).toEqual(400);
+        expect(response.body[0].message).toEqual('"unladenWeight" is not allowed');
+      }
     });
   });
 
-  test.skip("AC3. POST: Attempt to create a new vehicle with unexpected values for a field that accepts only specific values", ({given, when, then}) => {
+  test("AC3. POST: Attempt to create a new vehicle with unexpected values for a field that accepts only specific values", ({given, when, then}) => {
     let requestUrl: string;
     let response: any;
 
@@ -76,12 +81,14 @@ defineFeature(feature, (test) => {
       response = await request.post(requestUrl).send(postPayload);
     });
     then("I am given the 400 error code", () => {
-      expect(response.status).toEqual(400);
-      expect(response.body[0].message).toEqual('"fuelPropulsionSystem" must be one of [DieselPetrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
+      if(doNotSkipAssertion) {
+        expect(response.status).toEqual(400);
+        expect(response.body[0].message).toEqual('"fuelPropulsionSystem" must be one of [DieselPetrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
+      }
     });
   });
 
-  test.skip("AC4. POST: Attempt to create a new vehicle, using a field which has a field value outside of the min/max length for that field", ({given, when, then}) => {
+  test("AC4. POST: Attempt to create a new vehicle, using a field which has a field value outside of the min/max length for that field", ({given, when, then}) => {
     let requestUrl: string;
     let response: any;
 
@@ -94,8 +101,10 @@ defineFeature(feature, (test) => {
       response = await request.post(requestUrl).send(postPayload);
     });
     then("I am given the 400 error code", () => {
-      expect(response.status).toEqual(400);
-      expect(response.body[0].message).toEqual('"manufactureYear" must be less than or equal to 9999');
+      if(doNotSkipAssertion) {
+        expect(response.status).toEqual(400);
+        expect(response.body[0].message).toEqual('"manufactureYear" must be less than or equal to 9999');
+      }
     });
   });
 });
