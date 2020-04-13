@@ -8,7 +8,6 @@ import mockData from "../resources/technical-records.json";
 import {HTTPRESPONSE} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
-import {itIf} from "../util/skipTestUtil";
 
 const msUserDetails = {
   msUser: "dorel",
@@ -295,7 +294,7 @@ describe("techRecords", () => {
       context("and when trying to create a new vehicle", () => {
         context("and the payload is valid", () => {
           context("and that vehicle does not exist", () => {
-            itIf("should return status 201 Technical Record created", async () => {
+            it("should return status 201 Technical Record created", async () => {
               const techRec: any = cloneDeep(mockData[43]);
               const vin = Date.now().toString();
               techRec.techRecord[0].bodyType.description = "skeletal";

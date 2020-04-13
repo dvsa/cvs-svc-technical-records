@@ -4,7 +4,6 @@ import path from "path";
 import mockData from "../../resources/technical-records.json";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {cloneDeep} from "lodash";
-import {doNotSkipAssertion} from "../../util/skipTestUtil";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -59,16 +58,12 @@ defineFeature(feature, (test) => {
       expect(postPayload.vin).toBeDefined();
     });
     when("I submit my request via the POST method", async () => {
-      if(doNotSkipAssertion) {
-        responsePOST = await request.post(requestUrlPOST).send(postPayload);
-        expect(responsePOST.status).toEqual(201);
-      }
+      responsePOST = await request.post(requestUrlPOST).send(postPayload);
+      expect(responsePOST.status).toEqual(201);
     });
     then("the partialVin is autopopulated, as the last 6 digits of the vin", async () => {
-      if(doNotSkipAssertion) {
-        responseGET = await request.get(requestUrlGET);
-        expect(responseGET.body[0].vin).toEqual(postPayload.vin);
-      }
+      responseGET = await request.get(requestUrlGET);
+      expect(responseGET.body[0].vin).toEqual(postPayload.vin);
     });
   });
 
@@ -92,10 +87,8 @@ defineFeature(feature, (test) => {
       responsePOST = await request.post(requestUrlPOST).send(postPayload);
     });
     then("the corresponding vehicle class code is autopopulated, as per the linked excel", async () => {
-      if(doNotSkipAssertion) {
-        responseGET = await request.get(requestUrlGET);
-        expect(responseGET.body[0].techRecord[0].vehicleClass.code).toEqual("4");
-      }
+      responseGET = await request.get(requestUrlGET);
+      expect(responseGET.body[0].techRecord[0].vehicleClass.code).toEqual("4");
     });
   });
 
@@ -119,10 +112,8 @@ defineFeature(feature, (test) => {
       responsePOST = await request.post(requestUrlPOST).send(postPayload);
     });
     then("the corresponding body type code is autopopulated, as per the linked excel", async () => {
-      if(doNotSkipAssertion) {
-        responseGET = await request.get(requestUrlGET);
-        expect(responseGET.body[0].techRecord[0].bodyType.code).toEqual("k");
-      }
+      responseGET = await request.get(requestUrlGET);
+      expect(responseGET.body[0].techRecord[0].bodyType.code).toEqual("k");
     });
   });
 });
