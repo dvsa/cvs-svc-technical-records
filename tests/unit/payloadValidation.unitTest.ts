@@ -148,7 +148,7 @@ describe("payload validation for adr feature flag", () => {
   context("when the allowAdrUpdatesOnlyFlag config variable is set to TRUE", () => {
     it("should validate only the adrDetails and reason for creation for TRL", () => {
       const techRec: any = cloneDeep(mockData[29]);
-      const validatedPayload = validatePayload(techRec.techRecord[0]);
+      const validatedPayload = validatePayload(techRec.techRecord[0], false);
       expect(validatedPayload.value).toBeDefined();
       expect(validatedPayload.error).toEqual(undefined);
       expect(validatedPayload.value.reasonForCreation).toEqual(techRec.techRecord[0].reasonForCreation);
@@ -157,7 +157,7 @@ describe("payload validation for adr feature flag", () => {
 
     it("should validate only the adrDetails and reason for creation for HGV", () => {
       const techRec: any = cloneDeep(mockData[43]);
-      const validatedPayload = validatePayload(techRec.techRecord[0]);
+      const validatedPayload = validatePayload(techRec.techRecord[0], false);
       expect(validatedPayload.value).toBeDefined();
       expect(validatedPayload.error).toEqual(undefined);
       expect(validatedPayload.value.reasonForCreation).toEqual(techRec.techRecord[0].reasonForCreation);

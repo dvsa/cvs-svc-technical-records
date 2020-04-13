@@ -4,7 +4,6 @@ import path from "path";
 import mockData from "../../resources/technical-records.json";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {cloneDeep} from "lodash";
-import {doNotSkipAssertion} from "../../util/skipTestUtil";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -41,10 +40,8 @@ defineFeature(feature, (test) => {
       response = await request.post(requestUrl).send(postPayload);
     });
     then("I am given the 400 error code", () => {
-      if(doNotSkipAssertion) {
-        expect(response.status).toEqual(400);
-        expect(response.body[0].message).toEqual('"manufactureYear" is required');
-      }
+      expect(response.status).toEqual(400);
+      expect(response.body[0].message).toEqual('"manufactureYear" is required');
     });
   });
 
@@ -61,10 +58,8 @@ defineFeature(feature, (test) => {
       response = await request.post(requestUrl).send(postPayload);
     });
     then("I am given the 400 error code", () => {
-      if(doNotSkipAssertion) {
-        expect(response.status).toEqual(400);
-        expect(response.body[0].message).toEqual('"unladenWeight" is not allowed');
-      }
+      expect(response.status).toEqual(400);
+      expect(response.body[0].message).toEqual('"unladenWeight" is not allowed');
     });
   });
 
@@ -81,10 +76,8 @@ defineFeature(feature, (test) => {
       response = await request.post(requestUrl).send(postPayload);
     });
     then("I am given the 400 error code", () => {
-      if(doNotSkipAssertion) {
-        expect(response.status).toEqual(400);
-        expect(response.body[0].message).toEqual('"fuelPropulsionSystem" must be one of [DieselPetrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
-      }
+      expect(response.status).toEqual(400);
+      expect(response.body[0].message).toEqual('"fuelPropulsionSystem" must be one of [DieselPetrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
     });
   });
 
@@ -101,10 +94,8 @@ defineFeature(feature, (test) => {
       response = await request.post(requestUrl).send(postPayload);
     });
     then("I am given the 400 error code", () => {
-      if(doNotSkipAssertion) {
-        expect(response.status).toEqual(400);
-        expect(response.body[0].message).toEqual('"manufactureYear" must be less than or equal to 9999');
-      }
+      expect(response.status).toEqual(400);
+      expect(response.body[0].message).toEqual('"manufactureYear" must be less than or equal to 9999');
     });
   });
 });

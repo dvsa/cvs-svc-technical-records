@@ -11,7 +11,7 @@ import {doNotSkipAssertion} from "../../util/skipTestUtil";
 
 const feature = loadFeature(path.resolve(__dirname, "../7885.ACs.feature"));
 
-defineFeature(feature, ( test ) => {
+defineFeature(feature, (test) => {
   const request = supertest(url);
 
   beforeAll(async () => {
@@ -51,20 +51,18 @@ defineFeature(feature, ( test ) => {
       responsePUT = await request.put(requestUrlPUT).send(putPayload);
     });
     then("I am able to perform a PUT or POST request", () => {
-      if(doNotSkipAssertion) {
-        expect(responsePOST.status).toEqual(201);
-        expect(responsePOST.body).toEqual("Technical Record created");
+      expect(responsePOST.status).toEqual(201);
+      expect(responsePOST.body).toEqual("Technical Record created");
+      if (doNotSkipAssertion) {
         expect(responsePUT.status).toEqual(200);
         expect(responsePUT.body.techRecord[0].statusCode).toEqual("archived");
         expect(responsePUT.body.techRecord[1].statusCode).toEqual("provisional");
       }
     });
     and("I am still able to perform a GET request", async () => {
-      if(doNotSkipAssertion) {
-        responseGET = await request.get(requestUrlGET);
-        expect(responseGET.status).toEqual(200);
-        expect(responseGET.body[0].vin).toEqual("1B7GG36N12S678410");
-      }
+      responseGET = await request.get(requestUrlGET);
+      expect(responseGET.status).toEqual(200);
+      expect(responseGET.body[0].vin).toEqual("1B7GG36N12S678410");
     });
   });
 });

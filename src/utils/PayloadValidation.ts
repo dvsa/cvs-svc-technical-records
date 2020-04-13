@@ -18,9 +18,9 @@ const checkIfTankOrBattery = (payload: ITechRecord) => {
   return isTankOrBattery;
 };
 
-const featureFlagValidation = (validationSchema: ObjectSchema, payload: ITechRecord, context: any) => {
+const featureFlagValidation = (validationSchema: ObjectSchema, payload: ITechRecord, validateEntireRecord: boolean, context: any) => {
   const allowAdrUpdatesOnlyFlag: boolean = Configuration.getInstance().getAllowAdrUpdatesOnlyFlag();
-  if (allowAdrUpdatesOnlyFlag) {
+  if (allowAdrUpdatesOnlyFlag && !validateEntireRecord) {
     Object.assign(context, {stripUnknown: true});
     return validateOnlyAdr.validate({adrDetails: payload.adrDetails, reasonForCreation: payload.reasonForCreation}, context);
   } else {
@@ -28,15 +28,15 @@ const featureFlagValidation = (validationSchema: ObjectSchema, payload: ITechRec
   }
 };
 
-export const validatePayload = (payload: ITechRecord) => {
+export const validatePayload = (payload: ITechRecord, validateEntireRecord: boolean = true) => {
   const isTankOrBattery = checkIfTankOrBattery(payload);
   const context = {context: {isTankOrBattery}};
   if (payload.vehicleType === VEHICLE_TYPE.HGV) {
-    return featureFlagValidation(hgvValidation, payload, context);
+    return featureFlagValidation(hgvValidation, payload, validateEntireRecord, context);
   } else if (payload.vehicleType === VEHICLE_TYPE.PSV) {
     return psvValidation.validate(payload);
   } else if (payload.vehicleType === VEHICLE_TYPE.TRL) {
-    return featureFlagValidation(trlValidation, payload, context);
+    return featureFlagValidation(trlValidation, payload, validateEntireRecord, context);
   } else {
     return {
       error: {

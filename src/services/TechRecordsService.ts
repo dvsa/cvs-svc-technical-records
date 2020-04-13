@@ -232,7 +232,7 @@ class TechRecordsService {
   }
 
   private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
-    const isPayloadValid = validatePayload(techRecord.techRecord[0]);
+    const isPayloadValid = validatePayload(techRecord.techRecord[0], false);
     if (isPayloadValid.error) {
       return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
     }

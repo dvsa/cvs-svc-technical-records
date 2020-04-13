@@ -63,29 +63,21 @@ defineFeature(feature, (test) => {
       response = await request.post(requestUrl).send(postPayload);
     });
     then("my POST action adheres to the HGV validations, present in the linked excel, columns D-E", () => {
-      if(doNotSkipAssertion) {
-        expect(response.status).toEqual(201);
-      }
+      expect(response.status).toEqual(201);
     });
     and("the appropriate audit attributes are set on this new tech record", async () => {
-      if(doNotSkipAssertion) {
-        responseGET = await request.get(requestUrl + `/${postPayload.vin}/tech-records`);
-        expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdAt");
-        expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdByName");
-        expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdById");
-      }
+      responseGET = await request.get(requestUrl + `/${postPayload.vin}/tech-records`);
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdAt");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdByName");
+      expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdById");
     });
     and("the 'statusCode' of this new tech record is always 'provisional'", () => {
-      if(doNotSkipAssertion) {
-        expect(responseGET.body[0].techRecord[0].statusCode).toEqual("provisional");
-      }
+      expect(responseGET.body[0].techRecord[0].statusCode).toEqual("provisional");
     });
     and("I am able to POST attributes residing anywhere on the vehicle object", () => {
-      if(doNotSkipAssertion) {
-        expect(responseGET.body[0].techRecord[0].grossEecWeight).toEqual(22);
-        expect(responseGET.body[0].vrms[0].vrm).toEqual("ALKH567");
-        expect(responseGET.body[0].vrms[0].isPrimary).toEqual(true);
-      }
+      expect(responseGET.body[0].techRecord[0].grossEecWeight).toEqual(22);
+      expect(responseGET.body[0].vrms[0].vrm).toEqual("ALKH567");
+      expect(responseGET.body[0].vrms[0].isPrimary).toEqual(true);
     });
   });
 
@@ -106,31 +98,31 @@ defineFeature(feature, (test) => {
       responseGET = await request.get(requestUrlGET);
     });
     then("my PUT action adheres to the HGV validations, present in the linked excel, columns D-E", () => {
-      if(doNotSkipAssertion) {
+      if (doNotSkipAssertion) {
         expect(response.status).toEqual(200);
         expect(response.body.techRecord.length).toEqual(2);
       }
     });
     and("a new identical tech record is created, with the same status, and the updated attributes on it", () => {
-      if(doNotSkipAssertion) {
+      if (doNotSkipAssertion) {
         expect(response.body.techRecord[1].statusCode).toEqual("provisional");
         expect(response.body.techRecord[1].grossEecWeight).toEqual(33);
       }
     });
     and('the previous "pre-update" tech record still exists in DynamoDB, with it\'s status set to archived', () => {
-      if(doNotSkipAssertion) {
+      if (doNotSkipAssertion) {
         expect(response.body.techRecord[0].statusCode).toEqual("archived");
       }
     });
     and("the appropriate audit attributes are set on the new updated tech record", () => {
-      if(doNotSkipAssertion) {
+      if (doNotSkipAssertion) {
         expect(responseGET.body[0].techRecord[1]).toHaveProperty("createdAt");
         expect(responseGET.body[0].techRecord[1]).toHaveProperty("createdByName");
         expect(responseGET.body[0].techRecord[1]).toHaveProperty("createdById");
       }
     });
     and("I am only able to update attributes within the techRecord[] array", () => {
-      if(doNotSkipAssertion) {
+      if (doNotSkipAssertion) {
         expect(response.body.vrms.length).toEqual(2);
         expect(response.body.vrms[0].vrm).toEqual("LKJH654");
         expect(response.body.vrms[0].isPrimary).toEqual(true);
