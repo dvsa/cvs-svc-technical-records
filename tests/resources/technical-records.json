@@ -21077,12 +21077,12 @@
     "vin": "DP76UMK4DQLTOT400010"
   },
   {
-    "partialVin": "400011",
-    "primaryVrm": "SJG1011",
+    "partialVin": "400031",
+    "primaryVrm": "SJG1031",
     "secondaryVrms": [
       "SVNSJG"
     ],
-    "systemNumber": "XYZEP5JYOMM00011",
+    "systemNumber": "XYZEP5JYOMM00031",
     "techRecord": [
       {
         "axles": [
@@ -21194,7 +21194,7 @@
         "vehicleType": "car"
       }
     ],
-    "vin": "DP76UMK4DQLTOT400011"
+    "vin": "DP76UMK4DQLTOT400031"
   },
   {
     "partialVin": "400012",
