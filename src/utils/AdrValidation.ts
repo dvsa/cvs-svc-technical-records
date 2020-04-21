@@ -101,6 +101,7 @@ export const adrValidation = Joi.object().keys({
     number: Joi.array().items(Joi.string().allow(null)).optional().allow(null)
   }).optional().allow(null),
   adrTypeApprovalNo: Joi.string().optional().allow(null),
+  adrCertificateNotes: Joi.string().max(1500).optional().allow("", null),
   tank: Joi.object().when("$isTankOrBattery", {
     is: Joi.boolean().valid(true).required(),
     then: Joi.object().keys({
@@ -108,7 +109,7 @@ export const adrValidation = Joi.object().keys({
         tankManufacturer: Joi.string().max(70).required(),
         yearOfManufacture: Joi.number().max(9999).required(),
         tankManufacturerSerialNo: Joi.string().max(50).required(),
-        tankTypeAppNo: Joi.string().max(65).required(),
+        tankTypeAppNo: Joi.string().max(30).optional().allow("", null),
         tankCode: Joi.string().max(30).required(),
         specialProvisions: Joi.string().max(1024).optional().allow(null),
         tc2Details: Joi.object().keys({

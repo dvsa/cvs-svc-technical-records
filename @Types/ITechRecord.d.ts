@@ -251,6 +251,7 @@ interface AdrDetails {
     guidanceNotes?: string[]
   };
   adrTypeApprovalNo?: string;
+  adrCertificateNotes?: string;
   tank?: {
     tankDetails?: {
       tankManufacturer?: string
