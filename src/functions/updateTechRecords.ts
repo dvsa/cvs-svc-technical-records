@@ -2,6 +2,7 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import {formatErrorMessage} from "../utils/formatErrorMessage";
 
 const updateTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -13,15 +14,15 @@ const updateTechRecords = (event: any) => {
   const vin = event.pathParameters ? event.pathParameters.vin : null;
 
   if (!vin || !ONLY_DIGITS_AND_NUMBERS.test(vin) || vin.length < 3 || vin.length > 21) {
-    return Promise.resolve(new HTTPResponse(400, "Invalid path parameter 'vin'"));
+    return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Invalid path parameter 'vin'")));
   }
 
   if (!techRec || !techRec.length) {
-    return Promise.resolve(new HTTPResponse(400, "Body is not a valid TechRecord"));
+    return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Body is not a valid TechRecord")));
   }
 
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
-    return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
+    return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Microsoft user details not provided")));
   }
 
   const techRecord: ITechRecordWrapper = {
