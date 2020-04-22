@@ -22,7 +22,8 @@ const featureFlagValidation = (validationSchema: ObjectSchema, payload: ITechRec
   const allowAdrUpdatesOnlyFlag: boolean = Configuration.getInstance().getAllowAdrUpdatesOnlyFlag();
   if (allowAdrUpdatesOnlyFlag && !validateEntireRecord) {
     Object.assign(context, {stripUnknown: true});
-    return validateOnlyAdr.validate({adrDetails: payload.adrDetails, reasonForCreation: payload.reasonForCreation}, context);
+    const {adrDetails, reasonForCreation} = payload;
+    return validateOnlyAdr.validate({adrDetails, reasonForCreation}, context);
   } else {
     return validationSchema.validate(payload, context);
   }

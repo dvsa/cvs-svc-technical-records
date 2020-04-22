@@ -4,7 +4,7 @@ import path from "path";
 import mockData from "../../resources/technical-records.json";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {cloneDeep} from "lodash";
-import {doNotSkipAssertion} from "../../util/skipTestUtil";
+import {doNotSkipAssertionWhenAdrFlagIsDisabled} from "../../util/skipTestUtil";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -62,7 +62,7 @@ defineFeature(feature, (test) => {
       responsePUT = await request.put(requestUrlPUT).send(putPayload);
     });
     then("the corresponding vehicle class code is autopopulated, as per the linked excel", async () => {
-      if(doNotSkipAssertion) {
+      if(doNotSkipAssertionWhenAdrFlagIsDisabled) {
         responseGET = await request.get(requestUrlGET);
         expect(responseGET.body[0].techRecord[1].vehicleClass.code).toEqual("4");
       }
@@ -89,7 +89,7 @@ defineFeature(feature, (test) => {
       responsePUT = await request.put(requestUrlPUT).send(putPayload);
     });
     then("the corresponding body type code is autopopulated, as per the linked excel", async () => {
-      if(doNotSkipAssertion) {
+      if(doNotSkipAssertionWhenAdrFlagIsDisabled) {
         responseGET = await request.get(requestUrlGET);
         expect(responseGET.body[0].techRecord[1].bodyType.code).toEqual("k");
       }
