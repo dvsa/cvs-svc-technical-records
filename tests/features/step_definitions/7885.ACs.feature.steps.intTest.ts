@@ -7,7 +7,7 @@ const url = "http://localhost:3005/";
 import mockData from "../../resources/technical-records.json";
 import {cloneDeep} from "lodash";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
-import {doNotSkipAssertion} from "../../util/skipTestUtil";
+import {doNotSkipAssertionWhenAdrFlagIsDisabled} from "../../util/skipTestUtil";
 
 const feature = loadFeature(path.resolve(__dirname, "../7885.ACs.feature"));
 
@@ -53,7 +53,7 @@ defineFeature(feature, (test) => {
     then("I am able to perform a PUT or POST request", () => {
       expect(responsePOST.status).toEqual(201);
       expect(responsePOST.body).toEqual("Technical Record created");
-      if (doNotSkipAssertion) {
+      if (doNotSkipAssertionWhenAdrFlagIsDisabled) {
         expect(responsePUT.status).toEqual(200);
         expect(responsePUT.body.techRecord[0].statusCode).toEqual("archived");
         expect(responsePUT.body.techRecord[1].statusCode).toEqual("provisional");
