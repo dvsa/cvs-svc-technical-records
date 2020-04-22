@@ -41,7 +41,7 @@ defineFeature(feature, (test) => {
     });
     then("I am given the 400 error code", () => {
       expect(response.status).toEqual(400);
-      expect(response.body[0].message).toEqual('"manufactureYear" is required');
+      expect(response.body.errors).toContain('"manufactureYear" is required');
     });
   });
 
@@ -59,7 +59,7 @@ defineFeature(feature, (test) => {
     });
     then("I am given the 400 error code", () => {
       expect(response.status).toEqual(400);
-      expect(response.body[0].message).toEqual('"unladenWeight" is not allowed');
+      expect(response.body.errors).toContain('"unladenWeight" is not allowed');
     });
   });
 
@@ -77,7 +77,7 @@ defineFeature(feature, (test) => {
     });
     then("I am given the 400 error code", () => {
       expect(response.status).toEqual(400);
-      expect(response.body[0].message).toEqual('"fuelPropulsionSystem" must be one of [DieselPetrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
+      expect(response.body.errors).toContain('"fuelPropulsionSystem" must be one of [DieselPetrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
     });
   });
 
@@ -95,7 +95,7 @@ defineFeature(feature, (test) => {
     });
     then("I am given the 400 error code", () => {
       expect(response.status).toEqual(400);
-      expect(response.body[0].message).toEqual('"manufactureYear" must be less than or equal to 9999');
+      expect(response.body.errors).toContain('"manufactureYear" must be less than or equal to 9999');
     });
   });
 });

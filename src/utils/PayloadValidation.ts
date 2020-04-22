@@ -18,30 +18,30 @@ const checkIfTankOrBattery = (payload: ITechRecord) => {
   return isTankOrBattery;
 };
 
-const featureFlagValidation = (validationSchema: ObjectSchema, payload: ITechRecord, validateEntireRecord: boolean, context: any) => {
+const featureFlagValidation = (validationSchema: ObjectSchema, payload: ITechRecord, validateEntireRecord: boolean, options: any) => {
   const allowAdrUpdatesOnlyFlag: boolean = Configuration.getInstance().getAllowAdrUpdatesOnlyFlag();
   if (allowAdrUpdatesOnlyFlag && !validateEntireRecord) {
-    Object.assign(context, {stripUnknown: true});
+    Object.assign(options, {stripUnknown: true});
     const {adrDetails, reasonForCreation} = payload;
-    return validateOnlyAdr.validate({adrDetails, reasonForCreation}, context);
+    return validateOnlyAdr.validate({adrDetails, reasonForCreation}, options);
   } else {
-    return validationSchema.validate(payload, context);
+    return validationSchema.validate(payload, options);
   }
 };
 
 export const validatePayload = (payload: ITechRecord, validateEntireRecord: boolean = true) => {
   const isTankOrBattery = checkIfTankOrBattery(payload);
-  const context = {context: {isTankOrBattery}};
+  const options = {abortEarly: false, context: {isTankOrBattery}};
   if (payload.vehicleType === VEHICLE_TYPE.HGV) {
-    return featureFlagValidation(hgvValidation, payload, validateEntireRecord, context);
+    return featureFlagValidation(hgvValidation, payload, validateEntireRecord, options);
   } else if (payload.vehicleType === VEHICLE_TYPE.PSV) {
-    return psvValidation.validate(payload);
+    return psvValidation.validate(payload, {abortEarly: false});
   } else if (payload.vehicleType === VEHICLE_TYPE.TRL) {
-    return featureFlagValidation(trlValidation, payload, validateEntireRecord, context);
+    return featureFlagValidation(trlValidation, payload, validateEntireRecord, options);
   } else {
     return {
       error: {
-        details: "\"vehicleType\" must be one of [hgv, psv, trl]"
+        details: [{message: "\"vehicleType\" must be one of [hgv, psv, trl]"}]
       }
     };
   }

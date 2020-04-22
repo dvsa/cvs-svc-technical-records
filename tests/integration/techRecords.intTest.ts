@@ -407,7 +407,7 @@ describe("techRecords", () => {
               expect(res.status).toEqual(400);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body).toEqual("Body is not a valid TechRecord");
+              expect(res.body.errors).toContain("Body is not a valid TechRecord");
             });
           });
         });
@@ -422,7 +422,7 @@ describe("techRecords", () => {
               expect(res.status).toEqual(400);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body).toEqual("Invalid path parameter \'vin\'");
+              expect(res.body.errors).toContain("Invalid path parameter \'vin\'");
             });
           });
 
@@ -435,7 +435,7 @@ describe("techRecords", () => {
               expect(res.status).toEqual(400);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body).toEqual("Invalid path parameter \'vin\'");
+              expect(res.body.errors).toContain("Invalid path parameter \'vin\'");
             });
           });
         });

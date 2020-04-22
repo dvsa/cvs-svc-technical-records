@@ -304,7 +304,7 @@ describe("updateTechRecords", () => {
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(result.body).toEqual('"Body is not a valid TechRecord"');
+              expect(JSON.parse(result.body).errors).toContain("Body is not a valid TechRecord");
             });
         });
       });
@@ -331,7 +331,7 @@ describe("updateTechRecords", () => {
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(result.body).toEqual('"Microsoft user details not provided"');
+              expect(JSON.parse(result.body).errors).toContain("Microsoft user details not provided");
             });
         });
       });
@@ -349,7 +349,7 @@ describe("updateTechRecords", () => {
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(result.body).toEqual('"Body is not a valid TechRecord"');
+              expect(JSON.parse(result.body).errors).toContain("Body is not a valid TechRecord");
             });
         });
       });
@@ -371,7 +371,7 @@ describe("updateTechRecords", () => {
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(result.body).toEqual('"Invalid path parameter \'vin\'"');
+              expect(JSON.parse(result.body).errors).toContain("Invalid path parameter \'vin\'");
             });
         });
       });
@@ -394,7 +394,7 @@ describe("updateTechRecords", () => {
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(result.body).toEqual('"Invalid path parameter \'vin\'"');
+              expect(JSON.parse(result.body).errors).toContain("Invalid path parameter \'vin\'");
             });
         });
       });
@@ -417,7 +417,7 @@ describe("updateTechRecords", () => {
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(result.body).toEqual('"Invalid path parameter \'vin\'"');
+              expect(JSON.parse(result.body).errors).toContain("Invalid path parameter \'vin\'");
             });
         });
       });
