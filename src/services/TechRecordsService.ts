@@ -12,6 +12,8 @@ import {
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
 import {populateFields} from "../utils/ValidationUtils";
 import HTTPResponse from "../models/HTTPResponse";
+import {ValidationError, ValidationResult} from "@hapi/joi";
+import {formatErrorMessage} from "../utils/formatErrorMessage";
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -130,11 +132,23 @@ class TechRecordsService {
     return techRecordItem;
   }
 
+  public mapValidationErrors(validationError: ValidationError) {
+    return {
+      errors: validationError.details.map((detail: { message: string; }) => {
+        return detail.message;
+      })
+    };
+  }
+
+  public checkValidationErrors(validation: ValidationResult) {
+    if (validation.error) {
+      throw new HTTPError(400, this.mapValidationErrors(validation.error));
+    }
+  }
+
   public async insertTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
     const isPayloadValid = validatePayload(techRecord.techRecord[0]);
-    if (isPayloadValid.error) {
-      return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
-    }
+    this.checkValidationErrors(isPayloadValid);
     techRecord.systemNumber = await this.generateSystemNumber();
     if (!this.validateVrms(techRecord)) {
       return Promise.reject({statusCode: 400, body: "Primary or secondaryVrms are not valid"});
@@ -212,10 +226,6 @@ class TechRecordsService {
   }
 
   public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
-    return this.manageUpdateLogic(techRecord, msUserDetails);
-  }
-
-  private manageUpdateLogic(techRecord: ITechRecordWrapper, msUserDetails: any) {
     return this.createAndArchiveTechRecord(techRecord, msUserDetails)
       .then((data: ITechRecordWrapper) => {
         return this.techRecordsDAO.updateSingle(data)
@@ -223,7 +233,7 @@ class TechRecordsService {
             return this.formatTechRecordItemForResponse(updatedData.Attributes);
           })
           .catch((error: any) => {
-            throw new HTTPError(error.statusCode, error.message);
+            throw new HTTPError(error.statusCode, formatErrorMessage(error.message));
           });
       })
       .catch((error: any) => {
@@ -231,11 +241,9 @@ class TechRecordsService {
       });
   }
 
-  private createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
+  private async createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
     const isPayloadValid = validatePayload(techRecord.techRecord[0], false);
-    if (isPayloadValid.error) {
-      return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
-    }
+    this.checkValidationErrors(isPayloadValid);
     techRecord.techRecord[0] = isPayloadValid.value;
     return this.getTechRecordsList(techRecord.vin, STATUS.ALL, SEARCHCRITERIA.VIN)
       .then((data: ITechRecordWrapper[]) => {
