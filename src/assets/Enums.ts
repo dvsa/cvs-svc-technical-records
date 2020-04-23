@@ -14,7 +14,8 @@ export enum ERRORS {
     CANNOT_CHANGE_CURRENT_TO_PROVISIONAL = "Cannot change current status to provisional",
     STATUS_CODE_SHOULD_BE_PROVISIONAL = "Status code should be provisional",
     MISSING_PAYLOAD = "Missing payload!",
-    MISSING_USER = "Microsoft user details not provided"
+    MISSING_USER = "Microsoft user details not provided",
+    VEHICLE_TYPE_ERROR = "\"vehicleType\" must be one of [hgv, psv, trl, car, lgv, motorcycle]"
 }
 
 export enum HTTPRESPONSE {
@@ -52,7 +53,10 @@ export enum UPDATE_TYPE {
 export enum VEHICLE_TYPE {
     HGV = "hgv",
     TRL = "trl",
-    PSV = "psv"
+    PSV = "psv",
+    CAR = "car",
+    LGV = "lgv",
+    MOTORCYCLE = "motorcycle"
 }
 
 export enum EU_VEHICLE_CATEGORY {
@@ -79,7 +83,10 @@ export enum EU_VEHICLE_CATEGORY {
 export const VEHICLE_TYPE_VALIDATION: string[] = [
     "psv",
     "trl",
-    "hgv"
+    "hgv",
+    "car",
+    "lgv",
+    "motorcycle"
 ];
 
 export const FUEL_PROPULSION_SYSTEM: string[] = [
@@ -296,3 +303,23 @@ export const STATUS_CODES: string[] = [
     "provisional",
     "archived"
 ];
+
+export const VEHICLE_SUBCLASS: string[] = [
+    "N",
+    "P",
+    "A",
+    "S",
+    "C",
+    "L",
+    "T",
+    "E",
+    "M",
+    "R",
+    "W"
+];
+
+export enum RECORD_COMPLETENESS_ENUM {
+    COMPLETE ="complete",
+    TESTABLE = "testable",
+    SKELETON = "skeleton"
+}

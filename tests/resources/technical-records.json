@@ -25672,5 +25672,120 @@
       }
     ],
     "vin": "ABC789332211"
+  },
+  {
+    "partialVin": "111222",
+    "primaryVrm": "MMM4567",
+    "techRecord": [
+      {
+        "statusCode": "current",
+        "vehicleType": "motorcycle",
+        "regnDate": "2019-06-24",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "vehicleClass": {
+          "code": "1",
+          "description": "motorbikes up to 200cc"
+        },
+        "numberOfWheelsDriven": 2,
+        "euVehicleCategory": "l1e-a",
+        "recordCompleteness": "complete",
+        "applicantDetails": {
+          "name": "string",
+          "address1": "string",
+          "address2": "string",
+          "postTown": "string",
+          "address3": "string",
+          "postCode": "string",
+          "emailAddress": "string",
+          "telephoneNumber": "string"
+        },
+        "remarks": "no remarks",
+        "reasonForCreation": "new motorcycle",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": "dorel",
+        "createdById": "1234"
+      }
+    ],
+    "vin": "BBBBBBB111222",
+    "systemNumber": "1110000"
+  },
+  {
+    "partialVin": "333444",
+    "primaryVrm": "NNN1234",
+    "techRecord": [
+      {
+        "statusCode": "current",
+        "vehicleType": "car",
+        "regnDate": "2019-06-24",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "vehicleClass": {
+          "code": "1",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleSubclass": [
+          "A"
+        ],
+        "euVehicleCategory": "l2e",
+        "recordCompleteness": "complete",
+        "applicantDetails": {
+          "name": "string",
+          "address1": "string",
+          "address2": "string",
+          "postTown": "string",
+          "address3": "string",
+          "postCode": "string",
+          "emailAddress": "string",
+          "telephoneNumber": "string"
+        },
+        "remarks": "no remarks",
+        "reasonForCreation": "new car",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": "dorel",
+        "createdById": "1234"
+      }
+    ],
+    "vin": "BBBBBBB333444",
+    "systemNumber": "1110001"
+  },
+  {
+    "partialVin": "555666",
+    "primaryVrm": "OOO9999",
+    "techRecord": [
+      {
+        "statusCode": "current",
+        "vehicleType": "lgv",
+        "regnDate": "2019-06-24",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "vehicleClass": {
+          "code": "1",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleSubclass": [
+          "A"
+        ],
+        "euVehicleCategory": "l2e",
+        "recordCompleteness": "complete",
+        "applicantDetails": {
+          "name": "string",
+          "address1": "string",
+          "address2": "string",
+          "postTown": "string",
+          "address3": "string",
+          "postCode": "string",
+          "emailAddress": "string",
+          "telephoneNumber": "string"
+        },
+        "remarks": "no remarks",
+        "reasonForCreation": "new lgv",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": "dorel",
+        "createdById": "1234"
+      }
+    ],
+    "vin": "BBBBBBB555666",
+    "systemNumber": "1110002"
   }
 ]

@@ -214,7 +214,7 @@ class TechRecordsService {
   private validateVrms(techRecord: ITechRecordWrapper) {
     let areVrmsValid = true;
     const vehicleType = techRecord.techRecord[0].vehicleType;
-    if ((vehicleType === VEHICLE_TYPE.HGV || vehicleType === VEHICLE_TYPE.PSV) && !techRecord.primaryVrm) {
+    if (vehicleType !== VEHICLE_TYPE.TRL && !techRecord.primaryVrm) {
       areVrmsValid = false;
     } else {
       const isValid = validatePrimaryVrm.validate(techRecord.primaryVrm);
