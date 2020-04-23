@@ -1,11 +1,14 @@
 import {hgvValidation} from "./HgvValidations";
 import ITechRecord from "../../@Types/ITechRecord";
-import {VEHICLE_TYPE, SEARCHCRITERIA} from "../assets/Enums";
+import {VEHICLE_TYPE, SEARCHCRITERIA, ERRORS} from "../assets/Enums";
 import Joi, {ObjectSchema} from "@hapi/joi";
 import {psvValidation} from "./PsvValidations";
 import {trlValidation} from "./TrlValidations";
 import {validateOnlyAdr} from "./AdrValidation";
 import Configuration from "./Configuration";
+import {lgvValidation} from "./LgvValidations";
+import {carValidation} from "./CarValidations";
+import {motorcycleValidation} from "./MotorcycleValidations";
 
 const checkIfTankOrBattery = (payload: ITechRecord) => {
   let isTankOrBattery = false;
@@ -31,17 +34,24 @@ const featureFlagValidation = (validationSchema: ObjectSchema, payload: ITechRec
 
 export const validatePayload = (payload: ITechRecord, validateEntireRecord: boolean = true) => {
   const isTankOrBattery = checkIfTankOrBattery(payload);
-  const options = {abortEarly: false, context: {isTankOrBattery}};
+  const abortOptions = {abortEarly: false};
+  const hgvTrlOptions = {...abortOptions, context: {isTankOrBattery}};
   if (payload.vehicleType === VEHICLE_TYPE.HGV) {
-    return featureFlagValidation(hgvValidation, payload, validateEntireRecord, options);
+    return featureFlagValidation(hgvValidation, payload, validateEntireRecord, hgvTrlOptions);
   } else if (payload.vehicleType === VEHICLE_TYPE.PSV) {
-    return psvValidation.validate(payload, {abortEarly: false});
+    return psvValidation.validate(payload, abortOptions);
   } else if (payload.vehicleType === VEHICLE_TYPE.TRL) {
-    return featureFlagValidation(trlValidation, payload, validateEntireRecord, options);
+    return featureFlagValidation(trlValidation, payload, validateEntireRecord, hgvTrlOptions);
+  } else if (payload.vehicleType === VEHICLE_TYPE.LGV) {
+    return lgvValidation.validate(payload, abortOptions);
+  } else if (payload.vehicleType === VEHICLE_TYPE.CAR) {
+    return carValidation.validate(payload, abortOptions);
+  } else if (payload.vehicleType === VEHICLE_TYPE.MOTORCYCLE) {
+    return motorcycleValidation.validate(payload, abortOptions);
   } else {
     return {
       error: {
-        details: [{message: "\"vehicleType\" must be one of [hgv, psv, trl]"}]
+        details: [{message: ERRORS.VEHICLE_TYPE_ERROR}]
       }
     };
   }

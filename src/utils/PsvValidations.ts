@@ -8,7 +8,14 @@ import {
   SPEED_CATEGORY_SYMBOL,
   VEHICLE_SIZE
 } from "../assets/Enums";
-import {axlesSchema, brakesSchema, commonSchema, tyresSchema, weightsSchema} from "./CommonSchema";
+import {
+  applicantDetailsSchemaOptional,
+  axlesSchema,
+  brakesSchema,
+  commonSchema,
+  tyresSchema,
+  weightsSchema
+} from "./CommonSchema";
 
 export const psvValidation = commonSchema.keys({
   brakeCode: Joi.string().optional(),
@@ -88,14 +95,5 @@ export const psvValidation = commonSchema.keys({
   frontAxleToRearAxle: Joi.number().min(0).max(99999).optional().allow(null),
   remarks: Joi.string().max(1024).optional().allow(null),
   dispensations: Joi.string().max(160).optional().allow(null),
-  applicantDetails: Joi.object().keys({
-    name: Joi.string().max(150).optional().allow(null),
-    address1: Joi.string().max(60).optional().allow(null),
-    address2: Joi.string().max(60).optional().allow(null),
-    postTown: Joi.string().max(60).optional().allow(null),
-    address3: Joi.string().max(60).optional().allow(null),
-    postCode: Joi.string().max(12).optional().allow(null),
-    telephoneNumber: Joi.string().max(25).optional().allow(null),
-    emailAddress: Joi.string().max(255).optional().allow(null)
-  }).optional().allow(null)
+  applicantDetails: applicantDetailsSchemaOptional
 }).required();

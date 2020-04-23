@@ -753,7 +753,7 @@ describe("updateTechRecord", () => {
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(400);
-          expect(errorResponse.body.errors).toContain("\"vehicleType\" must be one of [hgv, psv, trl]");
+          expect(errorResponse.body.errors).toContain(ERRORS.VEHICLE_TYPE_ERROR);
         }
       });
     });
