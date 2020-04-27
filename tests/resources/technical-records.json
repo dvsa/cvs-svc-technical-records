@@ -17724,7 +17724,7 @@
           "code": "v",
           "description": "3 wheelers"
         },
-        "vehicleConfiguration": null,
+        "vehicleConfiguration": "other",
         "vehicleSubclass": [
           "a"
         ],
