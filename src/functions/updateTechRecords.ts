@@ -13,7 +13,7 @@ const updateTechRecords = (event: any) => {
   const systemNumber = event.pathParameters ? event.pathParameters.systemNumber : null;
 
   if (!systemNumber) {
-    return Promise.resolve(new HTTPResponse(400, "Invalid path parameter 'systemNumber'"));
+    return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Invalid path parameter 'systemNumber'")));
   }
 
   if (!techRec || !techRec.length) {

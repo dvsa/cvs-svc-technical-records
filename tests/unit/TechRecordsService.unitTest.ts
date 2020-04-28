@@ -782,7 +782,7 @@ describe("updateTechRecord", () => {
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(400);
-          expect(errorResponse.body).toEqual(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
+          expect(errorResponse.body.errors).toContain(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
         }
       });
     });
@@ -900,7 +900,7 @@ describe("updateTechRecord", () => {
                 expect(await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload)).toThrowError();
               } catch (errorResponse) {
                 expect(errorResponse.statusCode).toEqual(400);
-                expect(errorResponse.body).toEqual("Primary VRM ABCD943 already exists");
+                expect(errorResponse.body.errors).toContain("Primary VRM ABCD943 already exists");
               }
             });
           });
@@ -917,7 +917,7 @@ describe("updateTechRecord", () => {
               expect(await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload)).toThrowError();
             } catch (errorResponse) {
               expect(errorResponse.statusCode).toEqual(400);
-              expect(errorResponse.body).toEqual("PrimaryVrm is invalid");
+              expect(errorResponse.body.errors).toContain("PrimaryVrm is invalid");
             }
           });
         });
@@ -972,7 +972,7 @@ describe("updateTechRecord", () => {
                 expect(await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload)).toThrowError();
               } catch (errorResponse) {
                 expect(errorResponse.statusCode).toEqual(400);
-                expect(errorResponse.body).toEqual("TrailerId ABCD943 already exists");
+                expect(errorResponse.body.errors).toContain("TrailerId ABCD943 already exists");
               }
             });
           });
@@ -989,7 +989,7 @@ describe("updateTechRecord", () => {
               expect(await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload)).toThrowError();
             } catch (errorResponse) {
               expect(errorResponse.statusCode).toEqual(400);
-              expect(errorResponse.body).toEqual("TrailerId is invalid");
+              expect(errorResponse.body.errors).toContain("TrailerId is invalid");
             }
           });
         });
@@ -1020,7 +1020,7 @@ describe("updateTechRecord", () => {
               expect(await techRecordsService.updateAttributesOutsideTechRecordsArray(techRecord, payload)).toThrowError();
             } catch (errorResponse) {
               expect(errorResponse.statusCode).toEqual(400);
-              expect(errorResponse.body).toEqual("SecondaryVrms are invalid");
+              expect(errorResponse.body.errors).toContain("SecondaryVrms are invalid");
             }
           });
         });
