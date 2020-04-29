@@ -24,13 +24,13 @@ describe("UpdateTechRecordStatus", () => {
 
     context("when trying to update a vehicle", () => {
         it("should not update the status if the test type does not require a tech record update", async () => {
-            const vin: string = "P012301270123";
+            const systemNumber: string = "11000001";
             expect.assertions(2);
             await LambdaTester(updateTechRecordStatus)
                 .event({
-                    path: "/vehicles/update-status/" + vin,
+                    path: "/vehicles/update-status/" + systemNumber,
                     pathParameters: {
-                        vin,
+                      systemNumber,
                     },
                     queryStringParameters: {
                         testStatus: "submitted",
@@ -38,7 +38,7 @@ describe("UpdateTechRecordStatus", () => {
                         testTypeId: "1",
                     },
                     httpMethod: "PUT",
-                    resource: "/vehicles/update-status/{vin}"
+                    resource: "/vehicles/update-status/{systemNumber}"
                 })
                 .expectResolve((result: any) => {
                     expect(result.statusCode).toBe(200);
@@ -61,7 +61,7 @@ describe("UpdateTechRecordStatus", () => {
                         testTypeId: "47",
                     },
                     httpMethod: "PUT",
-                    resource: "/vehicles/update-status/{vin}"
+                    resource: "/vehicles/update-status/{systemNumber}"
                 })
                 .expectResolve((result: any) => {
                     expect(result.statusCode).toBe(200);
@@ -73,7 +73,7 @@ describe("UpdateTechRecordStatus", () => {
         });
 
         it("should return 400 if the vehicle status cannot be updated", async () => {
-            const systemNumber: string = "11000013";
+            const systemNumber: string = "11000032";
             expect.assertions(2);
             await LambdaTester(updateTechRecordStatus)
                 .event({
@@ -87,7 +87,7 @@ describe("UpdateTechRecordStatus", () => {
                         testTypeId: "47",
                     },
                     httpMethod: "PUT",
-                    resource: "/vehicles/update-status/{vin}"
+                    resource: "/vehicles/update-status/{systemNumber}"
                 })
                 .expectResolve((result: any) => {
                     expect(result.statusCode).toBe(400);
@@ -110,7 +110,7 @@ describe("UpdateTechRecordStatus", () => {
                         testTypeId: "47",
                     },
                     httpMethod: "PUT",
-                    resource: "/vehicles/update-status/{vin}"
+                    resource: "/vehicles/update-status/{systemNumber}"
                 })
                 .expectResolve((result: any) => {
                     expect(result.statusCode).toBe(404);
