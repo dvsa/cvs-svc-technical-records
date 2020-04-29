@@ -2,7 +2,7 @@
 import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
-import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, EU_VEHICLE_CATEGORY, ERRORS} from "../../src/assets/Enums";
+import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, EU_VEHICLE_CATEGORY, ERRORS, UPDATE_TYPE} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
 import HTTPResponse from "../../src/models/HTTPResponse";
@@ -1352,3 +1352,116 @@ describe("archiveTechRecordStatus", () => {
   });
 });
 
+
+describe("updateTechRecordStatus", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+  const createdByName = "dorel";
+  const createdById = "1234";
+
+  context("when updating the statusCode for an existing vehicle", () => {
+    context("and the vehicle has only a current tech record", () => {
+      it("should create new CURRENT, set the audit details and archive the previous current record", async () => {
+        const existingTechRecord = cloneDeep(records[0]);
+        const systemNumber = existingTechRecord.systemNumber;
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getBySearchTerm: () => {
+              return Promise.resolve({
+                Items: [existingTechRecord],
+                Count: 1,
+                ScannedCount: 1
+              });
+            }
+          };
+        });
+        expect.assertions(11);
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+        const updatedTechRec: ITechRecordWrapper = await techRecordsService.prepareTechRecordForStatusUpdate(systemNumber, undefined, createdById, createdByName);
+        expect(updatedTechRec.techRecord.length).toEqual(2);
+        expect(updatedTechRec.techRecord[1].createdById).toEqual(createdById);
+        expect(updatedTechRec.techRecord[1].createdByName).toEqual(createdByName);
+        expect(updatedTechRec.techRecord[1].statusCode).toEqual(STATUS.CURRENT);
+        expect(updatedTechRec.techRecord[1]).not.toHaveProperty("lastUpdatedAt");
+        expect(updatedTechRec.techRecord[1]).not.toHaveProperty("lastUpdatedByName");
+        expect(updatedTechRec.techRecord[1]).not.toHaveProperty("lastUpdatedById");
+        expect(updatedTechRec.techRecord[0].lastUpdatedById).toEqual(createdById);
+        expect(updatedTechRec.techRecord[0].lastUpdatedByName).toEqual(createdByName);
+        expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.ARCHIVED);
+        expect(updatedTechRec.techRecord[0].updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
+      });
+    });
+
+    context("and the vehicle has only a provisional tech record", () => {
+      it("should create new CURRENT, set the audit details and archive the previous provisional record", async () => {
+        const existingTechRecord = cloneDeep(records[3]);
+        const systemNumber = existingTechRecord.systemNumber;
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getBySearchTerm: () => {
+              return Promise.resolve({
+                Items: [existingTechRecord],
+                Count: 1,
+                ScannedCount: 1
+              });
+            }
+          };
+        });
+        expect.assertions(11);
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+        const updatedTechRec: ITechRecordWrapper = await techRecordsService.prepareTechRecordForStatusUpdate(systemNumber, undefined, createdById, createdByName);
+        expect(updatedTechRec.techRecord.length).toEqual(2);
+        expect(updatedTechRec.techRecord[1].createdById).toEqual(createdById);
+        expect(updatedTechRec.techRecord[1].createdByName).toEqual(createdByName);
+        expect(updatedTechRec.techRecord[1].statusCode).toEqual(STATUS.CURRENT);
+        expect(updatedTechRec.techRecord[1]).not.toHaveProperty("lastUpdatedAt");
+        expect(updatedTechRec.techRecord[1]).not.toHaveProperty("lastUpdatedByName");
+        expect(updatedTechRec.techRecord[1]).not.toHaveProperty("lastUpdatedById");
+        expect(updatedTechRec.techRecord[0].lastUpdatedById).toEqual(createdById);
+        expect(updatedTechRec.techRecord[0].lastUpdatedByName).toEqual(createdByName);
+        expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.ARCHIVED);
+        expect(updatedTechRec.techRecord[0].updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
+      });
+    });
+
+    context("and the vehicle has a current and a provisional record", () => {
+      it("should create new CURRENT, set the audit details and archive the previous current and provisional record", async () => {
+        const existingTechRecord = cloneDeep(records[44]);
+        const systemNumber = existingTechRecord.systemNumber;
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getBySearchTerm: () => {
+              return Promise.resolve({
+                Items: [existingTechRecord],
+                Count: 1,
+                ScannedCount: 1
+              });
+            }
+          };
+        });
+        expect.assertions(15);
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+        const updatedTechRec: ITechRecordWrapper = await techRecordsService.prepareTechRecordForStatusUpdate(systemNumber, undefined, createdById, createdByName);
+        expect(updatedTechRec.techRecord.length).toEqual(3);
+        expect(updatedTechRec.techRecord[2].createdById).toEqual(createdById);
+        expect(updatedTechRec.techRecord[2].createdByName).toEqual(createdByName);
+        expect(updatedTechRec.techRecord[2].statusCode).toEqual(STATUS.CURRENT);
+        expect(updatedTechRec.techRecord[2]).not.toHaveProperty("lastUpdatedAt");
+        expect(updatedTechRec.techRecord[2]).not.toHaveProperty("lastUpdatedByName");
+        expect(updatedTechRec.techRecord[2]).not.toHaveProperty("lastUpdatedById");
+        expect(updatedTechRec.techRecord[0].lastUpdatedById).toEqual(createdById);
+        expect(updatedTechRec.techRecord[0].lastUpdatedByName).toEqual(createdByName);
+        expect(updatedTechRec.techRecord[0].updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
+        expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.ARCHIVED);
+        expect(updatedTechRec.techRecord[1].lastUpdatedById).toEqual(createdById);
+        expect(updatedTechRec.techRecord[1].lastUpdatedByName).toEqual(createdByName);
+        expect(updatedTechRec.techRecord[1].updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
+        expect(updatedTechRec.techRecord[1].statusCode).toEqual(STATUS.ARCHIVED);
+      });
+    });
+  });
+});

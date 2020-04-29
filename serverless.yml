@@ -135,8 +135,8 @@ functions:
     handler: src/handler.handler
     events:
       - http:
-          path: vehicles/{systemNumber}
-          method: post
+          path: vehicles/update-status/{systemNumber}
+          method: put
           request:
             parameters:
               paths:

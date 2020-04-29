@@ -422,27 +422,70 @@ class TechRecordsService {
       });
   }
 
-  public async updateTechRecordStatusCode(systemNumber: string, newStatus: STATUS = STATUS.CURRENT) {
+  public setCreatedAuditDetails(techRecord: ITechRecord, createdByName: string, createdById: string, date: string) {
+    techRecord.createdAt = date;
+    techRecord.createdByName = createdByName;
+    techRecord.createdById = createdById;
+    delete techRecord.lastUpdatedAt;
+    delete techRecord.lastUpdatedById;
+    delete techRecord.lastUpdatedByName;
+  }
+
+  public setLastUpdatedAuditDetails(techRecord: ITechRecord, createdByName: string, createdById: string, date: string) {
+    techRecord.lastUpdatedAt = date;
+    techRecord.lastUpdatedByName = createdByName;
+    techRecord.lastUpdatedById = createdById;
+  }
+
+  public async prepareTechRecordForStatusUpdate(systemNumber: string, newStatus: STATUS = STATUS.CURRENT, createdById: string, createdByName: string) {
     const techRecordWrapper: ITechRecordWrapper[] = await this.getTechRecordsList(systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER);
     if (techRecordWrapper.length !== 1) {
       // systemNumber search should return a single record
       throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
     }
     const uniqueRecord = techRecordWrapper[0];
-    const provisionalTechRecords = this.getTechRecordByStatus(uniqueRecord, STATUS.PROVISIONAL);
+    const provisionalTechRecords = uniqueRecord.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.PROVISIONAL);
+    const currentTechRecords = uniqueRecord.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.CURRENT);
+    let newTechRecord;
     if (provisionalTechRecords.length === 1) {
       provisionalTechRecords[0].statusCode = STATUS.ARCHIVED;
-      uniqueRecord.techRecord.push({...uniqueRecord.techRecord[0], statusCode: newStatus});
-      let updatedTechRecord;
-      try {
-        updatedTechRecord = await this.techRecordsDAO.updateSingle(uniqueRecord);
-      } catch (error) {
-        throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
+      newTechRecord = cloneDeep(provisionalTechRecords[0]);
+      newTechRecord.statusCode = newStatus;
+
+      const date = new Date().toISOString();
+      this.setCreatedAuditDetails(newTechRecord, createdByName, createdById, date);
+      this.setLastUpdatedAuditDetails(provisionalTechRecords[0], createdByName, createdById, date);
+      provisionalTechRecords[0].updateType = UPDATE_TYPE.TECH_RECORD_UPDATE;
+    }
+    if (currentTechRecords.length === 1) {
+      currentTechRecords[0].statusCode = STATUS.ARCHIVED;
+      const date = new Date().toISOString();
+      if (!newTechRecord) {
+        newTechRecord = cloneDeep(currentTechRecords[0]);
+        newTechRecord.statusCode = newStatus;
+        this.setCreatedAuditDetails(newTechRecord, createdByName, createdById, date);
       }
-      return this.formatTechRecordItemForResponse(updatedTechRecord.Attributes as ITechRecordWrapper);
-    } else {
+      this.setLastUpdatedAuditDetails(currentTechRecords[0], createdByName, createdById, date);
+      currentTechRecords[0].updateType = UPDATE_TYPE.TECH_RECORD_UPDATE;
+    }
+
+    // if newTechRecord is undefined that means there multiple or no current/provisional records were found
+    if (!newTechRecord) {
       throw new HTTPError(400, "The tech record status cannot be updated to " + newStatus);
     }
+    uniqueRecord.techRecord.push(newTechRecord);
+    return uniqueRecord;
+  }
+
+  public async updateTechRecordStatusCode(systemNumber: string, newStatus: STATUS = STATUS.CURRENT, createdById: string, createdByName: string) {
+    const uniqueRecord = await this.prepareTechRecordForStatusUpdate(systemNumber, newStatus, createdById, createdByName);
+    let updatedTechRecord;
+    try {
+      updatedTechRecord = await this.techRecordsDAO.updateSingle(uniqueRecord);
+    } catch (error) {
+      throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
+    }
+    return this.formatTechRecordItemForResponse(updatedTechRecord.Attributes as ITechRecordWrapper);
   }
 
   public async archiveTechRecordStatus(systemNumber: string, techRecordToUpdate: ITechRecordWrapper, userDetails: IMsUserDetails) {
@@ -475,7 +518,7 @@ class TechRecordsService {
   }
 
   public static isStatusUpdateRequired(testStatus: string, testResult: string, testTypeId: string): boolean {
-    return testStatus === "submitted" && testResult === "pass" &&
+    return testStatus === "submitted" && (testResult === "pass" || testResult === "prs") &&
       (this.isTestTypeFirstTest(testTypeId) || this.isTestTypeNotifiableAlteration(testTypeId));
   }
 
