@@ -56,4 +56,4 @@ endpoints:
     functions:
       numberGenerationService:
         name: test-number-${BRANCH}
-allowAdrUpdatesOnly: true
+allowAdrUpdatesOnly: false
