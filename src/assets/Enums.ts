@@ -6,7 +6,14 @@ export enum ERRORS {
     NO_BRANCH = "Please define BRANCH environment variable",
     NO_UNIQUE_RECORD = "Failed to uniquely identify record",
     TRAILER_ID_GENERATION_FAILED = "TrailerId generation failed!",
-    SYSTEM_NUMBER_GENERATION_FAILED = "System Number generation failed!"
+    SYSTEM_NUMBER_GENERATION_FAILED = "System Number generation failed!",
+    CANNOT_UPDATE_ARCHIVED_RECORD = "You are not allowed to update an archived tech-record",
+    CURRENT_OR_PROVISIONAL_RECORD_FOUND = "Has existing Current or Provisional record",
+    MULTIPLE_TECH_RECORD_WITH_STATUS = "Multiple tech record found with provided status",
+    CANNOT_CHANGE_CURRENT_TO_PROVISIONAL = "Cannot change current status to provisional",
+    STATUS_CODE_SHOULD_BE_PROVISIONAL = "Status code should be provisional",
+    MISSING_PAYLOAD = "Missing payload!",
+    MISSING_USER = "Microsoft user details not provided"
 }
 
 export enum HTTPRESPONSE {
@@ -282,3 +289,12 @@ export const LETTER_TYPE: string[] = [
     "Trailer authorization",
     "Trailer rejection"
 ];
+
+export const STATUS_CODES: string[] = [
+    "current",
+    "provisional",
+    "archived"
+];
+
+export const ONLY_DIGITS_AND_NUMBERS: RegExp = /^[A-Za-z0-9]+$/;
+

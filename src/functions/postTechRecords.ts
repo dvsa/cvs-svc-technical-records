@@ -4,11 +4,12 @@ import HTTPResponse from "../models/HTTPResponse";
 import ITechRecord from "../../@Types/ITechRecord";
 import {populatePartialVin} from "../utils/ValidationUtils";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import {ONLY_DIGITS_AND_NUMBERS} from "../assets/Enums";
+
 
 const postTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
   const techRecordsService = new TechRecordsService(techRecordsDAO);
-  const ONLY_DIGITS_AND_NUMBERS: RegExp = /^[A-Za-z0-9]+$/;
 
   const techRec: ITechRecord[] = event.body ? event.body.techRecord : null;
   const msUserDetails = event.body ? event.body.msUserDetails : null;

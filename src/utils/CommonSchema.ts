@@ -1,3 +1,4 @@
+import { STATUS_CODES } from "../assets/Enums";
 /* tslint:disable */
 const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
@@ -109,5 +110,6 @@ export const commonSchema = Joi.object().keys({
   createdById: Joi.string().optional(),
   lastUpdatedAt: Joi.string().optional().allow(null),
   lastUpdatedByName: Joi.string().optional(),
-  lastUpdatedById: Joi.string().optional()
+  lastUpdatedById: Joi.string().optional(),
+  statusCode: Joi.string().valid(...STATUS_CODES)
 }).required();

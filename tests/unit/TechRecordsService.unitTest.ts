@@ -7,6 +7,12 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
 import HTTPResponse from "../../src/models/HTTPResponse";
 import Configuration from "../../src/utils/Configuration";
+import IMsUserDetails from "../../@Types/IUserDetails";
+
+const msUserDetails: IMsUserDetails = {
+  msUser: "dorel",
+  msOid: "1234545"
+};
 
 describe("getTechRecordsList", () => {
   afterEach(() => {
@@ -291,11 +297,6 @@ describe("insertTechRecord", () => {
       // @ts-ignore
       const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
       delete techRecord.techRecord[0].statusCode;
-      delete techRecord.systemNumber;
-      const msUserDetails = {
-        msUser: "dorel",
-        msOid: "1234545"
-      };
 
       const data: any = await techRecordsService.insertTechRecord(techRecord, msUserDetails);
       expect(data).not.toEqual(undefined);
@@ -319,11 +320,6 @@ describe("insertTechRecord", () => {
       const techRecord: ITechRecordWrapper = cloneDeep(records[29]);
       techRecord.techRecord[0].bodyType.description = "whatever";
       delete techRecord.techRecord[0].statusCode;
-      delete techRecord.systemNumber;
-      const msUserDetails = {
-        msUser: "dorel",
-        msOid: "1234545"
-      };
 
       try {
         expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
@@ -350,11 +346,6 @@ describe("insertTechRecord", () => {
         techRecord.techRecord[0].bodyType.description = "skeletal";
         delete techRecord.techRecord[0].statusCode;
         delete techRecord.primaryVrm;
-        delete techRecord.systemNumber;
-        const msUserDetails = {
-          msUser: "dorel",
-          msOid: "1234545"
-        };
 
         try {
           expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
@@ -383,11 +374,6 @@ describe("insertTechRecord", () => {
         techRecord.secondaryVrms = ["invalidSecondaryVrm"];
         techRecord.techRecord[0].bodyType.description = "skeletal";
         delete techRecord.techRecord[0].statusCode;
-        delete techRecord.systemNumber;
-        const msUserDetails = {
-          msUser: "dorel",
-          msOid: "1234545"
-        };
 
         try {
           expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
@@ -658,10 +644,7 @@ describe("updateTechRecord", () => {
   afterAll(() => {
     Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(true);
   });
-  const msUserDetails = {
-    msUser: "dorel",
-    msOid: "1234545"
-  };
+
   context("when updating a technical record for an existing vehicle", () => {
     it("should return the updated document", async () => {
       const techRecord: any = cloneDeep(records[44]);
@@ -698,8 +681,9 @@ describe("updateTechRecord", () => {
       expect(updatedTechRec.techRecord[0].bodyType.description).toEqual("skeletal");
       expect(updatedTechRec.techRecord[0].grossGbWeight).toEqual(5555);
     });
+  });
 
-    it("should get the provisional document to update", async () => {
+  it("should get the provisional document to update", async () => {
       const techRecord: any = cloneDeep(records[43]);
       techRecord.techRecord[0].bodyType.description = "skeletal";
       techRecord.techRecord[0].grossGbWeight = 5555;
@@ -732,39 +716,15 @@ describe("updateTechRecord", () => {
       expect(updatedTechRec.techRecord[0].grossGbWeight).toEqual(5555);
     });
 
-    context("and the payload doesn't pass the validation", () => {
+  context("and the payload doesn't pass the validation", () => {
       it("should return error 400 Payload is not valid", async () => {
         // @ts-ignore
-        const techRecord: ITechRecordWrapper = cloneDeep(records[31]);
+        const techRecord: ITechRecordWrapper = cloneDeep(records[32]);
         techRecord.techRecord[0].vehicleType = "motorbike";
-        const MockDAO = jest.fn().mockImplementation(() => {
-          return {
-            updateSingle: () => {
-              return Promise.resolve({
-                Attributes: techRecord
-              });
-            },
-            getBySearchTerm: () => {
-              return Promise.resolve({
-                Items: [cloneDeep(records[31])],
-                Count: 1,
-                ScannedCount: 1
-              });
-            }
-          };
-        });
+        const MockDAO = jest.fn().mockImplementation();
         const techRecordsService = new TechRecordsService(new MockDAO());
-        const recordToUpdate: any = {
-          vin: techRecord.vin,
-          partialVin: techRecord.partialVin,
-          primaryVrm: techRecord.primaryVrm,
-          techRecord:
-            [{
-              reasonForCreation: techRecord.techRecord[0].reasonForCreation
-            }]
-        };
         try {
-          expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails)).toThrowError();
+          expect(await techRecordsService.updateTechRecord(techRecord, msUserDetails)).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(400);
@@ -772,7 +732,57 @@ describe("updateTechRecord", () => {
         }
       });
     });
-  });
+
+  context("and the user wants to update an archived record", () => {
+      it("should return error 400 Cannot update an archived record", async () => {
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[31]);
+        const MockDAO = jest.fn().mockImplementation();
+        const techRecordsService = new TechRecordsService(new MockDAO());
+        try {
+          expect(await techRecordsService.updateTechRecord(techRecord, msUserDetails)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(400);
+          expect(errorResponse.body).toEqual(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
+        }
+      });
+    });
+
+  context("and the user wants to update a record which doesn't have the specified statusCode", () => {
+      it("should return error 500 Vehicle has no tech-records with status {statusCode}", async () => {
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
+        const MockDAO = jest.fn().mockImplementation();
+        const techRecordsService = new TechRecordsService(new MockDAO());
+        try {
+          expect(await techRecordsService.getTechRecordToArchive(techRecord, STATUS.CURRENT)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(404);
+          expect(errorResponse.body).toEqual("Vehicle has no tech-records with status current");
+        }
+      });
+    });
+
+  context("and the user wants to update a record which doesn't have the specified statusCode", () => {
+      it("should return error 500 Vehicle has no tech-records with status {statusCode}", async () => {
+        // @ts-ignore
+        const techRecord: ITechRecordWrapper = cloneDeep(records[43]);
+        const MockDAO = jest.fn().mockImplementation();
+        const techRecordsService = new TechRecordsService(new MockDAO());
+        const recordToUpdate: any = {
+          techRecord: [techRecord.techRecord[0], techRecord.techRecord[0]]
+        };
+        try {
+          expect(await techRecordsService.getTechRecordToArchive(recordToUpdate, STATUS.PROVISIONAL)).toThrowError();
+        } catch (errorResponse) {
+          expect(errorResponse).toBeInstanceOf(HTTPError);
+          expect(errorResponse.statusCode).toEqual(500);
+          expect(errorResponse.body).toEqual("Vehicle has more than one tech-record with status provisional");
+        }
+      });
+    });
 
   context("when trying to update a technical record for non existing vehicle", () => {
     it("should return error 404 No resources match the search criteria", async () => {
@@ -807,15 +817,102 @@ describe("updateTechRecord", () => {
       }
     });
   });
+
+  context("A technical record status is updated to current from provisional via PUT verb and a current already exists", () => {
+    it("should save the new current, should change the previous current record status to archived, the provisional tech record, has it's status updated to 'archive' and set audit details for both", async () => {
+    const oldStatusCode = STATUS.PROVISIONAL;
+    const payload: any = cloneDeep(records[44]);
+    delete payload.techRecord[1];
+    payload.techRecord[0].statusCode = STATUS.CURRENT;
+
+    const MockDAO = jest.fn().mockImplementation(() => {
+      return {
+        getBySearchTerm: () => {
+          return Promise.resolve({
+            Items: [cloneDeep(records[44])],
+            Count: 1,
+            ScannedCount: 1
+          });
+        }
+      };
+    });
+    expect.assertions(9);
+    const techRecordsService = new TechRecordsService(new MockDAO());
+    const updatedTechRec: ITechRecordWrapper = await techRecordsService.createAndArchiveTechRecord(payload, msUserDetails, oldStatusCode);
+    expect(updatedTechRec.techRecord[2].statusCode).toEqual(STATUS.CURRENT);
+    expect(updatedTechRec.techRecord[2].createdById).toEqual(msUserDetails.msOid);
+    expect(updatedTechRec.techRecord[2].createdByName).toEqual(msUserDetails.msUser);
+    expect(updatedTechRec.techRecord[1].statusCode).toEqual(STATUS.ARCHIVED);
+    expect(updatedTechRec.techRecord[1].lastUpdatedById).toEqual(msUserDetails.msOid);
+    expect(updatedTechRec.techRecord[1].lastUpdatedByName).toEqual(msUserDetails.msUser);
+    expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.ARCHIVED);
+    expect(updatedTechRec.techRecord[0].lastUpdatedById).toEqual(msUserDetails.msOid);
+    expect(updatedTechRec.techRecord[0].lastUpdatedByName).toEqual(msUserDetails.msUser);
+  });
+  });
+
+  context("A technical record status is updated to current from provisional via PUT verb and no current record exists", () => {
+    it("should change the provisional to current and set audit details", async () => {
+    const oldStatusCode = STATUS.PROVISIONAL;
+    const payload: any = cloneDeep(records[43]);
+    payload.techRecord[0].statusCode = STATUS.CURRENT;
+    const MockDAO = jest.fn().mockImplementation(() => {
+      return {
+        getBySearchTerm: () => {
+          return Promise.resolve({
+            Items: [cloneDeep(records[43])],
+            Count: 1,
+            ScannedCount: 1
+          });
+        }
+      };
+    });
+    expect.assertions(6);
+    const techRecordsService = new TechRecordsService(new MockDAO());
+    const updatedTechRec: any = await techRecordsService.createAndArchiveTechRecord(payload, msUserDetails, oldStatusCode);
+    expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.ARCHIVED);
+    expect(updatedTechRec.techRecord[0].lastUpdatedById).toEqual(msUserDetails.msOid);
+    expect(updatedTechRec.techRecord[0].lastUpdatedByName).toEqual(msUserDetails.msUser);
+    expect(updatedTechRec.techRecord[1].statusCode).toEqual(STATUS.CURRENT);
+    expect(updatedTechRec.techRecord[1].createdByName).toEqual(msUserDetails.msUser);
+    expect(updatedTechRec.techRecord[1].createdById).toEqual(msUserDetails.msOid);
+  });
+  });
+
+  context("A technical record with status as archived is updated via PUT verb", () => {
+    it("should not allow to save tech record", async () => {
+    const techRecord: any = cloneDeep(records[43]);
+    techRecord.techRecord[0].statusCode = STATUS.ARCHIVED;
+    const MockDAO = jest.fn().mockImplementation();
+    expect.assertions(2);
+    const techRecordsService = new TechRecordsService(new MockDAO());
+    techRecordsService.createAndArchiveTechRecord(techRecord, msUserDetails, STATUS.ARCHIVED).catch((err) => {
+      expect(err.statusCode).toEqual(400);
+      expect(err.body).toEqual(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
+    });
+  });
+  });
+
+  context("A technical record with status 'current' is updated to status 'provisional' via PUT verb", () => {
+    it("should not allow to save tech record", async () => {
+    const techRecord: any = cloneDeep(records[43]);
+    techRecord.techRecord[0].statusCode = STATUS.PROVISIONAL;
+    const MockDAO = jest.fn().mockImplementation();
+    expect.assertions(2);
+    const techRecordsService = new TechRecordsService(new MockDAO());
+    techRecordsService.createAndArchiveTechRecord(techRecord, msUserDetails, STATUS.CURRENT).catch((err) => {
+      expect(err.statusCode).toEqual(400);
+      expect(err.body).toEqual(ERRORS.CANNOT_CHANGE_CURRENT_TO_PROVISIONAL);
+    });
+  });
+  });
 });
+
 describe("updateEuVehicleCategory", () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });
-  const msUserDetails = {
-    msUser: "dorel",
-    msOid: "1234545"
-  };
+
   context("when updating a euVehicleCategory for an existing vehicle where the value is null", () => {
     it("should update the euVehicleCategory with the value provided", async () => {
       const expectedTechRecord = cloneDeep<ITechRecordWrapper>(records[22]);
@@ -869,5 +966,138 @@ describe("updateEuVehicleCategory", () => {
       expect(response.statusCode).toEqual(200);
       expect(response.body).toEqual(`"${HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED}"`);
     });
+  });
+});
+describe("addProvisionalTechRecord", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  context("a new Provisional tech record is created for a vehicle, that does not have a 'current' tech record", () => {
+    it("the following attributes are set on the new provisional tech record: createdByName, createdByID, createdAt and all other tech records for this vehicle are unaffected", async () => {
+    const techRecord: any = cloneDeep(records[43]);
+    techRecord.techRecord[0].statusCode = STATUS.ARCHIVED;
+    const payload: any = cloneDeep(records[43]);
+
+
+    const MockDAO = jest.fn().mockImplementation(() => {
+      return {
+        getBySearchTerm: () => {
+          return Promise.resolve({
+            Items: [cloneDeep(techRecord)],
+            Count: 1,
+            ScannedCount: 1
+          });
+        }
+      };
+    });
+    expect.assertions(3);
+    const techRecordsService = new TechRecordsService(new MockDAO());
+    const updatedTechRec: ITechRecordWrapper = await techRecordsService.addNewProvisionalRecord(payload,msUserDetails);
+    expect(updatedTechRec.techRecord[1].statusCode).toEqual(STATUS.PROVISIONAL);
+    expect(updatedTechRec.techRecord[1].createdById).toEqual(msUserDetails.msOid);
+    expect(updatedTechRec.techRecord[1].createdByName).toEqual(msUserDetails.msUser);
+  });
+  });
+
+  context("a new Provisional tech record is created for a vehicle, that does not have a 'current' tech record and statusCode of the payload is not 'provisional'", () => {
+    it("should not allow to save the tech record", async () => {
+    const payload: any = cloneDeep(records[43]);
+    payload.techRecord[0].statusCode = STATUS.CURRENT;
+    const MockDAO = jest.fn().mockImplementation();
+    expect.assertions(2);
+    const techRecordsService = new TechRecordsService(new MockDAO());
+    techRecordsService.addNewProvisionalRecord(payload,msUserDetails)
+    .catch( (err) => {
+      expect(err.statusCode).toEqual(400);
+      expect(err.body).toEqual(ERRORS.STATUS_CODE_SHOULD_BE_PROVISIONAL);
+    });
+  });
+  });
+
+  context("a new Provisional tech record is created for a vehicle, that does not have a 'current' tech record and has an existing 'provisional'", () => {
+    it("should not allow to save the tech record", async () => {
+    const techRecord: any = cloneDeep(records[43]);
+    techRecord.techRecord[0].statusCode = STATUS.PROVISIONAL;
+    const payload: any = cloneDeep(records[43]);
+
+    const MockDAO = jest.fn().mockImplementation(() => {
+      return {
+        getBySearchTerm: () => {
+          return Promise.resolve({
+            Items: [cloneDeep(techRecord)],
+            Count: 1,
+            ScannedCount: 1
+          });
+        }
+      };
+    });
+    expect.assertions(2);
+    const techRecordsService = new TechRecordsService(new MockDAO());
+    techRecordsService.addNewProvisionalRecord(payload,msUserDetails).catch( (err) => {
+      expect(err.statusCode).toEqual(400);
+      expect(err.body).toEqual(ERRORS.CURRENT_OR_PROVISIONAL_RECORD_FOUND);
+    });
+  });
+  });
+});
+
+describe("archiveTechRecordStatus", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  context("A technical record status is updated to archived via PUT verb", () => {
+    it("should change the records status to archived and set audit details and create no other record", async () => {
+    const techRecord: any = cloneDeep(records[43]);
+    const expectedTechRecord = cloneDeep(techRecord);
+    expectedTechRecord.techRecord[0].statusCode = STATUS.ARCHIVED;
+
+    const MockDAO = jest.fn().mockImplementation(() => {
+      return {
+        updateSingle: () => {
+          return Promise.resolve({
+            Attributes: expectedTechRecord
+          });
+        },
+        getBySearchTerm: () => {
+          return Promise.resolve({
+            Items: [techRecord],
+            Count: 1,
+            ScannedCount: 1
+          });
+        }
+      };
+    });
+    expect.assertions(2);
+    const techRecordsService = new TechRecordsService(new MockDAO());
+    const updatedTechRec: any = await techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails);
+    expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.ARCHIVED);
+    expect(updatedTechRec.techRecord.length).toEqual(1);
+  });
+  });
+
+  context("A technical record status is updated to archived via PUT verb", () => {
+    it("should change the records status to archived and set audit details and create no other record", async () => {
+    const techRecord: any = cloneDeep(records[43]);
+    techRecord.techRecord[0].statusCode = STATUS.ARCHIVED;
+    const MockDAO = jest.fn().mockImplementation(() => {
+      return {
+        getBySearchTerm: () => {
+          return Promise.resolve({
+            Items: [cloneDeep(techRecord)],
+            Count: 1,
+            ScannedCount: 1
+          });
+        }
+      };
+    });
+    expect.assertions(2);
+    const techRecordsService = new TechRecordsService(new MockDAO());
+    techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails).catch( (err) => {
+      expect(err.statusCode).toEqual(400);
+      expect(err.body).toEqual(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
+    });
+  });
   });
 });

@@ -20,6 +20,16 @@ functions:
     method: PUT
     path: /vehicles/update-eu-vehicle-category/:systemNumber
     function: updateEuVehicleCategory
+- addProvisionalTechRecord:
+    method: POST
+    path: /vehicles/add-provisional/:systemNumber
+    proxy: :systemNumber
+    function: addProvisionalTechRecord
+- archiveTechRecordStatus:
+    method: PUT
+    path: /vehicles/archive/:systemNumber
+    proxy: :systemNumber
+    function: archiveTechRecordStatus    
 
 dynamodb:
   local:
