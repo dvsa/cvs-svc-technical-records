@@ -159,7 +159,6 @@ class TechRecordsService {
   public async insertTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
     const isPayloadValid = validatePayload(techRecord.techRecord[0]);
     this.checkValidationErrors(isPayloadValid);
-    techRecord.systemNumber = await this.generateSystemNumber();
     if (!this.validateVrms(techRecord)) {
       return Promise.reject({statusCode: 400, body: "Primary or secondaryVrms are not valid"});
     }
