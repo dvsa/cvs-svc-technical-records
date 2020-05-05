@@ -363,13 +363,11 @@ describe("techRecords", () => {
             it("should return status 200 and the updated vehicle", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
-              delete techRec.techRecord[0].statusCode;
               const payload = {
                 msUserDetails,
-                systemNumber: techRec.systemNumber,
                 techRecord: techRec.techRecord
               };
-              const res = await request.put(`vehicles/${techRec.vin}`).send(payload);
+              const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
               expect(res.status).toEqual(200);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
@@ -408,34 +406,6 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
               expect(res.body.errors).toContain("Body is not a valid TechRecord");
-            });
-          });
-        });
-
-        context("and the path parameter VIN is invalid", () => {
-          context("and the path parameter VIN is shorter than 3 characters", () => {
-            it("should return 400 Invalid path parameter 'vin'", async () => {
-              // @ts-ignore
-              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-              techRec.techRecord = [];
-              const res = await request.put(`vehicles/AB`).send(techRec);
-              expect(res.status).toEqual(400);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body.errors).toContain("Invalid path parameter \'vin\'");
-            });
-          });
-
-          context("and the path parameter VIN contains non alphanumeric characters", () => {
-            it("should return 400 Invalid path parameter 'vin'", async () => {
-              // @ts-ignore
-              const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
-              techRec.techRecord = [];
-              const res = await request.put(`vehicles/t@ch-r#cord$`).send(techRec);
-              expect(res.status).toEqual(400);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body.errors).toContain("Invalid path parameter \'vin\'");
             });
           });
         });

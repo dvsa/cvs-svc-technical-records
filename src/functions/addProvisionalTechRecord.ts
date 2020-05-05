@@ -4,6 +4,7 @@ import HTTPResponse from "../models/HTTPResponse";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import ITechRecord from "../../@Types/ITechRecord";
 import IMsUserDetails from "../../@Types/IUserDetails";
+import {formatErrorMessage} from "../utils/formatErrorMessage";
 
 const addProvisionalTechRecord = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -11,28 +12,21 @@ const addProvisionalTechRecord = (event: any) => {
 
   const sysNum: string = event.pathParameters.systemNumber;
   const techRec: ITechRecord[] = event.body ? event.body.techRecord : null;
-  const msUserDetails: IMsUserDetails = event.body
-    ? event.body.msUserDetails
-    : null;
+  const msUserDetails: IMsUserDetails = event.body ? event.body.msUserDetails : null;
 
   if (!techRec || !techRec.length) {
-    return Promise.resolve(
-      new HTTPResponse(400, "Body is not a valid TechRecord")
-    );
+    return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Body is not a valid TechRecord")));
   }
 
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
-    return Promise.resolve(
-      new HTTPResponse(400, "Microsoft user details not provided")
-    );
+    return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Microsoft user details not provided")));
   }
   const techRecord: ITechRecordWrapper = {
     vin: "",
     techRecord: techRec,
     systemNumber: sysNum
   };
-  return techRecordsService
-    .addProvisionalTechRecord(techRecord, msUserDetails)
+  return techRecordsService.addProvisionalTechRecord(techRecord, msUserDetails)
     .then((addedProvisionalTechRecord: any) => {
       return new HTTPResponse(200, addedProvisionalTechRecord);
     })
@@ -41,4 +35,4 @@ const addProvisionalTechRecord = (event: any) => {
       return new HTTPResponse(error.statusCode, error.body);
     });
 };
-export { addProvisionalTechRecord };
+export {addProvisionalTechRecord};

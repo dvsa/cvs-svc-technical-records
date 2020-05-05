@@ -3,7 +3,7 @@ import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {formatErrorMessage} from "../utils/formatErrorMessage";
-import { ERRORS, STATUS } from "../assets/Enums";
+import {ERRORS, STATUS} from "../assets/Enums";
 
 const updateTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -25,12 +25,8 @@ const updateTechRecords = (event: any) => {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage(ERRORS.MISSING_USER)));
   }
 
-  const oldStatusCodeString =
-  event.queryStringParameters && event.queryStringParameters.oldStatusCode;
-  const oldStatusCode = oldStatusCodeString
-  ? STATUS[oldStatusCodeString.toUpperCase() as keyof typeof STATUS]
-  : undefined;
-
+  const oldStatusCodeString = event.queryStringParameters && event.queryStringParameters.oldStatusCode;
+  const oldStatusCode = oldStatusCodeString ? STATUS[oldStatusCodeString.toUpperCase() as keyof typeof STATUS] : undefined;
 
   const techRecord: ITechRecordWrapper = {
     vin: event.body.vin,
@@ -40,8 +36,7 @@ const updateTechRecords = (event: any) => {
     trailerId: event.body.trailerId,
     techRecord: techRec
   };
-  return techRecordsService
-  .updateTechRecord(techRecord, msUserDetails, oldStatusCode)
+  return techRecordsService.updateTechRecord(techRecord, msUserDetails, oldStatusCode)
     .then((updatedTechRec: any) => {
       return new HTTPResponse(200, updatedTechRec);
     })

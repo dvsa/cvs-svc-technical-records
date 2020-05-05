@@ -11,7 +11,6 @@ export enum ERRORS {
     CANNOT_USE_UPDATE_TO_ARCHIVE = "Cannot use update API to archive tech record",
     CANNOT_ARCHIVE_CHANGED_RECORD = "Cannot archive tech record with attribute changes",
     CURRENT_OR_PROVISIONAL_RECORD_FOUND = "Has existing Current or Provisional record",
-    MULTIPLE_TECH_RECORD_WITH_STATUS = "Multiple tech record found with provided status",
     CANNOT_CHANGE_CURRENT_TO_PROVISIONAL = "Cannot change current status to provisional",
     STATUS_CODE_SHOULD_BE_PROVISIONAL = "Status code should be provisional",
     MISSING_PAYLOAD = "Missing payload!",
