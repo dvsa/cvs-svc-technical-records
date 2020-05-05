@@ -12,7 +12,8 @@ import {
   VEHICLE_CONFIGURATION,
   VEHICLE_TYPE_VALIDATION,
   RECORD_COMPLETENESS,
-  EU_VEHICLE_CATEGORY_VALIDATION
+  EU_VEHICLE_CATEGORY_VALIDATION,
+  STATUS_CODES
 } from "../assets/Enums";
 
 export const brakesSchema = Joi.object().keys({
@@ -109,5 +110,6 @@ export const commonSchema = Joi.object().keys({
   createdById: Joi.string().optional(),
   lastUpdatedAt: Joi.string().optional().allow(null),
   lastUpdatedByName: Joi.string().optional(),
-  lastUpdatedById: Joi.string().optional()
+  lastUpdatedById: Joi.string().optional(),
+  statusCode: Joi.string().valid(...STATUS_CODES)
 }).required();

@@ -11,7 +11,6 @@ import {
   VEHICLE_TYPE,
   EU_VEHICLE_CATEGORY
 } from "../assets/Enums";
-import * as _ from "lodash";
 import {
   validatePayload,
   validatePrimaryVrm,
@@ -24,6 +23,10 @@ import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import QueryOutput = DocumentClient.QueryOutput;
 import {ValidationError, ValidationResult} from "@hapi/joi";
 import {formatErrorMessage} from "../utils/formatErrorMessage";
+import IMsUserDetails from "../../@Types/IUserDetails";
+import { PromiseResult } from "aws-sdk/lib/request";
+import { AWSError } from "aws-sdk/lib/error";
+import { cloneDeep, mergeWith, isArray, isEqual } from "lodash";
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -75,7 +78,7 @@ class TechRecordsService {
   }
 
   private filterTechRecordsForIndividualVehicleByStatus(techRecordItem: ITechRecordWrapper, status: string): ITechRecordWrapper {
-    const originalTechRecordItem = _.cloneDeep(techRecordItem);
+    const originalTechRecordItem = cloneDeep(techRecordItem);
     let provisionalOverCurrent = false;
     if (status === STATUS.PROVISIONAL_OVER_CURRENT) {
       provisionalOverCurrent = true;
@@ -235,8 +238,12 @@ class TechRecordsService {
     techRecord.statusCode = STATUS.PROVISIONAL;
   }
 
-  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
-    return this.createAndArchiveTechRecord(techRecord, msUserDetails)
+  public updateTechRecord(techRecord: ITechRecordWrapper, msUserDetails: IMsUserDetails, oldStatusCode?: STATUS) {
+    return this.manageUpdateLogic(techRecord, msUserDetails, oldStatusCode);
+  }
+
+  private manageUpdateLogic(updatedTechRecord: ITechRecordWrapper, msUserDetails: IMsUserDetails, oldStatusCode: STATUS | undefined) {
+    return this.createAndArchiveTechRecord(updatedTechRecord, msUserDetails, oldStatusCode)
       .then((data: ITechRecordWrapper) => {
         return this.techRecordsDAO.updateSingle(data)
           .then((updatedData: any) => {
@@ -249,36 +256,6 @@ class TechRecordsService {
       .catch((error: any) => {
         throw new HTTPError(error.statusCode, error.body);
       });
-  }
-
-  private async createAndArchiveTechRecord(techRecord: ITechRecordWrapper, msUserDetails: any) {
-    const {statusCode} = techRecord.techRecord[0];
-    delete techRecord.techRecord[0].statusCode;
-    if (statusCode === STATUS.ARCHIVED) {
-      return Promise.reject({statusCode: 400, body: formatErrorMessage(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD)});
-    }
-    const isPayloadValid = validatePayload(techRecord.techRecord[0], false);
-    this.checkValidationErrors(isPayloadValid);
-    techRecord.techRecord[0] = isPayloadValid.value;
-    try {
-      const data: ITechRecordWrapper[] = await this.getTechRecordsList(techRecord.systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER);
-      if (data.length !== 1) {
-        // systemNumber search should return a unique record
-        return Promise.reject({statusCode: 500, body: ERRORS.NO_UNIQUE_RECORD});
-      }
-      const uniqueRecord = data[0];
-      await this.updateAttributesOutsideTechRecordsArray(uniqueRecord, techRecord);
-      const oldTechRec = this.getTechRecordToArchive(uniqueRecord, statusCode);
-      const newRecord: ITechRecord = _.cloneDeep(oldTechRec);
-      oldTechRec.statusCode = STATUS.ARCHIVED;
-      _.mergeWith(newRecord, techRecord.techRecord[0], this.arrayCustomizer);
-      this.setAuditDetails(newRecord, oldTechRec, msUserDetails);
-      populateFields(newRecord);
-      uniqueRecord.techRecord.push(newRecord);
-      return uniqueRecord;
-    } catch (error) {
-      return Promise.reject({statusCode: error.statusCode, body: error.body});
-    }
   }
 
   public async updateAttributesOutsideTechRecordsArray(uniqueRecord: any, techRecord: ITechRecordWrapper) {
@@ -328,8 +305,56 @@ class TechRecordsService {
     }
   }
 
+  public async createAndArchiveTechRecord(updatedTechRecord: ITechRecordWrapper, msUserDetails: IMsUserDetails, oldStatusCode: STATUS | undefined) {
+    const {statusCode} = updatedTechRecord.techRecord[0];
+
+    if ((oldStatusCode && oldStatusCode === STATUS.ARCHIVED) || statusCode === STATUS.ARCHIVED) {
+      return Promise.reject({statusCode: 400, body:formatErrorMessage( ERRORS.CANNOT_USE_UPDATE_TO_ARCHIVE)});
+    }
+    if(oldStatusCode && oldStatusCode === STATUS.CURRENT && statusCode === STATUS.PROVISIONAL) {
+      return Promise.reject({statusCode: 400, body: formatErrorMessage( ERRORS.CANNOT_CHANGE_CURRENT_TO_PROVISIONAL)});
+    }
+    const isPayloadValid = validatePayload(updatedTechRecord.techRecord[0]);
+    this.checkValidationErrors(isPayloadValid);
+
+    updatedTechRecord.techRecord[0] = isPayloadValid.value;
+    return this.getTechRecordsList(updatedTechRecord.systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER)
+      .then(async (data: ITechRecordWrapper[]) => {
+        if (data.length !== 1) {
+          // systemNumber search should return a unique record
+          throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
+        }
+        const techRecordWithAllStatues = data[0];
+        const statusCodeToSearch: string = oldStatusCode ?  oldStatusCode :statusCode;
+        await this.updateAttributesOutsideTechRecordsArray(techRecordWithAllStatues, updatedTechRecord);
+        const techRecToArchive = this.getTechRecordToArchive(techRecordWithAllStatues, statusCodeToSearch );
+        const currentTechRec = techRecordWithAllStatues.techRecord.find((techRec) => techRec.statusCode === STATUS.CURRENT);
+        // check if vehicle already has a current and the provisional has been updated to current the mark old current as archived
+        if(currentTechRec && oldStatusCode && oldStatusCode === STATUS.PROVISIONAL && statusCode === STATUS.CURRENT) {
+            currentTechRec.statusCode = STATUS.ARCHIVED;
+            const date = new Date().toISOString();
+            currentTechRec.lastUpdatedAt = date;
+            currentTechRec.lastUpdatedByName = msUserDetails.msUser;
+            currentTechRec.lastUpdatedById = msUserDetails.msOid;
+        }
+        const newRecord: ITechRecord = cloneDeep(techRecToArchive);
+        mergeWith(newRecord, updatedTechRecord.techRecord[0], this.arrayCustomizer);
+        if(oldStatusCode) {
+          newRecord.statusCode = statusCode;
+        }
+        this.setAuditDetails(newRecord, techRecToArchive, msUserDetails);
+        techRecToArchive.statusCode = STATUS.ARCHIVED;
+        populateFields(newRecord);
+        techRecordWithAllStatues.techRecord.push(newRecord);
+        return techRecordWithAllStatues;
+      })
+      .catch((error: any) => {
+        throw new HTTPError(error.statusCode, error.body);
+      });
+  }
+
   private arrayCustomizer(objValue: any, srcValue: any) {
-    if (_.isArray(objValue) && _.isArray(srcValue)) {
+    if (isArray(objValue) && isArray(srcValue)) {
       return srcValue;
     }
   }
@@ -345,7 +370,7 @@ class TechRecordsService {
     }
   }
 
-  private setAuditDetails(newTechRecord: ITechRecord, oldTechRecord: ITechRecord, msUserDetails: any) {
+  private setAuditDetails(newTechRecord: ITechRecord, oldTechRecord: ITechRecord, msUserDetails: IMsUserDetails) {
     const date = new Date().toISOString();
     newTechRecord.createdAt = date;
     newTechRecord.createdByName = msUserDetails.msUser;
@@ -360,7 +385,7 @@ class TechRecordsService {
 
     let updateType = UPDATE_TYPE.TECH_RECORD_UPDATE;
     if (newTechRecord.adrDetails || oldTechRecord.adrDetails) {
-      updateType = _.isEqual(newTechRecord.adrDetails, oldTechRecord.adrDetails) ? UPDATE_TYPE.TECH_RECORD_UPDATE : UPDATE_TYPE.ADR;
+      updateType = isEqual(newTechRecord.adrDetails, oldTechRecord.adrDetails) ? UPDATE_TYPE.TECH_RECORD_UPDATE : UPDATE_TYPE.ADR;
     }
     oldTechRecord.updateType = updateType;
   }
@@ -398,7 +423,7 @@ class TechRecordsService {
       throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
     }
     const uniqueRecord = techRecordWrapper[0];
-    const provisionalTechRecords = uniqueRecord.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.PROVISIONAL);
+    const provisionalTechRecords = this.getTechRecordByStatus(uniqueRecord, STATUS.PROVISIONAL);
     if (provisionalTechRecords.length === 1) {
       provisionalTechRecords[0].statusCode = STATUS.ARCHIVED;
       uniqueRecord.techRecord.push({...uniqueRecord.techRecord[0], statusCode: newStatus});
@@ -411,6 +436,39 @@ class TechRecordsService {
       return this.formatTechRecordItemForResponse(updatedTechRecord.Attributes as ITechRecordWrapper);
     } else {
       throw new HTTPError(400, "The tech record status cannot be updated to " + newStatus);
+    }
+  }
+
+  public async archiveTechRecordStatus(systemNumber: string, techRecordToUpdate: ITechRecordWrapper, userDetails: IMsUserDetails) {
+    const allTechRecordWrapper: ITechRecordWrapper[] = await this.getTechRecordsList(systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER);
+    if(allTechRecordWrapper.length !== 1) {
+      // systemNumber search should return a single record
+      Promise.reject({statusCode: 400, body:formatErrorMessage(ERRORS.NO_UNIQUE_RECORD)});
+    }
+    const techRecordWithAllStatues = allTechRecordWrapper[0];
+    const filteredTechRecordToUpdate = this.getTechRecordByStatus(techRecordWithAllStatues, techRecordToUpdate.techRecord[0].statusCode);
+    if (filteredTechRecordToUpdate.length === 1) {
+      if(filteredTechRecordToUpdate[0].statusCode === STATUS.ARCHIVED) {
+        Promise.reject({statusCode: 400, body:formatErrorMessage(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD)});
+      }
+      if(isEqual(filteredTechRecordToUpdate,techRecordToUpdate)) {
+        Promise.reject({statusCode: 400, body:formatErrorMessage(ERRORS.CANNOT_ARCHIVE_CHANGED_RECORD)});
+      }
+      filteredTechRecordToUpdate[0].statusCode = STATUS.ARCHIVED;
+      filteredTechRecordToUpdate[0].lastUpdatedAt = new Date().toISOString();
+      filteredTechRecordToUpdate[0].lastUpdatedByName = userDetails.msUser;
+      filteredTechRecordToUpdate[0].lastUpdatedById = userDetails.msOid;
+      filteredTechRecordToUpdate[0].updateType = UPDATE_TYPE.TECH_RECORD_UPDATE;
+
+      let updatedTechRecord;
+      try {
+        updatedTechRecord = await this.techRecordsDAO.updateSingle(techRecordWithAllStatues);
+      } catch (error) {
+        throw new HTTPError(error.statusCode, error.message);
+      }
+      return this.formatTechRecordItemForResponse(updatedTechRecord.Attributes as ITechRecordWrapper);
+    } else {
+      throw new HTTPError(400, ERRORS.MULTIPLE_TECH_RECORD_WITH_STATUS);
     }
   }
 
@@ -429,9 +487,13 @@ class TechRecordsService {
     return notifiableAlterationIds.includes(testTypeId);
   }
 
+  private getTechRecordByStatus(techRecordList: ITechRecordWrapper, statusCode: string) {
+    return techRecordList.techRecord.filter((techRecord) => techRecord.statusCode === statusCode);
+  }
+
   public async updateEuVehicleCategory(systemNumber: string, newEuVehicleCategory: EU_VEHICLE_CATEGORY): Promise<HTTPResponse | HTTPError> {
     const techRecordWrapper: ITechRecordWrapper = (await this.getTechRecordsList(systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER))[0];
-    const nonArchivedTechRecord = techRecordWrapper.techRecord.filter((techRecord) => techRecord.statusCode !== STATUS.ARCHIVED);
+    const nonArchivedTechRecord =   techRecordWrapper.techRecord.filter((techRecord) => techRecord.statusCode !== STATUS.ARCHIVED);
     if (nonArchivedTechRecord.length > 1) {
       throw new HTTPError(400, HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD);
     }
@@ -451,6 +513,55 @@ class TechRecordsService {
       throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
     }
     return new HTTPResponse(200, this.formatTechRecordItemForResponse(updatedTechRecord.Attributes as ITechRecordWrapper));
+  }
+
+  public addProvisionalTechRecord(techRecord: ITechRecordWrapper, msUserDetails: IMsUserDetails) {
+    return this.addNewProvisionalRecord(techRecord, msUserDetails)
+    .then((data: ITechRecordWrapper) => {
+      return this.techRecordsDAO.updateSingle(data)
+        .then((updatedData: PromiseResult<DocumentClient.UpdateItemOutput, AWSError>) => {
+          return this.formatTechRecordItemForResponse({...updatedData.Attributes} as ITechRecordWrapper);
+        })
+        .catch((error: any) => {
+          throw new HTTPError(error.statusCode, error.message);
+        });
+    })
+    .catch((error: any) => {
+      throw new HTTPError(error.statusCode, error.body);
+    });
+  }
+
+  public addNewProvisionalRecord(techRecordToAdd: ITechRecordWrapper, msUserDetails: IMsUserDetails) {
+    if(techRecordToAdd.techRecord[0].statusCode !==STATUS.PROVISIONAL) {
+      return Promise.reject({statusCode: 400, body: ERRORS.STATUS_CODE_SHOULD_BE_PROVISIONAL});
+    }
+    const isPayloadValid = validatePayload(techRecordToAdd.techRecord[0]);
+    if (isPayloadValid.error) {
+      return Promise.reject({statusCode: 400, body: isPayloadValid.error.details});
+    }
+    return this.getTechRecordsList(techRecordToAdd.systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER)
+      .then((data: ITechRecordWrapper[]) => {
+        if(data.length !== 1) {
+          // systemNumber search should return a unique record
+          throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
+        }
+        const uniqueRecord = data[0];
+        if(this.getTechRecordByStatus(uniqueRecord, STATUS.PROVISIONAL).length > 0) {
+          throw new HTTPError( 400, ERRORS.CURRENT_OR_PROVISIONAL_RECORD_FOUND);
+        }
+        techRecordToAdd.techRecord[0].createdAt = new Date().toISOString();
+        techRecordToAdd.techRecord[0].createdByName = msUserDetails.msUser;
+        techRecordToAdd.techRecord[0].createdById = msUserDetails.msOid;
+        delete techRecordToAdd.techRecord[0].lastUpdatedAt;
+        delete techRecordToAdd.techRecord[0].lastUpdatedById;
+        delete techRecordToAdd.techRecord[0].lastUpdatedByName;
+        techRecordToAdd.techRecord[0].updateType = UPDATE_TYPE.TECH_RECORD_UPDATE;
+        uniqueRecord.techRecord.push(techRecordToAdd.techRecord[0]);
+        return uniqueRecord;
+      })
+      .catch((error: any) => {
+        throw new HTTPError(error.statusCode, error.body);
+      });
   }
 }
 
