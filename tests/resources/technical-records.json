@@ -25671,5 +25671,421 @@
       }
     ],
     "vin": "ABC789332211"
+  },
+  {
+    "partialVin": "800000",
+    "primaryVrm": "DPQ6",
+    "secondaryVrms": [
+      "E5F1I00"
+    ],
+    "systemNumber": "920000000",
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": "string",
+          "additionalNotes": {
+            "guidanceNotes": [
+              "New certificate requested"
+            ],
+            "number": [
+              "1",
+              "2"
+            ]
+          },
+          "applicantDetails": {
+            "city": null,
+            "name": null,
+            "postcode": null,
+            "street": null,
+            "town": null
+          },
+          "listStatementApplicable": true,
+          "memosApply": [
+            "07/09 3mth leak ext"
+          ],
+          "permittedDangerousGoods": [
+
+          ],
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": "string",
+              "tankCode": "string",
+              "tankManufacturer": "string",
+              "tankManufacturerSerialNo": "string",
+              "tankTypeAppNo": "string",
+              "tc2Details": {
+                "tc2Type": "initial"
+              },
+              "yearOfManufacture": 0
+            },
+            "tankStatement": {
+              "productList": "string",
+              "statement": "string",
+              "substancesPermitted": "Substances permitted under the tank code and any special provisions specified in 9 may be carried"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": "2019-10-10",
+            "type": "semi trailer battery"
+          }
+        },
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "approvalType": "ECTA",
+        "approvalTypeNumber": "12345",
+        "authIntoService": {
+          "cocIssueDate": "2019-06-25",
+          "dateAuthorised": "2019-06-25",
+          "datePending": "2019-06-25",
+          "dateReceived": "2019-06-25",
+          "dateRejected": "2019-06-25"
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 150,
+              "leverLength": 150,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 1,
+              "fitmentCode": "double",
+              "plyRating": "AA",
+              "tyreCode": 463,
+              "tyreSize": "11-21.5"
+            },
+            "weights": {
+              "designWeight": 10000,
+              "eecWeight": 10000,
+              "gbWeight": 10000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "t",
+          "description": "tipper"
+        },
+        "brakes": {
+          "antilockBrakingSystem": false,
+          "dtpNumber": "3798B",
+          "loadSensingValve": false
+        },
+        "centreOfRearmostAxleToRearOfTrl": 1000,
+        "conversionRefNo": "123456",
+        "couplingCenterToRearAxleMax": 900,
+        "couplingCenterToRearAxleMin": 1000,
+        "couplingCenterToRearTrlMax": 700,
+        "couplingCenterToRearTrlMin": 800,
+        "couplingType": "Y",
+        "createdAt": "2020-04-08T09:24:18.138Z",
+        "createdById": "123243424-234234245",
+        "createdByName": "catalin",
+        "departmentalVehicleMarker": true,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "2-1",
+              "value": 11000
+            }
+          ],
+          "length": 10000,
+          "width": 3000
+        },
+        "euVehicleCategory": "o2",
+        "firstUseDate": "2019-06-25",
+        "frameDescription": "Other",
+        "frontAxleToRearAxle": 1700,
+        "functionCode": "R",
+        "grossDesignWeight": 40000,
+        "grossEecWeight": 40000,
+        "grossGbWeight": 40000,
+        "lettersOfAuth": {
+          "letterContents": "other",
+          "letterDateRequested": "2019-06-25",
+          "letterType": "Trailer rejection"
+        },
+        "make": "Volvo",
+        "manufacturerDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "faxNumber": "************",
+          "manufacturerNotes": "**************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "manufactureYear": 2019,
+        "maxLoadOnCoupling": 10000,
+        "microfilm": {
+          "microfilmDocumentType": "PSV Miscellaneous",
+          "microfilmRollNumber": "55555",
+          "microfilmSerialNumber": "4444"
+        },
+        "model": "X6",
+        "noOfAxles": 1,
+        "notes": "some note",
+        "ntaNumber": "12345",
+        "plates": [
+          {
+            "plateIssueDate": "2020-02-02",
+            "plateIssuer": "Mr Jones",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "11111111"
+          }
+        ],
+        "purchaserDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "faxNumber": "************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "purchaserNotes": "**************",
+          "telephoneNumber": "**************"
+        },
+        "rearAxleToRearTrl": 400,
+        "reasonForCreation": "new record",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-25",
+        "roadFriendly": false,
+        "statusCode": "provisional",
+        "suspensionType": "F",
+        "tyreUseCode": "2C",
+        "variantNumber": "12345",
+        "variantVersionNumber": "12345",
+        "vehicleClass": {
+          "code": "3",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "dolly",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "SJG0001",
+    "vin": "SJGAF6WIUW16P800000"
+  },
+  {
+    "partialVin": "800002",
+    "primaryVrm": "DPQ7",
+    "secondaryVrms": [
+      "E5F1I00"
+    ],
+    "systemNumber": "920000002",
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": "string",
+          "additionalNotes": {
+            "guidanceNotes": [
+              "New certificate requested"
+            ],
+            "number": [
+              "1",
+              "2"
+            ]
+          },
+          "applicantDetails": {
+            "city": "string",
+            "name": "string",
+            "postcode": "string",
+            "street": "string",
+            "town": "string"
+          },
+          "listStatementApplicable": false,
+          "memosApply": [
+            "07/09 3mth leak ext"
+          ],
+          "permittedDangerousGoods": [
+            "FP <61 (FL)"
+          ],
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": "string",
+              "tankCode": "string",
+              "tankManufacturer": "string",
+              "tankManufacturerSerialNo": "string",
+              "tankTypeAppNo": "string",
+              "tc2Details": {
+                "tc2Type": "initial"
+              },
+              "yearOfManufacture": 0
+            },
+            "tankStatement": {
+              "productList": "string",
+              "statement": "string",
+              "substancesPermitted": "Substances permitted under the tank code and any special provisions specified in 9 may be carried"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": "2019-10-10",
+            "type": "rigid battery tank"
+          }
+        },
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "approvalType": "ECTA",
+        "approvalTypeNumber": "12345",
+        "authIntoService": {
+          "cocIssueDate": "2019-06-25",
+          "dateAuthorised": "2019-06-25",
+          "datePending": "2019-06-25",
+          "dateReceived": "2019-06-25",
+          "dateRejected": "2019-06-25"
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 150,
+              "leverLength": 150,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 1,
+              "fitmentCode": "double",
+              "plyRating": "AA",
+              "tyreCode": 463,
+              "tyreSize": "11-21.5"
+            },
+            "weights": {
+              "designWeight": 10000,
+              "eecWeight": 10000,
+              "gbWeight": 10000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "t",
+          "description": "tipper"
+        },
+        "brakes": {
+          "antilockBrakingSystem": false,
+          "dtpNumber": "3798B",
+          "loadSensingValve": false
+        },
+        "centreOfRearmostAxleToRearOfTrl": 1000,
+        "conversionRefNo": "123456",
+        "couplingCenterToRearAxleMax": 900,
+        "couplingCenterToRearAxleMin": 1000,
+        "couplingCenterToRearTrlMax": 700,
+        "couplingCenterToRearTrlMin": 800,
+        "couplingType": "Y",
+        "createdAt": "2020-04-08T09:24:18.138Z",
+        "createdById": "123243424-234234245",
+        "createdByName": "catalin",
+        "departmentalVehicleMarker": true,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "2-1",
+              "value": 11000
+            }
+          ],
+          "length": 10000,
+          "width": 3000
+        },
+        "euVehicleCategory": "o2",
+        "firstUseDate": "2019-06-25",
+        "frameDescription": "Other",
+        "frontAxleToRearAxle": 1700,
+        "functionCode": "R",
+        "grossDesignWeight": 40000,
+        "grossEecWeight": 40000,
+        "grossGbWeight": 40000,
+        "lettersOfAuth": {
+          "letterContents": "other",
+          "letterDateRequested": "2019-06-25",
+          "letterType": "Trailer rejection"
+        },
+        "make": "Volvo",
+        "manufacturerDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "faxNumber": "************",
+          "manufacturerNotes": "**************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "manufactureYear": 2019,
+        "maxLoadOnCoupling": 10000,
+        "microfilm": {
+          "microfilmDocumentType": "PSV Miscellaneous",
+          "microfilmRollNumber": "55555",
+          "microfilmSerialNumber": "4444"
+        },
+        "model": "X6",
+        "noOfAxles": 1,
+        "notes": "some note",
+        "ntaNumber": "12345",
+        "plates": [
+          {
+            "plateIssueDate": "2020-02-02",
+            "plateIssuer": "Mr Jones",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "11111111"
+          }
+        ],
+        "purchaserDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "faxNumber": "************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "purchaserNotes": "**************",
+          "telephoneNumber": "**************"
+        },
+        "rearAxleToRearTrl": 400,
+        "reasonForCreation": "new record",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-25",
+        "roadFriendly": false,
+        "statusCode": "provisional",
+        "suspensionType": "F",
+        "tyreUseCode": "2C",
+        "variantNumber": "12345",
+        "variantVersionNumber": "12345",
+        "vehicleClass": {
+          "code": "3",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "dolly",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "SJG0002",
+    "vin": "SJGAF6WIUW16P800002"
   }
 ]
