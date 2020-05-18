@@ -5,7 +5,7 @@ import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsService from "../services/TechRecordsService";
 import {metaData} from "../utils/metadataEnums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {isValidSearchCriteria} from "../utils/PayloadValidation";
+import {isValidSearchCriteria} from "../utils/validations/PayloadValidation";
 
 const getTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();

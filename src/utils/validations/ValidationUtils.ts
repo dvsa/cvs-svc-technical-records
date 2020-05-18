@@ -1,5 +1,5 @@
-import ITechRecord from "../../@Types/ITechRecord";
-import {RECORD_COMPLETENESS_ENUM, VEHICLE_TYPE} from "../assets/Enums";
+import ITechRecord from "../../../@Types/ITechRecord";
+import {VEHICLE_TYPE} from "../../assets/Enums";
 
 export const populateVehicleClassCode = (description: string) => {
   switch (description) {
@@ -76,9 +76,6 @@ export const populateFields = (techRecord: ITechRecord) => {
   }
   if (techRecord.vehicleClass) {
     techRecord.vehicleClass.code = populateVehicleClassCode(techRecord.vehicleClass.description);
-  }
-  if (vehicleType === VEHICLE_TYPE.LGV || vehicleType === VEHICLE_TYPE.CAR || vehicleType === VEHICLE_TYPE.MOTORCYCLE) {
-    techRecord.recordCompleteness = RECORD_COMPLETENESS_ENUM.SKELETON;
   }
   if (techRecord.vehicleType === VEHICLE_TYPE.PSV) {
     techRecord.brakes.brakeCodeOriginal = techRecord.brakes.brakeCode.substring(techRecord.brakes.brakeCode.length - 3);

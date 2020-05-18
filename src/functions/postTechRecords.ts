@@ -2,7 +2,7 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import ITechRecord from "../../@Types/ITechRecord";
-import {populatePartialVin} from "../utils/ValidationUtils";
+import {populatePartialVin} from "../utils/validations/ValidationUtils";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 
 const postTechRecords = (event: any) => {

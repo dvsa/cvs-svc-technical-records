@@ -1,6 +1,6 @@
 import Joi from "@hapi/joi";
 import {commonSchemaLgvMotorcycleCar} from "./CommonSchema";
-import {VEHICLE_CLASS_DESCRIPTION} from "../assets/Enums";
+import {VEHICLE_CLASS_DESCRIPTION} from "../../assets/Enums";
 
 export const motorcycleValidation = commonSchemaLgvMotorcycleCar.keys({
   numberOfWheelsDriven: Joi.number().min(0).max(9999).required(),

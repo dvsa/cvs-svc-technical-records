@@ -1,18 +1,12 @@
 import {cloneDeep} from "lodash";
 import mockData from "../resources/technical-records.json";
-import {
-  populateBodyTypeCode,
-  populateVehicleClassCode, populateFields
-} from "../../src/utils/ValidationUtils";
 import ITechRecord from "../../@Types/ITechRecord";
-import {validatePayload} from "../../src/utils/PayloadValidation";
+import * as fromValidation from "../../src/utils/validations";
 import {
   VEHICLE_TYPE,
   BODY_TYPE_DESCRIPTION,
-  VEHICLE_CLASS_DESCRIPTION,
-  RECORD_COMPLETENESS_ENUM
+  VEHICLE_CLASS_DESCRIPTION
 } from "../../src/assets/Enums";
-import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import Configuration from "../../src/utils/Configuration";
 
 const createPayload = () => {
@@ -63,7 +57,7 @@ describe("payloadValidation", () => {
       it("should pass the validation and return the validated payload for TRL", () => {
         const techRec: any = cloneDeep(mockData[78]);
         delete techRec.techRecord[0].statusCode;
-        const validatedPayload = validatePayload(techRec.techRecord[0]);
+        const validatedPayload = fromValidation.validatePayload(techRec.techRecord[0]);
         expect(validatedPayload.value).toBeDefined();
         expect(validatedPayload.error).toEqual(undefined);
         expect(validatedPayload.value.vehicleType).toEqual(VEHICLE_TYPE.TRL);
@@ -72,7 +66,7 @@ describe("payloadValidation", () => {
       it("should pass the validation and return the validated payload for PSV", () => {
         const techRec: any = cloneDeep(mockData[74]);
         delete techRec.techRecord[0].statusCode;
-        const validatedPayload = validatePayload(techRec.techRecord[0]);
+        const validatedPayload = fromValidation.validatePayload(techRec.techRecord[0]);
         expect(validatedPayload.value).toBeDefined();
         expect(validatedPayload.error).toEqual(undefined);
         expect(validatedPayload.value.vehicleType).toEqual(VEHICLE_TYPE.PSV);
@@ -81,7 +75,7 @@ describe("payloadValidation", () => {
       it("should pass the validation and return the validated payload for HGV", () => {
         const techRec: any = cloneDeep(mockData[43]);
         delete techRec.techRecord[0].statusCode;
-        const validatedPayload = validatePayload(techRec.techRecord[0]);
+        const validatedPayload = fromValidation.validatePayload(techRec.techRecord[0]);
         expect(validatedPayload.value).toBeDefined();
         expect(validatedPayload.error).toEqual(undefined);
         expect(validatedPayload.value.vehicleType).toEqual(VEHICLE_TYPE.HGV);
@@ -90,7 +84,7 @@ describe("payloadValidation", () => {
       it("should pass the validation and return the validated payload for LGV", () => {
         const techRec: any = cloneDeep(mockData[124]);
         delete techRec.techRecord[0].statusCode;
-        const validatedPayload = validatePayload(techRec.techRecord[0]);
+        const validatedPayload = fromValidation.validatePayload(techRec.techRecord[0]);
         expect(validatedPayload.value).toBeDefined();
         expect(validatedPayload.error).toEqual(undefined);
         expect(validatedPayload.value.vehicleType).toEqual(VEHICLE_TYPE.LGV);
@@ -99,7 +93,7 @@ describe("payloadValidation", () => {
       it("should pass the validation and return the validated payload for CAR", () => {
         const techRec: any = cloneDeep(mockData[123]);
         delete techRec.techRecord[0].statusCode;
-        const validatedPayload = validatePayload(techRec.techRecord[0]);
+        const validatedPayload = fromValidation.validatePayload(techRec.techRecord[0]);
         expect(validatedPayload.value).toBeDefined();
         expect(validatedPayload.error).toEqual(undefined);
         expect(validatedPayload.value.vehicleType).toEqual(VEHICLE_TYPE.CAR);
@@ -108,7 +102,7 @@ describe("payloadValidation", () => {
       it("should pass the validation and return the validated payload for MOTORCYCLE", () => {
         const techRec: any = cloneDeep(mockData[122]);
         delete techRec.techRecord[0].statusCode;
-        const validatedPayload = validatePayload(techRec.techRecord[0]);
+        const validatedPayload = fromValidation.validatePayload(techRec.techRecord[0]);
         expect(validatedPayload.value).toBeDefined();
         expect(validatedPayload.error).toEqual(undefined);
         expect(validatedPayload.value.vehicleType).toEqual(VEHICLE_TYPE.MOTORCYCLE);
@@ -118,7 +112,7 @@ describe("payloadValidation", () => {
         const payload: ITechRecord = createPayload();
         for (const vehicleClass of VEHICLE_CLASS_DESCRIPTION) {
           payload.vehicleClass.description = vehicleClass;
-          populateFields(payload);
+          fromValidation.populateFields(payload);
           expect(payload.vehicleClass.code).toEqual(vehicleClassMap[vehicleClass]);
         }
       });
@@ -126,7 +120,7 @@ describe("payloadValidation", () => {
       it("should not populate vehicle class code if vehicleClass is missing (LGV, CAR, MOTORCYCLE)", () => {
         const payload: ITechRecord = createPayload();
         delete payload.vehicleClass;
-        populateFields(payload);
+        fromValidation.populateFields(payload);
         expect(payload).not.toHaveProperty("vehicleClass");
       });
 
@@ -134,7 +128,7 @@ describe("payloadValidation", () => {
         const payload: ITechRecord = createPayload();
         for (const bodyType of BODY_TYPE_DESCRIPTION) {
           payload.bodyType.description = bodyType;
-          populateFields(payload);
+          fromValidation.populateFields(payload);
           expect(payload.bodyType.code).toEqual(bodyTypeMap[bodyType]);
         }
       });
@@ -142,28 +136,16 @@ describe("payloadValidation", () => {
       it("should autopopulate the brake code fields", () => {
         const payload: ITechRecord = createPayload();
         payload.brakes.brakeCode = "123456";
-        populateFields(payload);
+        fromValidation.populateFields(payload);
         expect(payload.brakes.brakeCodeOriginal).toEqual("456");
         expect(payload.brakeCode).toEqual("123456");
-      });
-
-      it("should set recordCompleteness to SKELETON for LGV/CAR/MOTORCYCLE", () => {
-        const motorcycle: any = cloneDeep(mockData[122]);
-        const car: any = cloneDeep(mockData[123]);
-        const lgv: any = cloneDeep(mockData[124]);
-        populateFields(motorcycle.techRecord[0]);
-        populateFields(car.techRecord[0]);
-        populateFields(lgv.techRecord[0]);
-        expect(motorcycle.techRecord[0].recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.SKELETON);
-        expect(car.techRecord[0].recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.SKELETON);
-        expect(lgv.techRecord[0].recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.SKELETON);
       });
     });
 
     context("and the payload is invalid", () => {
       it("should throw Error: Not valid if vehicle class description is not an accepted field", () => {
         try {
-          expect(populateVehicleClassCode("whatever")).toThrowError();
+          expect(fromValidation.populateVehicleClassCode("whatever")).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(Error);
           expect(errorResponse.message).toEqual("Not valid");
@@ -172,7 +154,7 @@ describe("payloadValidation", () => {
 
       it("should throw Error: Not valid if body type description is not an accepted field", () => {
         try {
-          expect(populateBodyTypeCode("whatever")).toThrowError();
+          expect(fromValidation.populateBodyTypeCode("whatever")).toThrowError();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(Error);
           expect(errorResponse.message).toEqual("Not valid");
@@ -186,7 +168,7 @@ describe("payload validation for adr feature flag", () => {
   context("when the allowAdrUpdatesOnlyFlag config variable is set to TRUE", () => {
     it("should validate only the adrDetails and reason for creation for TRL", () => {
       const techRec: any = cloneDeep(mockData[29]);
-      const validatedPayload = validatePayload(techRec.techRecord[0], false);
+      const validatedPayload = fromValidation.validatePayload(techRec.techRecord[0], false);
       expect(validatedPayload.value).toBeDefined();
       expect(validatedPayload.error).toEqual(undefined);
       expect(validatedPayload.value.reasonForCreation).toEqual(techRec.techRecord[0].reasonForCreation);
@@ -195,7 +177,7 @@ describe("payload validation for adr feature flag", () => {
 
     it("should validate only the adrDetails and reason for creation for HGV", () => {
       const techRec: any = cloneDeep(mockData[43]);
-      const validatedPayload = validatePayload(techRec.techRecord[0], false);
+      const validatedPayload = fromValidation.validatePayload(techRec.techRecord[0], false);
       expect(validatedPayload.value).toBeDefined();
       expect(validatedPayload.error).toEqual(undefined);
       expect(validatedPayload.value.reasonForCreation).toEqual(techRec.techRecord[0].reasonForCreation);
