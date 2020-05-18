@@ -7,7 +7,7 @@ import {
   RETARDER_BRAKE,
   SPEED_CATEGORY_SYMBOL,
   VEHICLE_SIZE
-} from "../assets/Enums";
+} from "../../assets/Enums";
 import {
   applicantDetailsSchemaOptional,
   axlesSchema,

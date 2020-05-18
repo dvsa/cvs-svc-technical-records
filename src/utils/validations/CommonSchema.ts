@@ -14,7 +14,7 @@ import {
   RECORD_COMPLETENESS,
   EU_VEHICLE_CATEGORY_VALIDATION,
   STATUS_CODES
-} from "../assets/Enums";
+} from "../../assets/Enums";
 
 export const brakesSchema = Joi.object().keys({
   dtpNumber: Joi.string().max(6).required(),
@@ -76,7 +76,7 @@ export const applicantDetailsSchemaOptional = Joi.object().keys({
 }).optional().allow(null);
 
 export const commonSchema = Joi.object().keys({
-  recordCompleteness: Joi.string().valid(...RECORD_COMPLETENESS).required(),
+  recordCompleteness: Joi.string().valid(...RECORD_COMPLETENESS).optional(),
   euVehicleCategory: Joi.string().valid(...EU_VEHICLE_CATEGORY_VALIDATION).required(),
   vehicleType: Joi.string().valid(...VEHICLE_TYPE_VALIDATION).required(),
   regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
