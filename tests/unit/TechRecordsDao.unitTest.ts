@@ -1,4 +1,10 @@
-import TechRecordsDao, {isPartialVinSearch, isTrailerSearch, isVinSearch, isVrmSearch} from "../../src/models/TechRecordsDAO";
+import TechRecordsDao, {
+  capitaliseGeneralVehicleAttributes,
+  isPartialVinSearch,
+  isTrailerSearch,
+  isVinSearch,
+  isVrmSearch
+} from "../../src/models/TechRecordsDAO";
 import AWS from "aws-sdk";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import mockData from "../resources/technical-records.json";
@@ -268,6 +274,25 @@ describe("TechRecordsDAO", () => {
         await techRecordsDao.getBySearchTerm("7A", SEARCHCRITERIA.ALL);
         expect(stub).toStrictEqual(expectedCall);
       });
+
+      it("should capitalise the searchTerm", async () => {
+        const expectedCall = {
+          TableName: "cvs-local-technical-records",
+          IndexName: "VinIndex",
+          KeyConditionExpression: "#vin = :vin",
+          ExpressionAttributeNames: {
+            "#vin": "vin"
+          },
+          ExpressionAttributeValues: {
+            ":vin": "ABCD12345NM"
+          }
+        };
+
+        const techRecordsDao = new TechRecordsDao();
+        await techRecordsDao.getBySearchTerm("abcd12345Nm", SEARCHCRITERIA.ALL);
+
+        expect(stub).toStrictEqual(expectedCall);
+      });
     });
   });
 
@@ -448,6 +473,30 @@ describe("TechRecordsDAO", () => {
         const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.updateSingle(techRecord);
         expect(stub).toStrictEqual(expectedCall);
+      });
+    });
+  });
+
+  describe("capitaliseGeneralVehicleAttributes", () => {
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+
+    context("when the vin, partialVin, primaryVrm, secondaryVrms or trailerId for a tech-record contains lower case letters", () => {
+      it("should capitalise the vin, partialVin, primaryVrm, secondaryVrms or trailerId", () => {
+        const techRecord: any = cloneDeep(mockData[43]);
+        techRecord.vin = "abcd123456Nm";
+        techRecord.partialVin = "3456Nm";
+        techRecord.primaryVrm = "abd1234";
+        techRecord.secondaryVrms = ["nmb1234", "uio0985"];
+        techRecord.trailerId = "cgrt546";
+
+        const expectedTechRecord = capitaliseGeneralVehicleAttributes(techRecord);
+        expect(expectedTechRecord.vin).toEqual("ABCD123456NM");
+        expect(expectedTechRecord.partialVin).toEqual("3456NM");
+        expect(expectedTechRecord.primaryVrm).toEqual("ABD1234");
+        expect(expectedTechRecord.secondaryVrms).toEqual(["NMB1234", "UIO0985"]);
+        expect(expectedTechRecord.trailerId).toEqual("CGRT546");
       });
     });
   });

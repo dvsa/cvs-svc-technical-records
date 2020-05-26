@@ -19,7 +19,7 @@ export const adrValidation = Joi.object().keys({
   }).required(),
   permittedDangerousGoods: Joi.array().items(Joi.string()).min(1).required(),
   compatibilityGroupJ: Joi.boolean().optional().allow(null),
-  additionalExaminerNotes: Joi.string().optional().allow(null),
+  additionalExaminerNotes: Joi.string().max(1024).optional().allow(null),
   applicantDetails: Joi.object().keys({
     name: Joi.string().max(150).required(),
     street: Joi.string().max(150).required(),

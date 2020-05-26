@@ -32,6 +32,7 @@ class TechRecordsDAO {
   }
 
   public getBySearchTerm(searchTerm: string, searchCriteria: ISearchCriteria) {
+    searchTerm = searchTerm.toUpperCase();
     const query: QueryInput = {
       TableName: this.tableName,
       IndexName: "",
@@ -100,6 +101,7 @@ class TechRecordsDAO {
   }
 
   public createSingle(techRecord: ITechRecordWrapper) {
+    techRecord = capitaliseGeneralVehicleAttributes(techRecord);
     const query = {
       TableName: this.tableName,
       Item: techRecord,
@@ -114,6 +116,7 @@ class TechRecordsDAO {
 
   public updateSingle(techRecord: ITechRecordWrapper) {
     techRecord.partialVin = populatePartialVin(techRecord.vin);
+    techRecord = capitaliseGeneralVehicleAttributes(techRecord);
     const query = {
       TableName: this.tableName,
       Key: {
@@ -247,6 +250,15 @@ const isTrailerId = (searchTerm: string): boolean => {
   // A letter followed by exactly 6 numbers
   const isLetterAndNumbersTrailerId = TRAILER_REGEX.test(searchTerm);
   return isAllNumbersTrailerId || isLetterAndNumbersTrailerId;
+};
+
+export const capitaliseGeneralVehicleAttributes = (techRecord: ITechRecordWrapper) => {
+  techRecord.vin = techRecord.vin?.toUpperCase();
+  techRecord.partialVin = techRecord.partialVin?.toUpperCase();
+  techRecord.primaryVrm = techRecord.primaryVrm?.toUpperCase();
+  techRecord.trailerId = techRecord.trailerId?.toUpperCase();
+  techRecord.secondaryVrms = techRecord.secondaryVrms?.map((vrm: string) => vrm.toUpperCase());
+  return techRecord;
 };
 
 export {TechRecordsDAO as default, isTrailerSearch, isPartialVinSearch, isTrailerId, isVinSearch, isVrmSearch} ;
