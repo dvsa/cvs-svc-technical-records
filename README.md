@@ -47,6 +47,9 @@ custom:
               sources: [./path/to/resource.json]
 ```
 
+Please request the relevant credentials to be added locally to the `~/.aws/credentials` file.
+
+
 ### Testing
 In order to test, you need to run the following:
 - `npm run test` for unit tests

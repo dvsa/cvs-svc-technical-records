@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/handler.ts",
+  "engines": {
+    "node": "10.18.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dvsa/cvs-svc-technical-records.git"
@@ -23,7 +26,8 @@
     "sonar-scanner": "npm run tslint && npm run coverage && sonar-scanner",
     "coverage": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*Test.ts\" --runInBand --coverage",
     "audit-dep": "npm audit --json | audit-filter --nsp-config=.nsprc --audit=-",
-    "tools-setup": "sls dynamodb migrate && BRANCH=local node_modules/gulp/bin/gulp.js start-serverless && sls dynamodb seed --seed=technical-records"
+    "tools-setup": "sls dynamodb migrate && BRANCH=local node_modules/gulp/bin/gulp.js start-serverless && sls dynamodb seed --seed=technical-records",
+    "postinstall": "./node_modules/.bin/sls dynamodb install"
   },
   "author": "",
   "license": "MIT",
