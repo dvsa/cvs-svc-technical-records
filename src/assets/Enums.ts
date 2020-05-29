@@ -305,17 +305,17 @@ export const STATUS_CODES: string[] = [
 ];
 
 export const VEHICLE_SUBCLASS: string[] = [
-    "N",
-    "P",
-    "A",
-    "S",
-    "C",
-    "L",
-    "T",
-    "E",
-    "M",
-    "R",
-    "W"
+    "n",
+    "p",
+    "a",
+    "s",
+    "c",
+    "l",
+    "t",
+    "e",
+    "m",
+    "r",
+    "w"
 ];
 
 export enum RECORD_COMPLETENESS_ENUM {
