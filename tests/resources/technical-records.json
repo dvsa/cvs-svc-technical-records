@@ -25725,7 +25725,7 @@
           "description": "motorbikes up to 200cc"
         },
         "vehicleSubclass": [
-          "A"
+          "a"
         ],
         "euVehicleCategory": "l2e",
         "recordCompleteness": "complete",
@@ -25764,7 +25764,7 @@
           "description": "motorbikes up to 200cc"
         },
         "vehicleSubclass": [
-          "A"
+          "a"
         ],
         "euVehicleCategory": "l2e",
         "recordCompleteness": "complete",
