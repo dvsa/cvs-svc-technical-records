@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/handler.ts",
-  "engines": {
-    "node": "10.18.1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dvsa/cvs-svc-technical-records.git"
