@@ -1,5 +1,10 @@
 # cvs-svc-technical-records
 
+
+This micro service runs on node 10.x.x.
+Please install and configure [nvm](https://github.com/nvm-sh/nvm) with this node version so it can be used during installation.
+
+
 #### Run AWS Lambda node functions locally with a mock API Gateway and DynamoDB to test against
 - `npm install`
 - `node_modules/.bin/sls dynamodb install`
@@ -69,6 +74,7 @@ In order to generate SonarQube reports on local, follow the steps:
 
 
 ### Seeding the database
+
 
 - From within the resource folder type the following:
 ```cat techRecords.json | json-dynamo-putrequest cvs-BRANCH-dft-tech-records --beautify >test.json```
