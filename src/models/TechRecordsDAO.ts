@@ -173,6 +173,16 @@ class TechRecordsDAO {
     return LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
   }
 
+  public getPlateSerialNumber(): any {
+    const event = {
+      path: "/plateSerialNo/",
+      httpMethod: "POST",
+      resource: "/plateSerialNo/"
+    };
+
+    return LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
+  }
+
   public createMultiple(techRecordItems: ITechRecordWrapper[]) {
     const params = this.generatePartialParams();
 

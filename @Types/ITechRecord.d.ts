@@ -141,6 +141,7 @@ interface Plates {
   plateIssueDate: string;
   plateReasonForIssue: string;
   plateIssuer: string;
+  toEmailAddress: string;
 }
 
 interface Microfilm {

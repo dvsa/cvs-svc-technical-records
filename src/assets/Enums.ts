@@ -15,7 +15,9 @@ export enum ERRORS {
     STATUS_CODE_SHOULD_BE_PROVISIONAL = "Status code should be provisional",
     MISSING_PAYLOAD = "Missing payload!",
     MISSING_USER = "Microsoft user details not provided",
-    VEHICLE_TYPE_ERROR = "\"vehicleType\" must be one of [hgv, psv, trl, car, lgv, motorcycle]"
+    VEHICLE_TYPE_ERROR = "\"vehicleType\" must be one of [hgv, psv, trl, car, lgv, motorcycle]",
+    PLATE_SERIAL_NUMBER_GENERATION_FAILED = "Plate Serial Number generation failed",
+    MISSING_PLATE_FIELDS = "All plate attributes must be completed, apart from plateSerialNumber"
 }
 
 export enum HTTPRESPONSE {
@@ -322,4 +324,8 @@ export enum RECORD_COMPLETENESS_ENUM {
     COMPLETE ="complete",
     TESTABLE = "testable",
     SKELETON = "skeleton"
+}
+
+export enum REASON_FOR_CREATION {
+    PLATES = "VTG6 and VTG7 Plates Generated"
 }

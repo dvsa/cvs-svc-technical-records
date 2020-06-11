@@ -9,7 +9,8 @@ import {
   STATUS,
   UPDATE_TYPE,
   VEHICLE_TYPE,
-  EU_VEHICLE_CATEGORY
+  EU_VEHICLE_CATEGORY,
+  REASON_FOR_CREATION
 } from "../assets/Enums";
 import * as fromValidation from "../utils/validations";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
@@ -345,6 +346,7 @@ class TechRecordsService {
         if (oldStatusCode) {
           newRecord.statusCode = statusCode;
         }
+        await this.managePlatesGeneration(newRecord);
         this.setAuditDetails(newRecord, techRecToArchive, msUserDetails);
         techRecToArchive.statusCode = STATUS.ARCHIVED;
         fromValidation.populateFields(newRecord);
@@ -361,6 +363,39 @@ class TechRecordsService {
   private arrayCustomizer(objValue: any, srcValue: any) {
     if (isArray(objValue) && isArray(srcValue)) {
       return srcValue;
+    }
+  }
+
+  public async managePlatesGeneration(techRecord: ITechRecord) {
+    let platesGenerated = false;
+    if (techRecord.plates) {
+      for (const plate of techRecord.plates) {
+        if (!plate.plateSerialNumber) {
+          if (!plate.plateIssueDate || !plate.plateIssuer || !plate.plateReasonForIssue || !plate.toEmailAddress) {
+            return Promise.reject({statusCode: 400, body: formatErrorMessage(ERRORS.MISSING_PLATE_FIELDS)});
+          }
+          plate.plateSerialNumber = await this.generatePlateSerialNumber();
+          platesGenerated = true;
+        }
+      }
+    }
+    if (platesGenerated) {
+      techRecord.reasonForCreation = REASON_FOR_CREATION.PLATES;
+    }
+  }
+
+  public async generatePlateSerialNumber() {
+    try {
+      const plateSerialNumberObj = await this.techRecordsDAO.getPlateSerialNumber();
+      if (plateSerialNumberObj.error) {
+        return Promise.reject({statusCode: 500, body: plateSerialNumberObj.error});
+      }
+      if (!plateSerialNumberObj.plateSerialNumber) {
+        return Promise.reject({statusCode: 500, body: ERRORS.PLATE_SERIAL_NUMBER_GENERATION_FAILED});
+      }
+      return plateSerialNumberObj.plateSerialNumber;
+    } catch (error) {
+      return Promise.reject({statusCode: 500, body: error});
     }
   }
 
