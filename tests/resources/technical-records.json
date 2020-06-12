@@ -25787,5 +25787,532 @@
     ],
     "vin": "BBBBBBB555666",
     "systemNumber": "1110002"
-  }
+  },
+  {
+  "partialVin": "TEST01",
+  "primaryVrm": "CARVRM0",
+  "systemNumber": "10000006",
+  "techRecord": [
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T15:53:14.396Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2014,
+      "noOfAxles": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "provisional",
+      "vehicleClass": {
+        "code": "4",
+        "description": "MOT class 4"
+      },
+      "vehicleSubclass": [
+        "N"
+      ],
+      "vehicleType": "car"
+    }
+  ],
+  "vin": "CAR11815TEST01"
+},
+  {
+  "partialVin": "TEST02",
+  "primaryVrm": "CARVRM1",
+  "systemNumber": "10000007",
+  "techRecord": [
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T15:53:14.396Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2014,
+      "noOfAxles": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "archived",
+      "vehicleClass": {
+        "code": "4",
+        "description": "MOT class 4"
+      },
+      "vehicleSubclass": [
+        "N"
+      ],
+      "vehicleType": "car"
+    },
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T15:53:14.396Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2014,
+      "noOfAxles": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "current",
+      "vehicleClass": {
+        "code": "4",
+        "description": "MOT class 4"
+      },
+      "vehicleSubclass": [
+        "N"
+      ],
+      "vehicleType": "car"
+    }
+  ],
+  "vin": "CAR11815TEST02"
+},
+  {
+  "partialVin": "TEST02",
+  "primaryVrm": "CARVRM2",
+  "systemNumber": "10000008",
+  "techRecord": [
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T15:53:14.396Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2019,
+      "noOfAxles": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "archived",
+      "vehicleClass": {
+        "code": "4",
+        "description": "MOT class 4"
+      },
+      "vehicleSubclass": [
+        "N"
+      ],
+      "vehicleType": "car"
+    },
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-12T15:53:14.396Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2019,
+      "noOfAxles": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "archived",
+      "vehicleClass": {
+        "code": "4",
+        "description": "MOT class 4"
+      },
+      "vehicleSubclass": [
+        "N"
+      ],
+      "vehicleType": "car"
+    }
+  ],
+  "vin": "CAR11815TEST02"
+},
+  {
+  "partialVin": "TEST01",
+  "primaryVrm": "LGVVRM0",
+  "systemNumber": "10000009",
+  "techRecord": [
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T16:42:57.281Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2014,
+      "noOfAxles": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "provisional",
+      "vehicleClass": {
+        "code": "4",
+        "description": "MOT class 4"
+      },
+      "vehicleSubclass": [
+        "N"
+      ],
+      "vehicleType": "lgv"
+    }
+  ],
+  "vin": "LGV11815TEST01"
+},
+{
+  "partialVin": "TEST02",
+  "primaryVrm": "LGVVRM1",
+  "systemNumber": "10000010",
+  "techRecord": [
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T16:42:57.281Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2014,
+      "noOfAxles": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "archived",
+      "vehicleClass": {
+        "code": "4",
+        "description": "MOT class 4"
+      },
+      "vehicleSubclass": [
+        "N"
+      ],
+      "vehicleType": "lgv"
+    },
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T16:42:57.281Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2014,
+      "noOfAxles": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "current",
+      "vehicleClass": {
+        "code": "4",
+        "description": "MOT class 4"
+      },
+      "vehicleSubclass": [
+        "N"
+      ],
+      "vehicleType": "lgv"
+    }
+  ],
+  "vin": "LGV11815TEST02"
+},
+  {
+  "partialVin": "TEST02",
+  "primaryVrm": "LGVVRM2",
+  "systemNumber": "10000011",
+  "techRecord": [
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T16:42:57.281Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2019,
+      "noOfAxles": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "archived",
+      "vehicleClass": {
+        "code": "4",
+        "description": "MOT class 4"
+      },
+      "vehicleSubclass": [
+        "N"
+      ],
+      "vehicleType": "lgv"
+    },
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-12T16:42:57.281Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2019,
+      "noOfAxles": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "archived",
+      "vehicleClass": {
+        "code": "4",
+        "description": "MOT class 4"
+      },
+      "vehicleSubclass": [
+        "N"
+      ],
+      "vehicleType": "lgv"
+    }
+  ],
+  "vin": "LGV11815TEST02"
+},
+  {
+  "partialVin": "TEST01",
+  "primaryVrm": "MTOVRM0",
+  "systemNumber": "10000012",
+  "techRecord": [
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T17:46:48.982Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2014,
+      "noOfAxles": 2,
+      "numberOfWheelsDriven": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "provisional",
+      "vehicleClass": {
+        "code": "1",
+        "description": "motorbikes up to 200cc"
+      },
+      "vehicleType": "motorcycle"
+    }
+  ],
+  "vin": "MTO11815TEST01"
+},
+  {
+  "partialVin": "TEST02",
+  "primaryVrm": "MTOVRM1",
+  "systemNumber": "10000013",
+  "techRecord": [
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T17:46:48.982Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2014,
+      "noOfAxles": 2,
+      "numberOfWheelsDriven": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "archived",
+      "vehicleClass": {
+        "code": "1",
+        "description": "motorbikes up to 200cc"
+      },
+      "vehicleType": "motorcycle"
+    },
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T17:46:48.982Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2014,
+      "noOfAxles": 2,
+      "numberOfWheelsDriven": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "current",
+      "vehicleClass": {
+        "code": "1",
+        "description": "motorbikes up to 200cc"
+      },
+      "vehicleType": "motorcycle"
+    }
+  ],
+  "vin": "MTO11815TEST02"
+},
+  {
+  "partialVin": "TEST02",
+  "primaryVrm": "MTOVRM2",
+  "systemNumber": "10000014",
+  "techRecord": [
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-11T17:46:48.982Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2019,
+      "noOfAxles": 2,
+      "numberOfWheelsDriven": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "archived",
+      "vehicleClass": {
+        "code": "1",
+        "description": "motorbikes up to 200cc"
+      },
+      "vehicleType": "motorcycle"
+    },
+    {
+      "applicantDetails": {
+        "address1": "1 Infinite Loop Cupertino",
+        "address2": "1 Hacker Way Menlo Park",
+        "address3": "1600 Amphitheatre Pkwy Mountain View",
+        "emailAddress": "fakeaddress@fakemail.com",
+        "name": "Bogdan F",
+        "postCode": "CA 95014",
+        "postTown": "*",
+        "telephoneNumber": "8989989"
+      },
+      "createdAt": "2020-06-12T17:46:48.982Z",
+      "createdById": "220279",
+      "createdByName": "bogdan",
+      "euVehicleCategory": "m1",
+      "manufactureYear": 2019,
+      "noOfAxles": 2,
+      "numberOfWheelsDriven": 2,
+      "reasonForCreation": "Testing",
+      "recordCompleteness": "skeleton",
+      "regnDate": "2014-05-01",
+      "remarks": "For test",
+      "statusCode": "archived",
+      "vehicleClass": {
+        "code": "1",
+        "description": "motorbikes up to 200cc"
+      },
+      "vehicleType": "motorcycle"
+    }
+  ],
+  "vin": "MTO11815TEST02"
+}
 ]
