@@ -25787,5 +25787,402 @@
     ],
     "vin": "BBBBBBB555666",
     "systemNumber": "1110002"
+  },
+  {
+    "partialVin": "666555",
+    "primaryVrm": "8887766",
+    "techRecord": [
+      {
+        "createdAt": "2019-06-26T10:26:54.903Z",
+        "vehicleType": "hgv",
+        "statusCode": "provisional",
+        "regnDate": "2019-12-13",
+        "dtpNumber": "123",
+        "manufactureYear": 0,
+        "noOfAxles": 0,
+        "brakes": {
+          "dtpNumber": "DTPNUM"
+        },
+        "speedLimiterMrk": true,
+        "tachoExemptMrk": true,
+        "drawbarCouplingFitted": true,
+        "euroStandard": "string",
+        "fuelPropulsionSystem": "DieselPetrol",
+        "offRoad": true,
+        "roadFriendly": true,
+        "vehicleClass": {
+          "code": "2",
+          "description": "motorbikes over 200cc or with a sidecar"
+        },
+        "vehicleConfiguration": "rigid",
+        "numberOfWheelsDriven": 2,
+        "euVehicleCategory": "m1",
+        "emissionsLimit": 0,
+        "approvalType": "NTA",
+        "approvalTypeNumber": "string",
+        "variantNumber": "22",
+        "variantVersionNumber": "3435",
+        "grossEecWeight": 0,
+        "trainEecWeight": 0,
+        "maxTrainEecWeight": 0,
+        "make": "string",
+        "model": "string",
+        "functionCode": "A",
+        "bodyType": {
+          "code": "a",
+          "description": "articulated"
+        },
+        "conversionRefNo": "string",
+        "grossGbWeight": 6,
+        "grossDesignWeight": 0,
+        "trainGbWeight": 0,
+        "trainDesignWeight": 0,
+        "maxTrainGbWeight": 0,
+        "maxTrainDesignWeight": 0,
+        "tyreUseCode": "2",
+        "axles": [
+          {
+            "weights": {
+              "gbWeight": 0,
+              "eecWeight": 0,
+              "designWeight": 0
+            },
+            "tyres": {
+              "tyreCode": 0,
+              "tyreSize": "string",
+              "plyRating": "a",
+              "fitmentCode": "double"
+            }
+          }
+        ],
+        "dimensions": {
+          "length": 0,
+          "width": 0,
+          "axleSpacing": [
+            {
+              "axles": "string"
+            }
+          ]
+        },
+        "frontAxleTo5thWheelMin": 0,
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelCouplingMin": 0,
+        "frontAxleTo5thWheelCouplingMax": 0,
+        "frontAxleToRearAxle": 0,
+        "ntaNumber": "string",
+        "notes": "string",
+        "applicantDetails": {
+          "name": "string",
+          "address1": "string",
+          "address2": "string",
+          "postTown": "string",
+          "address3": "string",
+          "postCode": "string",
+          "emailAddress": "string",
+          "telephoneNumber": "string"
+        },
+        "microfilm": {
+          "microfilmDocumentType": "PSV Miscellaneous",
+          "microfilmRollNumber": "12367",
+          "microfilmSerialNumber": "1234"
+        },
+        "plates": [
+          {
+            "plateSerialNumber": "string",
+            "plateIssueDate": "2019-12-13",
+            "plateReasonForIssue": "Free replacement",
+            "plateIssuer": "string"
+          }
+        ],
+        "reasonForCreation": "string",
+        "recordCompleteness": "complete"
+      }
+    ],
+    "vin": "MMMMMM666555",
+    "systemNumber": "1110003"
+  },
+  {
+    "partialVin": "777888",
+    "primaryVrm": "2227766",
+    "trailerId": "55544433",
+    "techRecord": [
+      {
+        "recordCompleteness": "complete",
+        "statusCode": "current",
+        "euVehicleCategory": "o1",
+        "approvalType": "NTA",
+        "applicantDetails": {
+          "name": "string",
+          "address1": "string",
+          "address2": "string",
+          "postTown": "string",
+          "address3": "string",
+          "postCode": "string",
+          "emailAddress": "string",
+          "telephoneNumber": "string"
+        },
+        "purchaserDetails": {
+          "name": "string",
+          "address1": "string",
+          "address2": "string",
+          "postTown": "string",
+          "address3": "string",
+          "postCode": "string",
+          "emailAddress": "string",
+          "telephoneNumber": "string",
+          "faxNumber": "string",
+          "purchaserNotes": "string"
+        },
+        "manufacturerDetails": {
+          "name": "string",
+          "address1": "string",
+          "address2": "string",
+          "postTown": "string",
+          "address3": "string",
+          "postCode": "string",
+          "emailAddress": "string",
+          "telephoneNumber": "string",
+          "faxNumber": "string",
+          "manufacturerNotes": "string"
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 3,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "f",
+          "description": "flat"
+        },
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "dtpNumber": "326577",
+          "loadSensingValve": true
+        },
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 9430,
+        "couplingCenterToRearAxleMin": 9430,
+        "couplingCenterToRearTrlMax": 11365,
+        "couplingCenterToRearTrlMin": 11365,
+        "couplingType": "F",
+        "centreOfRearmostAxleToRearOfTrl": 11200,
+        "createdAt": "2016-03-04T11:25:12.000000Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1",
+              "value": 1310
+            },
+            {
+              "axles": "2",
+              "value": 1310
+            }
+          ],
+          "length": 12271,
+          "width": 2438
+        },
+        "firstUseDate": "0001-01-01",
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 39000,
+        "grossGbWeight": 39000,
+        "lastUpdatedAt": "2020-01-10T14:04:01.000000Z",
+        "make": "DENNISON TRAILERS",
+        "manufactureYear": 2005,
+        "maxLoadOnCoupling": 15000,
+        "model": " ",
+        "noOfAxles": 3,
+        "notes": "T/S 33 1/9/06",
+        "ntaNumber": "N000394760",
+        "rearAxleToRearTrl": 1935,
+        "reasonForCreation": " ",
+        "regnDate": "2005-01-01",
+        "roadFriendly": true,
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      }
+    ],
+    "vin": "JJJJJJ777888",
+    "systemNumber": "1110004"
+  },
+  {
+    "partialVin": "234789",
+    "primaryVrm": "GTRE345",
+    "trailerId": "55544433",
+    "techRecord": [
+      {
+        "createdAt": "2018-04-20T04:20:00.027Z",
+        "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
+        "chassisMake": "DAF",
+        "chassisModel": "SB200",
+        "numberOfSeatbelts": "24",
+        "dda": {
+          "certificateIssued": false
+        },
+        "bodyMake": "Plaxton",
+        "bodyModel": "Centro",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "manufactureYear": 2008,
+        "regnDate": "2016-12-12",
+        "coifDate": "2008-04-23",
+        "ntaNumber": "1",
+        "conversionRefNo": "1",
+        "seatsLowerDeck": 22,
+        "seatsUpperDeck": 0,
+        "euVehicleCategory": "m2",
+        "standingCapacity": 26,
+        "approvalType": "NTA",
+        "fuelPropulsionSystem": "CNG",
+        "speedRestriction": 0,
+        "speedLimiterMrk": false,
+        "tachoExemptMrk": true,
+        "dispensations": "None",
+        "remarks": "OUTSWING 120MM. 45 & 26 OR 42 SEATS & 1 WHEELCHAIR WITH 26 STANDEES. DDA SCHEDULES 1 & 2. SEAT BELTS FITTED TO ALL FORWARD FACING SEATS 3 POINT 42 IN TOTAL INC DRIVER.",
+        "reasonForCreation": "COIF",
+        "statusCode": "current",
+        "unladenWeight": 0,
+        "grossKerbWeight": 9140,
+        "grossLadenWeight": 13520,
+        "grossGbWeight": 14440,
+        "grossDesignWeight": 14440,
+        "noOfAxles": 2,
+        "euroStandard": "string",
+        "brakeCode": "135202",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleType": "psv",
+        "vehicleSize": "small",
+        "vehicleConfiguration": "rigid",
+        "brakes": {
+          "dtpNumber": "DTPNUM",
+          "brakeCode": "135202",
+          "brakeCodeOriginal": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "hydraulic",
+          "retarderBrakeTwo": "hydraulic",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6084,
+            "secondaryBrakeForceA": 3042,
+            "parkingBrakeForceA": 2163
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 4570,
+            "secondaryBrakeForceB": 2285,
+            "parkingBrakeForceB": 1462
+          }
+        },
+        "axles": [
+          {
+            "parkingBrakeMrk": false,
+            "axleNumber": 1,
+            "weights": {
+              "kerbWeight": 2760,
+              "ladenWeight": 0,
+              "gbWeight": 5000,
+              "designWeight": 5000
+            },
+            "tyres": {
+              "tyreSize": "265/70-19.5",
+              "plyRating": "A",
+              "fitmentCode": "single",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "m",
+              "tyreCode": 735
+            }
+          },
+          {
+            "parkingBrakeMrk": false,
+            "axleNumber": 2,
+            "weights": {
+              "kerbWeight": 6380,
+              "ladenWeight": 0,
+              "gbWeight": 9440,
+              "designWeight": 9440
+            },
+            "tyres": {
+              "tyreSize": "265/70-19.5",
+              "plyRating": "A",
+              "fitmentCode": "double",
+              "dataTrAxles": 0,
+              "speedCategorySymbol": "m",
+              "tyreCode": 733
+            }
+          }
+        ],
+        "numberOfWheelsDriven": 2,
+        "recordCompleteness": "complete"
+      }
+    ],
+    "vin": "YYYYYYY234789",
+    "systemNumber": "1110005"
   }
 ]

@@ -1,6 +1,6 @@
 import Joi from "@hapi/joi";
 import {axlesSchema, commonSchema, weightsSchema} from "./CommonSchema";
-import {FUEL_PROPULSION_SYSTEM} from "../assets/Enums";
+import {FUEL_PROPULSION_SYSTEM} from "../../assets/Enums";
 import {adrValidation} from "./AdrValidation";
 
 export const hgvValidation = commonSchema.keys({

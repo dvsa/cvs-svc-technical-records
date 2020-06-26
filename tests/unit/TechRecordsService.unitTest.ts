@@ -2,7 +2,15 @@
 import TechRecordsService from "../../src/services/TechRecordsService";
 import HTTPError from "../../src/models/HTTPError";
 import records from "../resources/technical-records.json";
-import {HTTPRESPONSE, SEARCHCRITERIA, STATUS, EU_VEHICLE_CATEGORY, ERRORS, UPDATE_TYPE} from "../../src/assets/Enums";
+import {
+  HTTPRESPONSE,
+  SEARCHCRITERIA,
+  STATUS,
+  EU_VEHICLE_CATEGORY,
+  ERRORS,
+  UPDATE_TYPE,
+  REASON_FOR_CREATION
+} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
 import HTTPResponse from "../../src/models/HTTPResponse";
@@ -1352,7 +1360,6 @@ describe("archiveTechRecordStatus", () => {
   });
 });
 
-
 describe("updateTechRecordStatus", () => {
   afterEach(() => {
     jest.restoreAllMocks();
@@ -1463,5 +1470,129 @@ describe("updateTechRecordStatus", () => {
         expect(updatedTechRec.techRecord[1].statusCode).toEqual(STATUS.ARCHIVED);
       });
     });
+  });
+});
+
+describe("generate plateSerialNumber", () => {
+  context("when trying to generate a new plate for a vehicle", () => {
+    context("and the plate serial number generation is successful", () => {
+      it("should set the correct plate serial number on the vehicle and set reasonForCreation", async () => {
+        const techRecord: any = cloneDeep(records[1]);
+        techRecord.techRecord[0].plates = [{
+          plateIssueDate: "2200-12-13",
+          plateReasonForIssue: "Free replacement",
+          plateIssuer: "string",
+          toEmailAddress: "lele@lele.com"
+        }];
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getPlateSerialNumber: () => {
+              return Promise.resolve({
+                plateSerialNumber: "1",
+                testNumberKey: 4
+              });
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+        await techRecordsService.managePlatesGeneration(techRecord.techRecord[0]);
+        expect(techRecord.techRecord[0].plates[0].plateSerialNumber).toEqual("1");
+        expect(techRecord.techRecord[0].reasonForCreation).toEqual(REASON_FOR_CREATION.PLATES);
+      });
+    });
+    context("and the plate serial number generation failed", () => {
+      context("and the plate serial number object doesn't contain the plateSerialNumber attribute", () => {
+        it("should return error 500 Plate Serial Number generation failed", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getPlateSerialNumber: () => {
+                return Promise.resolve({
+                  testNumberKey: 4
+                });
+              }
+            };
+          });
+          const mockDAO = new MockDAO();
+          const techRecordsService = new TechRecordsService(mockDAO);
+          try {
+            expect(await techRecordsService.generatePlateSerialNumber()).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual(ERRORS.PLATE_SERIAL_NUMBER_GENERATION_FAILED);
+          }
+        });
+      });
+
+      context("and the plate serial number object contains the error attribute", () => {
+        it("should return error 500 Plate Serial Number generation failed", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getPlateSerialNumber: () => {
+                return Promise.resolve({
+                  error: "Some error from test-number microservice"
+                });
+              }
+            };
+          });
+          const mockDAO = new MockDAO();
+          const techRecordsService = new TechRecordsService(mockDAO);
+          try {
+            expect(await techRecordsService.generatePlateSerialNumber()).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual("Some error from test-number microservice");
+          }
+        });
+      });
+
+      context("and the test-number microservice returned an error", () => {
+        it("should return error 500", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getPlateSerialNumber: () => {
+                return Promise.reject("Error from test-number microservice");
+              }
+            };
+          });
+          const mockDAO = new MockDAO();
+          const techRecordsService = new TechRecordsService(mockDAO);
+          try {
+            expect(await techRecordsService.generatePlateSerialNumber()).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual("Error from test-number microservice");
+          }
+        });
+      });
+    });
+    context("and the plates object is missing at least one parameter", () => {
+      it("should throw error 400 All plates attributes must be completed", async () => {
+        const techRecord: any = cloneDeep(records[44]);
+        techRecord.techRecord[0].plates = [{
+          plateIssueDate: "2200-12-13",
+          plateReasonForIssue: "Free replacement",
+          plateIssuer: "string"
+        }];
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getPlateSerialNumber: () => {
+              return Promise.resolve({
+                plateSerialNumber: "1",
+                testNumberKey: 4
+              });
+            }
+          };
+        });
+        const mockDAO = new MockDAO();
+        const techRecordsService = new TechRecordsService(mockDAO);
+        try {
+          expect(await techRecordsService.managePlatesGeneration(techRecord.techRecord[0])).toThrowError();
+        } catch(errorResponse) {
+          expect(errorResponse.body.errors).toContain(ERRORS.MISSING_PLATE_FIELDS);
+        }
+      });
+    });
+
   });
 });

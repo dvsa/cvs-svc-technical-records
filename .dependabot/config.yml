@@ -3,7 +3,7 @@ update_configs:
 - package_manager: "javascript"
   directory: "/"
   update_schedule: "live"
-  target_branch: "develop"
+  target_branch: "devops"
   version_requirement_updates: increase_versions
   default_reviewers:
   - "KHodderDVSA"

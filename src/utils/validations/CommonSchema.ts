@@ -14,7 +14,7 @@ import {
   RECORD_COMPLETENESS,
   EU_VEHICLE_CATEGORY_VALIDATION,
   STATUS_CODES
-} from "../assets/Enums";
+} from "../../assets/Enums";
 
 export const brakesSchema = Joi.object().keys({
   dtpNumber: Joi.string().max(6).required(),
@@ -44,7 +44,8 @@ export const platesSchema = Joi.object().keys({
   plateSerialNumber: Joi.string().max(12).optional().allow(null),
   plateIssueDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
   plateReasonForIssue: Joi.string().valid(...PLATE_REASON_FOR_ISSUE).optional().allow(null),
-  plateIssuer: Joi.string().max(150).optional().allow(null)
+  plateIssuer: Joi.string().max(150).optional().allow(null),
+  toEmailAddress: Joi.string().max(255).optional().allow(null)
 });
 
 export const microfilmSchema = Joi.object().keys({
@@ -76,7 +77,7 @@ export const applicantDetailsSchemaOptional = Joi.object().keys({
 }).optional().allow(null);
 
 export const commonSchema = Joi.object().keys({
-  recordCompleteness: Joi.string().valid(...RECORD_COMPLETENESS).required(),
+  recordCompleteness: Joi.string().valid(...RECORD_COMPLETENESS).optional(),
   euVehicleCategory: Joi.string().valid(...EU_VEHICLE_CATEGORY_VALIDATION).required(),
   vehicleType: Joi.string().valid(...VEHICLE_TYPE_VALIDATION).required(),
   regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),

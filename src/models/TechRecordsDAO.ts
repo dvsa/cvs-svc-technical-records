@@ -4,7 +4,7 @@ import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import QueryInput = DocumentClient.QueryInput;
 import {SEARCHCRITERIA} from "../assets/Enums";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
-import {populatePartialVin} from "../utils/ValidationUtils";
+import {populatePartialVin} from "../utils/validations/ValidationUtils";
 import {LambdaService} from "../services/LambdaService";
 
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
@@ -32,6 +32,7 @@ class TechRecordsDAO {
   }
 
   public getBySearchTerm(searchTerm: string, searchCriteria: ISearchCriteria) {
+    searchTerm = searchTerm.toUpperCase();
     const query: QueryInput = {
       TableName: this.tableName,
       IndexName: "",
@@ -100,6 +101,7 @@ class TechRecordsDAO {
   }
 
   public createSingle(techRecord: ITechRecordWrapper) {
+    techRecord = capitaliseGeneralVehicleAttributes(techRecord);
     const query = {
       TableName: this.tableName,
       Item: techRecord,
@@ -114,6 +116,7 @@ class TechRecordsDAO {
 
   public updateSingle(techRecord: ITechRecordWrapper) {
     techRecord.partialVin = populatePartialVin(techRecord.vin);
+    techRecord = capitaliseGeneralVehicleAttributes(techRecord);
     const query = {
       TableName: this.tableName,
       Key: {
@@ -165,6 +168,16 @@ class TechRecordsDAO {
       path: "/system-number/",
       httpMethod: "POST",
       resource: "/system-number/"
+    };
+
+    return LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
+  }
+
+  public getPlateSerialNumber(): any {
+    const event = {
+      path: "/plateSerialNo/",
+      httpMethod: "POST",
+      resource: "/plateSerialNo/"
     };
 
     return LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
@@ -247,6 +260,15 @@ const isTrailerId = (searchTerm: string): boolean => {
   // A letter followed by exactly 6 numbers
   const isLetterAndNumbersTrailerId = TRAILER_REGEX.test(searchTerm);
   return isAllNumbersTrailerId || isLetterAndNumbersTrailerId;
+};
+
+export const capitaliseGeneralVehicleAttributes = (techRecord: ITechRecordWrapper) => {
+  techRecord.vin = techRecord.vin?.toUpperCase();
+  techRecord.partialVin = techRecord.partialVin?.toUpperCase();
+  techRecord.primaryVrm = techRecord.primaryVrm?.toUpperCase();
+  techRecord.trailerId = techRecord.trailerId?.toUpperCase();
+  techRecord.secondaryVrms = techRecord.secondaryVrms?.map((vrm: string) => vrm.toUpperCase());
+  return techRecord;
 };
 
 export {TechRecordsDAO as default, isTrailerSearch, isPartialVinSearch, isTrailerId, isVinSearch, isVrmSearch} ;
