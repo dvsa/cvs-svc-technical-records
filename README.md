@@ -64,6 +64,13 @@ In order to generate SonarQube reports on local, follow the steps:
 
 - The `BRANCH` environment variable indicates in which environment is this application running. Use `BRANCH=local` for local deployment. This variable is required when starting the application or running tests.
 
+Feature flags are available within the application from `config.yml` file.
+Below is the list of feature switches:
+```
+allowAdrUpdatesOnly // set to false by default, only validate ADR fields on PUT request
+```
+If you wish to toggle the switches, you will need to update its value, then run `npm run build` to rebuild the service and restart the server with `npm start`.
+
 
 ### Seeding the database
 
