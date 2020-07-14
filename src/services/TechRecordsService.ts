@@ -317,7 +317,7 @@ class TechRecordsService {
     if (oldStatusCode && oldStatusCode === STATUS.CURRENT && statusCode === STATUS.PROVISIONAL) {
       return Promise.reject({statusCode: 400, body: formatErrorMessage(ERRORS.CANNOT_CHANGE_CURRENT_TO_PROVISIONAL)});
     }
-    const isPayloadValid = fromValidation.validatePayload(updatedTechRecord.techRecord[0]);
+    const isPayloadValid = fromValidation.validatePayload(updatedTechRecord.techRecord[0], false);
     this.checkValidationErrors(isPayloadValid);
 
     updatedTechRecord.techRecord[0] = isPayloadValid.value;
