@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/dvsa/cvs-svc-technical-records.git"
   },
+  "engines": {
+    "node": "10.18.1"
+  },
   "scripts": {
     "start": "BRANCH=local ./node_modules/serverless/bin/serverless offline start",
     "debug": "export SLS_DEBUG=* && BRANCH=local node --inspect ./node_modules/serverless/bin/serverless offline start",
@@ -23,7 +26,8 @@
     "sonar-scanner": "npm run tslint && npm run coverage && sonar-scanner",
     "coverage": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*Test.ts\" --runInBand --coverage",
     "audit-dep": "npm audit --json | audit-filter --nsp-config=.nsprc --audit=-",
-    "tools-setup": "sls dynamodb migrate && BRANCH=local node_modules/gulp/bin/gulp.js start-serverless && sls dynamodb seed --seed=technical-records"
+    "tools-setup": "sls dynamodb migrate && BRANCH=local node_modules/gulp/bin/gulp.js start-serverless && sls dynamodb seed --seed=technical-records",
+    "postinstall": "./node_modules/.bin/sls dynamodb install && nvm use"
   },
   "author": "",
   "license": "MIT",
