@@ -8,7 +8,8 @@
     "url": "https://github.com/dvsa/cvs-svc-technical-records.git"
   },
   "engines": {
-    "node": "10.18.1"
+    "node": "10.18.1",
+    "npm": "6.13.4"
   },
   "scripts": {
     "start": "BRANCH=local ./node_modules/serverless/bin/serverless offline start",
