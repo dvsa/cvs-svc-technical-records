@@ -9,7 +9,7 @@ import {
   STATUS,
   UPDATE_TYPE,
   VEHICLE_TYPE,
-  EU_VEHICLE_CATEGORY
+  EU_VEHICLE_CATEGORY, REASON_FOR_CREATION
 } from "../assets/Enums";
 import * as fromValidation from "../utils/validations";
 import {ISearchCriteria} from "../../@Types/ISearchCriteria";
@@ -535,11 +535,14 @@ class TechRecordsService {
     return techRecordList.techRecord.filter((techRecord) => techRecord.statusCode === statusCode);
   }
 
-  public async updateEuVehicleCategory(systemNumber: string, newEuVehicleCategory: EU_VEHICLE_CATEGORY): Promise<HTTPResponse | HTTPError> {
+  public async updateEuVehicleCategory(systemNumber: string, newEuVehicleCategory: EU_VEHICLE_CATEGORY, createdById: string, createdByName: string): Promise<HTTPResponse | HTTPError> {
     const techRecordWrapper: ITechRecordWrapper = (await this.getTechRecordsList(systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER))[0];
     const nonArchivedTechRecord = techRecordWrapper.techRecord.filter((techRecord) => techRecord.statusCode !== STATUS.ARCHIVED);
     if (nonArchivedTechRecord.length > 1) {
       throw new HTTPError(400, HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD);
+    }
+    if (nonArchivedTechRecord.length === 0) {
+      throw new HTTPError(400, ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
     }
     if (nonArchivedTechRecord[0].euVehicleCategory) {
       return new HTTPResponse(200, HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED);
@@ -549,6 +552,11 @@ class TechRecordsService {
     nonArchivedTechRecord[0].statusCode = STATUS.ARCHIVED;
     newTechRecord.euVehicleCategory = newEuVehicleCategory;
     newTechRecord.statusCode = statusCode;
+    const date = new Date().toISOString();
+    this.setCreatedAuditDetails(newTechRecord, createdByName, createdById, date);
+    this.setLastUpdatedAuditDetails(nonArchivedTechRecord[0], createdByName, createdById, date);
+    newTechRecord.reasonForCreation = REASON_FOR_CREATION.EU_VEHICLE_CATEGORY_UPDATED;
+    nonArchivedTechRecord[0].updateType = UPDATE_TYPE.TECH_RECORD_UPDATE;
     techRecordWrapper.techRecord.push(newTechRecord);
     let updatedTechRecord;
     try {
