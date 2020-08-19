@@ -1159,7 +1159,7 @@ describe("updateEuVehicleCategory", () => {
       expect.assertions(2);
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
-      const response: HTTPResponse | HTTPError = await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1);
+      const response: HTTPResponse | HTTPError = await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1, "1234", "dorel");
       const updatedTechRec: ITechRecordWrapper = JSON.parse(response.body);
       expect(response.statusCode).toEqual(200);
       expect(updatedTechRec.techRecord[0].euVehicleCategory).toEqual(newEuVehicleCategory);
@@ -1167,7 +1167,7 @@ describe("updateEuVehicleCategory", () => {
   });
 
   context("when updating a euVehicleCategory for an existing vehicle where the value is not null", () => {
-    it("should update the euVehicleCategory with the value provided", async () => {
+    it("should throw error No EU vehicle category update required", async () => {
       const systemNumber = "10000001";
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
@@ -1183,9 +1183,66 @@ describe("updateEuVehicleCategory", () => {
       expect.assertions(2);
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
-      const response: HTTPResponse | HTTPError = await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1);
+      const response: HTTPResponse | HTTPError = await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1, "1234", "dorel");
       expect(response.statusCode).toEqual(200);
       expect(response.body).toEqual(`"${HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED}"`);
+    });
+  });
+
+  context("when finding more than one non-archived tech-records", () => {
+    it("should throw error More than one non-archived records found", async () => {
+      const systemNumber = "10000001";
+      const record: any = cloneDeep(records[0]);
+      const techRecord = record.techRecord[0];
+      record.techRecord.push(techRecord);
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve({
+              Items: [record],
+              Count: 1,
+              ScannedCount: 1
+            });
+          }
+        };
+      });
+      expect.assertions(2);
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+      try {
+        expect(await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1, "1234", "dorel")).toThrowError();
+      } catch (error) {
+        expect(error.statusCode).toEqual(400);
+        expect(error.body).toEqual(HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD);
+      }
+    });
+  });
+
+  context("when finding only archived tech-records", () => {
+    it("should throw error Cannot update archived tech-record", async () => {
+      const systemNumber = "10000001";
+      const archivedRecord: any = cloneDeep(records[0]);
+      archivedRecord.techRecord[0].statusCode = "archived";
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve({
+              Items: [archivedRecord],
+              Count: 1,
+              ScannedCount: 1
+            });
+          }
+        };
+      });
+      expect.assertions(2);
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+      try {
+        expect(await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1, "1234", "dorel")).toThrowError();
+      } catch (error) {
+        expect(error.statusCode).toEqual(400);
+        expect(error.body).toEqual(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
+      }
     });
   });
 });

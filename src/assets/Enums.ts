@@ -323,3 +323,7 @@ export enum RECORD_COMPLETENESS_ENUM {
     TESTABLE = "testable",
     SKELETON = "skeleton"
 }
+
+export enum REASON_FOR_CREATION {
+    EU_VEHICLE_CATEGORY_UPDATED = "EU vehicle category updated"
+}
