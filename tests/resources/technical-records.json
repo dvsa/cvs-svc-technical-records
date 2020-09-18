@@ -17622,7 +17622,8 @@
     "techRecord": [
       {
         "vehicleSubclass": [
-          "string"
+          "a",
+          "r"
         ],
         "axles": [
           {
@@ -17743,7 +17744,8 @@
     "techRecord": [
       {
         "vehicleSubclass": [
-          "string"
+          "a",
+          "r"
         ],
         "axles": [
           {
