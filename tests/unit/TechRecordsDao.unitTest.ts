@@ -1,5 +1,5 @@
 import TechRecordsDao, {
-  capitaliseGeneralVehicleAttributes,
+  // capitaliseGeneralVehicleAttributes,
   isPartialVinSearch,
   isTrailerSearch,
   isVinSearch,
@@ -473,30 +473,6 @@ describe("TechRecordsDAO", () => {
         const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.updateSingle(techRecord);
         expect(stub).toStrictEqual(expectedCall);
-      });
-    });
-  });
-
-  describe("capitaliseGeneralVehicleAttributes", () => {
-    afterEach(() => {
-      jest.restoreAllMocks();
-    });
-
-    context("when the vin, partialVin, primaryVrm, secondaryVrms or trailerId for a tech-record contains lower case letters", () => {
-      it("should capitalise the vin, partialVin, primaryVrm, secondaryVrms or trailerId", () => {
-        const techRecord: any = cloneDeep(mockData[43]);
-        techRecord.vin = "abcd123456Nm";
-        techRecord.partialVin = "3456Nm";
-        techRecord.primaryVrm = "abd1234";
-        techRecord.secondaryVrms = ["nmb1234", "uio0985"];
-        techRecord.trailerId = "cgrt546";
-
-        const expectedTechRecord = capitaliseGeneralVehicleAttributes(techRecord);
-        expect(expectedTechRecord.vin).toEqual("ABCD123456NM");
-        expect(expectedTechRecord.partialVin).toEqual("3456NM");
-        expect(expectedTechRecord.primaryVrm).toEqual("ABD1234");
-        expect(expectedTechRecord.secondaryVrms).toEqual(["NMB1234", "UIO0985"]);
-        expect(expectedTechRecord.trailerId).toEqual("CGRT546");
       });
     });
   });

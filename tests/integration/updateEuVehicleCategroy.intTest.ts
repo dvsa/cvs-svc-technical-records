@@ -141,7 +141,8 @@ describe("updateEuVehicleCategory", () => {
                 })
                 .expectResolve((result: any) => {
                     expect(result.statusCode).toBe(404);
-                    expect(JSON.parse(result.body)).toBe(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+                    // FIXME: array to string
+                    expect(JSON.parse(result.body).errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
                 });
         });
     });

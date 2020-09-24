@@ -50,7 +50,8 @@ describe("techRecords", () => {
             expect(res.status).toEqual(404);
             expect(res.header["access-control-allow-origin"]).toEqual("*");
             expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+            // FIXME: array to string
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
           });
         });
       });
@@ -72,7 +73,8 @@ describe("techRecords", () => {
             expect(res.status).toEqual(404);
             expect(res.header["access-control-allow-origin"]).toEqual("*");
             expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+            // FIXME: array to string
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
           });
         });
       });
@@ -107,7 +109,8 @@ describe("techRecords", () => {
             expect(res.status).toEqual(404);
             expect(res.header["access-control-allow-origin"]).toEqual("*");
             expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+            // FIXME: array to string
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
           });
         });
       });
@@ -129,7 +132,8 @@ describe("techRecords", () => {
             expect(res.status).toEqual(404);
             expect(res.header["access-control-allow-origin"]).toEqual("*");
             expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+            // FIXME: array to string
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
           });
         });
       });
@@ -174,7 +178,8 @@ describe("techRecords", () => {
             expect(res.status).toEqual(404);
             expect(res.header["access-control-allow-origin"]).toEqual("*");
             expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+            // FIXME: array to string
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
           });
         });
       });
@@ -196,7 +201,8 @@ describe("techRecords", () => {
             expect(res.status).toEqual(404);
             expect(res.header["access-control-allow-origin"]).toEqual("*");
             expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+            // FIXME: array to string
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
           });
         });
       });
@@ -217,11 +223,11 @@ describe("techRecords", () => {
       context("and no statusCode is provided", () => {
         context("and the tech record for that Trailer ID has statusCode 'current'", () => {
           it("should return the tech record for that Trailer ID with status 'current'", async () => {
-            const res = await request.get("vehicles/09876543/tech-records");
+            const res = await request.get("vehicles/C000001/tech-records");
             expect(res.status).toEqual(200);
             expect(res.header["access-control-allow-origin"]).toEqual("*");
             expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual(convertToResponse(mockData[0]));
+            expect(res.body).toEqual(convertToResponse(mockData[13]));
           });
         });
 
@@ -231,7 +237,8 @@ describe("techRecords", () => {
             expect(res.status).toEqual(404);
             expect(res.header["access-control-allow-origin"]).toEqual("*");
             expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+            // FIXME: array to string
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
           });
         });
       });
@@ -249,23 +256,24 @@ describe("techRecords", () => {
 
         context("and the tech record for that Trailer ID does not have statusCode 'archived'", () => {
           it("should return 404", async () => {
-            const res = await request.get("vehicles/09876543/tech-records?status=archived");
+            const res = await request.get("vehicles/B9999999/tech-records?status=archived");
             expect(res.status).toEqual(404);
             expect(res.header["access-control-allow-origin"]).toEqual("*");
             expect(res.header["access-control-allow-credentials"]).toEqual("true");
-            expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+            // FIXME: array to string
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
           });
         });
       });
 
       context("and the vehicle has more than one tech record", () => {
         it("should return all tech records for that Trailer ID", async () => {
-          const res = await request.get("vehicles/09876543/tech-records?status=all");
+          const res = await request.get("vehicles/P123403/tech-records?status=all");
           expect(res.status).toEqual(200);
           expect(res.header["access-control-allow-origin"]).toEqual("*");
           expect(res.header["access-control-allow-credentials"]).toEqual("true");
-          expect(convertToResponse(mockData[0])).toEqual(res.body);
-          expect(res.body[0].techRecord.length).toEqual(mockData[0].techRecord.length);
+          expect(convertToResponse(mockData[45])).toEqual(res.body);
+          expect(res.body[0].techRecord.length).toEqual(mockData[45].techRecord.length);
         });
       });
     });
@@ -381,10 +389,12 @@ describe("techRecords", () => {
             it("should return error status 404 No resources match the search criteria", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
+              const {primaryVrm} = techRec;
               const vin = Date.now().toString();
               delete techRec.techRecord[0].statusCode;
               const payload = {
                 msUserDetails,
+                primaryVrm,
                 systemNumber: "NOT A VALID SYSTEM NUMBER",
                 techRecord: techRec.techRecord
               };
@@ -392,7 +402,8 @@ describe("techRecords", () => {
               expect(res.status).toEqual(404);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+              // FIXME: need to discuss string array vs string message
+              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
             });
           });
 

@@ -1,10 +1,13 @@
-import ITechRecord from "../../../@Types/ITechRecord";
-import {VEHICLE_TYPE, SEARCHCRITERIA, ERRORS} from "../../assets/Enums";
+import {ERRORS, SEARCHCRITERIA, VEHICLE_TYPE} from "../../assets/Enums";
 import Joi, {ObjectSchema} from "@hapi/joi";
 import Configuration from "../Configuration";
 import * as fromValidation from "./";
+import { HgvTechRecord, Vehicle, TechRecord, TrlTechRecord } from "../../../@Types/TechRecords";
+import { hgvValidation } from "./HgvValidations";
+import { trlValidation } from "./TrlValidations";
+import { handleValidationResult } from "./ValidationUtils";
 
-const checkIfTankOrBattery = (payload: ITechRecord) => {
+export const checkIfTankOrBattery = (payload: HgvTechRecord | TrlTechRecord) => {
   let isTankOrBattery = false;
   if (payload.adrDetails && payload.adrDetails.vehicleDetails && payload.adrDetails.vehicleDetails.type) {
     const vehicleDetailsType = payload.adrDetails.vehicleDetails.type.toLowerCase();
@@ -15,7 +18,7 @@ const checkIfTankOrBattery = (payload: ITechRecord) => {
   return isTankOrBattery;
 };
 
-const featureFlagValidation = (validationSchema: ObjectSchema, payload: ITechRecord, validateEntireRecord: boolean, options: any) => {
+export const featureFlagValidation = (validationSchema: ObjectSchema, payload: HgvTechRecord | TrlTechRecord, validateEntireRecord: boolean, options: any) => {
   const allowAdrUpdatesOnlyFlag: boolean = Configuration.getInstance().getAllowAdrUpdatesOnlyFlag();
   if (allowAdrUpdatesOnlyFlag && !validateEntireRecord) {
     Object.assign(options, {stripUnknown: true});
@@ -26,34 +29,45 @@ const featureFlagValidation = (validationSchema: ObjectSchema, payload: ITechRec
   }
 };
 
-export const validatePayload = (payload: ITechRecord, validateEntireRecord: boolean = true) => {
-  const isTankOrBattery = checkIfTankOrBattery(payload);
-  const abortOptions = {abortEarly: false};
-  const hgvTrlOptions = {...abortOptions, context: {isTankOrBattery}};
-  if (payload.vehicleType === VEHICLE_TYPE.HGV) {
-    return featureFlagValidation(fromValidation.hgvValidation, payload, validateEntireRecord, hgvTrlOptions);
-  } else if (payload.vehicleType === VEHICLE_TYPE.PSV) {
-    return fromValidation.psvValidation.validate(payload, abortOptions);
-  } else if (payload.vehicleType === VEHICLE_TYPE.TRL) {
-    return featureFlagValidation(fromValidation.trlValidation, payload, validateEntireRecord, hgvTrlOptions);
-  } else if (payload.vehicleType === VEHICLE_TYPE.LGV) {
-    return fromValidation.lgvValidation.validate(payload, abortOptions);
-  } else if (payload.vehicleType === VEHICLE_TYPE.CAR) {
-    return fromValidation.carValidation.validate(payload, abortOptions);
-  } else if (payload.vehicleType === VEHICLE_TYPE.MOTORCYCLE) {
-    return fromValidation.motorcycleValidation.validate(payload, abortOptions);
-  } else {
-    return {
-      error: {
-        details: [{message: ERRORS.VEHICLE_TYPE_ERROR}]
-      }
-    };
-  }
+/**
+ * common validation function for both HGVs and Trailers.
+ * @param payload payload which needs to be validated
+ * @param options validation configurations
+ * @param isCreate true for create request and false for update request
+ */
+export const validateHGVOrTrailer =(payload: HgvTechRecord | TrlTechRecord, options: any , isCreate: boolean) => {
+  const isTankOrBattery: boolean = checkIfTankOrBattery(payload);
+  options = {...options, context: {isTankOrBattery}};
+  const validationSchema = payload.vehicleType === VEHICLE_TYPE.HGV? hgvValidation:trlValidation;
+  const validationResult = featureFlagValidation(validationSchema, payload, isCreate, options);
+  return handleValidationResult(validationResult);
 };
 
 export const validatePrimaryVrm = Joi.string().min(1).max(9);
 export const validateSecondaryVrms = Joi.array().items(Joi.string().min(1).max(9));
 export const validateTrailerId = Joi.string().min(7).max(8);
+
+export const primaryVrmValidator = (primaryVrm?: string, isRequired: boolean = true) => {
+  const errors: string[] = [];
+  if(isRequired && !primaryVrm) {
+    errors.push(ERRORS.INVALID_PRIMARY_VRM);
+    return errors;
+  }
+  const validationResult = validatePrimaryVrm.validate(primaryVrm);
+  if(validationResult.error) {
+    errors.push(ERRORS.INVALID_PRIMARY_VRM);
+  }
+  return errors;
+};
+
+export const secondaryVrmValidator = (secondayVrms?: string[]) => {
+  const errors: string[] = [];
+  const validationResult = validateSecondaryVrms.validate(secondayVrms);
+  if(validationResult.error) {
+    errors.push(ERRORS.INVALID_SECONDARY_VRM);
+  }
+  return errors;
+ };
 
 
 export const isValidSearchCriteria = (specifiedCriteria: string): boolean => {

@@ -4,8 +4,8 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsService from "../services/TechRecordsService";
 import {metaData} from "../utils/metadataEnums";
-import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {isValidSearchCriteria} from "../utils/validations/PayloadValidation";
+
 
 const getTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -27,7 +27,7 @@ const getTechRecords = (event: any) => {
   }
 
   return techRecordsService.getTechRecordsList(searchIdentifier, status, searchCriteria)
-    .then((data: ITechRecordWrapper[]) => {
+    .then((data) => {
 
       if(!(data instanceof Array)) {
         return new HTTPResponse(200, Array.of(data));

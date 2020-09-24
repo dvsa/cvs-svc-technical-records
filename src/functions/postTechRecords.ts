@@ -1,15 +1,14 @@
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
-import ITechRecord from "../../@Types/ITechRecord";
 import {populatePartialVin} from "../utils/validations/ValidationUtils";
-import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import { HTTPRESPONSE } from "../assets/Enums";
 
 const postTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
   const techRecordsService = new TechRecordsService(techRecordsDAO);
 
-  const techRec: ITechRecord[] = event.body ? event.body.techRecord : null;
+  const techRec = event.body ? event.body.techRecord : null;
   const msUserDetails = event.body ? event.body.msUserDetails : null;
   const vin = event.body ? event.body.vin : null;
   const primaryVrm = event.body ? event.body.primaryVrm : null;
@@ -27,7 +26,7 @@ const postTechRecords = (event: any) => {
     return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
   }
 
-  const techRecord: ITechRecordWrapper = {
+  const techRecord = {
     vin,
     partialVin: populatePartialVin(vin),
     techRecord: techRec,
@@ -37,8 +36,8 @@ const postTechRecords = (event: any) => {
   };
 
   return techRecordsService.insertTechRecord(techRecord, msUserDetails)
-    .then((data: any) => {
-      return new HTTPResponse(201, "Technical Record created");
+    .then((data) => {
+      return new HTTPResponse(201, HTTPRESPONSE.TECHINICAL_RECORD_CREATED);
     })
     .catch((error: any) => {
       console.log(error);
