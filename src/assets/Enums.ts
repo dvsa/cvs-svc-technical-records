@@ -15,7 +15,14 @@ export enum ERRORS {
     STATUS_CODE_SHOULD_BE_PROVISIONAL = "Status code should be provisional",
     MISSING_PAYLOAD = "Missing payload!",
     MISSING_USER = "Microsoft user details not provided",
-    VEHICLE_TYPE_ERROR = "\"vehicleType\" must be one of [hgv, psv, trl, car, lgv, motorcycle]"
+    VEHICLE_TYPE_ERROR = "\"vehicleType\" must be one of [hgv, psv, trl, car, lgv, motorcycle]",
+    INVALID_PRIMARY_SECONDARY_VRM = "Primary or secondaryVrms are not valid",
+    INVALID_PRIMARY_VRM = "Invalid primary VRM",
+    INVALID_SECONDARY_VRM = "Secondary VRMs are invalid",
+    INVALID_TRAILER_ID= "TrailerId is invalid",
+    INVALID_BODY_TYPE = "Invalid body type code",
+    INVALID_VEHICLE_CLASS = "Invalid vehicle class code",
+    INVALID_VEHICLE_TYPE = '"vehicleType" must be one of [hgv, psv, trl, car, lgv, motorcycle]'
 }
 
 export enum HTTPRESPONSE {
@@ -25,7 +32,8 @@ export enum HTTPRESPONSE {
     NO_STATUS_UPDATE_REQUIRED = "No status update required",
     NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED = "No EU vehicle category update required",
     INVALID_EU_VEHICLE_CATEGORY = "Invalid EU vehicle category",
-    EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD = "The vehicle has more than one non archived Tech record."
+    EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD = "The vehicle has more than one non archived Tech record.",
+    TECHINICAL_RECORD_CREATED = "Technical Record created"
 }
 
 export enum STATUS {

@@ -80,7 +80,8 @@ describe("getTechRecords", () => {
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(404);
-            expect(result.body).toEqual(
+            // FIXME: array to string
+            expect(result.body).toContain(
               '"No resources match the search criteria."'
             );
           });
@@ -129,7 +130,8 @@ describe("postTechRecords", () => {
   context("when trying to create a new vehicle", () => {
     context("and the vehicle was not found", () => {
       it("should return 201 created", async () => {
-        const techRecord: any = cloneDeep(records[43]);
+        // @ts-ignore
+        const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
         delete techRecord.techRecord[0].statusCode;
         techRecord.vin = Date.now().toString().substring(8);
 
@@ -137,13 +139,13 @@ describe("postTechRecords", () => {
           vin: techRecord.vin,
           msUserDetails,
           primaryVrm: Math.floor(100000 + Math.random() * 900000).toString(),
-          techRecord: techRecord.techRecord
+          techRecord: techRecord.techRecord,
         };
 
         await LambdaTester(PostTechRecordsFunction)
           .event({
             path: "/vehicles",
-            body: payload
+            body: payload,
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(201);
@@ -178,13 +180,17 @@ describe("postTechRecords", () => {
 
     context("and the techRecord array is empty", () => {
       it("should return 400 invalid TechRecord", async () => {
-        const techRecord: any = cloneDeep(records[43]);
+        // @ts-ignore
+        const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
+        const { primaryVrm, secondaryVrms } = techRecord;
         delete techRecord.techRecord[0].statusCode;
         techRecord.vin = Date.now().toString();
 
         const payload = {
           vin: techRecord.vin,
           msUserDetails,
+          primaryVrm,
+          secondaryVrms,
           techRecord: [],
         };
         await LambdaTester(PostTechRecordsFunction)
@@ -243,9 +249,13 @@ describe("updateTechRecords", () => {
     context("and the path parameter systemNumber is valid", () => {
       context("and the vehicle was found", () => {
         it("should return 200 and the updated vehicle", async () => {
-          const techRecord: any = cloneDeep(records[43]);
+          // @ts-ignore
+          const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
+          const { primaryVrm, secondaryVrms } = techRecord;
           const payload = {
             msUserDetails,
+            primaryVrm,
+            secondaryVrms,
             techRecord: techRecord.techRecord,
           };
           const systemNumber = techRecord.systemNumber;
@@ -274,12 +284,16 @@ describe("updateTechRecords", () => {
 
       context("and the vehicle was not found", () => {
         it("should return 404 Not found", async () => {
-          const techRecord: any = cloneDeep(records[43]);
+          // @ts-ignore
+          const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
+          const { primaryVrm, secondaryVrms } = techRecord;
           delete techRecord.techRecord[0].statusCode;
           const systemNumber = "NOT A SYSTEM NUMBER";
           const payload = {
             msUserDetails,
             systemNumber,
+            primaryVrm,
+            secondaryVrms,
             techRecord: techRecord.techRecord,
           };
           await LambdaTester(UpdateTechRecordsFunction)
@@ -291,8 +305,10 @@ describe("updateTechRecords", () => {
               body: payload,
             })
             .expectResolve((result: any) => {
+              console.log(result);
               expect(result.statusCode).toEqual(404);
-              expect(JSON.parse(result.body)).toEqual(
+              // FIXME: need to discuss string array vs string message
+              expect(JSON.parse(result.body).errors).toContain(
                 HTTPRESPONSE.RESOURCE_NOT_FOUND
               );
             });

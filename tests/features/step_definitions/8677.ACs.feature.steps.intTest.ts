@@ -1,11 +1,12 @@
+import {cloneDeep} from "lodash";
 import {defineFeature, loadFeature} from "jest-cucumber";
 import supertest from "supertest";
 import path from "path";
 import mockData from "../../resources/technical-records.json";
 import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
 import {UPDATE_TYPE} from "../../../src/assets/Enums";
-import {validatePayload} from "../../../src/utils/validations/PayloadValidation";
-import {cloneDeep} from "lodash";
+import { validateHGVOrTrailer } from "../../../src/utils/validations/PayloadValidation";
+
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -46,7 +47,7 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
     });
     and("the existing tech record is archived", () => {
-      expect(response.body.techRecord[0].reasonForCreation).toEqual("string");
+      expect(response.body.techRecord[0].reasonForCreation).toContain("string");
       expect(response.body.techRecord[0].statusCode).toEqual("archived");
     });
     and("my PUT action adheres to the adrDetails{} API validations, present in the attached updated API spec", () => {
@@ -112,7 +113,7 @@ defineFeature(feature, ( test ) => {
       delete response.body.techRecord[1].createdAt;
       delete response.body.techRecord[1].createdById;
       delete response.body.techRecord[1].statusCode;
-      const isAdrValid = validatePayload(response.body.techRecord[1]);
+      const isAdrValid = validateHGVOrTrailer(response.body.techRecord[1],{ abortEarly: false }, false);
       expect(isAdrValid).not.toHaveProperty("error");
     });
   });

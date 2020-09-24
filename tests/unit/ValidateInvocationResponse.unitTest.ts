@@ -49,9 +49,12 @@ describe("validateInvocationResponse", () => {
     it("should return the payload parsed", () => {
       const parsedPayload = validateInvocationResponse({
         StatusCode: 200,
-        Payload: '{"statusCode":200,"body":"{}"}'
+        Payload: '{"statusCode":200,"body":"foo"}'
       });
-      expect(parsedPayload.statusCode).toEqual(200);
+      expect(parsedPayload).toEqual({
+        statusCode: 200,
+        body: "foo"
+      });
     });
   });
 });
