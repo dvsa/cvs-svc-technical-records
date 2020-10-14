@@ -60,11 +60,19 @@ In order to understand more about the responsibility of technical records servic
 ### Configuring the project
 
 #### Run AWS Lambda node functions locally with a mock API Gateway and DynamoDB to test against
-- `npm install`
-- `node_modules/.bin/sls dynamodb install`
-- `BRANCH=local npm start`
+
+Before running the start script, please make sure you have changed your dynamoDB to point locally.
+
+Please refer to [Local Running](#Local-Running) section and also make sure you have dynamoDB credentials set up.
 
 Please request the relevant credentials to be added locally to the `~/.aws/credentials` file.
+
+- `nvm use`
+- `npm install`
+- `node_modules/.bin/sls dynamodb install`
+- `npm run build`
+- `BRANCH=local npm start`
+
 
 #### Hooks
 
