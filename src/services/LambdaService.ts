@@ -24,10 +24,11 @@ export class LambdaService {
       FunctionName: lambdaName,
       InvocationType: "RequestResponse",
       Payload: JSON.stringify(lambdaEvent)
-    }).promise().then((data: any) => {
-      const payload = validateInvocationResponse(data);
-      const body = JSON.parse(payload.body);
-      return body;
-    });
+    })
+      .promise()
+        .then((payload: any) => {
+          const {body} = validateInvocationResponse(payload);
+          return body;
+        });
   }
 }

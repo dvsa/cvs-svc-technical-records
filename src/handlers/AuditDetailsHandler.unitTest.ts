@@ -41,17 +41,18 @@ describe("AuditDetailsHandler", () => {
       auditDetailsHandler.setAuditDetails(currentTechRecord, oldTechRecord, msUserDetails);
       expect(oldTechRecord.updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
     });
-
-    describe("setAuditDetailsAndStatusCodeForNewRecord", () => {
-      it("should update the tech record props 'createdByName', 'createdById', 'statusCode' with the given payload", () => {
-        auditDetailsHandler.setAuditDetailsAndStatusCodeForNewRecord(currentTechRecord, msUserDetails);
-        expect(currentTechRecord.createdByName).toEqual(msUserDetails.msUser);
-        expect(currentTechRecord.createdById).toEqual(msUserDetails.msOid);
-        expect(currentTechRecord.statusCode).toEqual(STATUS.PROVISIONAL);
-      });
   });
 
-    describe("setCreatedAuditDetails", () => {
+  describe("setAuditDetailsAndStatusCodeForNewRecord", () => {
+    it("should update the tech record props 'createdByName', 'createdById', 'statusCode' with the given payload", () => {
+      auditDetailsHandler.setAuditDetailsAndStatusCodeForNewRecord(currentTechRecord, msUserDetails);
+      expect(currentTechRecord.createdByName).toEqual(msUserDetails.msUser);
+      expect(currentTechRecord.createdById).toEqual(msUserDetails.msOid);
+      expect(currentTechRecord.statusCode).toEqual(STATUS.PROVISIONAL);
+    });
+  });
+
+  describe("setCreatedAuditDetails", () => {
     it("should update the technical record and its properties with the given payload", () => {
       const {createdByName, createdById, date} = payload;
       const cloneRecord = cloneDeep(currentTechRecord);
@@ -66,7 +67,7 @@ describe("AuditDetailsHandler", () => {
     });
   });
 
-    describe("setLastUpdatedAuditDetails", () => {
+  describe("setLastUpdatedAuditDetails", () => {
     it("should update the technical record props 'lastUpdatedByName', 'lastUpdatedById', 'lastUpdatedAt' with the given payload", () => {
       const {createdByName, createdById, date} = payload;
 
@@ -74,7 +75,6 @@ describe("AuditDetailsHandler", () => {
       expect(currentTechRecord.lastUpdatedByName).toEqual(createdByName);
       expect(currentTechRecord.lastUpdatedById).toEqual(createdById);
       expect(currentTechRecord.lastUpdatedAt).toEqual(date);
-      });
     });
   });
 
