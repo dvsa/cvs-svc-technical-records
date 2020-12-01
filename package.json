@@ -20,7 +20,7 @@
     "package": "mkdir ${ZIP_NAME} && cp package.json package-lock.json ${ZIP_NAME} && cp -r .build/src/* ${ZIP_NAME}/ && cd ${ZIP_NAME} && npm ci --production && rm package.json package-lock.json && zip -qr ../${ZIP_NAME}.zip .",
     "test-i": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\" --runInBand",
     "dynamodb": "sls dynamodb start",
-    "prepush": "BRANCH=local npm test && npm run tslint",
+    "prepush": "BRANCH=local npm test && npm run build",
     "predeploy": "npm install && npm run prepush",
     "security-checks": "git secrets --scan && git log -p | scanrepo",
     "tslint": "tslint src/**/*.ts tests/**/*.ts",
@@ -87,8 +87,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prepush && npm run security-checks",
-      "pre-push": "npm run prepush"
+      "pre-commit": "npm run tslint && npm run prepush && npm run security-checks",
+      "pre-push": "echo 'placeholder to run test-i'"
     }
   }
 }
