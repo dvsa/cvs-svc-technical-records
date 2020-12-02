@@ -22,7 +22,7 @@ describe("LambdaService", () => {
 
     const lambdaEvent = {foo: "bar"};
     invokeMock.mockReturnValueOnce({
-      promise: () => Promise.resolve({Payload: '{"body": {"foo": "bar"}}'})
+      promise: () => Promise.resolve({Payload: '{"body": {"foo": "bar"}, "statusCode": 200}', StatusCode: 200})
     });
 
     it("should the right event and return response value", (done) => {
