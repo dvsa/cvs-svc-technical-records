@@ -5,7 +5,7 @@ import { STATUS, VEHICLE_TYPE } from "../../../src/assets/Enums";
 import {
   Car,
   HeavyGoodsVehicle,
-  LargeGoodsVehicle,
+  LightGoodsVehicle,
   Motorcycle,
   PublicServiceVehicle,
   Trailer
@@ -118,7 +118,7 @@ describe("createVehicle", () => {
 
       it("should pass the validation and return the validated payload for LGV", async () => {
         // @ts-ignore
-        const techRec: LargeGoodsVehicle = cloneDeep(mockData[124]);
+        const techRec: LightGoodsVehicle = cloneDeep(mockData[124]);
         delete techRec.techRecord[0].statusCode;
         techRec.techRecord[0].vehicleClass!.description =
           "motorbikes up to 200cc";
@@ -200,7 +200,7 @@ describe("createVehicle", () => {
       context("when creating an LGV without vehicleClass field", () => {
         it("should not auto-populate vehicleClass", async () => {
           // @ts-ignore
-          const techRec: LargeGoodsVehicle = cloneDeep(mockData[124]);
+          const techRec: LightGoodsVehicle = cloneDeep(mockData[124]);
           delete techRec.techRecord[0].vehicleClass;
           const MockDAO = jest.fn().mockImplementation(() => {
             return {

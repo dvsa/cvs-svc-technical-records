@@ -1,13 +1,13 @@
 import { VehicleProcessor } from "./VehicleProcessor";
 import {
   CarLgvTechRecord,
-  LargeGoodsVehicle
+  LightGoodsVehicle
 } from "../../../@Types/TechRecords";
 import * as validators from "../../utils/validations";
 import TechRecordsDAO from "../../models/TechRecordsDAO";
 
-export class LgvProcessor extends VehicleProcessor<LargeGoodsVehicle> {
-  constructor(vehicleObj: LargeGoodsVehicle, techRecordDAO: TechRecordsDAO) {
+export class LgvProcessor extends VehicleProcessor<LightGoodsVehicle> {
+  constructor(vehicleObj: LightGoodsVehicle, techRecordDAO: TechRecordsDAO) {
     super(vehicleObj, techRecordDAO);
   }
 

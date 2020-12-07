@@ -3,7 +3,7 @@ import mockData from "../../resources/technical-records.json";
 import {
   Car,
   HeavyGoodsVehicle,
-  LargeGoodsVehicle,
+  LightGoodsVehicle,
   Motorcycle,
   PublicServiceVehicle,
   Trailer
@@ -11,7 +11,7 @@ import {
 import IMsUserDetails from "../../../@Types/IUserDetails";
 import { VehicleFactory } from "../../../src/domain/VehicleFactory";
 import { ERRORS } from "../../../src/assets/Enums";
-import { ErrorHandler } from '../../../src/handlers/ErrorHandler';
+import { ErrorHandler } from "../../../src/handlers/ErrorHandler";
 
 const msUserDetails: IMsUserDetails = {
   msOid: "1234",
@@ -56,7 +56,7 @@ describe("VehicleFactory", () => {
 
       it("should create LgvProcessor instance for Lgv vehicle type", async () => {
         // @ts-ignore
-        const techRec: LargeGoodsVehicle = cloneDeep(mockData[76]);
+        const techRec: LightGoodsVehicle = cloneDeep(mockData[76]);
         const MockDAO = jest.fn().mockImplementation();
 
         const processor = VehicleFactory.generateVehicleInstance(techRec, new MockDAO());

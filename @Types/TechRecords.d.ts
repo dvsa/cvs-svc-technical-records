@@ -15,7 +15,7 @@ export interface HeavyGoodsVehicle extends Vehicle {
   techRecord: HgvTechRecord[];
 }
 
-export interface LargeGoodsVehicle extends Vehicle {
+export interface LightGoodsVehicle extends Vehicle {
   techRecord: CarLgvTechRecord[];
 }
 

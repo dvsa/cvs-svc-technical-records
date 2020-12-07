@@ -3,7 +3,7 @@ import * as enums from "../assets/";
 import {
   Car,
   HeavyGoodsVehicle,
-  LargeGoodsVehicle,
+  LightGoodsVehicle,
   Motorcycle,
   PublicServiceVehicle,
   Trailer,
@@ -30,7 +30,7 @@ export class VehicleFactory {
       case enums.VEHICLE_TYPE.TRL:
         return new processors.TrailerProcessor(vehicleObj as Trailer, techRecordDAO);
       case enums.VEHICLE_TYPE.LGV:
-        return new processors.LgvProcessor(vehicleObj as LargeGoodsVehicle, techRecordDAO);
+        return new processors.LgvProcessor(vehicleObj as LightGoodsVehicle, techRecordDAO);
       case enums.VEHICLE_TYPE.CAR:
         return new processors.CarProcessor(vehicleObj as Car, techRecordDAO);
       case enums.VEHICLE_TYPE.MOTORCYCLE:
