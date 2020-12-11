@@ -22,12 +22,13 @@
     "dynamodb": "sls dynamodb start",
     "prepush": "BRANCH=local npm test && npm run tslint",
     "predeploy": "npm install && npm run prepush",
-    "security-checks": "git secrets --scan && git log -p | scanrepo",
     "tslint": "tslint src/**/*.ts tests/**/*.ts",
-    "sonar-scanner": "npm run tslint && npm run coverage && sonar-scanner",
+    "sonar-scanner": "AWS_XRAY_CONTEXT_MISSING=LOG_ERROR npm run tslint && AWS_XRAY_CONTEXT_MISSING=LOG_ERROR npm run coverage && sonar-scanner",
     "coverage": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*Test.ts\" --runInBand --coverage",
     "audit-dep": "npm audit --json | audit-filter --nsp-config=.nsprc --audit=-",
-    "tools-setup": "sls dynamodb migrate && BRANCH=local node_modules/gulp/bin/gulp.js start-serverless && sls dynamodb seed --seed=technical-records"
+    "security-checks": "npm audit --audit-level=critical && git secrets --register-aws && git secrets --scan && git log -p | scanrepo",
+    "tools-setup": "node_modules/.bin/sls config credentials --provider aws --key RANDOM --secret RANDOM && node_modules/.bin/sls dynamodb migrate && node_modules/.bin/sls dynamodb seed --seed=technical-records && AWS_XRAY_CONTEXT_MISSING=LOG_ERROR BRANCH=local node_modules/gulp/bin/gulp.js start-serverless"
+
   },
   "author": "",
   "license": "MIT",
