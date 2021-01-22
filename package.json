@@ -26,7 +26,8 @@
     "tslint": "tslint src/**/*.ts tests/**/*.ts",
     "sonar-scanner": "npm run tslint && npm run coverage && sonar-scanner",
     "coverage": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*Test.ts\" --runInBand --coverage",
-    "audit-dep": "npm audit --json | audit-filter --nsp-config=.nsprc --audit=-",
+    "audit:check": "npm audit --json | audit-filter --nsp-config=.nsprc --audit=-",
+    "audit-dep": "npm audit",
     "tools-setup": "sls dynamodb migrate && BRANCH=local node_modules/gulp/bin/gulp.js start-serverless && sls dynamodb seed --seed=technical-records"
   },
   "author": "",
@@ -50,7 +51,7 @@
     "jest-plugin-context": "^2.9.0",
     "jest-sonar-reporter": "^2.0.0",
     "lambda-tester": "^3.6.0",
-    "serverless": "^1.60.5",
+    "serverless": "2.20.0",
     "serverless-dynamodb-local": "^0.2.38",
     "serverless-offline": "^5.12.1",
     "serverless-openapi-documentation": "^0.4.0",
