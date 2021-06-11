@@ -20,7 +20,7 @@
     "package": "mkdir ${ZIP_NAME} && cp package.json package-lock.json ${ZIP_NAME} && cp -r .build/src/* ${ZIP_NAME}/ && cd ${ZIP_NAME} && npm ci --production && rm package.json package-lock.json && zip -qr ../${ZIP_NAME}.zip .",
     "test-i": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\" --runInBand",
     "dynamodb": "sls dynamodb start",
-    "prepush": "npm run coverage",
+    "prepush": "npm run coverage && npm run build",
     "predeploy": "npm install && npm run prepush",
     "security-checks": "git secrets --scan && git log -p | scanrepo",
     "tslint": "tslint src/**/*.ts tests/**/*.ts",
@@ -51,7 +51,7 @@
     "jest-plugin-context": "^2.9.0",
     "jest-sonar-reporter": "^2.0.0",
     "lambda-tester": "^3.6.0",
-    "serverless": "2.20.0",
+    "serverless": "^2.45.2",
     "serverless-dynamodb-local": "^0.2.38",
     "serverless-offline": "^5.12.1",
     "serverless-openapi-documentation": "^0.4.0",
@@ -88,7 +88,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run security-checks && npm run tslint && npm run build",
+      "pre-commit": "npm run security-checks && npm audit && npm run tslint",
       "pre-push": "npm run prepush"
     }
   }
