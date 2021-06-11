@@ -12,21 +12,22 @@
     "npm": "6.13.4"
   },
   "scripts": {
-    "start": "BRANCH=local ./node_modules/serverless/bin/serverless offline start",
+    "start": "BRANCH=local serverless offline start",
     "debug": "export SLS_DEBUG=* && BRANCH=local node --inspect ./node_modules/serverless/bin/serverless offline start",
     "build": "node_modules/typescript/bin/tsc --rootDir ./ --outDir .build --sourceMap false && npm run build:copy",
     "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build",
-    "test": "BRANCH=local jest --testMatch=\"**/*.unitTest.ts\" --coverage",
+    "test": "BRANCH=local jest --testMatch=\"**/*.unitTest.ts\"",
     "package": "mkdir ${ZIP_NAME} && cp package.json package-lock.json ${ZIP_NAME} && cp -r .build/src/* ${ZIP_NAME}/ && cd ${ZIP_NAME} && npm ci --production && rm package.json package-lock.json && zip -qr ../${ZIP_NAME}.zip .",
     "test-i": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\" --runInBand",
     "dynamodb": "sls dynamodb start",
-    "prepush": "BRANCH=local npm test && npm run tslint",
+    "prepush": "npm run coverage && npm run build",
     "predeploy": "npm install && npm run prepush",
     "security-checks": "git secrets --scan && git log -p | scanrepo",
     "tslint": "tslint src/**/*.ts tests/**/*.ts",
     "sonar-scanner": "npm run tslint && npm run coverage && sonar-scanner",
-    "coverage": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*Test.ts\" --runInBand --coverage",
-    "audit-dep": "npm audit --json | audit-filter --nsp-config=.nsprc --audit=-",
+    "coverage": "npm t -- --runInBand --coverage",
+    "audit:check": "npm audit --json | audit-filter --nsp-config=.nsprc --audit=-",
+    "audit-dep": "npm audit",
     "tools-setup": "sls dynamodb migrate && BRANCH=local node_modules/gulp/bin/gulp.js start-serverless && sls dynamodb seed --seed=technical-records"
   },
   "author": "",
@@ -46,11 +47,11 @@
     "gulp": "^4.0.2",
     "husky": "^3.1.0",
     "jest": "^26.1.0",
-    "jest-cucumber": "^2.0.11",
+    "jest-cucumber": "^3.0.0",
     "jest-plugin-context": "^2.9.0",
     "jest-sonar-reporter": "^2.0.0",
     "lambda-tester": "^3.6.0",
-    "serverless": "^1.60.5",
+    "serverless": "^2.45.2",
     "serverless-dynamodb-local": "^0.2.38",
     "serverless-offline": "^5.12.1",
     "serverless-openapi-documentation": "^0.4.0",
@@ -68,7 +69,7 @@
     "@hapi/joi-date": "^2.0.1",
     "aws-sdk": "^2.600.0",
     "aws-xray-sdk": "^2.5.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "node-yaml": "^3.2.0",
     "path-parser": "^4.2.0",
     "reflect-metadata": "^0.1.13",
@@ -87,7 +88,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prepush && npm run security-checks",
+      "pre-commit": "npm run security-checks && npm audit && npm run tslint",
       "pre-push": "npm run prepush"
     }
   }
