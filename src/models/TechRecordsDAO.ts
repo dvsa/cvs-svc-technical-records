@@ -160,7 +160,10 @@ class TechRecordsDAO {
       resource: "/trailerId/"
     };
 
-    return LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
+    // lambda to lambda call so we mock the response for local development only and integration tests
+    return process.env.BRANCH === "local" ?
+    Promise.resolve({trailerId: "123"}) :
+    LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
   }
 
   public getSystemNumber(): any {
@@ -170,7 +173,10 @@ class TechRecordsDAO {
       resource: "/system-number/"
     };
 
-    return LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
+    // lambda to lambda call so we mock the response for local development only and integration tests
+    return process.env.BRANCH === "local" ?
+    Promise.resolve({systemNumber: "123"}) :
+    LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
   }
 
   public createMultiple(techRecordItems: ITechRecordWrapper[]) {

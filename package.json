@@ -8,7 +8,7 @@
     "url": "https://github.com/dvsa/cvs-svc-technical-records.git"
   },
   "engines": {
-    "node": "10.18.1",
+    "node": "14.*",
     "npm": "6.13.4"
   },
   "scripts": {
@@ -16,19 +16,17 @@
     "debug": "export SLS_DEBUG=* && BRANCH=local node --inspect ./node_modules/serverless/bin/serverless offline start",
     "build": "node_modules/typescript/bin/tsc --rootDir ./ --outDir .build --sourceMap false && npm run build:copy",
     "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build",
-    "test": "BRANCH=local jest --testMatch=\"**/*.unitTest.ts\"",
+    "test:unit": "BRANCH=local jest --testMatch=\"**/*.unitTest.ts\" --runInBand",
+    "test": "npm run test:unit -- --coverage",
     "package": "mkdir ${ZIP_NAME} && cp package.json package-lock.json ${ZIP_NAME} && cp -r .build/src/* ${ZIP_NAME}/ && cd ${ZIP_NAME} && npm ci --production && rm package.json package-lock.json && zip -qr ../${ZIP_NAME}.zip .",
-    "test-i": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\" --runInBand",
-    "dynamodb": "sls dynamodb start",
-    "prepush": "npm run coverage && npm run build",
-    "predeploy": "npm install && npm run prepush",
+    "test:integration": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\" --runInBand",
+    "test-i": "npm run test:integration -- --globalSetup='./scripts/setup.ts' --globalTeardown='./scripts/teardown.ts'",
+    "prepush": "npm t && npm run build && npm run test-i",
     "security-checks": "git secrets --scan && git log -p | scanrepo",
-    "tslint": "tslint src/**/*.ts tests/**/*.ts",
-    "sonar-scanner": "npm run tslint && npm run coverage && sonar-scanner",
-    "coverage": "npm t -- --runInBand --coverage",
-    "audit:check": "npm audit --json | audit-filter --nsp-config=.nsprc --audit=-",
-    "audit-dep": "npm audit",
-    "tools-setup": "sls dynamodb migrate && BRANCH=local node_modules/gulp/bin/gulp.js start-serverless && sls dynamodb seed --seed=technical-records"
+    "lint": "tslint src/**/*.ts tests/**/*.ts",
+    "sonar-scanner": "sonar-scanner",
+    "audit": "npm audit",
+    "tools-setup": "node_modules/.bin/sls dynamodb install"
   },
   "author": "",
   "license": "MIT",
@@ -36,7 +34,7 @@
     "@types/hapi__joi": "^16.0.6",
     "@types/jest": "^24.0.25",
     "@types/jest-plugin-context": "^2.9.2",
-    "@types/lambda-tester": "^3.6.0",
+    "@types/lambda-tester": "^3.6.1",
     "@types/lodash": "^4.14.149",
     "@types/node": "^12.12.24",
     "@types/sinon": "^7.5.1",
@@ -44,13 +42,12 @@
     "@types/uuid": "^3.4.6",
     "audit-filter": "^0.5.0",
     "aws-lambda-mock-context": "^3.2.1",
-    "gulp": "^4.0.2",
     "husky": "^3.1.0",
     "jest": "^26.1.0",
     "jest-cucumber": "^3.0.0",
     "jest-plugin-context": "^2.9.0",
     "jest-sonar-reporter": "^2.0.0",
-    "lambda-tester": "^3.6.0",
+    "lambda-tester": "^4.0.1",
     "serverless": "^2.45.2",
     "serverless-dynamodb-local": "^0.2.40",
     "serverless-offline": "^5.12.1",
@@ -88,7 +85,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run security-checks && npm audit && npm run tslint",
+      "commitlint": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run security-checks && npm run audit && npm run lint",
       "pre-push": "npm run prepush"
     }
   }

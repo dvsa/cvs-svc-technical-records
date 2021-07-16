@@ -1,9 +1,9 @@
-import {defineFeature, loadFeature} from "jest-cucumber";
+import { defineFeature, loadFeature } from "jest-cucumber";
 import supertest from "supertest";
 import path from "path";
 import mockData from "../../resources/technical-records.json";
-import {emptyDatabase, populateDatabase} from "../../util/dbOperations";
-import {cloneDeep} from "lodash";
+import { emptyDatabase, populateDatabase } from "../../util/dbOperations";
+import { cloneDeep } from "lodash";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -14,11 +14,11 @@ const createPOSTPayload = () => {
   const payload = {
     msUserDetails: {
       msUser: "dorel",
-      msOid: "1234545"
+      msOid: "1234545",
     },
     primaryVrm: Math.floor(100000 + Math.random() * 900000).toString(),
     vin: Date.now().toString(),
-    techRecord: techRec.techRecord
+    techRecord: techRec.techRecord,
   };
   return payload;
 };
@@ -67,7 +67,12 @@ defineFeature(feature, (test) => {
     });
   });
 
-  test("AC2. POST: Vehicle class code is autopopulated", ({given, when, then, and}) => {
+  test("AC2. POST: Vehicle class code is autopopulated", ({
+    given,
+    when,
+    then,
+    and,
+  }) => {
     let requestUrlPOST: string;
     let requestUrlGET: string;
     const postPayload = createPOSTPayload();
@@ -78,21 +83,31 @@ defineFeature(feature, (test) => {
       requestUrlPOST = "vehicles";
       requestUrlGET = `vehicles/${postPayload.vin}/tech-records`;
     });
-    and("I have completed the \"vehicle class description\" field", () => {
+    and('I have completed the "vehicle class description" field', () => {
       postPayload.techRecord[0].vehicleClass = {
-        description: "MOT class 4"
+        description: "MOT class 4",
       };
     });
     when("I submit my request via the POST method", async () => {
       responsePOST = await request.post(requestUrlPOST).send(postPayload);
     });
-    then("the corresponding vehicle class code is autopopulated, as per the linked excel", async () => {
-      responseGET = await request.get(requestUrlGET);
-      expect(responseGET.body[0].techRecord[0].vehicleClass.code).toEqual("4");
-    });
+    then(
+      "the corresponding vehicle class code is autopopulated, as per the linked excel",
+      async () => {
+        responseGET = await request.get(requestUrlGET);
+        expect(responseGET.body[0].techRecord[0].vehicleClass.code).toEqual(
+          "4"
+        );
+      }
+    );
   });
 
-  test("AC3. POST: Body type code is autopopulated", ({given, when, then, and}) => {
+  test("AC3. POST: Body type code is autopopulated", ({
+    given,
+    when,
+    then,
+    and,
+  }) => {
     let requestUrlPOST: string;
     let requestUrlGET: string;
     const postPayload = createPOSTPayload();
@@ -103,17 +118,20 @@ defineFeature(feature, (test) => {
       requestUrlPOST = "vehicles";
       requestUrlGET = `vehicles/${postPayload.vin}/tech-records`;
     });
-    and("I have completed the \"body type description\" field", () => {
+    and('I have completed the "body type description" field', () => {
       postPayload.techRecord[0].bodyType = {
-        description: "skeletal"
+        description: "skeletal",
       };
     });
     when("I submit my request via the POST method", async () => {
       responsePOST = await request.post(requestUrlPOST).send(postPayload);
     });
-    then("the corresponding body type code is autopopulated, as per the linked excel", async () => {
-      responseGET = await request.get(requestUrlGET);
-      expect(responseGET.body[0].techRecord[0].bodyType.code).toEqual("k");
-    });
+    then(
+      "the corresponding body type code is autopopulated, as per the linked excel",
+      async () => {
+        responseGET = await request.get(requestUrlGET);
+        expect(responseGET.body[0].techRecord[0].bodyType.code).toEqual("k");
+      }
+    );
   });
 });

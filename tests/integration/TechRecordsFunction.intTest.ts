@@ -1,16 +1,16 @@
 import LambdaTester from "lambda-tester";
-import {getTechRecords as GetTechRecordsFunction} from "../../src/functions/getTechRecords";
-import {emptyDatabase, populateDatabase} from "../util/dbOperations";
-import {updateTechRecords as UpdateTechRecordsFunction} from "../../src/functions/updateTechRecords";
-import {postTechRecords as PostTechRecordsFunction} from "../../src/functions/postTechRecords";
+import { getTechRecords as GetTechRecordsFunction } from "../../src/functions/getTechRecords";
+import { emptyDatabase, populateDatabase } from "../util/dbOperations";
+import { updateTechRecords as UpdateTechRecordsFunction } from "../../src/functions/updateTechRecords";
+import { postTechRecords as PostTechRecordsFunction } from "../../src/functions/postTechRecords";
 import records from "../resources/technical-records.json";
-import {cloneDeep} from "lodash";
-import {HTTPRESPONSE} from "../../src/assets/Enums";
+import { cloneDeep } from "lodash";
+import { HTTPRESPONSE } from "../../src/assets/Enums";
 import Configuration from "../../src/utils/Configuration";
 
 const msUserDetails = {
   msUser: "dorel",
-  msOid: "1234545"
+  msOid: "1234545",
 };
 
 describe("getTechRecords", () => {
@@ -34,12 +34,14 @@ describe("getTechRecords", () => {
       // Event has a path, but the path does not contain a Search Term
       await LambdaTester(GetTechRecordsFunction)
         .event({
-          path: "test"
+          path: "test",
         })
         .expectResolve((result: any) => {
           expect(result.statusCode).toEqual(400);
           // Path checking now handled in the handler. Now only checking for Path Params
-          expect(result.body).toEqual('"The search identifier should be between 3 and 21 characters."');
+          expect(result.body).toEqual(
+            '"The search identifier should be between 3 and 21 characters."'
+          );
         });
     });
   });
@@ -51,12 +53,12 @@ describe("getTechRecords", () => {
           .event({
             path: "/vehicles/XMGDE02FS0H012345/tech-records",
             pathParameters: {
-              searchIdentifier: "XMGDE02FS0H012345"
+              searchIdentifier: "XMGDE02FS0H012345",
             },
             queryStringParameters: {
               status: "current",
-              metadata: "true"
-            }
+              metadata: "true",
+            },
           })
           .expectResolve((result: any) => {
             const record = JSON.parse(result.body)[0];
@@ -73,12 +75,14 @@ describe("getTechRecords", () => {
           .event({
             path: "/vehicles/ABCDE02FS0H012345/tech-records",
             pathParameters: {
-              searchIdentifier: "ABCDE02FS0H012345"
-            }
+              searchIdentifier: "ABCDE02FS0H012345",
+            },
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(404);
-            expect(result.body).toEqual('"No resources match the search criteria."');
+            expect(result.body).toEqual(
+              '"No resources match the search criteria."'
+            );
           });
       });
     });
@@ -89,12 +93,14 @@ describe("getTechRecords", () => {
           .event({
             path: "/vehicles/XM/tech-records",
             pathParameters: {
-              searchIdentifier: "XM"
-            }
+              searchIdentifier: "XM",
+            },
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(400);
-            expect(result.body).toEqual('"The search identifier should be between 3 and 21 characters."');
+            expect(result.body).toEqual(
+              '"The search identifier should be between 3 and 21 characters."'
+            );
           });
       });
     });
@@ -154,16 +160,18 @@ describe("postTechRecords", () => {
 
         const payload = {
           vin: techRecord.vin,
-          techRecord: techRecord.techRecord
+          techRecord: techRecord.techRecord,
         };
         await LambdaTester(PostTechRecordsFunction)
           .event({
             path: "/vehicles",
-            body: payload
+            body: payload,
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(400);
-            expect(result.body).toEqual('"Microsoft user details not provided"');
+            expect(result.body).toEqual(
+              '"Microsoft user details not provided"'
+            );
           });
       });
     });
@@ -177,12 +185,12 @@ describe("postTechRecords", () => {
         const payload = {
           vin: techRecord.vin,
           msUserDetails,
-          techRecord: []
+          techRecord: [],
         };
         await LambdaTester(PostTechRecordsFunction)
           .event({
             path: "/vehicles",
-            body: payload
+            body: payload,
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(400);
@@ -196,16 +204,18 @@ describe("postTechRecords", () => {
         const techRecord = cloneDeep(records[0]);
 
         techRecord.vin = Date.now().toString();
-        techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
+        techRecord.partialVin = techRecord.vin.substr(
+          techRecord.vin.length - 6
+        );
         techRecord.techRecord = [];
         await LambdaTester(PostTechRecordsFunction)
           .event({
             path: "/vehicles",
-            body: undefined
+            body: undefined,
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(400);
-            expect(result.body).toEqual('"Invalid body field \'vin\'"');
+            expect(result.body).toEqual("\"Invalid body field 'vin'\"");
           });
       });
     });
@@ -236,22 +246,28 @@ describe("updateTechRecords", () => {
           const techRecord: any = cloneDeep(records[43]);
           const payload = {
             msUserDetails,
-            techRecord: techRecord.techRecord
+            techRecord: techRecord.techRecord,
           };
           const systemNumber = techRecord.systemNumber;
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
               path: `/vehicles/${systemNumber}`,
               pathParameters: {
-                systemNumber
+                systemNumber,
               },
-              body: payload
+              body: payload,
             })
             .expectResolve((result: any) => {
               const updatedTechRes = JSON.parse(result.body);
               expect(result.statusCode).toEqual(200);
-              expect(updatedTechRes.techRecord[techRecord.techRecord.length].statusCode).toEqual("provisional");
-              expect(updatedTechRes.techRecord[techRecord.techRecord.length - 1].statusCode).toEqual("archived");
+              expect(
+                updatedTechRes.techRecord[techRecord.techRecord.length]
+                  .statusCode
+              ).toEqual("provisional");
+              expect(
+                updatedTechRes.techRecord[techRecord.techRecord.length - 1]
+                  .statusCode
+              ).toEqual("archived");
             });
         });
       });
@@ -264,19 +280,21 @@ describe("updateTechRecords", () => {
           const payload = {
             msUserDetails,
             systemNumber,
-            techRecord: techRecord.techRecord
+            techRecord: techRecord.techRecord,
           };
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
               path: `/vehicles/${systemNumber}`,
               pathParameters: {
-                systemNumber
+                systemNumber,
               },
-              body: payload
+              body: payload,
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(404);
-              expect(JSON.parse(result.body)).toEqual(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+              expect(JSON.parse(result.body)).toEqual(
+                HTTPRESPONSE.RESOURCE_NOT_FOUND
+              );
             });
         });
       });
@@ -286,7 +304,7 @@ describe("updateTechRecords", () => {
           const techRecord = cloneDeep(records[29]);
           const payload = {
             msUserDetails,
-            techRecord: []
+            techRecord: [],
           };
           const systemNumber = Date.now().toString();
           techRecord.techRecord = [];
@@ -294,13 +312,15 @@ describe("updateTechRecords", () => {
             .event({
               path: `/vehicles/${systemNumber}`,
               pathParameters: {
-                systemNumber
+                systemNumber,
               },
-              body: payload
+              body: payload,
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(JSON.parse(result.body).errors).toContain("Body is not a valid TechRecord");
+              expect(JSON.parse(result.body).errors).toContain(
+                "Body is not a valid TechRecord"
+              );
             });
         });
       });
@@ -309,10 +329,12 @@ describe("updateTechRecords", () => {
         it("should return 400 invalid TechRecord", async () => {
           const techRecord: any = cloneDeep(records[29]);
           const payload = {
-            techRecord: [{
-              reasonForCreation: techRecord.techRecord[0].reasonForCreation,
-              adrDetails: techRecord.techRecord[0].adrDetails
-            }]
+            techRecord: [
+              {
+                reasonForCreation: techRecord.techRecord[0].reasonForCreation,
+                adrDetails: techRecord.techRecord[0].adrDetails,
+              },
+            ],
           };
           const systemNumber = Date.now().toString();
           techRecord.techRecord = [];
@@ -320,13 +342,15 @@ describe("updateTechRecords", () => {
             .event({
               path: `/vehicles/${systemNumber}`,
               pathParameters: {
-                systemNumber
+                systemNumber,
               },
-              body: payload
+              body: payload,
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(JSON.parse(result.body).errors).toContain("Microsoft user details not provided");
+              expect(JSON.parse(result.body).errors).toContain(
+                "Microsoft user details not provided"
+              );
             });
         });
       });
@@ -338,13 +362,15 @@ describe("updateTechRecords", () => {
             .event({
               path: `/vehicles/${systemNumber}`,
               pathParameters: {
-                systemNumber
+                systemNumber,
               },
-              body: undefined
+              body: undefined,
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(JSON.parse(result.body).errors).toContain("Body is not a valid TechRecord");
+              expect(JSON.parse(result.body).errors).toContain(
+                "Body is not a valid TechRecord"
+              );
             });
         });
       });
@@ -357,11 +383,13 @@ describe("updateTechRecords", () => {
           await LambdaTester(UpdateTechRecordsFunction)
             .event({
               path: `/vehicles/${techRecord.systemNumber}`,
-              body: techRecord
+              body: techRecord,
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(JSON.parse(result.body).errors).toContain("Invalid path parameter \'systemNumber\'");
+              expect(JSON.parse(result.body).errors).toContain(
+                "Invalid path parameter 'systemNumber'"
+              );
             });
         });
       });

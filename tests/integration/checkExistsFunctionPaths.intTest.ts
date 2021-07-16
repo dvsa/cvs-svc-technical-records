@@ -1,9 +1,9 @@
-import {handler} from "../../src/handler";
+import { handler } from "../../src/handler";
 import mockData from "../resources/technical-records.json";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {cloneDeep} from "lodash";
-import {emptyDatabase, populateDatabase} from "../util/dbOperations";
-import {Context} from "aws-lambda";
+import { cloneDeep } from "lodash";
+import { emptyDatabase, populateDatabase } from "../util/dbOperations";
+import { Context } from "aws-lambda";
 import Configuration from "../../src/utils/Configuration";
 
 describe("TechRecords", () => {
@@ -31,7 +31,7 @@ describe("TechRecords", () => {
 
   const msUserDetails = {
     msUser: "dorel",
-    msOid: "1234545"
+    msOid: "1234545",
   };
 
   it("should detect exported path /vehicles", async () => {
@@ -70,23 +70,26 @@ describe("TechRecords", () => {
     const techRecord: ITechRecordWrapper = cloneDeep(mockData[43]);
     const payload = {
       msUserDetails,
-      techRecord: techRecord.techRecord
+      techRecord: techRecord.techRecord,
     };
     const vehicleRecordEvent = {
       path: "/vehicles/1100047",
       pathParameters: {
-        systemNumber: "1100047"
+        systemNumber: "1100047",
       },
       resource: "/vehicles/{systemNumber}",
       httpMethod: "PUT",
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
     };
 
     const response = await handler(vehicleRecordEvent, ctx);
     expect(response).toBeDefined();
     expect(response.statusCode).toEqual(200);
-    expect(JSON.parse(response.body).techRecord[0].statusCode).toEqual("archived");
-    expect(JSON.parse(response.body).techRecord[1].statusCode).toEqual("provisional");
-
+    expect(JSON.parse(response.body).techRecord[0].statusCode).toEqual(
+      "archived"
+    );
+    expect(JSON.parse(response.body).techRecord[1].statusCode).toEqual(
+      "provisional"
+    );
   });
 });
