@@ -1,18 +1,21 @@
 service: cvs-svc-technical-records
 
-openapi: 3.0.0
-
 provider:
   name: aws
-  runtime: nodejs8.10
-  tracing: true # enable tracing
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action:
-        - "xray:PutTraceSegments"
-        - "xray:PutTelemetryRecords"
-      Resource:
-        - "*"
+  lambdaHashingVersion: 20201221
+  runtime: nodejs14.x
+  tracing:
+    lambda: true # enable tracing
+    apiGateway: true
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - "xray:PutTraceSegments"
+            - "xray:PutTelemetryRecords"
+          Resource:
+            - "*"
 
 plugins:
   - serverless-dynamodb-local
@@ -28,9 +31,9 @@ custom:
     start:
       port: 8003
       inMemory: true
-      migrate: false
-      seed: false
-      noStart: true
+      migrate: true
+      seed: true
+      noStart: false
     seed:
       technical-records:
         sources:
@@ -40,9 +43,9 @@ custom:
       - dev
       - test
   documentation:
-    version: '1'
-    title: 'Get Vehicle Technical Records List API'
-    description: 'This is the API spec for retrieving those Vehicle Technical Records that correspond with an input searchIdentifier'
+    version: "1"
+    title: "Get Vehicle Technical Records List API"
+    description: "This is the API spec for retrieving those Vehicle Technical Records that correspond with an input searchIdentifier"
     models:
       - name: "VehicleTechnicalRecords"
         description: "Successful response"
@@ -179,26 +182,26 @@ resources:
       Properties:
         TableName: cvs-local-technical-records
         AttributeDefinitions:
-        - AttributeName: partialVin
-          AttributeType: S
-        - AttributeName: vin
-          AttributeType: S
-        - AttributeName: systemNumber
-          AttributeType: S
-        - AttributeName: primaryVrm
-          AttributeType: S
-        - AttributeName: trailerId
-          AttributeType: S
+          - AttributeName: partialVin
+            AttributeType: S
+          - AttributeName: vin
+            AttributeType: S
+          - AttributeName: systemNumber
+            AttributeType: S
+          - AttributeName: primaryVrm
+            AttributeType: S
+          - AttributeName: trailerId
+            AttributeType: S
         KeySchema:
-        - AttributeName: systemNumber
-          KeyType: HASH
-        - AttributeName: vin
-          KeyType: RANGE
+          - AttributeName: systemNumber
+            KeyType: HASH
+          - AttributeName: vin
+            KeyType: RANGE
         GlobalSecondaryIndexes:
           - IndexName: VRMIndex
             KeySchema:
-            - AttributeName: primaryVrm
-              KeyType: HASH
+              - AttributeName: primaryVrm
+                KeyType: HASH
             Projection:
               NonKeyAttributes:
                 - primaryVrm
@@ -209,12 +212,12 @@ resources:
                 - trailerId
               ProjectionType: INCLUDE
             ProvisionedThroughput:
-              ReadCapacityUnits: '1'
-              WriteCapacityUnits: '1'
+              ReadCapacityUnits: "1"
+              WriteCapacityUnits: "1"
           - IndexName: TrailerIdIndex
             KeySchema:
-            - AttributeName: trailerId
-              KeyType: HASH
+              - AttributeName: trailerId
+                KeyType: HASH
             Projection:
               NonKeyAttributes:
                 - primaryVrm
@@ -225,8 +228,8 @@ resources:
                 - trailerId
               ProjectionType: INCLUDE
             ProvisionedThroughput:
-              ReadCapacityUnits: '1'
-              WriteCapacityUnits: '1'
+              ReadCapacityUnits: "1"
+              WriteCapacityUnits: "1"
           - IndexName: VinIndex
             KeySchema:
               - AttributeName: vin
@@ -242,8 +245,8 @@ resources:
                 - trailerId
               ProjectionType: INCLUDE
             ProvisionedThroughput:
-              ReadCapacityUnits: '1'
-              WriteCapacityUnits: '1'
+              ReadCapacityUnits: "1"
+              WriteCapacityUnits: "1"
           - IndexName: PartialVinIndex
             KeySchema:
               - AttributeName: partialVin
@@ -259,8 +262,8 @@ resources:
                 - trailerId
               ProjectionType: INCLUDE
             ProvisionedThroughput:
-              ReadCapacityUnits: '1'
-              WriteCapacityUnits: '1'
+              ReadCapacityUnits: "1"
+              WriteCapacityUnits: "1"
           - IndexName: SysNumIndex
             KeySchema:
               - AttributeName: systemNumber
@@ -276,8 +279,8 @@ resources:
                 - trailerId
               ProjectionType: INCLUDE
             ProvisionedThroughput:
-              ReadCapacityUnits: '1'
-              WriteCapacityUnits: '1'
+              ReadCapacityUnits: "1"
+              WriteCapacityUnits: "1"
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
