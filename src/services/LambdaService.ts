@@ -1,11 +1,12 @@
 /* tslint:disable */
 let AWS: any;
-if (process.env._X_AMZN_TRACE_ID) {
-  AWS = require("aws-xray-sdk").captureAWS(require("aws-sdk"));
-} else {
-  console.log("Serverless Offline detected; skipping AWS X-Ray setup");
-  AWS = require("aws-sdk");
-}
+// if (process.env._X_AMZN_TRACE_ID) {
+//   AWS = require("aws-xray-sdk").captureAWS(require("aws-sdk"));
+// } else {
+//   console.log("Serverless Offline detected; skipping AWS X-Ray setup");
+//   AWS = require("aws-sdk");
+// }
+AWS = require("aws-sdk");
 /* tslint:enable */
 import Configuration from "../utils/Configuration";
 import {validateInvocationResponse} from "../utils/validateInvocationResponse";

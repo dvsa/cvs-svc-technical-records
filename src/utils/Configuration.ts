@@ -89,6 +89,9 @@ class Configuration {
       case "local-global":
         env = "local-global";
         break;
+      case "localstack":
+          env = "localstack";
+          break;
       default:
         env = "remote";
     }
@@ -106,6 +109,9 @@ class Configuration {
     switch (process.env.BRANCH) {
       case "local":
         env = "local";
+        break;
+      case "localstack":
+        env = "localstack";
         break;
       default:
         env = "remote";

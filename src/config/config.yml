@@ -44,6 +44,12 @@ dynamodb:
       endpoint: http://localhost:8000
       convertEmptyValues: true
     table: cvs-local-global-technical-records
+  localstack:
+    params:
+      region: eu-west-1
+      endpoint: http://${LOCALSTACK_HOSTNAME}:4566
+      convertEmptyValues: true
+    table: cvs-localstack-technical-records
   remote:
     params:
       convertEmptyValues: true
@@ -61,6 +67,12 @@ endpoints:
       numberGenerationService:
         name: cvs-svc-test-number-dev-generateTestNumber
   remote:
+    params:
+      apiVersion: '2015-03-31'
+    functions:
+      numberGenerationService:
+        name: test-number-${BRANCH}
+  localstack:
     params:
       apiVersion: '2015-03-31'
     functions:

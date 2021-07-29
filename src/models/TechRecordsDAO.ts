@@ -10,12 +10,13 @@ import {LambdaService} from "../services/LambdaService";
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
 let AWS: { DynamoDB: { DocumentClient: new (arg0: any) => DocumentClient; }; };
-if (process.env._X_AMZN_TRACE_ID) {
-  AWS = require("aws-xray-sdk").captureAWS(require("aws-sdk"));
-} else {
-  console.log("Serverless Offline detected; skipping AWS X-Ray setup");
-  AWS = require("aws-sdk");
-}
+// if (process.env._X_AMZN_TRACE_ID) {
+//   AWS = require("aws-xray-sdk").captureAWS(require("aws-sdk"));
+// } else {
+//   console.log("Serverless Offline detected; skipping AWS X-Ray setup");
+//   AWS = require("aws-sdk");
+// }
+AWS = require("aws-sdk");
 /* tslint:enable */
 const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
 
