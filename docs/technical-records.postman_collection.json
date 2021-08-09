@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "8f7d4518-593b-4175-8e04-3a8d3863e319",
+		"name": "technical-records",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all provisional technical records",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.{{api}}.cvs.dvsacloud.uk/{{branch}}/vehicles/AB12CDE/tech-records/?status=provisional_over_current&searchCriteria=all",
+					"protocol": "https",
+					"host": [
+						"api",
+						"{{api}}",
+						"cvs",
+						"dvsacloud",
+						"uk"
+					],
+					"path": [
+						"{{branch}}",
+						"vehicles",
+						"AB12CDE",
+						"tech-records",
+						""
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "provisional_over_current"
+						},
+						{
+							"key": "searchCriteria",
+							"value": "all"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "submit technical record",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"msUserDetails\": {\n    \"msUser\": \"sean\",\n    \"msOid\": \"12345\"\n  },\n  \"partialVin\": \"037501\",\n  \"primaryVrm\": \"B2C1C11\",\n  \"systemNumber\": \"BSFD3244BDSGR\",\n  \"secondaryVrms\": [\n    \"E5F1I00\"\n  ],\n  \"techRecord\": [\n    {\n      \"axles\": [\n        {\n          \"axleNumber\": 1,\n          \"parkingBrakeMrk\": false,\n          \"tyres\": {\n            \"dataTrAxles\": 2,\n            \"fitmentCode\": \"single\",\n            \"plyRating\": \" \",\n            \"tyreCode\": 462,\n            \"tyreSize\": \"12-22.5\"\n          },\n          \"weights\": {\n            \"designWeight\": 7500,\n            \"eecWeight\": 7500,\n            \"gbWeight\": 7100\n          }\n        },\n        {\n          \"axleNumber\": 2,\n          \"parkingBrakeMrk\": false,\n          \"tyres\": {\n            \"dataTrAxles\": 2,\n            \"fitmentCode\": \"double\",\n            \"plyRating\": \" \",\n            \"tyreCode\": 462,\n            \"tyreSize\": \"12-22.5\"\n          },\n          \"weights\": {\n            \"designWeight\": 13000,\n            \"eecWeight\": 10000,\n            \"gbWeight\": 9500\n          }\n        }\n      ],\n      \"bodyType\": {\n        \"description\": \"other\"\n      },\n      \"brakes\": {\n        \"dtpNumber\": \"3798A\"\n      },\n      \"conversionRefNo\": \" \",\n      \"dimensions\": {\n        \"length\": 10000,\n        \"width\": 2000,\n        \"axleSpacing\": [\n          {\n            \"axles\": \"1-2\",\n            \"value\": 10000\n          }\n        ]\n      },\n      \"drawbarCouplingFitted\": false,\n      \"euroStandard\": \"2\",\n      \"fuelPropulsionSystem\": \"Electric\",\n      \"frontAxleToRearAxle\": 1000,\n      \"frontAxleTo5thWheelMax\": 1000,\n      \"frontAxleTo5thWheelMin\": 1000,\n      \"frontAxleTo5thWheelCouplingMax\": 1000,\n      \"frontAxleTo5thWheelCouplingMin\": 1000,\n      \"functionCode\": \"A\",\n      \"grossDesignWeight\": 33500,\n      \"grossGbWeight\": 25000,\n      \"grossEecWeight\": 25000,\n      \"make\": \"VOLVO\",\n      \"manufactureYear\": 1984,\n      \"maxTrainDesignWeight\": 2800,\n      \"maxTrainEecWeight\": 2500,\n      \"maxTrainGbWeight\": 44000,\n      \"model\": \"F12-33\",\n      \"noOfAxles\": 3,\n      \"notes\": \" \",\n      \"ntaNumber\": \"0000514903\",\n      \"reasonForCreation\": \"something\",\n      \"regnDate\": \"1985-01-01\",\n      \"roadFriendly\": false,\n      \"speedLimiterMrk\": false,\n      \"tachoExemptMrk\": false,\n      \"trainDesignWeight\": 59500,\n      \"trainGbWeight\": 41000,\n      \"trainEecWeight\": 25000,\n      \"tyreUseCode\": \"2B\",\n      \"offRoad\": false,\n      \"numberOfWheelsDriven\": 4,\n      \"euVehicleCategory\": \"m1\",\n      \"emissionsLimit\": 20,\n      \"departmentalVehicleMarker\": false,\n      \"alterationMarker\": false,\n      \"approvalType\": \"NTA\",\n      \"approvalTypeNumber\": \"1234\",\n      \"variantNumber\": \"324324\",\n      \"variantVersionNumber\": \"345\",\n      \"applicantDetails\": {\n        \"address1\": \"*****\",\n        \"address2\": \"*****\",\n        \"address3\": \"*****\",\n        \"name\": \"************\",\n        \"postCode\": \"*****\",\n        \"postTown\": \"*\",\n        \"telephoneNumber\": \"**************\",\n        \"emailAddress\": \"*************\"\n      },\n      \"microfilm\": {\n        \"microfilmDocumentType\": \"HGV COC + Int Plate\",\n        \"microfilmRollNumber\": \"12346\",\n        \"microfilmSerialNumber\": \"1234\"\n      },\n      \"plates\": [\n        {\n          \"plateSerialNumber\": \"123456\",\n          \"plateIssueDate\": \"2100-12-31\",\n          \"plateReasonForIssue\": \"Replacement\",\n          \"plateIssuer\": \"issuer\"\n        }\n      ],\n      \"vehicleClass\": {\n        \"description\": \"heavy goods vehicle\"\n      },\n      \"vehicleConfiguration\": \"articulated\",\n      \"vehicleType\": \"hgv\",\n      \"recordCompleteness\": \"complete\"\n    }\n  ],\n  \"vin\": \"A10037502\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.{{api}}.cvs.dvsacloud.uk/{{branch}}/vehicles",
+					"protocol": "https",
+					"host": [
+						"api",
+						"{{api}}",
+						"cvs",
+						"dvsacloud",
+						"uk"
+					],
+					"path": [
+						"{{branch}}",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

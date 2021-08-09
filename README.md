@@ -23,6 +23,8 @@ These will be run as part of your projects hooks so you don't accidentally intro
 
 ## Architecture
 
+Please refer to the the [docs](./docs/README.md) for the API specification and samples of postman requests.
+
 ### End to end design
 
 [All in one view](https://wiki.dvsacloud.uk/pages/viewpage.action?pageId=79254695)
@@ -30,11 +32,6 @@ These will be run as part of your projects hooks so you don't accidentally intro
 ### Technical record microservice
 
 [Further details about this micro service](https://wiki.dvsacloud.uk/pages/viewpage.action?spaceKey=HVT&title=Technical+Records+Microservice).
-
-#### API Specs
-
-[Technical records API](https://wiki.dvsacloud.uk/download/attachments/33863060/API_Vehicle_Tech_Records_v32.yaml?version=2&modificationDate=1591883253725&api=v2).
-
 #### Database Model
 
 Being a NoSQL database data isn't stored in the relational model, but as a JSON document which is native to dynamodb database. The JSON document is the representation of API specification, hence API specification should be referred, to understand document structure stored in the database.
