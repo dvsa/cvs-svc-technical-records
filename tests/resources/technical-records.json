@@ -27546,5 +27546,123 @@
       }
     ],
     "primaryVrm": "GB125HL"
+  },
+  {
+    "systemNumber": "10000010",
+    "vin": "K0853010911284",
+    "partialVin": "911284",
+    "techRecord": [
+      {
+        "createdByName": "Tue",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "vehicleSubclass": [
+          "r"
+        ],
+        "createdAt": "2021-08-24T07:15:26.240Z",
+        "reasonForCreation": "Testing",
+        "applicantDetails": {
+          "emailAddress": "*************",
+          "telephoneNumber": "**************",
+          "address3": "*****",
+          "address2": "*****",
+          "address1": "*****",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*"
+        },
+        "vehicleClass": {
+          "description": "MOT class 4",
+          "code": "4"
+        },
+        "noOfAxles": 2,
+        "euVehicleCategory": "n3",
+        "createdById": "12345",
+        "manufactureYear": 1986,
+        "remarks": "For test",
+        "vehicleType": "lgv",
+        "statusCode": "provisional"
+      }
+    ],
+    "primaryVrm": "QU233MT"
+  },
+  {
+    "systemNumber": "10000009",
+    "vin": "H0853010911212",
+    "partialVin": "911212",
+    "techRecord": [
+      {
+        "createdByName": "Tue",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "vehicleSubclass": [
+          "r"
+        ],
+        "createdAt": "2021-08-24T07:10:31.528Z",
+        "reasonForCreation": "Testing",
+        "applicantDetails": {
+          "emailAddress": "*************",
+          "telephoneNumber": "**************",
+          "address3": "*****",
+          "address2": "*****",
+          "address1": "*****",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*"
+        },
+        "vehicleClass": {
+          "description": "MOT class 4",
+          "code": "4"
+        },
+        "noOfAxles": 2,
+        "euVehicleCategory": "m1",
+        "createdById": "12345",
+        "manufactureYear": 1986,
+        "remarks": "For test",
+        "vehicleType": "lgv",
+        "statusCode": "provisional"
+      }
+    ],
+    "primaryVrm": "GB01HL"
+  },
+  {
+    "systemNumber": "10000003",
+    "vin": "L0853010911254",
+    "partialVin": "911254",
+    "techRecord": [
+      {
+        "createdByName": "Tue",
+        "recordCompleteness": "complete",
+        "vehicleConfiguration": "articulated",
+        "regnDate": "1986-05-01",
+        "vehicleSubclass": [
+          "m"
+        ],
+        "createdAt": "2021-08-23T13:45:02.574Z",
+        "applicantDetails": {
+          "emailAddress": "*************",
+          "telephoneNumber": "**************",
+          "address3": "*****",
+          "address2": "*****",
+          "address1": "*****",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*"
+        },
+        "reasonForCreation": "Testing",
+        "vehicleClass": {
+          "description": "MOT class 4",
+          "code": "4"
+        },
+        "noOfAxles": 2,
+        "euVehicleCategory": "m1",
+        "createdById": "12345",
+        "manufactureYear": 1986,
+        "remarks": "For test",
+        "vehicleType": "lgv",
+        "statusCode": "provisional"
+      }
+    ],
+    "primaryVrm": "QU123RT"
   }
 ]
