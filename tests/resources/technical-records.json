@@ -26722,5 +26722,946 @@
       }
     ],
     "vin": "H12220223"
+  },
+  {
+    "partialVin": "911253",
+    "primaryVrm": "QU123RT",
+    "systemNumber": "10000004",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "createdAt": "2021-08-23T16:49:50.557Z",
+        "createdById": "12345",
+        "createdByName": "Tue",
+        "euVehicleCategory": "m1",
+        "manufactureYear": 1986,
+        "noOfAxles": 2,
+        "reasonForCreation": "Testing",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "remarks": "For test",
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleSubclass": [
+          "n"
+        ],
+        "vehicleType": "car"
+      }
+    ],
+    "vin": "C0853010911253"
+  },
+  {
+    "partialVin": "911255",
+    "primaryVrm": "QU123RT",
+    "systemNumber": "10000005",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "createdAt": "2021-08-23T16:52:05.598Z",
+        "createdById": "12345",
+        "createdByName": "Tue",
+        "euVehicleCategory": "m1",
+        "manufactureYear": 1986,
+        "noOfAxles": 2,
+        "reasonForCreation": "Testing",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "remarks": "For test",
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleSubclass": [
+          "r"
+        ],
+        "vehicleType": "car"
+      }
+    ],
+    "vin": "D0853010911255"
+  },
+  {
+    "partialVin": "741213",
+    "primaryVrm": "B2C1C12",
+    "secondaryVrms": [
+      "E5F1I00"
+    ],
+    "systemNumber": "10000006",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "approvalType": "ECTA",
+        "approvalTypeNumber": "12345",
+        "authIntoService": {
+          "cocIssueDate": "2019-06-25",
+          "dateAuthorised": "2019-06-25",
+          "datePending": "2019-06-25",
+          "dateReceived": "2019-06-25",
+          "dateRejected": "2019-06-25"
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 150,
+              "leverLength": 150,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 1,
+              "fitmentCode": "double",
+              "plyRating": "AA",
+              "tyreCode": 463,
+              "tyreSize": "11-21.5"
+            },
+            "weights": {
+              "designWeight": 10000,
+              "eecWeight": 10000,
+              "gbWeight": 10000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "t",
+          "description": "tipper"
+        },
+        "brakes": {
+          "antilockBrakingSystem": false,
+          "dtpNumber": "3798B",
+          "loadSensingValve": false
+        },
+        "centreOfRearmostAxleToRearOfTrl": 1000,
+        "conversionRefNo": "123456",
+        "couplingCenterToRearAxleMax": 900,
+        "couplingCenterToRearAxleMin": 1000,
+        "couplingCenterToRearTrlMax": 700,
+        "couplingCenterToRearTrlMin": 800,
+        "couplingType": "Y",
+        "createdAt": "2021-08-23T17:51:37.834Z",
+        "createdById": "123243424-234234245",
+        "createdByName": "catalin",
+        "departmentalVehicleMarker": true,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "2-1",
+              "value": 11000
+            }
+          ],
+          "length": 10000,
+          "width": 3000
+        },
+        "euVehicleCategory": "o3",
+        "firstUseDate": "2019-06-25",
+        "frameDescription": "Other",
+        "frontAxleToRearAxle": 1700,
+        "functionCode": "R",
+        "grossDesignWeight": 40000,
+        "grossEecWeight": 40000,
+        "grossGbWeight": 40000,
+        "lettersOfAuth": {
+          "letterContents": "other",
+          "letterDateRequested": "2019-06-25",
+          "letterType": "Trailer rejection"
+        },
+        "make": "Volvo",
+        "manufacturerDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "faxNumber": "************",
+          "manufacturerNotes": "**************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "manufactureYear": 2019,
+        "maxLoadOnCoupling": 10000,
+        "microfilm": {
+          "microfilmDocumentType": "PSV Miscellaneous",
+          "microfilmRollNumber": "55555",
+          "microfilmSerialNumber": "4444"
+        },
+        "model": "X6",
+        "noOfAxles": 1,
+        "notes": "some note",
+        "ntaNumber": "12345",
+        "plates": [
+          {
+            "plateIssueDate": "2020-02-02",
+            "plateIssuer": "Mr Jones",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "11111111"
+          }
+        ],
+        "purchaserDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "faxNumber": "************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "purchaserNotes": "**************",
+          "telephoneNumber": "**************"
+        },
+        "rearAxleToRearTrl": 400,
+        "reasonForCreation": "new record",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-25",
+        "roadFriendly": false,
+        "statusCode": "provisional",
+        "suspensionType": "F",
+        "tyreUseCode": "2C",
+        "variantNumber": "12345",
+        "variantVersionNumber": "12345",
+        "vehicleClass": {
+          "code": "3",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "dolly",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "C530001",
+    "vin": "T72741213"
+  },
+  {
+    "partialVin": "741214",
+    "systemNumber": "10000007",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "approvalType": "ECTA",
+        "approvalTypeNumber": "12345",
+        "authIntoService": {
+          "cocIssueDate": "2019-06-25",
+          "dateAuthorised": "2019-06-25",
+          "datePending": "2019-06-25",
+          "dateReceived": "2019-06-25",
+          "dateRejected": "2019-06-25"
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 150,
+              "leverLength": 150,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 1,
+              "fitmentCode": "double",
+              "plyRating": "AA",
+              "tyreCode": 463,
+              "tyreSize": "11-21.5"
+            },
+            "weights": {
+              "designWeight": 10000,
+              "eecWeight": 10000,
+              "gbWeight": 10000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "t",
+          "description": "tipper"
+        },
+        "brakes": {
+          "antilockBrakingSystem": false,
+          "dtpNumber": "3798B",
+          "loadSensingValve": false
+        },
+        "centreOfRearmostAxleToRearOfTrl": 1000,
+        "conversionRefNo": "123456",
+        "couplingCenterToRearAxleMax": 900,
+        "couplingCenterToRearAxleMin": 1000,
+        "couplingCenterToRearTrlMax": 700,
+        "couplingCenterToRearTrlMin": 800,
+        "couplingType": "Y",
+        "createdAt": "2021-08-23T17:59:38.804Z",
+        "createdById": "123243424-234234246",
+        "createdByName": "catalin",
+        "departmentalVehicleMarker": true,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "2-1",
+              "value": 11000
+            }
+          ],
+          "length": 10000,
+          "width": 3000
+        },
+        "euVehicleCategory": "o4",
+        "firstUseDate": "2019-06-25",
+        "frameDescription": "Other",
+        "frontAxleToRearAxle": 1700,
+        "functionCode": "R",
+        "grossDesignWeight": 40000,
+        "grossEecWeight": 40000,
+        "grossGbWeight": 40000,
+        "lettersOfAuth": {
+          "letterContents": "other",
+          "letterDateRequested": "2019-06-25",
+          "letterType": "Trailer rejection"
+        },
+        "make": "Volvo",
+        "manufacturerDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "faxNumber": "************",
+          "manufacturerNotes": "**************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "manufactureYear": 2019,
+        "maxLoadOnCoupling": 10000,
+        "microfilm": {
+          "microfilmDocumentType": "PSV Miscellaneous",
+          "microfilmRollNumber": "55555",
+          "microfilmSerialNumber": "4444"
+        },
+        "model": "X6",
+        "noOfAxles": 1,
+        "notes": "some note",
+        "ntaNumber": "12345",
+        "plates": [
+          {
+            "plateIssueDate": "2020-02-02",
+            "plateIssuer": "Mr Jones",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "11111111"
+          }
+        ],
+        "purchaserDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "faxNumber": "************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "purchaserNotes": "**************",
+          "telephoneNumber": "**************"
+        },
+        "rearAxleToRearTrl": 400,
+        "reasonForCreation": "new record",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-25",
+        "roadFriendly": false,
+        "statusCode": "provisional",
+        "suspensionType": "F",
+        "tyreUseCode": "2C",
+        "variantNumber": "12345",
+        "variantVersionNumber": "12345",
+        "vehicleClass": {
+          "code": "3",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "dolly",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "C530002",
+    "vin": "T72741214"
+  },
+  {
+    "partialVin": "911250",
+    "primaryVrm": "QU123RT",
+    "systemNumber": "10000016",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "createdAt": "2021-08-24T11:37:35.052Z",
+        "createdById": "12345",
+        "createdByName": "Tue",
+        "euVehicleCategory": "m1",
+        "manufactureYear": 1986,
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": 2,
+        "reasonForCreation": "Testing",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "remarks": "For test",
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "1",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleType": "motorcycle"
+      }
+    ],
+    "vin": "P0853010911250"
+  },
+  {
+    "partialVin": "911252",
+    "primaryVrm": "QU159RT",
+    "systemNumber": "10000018",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "createdAt": "2021-08-24T12:57:20.519Z",
+        "createdById": "12345",
+        "createdByName": "Tue",
+        "euVehicleCategory": "m1",
+        "manufactureYear": 1986,
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": 2,
+        "reasonForCreation": "Testing",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "remarks": "For test",
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "1",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleType": "motorcycle"
+      }
+    ],
+    "vin": "P0853010911252"
+  },
+  {
+    "partialVin": "375332",
+    "primaryVrm": "B2C1C11",
+    "secondaryVrms": [
+      "E5F1I00"
+    ],
+    "systemNumber": "10000012",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7500,
+              "gbWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "o",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2021-08-24T07:34:35.443Z",
+        "createdById": "12345",
+        "createdByName": "sean",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 10000
+            }
+          ],
+          "length": 10000,
+          "width": 2000
+        },
+        "drawbarCouplingFitted": false,
+        "emissionsLimit": 20,
+        "euroStandard": "2",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelCouplingMax": 1000,
+        "frontAxleTo5thWheelCouplingMin": 1000,
+        "frontAxleTo5thWheelMax": 1000,
+        "frontAxleTo5thWheelMin": 1000,
+        "frontAxleToRearAxle": 1000,
+        "fuelPropulsionSystem": "Electric",
+        "functionCode": "A",
+        "grossDesignWeight": 33500,
+        "grossEecWeight": 25000,
+        "grossGbWeight": 25000,
+        "make": "VOLVO",
+        "manufactureYear": 1984,
+        "maxTrainDesignWeight": 2800,
+        "maxTrainEecWeight": 2500,
+        "maxTrainGbWeight": 44000,
+        "microfilm": {
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346",
+          "microfilmSerialNumber": "1234"
+        },
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "0000514903",
+        "numberOfWheelsDriven": 4,
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2100-12-31",
+            "plateIssuer": "issuer",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "123456"
+          }
+        ],
+        "reasonForCreation": "something",
+        "recordCompleteness": "complete",
+        "regnDate": "1985-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "provisional",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "trainGbWeight": 41000,
+        "tyreUseCode": "2B",
+        "variantNumber": "324324",
+        "variantVersionNumber": "345",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "articulated",
+        "vehicleType": "hgv"
+      }
+    ],
+    "vin": "H000375332"
+  },
+  {
+    "systemNumber": "10000011",
+    "vin": "H00037502",
+    "primaryVrm": "GB02HL",
+    "secondaryVrms": [
+      "E5F1I00"
+    ],
+    "partialVin": "037502",
+    "techRecord": [
+      {
+        "bodyType": {
+          "description": "other",
+          "code": "o"
+        },
+        "createdByName": "sean",
+        "notes": " ",
+        "functionCode": "A",
+        "departmentalVehicleMarker": false,
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "offRoad": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "tyreSize": "12-22.5",
+              "fitmentCode": "single",
+              "dataTrAxles": 2,
+              "plyRating": " ",
+              "tyreCode": 462
+            },
+            "parkingBrakeMrk": false,
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7500,
+              "gbWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "tyreSize": "12-22.5",
+              "fitmentCode": "double",
+              "dataTrAxles": 2,
+              "plyRating": " ",
+              "tyreCode": 462
+            },
+            "parkingBrakeMrk": false,
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "frontAxleTo5thWheelCouplingMin": 1000,
+        "createdAt": "2021-08-24T07:28:24.305Z",
+        "grossGbWeight": 25000,
+        "microfilm": {
+          "microfilmSerialNumber": "1234",
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346"
+        },
+        "variantVersionNumber": "345",
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "maxTrainGbWeight": 44000,
+        "alterationMarker": false,
+        "grossDesignWeight": 33500,
+        "vehicleType": "hgv",
+        "createdById": "12345",
+        "plates": [
+          {
+            "plateSerialNumber": "123456",
+            "plateIssuer": "issuer",
+            "plateIssueDate": "2100-12-31",
+            "plateReasonForIssue": "Replacement"
+          }
+        ],
+        "vehicleConfiguration": "articulated",
+        "regnDate": "1985-01-01",
+        "tachoExemptMrk": false,
+        "trainGbWeight": 41000,
+        "maxTrainEecWeight": 2500,
+        "reasonForCreation": "something",
+        "roadFriendly": false,
+        "euVehicleCategory": "n3",
+        "statusCode": "provisional",
+        "frontAxleToRearAxle": 1000,
+        "drawbarCouplingFitted": false,
+        "variantNumber": "324324",
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "conversionRefNo": " ",
+        "maxTrainDesignWeight": 2800,
+        "applicantDetails": {
+          "emailAddress": "*************",
+          "telephoneNumber": "**************",
+          "address3": "*****",
+          "address2": "*****",
+          "address1": "*****",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*"
+        },
+        "euroStandard": "3",
+        "vehicleClass": {
+          "description": "heavy goods vehicle",
+          "code": "v"
+        },
+        "make": "VOLVO",
+        "speedLimiterMrk": false,
+        "frontAxleTo5thWheelCouplingMax": 1000,
+        "recordCompleteness": "complete",
+        "grossEecWeight": 25000,
+        "frontAxleTo5thWheelMax": 1000,
+        "ntaNumber": "0000514903",
+        "emissionsLimit": 20,
+        "fuelPropulsionSystem": "Electric",
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "tyreUseCode": "2B",
+        "frontAxleTo5thWheelMin": 1000,
+        "manufactureYear": 1984,
+        "dimensions": {
+          "length": 10000,
+          "width": 2000,
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 10000
+            }
+          ]
+        },
+        "numberOfWheelsDriven": 4
+      }
+    ]
+  },
+  {
+    "systemNumber": "10000021",
+    "vin": "M0853010998888",
+    "partialVin": "998888",
+    "techRecord": [
+      {
+        "createdByName": "Tue",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "vehicleSubclass": [
+          "r"
+        ],
+        "createdAt": "2021-08-26T10:35:26.763Z",
+        "reasonForCreation": "Testing",
+        "applicantDetails": {
+          "emailAddress": "*************",
+          "telephoneNumber": "**************",
+          "address3": "*****",
+          "address2": "*****",
+          "address1": "*****",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*"
+        },
+        "vehicleClass": {
+          "description": "MOT class 4",
+          "code": "4"
+        },
+        "noOfAxles": 2,
+        "euVehicleCategory": "m1",
+        "createdById": "12345",
+        "manufactureYear": 1986,
+        "remarks": "For test",
+        "vehicleType": "car",
+        "statusCode": "provisional"
+      }
+    ],
+    "primaryVrm": "GB126IB"
+  },
+  {
+    "systemNumber": "10000020",
+    "vin": "H0853010999520",
+    "partialVin": "999520",
+    "techRecord": [
+      {
+        "createdByName": "Tue",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "vehicleSubclass": [
+          "r"
+        ],
+        "createdAt": "2021-08-26T10:18:00.182Z",
+        "reasonForCreation": "Testing",
+        "applicantDetails": {
+          "emailAddress": "*************",
+          "telephoneNumber": "**************",
+          "address3": "*****",
+          "address2": "*****",
+          "address1": "*****",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*"
+        },
+        "vehicleClass": {
+          "description": "MOT class 4",
+          "code": "4"
+        },
+        "noOfAxles": 2,
+        "euVehicleCategory": "m1",
+        "createdById": "12345",
+        "manufactureYear": 1986,
+        "remarks": "For test",
+        "vehicleType": "car",
+        "statusCode": "provisional"
+      }
+    ],
+    "primaryVrm": "GB125HL"
+  },
+  {
+    "systemNumber": "10000010",
+    "vin": "K0853010911284",
+    "partialVin": "911284",
+    "techRecord": [
+      {
+        "createdByName": "Tue",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "vehicleSubclass": [
+          "r"
+        ],
+        "createdAt": "2021-08-24T07:15:26.240Z",
+        "reasonForCreation": "Testing",
+        "applicantDetails": {
+          "emailAddress": "*************",
+          "telephoneNumber": "**************",
+          "address3": "*****",
+          "address2": "*****",
+          "address1": "*****",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*"
+        },
+        "vehicleClass": {
+          "description": "MOT class 4",
+          "code": "4"
+        },
+        "noOfAxles": 2,
+        "euVehicleCategory": "n3",
+        "createdById": "12345",
+        "manufactureYear": 1986,
+        "remarks": "For test",
+        "vehicleType": "lgv",
+        "statusCode": "provisional"
+      }
+    ],
+    "primaryVrm": "QU233MT"
+  },
+  {
+    "systemNumber": "10000009",
+    "vin": "H0853010911212",
+    "partialVin": "911212",
+    "techRecord": [
+      {
+        "createdByName": "Tue",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "vehicleSubclass": [
+          "r"
+        ],
+        "createdAt": "2021-08-24T07:10:31.528Z",
+        "reasonForCreation": "Testing",
+        "applicantDetails": {
+          "emailAddress": "*************",
+          "telephoneNumber": "**************",
+          "address3": "*****",
+          "address2": "*****",
+          "address1": "*****",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*"
+        },
+        "vehicleClass": {
+          "description": "MOT class 4",
+          "code": "4"
+        },
+        "noOfAxles": 2,
+        "euVehicleCategory": "m1",
+        "createdById": "12345",
+        "manufactureYear": 1986,
+        "remarks": "For test",
+        "vehicleType": "lgv",
+        "statusCode": "provisional"
+      }
+    ],
+    "primaryVrm": "GB01HL"
+  },
+  {
+    "systemNumber": "10000003",
+    "vin": "L0853010911254",
+    "partialVin": "911254",
+    "techRecord": [
+      {
+        "createdByName": "Tue",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "vehicleSubclass": [
+          "m"
+        ],
+        "createdAt": "2021-08-23T13:45:02.574Z",
+        "applicantDetails": {
+          "emailAddress": "*************",
+          "telephoneNumber": "**************",
+          "address3": "*****",
+          "address2": "*****",
+          "address1": "*****",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*"
+        },
+        "reasonForCreation": "Testing",
+        "vehicleClass": {
+          "description": "MOT class 4",
+          "code": "4"
+        },
+        "noOfAxles": 2,
+        "euVehicleCategory": "m1",
+        "createdById": "12345",
+        "manufactureYear": 1986,
+        "remarks": "For test",
+        "vehicleType": "lgv",
+        "statusCode": "provisional"
+      }
+    ],
+    "primaryVrm": "QU123RT"
   }
 ]
