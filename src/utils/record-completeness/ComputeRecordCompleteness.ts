@@ -1,9 +1,9 @@
-import ITechRecordWrapper from "../../../@Types/ITechRecordWrapper";
 import HTTPError from "../../models/HTTPError";
 import {ERRORS, RECORD_COMPLETENESS_ENUM, VEHICLE_TYPE} from "../../assets/Enums";
 import * as coreMandatoryValidation from "./CoreMandatoryValidations";
 import {ObjectSchema} from "@hapi/joi";
 import * as nonCoreMandatoryValidation from "./NonCoreMandatoryValidations";
+import { Vehicle, Trailer } from "../../../@Types/TechRecords";
 
 const validateRecordCompleteness = (validationSchema: ObjectSchema | undefined, techRecordFields: any) => {
   if (validationSchema) {
@@ -21,7 +21,7 @@ const validateVehicleAttributes = (vehicleType: string, vehicleAttributes: any) 
   }
 };
 
-const validateCoreAndNonCoreMandatoryTechRecordAttributes = (vehicleType: string, techRecordWrapper: ITechRecordWrapper) => {
+const validateCoreAndNonCoreMandatoryTechRecordAttributes = (vehicleType: string, techRecordWrapper: Vehicle) => {
   let coreMandatoryValidationResult;
   let nonCoreMandatoryValidationResult;
   let coreMandatorySchema: ObjectSchema;
@@ -51,7 +51,7 @@ const validateCoreAndNonCoreMandatoryTechRecordAttributes = (vehicleType: string
   return {coreMandatoryValidationResult, nonCoreMandatoryValidationResult};
 };
 
-export const computeRecordCompleteness = (techRecordWrapper: ITechRecordWrapper): string => {
+export const computeRecordCompleteness = (techRecordWrapper: Vehicle, trailerId?: string): string => {
   let recordCompleteness = RECORD_COMPLETENESS_ENUM.COMPLETE;
   let isCoreMandatoryValid = true;
   let isNonCoreMandatoryValid = true;
@@ -62,19 +62,23 @@ export const computeRecordCompleteness = (techRecordWrapper: ITechRecordWrapper)
     systemNumber: techRecordWrapper.systemNumber,
     vin: techRecordWrapper.vin,
     primaryVrm: techRecordWrapper.primaryVrm,
-    trailerId: techRecordWrapper.trailerId
+    // FIXME: handle trailerId in a better way
+    trailerId
   };
   const vehicleType = techRecordWrapper.techRecord[0].vehicleType;
   if (!vehicleType) {
     return RECORD_COMPLETENESS_ENUM.SKELETON;
   }
+  const generalErrors = validateVehicleAttributes(vehicleType, generalAttributes)?.error;
 
-  if (validateVehicleAttributes(vehicleType, generalAttributes)?.error) {
+  if (generalErrors) {
+    console.log("general errors: ",generalErrors);
     return RECORD_COMPLETENESS_ENUM.SKELETON;
   }
 
   const mandatoryAttributesValidationResult = validateCoreAndNonCoreMandatoryTechRecordAttributes(vehicleType, techRecordWrapper);
-  isCoreMandatoryValid = !mandatoryAttributesValidationResult.coreMandatoryValidationResult?.error;
+  const mandatoryErrors = mandatoryAttributesValidationResult.coreMandatoryValidationResult?.error;
+  isCoreMandatoryValid = !mandatoryErrors;
   isNonCoreMandatoryValid = !mandatoryAttributesValidationResult.nonCoreMandatoryValidationResult?.error;
 
   if (!isCoreMandatoryValid) {

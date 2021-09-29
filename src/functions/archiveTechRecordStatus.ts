@@ -1,14 +1,14 @@
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
-import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {ERRORS} from "../assets/Enums";
 import {formatErrorMessage} from "../utils/formatErrorMessage";
+// import {Vehicle, TechRecord} from "../../@Types/TechRecords";
 
 export async function archiveTechRecordStatus(event: any) {
   const techRecordsService = new TechRecordsService(new TechRecordsDAO());
 
-  const systemNumber: string = event.pathParameters!.systemNumber;
+  const systemNumber: string = event.pathParameters.systemNumber;
   const techRec = event.body && event.body.techRecord;
   const msUserDetails = event.body && event.body.msUserDetails ? event.body.msUserDetails : null;
 
@@ -19,7 +19,7 @@ export async function archiveTechRecordStatus(event: any) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage(ERRORS.MISSING_USER)));
   }
 
-  const techRecord: ITechRecordWrapper = {
+  const techRecord = {
     vin: "",
     systemNumber,
     techRecord: techRec

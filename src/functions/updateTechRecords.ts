@@ -1,11 +1,10 @@
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
-import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {formatErrorMessage} from "../utils/formatErrorMessage";
 import {ERRORS, STATUS} from "../assets/Enums";
 
-const updateTechRecords = (event: any) => {
+const updateTechRecords = async (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
   const techRecordsService = new TechRecordsService(techRecordsDAO);
 
@@ -28,7 +27,7 @@ const updateTechRecords = (event: any) => {
   const oldStatusCodeString = event.queryStringParameters && event.queryStringParameters.oldStatusCode;
   const oldStatusCode = oldStatusCodeString ? STATUS[oldStatusCodeString.toUpperCase() as keyof typeof STATUS] : undefined;
 
-  const techRecord: ITechRecordWrapper = {
+  const techRecord = {
     vin: event.body.vin,
     systemNumber,
     secondaryVrms: event.body.secondaryVrms,
@@ -36,14 +35,13 @@ const updateTechRecords = (event: any) => {
     trailerId: event.body.trailerId,
     techRecord: techRec
   };
-  return techRecordsService.updateTechRecord(techRecord, msUserDetails, oldStatusCode)
-    .then((updatedTechRec: any) => {
-      return new HTTPResponse(200, updatedTechRec);
-    })
-    .catch((error: any) => {
-      console.log(error);
-      return new HTTPResponse(error.statusCode, error.body);
-    });
+  try {
+    const updatedTechRec = await techRecordsService.updateTechRecord(techRecord, msUserDetails, oldStatusCode);
+    return new HTTPResponse(200, updatedTechRec);
+  } catch (error) {
+    console.error(error);
+    return new HTTPResponse(error.statusCode, error.body);
+  }
 };
 
 export {updateTechRecords};

@@ -1,15 +1,16 @@
 import Configuration from "../utils/Configuration";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
+import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
 import QueryInput = DocumentClient.QueryInput;
-import {SEARCHCRITERIA} from "../assets/Enums";
-import {ISearchCriteria} from "../../@Types/ISearchCriteria";
-import {populatePartialVin} from "../utils/validations/ValidationUtils";
-import {LambdaService} from "../services/LambdaService";
+import { SEARCHCRITERIA } from "../assets/Enums";
+import { ISearchCriteria } from "../../@Types/ISearchCriteria";
+import { populatePartialVin } from "../utils/validations/ValidationUtils";
+import { LambdaService } from "../services/LambdaService";
+import { Vehicle, Trailer } from "../../@Types/TechRecords";
 
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
-let AWS: { DynamoDB: { DocumentClient: new (arg0: any) => DocumentClient; }; };
+let AWS: { DynamoDB: { DocumentClient: new (arg0: any) => DocumentClient } };
 if (process.env._X_AMZN_TRACE_ID) {
   AWS = require("aws-xray-sdk").captureAWS(require("aws-sdk"));
 } else {
@@ -27,7 +28,8 @@ class TechRecordsDAO {
     this.tableName = dbConfig.table;
 
     if (!TechRecordsDAO.lambdaInvokeEndpoints) {
-      TechRecordsDAO.lambdaInvokeEndpoints = Configuration.getInstance().getEndpoints();
+      TechRecordsDAO.lambdaInvokeEndpoints =
+        Configuration.getInstance().getEndpoints();
     }
   }
 
@@ -38,60 +40,65 @@ class TechRecordsDAO {
       IndexName: "",
       KeyConditionExpression: "",
       ExpressionAttributeNames: {},
-      ExpressionAttributeValues: {}
+      ExpressionAttributeValues: {},
     };
 
-    if (isSysNumSearch(searchCriteria)) { // Query for a specific System Number
+    if (isSysNumSearch(searchCriteria)) {
+      // Query for a specific System Number
       Object.assign(query.ExpressionAttributeValues, {
-        ":systemNumber": searchTerm
+        ":systemNumber": searchTerm,
       });
 
       Object.assign(query.ExpressionAttributeNames, {
-        "#systemNumber": "systemNumber"
+        "#systemNumber": "systemNumber",
       });
 
       query.IndexName = "SysNumIndex";
       query.KeyConditionExpression = "#systemNumber = :systemNumber";
-    } else if (isVinSearch(searchTerm, searchCriteria)) { // Query for a full VIN
-      Object.assign(query, {IndexName: "VinIndex"});
+    } else if (isVinSearch(searchTerm, searchCriteria)) {
+      // Query for a full VIN
+      Object.assign(query, { IndexName: "VinIndex" });
       Object.assign(query.ExpressionAttributeValues, {
-        ":vin": searchTerm
+        ":vin": searchTerm,
       });
 
       Object.assign(query.ExpressionAttributeNames, {
-        "#vin": "vin"
+        "#vin": "vin",
       });
 
       query.IndexName = "VinIndex";
       query.KeyConditionExpression = "#vin = :vin";
-    } else if (isTrailerSearch(searchTerm, searchCriteria)) { // Query for a Trailer ID
+    } else if (isTrailerSearch(searchTerm, searchCriteria)) {
+      // Query for a Trailer ID
       Object.assign(query.ExpressionAttributeValues, {
-        ":trailerId": searchTerm
+        ":trailerId": searchTerm,
       });
       Object.assign(query.ExpressionAttributeNames, {
-        "#trailerId": "trailerId"
+        "#trailerId": "trailerId",
       });
 
       query.IndexName = "TrailerIdIndex";
       query.KeyConditionExpression = "#trailerId = :trailerId";
-    } else if (isPartialVinSearch(searchTerm, searchCriteria)) { // Query for a partial VIN
+    } else if (isPartialVinSearch(searchTerm, searchCriteria)) {
+      // Query for a partial VIN
       Object.assign(query.ExpressionAttributeValues, {
-        ":partialVin": searchTerm
+        ":partialVin": searchTerm,
       });
 
       Object.assign(query.ExpressionAttributeNames, {
-        "#partialVin": "partialVin"
+        "#partialVin": "partialVin",
       });
 
       query.IndexName = "PartialVinIndex";
       query.KeyConditionExpression = "#partialVin = :partialVin";
-    } else if (isVrmSearch(searchTerm, searchCriteria)) { // Query for a VRM
+    } else if (isVrmSearch(searchTerm, searchCriteria)) {
+      // Query for a VRM
       Object.assign(query.ExpressionAttributeValues, {
-        ":vrm": searchTerm
+        ":vrm": searchTerm,
       });
 
       Object.assign(query.ExpressionAttributeNames, {
-        "#vrm": "primaryVrm"
+        "#vrm": "primaryVrm",
       });
 
       query.IndexName = "VRMIndex";
@@ -100,96 +107,99 @@ class TechRecordsDAO {
     return dbClient.query(query).promise();
   }
 
-  public createSingle(techRecord: ITechRecordWrapper) {
-    techRecord = capitaliseGeneralVehicleAttributes(techRecord);
+  public createSingle<T extends Vehicle>(vehicle: T) {
+    const { vin, systemNumber } = vehicle;
     const query = {
       TableName: this.tableName,
-      Item: techRecord,
+      Item: vehicle,
       ConditionExpression: "vin <> :vin AND systemNumber <> :systemNumber",
       ExpressionAttributeValues: {
-        ":vin": techRecord.vin,
-        ":systemNumber": techRecord.systemNumber
-      }
+        ":vin": vin,
+        ":systemNumber": systemNumber,
+      },
     };
     return dbClient.put(query).promise();
   }
 
-  public updateSingle(techRecord: ITechRecordWrapper) {
-    techRecord.partialVin = populatePartialVin(techRecord.vin);
-    techRecord = capitaliseGeneralVehicleAttributes(techRecord);
+  public updateSingle<T extends Vehicle>(vehicle: T) {
+    const { primaryVrm, secondaryVrms, vin, systemNumber, techRecord } =
+      vehicle;
+    vehicle.partialVin = populatePartialVin(vin);
+
     const query = {
       TableName: this.tableName,
       Key: {
-        systemNumber: techRecord.systemNumber,
-        vin: techRecord.vin
+        systemNumber,
+        vin,
       },
       UpdateExpression: "set techRecord = :techRecord",
       ConditionExpression: "vin = :vin AND systemNumber = :systemNumber",
       ExpressionAttributeValues: {
-        ":vin": techRecord.vin,
-        ":systemNumber": techRecord.systemNumber,
-        ":techRecord": techRecord.techRecord
+        ":vin": vin,
+        ":systemNumber": systemNumber,
+        ":techRecord": techRecord,
       },
-      ReturnValues: "ALL_NEW"
+      ReturnValues: "ALL_NEW",
     };
-    if (techRecord.primaryVrm) {
+    if (primaryVrm) {
       query.UpdateExpression += ", primaryVrm = :primaryVrm";
       Object.assign(query.ExpressionAttributeValues, {
-        ":primaryVrm": techRecord.primaryVrm
+        ":primaryVrm": primaryVrm,
       });
     }
-    if (techRecord.secondaryVrms && techRecord.secondaryVrms.length) {
+    if (secondaryVrms && secondaryVrms.length) {
       query.UpdateExpression += ", secondaryVrms = :secondaryVrms";
       Object.assign(query.ExpressionAttributeValues, {
-        ":secondaryVrms": techRecord.secondaryVrms
+        ":secondaryVrms": secondaryVrms,
       });
     }
-    if (techRecord.trailerId) {
+    if ((vehicle as unknown as Trailer).trailerId) {
       query.UpdateExpression += ", trailerId = :trailerId";
       Object.assign(query.ExpressionAttributeValues, {
-        ":trailerId": techRecord.trailerId
+        ":trailerId": (vehicle as unknown as Trailer).trailerId,
       });
     }
     return dbClient.update(query).promise();
   }
 
-  public getTrailerId(): any {
-    const event = {
-      path: "/trailerId/",
-      httpMethod: "POST",
-      resource: "/trailerId/"
-    };
+  public getTrailerId = () =>
+    process.env.BRANCH === "local"
+      ? Promise.resolve({ trailerId: "123" })
+      : this.invokeNumberService({
+          path: "/trailerId/",
+          httpMethod: "POST",
+          resource: "/trailerId/",
+        })
 
-    // lambda to lambda call so we mock the response for local development only and integration tests
-    return process.env.BRANCH === "local" ?
-    Promise.resolve({trailerId: "123"}) :
-    LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
-  }
+  public getSystemNumber = () =>
+    process.env.BRANCH === "local"
+      ? Promise.resolve({ systemNumber: "123" })
+      : this.invokeNumberService({
+          path: "/system-number/",
+          httpMethod: "POST",
+          resource: "/system-number/",
+        })
 
-  public getSystemNumber(): any {
-    const event = {
-      path: "/system-number/",
-      httpMethod: "POST",
-      resource: "/system-number/"
-    };
-
-    // lambda to lambda call so we mock the response for local development only and integration tests
-    return process.env.BRANCH === "local" ?
-    Promise.resolve({systemNumber: "123"}) :
-    LambdaService.invoke(TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService.name, event);
-  }
+  private invokeNumberService = (serviceParams: {
+    path: string;
+    httpMethod: string;
+    resource: string;
+  }) =>
+    LambdaService.invoke(
+      TechRecordsDAO.lambdaInvokeEndpoints.functions.numberGenerationService
+        .name,
+      serviceParams
+    )
 
   public createMultiple(techRecordItems: ITechRecordWrapper[]) {
     const params = this.generatePartialParams();
 
-    techRecordItems.forEach((techRecordItem) => {
-      params.RequestItems[this.tableName].push(
-        {
-          PutRequest:
-            {
-              Item: techRecordItem
-            }
-        });
+    techRecordItems.forEach((techRecordItem: any) => {
+      params.RequestItems[this.tableName].push({
+        PutRequest: {
+          Item: techRecordItem,
+        },
+      });
     });
 
     return dbClient.batchWrite(params).promise();
@@ -198,30 +208,27 @@ class TechRecordsDAO {
   public deleteMultiple(primaryKeysToBeDeleted: any) {
     const params = this.generatePartialParams();
 
-    primaryKeysToBeDeleted.forEach(([primaryKey, secondaryKey]: [string, string]) => {
-      params.RequestItems[this.tableName].push(
-        {
-          DeleteRequest:
-            {
-              Key:
-                {
-                  systemNumber: primaryKey,
-                  vin: secondaryKey
-                }
-            }
-        }
-      );
-    });
+    primaryKeysToBeDeleted.forEach(
+      ([primaryKey, secondaryKey]: [string, string]) => {
+        params.RequestItems[this.tableName].push({
+          DeleteRequest: {
+            Key: {
+              systemNumber: primaryKey,
+              vin: secondaryKey,
+            },
+          },
+        });
+      }
+    );
 
     return dbClient.batchWrite(params).promise();
   }
 
   public generatePartialParams(): any {
     return {
-      RequestItems:
-        {
-          [this.tableName]: []
-        }
+      RequestItems: {
+        [this.tableName]: [],
+      },
     };
   }
 }
@@ -234,37 +241,64 @@ const isSysNumSearch = (searchCriteria: ISearchCriteria): boolean => {
   return SEARCHCRITERIA.SYSTEM_NUMBER === searchCriteria;
 };
 
-const isVinSearch = (searchTerm: string, searchCriteria: ISearchCriteria): boolean => {
-  return SEARCHCRITERIA.VIN === searchCriteria || SEARCHCRITERIA.ALL === searchCriteria && searchTerm.length >= 9;
+const isVinSearch = (
+  searchTerm: string,
+  searchCriteria: ISearchCriteria
+): boolean => {
+  return (
+    SEARCHCRITERIA.VIN === searchCriteria ||
+    (SEARCHCRITERIA.ALL === searchCriteria && searchTerm.length >= 9)
+  );
 };
 
-const isTrailerSearch = (searchTerm: string, searchCriteria: ISearchCriteria): boolean => {
-  return SEARCHCRITERIA.TRAILERID === searchCriteria || SEARCHCRITERIA.ALL === searchCriteria && isTrailerId(searchTerm);
+const isTrailerSearch = (
+  searchTerm: string,
+  searchCriteria: ISearchCriteria
+): boolean => {
+  return (
+    SEARCHCRITERIA.TRAILERID === searchCriteria ||
+    (SEARCHCRITERIA.ALL === searchCriteria && isTrailerId(searchTerm))
+  );
 };
 
-const isPartialVinSearch = (searchTerm: string, searchCriteria: ISearchCriteria): boolean => {
-  return SEARCHCRITERIA.PARTIALVIN === searchCriteria || SEARCHCRITERIA.ALL === searchCriteria && searchTerm.length === 6 && DIGITS_AND_SPECIAL_REGEX.test(searchTerm);
+const isPartialVinSearch = (
+  searchTerm: string,
+  searchCriteria: ISearchCriteria
+): boolean => {
+  return (
+    SEARCHCRITERIA.PARTIALVIN === searchCriteria ||
+    (SEARCHCRITERIA.ALL === searchCriteria &&
+      searchTerm.length === 6 &&
+      DIGITS_AND_SPECIAL_REGEX.test(searchTerm))
+  );
 };
 
-const isVrmSearch = (searchTerm: string, searchCriteria: ISearchCriteria): boolean => {
-  return SEARCHCRITERIA.VRM === searchCriteria || SEARCHCRITERIA.ALL === searchCriteria && searchTerm.length >= 3 && searchTerm.length <= 8;
+const isVrmSearch = (
+  searchTerm: string,
+  searchCriteria: ISearchCriteria
+): boolean => {
+  return (
+    SEARCHCRITERIA.VRM === searchCriteria ||
+    (SEARCHCRITERIA.ALL === searchCriteria &&
+      searchTerm.length >= 3 &&
+      searchTerm.length <= 8)
+  );
 };
 
 const isTrailerId = (searchTerm: string): boolean => {
   // Exactly 8 numbers
-  const isAllNumbersTrailerId = searchTerm.length === 8 && ONLY_DIGITS_REGEX.test(searchTerm);
-  // A letter followed by exactly 6 numbers
+  const isAllNumbersTrailerId =
+    searchTerm.length === 8 && ONLY_DIGITS_REGEX.test(searchTerm);
   const isLetterAndNumbersTrailerId = TRAILER_REGEX.test(searchTerm);
+  // A letter followed by exactly 6 numbers
   return isAllNumbersTrailerId || isLetterAndNumbersTrailerId;
 };
 
-export const capitaliseGeneralVehicleAttributes = (techRecord: ITechRecordWrapper) => {
-  techRecord.vin = techRecord.vin?.toUpperCase();
-  techRecord.partialVin = techRecord.partialVin?.toUpperCase();
-  techRecord.primaryVrm = techRecord.primaryVrm?.toUpperCase();
-  techRecord.trailerId = techRecord.trailerId?.toUpperCase();
-  techRecord.secondaryVrms = techRecord.secondaryVrms?.map((vrm: string) => vrm.toUpperCase());
-  return techRecord;
+export {
+  TechRecordsDAO as default,
+  isTrailerSearch,
+  isPartialVinSearch,
+  isTrailerId,
+  isVinSearch,
+  isVrmSearch,
 };
-
-export {TechRecordsDAO as default, isTrailerSearch, isPartialVinSearch, isTrailerId, isVinSearch, isVrmSearch} ;

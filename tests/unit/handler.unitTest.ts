@@ -6,8 +6,7 @@ import TechRecordsService from "../../src/services/TechRecordsService";
 import mockData from "../resources/technical-records.json";
 import {cloneDeep} from "lodash";
 import {Context} from "aws-lambda";
-import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import { STATUS } from "../../src/assets/Enums";
+import {TechRecordStatusHandler} from "../../src/handlers/TechRecordStatusHandler";
 
 jest.mock("../../src/services/TechRecordsService");
 
@@ -132,7 +131,7 @@ describe("The lambda function handler", () => {
             testTypeId: "41",
           },
         };
-        TechRecordsService.isStatusUpdateRequired = jest.fn().mockReturnValue(true);
+        TechRecordStatusHandler.isStatusUpdateRequired = jest.fn().mockReturnValue(true);
         TechRecordsService.prototype.updateTechRecordStatusCode = jest.fn().mockImplementation(() => {
           return Promise.resolve(new HTTPResponse(200, {}));
         });
