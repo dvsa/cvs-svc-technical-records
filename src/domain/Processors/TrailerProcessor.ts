@@ -74,7 +74,7 @@ export class TrailerProcessor extends VehicleProcessor<Trailer> {
         trailerId,
         Enums.SEARCHCRITERIA.TRAILERID
       );
-      if (trailerIdRecords.Count! > 0) {
+      if (trailerIdRecords.length && trailerIdRecords.length > 0) {
         errors.push(`TrailerId ${trailerId} already exists`);
         throw ErrorHandler.Error(400, errors);
       }

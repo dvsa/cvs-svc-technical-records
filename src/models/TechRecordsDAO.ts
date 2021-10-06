@@ -7,6 +7,8 @@ import { ISearchCriteria } from "../../@Types/ISearchCriteria";
 import { populatePartialVin } from "../utils/validations/ValidationUtils";
 import { LambdaService } from "../services/LambdaService";
 import { Vehicle, Trailer } from "../../@Types/TechRecords";
+import {PromiseResult} from "aws-sdk/lib/request";
+import {AWSError} from "aws-sdk/lib/error";
 
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
@@ -104,7 +106,32 @@ class TechRecordsDAO {
       query.IndexName = "VRMIndex";
       query.KeyConditionExpression = "#vrm = :vrm";
     }
-    return dbClient.query(query).promise();
+    console.log("Query Params for getBySearchTerm ", query);
+    try {
+      return this.queryAllData(query);
+    } catch (err) {
+      console.log("Error in queryAllData ", err);
+      throw err;
+    }
+  }
+
+  private async queryAllData(
+      params: any,
+      allData: ITechRecordWrapper[] = []
+  ): Promise<ITechRecordWrapper[]> {
+
+    const data: PromiseResult<DocumentClient.QueryOutput, AWSError> = await dbClient.query(params).promise();
+
+    if (data.Items && data.Items.length > 0) {
+      allData = [...allData, ...(data.Items as ITechRecordWrapper[])];
+    }
+
+    if (data.LastEvaluatedKey) {
+      params.ExclusiveStartKey = data.LastEvaluatedKey;
+      return this.queryAllData(params, allData);
+    } else {
+      return allData;
+    }
   }
 
   public createSingle<T extends Vehicle>(vehicle: T) {

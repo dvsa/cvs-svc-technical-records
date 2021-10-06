@@ -24,11 +24,7 @@ describe("addProvisionalTechRecord", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [cloneDeep(techRecord)],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve(cloneDeep([techRecord]));
           },
           updateSingle: () => {
             return Promise.resolve({
@@ -77,11 +73,7 @@ describe("addProvisionalTechRecord", () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             getBySearchTerm: () => {
-              return Promise.resolve({
-                Items: [cloneDeep(techRecord)],
-                Count: 1,
-                ScannedCount: 1
-              });
+              return Promise.resolve(cloneDeep([techRecord]));
             }
           };
         });

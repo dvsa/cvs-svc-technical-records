@@ -88,7 +88,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         primaryVrm,
         enums.SEARCHCRITERIA.VRM
       );
-      if (primaryVrmRecords.Count! > 0) {
+      if (primaryVrmRecords.length && primaryVrmRecords.length > 0) {
         errors.push(`Primary VRM ${primaryVrm} already exists`);
       }
     }
@@ -120,7 +120,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       const data = await this.techRecordDAO.createSingle(this.vehicle);
       return data.Attributes as T;
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       const errorList = error.body?error.body.errors:error.message;
       throw this.Error(error.statusCode, errorList);
     }
@@ -146,7 +146,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         updatedData.Attributes as T
       );
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       throw handlers.ErrorHandler.Error(error.statusCode, error.body.errors);
     }
   }
@@ -191,7 +191,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         uniqueRecord
       );
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       throw this.Error(error.statusCode, error.body);
     }
   }
@@ -203,7 +203,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     try {
       updatedTechRecord = await this.techRecordDAO.updateSingle(uniqueRecord);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       throw this.Error(500, enums.HTTPRESPONSE.INTERNAL_SERVER_ERROR);
     }
     return this.techRecordsListHandler.formatTechRecordItemForResponse(
@@ -248,7 +248,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         techRecordWithAllStatues
       );
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       throw this.Error(error.statusCode, error.message);
     }
     return this.techRecordsListHandler.formatTechRecordItemForResponse(
@@ -408,7 +408,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       techRecordWithAllStatuses.techRecord.push(newRecord);
       return techRecordWithAllStatuses;
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       throw this.Error(error.statusCode, error.body);
     }
   }
@@ -433,7 +433,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
                           );
     errors = errors.concat(this.validateTechRecordFields(newVehicle.techRecord[0], isCreate));
     if (errors && errors.length) {
-      console.error(errors);
+      // console.error(errors);
       throw this.Error(400, errors);
     }
     return newVehicle.techRecord[0];
