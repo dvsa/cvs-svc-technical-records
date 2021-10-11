@@ -31,7 +31,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
       return techRecordItems;
     } catch (error) {
       if (!(error instanceof HTTPError)) {
-        // console.error(error);
+        console.error(error);
         error.statusCode = 500;
         error.body = HTTPRESPONSE.INTERNAL_SERVER_ERROR;
       }
