@@ -25,7 +25,7 @@
     "security-checks": "git secrets --scan && git log -p | scanrepo",
     "lint": "tslint src/**/*.ts tests/**/*.ts",
     "sonar-scanner": "sonar-scanner",
-    "audit": "npm audit",
+    "audit": "npm audit --prod",
     "tools-setup": "node_modules/.bin/sls dynamodb install"
   },
   "author": "",
