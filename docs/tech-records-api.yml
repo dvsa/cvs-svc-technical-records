@@ -685,6 +685,13 @@ components:
                 - f
                 - r
                 - c
+                - e
+                - y
+                - m
+                - i
+                - a
+                - u
+                - l
             description:
               type: string
               enum:
@@ -692,6 +699,7 @@ components:
                 - single decker
                 - double decker
                 - other
+                - other tanker
                 - petrol/oil tanker
                 - skeletal
                 - tipper
@@ -700,11 +708,22 @@ components:
                 - refuse
                 - skip loader
                 - refrigerated
+                - curtainsider
+                - car transporter
+                - concrete mixer
+                - mini bus
+                - livestock carrier
+                - fast trac tractor
+                - artic unit
+                - low loader
           description: >-
-            Used for all vehicle types - PSV, HGV and TRL. o = other, a =
-            articulated, m = other, s = single decker, d = double decker, x =
-            other, p = petrol/oil tanker, k = skeletal, t = tipper, b = box, f =
-            flat, r = refuse, s = skip loader (for HGV and TRL), c = refrigerated
+            Used for all vehicles types - PSV, HGV and TRL. x = other, d = double decker.
+            Used only for HGV and TRL. p = petrol/oil tanker, o = other tanker, s = skip loader, f = flat,
+            c = refrigerated, b = box, e = curtainsider, k = skeletal, t = tipper, y = car transporter, i =
+            livestock carrier.
+            Used only for HGV. r = refuse, m = concrete mixer, a = fast trac tractor, u = artic unit.
+            Used only for PSV. s = single decker, a = articulated, m = mini bus.
+            Used only for TRL. l = low loader.
         manufactureYear:
           type: number
           maximum: 9999
