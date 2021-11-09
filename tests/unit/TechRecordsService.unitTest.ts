@@ -28,17 +28,12 @@ describe("getTechRecordsList", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [techRecord],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve([techRecord]);
           }
         };
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
-
 
       const returnedRecords: any = await techRecordsService.getTechRecordsList("1B7GG36N12S678410", STATUS.CURRENT, SEARCHCRITERIA.ALL);
       expect(returnedRecords).not.toEqual(undefined);
@@ -53,11 +48,7 @@ describe("getTechRecordsList", () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             getBySearchTerm: () => {
-              return Promise.resolve({
-                Items: [records[9]],
-                Count: 1,
-                ScannedCount: 1
-              });
+              return Promise.resolve(cloneDeep([records[9]]));
             }
           };
         });
@@ -79,11 +70,7 @@ describe("getTechRecordsList", () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             getBySearchTerm: () => {
-              return Promise.resolve({
-                Items: [records[10]],
-                Count: 1,
-                ScannedCount: 1
-              });
+              return Promise.resolve(cloneDeep([records[10]]));
             }
           };
         });
@@ -105,11 +92,7 @@ describe("getTechRecordsList", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [records[8]],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve(cloneDeep([records[8]]));
           }
         };
       });
@@ -128,11 +111,7 @@ describe("getTechRecordsList", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: {},
-              Count: 0,
-              ScannedCount: 0
-            });
+            return Promise.resolve([]);
           }
         };
       });
@@ -153,11 +132,7 @@ describe("getTechRecordsList", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: undefined,
-              Count: 0,
-              ScannedCount: 0
-            });
+            return Promise.resolve([]);
           }
         };
       });
@@ -211,11 +186,7 @@ describe("getTechRecordsList", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: retVals,
-              Count: 2,
-              ScannedCount: 2
-            });
+            return Promise.resolve(retVals);
           }
         };
       });
@@ -232,11 +203,7 @@ describe("getTechRecordsList", () => {
     const MockDAO = jest.fn().mockImplementation((record) => {
       return {
         getBySearchTerm: () => {
-          return Promise.resolve({
-            Items: [record],
-            Count: 1,
-            ScannedCount: 1
-          });
+          return Promise.resolve([record]);
         }
       };
     });
@@ -676,11 +643,7 @@ describe("updateTechRecord", () => {
             });
           },
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [cloneDeep(records[44])],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve(cloneDeep([records[44]]));
           }
         };
       });
@@ -713,11 +676,7 @@ describe("updateTechRecord", () => {
             });
           },
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [cloneDeep(records[43])],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve(cloneDeep([records[43]]));
           }
         };
       });
@@ -742,11 +701,7 @@ describe("updateTechRecord", () => {
               });
             },
             getBySearchTerm: () => {
-              return Promise.resolve({
-                Items: [cloneDeep(records[31])],
-                Count: 1,
-                ScannedCount: 1
-              });
+              return Promise.resolve(cloneDeep([records[31]]));
             }
           };
         });
@@ -835,11 +790,7 @@ describe("updateTechRecord", () => {
             return Promise.reject({statusCode: 400, message: "The conditional request failed"});
           },
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: {},
-              Count: 0,
-              ScannedCount: 0
-            });
+            return Promise.resolve([]);
           }
         };
       });
@@ -882,11 +833,7 @@ describe("updateEuVehicleCategory", () => {
             });
           },
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [cloneDeep(records[22])],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve(cloneDeep([records[22]]));
           }
         };
       });
@@ -907,11 +854,7 @@ describe("updateEuVehicleCategory", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [cloneDeep(records[0])],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve(cloneDeep([records[0]]));
           }
         };
       });
@@ -934,11 +877,7 @@ describe("updateEuVehicleCategory", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [record],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve([record]);
           }
         };
       });
@@ -963,11 +902,7 @@ describe("updateEuVehicleCategory", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [archivedRecord],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve([archivedRecord]);
           }
         };
       });
@@ -1005,11 +940,7 @@ describe("archiveTechRecordStatus", () => {
             });
           },
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [techRecord],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve([techRecord]);
           }
         };
       });
@@ -1029,11 +960,7 @@ describe("archiveTechRecordStatus", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [cloneDeep(records[43])],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve(cloneDeep([records[43]]));
           }
         };
       });
@@ -1056,11 +983,7 @@ describe("archiveTechRecordStatus", () => {
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve({
-              Items: [cloneDeep(techRecord)],
-              Count: 1,
-              ScannedCount: 1
-            });
+            return Promise.resolve([techRecord]);
           }
         };
       });
@@ -1090,11 +1013,7 @@ describe("updateTechRecordStatus", () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             getBySearchTerm: () => {
-              return Promise.resolve({
-                Items: [existingTechRecord],
-                Count: 1,
-                ScannedCount: 1
-              });
+              return Promise.resolve([existingTechRecord]);
             }
           };
         });
@@ -1123,11 +1042,7 @@ describe("updateTechRecordStatus", () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             getBySearchTerm: () => {
-              return Promise.resolve({
-                Items: [existingTechRecord],
-                Count: 1,
-                ScannedCount: 1
-              });
+              return Promise.resolve([existingTechRecord]);
             }
           };
         });
@@ -1157,11 +1072,7 @@ describe("updateTechRecordStatus", () => {
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
             getBySearchTerm: () => {
-              return Promise.resolve({
-                Items: [existingTechRecord],
-                Count: 1,
-                ScannedCount: 1
-              });
+              return Promise.resolve([existingTechRecord]);
             }
           };
         });

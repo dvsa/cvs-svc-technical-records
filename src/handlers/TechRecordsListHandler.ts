@@ -44,19 +44,19 @@ export class TechRecordsListHandler<T extends Vehicle> {
     status: string,
     searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL
   ): Promise<T[]> {
-    const data: any = await this.techRecordsDAO.getBySearchTerm(
-      searchTerm,
-      searchCriteria
-    );
-    if (data.Count === 0) {
-      throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
-    }
-    // Formatting the object for lambda function
-    let techRecordItems: T[] = data.Items;
-    if (status !== STATUS.ALL) {
-      techRecordItems = this.filterTechRecordsByStatus(techRecordItems, status);
-    }
-    return techRecordItems;
+      const data = await this.techRecordsDAO.getBySearchTerm(
+          searchTerm,
+          searchCriteria
+      );
+      if (data.length === 0) {
+        throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
+      }
+      // Formatting the object for lambda function
+      let techRecordItems: T[] = data as unknown as T[];
+      if (status !== STATUS.ALL) {
+        techRecordItems = this.filterTechRecordsByStatus(techRecordItems, status);
+      }
+      return techRecordItems;
   }
 
   public formatTechRecordItemForResponse(techRecordItem: T) {

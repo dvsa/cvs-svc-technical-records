@@ -23,6 +23,9 @@ const msUserDetails: IMsUserDetails = {
 describe("VehicleProcessor", () => {
   describe("updateVehicle", () => {
     afterEach(() => {
+      jest.resetAllMocks();
+    });
+    afterEach(() => {
       jest.restoreAllMocks();
     });
     beforeAll(() => {
@@ -103,11 +106,7 @@ describe("VehicleProcessor", () => {
               const MockDAO = jest.fn().mockImplementation(() => {
                 return {
                   getBySearchTerm: () => {
-                    return Promise.resolve({
-                      Items: [returnedVehicle],
-                      Count: 1,
-                      ScannedCount: 1
-                    });
+                    return Promise.resolve([returnedVehicle]);
                   }
                 };
               });
@@ -159,11 +158,7 @@ describe("VehicleProcessor", () => {
               const MockDAO = jest.fn().mockImplementation(() => {
                 return {
                   getBySearchTerm: () => {
-                    return Promise.resolve({
-                      Items: [returnedVehicle],
-                      Count: 1,
-                      ScannedCount: 1
-                    });
+                    return Promise.resolve([returnedVehicle]);
                   }
                 };
               });
@@ -298,11 +293,7 @@ describe("VehicleProcessor", () => {
                     const MockDAO = jest.fn().mockImplementation(() => {
                       return {
                         getBySearchTerm: () => {
-                          return Promise.resolve({
-                            Items: [techRecord],
-                            Count: 1,
-                            ScannedCount: 1
-                          });
+                          return Promise.resolve([techRecord]);
                         }
                       };
                     });
@@ -397,11 +388,7 @@ describe("VehicleProcessor", () => {
                     const MockDAO = jest.fn().mockImplementation(() => {
                       return {
                         getBySearchTerm: () => {
-                          return Promise.resolve({
-                            Items: [techRecord],
-                            Count: 1,
-                            ScannedCount: 1
-                          });
+                          return Promise.resolve([techRecord]);
                         }
                       };
                     });

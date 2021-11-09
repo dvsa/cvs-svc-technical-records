@@ -88,7 +88,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         primaryVrm,
         enums.SEARCHCRITERIA.VRM
       );
-      if (primaryVrmRecords.Count! > 0) {
+      if (primaryVrmRecords.length > 0) {
         errors.push(`Primary VRM ${primaryVrm} already exists`);
       }
     }
