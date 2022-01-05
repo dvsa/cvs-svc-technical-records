@@ -104,7 +104,7 @@ describe("updateEuVehicleCategory", () => {
         });
 
         it("should return 400 if the euVehicleCategory does not exist", async () => {
-            const systemNumber: string = "10000023";
+            const systemNumber: string = "90000023";
             expect.assertions(2);
             await LambdaTester(updateEuVehicleCategory)
                 .event({
