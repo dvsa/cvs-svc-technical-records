@@ -1,15 +1,25 @@
-import {ISearchCriteria} from "../../@Types/ISearchCriteria";
-import {SEARCHCRITERIA, STATUS} from "../assets/Enums";
+import { ISearchCriteria } from "../../@Types/ISearchCriteria";
+import { HTTPRESPONSE, SEARCHCRITERIA, STATUS } from "../assets/Enums";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsService from "../services/TechRecordsService";
-import {metaData} from "../utils/metadataEnums";
-import {isValidSearchCriteria} from "../utils/validations/PayloadValidation";
+import { metaData } from "../utils/metadataEnums";
+import { isValidSearchCriteria } from "../utils/validations/PayloadValidation";
+import { Validator } from "../utils/Validator";
 
 
 const getTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
   const techRecordsService = new TechRecordsService(techRecordsDAO);
+  const check: Validator = new Validator();
+
+  if (event.pathParameters) {
+      if (!check.parametersAreValid(event.pathParameters)) {
+          return Promise.resolve(new HTTPResponse(400, HTTPRESPONSE.MISSING_PARAMETERS));
+      }
+  } else {
+        return Promise.resolve(new HTTPResponse(400, HTTPRESPONSE.MISSING_PARAMETERS));
+  }
 
   const status: string = (event.queryStringParameters?.status) ? event.queryStringParameters.status : STATUS.PROVISIONAL_OVER_CURRENT;
   const searchCriteria: ISearchCriteria = (event.queryStringParameters?.searchCriteria) ? event.queryStringParameters.searchCriteria : SEARCHCRITERIA.ALL;
