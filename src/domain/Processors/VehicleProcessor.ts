@@ -271,7 +271,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     const nonArchivedTechRecord = techRecordWrapper.techRecord.filter(
       (techRecord) => techRecord.statusCode !== enums.STATUS.ARCHIVED
     );
-    if (nonArchivedTechRecord.length > 1) {
+    if (nonArchivedTechRecord.length > 2) {
       throw this.Error(
         400,
         enums.HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD
