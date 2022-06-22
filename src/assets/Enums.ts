@@ -132,7 +132,8 @@ export const VEHICLE_CONFIGURATION: string[] = [
     "drawbar",
     "four-in-line",
     "dolly",
-    "full drawbar"
+    "full drawbar",
+    "long semi-trailer"
 ];
 
 export const EU_VEHICLE_CATEGORY_VALIDATION: string[] = [

@@ -1080,6 +1080,7 @@ components:
             - four-in-line
             - dolly
             - full drawbar
+            - long semi-trailer
           description: 'Used for all vehicle types - PSV, HGV and TRL'
         brakes:
           $ref: '#/components/schemas/brakes'
