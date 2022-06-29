@@ -869,10 +869,11 @@ describe("updateEuVehicleCategory", () => {
   });
 
   context("when finding more than one non-archived tech-records", () => {
-    it("should throw error More than one non-archived records found", async () => {
+    it("should throw error More than two non-archived records found", async () => {
       const systemNumber = "10000001";
       const record: any = cloneDeep(records[0]);
       const techRecord = record.techRecord[0];
+      record.techRecord.push(techRecord);
       record.techRecord.push(techRecord);
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
@@ -890,7 +891,7 @@ describe("updateEuVehicleCategory", () => {
       } catch (error) {
         expect(error.statusCode).toEqual(400);
         // FIXME: from array to string
-        expect(error.body.errors).toContain(HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD);
+        expect(error.body.errors).toContain(HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_TWO_TECH_RECORD);
       }
     });
   });
