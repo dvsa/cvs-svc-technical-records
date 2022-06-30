@@ -933,11 +933,35 @@ describe("updateEuVehicleCategory", () => {
     });
   });
 
-  context("when finding more than one non-archived tech-records", () => {
-    it("should throw error More than one non-archived records found", async () => {
+  context("when updating a euVehicleCategory for an existing vehicle where the value is not null on both non archived tech records", () => {
+    it("should throw error No EU vehicle category update required", async () => {
       const systemNumber = "10000001";
       const record: any = cloneDeep(records[0]);
       const techRecord = record.techRecord[0];
+      record.techRecord.push(techRecord);
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve([record]);
+          }
+        };
+      });
+      expect.assertions(2);
+      const {msUser, msOid } = msUserDetails;
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+      const response: HTTPResponse | HTTPError = await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1, msOid, msUser);
+      expect(response.statusCode).toEqual(200);
+      expect(response.body).toEqual(`"${HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED}"`);
+    });
+  });
+
+  context("when finding more than two non-archived tech-records", () => {
+    it("should throw error More than two non-archived records found", async () => {
+      const systemNumber = "10000001";
+      const record: any = cloneDeep(records[0]);
+      const techRecord = record.techRecord[0];
+      record.techRecord.push(techRecord);
       record.techRecord.push(techRecord);
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
@@ -955,7 +979,7 @@ describe("updateEuVehicleCategory", () => {
       } catch (error) {
         expect(error.statusCode).toEqual(400);
         // FIXME: from array to string
-        expect(error.body.errors).toContain(HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD);
+        expect(error.body.errors).toContain(HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_TWO_TECH_RECORDS);
       }
     });
   });
