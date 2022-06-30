@@ -286,13 +286,17 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
       );
     }
-    const statusCode = nonArchivedTechRecord[0].statusCode;
-    const newTechRecord: TechRecord = cloneDeep(nonArchivedTechRecord[0]);
-    nonArchivedTechRecord[0].statusCode = enums.STATUS.ARCHIVED;
-    newTechRecord.euVehicleCategory = newEuVehicleCategory;
-    newTechRecord.statusCode = statusCode;
-    this.auditHandler.setAuditDetails(newTechRecord, nonArchivedTechRecord[0],msUserDetails);
-    techRecordWrapper.techRecord.push(newTechRecord);
+    nonArchivedTechRecord.forEach(x=>{
+      const statusCode = x.statusCode;
+      const newTechRecord: TechRecord = cloneDeep(x);
+      x.statusCode = enums.STATUS.ARCHIVED;
+      newTechRecord.euVehicleCategory = newEuVehicleCategory;
+      newTechRecord.statusCode = statusCode;
+      this.auditHandler.setAuditDetails(newTechRecord, nonArchivedTechRecord[0],msUserDetails);
+      techRecordWrapper.techRecord.push(newTechRecord);
+    });
+
+    techRecordWrapper.techRecord.forEach(x=> console.log(x.statusCode))
     let updatedTechRecord;
     try {
       updatedTechRecord = await this.techRecordDAO.updateSingle(
