@@ -335,32 +335,39 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       (techRecord) => techRecord.statusCode !== enums.STATUS.ARCHIVED
     );
 
-    if (nonArchivedTechRecord.length > 1) {
+    if (nonArchivedTechRecord.length > 2) {
       throw this.Error(
         400,
-        enums.HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD
+        enums.HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_TWO_TECH_RECORDS
       );
     }
     if (nonArchivedTechRecord.length === 0) {
       throw this.Error(400, enums.ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
     }
-    if (nonArchivedTechRecord[0].euVehicleCategory) {
-      return new HTTPResponse(
-        200,
-        enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
-      );
+
+    if (nonArchivedTechRecord.length > 1) {
+        if (nonArchivedTechRecord[0].euVehicleCategory && nonArchivedTechRecord[1].euVehicleCategory) {
+            return new HTTPResponse(
+                200,
+                enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
+            );
+        }
+    } else if (nonArchivedTechRecord[0].euVehicleCategory) {
+        return new HTTPResponse(
+            200,
+            enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
+        );
     }
-    const statusCode = nonArchivedTechRecord[0].statusCode;
-    const newTechRecord: TechRecord = cloneDeep(nonArchivedTechRecord[0]);
-    nonArchivedTechRecord[0].statusCode = enums.STATUS.ARCHIVED;
-    newTechRecord.euVehicleCategory = newEuVehicleCategory;
-    newTechRecord.statusCode = statusCode;
-    this.auditHandler.setAuditDetails(
-      newTechRecord,
-      nonArchivedTechRecord[0],
-      msUserDetails
-    );
-    vehicle.techRecord.push(newTechRecord);
+    nonArchivedTechRecord.forEach((techRecord) => {
+      const statusCode = techRecord.statusCode;
+      const newTechRecord: TechRecord = cloneDeep(techRecord);
+      techRecord.statusCode = enums.STATUS.ARCHIVED;
+      newTechRecord.euVehicleCategory = newEuVehicleCategory;
+      newTechRecord.statusCode = statusCode;
+      this.auditHandler.setAuditDetails(newTechRecord, nonArchivedTechRecord[0],msUserDetails);
+      vehicle.techRecord.push(newTechRecord);
+    });
+
     let updatedTechRecord;
     try {
       updatedTechRecord = await this.techRecordDAO.updateSingle(vehicle);
