@@ -296,7 +296,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       techRecordWrapper.techRecord.push(newTechRecord);
     });
 
-    techRecordWrapper.techRecord.forEach(x=> console.log(x.statusCode))
     let updatedTechRecord;
     try {
       updatedTechRecord = await this.techRecordDAO.updateSingle(
