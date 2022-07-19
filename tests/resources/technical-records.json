@@ -27985,5 +27985,266 @@
       }
     ],
     "vin": "DP76UMK4DQLTOT400066"
+  },
+  {
+    "systemNumber": "3506666",
+    "vin": "XXB6703742N122212",
+    "partialVin": "122212",
+    "primaryVrm": "XX12MST",
+    "secondaryVrms": ["XX06NCC"],
+    "techRecord": [
+      {
+        "approvalTypeNumber": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 124,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "speedCategorySymbol": "m",
+              "tyreCode": 758,
+              "tyreSize": "205/75-17.5"
+            },
+            "weights": {
+              "designWeight": 2800,
+              "gbWeight": 2800,
+              "kerbWeight": 0,
+              "ladenWeight": 0
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 122,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "speedCategorySymbol": "m",
+              "tyreCode": 758,
+              "tyreSize": "205/75-17.5"
+            },
+            "weights": {
+              "designWeight": 5600,
+              "gbWeight": 5600,
+              "kerbWeight": 0,
+              "ladenWeight": 0
+            }
+          }
+        ],
+        "bodyMake": "SITCAR",
+        "bodyModel": "BELUGA II",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "080202",
+        "brakes": {
+          "brakeCode": "080202",
+          "brakeCodeOriginal": "202",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 1287,
+            "secondaryBrakeForceA": 1810,
+            "serviceBrakeForceA": 3620
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 963,
+            "secondaryBrakeForceB": 1505,
+            "serviceBrakeForceB": 3010
+          },
+          "dataTrBrakeOne": "2 axles F/R split",
+          "dataTrBrakeThree": "2 or 3 axle Parking brake on axle 2",
+          "dataTrBrakeTwo": "2 or 3 axle no separate secondary brake",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "MERCEDES",
+        "chassisModel": "815D",
+        "coifCertifierName": "A PRATT T/S 17",
+        "coifDate": "2006-07-04",
+        "coifSerialNumber": "177151",
+        "conversionRefNo": " ",
+        "createdAt": "2022-01-10T11:22:37.000000Z",
+        "dda": {
+          "certificateIssued": false,
+          "ddaNotes": " "
+        },
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": 0,
+          "length": 0,
+          "width": 0
+        },
+        "dispensations": " ",
+        "frontAxleToRearAxle": 0,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "grossDesignWeight": 8200,
+        "grossGbWeight": 8200,
+        "grossKerbWeight": 6020,
+        "grossLadenWeight": 8045,
+        "lastUpdatedAt": "2022-01-10T16:37:51.000000Z",
+        "manufactureYear": 2006,
+        "maxTrainGbWeight": 0,
+        "microfilm": {
+          "microfilmDocumentType": "COIF Productional",
+          "microfilmRollNumber": "06086",
+          "microfilmSerialNumber": "0124"
+        },
+        "modelLiteral": null,
+        "noOfAxles": 2,
+        "numberOfSeatbelts": "24",
+        "numberOfWheelsDriven": 2,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2006-07-19",
+        "remarks": "27 TYPE APPROVED SEAT BELTS. 1 CREW SEAT.\\n",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 25,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": true,
+        "speedRestriction": 62,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 0,
+        "unladenWeight": 0,
+        "variantNumber": null,
+        "variantVersionNumber": null,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleType": "psv"
+      },
+      {
+        "approvalTypeNumber": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 124,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "speedCategorySymbol": "m",
+              "tyreCode": 758,
+              "tyreSize": "205/75-17.5"
+            },
+            "weights": {
+              "designWeight": 2800,
+              "gbWeight": 2800,
+              "kerbWeight": 0,
+              "ladenWeight": 0
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 122,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "speedCategorySymbol": "m",
+              "tyreCode": 758,
+              "tyreSize": "205/75-17.5"
+            },
+            "weights": {
+              "designWeight": 5600,
+              "gbWeight": 5600,
+              "kerbWeight": 0,
+              "ladenWeight": 0
+            }
+          }
+        ],
+        "bodyMake": "SITCAR",
+        "bodyModel": "BELUGA II",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "080202",
+        "brakes": {
+          "brakeCode": "080202",
+          "brakeCodeOriginal": "202",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 1288,
+            "secondaryBrakeForceA": 1811,
+            "serviceBrakeForceA": 3622
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 1000,
+            "secondaryBrakeForceB": 1562,
+            "serviceBrakeForceB": 3125
+          },
+          "dataTrBrakeOne": "2 axles F/R split",
+          "dataTrBrakeThree": "2 or 3 axle Parking brake on axle 2",
+          "dataTrBrakeTwo": "2 or 3 axle no separate secondary brake",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "MERCEDES",
+        "chassisModel": "815D",
+        "coifCertifierName": "A PRATT T/S 17",
+        "coifDate": "2006-07-04",
+        "coifSerialNumber": "177151",
+        "conversionRefNo": " ",
+        "createdAt": "2022-01-10T11:22:37.000000Z",
+        "dda": {
+          "certificateIssued": false,
+          "ddaNotes": " "
+        },
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": 0,
+          "length": 0,
+          "width": 0
+        },
+        "dispensations": " ",
+        "frontAxleToRearAxle": 0,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "grossDesignWeight": 8200,
+        "grossGbWeight": 8200,
+        "grossKerbWeight": 6250,
+        "grossLadenWeight": 8050,
+        "lastUpdatedAt": "2022-01-10T16:37:51.000000Z",
+        "manufactureYear": 2006,
+        "maxTrainGbWeight": 0,
+        "microfilm": {
+          "microfilmDocumentType": "COIF Productional",
+          "microfilmRollNumber": "06086",
+          "microfilmSerialNumber": "0124"
+        },
+        "modelLiteral": null,
+        "noOfAxles": 2,
+        "numberOfSeatbelts": "24",
+        "numberOfWheelsDriven": 2,
+        "reasonForCreation": "VTP5",
+        "recordCompleteness": "complete",
+        "regnDate": "2006-07-19",
+        "remarks": "22 TYPE APPROVED SEAT BELTS. 1 CREW SEAT.\\n",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 22,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": true,
+        "speedRestriction": 62,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 0,
+        "unladenWeight": 0,
+        "variantNumber": null,
+        "variantVersionNumber": null,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "small",
+        "vehicleType": "psv"
+      }
+    ]
   }
 ]
