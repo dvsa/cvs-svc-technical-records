@@ -48,6 +48,11 @@ dynamodb:
     params:
       convertEmptyValues: true
     table: cvs-${BRANCH}-technical-records
+  remote-v2:
+    params:
+      convertEmptyValues: true
+    table: cvs-${BRANCH}-flat-tech-records
+
 serverless:
   basePath: /${BRANCH}
   port: 3005

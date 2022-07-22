@@ -39,7 +39,7 @@ describe("The configuration service", () => {
         expect(DBConfig).toEqual(configService.getConfig().dynamodb["local-global"]);
       });
 
-      it("should return remote versions of the config by default", () => {
+      it("should return remote v1 versions of the config by default", () => {
         process.env.BRANCH = "CVSB-XXX";
         const configService = Configuration.getInstance();
         const functions = configService.getFunctions();
@@ -55,6 +55,25 @@ describe("The configuration service", () => {
         const DBConfig = configService.getDynamoDBConfig();
         const EndpointsConfig = configService.getEndpoints();
         expect(DBConfig).toEqual(configService.getConfig().dynamodb.remote);
+        expect(EndpointsConfig).toEqual(configService.getConfig().endpoints.remote);
+      });
+
+      it("should return remote v2 versions of the config by default", () => {
+        process.env.BRANCH = "CVSB-XXX";
+        const configService = Configuration.getInstance();
+        const functions = configService.getFunctions();
+        expect(functions.length).toEqual(7);
+        expect(functions[0].name).toEqual("getTechRecords");
+        expect(functions[1].name).toEqual("postTechRecords");
+        expect(functions[2].name).toEqual("updateTechRecords");
+        expect(functions[3].name).toEqual("updateTechRecordStatus");
+        expect(functions[4].name).toEqual("updateEuVehicleCategory");
+        expect(functions[5].name).toEqual("addProvisionalTechRecord");
+        expect(functions[6].name).toEqual("archiveTechRecordStatus");
+
+        const DBConfig = configService.getDynamoDBConfig("v2");
+        const EndpointsConfig = configService.getEndpoints();
+        expect(DBConfig).toEqual(configService.getConfig().dynamodb["remote-v2"]);
         expect(EndpointsConfig).toEqual(configService.getConfig().endpoints.remote);
       });
     });
