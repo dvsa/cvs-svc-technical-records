@@ -75,7 +75,7 @@ class Configuration {
    * Retrieves the DynamoDB config
    * @returns any
    */
-  public getDynamoDBConfig() {
+  public getDynamoDBConfig(apiVersion?: string) {
     if (!this.config.dynamodb) {
       throw new Error("DynamoDB config is not defined in the config file.");
     }
@@ -91,6 +91,9 @@ class Configuration {
         break;
       default:
         env = "remote";
+        if (apiVersion === "v2") {
+          env = "remote-v2";
+        }
     }
 
     return this.config.dynamodb[env];
