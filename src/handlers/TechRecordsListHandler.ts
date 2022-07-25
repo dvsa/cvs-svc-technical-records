@@ -1,10 +1,12 @@
 import TechRecordsDAO from "../models/TechRecordsDAO";
+import { LegacyKeyStructure, LegacyTechRecord } from "../../@Types/LegacyTechRecord";
 import { ISearchCriteria } from "../../@Types/ISearchCriteria";
 import { HTTPRESPONSE, SEARCHCRITERIA, STATUS } from "../assets/Enums";
 import HTTPError from "../models/HTTPError";
 import { cloneDeep } from "lodash";
-import { Vehicle } from "../../@Types/TechRecords";
+import { TechRecord, Vehicle } from "../../@Types/TechRecords";
 import { ErrorHandler } from "./ErrorHandler";
+import { IFlatTechRecordWrapper } from "../../@Types/IFlatTechRecordWrapper";
 
 export class TechRecordsListHandler<T extends Vehicle> {
   private readonly techRecordsDAO: TechRecordsDAO;
@@ -17,17 +19,18 @@ export class TechRecordsListHandler<T extends Vehicle> {
   public async getFormattedTechRecordsList(
     searchTerm: string,
     status: string,
-    searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL
+    searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL,
+    format?: string
   ): Promise<T[]> {
     try {
       // Formatting the object for lambda function
       let techRecordItems = await this.getTechRecordList(
         searchTerm,
         status,
-        searchCriteria
+        searchCriteria,
+        format
       );
       techRecordItems = this.formatTechRecordItemsForResponse(techRecordItems);
-
       return techRecordItems;
     } catch (error) {
       if (!(error instanceof HTTPError)) {
@@ -42,7 +45,8 @@ export class TechRecordsListHandler<T extends Vehicle> {
   public async getTechRecordList(
     searchTerm: string,
     status: string,
-    searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL
+    searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL,
+    format?: string
   ): Promise<T[]> {
       const data = await this.techRecordsDAO.getBySearchTerm(
           searchTerm,
@@ -51,14 +55,70 @@ export class TechRecordsListHandler<T extends Vehicle> {
       if (data.length === 0) {
         throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
       }
-      // Formatting the object for lambda function
       let techRecordItems: T[] = data as unknown as T[];
+
+      if (format && format === "FLAT") {
+        techRecordItems = this.flatToLegacy(techRecordItems as unknown as IFlatTechRecordWrapper[]);
+      }
+
+      // Formatting the object for lambda function
       if (status !== STATUS.ALL) {
         techRecordItems = this.filterTechRecordsByStatus(techRecordItems, status);
       }
       return techRecordItems;
   }
+  public nestItem = (record: LegacyKeyStructure, key: string, value: string | number | boolean | string[], position: number) => {
+    const idx = key.indexOf("_", position);
+    if (idx === -1) {
+      record[key.substring(position)] = value;
+      return;
+    }
+    const realKey = key.substring(position, idx);
+    const isArray = !isNaN(parseInt(key[idx + 1], 10));
+    if (!record[realKey.toString()]) {
+      if (isArray) {
+        record[realKey.toString()] = [];
+      } else {
+        record[realKey.toString()] = {};
+      }
+    }
+    this.nestItem(record[realKey.toString()] as LegacyKeyStructure, key, value, idx + 1);
+    return record;
+  }
 
+  public flatToLegacy(items: IFlatTechRecordWrapper[]) {
+    const searchResult: T[] = [];
+    // Sort response from DB into descending createdTimestamp order
+    items.sort((a,b) => {
+      return new Date(a.createdTimestamp).getTime() - new Date(b.createdTimestamp).getTime();
+    });
+
+    items.forEach((item) => {
+      const vehicle = {} as LegacyTechRecord;
+      vehicle.techRecord = [];
+      const legacyRecord = {} as LegacyKeyStructure;
+
+      for (const [key, value] of Object.entries(item)) {
+        if (key.indexOf("_") === -1 && !vehicle[key]) {
+          vehicle[key] = value;
+          continue;
+        }
+        this.nestItem(legacyRecord, key, value, 0);
+      }
+
+      vehicle.techRecord.push(legacyRecord);
+
+      // If multiple vehicles returned i.e. via partialVin search, then add to correct techRecord array...
+      const vehicleIndex = searchResult.findIndex((result) => result.systemNumber === vehicle.systemNumber);
+
+      if (vehicleIndex) {
+        searchResult[vehicleIndex].techRecord.push(vehicle.techRecord as unknown as TechRecord);
+      } else {
+        searchResult.push(vehicle as unknown as T);
+      }
+    });
+    return searchResult;
+  }
   public formatTechRecordItemForResponse(techRecordItem: T) {
     // Adding primary and secondary VRMs in the same array
     const vrms = [];
