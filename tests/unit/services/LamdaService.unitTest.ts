@@ -1,6 +1,6 @@
 import AWS from "aws-sdk";
 
-import {LambdaService} from "./LambdaService";
+import {LambdaService} from "../../../src/services/LambdaService";
 
 describe("LambdaService", () => {
 

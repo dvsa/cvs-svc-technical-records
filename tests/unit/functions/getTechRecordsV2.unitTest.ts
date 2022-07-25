@@ -1,6 +1,6 @@
-import {getTechRecords} from "../../src/functions/getTechRecords";
-import TechRecordsService from "../../src/services/TechRecordsService";
-jest.mock("../../src/services/TechRecordsService");
+import {getTechRecordsV2} from "../../../src/functions/getTechRecordsV2";
+import TechRecordsService from "../../../src/services/TechRecordsService";
+jest.mock("../../../src/services/TechRecordsService");
 
 describe("getTechRecords Function", () => {
   describe("parsing query parameters", () => {
@@ -15,7 +15,7 @@ describe("getTechRecords Function", () => {
       };
       const mock = jest.fn().mockResolvedValue([]);
       TechRecordsService.prototype.getTechRecordsList = mock;
-      getTechRecords(event);
+      getTechRecordsV2(event);
       it("defaults missing searchCriteria to ALL", () => {
         expect(mock.mock.calls[0][2]).toEqual("all");
       });
@@ -36,7 +36,7 @@ describe("getTechRecords Function", () => {
         };
         const mock = jest.fn().mockResolvedValue([]);
         TechRecordsService.prototype.getTechRecordsList = mock;
-        getTechRecords(event);
+        getTechRecordsV2(event);
         expect(mock.mock.calls[0][2]).toEqual("vrm");
       });
       it("passes on specified status value", () => {
@@ -50,7 +50,7 @@ describe("getTechRecords Function", () => {
         };
         const mock = jest.fn().mockResolvedValue([]);
         TechRecordsService.prototype.getTechRecordsList = mock;
-        getTechRecords(event);
+        getTechRecordsV2(event);
         expect(mock.mock.calls[0][1]).toEqual("current");
       });
     });
@@ -67,7 +67,7 @@ describe("getTechRecords Function", () => {
         };
         const mock = jest.fn().mockResolvedValue([]);
         TechRecordsService.prototype.getTechRecordsList = mock;
-        getTechRecords(event);
+        getTechRecordsV2(event);
         expect(mock.mock.calls[0][1]).toEqual("rhubarb");
         expect(mock.mock.calls[0][2]).toEqual("searchOption");
       });

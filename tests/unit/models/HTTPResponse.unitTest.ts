@@ -1,4 +1,4 @@
-import HTTPResponse from "../../src/models/HTTPResponse";
+import HTTPResponse from "../../../src/models/HTTPResponse";
 
 describe("HTTP Response", () => {
   describe("when passed headers", () => {

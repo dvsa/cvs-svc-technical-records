@@ -1,17 +1,17 @@
 /* global describe context it */
-import TechRecordsService from "../../src/services/TechRecordsService";
-import HTTPError from "../../src/models/HTTPError";
-import records from "../resources/technical-records.json";
-import {ERRORS, EU_VEHICLE_CATEGORY, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../../src/assets/Enums";
-import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import TechRecordsService from "../../../src/services/TechRecordsService";
+import HTTPError from "../../../src/models/HTTPError";
+import records from "../../resources/technical-records.json";
+import {ERRORS, EU_VEHICLE_CATEGORY, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../../../src/assets/Enums";
+import ITechRecordWrapper from "../../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
-import HTTPResponse from "../../src/models/HTTPResponse";
-import Configuration from "../../src/utils/Configuration";
-import IMsUserDetails from "../../@Types/IUserDetails";
-import {HeavyGoodsVehicle, PublicServiceVehicle, Trailer} from "../../@Types/TechRecords";
-import {NumberGenerator} from "../../src/handlers/NumberGenerator";
-import {TechRecordsListHandler} from "../../src/handlers/TechRecordsListHandler";
-import {TechRecordStatusHandler} from "../../src/handlers/TechRecordStatusHandler";
+import HTTPResponse from "../../../src/models/HTTPResponse";
+import Configuration from "../../../src/utils/Configuration";
+import IMsUserDetails from "../../../@Types/IUserDetails";
+import {HeavyGoodsVehicle, PublicServiceVehicle, Trailer} from "../../../@Types/TechRecords";
+import {NumberGenerator} from "../../../src/handlers/NumberGenerator";
+import {TechRecordsListHandler} from "../../../src/handlers/TechRecordsListHandler";
+import {TechRecordStatusHandler} from "../../../src/handlers/TechRecordStatusHandler";
 
 const msUserDetails: IMsUserDetails = {
   msUser: "dorel",

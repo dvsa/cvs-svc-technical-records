@@ -4,13 +4,13 @@ import TechRecordsDao, {
   isTrailerSearch,
   isVinSearch,
   isVrmSearch
-} from "../../src/models/TechRecordsDAO";
+} from "../../../src/models/TechRecordsDAO";
 import AWS from "aws-sdk";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
-import mockData from "../resources/technical-records.json";
+import mockData from "../../resources/technical-records.json";
 import {cloneDeep} from "lodash";
-import {SEARCHCRITERIA} from "../../src/assets/Enums";
-import Configuration from "../../src/utils/Configuration";
+import {SEARCHCRITERIA} from "../../../src/assets/Enums";
+import Configuration from "../../../src/utils/Configuration";
 
 describe("TechRecordsDAO", () => {
   describe("is Search Type functions", () => {

@@ -8,7 +8,7 @@ import {isValidSearchCriteria} from "../utils/validations/PayloadValidation";
 import Configuration from "../utils/Configuration";
 import AWS from "aws-sdk";
 
-const getTechRecords = (event: any) => {
+const getTechRecordsV2 = (event: any) => {
     const dbConfig = Configuration.getInstance().getDynamoDBConfig("V2");
     const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
     const techRecordsService = new TechRecordsService(new TechRecordsDAO(dbClient, dbConfig));
@@ -49,4 +49,4 @@ const getTechRecords = (event: any) => {
         });
 };
 
-export {getTechRecords};
+export {getTechRecordsV2};
