@@ -3,11 +3,13 @@ import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import IMsUserDetails from "../../@Types/IUserDetails";
 import {formatErrorMessage} from "../utils/formatErrorMessage";
-
+import Configuration from "../utils/Configuration";
+import AWS from "aws-sdk";
 
 const addProvisionalTechRecord = async (event: any) => {
-  const techRecordsDAO = new TechRecordsDAO();
-  const techRecordsService = new TechRecordsService(techRecordsDAO);
+  const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+  const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+  const techRecordsService = new TechRecordsService(new TechRecordsDAO(dbClient, dbConfig));
 
   const sysNum: string = event.pathParameters.systemNumber;
   const techRec = event.body ? event.body.techRecord : null;

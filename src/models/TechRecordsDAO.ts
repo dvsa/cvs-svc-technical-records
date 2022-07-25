@@ -10,7 +10,6 @@ import { Vehicle, Trailer } from "../../@Types/TechRecords";
 import {PromiseResult} from "aws-sdk/lib/request";
 import {AWSError} from "aws-sdk/lib/error";
 
-const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
 let AWS: { DynamoDB: { DocumentClient: new (arg0: any) => DocumentClient } };
 if (process.env._X_AMZN_TRACE_ID) {
@@ -20,13 +19,14 @@ if (process.env._X_AMZN_TRACE_ID) {
   AWS = require("aws-sdk");
 }
 /* tslint:enable */
-const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
 
 class TechRecordsDAO {
+  private dbClient: DocumentClient;
   private readonly tableName: string;
   private static lambdaInvokeEndpoints: any;
 
-  constructor() {
+  constructor(dbClient: DocumentClient, dbConfig: any) {
+    this.dbClient = dbClient;
     this.tableName = dbConfig.table;
 
     if (!TechRecordsDAO.lambdaInvokeEndpoints) {
@@ -120,7 +120,7 @@ class TechRecordsDAO {
       allData: ITechRecordWrapper[] = []
   ): Promise<ITechRecordWrapper[]> {
 
-    const data: PromiseResult<DocumentClient.QueryOutput, AWSError> = await dbClient.query(params).promise();
+    const data: PromiseResult<DocumentClient.QueryOutput, AWSError> = await this.dbClient.query(params).promise();
 
     if (data.Items && data.Items.length > 0) {
       allData = [...allData, ...(data.Items as ITechRecordWrapper[])];
@@ -145,7 +145,7 @@ class TechRecordsDAO {
         ":systemNumber": systemNumber,
       },
     };
-    return dbClient.put(query).promise();
+    return this.dbClient.put(query).promise();
   }
 
   public updateSingle<T extends Vehicle>(vehicle: T) {
@@ -186,7 +186,7 @@ class TechRecordsDAO {
         ":trailerId": (vehicle as unknown as Trailer).trailerId,
       });
     }
-    return dbClient.update(query).promise();
+    return this.dbClient.update(query).promise();
   }
 
   public getTrailerId = () =>
@@ -229,7 +229,7 @@ class TechRecordsDAO {
       });
     });
 
-    return dbClient.batchWrite(params).promise();
+    return this.dbClient.batchWrite(params).promise();
   }
 
   public deleteMultiple(primaryKeysToBeDeleted: any) {
@@ -248,7 +248,7 @@ class TechRecordsDAO {
       }
     );
 
-    return dbClient.batchWrite(params).promise();
+    return this.dbClient.batchWrite(params).promise();
   }
 
   public generatePartialParams(): any {

@@ -5,11 +5,13 @@ import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsService from "../services/TechRecordsService";
 import {metaData} from "../utils/metadataEnums";
 import {isValidSearchCriteria} from "../utils/validations/PayloadValidation";
-
+import Configuration from "../utils/Configuration";
+import AWS from "aws-sdk";
 
 const getTechRecords = (event: any) => {
-  const techRecordsDAO = new TechRecordsDAO();
-  const techRecordsService = new TechRecordsService(techRecordsDAO);
+  const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+  const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+  const techRecordsService = new TechRecordsService(new TechRecordsDAO(dbClient, dbConfig));
 
   const status: string = (event.queryStringParameters?.status) ? event.queryStringParameters.status : STATUS.PROVISIONAL_OVER_CURRENT;
   const searchCriteria: ISearchCriteria = (event.queryStringParameters?.searchCriteria) ? event.queryStringParameters.searchCriteria : SEARCHCRITERIA.ALL;

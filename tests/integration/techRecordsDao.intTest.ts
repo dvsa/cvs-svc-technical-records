@@ -3,8 +3,14 @@ import mockData from "../resources/technical-records.json";
 import {cloneDeep} from "lodash";
 import {emptyDatabase, populateDatabase} from "../util/dbOperations";
 import {PublicServiceVehicle} from "../../@Types/TechRecords";
+import Configuration from "../../src/utils/Configuration";
+import AWS from "aws-sdk";
 
 describe("TechRecordsDAO", () => {
+  let techRecordsDao: TechRecordsDao;
+  const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+  const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+
   beforeAll(async () => {
     // await emptyDatabase();
     await populateDatabase();
@@ -12,6 +18,7 @@ describe("TechRecordsDAO", () => {
 
   beforeEach(async () => {
     // await populateDatabase();
+    techRecordsDao = new TechRecordsDao(dbClient, dbConfig);
   });
 
   afterEach(async () => {
@@ -33,7 +40,6 @@ describe("TechRecordsDAO", () => {
         techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
         // techRecord.trailerId = Math.floor(100000 + Math.random() * 900000).toString();
         techRecord.techRecord[0].bodyType.description = "new tech-record";
-        const techRecordsDao = new TechRecordsDao();
         const data: any = await techRecordsDao.createSingle(techRecord);
         expect(Object.keys(data).length).toEqual(0);
       });
@@ -47,7 +53,6 @@ describe("TechRecordsDAO", () => {
         techRecord.partialVin = "012345";
         techRecord.primaryVrm = "JY58FPP";
         techRecord.techRecord[0].bodyType.description = "new tech record";
-        const techRecordsDao = new TechRecordsDao();
         try {
           expect(await techRecordsDao.createSingle(techRecord)).toThrowError();
         } catch (errorResponse) {
@@ -66,7 +71,6 @@ describe("TechRecordsDAO", () => {
         techRecord.techRecord[0].grossGbWeight = 1255;
         techRecord.techRecord[0].bodyType.description = "updated body type";
 
-        const techRecordsDao = new TechRecordsDao();
         const updatedTechRecord: any = await techRecordsDao.updateSingle(techRecord);
         expect(updatedTechRecord.Attributes).not.toEqual(undefined);
         expect(updatedTechRecord.Attributes.techRecord[0].grossGbWeight).toEqual(1255);
@@ -81,7 +85,6 @@ describe("TechRecordsDAO", () => {
         techRecord.techRecord[0].grossGbWeight = 1255;
         techRecord.techRecord[0].bodyType.description = "updated body type";
 
-        const techRecordsDao = new TechRecordsDao();
         techRecord.partialVin = "555555";
         techRecord.vin = "ABCDEFGHS2340294";
         try {

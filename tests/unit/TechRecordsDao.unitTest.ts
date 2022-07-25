@@ -10,6 +10,7 @@ import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 import mockData from "../resources/technical-records.json";
 import {cloneDeep} from "lodash";
 import {SEARCHCRITERIA} from "../../src/assets/Enums";
+import Configuration from "../../src/utils/Configuration";
 
 describe("TechRecordsDAO", () => {
   describe("is Search Type functions", () => {
@@ -133,6 +134,12 @@ describe("TechRecordsDAO", () => {
     });
   });
   context("getBySearchTerm", () => {
+    let techRecordsDao: TechRecordsDao;
+    beforeEach(() => {
+      const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+      const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+      techRecordsDao = new TechRecordsDao(dbClient, dbConfig);
+    });
     context("builds correct request", () => {
       beforeEach(() => {
         jest.resetModules();
@@ -160,7 +167,6 @@ describe("TechRecordsDAO", () => {
           },
           IndexName: "TrailerIdIndex"
         };
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.getBySearchTerm("Q000001", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
@@ -179,7 +185,6 @@ describe("TechRecordsDAO", () => {
           IndexName: "TrailerIdIndex"
         };
 
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.getBySearchTerm("12345678", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
@@ -198,7 +203,6 @@ describe("TechRecordsDAO", () => {
           }
         };
 
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.getBySearchTerm("1234567890", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
@@ -217,7 +221,6 @@ describe("TechRecordsDAO", () => {
           }
         };
 
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.getBySearchTerm("123456", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
@@ -236,7 +239,6 @@ describe("TechRecordsDAO", () => {
           IndexName: "VRMIndex"
         };
 
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.getBySearchTerm("1234567A", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
@@ -254,7 +256,6 @@ describe("TechRecordsDAO", () => {
           },
           IndexName: "VRMIndex"
         };
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.getBySearchTerm("67A", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
@@ -270,7 +271,6 @@ describe("TechRecordsDAO", () => {
           ExpressionAttributeValues: {},
         };
 
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.getBySearchTerm("7A", SEARCHCRITERIA.ALL);
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -288,7 +288,6 @@ describe("TechRecordsDAO", () => {
           }
         };
 
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.getBySearchTerm("abcd12345Nm", SEARCHCRITERIA.ALL);
 
         expect(stub).toStrictEqual(expectedCall);
@@ -297,6 +296,12 @@ describe("TechRecordsDAO", () => {
   });
 
   context("createSingle", () => {
+    let techRecordsDao: TechRecordsDao;
+    beforeEach(() => {
+      const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+      const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+      techRecordsDao = new TechRecordsDao(dbClient, dbConfig);
+    });
     context("builds correct request", () => {
       beforeEach(() => {
         jest.resetModules();
@@ -324,7 +329,6 @@ describe("TechRecordsDAO", () => {
             ":systemNumber": "11000001"
           }
         };
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.createSingle(techRecord);
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -343,7 +347,6 @@ describe("TechRecordsDAO", () => {
             ":systemNumber": undefined
           }
         };
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.createSingle(techRecord);
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -351,8 +354,12 @@ describe("TechRecordsDAO", () => {
   });
 
   context("updateSingle", () => {
+    let techRecordsDao: TechRecordsDao;
     beforeEach(() => {
       jest.resetModules();
+      const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+      const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+      techRecordsDao = new TechRecordsDao(dbClient, dbConfig);
     });
     // Mock once
     let stub: any = null;
@@ -386,7 +393,6 @@ describe("TechRecordsDAO", () => {
           },
           ReturnValues: "ALL_NEW"
         };
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.updateSingle(techRecord);
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -414,7 +420,6 @@ describe("TechRecordsDAO", () => {
           },
           ReturnValues: "ALL_NEW"
         };
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.updateSingle(techRecord);
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -442,7 +447,6 @@ describe("TechRecordsDAO", () => {
           },
           ReturnValues: "ALL_NEW"
         };
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.updateSingle(techRecord);
         expect(stub).toStrictEqual(expectedCall);
       });
@@ -470,7 +474,6 @@ describe("TechRecordsDAO", () => {
           },
           ReturnValues: "ALL_NEW"
         };
-        const techRecordsDao = new TechRecordsDao();
         await techRecordsDao.updateSingle(techRecord);
         expect(stub).toStrictEqual(expectedCall);
       });

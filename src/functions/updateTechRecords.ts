@@ -3,10 +3,13 @@ import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import {formatErrorMessage} from "../utils/formatErrorMessage";
 import {ERRORS, STATUS} from "../assets/Enums";
+import AWS from "aws-sdk";
+import Configuration from "../utils/Configuration";
 
 const updateTechRecords = async (event: any) => {
-  const techRecordsDAO = new TechRecordsDAO();
-  const techRecordsService = new TechRecordsService(techRecordsDAO);
+  const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+  const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+  const techRecordsService = new TechRecordsService(new TechRecordsDAO(dbClient, dbConfig));
 
   const techRec = event.body ? event.body.techRecord : null;
   const msUserDetails = event.body ? event.body.msUserDetails : null;

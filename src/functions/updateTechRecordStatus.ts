@@ -3,9 +3,13 @@ import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import {STATUS, HTTPRESPONSE} from "../assets/Enums";
 import {TechRecordStatusHandler} from "../handlers/TechRecordStatusHandler";
+import Configuration from "../utils/Configuration";
+import AWS from "aws-sdk";
 
 export async function updateTechRecordStatus(event: any) {
-    const techRecordsService = new TechRecordsService(new TechRecordsDAO());
+    const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+    const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+    const techRecordsService = new TechRecordsService(new TechRecordsDAO(dbClient, dbConfig));
 
     const systemNumber: string = event.pathParameters.systemNumber;
     const testStatus: string = event.queryStringParameters!.testStatus;

@@ -2,9 +2,13 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import { EU_VEHICLE_CATEGORY, HTTPRESPONSE } from "../assets/Enums";
+import Configuration from "../utils/Configuration";
+import AWS from "aws-sdk";
 
 export async function updateEuVehicleCategory(event: any) {
-    const techRecordsService = new TechRecordsService(new TechRecordsDAO());
+    const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+    const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+    const techRecordsService = new TechRecordsService(new TechRecordsDAO(dbClient, dbConfig));
 
     const systemNumber: string = event.pathParameters.systemNumber;
     const createdById: string = event.queryStringParameters ? event.queryStringParameters.createdById : undefined;
