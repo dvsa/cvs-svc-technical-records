@@ -39,6 +39,10 @@ custom:
         sources:
           - table: cvs-local-technical-records
             sources: [./tests/resources/technical-records.json]
+      flat-tech-records:
+        sources:
+          - table: cvs-local-flat-tech-records
+            sources: [./tests/resources/flat-tech-records.json]
     stages:
       - dev
       - test
@@ -277,6 +281,116 @@ resources:
                 - vin
                 - techRecord
                 - trailerId
+              ProjectionType: INCLUDE
+            ProvisionedThroughput:
+              ReadCapacityUnits: "1"
+              WriteCapacityUnits: "1"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+    FlatTechRecords:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: cvs-local-flat-tech-records
+        AttributeDefinitions:
+          - AttributeName: partialVin
+            AttributeType: S
+          - AttributeName: vin
+            AttributeType: S
+          - AttributeName: systemNumber
+            AttributeType: S
+          - AttributeName: primaryVrm
+            AttributeType: S
+          - AttributeName: trailerId
+            AttributeType: S
+          - AttributeName: createdTimestamp
+            AttributeType: S
+        KeySchema:
+          - AttributeName: systemNumber
+            KeyType: HASH
+          - AttributeName: createdTimestamp
+            KeyType: RANGE
+        GlobalSecondaryIndexes:
+          - IndexName: VRMIndex
+            KeySchema:
+              - AttributeName: primaryVrm
+                KeyType: HASH
+            Projection:
+              NonKeyAttributes:
+                - primaryVrm
+                - createdTimestamp
+                - secondaryVrms
+                - systemNumber
+                - partialVin
+                - vin
+                - trailerId
+                - techRecord_chassisMake
+                - techRecord_chassisModel
+                - techRecord_manufactureYear
+                - techRecord_vehicleType
+              ProjectionType: INCLUDE
+            ProvisionedThroughput:
+              ReadCapacityUnits: "1"
+              WriteCapacityUnits: "1"
+          - IndexName: TrailerIdIndex
+            KeySchema:
+              - AttributeName: trailerId
+                KeyType: HASH
+            Projection:
+              NonKeyAttributes:
+                - primaryVrm
+                - createdTimestamp
+                - secondaryVrms
+                - systemNumber
+                - partialVin
+                - vin
+                - trailerId
+                - techRecord_chassisMake
+                - techRecord_chassisModel
+                - techRecord_manufactureYear
+                - techRecord_vehicleType
+              ProjectionType: INCLUDE
+            ProvisionedThroughput:
+              ReadCapacityUnits: "1"
+              WriteCapacityUnits: "1"
+          - IndexName: VinIndex
+            KeySchema:
+              - AttributeName: vin
+                KeyType: HASH
+            Projection:
+              NonKeyAttributes:
+                - primaryVrm
+                - createdTimestamp
+                - secondaryVrms
+                - systemNumber
+                - partialVin
+                - vin
+                - trailerId
+                - techRecord_chassisMake
+                - techRecord_chassisModel
+                - techRecord_manufactureYear
+                - techRecord_vehicleType
+              ProjectionType: INCLUDE
+            ProvisionedThroughput:
+              ReadCapacityUnits: "1"
+              WriteCapacityUnits: "1"
+          - IndexName: PartialVinIndex
+            KeySchema:
+              - AttributeName: partialVin
+                KeyType: HASH
+            Projection:
+              NonKeyAttributes:
+                - primaryVrm
+                - createdTimestamp
+                - secondaryVrms
+                - systemNumber
+                - partialVin
+                - vin
+                - trailerId
+                - techRecord_chassisMake
+                - techRecord_chassisModel
+                - techRecord_manufactureYear
+                - techRecord_vehicleType
               ProjectionType: INCLUDE
             ProvisionedThroughput:
               ReadCapacityUnits: "1"
