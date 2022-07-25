@@ -46,12 +46,14 @@ class TechRecordsService {
   public getTechRecordsList(
     searchTerm: string,
     status: string,
-    searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL
+    searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL,
+    format?: string
   ): Promise<Vehicle[]> {
     return this.techRecordsListHandler.getFormattedTechRecordsList(
       searchTerm,
       status,
-      searchCriteria
+      searchCriteria,
+      format
     );
   }
 
