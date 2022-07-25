@@ -1,8 +1,8 @@
 import {cloneDeep} from "lodash";
-import mockData from "../resources/technical-records.json";
-import {computeRecordCompleteness} from "../../src/utils/record-completeness/ComputeRecordCompleteness";
-import HTTPError from "../../src/models/HTTPError";
-import {ERRORS, RECORD_COMPLETENESS_ENUM} from "../../src/assets/Enums";
+import mockData from "../../resources/technical-records.json";
+import {computeRecordCompleteness} from "../../../src/utils/record-completeness/ComputeRecordCompleteness";
+import HTTPError from "../../../src/models/HTTPError";
+import {ERRORS, RECORD_COMPLETENESS_ENUM} from "../../../src/assets/Enums";
 
 describe("Record completeness for systemNumber and Vin", () => {
   let techRecord: any;

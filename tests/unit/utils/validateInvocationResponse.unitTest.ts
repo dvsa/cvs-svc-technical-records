@@ -1,5 +1,5 @@
 /* global describe context it */
-import {validateInvocationResponse} from "../../src/utils/validateInvocationResponse";
+import {validateInvocationResponse} from "../../../src/utils/validateInvocationResponse";
 
 describe("validateInvocationResponse", () => {
 

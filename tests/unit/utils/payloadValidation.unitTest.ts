@@ -1,10 +1,10 @@
 import {cloneDeep} from "lodash";
-import mockData from "../resources/technical-records.json";
-import ITechRecord from "../../@Types/ITechRecord";
-import * as fromValidation from "../../src/utils/validations";
-import {BODY_TYPE_DESCRIPTION, VEHICLE_CLASS_DESCRIPTION, ERRORS} from "../../src/assets/Enums";
-import Configuration from "../../src/utils/Configuration";
-import HTTPError from "../../src/models/HTTPError";
+import mockData from "../../resources/technical-records.json";
+import ITechRecord from "../../../@Types/ITechRecord";
+import * as fromValidation from "../../../src/utils/validations";
+import {BODY_TYPE_DESCRIPTION, VEHICLE_CLASS_DESCRIPTION, ERRORS} from "../../../src/assets/Enums";
+import Configuration from "../../../src/utils/Configuration";
+import HTTPError from "../../../src/models/HTTPError";
 
 const createPayload = () => {
   const techRec: any = cloneDeep(mockData[74]);

@@ -1,8 +1,8 @@
-import TechRecordsService from "../../src/services/TechRecordsService";
-import HTTPError from "../../src/models/HTTPError";
-import records from "../resources/technical-records.json";
-import ITechRecord from "../../@Types/ITechRecord";
-import {HTTPRESPONSE} from "../../src/assets/Enums";
+import TechRecordsService from "../../../src/services/TechRecordsService";
+import HTTPError from "../../../src/models/HTTPError";
+import records from "../../resources/technical-records.json";
+import ITechRecord from "../../../@Types/ITechRecord";
+import {HTTPRESPONSE} from "../../../src/assets/Enums";
 
 describe("insertTechRecordsList", () => {
   context("database call inserts items", () => {

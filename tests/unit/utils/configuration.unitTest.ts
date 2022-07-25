@@ -1,4 +1,4 @@
-import Configuration from "../../src/utils/Configuration";
+import Configuration from "../../../src/utils/Configuration";
 
 describe("The configuration service", () => {
     context("with good config file", () => {

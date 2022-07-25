@@ -1,7 +1,7 @@
-import TechRecordsService from "../../src/services/TechRecordsService";
-import HTTPError from "../../src/models/HTTPError";
-import techRecords from "../resources/technical-records.json";
-import {HTTPRESPONSE} from "../../src/assets/Enums";
+import TechRecordsService from "../../../src/services/TechRecordsService";
+import HTTPError from "../../../src/models/HTTPError";
+import techRecords from "../../resources/technical-records.json";
+import {HTTPRESPONSE} from "../../../src/assets/Enums";
 
 const recordIds = techRecords.map((record) => [record.partialVin, record.vin]) as string[][];
 

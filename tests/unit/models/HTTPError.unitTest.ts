@@ -1,4 +1,4 @@
-import HTTPError from "../../src/models/HTTPError";
+import HTTPError from "../../../src/models/HTTPError";
 
 describe("HTTP Error", () => {
   describe("when passed content", () => {
