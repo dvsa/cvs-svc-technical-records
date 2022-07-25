@@ -4,9 +4,13 @@ import HTTPResponse from "../models/HTTPResponse";
 import {ERRORS} from "../assets/Enums";
 import {formatErrorMessage} from "../utils/formatErrorMessage";
 // import {Vehicle, TechRecord} from "../../@Types/TechRecords";
+import Configuration from "../utils/Configuration";
+import AWS from "aws-sdk";
 
 export async function archiveTechRecordStatus(event: any) {
-  const techRecordsService = new TechRecordsService(new TechRecordsDAO());
+  const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+  const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+  const techRecordsService = new TechRecordsService(new TechRecordsDAO(dbClient, dbConfig));
 
   const systemNumber: string = event.pathParameters.systemNumber;
   const techRec = event.body && event.body.techRecord;

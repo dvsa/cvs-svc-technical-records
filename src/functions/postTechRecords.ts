@@ -3,10 +3,13 @@ import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import {populatePartialVin} from "../utils/validations/ValidationUtils";
 import { HTTPRESPONSE } from "../assets/Enums";
+import Configuration from "../utils/Configuration";
+import AWS from "aws-sdk";
 
 const postTechRecords = async (event: any) => {
-  const techRecordsDAO = new TechRecordsDAO();
-  const techRecordsService = new TechRecordsService(techRecordsDAO);
+  const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+  const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+  const techRecordsService = new TechRecordsService(new TechRecordsDAO(dbClient, dbConfig));
 
   const techRec = event.body ? event.body.techRecord : null;
   const msUserDetails = event.body ? event.body.msUserDetails : null;

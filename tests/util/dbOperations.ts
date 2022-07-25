@@ -1,10 +1,15 @@
 import TechRecordsDAO from "../../src/models/TechRecordsDAO";
 import techRecords from "../resources/technical-records.json";
 import * as _ from "lodash";
+import Configuration from "../../src/utils/Configuration";
+import AWS from "aws-sdk";
+
+const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
 
 export const populateDatabase = async () => {
     const mockBuffer = _.cloneDeep(techRecords);
-    const techRecordsDAO = new TechRecordsDAO();
+    const techRecordsDAO = new TechRecordsDAO(dbClient, dbConfig);
     const batches = [];
     while (mockBuffer.length > 0) {
         batches.push(mockBuffer.splice(0, 25));
@@ -17,7 +22,7 @@ export const populateDatabase = async () => {
 };
 
 export const emptyDatabase = async () => {
-    const techRecordsDAO = new TechRecordsDAO();
+    const techRecordsDAO = new TechRecordsDAO(dbClient, dbConfig);
     const mockBuffer = _.cloneDeep(techRecords).map((record) => [record.partialVin, record.vin]);
     const batches = [];
     while (mockBuffer.length > 0) {
