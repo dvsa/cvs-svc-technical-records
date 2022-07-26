@@ -2,6 +2,7 @@
 import TechRecordsService from "../../../src/services/TechRecordsService";
 import HTTPError from "../../../src/models/HTTPError";
 import records from "../../resources/technical-records.json";
+import flatRecords from "../../resources/flat-tech-records.json"
 import {ERRORS, EU_VEHICLE_CATEGORY, HTTPRESPONSE, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../../../src/assets/Enums";
 import ITechRecordWrapper from "../../../@Types/ITechRecordWrapper";
 import {cloneDeep} from "lodash";
@@ -19,26 +20,61 @@ const msUserDetails: IMsUserDetails = {
 };
 
 describe("getTechRecordsList", () => {
-  afterEach(() => {
+  beforeEach(() => {
     jest.restoreAllMocks();
   });
-  context("when db call returns data", () => {
+  context("when flat-tech-records db call returns data", () => {
     it("should return a populated response", async () => {
-      const techRecord = cloneDeep(records[0]);
+      const legacyDynamoRecord = records[0]
+      const flatDynamoRecord = flatRecords[110]
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
-            return Promise.resolve([techRecord]);
+            return Promise.resolve([flatDynamoRecord]);
           }
         };
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
 
-      const returnedRecords: any = await techRecordsService.getTechRecordsList("1B7GG36N12S678410", STATUS.CURRENT, SEARCHCRITERIA.ALL);
+      const returnedRecords: any = await techRecordsService.getTechRecordsList("XMGDE02FS0H012345", STATUS.CURRENT, SEARCHCRITERIA.ALL, 'flat-tech-records');
       expect(returnedRecords).not.toEqual(undefined);
       expect(returnedRecords).not.toEqual({});
-      expect(returnedRecords).toEqual(Array.of(techRecord));
+      expect(returnedRecords.length).toEqual(1);
+      expect(returnedRecords[0].techRecord).toEqual(legacyDynamoRecord.techRecord);
+      expect(returnedRecords[0].vrms).not.toEqual(undefined);
+      expect(returnedRecords[0].vrms[0]).toEqual({vrm: 'JY58FPP', isPrimary: true});
+      expect(returnedRecords[0].vrms[1]).toEqual({vrm: '609859Z', isPrimary: false});
+      expect(returnedRecords[0].partialVin).toEqual(undefined);
+      expect(returnedRecords[0].primaryVrm).toEqual(undefined);
+      expect(returnedRecords[0].secondaryVrms).toEqual(undefined);
+    });
+  });
+
+  context("when technical-records db call returns data", () => {
+    it("should return a populated response", async () => {
+      const dynamoRecord = records[0]
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve([dynamoRecord]);
+          }
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+
+      const returnedRecords: any = await techRecordsService.getTechRecordsList("XMGDE02FS0H012345", STATUS.CURRENT, SEARCHCRITERIA.ALL);
+      expect(returnedRecords).not.toEqual(undefined);
+      expect(returnedRecords).not.toEqual({});
+      expect(returnedRecords.length).toEqual(1)
+      expect(returnedRecords[0].techRecord).toEqual(dynamoRecord.techRecord);
+      expect(returnedRecords[0].vrms).not.toEqual(undefined);
+      expect(returnedRecords[0].vrms[0]).toEqual({vrm: 'JY58FPP', isPrimary: true});
+      expect(returnedRecords[0].vrms[1]).toEqual({vrm: '609859Z', isPrimary: false});
+      expect(returnedRecords[0].partialVin).toEqual(undefined);
+      expect(returnedRecords[0].primaryVrm).toEqual(undefined);
+      expect(returnedRecords[0].secondaryVrms).toEqual(undefined);
     });
   });
 

@@ -2,7 +2,7 @@ export type IFlatTechRecordWrapper = {
     primaryVrm?: string;
     secondaryVrms?: string[];
     vin: string;
-    createdTimestamp: string;
+    createdTimestamp?: string;
     systemNumber: string;
     partialVin?: string;
     trailerId?: string;
