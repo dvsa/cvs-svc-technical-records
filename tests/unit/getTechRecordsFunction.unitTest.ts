@@ -1,5 +1,7 @@
 import {getTechRecords} from "../../src/functions/getTechRecords";
 import TechRecordsService from "../../src/services/TechRecordsService";
+import {HTTPRESPONSE} from "../../src/assets";
+import HTTPError from "../../src/models/HTTPError";
 jest.mock("../../src/services/TechRecordsService");
 
 describe("getTechRecords Function", () => {
@@ -70,6 +72,71 @@ describe("getTechRecords Function", () => {
         getTechRecords(event);
         expect(mock.mock.calls[0][1]).toEqual("rhubarb");
         expect(mock.mock.calls[0][2]).toEqual("searchOption");
+      });
+    });
+
+    describe("missing path param", () => {
+      it("should trigger validation when path parameter search identifier is null", () => {
+        const event = {
+          pathParameters: {
+            searchIdentifier: null
+          },
+        };
+        const mock = jest.fn().mockResolvedValue([]);
+        TechRecordsService.prototype.getTechRecordsList = mock;
+        const result = getTechRecords(event);
+        expect(mock).not.toBeCalled();
+        result.catch((x) => {
+          expect(x).toBeInstanceOf(HTTPError);
+          expect(x.statusCode).toEqual(400);
+          expect(x.body).toEqual(JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS));
+        });
+      });
+      it("should trigger validation when path parameter search identifier is empty string", () => {
+        const event = {
+          pathParameters: {
+            searchIdentifier: " "
+          },
+        };
+        const mock = jest.fn().mockResolvedValue([]);
+        TechRecordsService.prototype.getTechRecordsList = mock;
+        const result = getTechRecords(event);
+        expect(mock).not.toBeCalled();
+        result.catch((x) => {
+          expect(x).toBeInstanceOf(HTTPError);
+          expect(x.statusCode).toEqual(400);
+          expect(x.body).toEqual(JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS));
+        });
+      });
+      it("should trigger validation when path parameter search identifier is undefined", () => {
+        const event = {
+          pathParameters: {
+            searchIdentifier: undefined
+          },
+        };
+        const mock = jest.fn().mockResolvedValue([]);
+        TechRecordsService.prototype.getTechRecordsList = mock;
+        const result = getTechRecords(event);
+        expect(mock).not.toBeCalled();
+        result.catch((x) => {
+          expect(x).toBeInstanceOf(HTTPError);
+          expect(x.statusCode).toEqual(400);
+          expect(x.body).toEqual(JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS));
+        });
+      });
+      it("should trigger validation when path parameter is null", () => {
+        const event = {
+          pathParameters: null,
+        };
+        const mock = jest.fn().mockResolvedValue([]);
+        TechRecordsService.prototype.getTechRecordsList = mock;
+        const result = getTechRecords(event);
+        expect(mock).not.toBeCalled();
+        result.catch((x) => {
+          expect(x).toBeInstanceOf(HTTPError);
+          expect(x.statusCode).toEqual(400);
+          expect(x.body).toEqual(JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS));
+        });
       });
     });
   });

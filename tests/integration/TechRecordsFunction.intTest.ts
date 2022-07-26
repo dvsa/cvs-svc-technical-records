@@ -1,5 +1,5 @@
 import LambdaTester from "lambda-tester";
-import { getTechRecords as GetTechRecordsFunction } from "../../src/functions/getTechRecords";
+import {getTechRecords, getTechRecords as GetTechRecordsFunction} from "../../src/functions/getTechRecords";
 import { emptyDatabase, populateDatabase } from "../util/dbOperations";
 import { updateTechRecords as UpdateTechRecordsFunction } from "../../src/functions/updateTechRecords";
 import { postTechRecords as PostTechRecordsFunction } from "../../src/functions/postTechRecords";
@@ -30,17 +30,37 @@ describe("getTechRecords", () => {
     await emptyDatabase();
   });
   context("when the path is invalid", () => {
-    it("should return 400", async () => {
+    it("should return 400 when search identifier is undefined", async () => {
       // Event has a path, but the path does not contain a Search Term
       await LambdaTester(GetTechRecordsFunction)
         .event({
-          path: "test",
+          path: "/vehicles/undefined/tech-records",
+          pathParameters: {
+            searchIdentifier: undefined
+          }
         })
         .expectResolve((result: any) => {
           expect(result.statusCode).toEqual(400);
           // Path checking now handled in the handler. Now only checking for Path Params
           expect(result.body).toEqual(
-            '"The search identifier should be between 3 and 21 characters."'
+              JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS)
+          );
+        });
+    });
+    it("should return 400 when search identifier is undefined", async () => {
+      // Event has a path, but the path does not contain a Search Term
+      await LambdaTester(GetTechRecordsFunction)
+        .event({
+          path: "/vehicles/null/tech-records",
+          pathParameters: {
+            searchIdentifier: null
+          }
+        })
+        .expectResolve((result: any) => {
+          expect(result.statusCode).toEqual(400);
+          // Path checking now handled in the handler. Now only checking for Path Params
+          expect(result.body).toEqual(
+              JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS)
           );
         });
     });

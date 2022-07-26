@@ -20,6 +20,8 @@ class HTTPResponse {
     this.headers["X-XSS-Protection"] = "1; mode=block";
     this.statusCode = statusCode;
     this.body = JSON.stringify(body);
+
+    console.log(`HTTP STATUS CODE RETURNED: ${this.statusCode}`);
   }
 }
 
