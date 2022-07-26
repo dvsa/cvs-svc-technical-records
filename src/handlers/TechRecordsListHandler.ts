@@ -58,12 +58,12 @@ export class TechRecordsListHandler<T extends Vehicle> {
       }
       let techRecordItems: T[] = data as unknown as T[];
 
-      if (tableName && tableName.includes("flat-tech-records")) {
+      if (tableName?.includes("flat-tech-records")) {
         techRecordItems = this.flatToLegacy(techRecordItems as unknown as IFlatTechRecordWrapper[]);
       }
 
       // Formatting the object for lambda function
-      if (status !== STATUS.ALL) {
+      if (!tableName?.includes("flat-tech-records") && status !== STATUS.ALL) {
         techRecordItems = this.filterTechRecordsByStatus(techRecordItems, status);
       }
       return techRecordItems;
@@ -90,11 +90,12 @@ export class TechRecordsListHandler<T extends Vehicle> {
   public flatToLegacy(items: IFlatTechRecordWrapper[]) {
     const searchResult: T[] = [];
     // Sort response from DB into descending createdTimestamp order
-    items.sort((a,b) => {
-      return new Date(a.createdTimestamp).getTime() - new Date(b.createdTimestamp).getTime();
+    items.sort((a, b) => {
+      return new Date(a.createdTimestamp as string).getTime() - new Date(b.createdTimestamp as string).getTime();
     });
 
     items.forEach((item) => {
+      delete item.createdTimestamp;
       const vehicle = {} as LegacyTechRecord;
       vehicle.techRecord = [];
       const legacyRecord = {} as LegacyKeyStructure;
@@ -107,13 +108,13 @@ export class TechRecordsListHandler<T extends Vehicle> {
         this.nestItem(legacyRecord, key, value, 0);
       }
 
-      vehicle.techRecord.push(legacyRecord);
+      vehicle.techRecord.push(legacyRecord.techRecord as LegacyKeyStructure);
 
       // If multiple vehicles returned i.e. via partialVin search, then add to correct techRecord array...
       const vehicleIndex = searchResult.findIndex((result) => result.systemNumber === vehicle.systemNumber);
 
       if (vehicleIndex !== -1) {
-        searchResult[vehicleIndex].techRecord.push(vehicle.techRecord as unknown as TechRecord);
+        searchResult[vehicleIndex].techRecord.push(vehicle.techRecord[0] as unknown as TechRecord);
       } else {
         searchResult.push(vehicle as unknown as T);
       }
