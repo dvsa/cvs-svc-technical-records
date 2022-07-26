@@ -28,7 +28,7 @@ const getTechRecordsV2 = (event: any) => {
         return Promise.resolve(new HTTPResponse(400, "The search criteria specified is not valid."));
     }
 
-    return techRecordsService.getTechRecordsList(searchIdentifier, status, searchCriteria, "FLAT")
+    return techRecordsService.getTechRecordsList(searchIdentifier, status, searchCriteria, dbConfig.tableName)
         .then((data) => {
 
         if(!(data instanceof Array)) {

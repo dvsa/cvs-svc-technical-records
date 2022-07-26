@@ -11,6 +11,7 @@ import mockData from "../../resources/technical-records.json";
 import {cloneDeep} from "lodash";
 import {SEARCHCRITERIA} from "../../../src/assets/Enums";
 import Configuration from "../../../src/utils/Configuration";
+import {STATUS} from "../../../src/assets/Enums";
 
 describe("TechRecordsDAO", () => {
   describe("is Search Type functions", () => {
@@ -133,26 +134,24 @@ describe("TechRecordsDAO", () => {
       });
     });
   });
-  context("getBySearchTerm", () => {
+  context("getBySearchTerm on technical-records DynamoDB", () => {
     let techRecordsDao: TechRecordsDao;
-    beforeEach(() => {
-      const dbConfig = Configuration.getInstance().getDynamoDBConfig();
-      const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
-      techRecordsDao = new TechRecordsDao(dbClient, dbConfig);
-    });
+    let stub: any = null;
+    const dbConfig = Configuration.getInstance().getDynamoDBConfig();
+    const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+
     context("builds correct request", () => {
       beforeEach(() => {
         jest.resetModules();
-      });
-      // Mock once
-      let stub: any = null;
-      AWS.DynamoDB.DocumentClient.prototype.query = jest.fn().mockImplementation((params: DocumentClient.QueryInput) => {
-        return {
-          promise: () => {
-            stub = params;
-            return Promise.resolve([]);
-          }
-        };
+        techRecordsDao = new TechRecordsDao(dbClient, dbConfig);
+        AWS.DynamoDB.DocumentClient.prototype.query = jest.fn().mockImplementation((params: DocumentClient.QueryInput) => {
+          return {
+            promise: () => {
+              stub = params;
+              return Promise.resolve([]);
+            }
+          };
+        });
       });
 
       it("for Trailer ID (letter and 6 numbers)", async () => {
@@ -289,6 +288,157 @@ describe("TechRecordsDAO", () => {
         };
 
         await techRecordsDao.getBySearchTerm("abcd12345Nm", SEARCHCRITERIA.ALL);
+
+        expect(stub).toStrictEqual(expectedCall);
+      });
+    });
+  });
+
+  context("getBySearchTerm on flat-tech-records DynamoDB", () => {
+    let techRecordsDao: TechRecordsDao;
+    let stub: any = null;
+
+    const dbConfig = Configuration.getInstance().getDynamoDBConfig("v2");
+    const dbClient = new AWS.DynamoDB.DocumentClient(dbConfig.params);
+
+    context("builds correct request", () => {
+      beforeEach(() => {
+        jest.resetModules();
+        techRecordsDao = new TechRecordsDao(dbClient, dbConfig);
+
+        AWS.DynamoDB.DocumentClient.prototype.query = jest.fn().mockImplementation((params: DocumentClient.QueryInput) => {
+          return {
+            promise: () => {
+              stub = params;
+              return Promise.resolve([]);
+            }
+          };
+        });
+      });
+
+      it("for provisional search filter", async () => {
+        const expectedCall = {
+          TableName: "cvs-local-flat-tech-records",
+          KeyConditionExpression: "#trailerId = :trailerId",
+          ExpressionAttributeNames: {
+            "#trailerId": "trailerId"
+          },
+          ExpressionAttributeValues: {
+            ":trailerId": "Q000001",
+            ":techRecord_statusCode": "provisional",
+          },
+          FilterExpression: "techRecord_statusCode = :techRecord_statusCode",
+          IndexName: "TrailerIdIndex"
+        };
+        await techRecordsDao.getBySearchTerm("Q000001", SEARCHCRITERIA.ALL, STATUS.PROVISIONAL);
+
+        expect(stub).toStrictEqual(expectedCall);
+      });
+
+      it("for current search filter", async () => {
+        const expectedCall = {
+          TableName: "cvs-local-flat-tech-records",
+          KeyConditionExpression: "#trailerId = :trailerId",
+          ExpressionAttributeNames: {
+            "#trailerId": "trailerId"
+          },
+          ExpressionAttributeValues: {
+            ":trailerId": "Q000001",
+            ":techRecord_statusCode": "current",
+          },
+          FilterExpression: "techRecord_statusCode = :techRecord_statusCode",
+          IndexName: "TrailerIdIndex"
+        };
+        await techRecordsDao.getBySearchTerm("Q000001", SEARCHCRITERIA.ALL, STATUS.CURRENT);
+
+        expect(stub).toStrictEqual(expectedCall);
+      });
+
+      it("for archived search filter", async () => {
+        const expectedCall = {
+          TableName: "cvs-local-flat-tech-records",
+          KeyConditionExpression: "#trailerId = :trailerId",
+          ExpressionAttributeNames: {
+            "#trailerId": "trailerId"
+          },
+          ExpressionAttributeValues: {
+            ":trailerId": "Q000001",
+            ":techRecord_statusCode": "archived",
+          },
+          FilterExpression: "techRecord_statusCode = :techRecord_statusCode",
+          IndexName: "TrailerIdIndex"
+        };
+        await techRecordsDao.getBySearchTerm("Q000001", SEARCHCRITERIA.ALL, STATUS.ARCHIVED);
+
+        expect(stub).toStrictEqual(expectedCall);
+      });
+
+      it("for all search filter", async () => {
+        const expectedCall = {
+          TableName: "cvs-local-flat-tech-records",
+          KeyConditionExpression: "#trailerId = :trailerId",
+          ExpressionAttributeNames: {
+            "#trailerId": "trailerId"
+          },
+          ExpressionAttributeValues: {
+            ":trailerId": "Q000001",
+          },
+          IndexName: "TrailerIdIndex"
+        };
+        await techRecordsDao.getBySearchTerm("Q000001", SEARCHCRITERIA.ALL, STATUS.ALL);
+
+        expect(stub).toStrictEqual(expectedCall);
+      });
+
+      it("for provisional over current search filter", async () => {
+        const expectedCall = {
+          TableName: "cvs-local-flat-tech-records",
+          KeyConditionExpression: "#trailerId = :trailerId",
+          ExpressionAttributeNames: {
+            "#trailerId": "trailerId"
+          },
+          ExpressionAttributeValues: {
+            ":trailerId": "Q000001",
+            ":provisionalStatus": "provisional",
+            ":currentStatus": "current"
+          },
+          FilterExpression: "techRecord_statusCode IN(:provisionalStatus, :currentStatus)",
+          IndexName: "TrailerIdIndex"
+        };
+        await techRecordsDao.getBySearchTerm("Q000001", SEARCHCRITERIA.ALL, STATUS.PROVISIONAL_OVER_CURRENT);
+
+        expect(stub).toStrictEqual(expectedCall);
+      });
+
+      it("for Trailer ID (letter and 6 numbers)", async () => {
+        const expectedCall = {
+          TableName: "cvs-local-flat-tech-records",
+          KeyConditionExpression: "#trailerId = :trailerId",
+          ExpressionAttributeNames: {
+            "#trailerId": "trailerId"
+          },
+          ExpressionAttributeValues: {
+            ":trailerId": "Q000001"
+          },
+          IndexName: "TrailerIdIndex"
+        };
+        await techRecordsDao.getBySearchTerm("Q000001", SEARCHCRITERIA.ALL);
+
+        expect(stub).toStrictEqual(expectedCall);
+      });
+
+      it("for systemNumber ", async () => {
+        const expectedCall = {
+          TableName: "cvs-local-flat-tech-records",
+          KeyConditionExpression: "#systemNumber = :systemNumber",
+          ExpressionAttributeNames: {
+            "#systemNumber": "systemNumber"
+          },
+          ExpressionAttributeValues: {
+            ":systemNumber": "Q000001"
+          },
+        };
+        await techRecordsDao.getBySearchTerm("Q000001", SEARCHCRITERIA.SYSTEM_NUMBER);
 
         expect(stub).toStrictEqual(expectedCall);
       });

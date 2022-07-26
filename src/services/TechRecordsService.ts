@@ -47,13 +47,13 @@ class TechRecordsService {
     searchTerm: string,
     status: string,
     searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL,
-    format?: string
+    tableName?: string
   ): Promise<Vehicle[]> {
     return this.techRecordsListHandler.getFormattedTechRecordsList(
       searchTerm,
       status,
       searchCriteria,
-      format
+      tableName
     );
   }
 
