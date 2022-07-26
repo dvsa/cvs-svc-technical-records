@@ -3,7 +3,7 @@ import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import { IFlatTechRecordWrapper } from "../../@Types/IFlatTechRecordWrapper";
 import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
 import QueryInput = DocumentClient.QueryInput;
-import { SEARCHCRITERIA } from "../assets/Enums";
+import { SEARCHCRITERIA, STATUS } from "../assets/Enums";
 import { ISearchCriteria } from "../../@Types/ISearchCriteria";
 import { populatePartialVin } from "../utils/validations/ValidationUtils";
 import { LambdaService } from "../services/LambdaService";
@@ -43,7 +43,7 @@ class TechRecordsDAO {
     }
   }
 
-  public queryBuilder(searchTerm: string, searchCriteria: string, query: QueryInput) {
+  private queryBuilder(searchTerm: string, searchCriteria: string, query: QueryInput, status?: string) {
     if (searchCriteria === "vrm") {
       Object.assign(query.ExpressionAttributeNames, {
         [`#${searchCriteria}`]: "primaryVrm",
@@ -58,11 +58,35 @@ class TechRecordsDAO {
       [`:${searchCriteria}`]: searchTerm,
     });
 
-    query.IndexName = this.CriteriaIndexMap[searchCriteria];
+    // Perform filtering by tech record status on Dynamo itself, can't be done with technical-records Dynamo
+    if (this.tableName.includes("flat-tech-records") && status && status !== STATUS.ALL) {
+      if (status === STATUS.PROVISIONAL_OVER_CURRENT) {
+        query.FilterExpression = "techRecord_statusCode IN(:provisionalStatus, :currentStatus)";
+
+        Object.assign(query.ExpressionAttributeValues, {
+          ":provisionalStatus": "provisional",
+          ":currentStatus": "current"
+        });
+      } else {
+        query.FilterExpression = "techRecord_statusCode = :techRecord_statusCode";
+        Object.assign(query.ExpressionAttributeValues, {
+          ":techRecord_statusCode": status,
+        });
+      }
+    }
+
     query.KeyConditionExpression = `#${searchCriteria} = :${searchCriteria}`;
+
+    // SysNumIndex will not exist on flat-tech-records dynamo, it is deprecated
+    if(this.tableName.includes("flat-tech-records") && searchCriteria === "systemNumber") {
+      delete query.IndexName;
+      return;
+    }
+
+    query.IndexName = this.CriteriaIndexMap[searchCriteria];
   }
 
-  public getBySearchTerm(searchTerm: string, searchCriteria: ISearchCriteria) {
+  public getBySearchTerm(searchTerm: string, searchCriteria: ISearchCriteria, status?: string) {
     searchTerm = searchTerm.toUpperCase();
     const query: QueryInput = {
       TableName: this.tableName,
@@ -73,15 +97,15 @@ class TechRecordsDAO {
     };
 
     if (isSysNumSearch(searchCriteria)) {
-      this.queryBuilder(searchTerm, "systemNumber", query);
+      this.queryBuilder(searchTerm, "systemNumber", query, status);
     } else if (isVinSearch(searchTerm, searchCriteria)) {
-      this.queryBuilder(searchTerm, "vin", query);
+      this.queryBuilder(searchTerm, "vin", query, status);
     } else if (isTrailerSearch(searchTerm, searchCriteria)) {
-      this.queryBuilder(searchTerm, "trailerId", query);
+      this.queryBuilder(searchTerm, "trailerId", query, status);
     } else if (isPartialVinSearch(searchTerm, searchCriteria)) {
-      this.queryBuilder(searchTerm, "partialVin", query);
+      this.queryBuilder(searchTerm, "partialVin", query, status);
     } else if (isVrmSearch(searchTerm, searchCriteria)) {
-      this.queryBuilder(searchTerm, "vrm", query);
+      this.queryBuilder(searchTerm, "vrm", query, status);
     }
 
     console.log("Query Params for getBySearchTerm ", query);

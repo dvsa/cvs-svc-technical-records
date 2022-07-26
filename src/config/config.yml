@@ -38,6 +38,12 @@ dynamodb:
       endpoint: http://localhost:8003
       convertEmptyValues: true
     table: cvs-local-technical-records
+  local-v2:
+    params:
+      region: localhost
+      endpoint: http://localhost:8003
+      convertEmptyValues: true
+    table: cvs-local-flat-tech-records
   local-global:
     params:
       region: localhost

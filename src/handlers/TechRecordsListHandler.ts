@@ -20,7 +20,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
     searchTerm: string,
     status: string,
     searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL,
-    format?: string
+    tableName?: string
   ): Promise<T[]> {
     try {
       // Formatting the object for lambda function
@@ -28,7 +28,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
         searchTerm,
         status,
         searchCriteria,
-        format
+        tableName
       );
       techRecordItems = this.formatTechRecordItemsForResponse(techRecordItems);
       return techRecordItems;
@@ -46,18 +46,19 @@ export class TechRecordsListHandler<T extends Vehicle> {
     searchTerm: string,
     status: string,
     searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL,
-    format?: string
+    tableName?: string
   ): Promise<T[]> {
       const data = await this.techRecordsDAO.getBySearchTerm(
           searchTerm,
-          searchCriteria
+          searchCriteria,
+          status,
       );
       if (data.length === 0) {
         throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
       }
       let techRecordItems: T[] = data as unknown as T[];
 
-      if (format && format === "FLAT") {
+      if (tableName && tableName.includes("flat-tech-records")) {
         techRecordItems = this.flatToLegacy(techRecordItems as unknown as IFlatTechRecordWrapper[]);
       }
 
@@ -111,7 +112,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
       // If multiple vehicles returned i.e. via partialVin search, then add to correct techRecord array...
       const vehicleIndex = searchResult.findIndex((result) => result.systemNumber === vehicle.systemNumber);
 
-      if (vehicleIndex) {
+      if (vehicleIndex !== -1) {
         searchResult[vehicleIndex].techRecord.push(vehicle.techRecord as unknown as TechRecord);
       } else {
         searchResult.push(vehicle as unknown as T);

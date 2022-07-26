@@ -85,6 +85,9 @@ class Configuration {
     switch (process.env.BRANCH) {
       case "local":
         env = "local";
+        if (apiVersion === "v2") {
+          env = "local-v2";
+        }
         break;
       case "local-global":
         env = "local-global";
