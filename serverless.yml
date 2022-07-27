@@ -78,61 +78,37 @@ functions:
               querystrings:
                 status: false
                 metadata: false
-          documentation:
-            summary: "Get Vehicle Technical Records list"
-            description: "Retrieves the Vehicle Technical Records for the input searchIdentifier, which can be the VRM, the last 6 digits of the VIN or the full VIN"
+      - http:
+          path: v2/vehicles/{searchIdentifier}/tech-records
+          method: get
+          request:
             parameters:
-              - name: searchIdentifier
-                in: path
-                description: The attribute to search a vehicle technical record by, which can be either the VRM, the last 6 digits of the VIN or the full VIN"
-                required: true
-                schema:
-                  type: string
-              - name: status?
-                in: path
-                description: The status code of a vehicle technical record"
-                required: true
-                schema:
-                  type: string
-              - name: metadata?
-                in: path
-                description: Applicable only to ADR details. Query param for returning the list of values that are selectable on the front end
-                required: false
-                schema:
-                  type: string
-            methodResposes:
-              - statusCode: 200
-                responseBody:
-                  description: "List of Vehicle Technical Records"
-                responseModels:
-                  "application/json": "VehicleTechnicalRecords"
-              - statusCode: 404
-                responseBody:
-                  description: "No resources match the search criteria"
-                responseModels:
-                  content:
-                    application/json:
-                      schema:
-                        type: string
-              - statusCode: 422
-                responseBody:
-                  description: "Multiple results found"
-                responseModels:
-                  content:
-                    application/json:
-                      schema:
-                        type: string
+              paths:
+                searchIdentifier: true
+              querystrings:
+                status: false
+                metadata: false
   postTechRecords:
     handler: src/handler.handler
     events:
       - http:
           path: vehicles
           method: post
+      - http:
+          path: v2/vehicles
+          method: post
   updateTechRecords:
     handler: src/handler.handler
     events:
       - http:
           path: vehicles/{systemNumber}
+          method: put
+          request:
+            parameters:
+              paths:
+                systemNumber: true
+      - http:
+          path: v2/vehicles/{systemNumber}
           method: put
           request:
             parameters:
@@ -148,6 +124,13 @@ functions:
             parameters:
               paths:
                 systemNumber: true
+      - http:
+          path: v2/vehicles/update-status/{systemNumber}
+          method: put
+          request:
+            parameters:
+              paths:
+                systemNumber: true
   updateEuVehicleCategory:
     handler: src/handler.handler
     events:
@@ -158,11 +141,25 @@ functions:
             parameters:
               paths:
                 systemNumber: true
+      - http:
+          path: v2/vehicles/update-eu-vehicle-category/{systemNumber}
+          method: put
+          request:
+            parameters:
+              paths:
+                systemNumber: true
   addProvisionalTechRecord:
     handler: src/handler.handler
     events:
       - http:
-          path: /vehicles/add-provisional/{systemNumber}
+          path: vehicles/add-provisional/{systemNumber}
+          method: post
+          request:
+            parameters:
+              paths:
+                systemNumber: true
+      - http:
+          path: v2/vehicles/add-provisional/{systemNumber}
           method: post
           request:
             parameters:
@@ -172,7 +169,14 @@ functions:
     handler: src/handler.handler
     events:
       - http:
-          path: /vehicles/archive/{systemNumber}
+          path: vehicles/archive/{systemNumber}
+          method: put
+          request:
+            parameters:
+              paths:
+                systemNumber: true
+      - http:
+          path: v2/vehicles/archive/{systemNumber}
           method: put
           request:
             parameters:

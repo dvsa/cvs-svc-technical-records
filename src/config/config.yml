@@ -4,30 +4,61 @@ functions:
     path: /vehicles/{+proxy}/tech-records/
     proxy: :searchIdentifier
     function: getTechRecords
+- getTechRecordsV2:
+    method: GET
+    path: /v2/vehicles/{+proxy}/tech-records/
+    proxy: :searchIdentifier
+    function: getTechRecordsV2
 - postTechRecords:
     method: POST
     path: /vehicles
+    function: postTechRecords
+- postTechRecords:
+    method: POST
+    path: /v2/vehicles
     function: postTechRecords
 - updateTechRecords:
     method: PUT
     path: /vehicles/:systemNumber
     function: updateTechRecords
+- updateTechRecords:
+    method: PUT
+    path: /v2/vehicles/:systemNumber
+    function: updateTechRecords
 - updateTechRecordStatus:
     method: PUT
     path: /vehicles/update-status/:systemNumber
     function: updateTechRecordStatus
+- updateTechRecordStatus:
+    method: PUT
+    path: /v2/vehicles/update-status/:systemNumber
+    function: updateTechRecordStatus
 - updateEuVehicleCategory:
     method: PUT
     path: /vehicles/update-eu-vehicle-category/:systemNumber
+    function: updateEuVehicleCategory
+- updateEuVehicleCategory:
+    method: PUT
+    path: /v2/vehicles/update-eu-vehicle-category/:systemNumber
     function: updateEuVehicleCategory
 - addProvisionalTechRecord:
     method: POST
     path: /vehicles/add-provisional/:systemNumber
     proxy: :systemNumber
     function: addProvisionalTechRecord
+- addProvisionalTechRecord:
+    method: POST
+    path: /v2/vehicles/add-provisional/:systemNumber
+    proxy: :systemNumber
+    function: addProvisionalTechRecord
 - archiveTechRecordStatus:
     method: PUT
     path: /vehicles/archive/:systemNumber
+    proxy: :systemNumber
+    function: archiveTechRecordStatus
+- archiveTechRecordStatus:
+    method: PUT
+    path: /v2/vehicles/archive/:systemNumber
     proxy: :systemNumber
     function: archiveTechRecordStatus
 

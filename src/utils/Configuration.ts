@@ -66,7 +66,7 @@ class Configuration {
         name,
         method: params.method.toUpperCase(),
         path,
-        function: require(`../functions/${params.function}`)[name]
+        function: require(`../functions/${params.function}`)[params.function]
       };
     });
   }
