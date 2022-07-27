@@ -274,17 +274,23 @@ describe("The lambda function handler", () => {
 describe("The configuration service", () => {
   context("with good config file", () => {
     it("should return local versions of the config if specified", () => {
-      process.env.BRANCH = "local";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toEqual(7);
+      expect(functions.length).toEqual(14);
       expect(functions[0].name).toEqual("getTechRecords");
-      expect(functions[1].name).toEqual("postTechRecords");
-      expect(functions[2].name).toEqual("updateTechRecords");
-      expect(functions[3].name).toEqual("updateTechRecordStatus");
-      expect(functions[4].name).toEqual("updateEuVehicleCategory");
-      expect(functions[5].name).toEqual("addProvisionalTechRecord");
-      expect(functions[6].name).toEqual("archiveTechRecordStatus");
+      expect(functions[1].name).toEqual("getTechRecordsV2");
+      expect(functions[2].name).toEqual("postTechRecords");
+      expect(functions[3].name).toEqual("postTechRecords");
+      expect(functions[4].name).toEqual("updateTechRecords");
+      expect(functions[5].name).toEqual("updateTechRecords");
+      expect(functions[6].name).toEqual("updateTechRecordStatus");
+      expect(functions[7].name).toEqual("updateTechRecordStatus");
+      expect(functions[8].name).toEqual("updateEuVehicleCategory");
+      expect(functions[9].name).toEqual("updateEuVehicleCategory");
+      expect(functions[10].name).toEqual("addProvisionalTechRecord");
+      expect(functions[11].name).toEqual("addProvisionalTechRecord");
+      expect(functions[12].name).toEqual("archiveTechRecordStatus");
+      expect(functions[13].name).toEqual("archiveTechRecordStatus");
 
 
       const DBConfig = configService.getDynamoDBConfig();
@@ -297,14 +303,21 @@ describe("The configuration service", () => {
       process.env.BRANCH = "local-global";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toEqual(7);
+      expect(functions.length).toEqual(14);
       expect(functions[0].name).toEqual("getTechRecords");
-      expect(functions[1].name).toEqual("postTechRecords");
-      expect(functions[2].name).toEqual("updateTechRecords");
-      expect(functions[3].name).toEqual("updateTechRecordStatus");
-      expect(functions[4].name).toEqual("updateEuVehicleCategory");
-      expect(functions[5].name).toEqual("addProvisionalTechRecord");
-      expect(functions[6].name).toEqual("archiveTechRecordStatus");
+      expect(functions[1].name).toEqual("getTechRecordsV2");
+      expect(functions[2].name).toEqual("postTechRecords");
+      expect(functions[3].name).toEqual("postTechRecords");
+      expect(functions[4].name).toEqual("updateTechRecords");
+      expect(functions[5].name).toEqual("updateTechRecords");
+      expect(functions[6].name).toEqual("updateTechRecordStatus");
+      expect(functions[7].name).toEqual("updateTechRecordStatus");
+      expect(functions[8].name).toEqual("updateEuVehicleCategory");
+      expect(functions[9].name).toEqual("updateEuVehicleCategory");
+      expect(functions[10].name).toEqual("addProvisionalTechRecord");
+      expect(functions[11].name).toEqual("addProvisionalTechRecord");
+      expect(functions[12].name).toEqual("archiveTechRecordStatus");
+      expect(functions[13].name).toEqual("archiveTechRecordStatus");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(configService.getConfig().dynamodb["local-global"]);
@@ -316,14 +329,21 @@ describe("The configuration service", () => {
       process.env.BRANCH = "CVSB-XXX";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toEqual(7);
+      expect(functions.length).toEqual(14);
       expect(functions[0].name).toEqual("getTechRecords");
-      expect(functions[1].name).toEqual("postTechRecords");
-      expect(functions[2].name).toEqual("updateTechRecords");
-      expect(functions[3].name).toEqual("updateTechRecordStatus");
-      expect(functions[4].name).toEqual("updateEuVehicleCategory");
-      expect(functions[5].name).toEqual("addProvisionalTechRecord");
-      expect(functions[6].name).toEqual("archiveTechRecordStatus");
+      expect(functions[1].name).toEqual("getTechRecordsV2");
+      expect(functions[2].name).toEqual("postTechRecords");
+      expect(functions[3].name).toEqual("postTechRecords");
+      expect(functions[4].name).toEqual("updateTechRecords");
+      expect(functions[5].name).toEqual("updateTechRecords");
+      expect(functions[6].name).toEqual("updateTechRecordStatus");
+      expect(functions[7].name).toEqual("updateTechRecordStatus");
+      expect(functions[8].name).toEqual("updateEuVehicleCategory");
+      expect(functions[9].name).toEqual("updateEuVehicleCategory");
+      expect(functions[10].name).toEqual("addProvisionalTechRecord");
+      expect(functions[11].name).toEqual("addProvisionalTechRecord");
+      expect(functions[12].name).toEqual("archiveTechRecordStatus");
+      expect(functions[13].name).toEqual("archiveTechRecordStatus");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(configService.getConfig().dynamodb.remote);
