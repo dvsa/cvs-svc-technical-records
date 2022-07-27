@@ -5,8 +5,6 @@ import {Context} from "aws-lambda";
 import {IFunctions} from "../@Types/Configuration";
 
 const handler = async (event: any, context: Context) => {
-  console.info(JSON.stringify(event));
-
   // Request integrity checks
   if (!event) {
     return new HTTPResponse(400, 'AWS event is empty. Check your test event.')
