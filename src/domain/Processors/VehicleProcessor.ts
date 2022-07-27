@@ -280,11 +280,19 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     if (nonArchivedTechRecord.length === 0) {
       throw this.Error(400, enums.ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
     }
-    if (nonArchivedTechRecord[0].euVehicleCategory) {
-      return new HTTPResponse(
-        200,
-        enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
-      );
+
+    if (nonArchivedTechRecord.length > 1){
+        if (nonArchivedTechRecord[0].euVehicleCategory && nonArchivedTechRecord[1].euVehicleCategory) {
+            return new HTTPResponse(
+                200,
+                enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
+            );
+        }
+    } else if (nonArchivedTechRecord[0].euVehicleCategory){
+        return new HTTPResponse(
+            200,
+            enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
+        );
     }
     nonArchivedTechRecord.forEach((techRecord) => {
       const statusCode = techRecord.statusCode;
