@@ -281,7 +281,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       throw this.Error(400, enums.ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
     }
 
-    if (nonArchivedTechRecord.length > 1){
+    if (nonArchivedTechRecord.length > 1) {
         if (nonArchivedTechRecord[0].euVehicleCategory && nonArchivedTechRecord[1].euVehicleCategory) {
             return new HTTPResponse(
                 200,
