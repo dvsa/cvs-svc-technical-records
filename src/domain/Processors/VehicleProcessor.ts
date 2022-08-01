@@ -288,7 +288,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
                 enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
             );
         }
-    } else if (nonArchivedTechRecord[0].euVehicleCategory){
+    } else if (nonArchivedTechRecord[0].euVehicleCategory) {
         return new HTTPResponse(
             200,
             enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
