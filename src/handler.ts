@@ -3,7 +3,6 @@ import Configuration from './utils/Configuration';
 import HTTPResponse from './models/HTTPResponse';
 import {Context} from "aws-lambda";
 import {IFunctions} from "../@Types/Configuration";
-import {ILogMessage} from "./models/ILogMessage";
 
 const handler = async (event: any, context: Context) => {
   // Request integrity checks
@@ -52,13 +51,7 @@ const handler = async (event: any, context: Context) => {
 
     Object.assign(event, { pathParameters: lambdaPathParams })
 
-    const logMessage: ILogMessage = {
-      HTTP: `${event.httpMethod} ${event.path} -> λ ${lambdaEvent.name}`,
-      PATH_PARAMS: `${JSON.stringify(event.pathParameters)}`,
-      QUERY_PARAMS: `${JSON.stringify(event.queryStringParameters)}`
-    };
-
-    console.log(logMessage);
+    console.log(`HTTP ${event.httpMethod} ${event.path} -> λ ${lambdaEvent.name}`)
 
     // Explicit conversion because typescript can't figure it out
     return lambdaFn(event, context)
