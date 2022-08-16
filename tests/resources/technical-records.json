@@ -34577,6 +34577,171 @@
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
         "vehicleType": "psv"
+      },
+      {
+        "partialVin": "111223",
+        "trailerId": "AB01234",
+        "techRecord": [
+          {
+            "recordCompleteness": "complete",
+            "statusCode": "current",
+            "euVehicleCategory": "o1",
+            "approvalType": "NTA",
+            "applicantDetails": {
+              "name": "string",
+              "address1": "string",
+              "address2": "string",
+              "postTown": "string",
+              "address3": "string",
+              "postCode": "string",
+              "emailAddress": "string",
+              "telephoneNumber": "string"
+            },
+            "purchaserDetails": {
+              "name": "string",
+              "address1": "string",
+              "address2": "string",
+              "postTown": "string",
+              "address3": "string",
+              "postCode": "string",
+              "emailAddress": "string",
+              "telephoneNumber": "string",
+              "faxNumber": "string",
+              "purchaserNotes": "string"
+            },
+            "manufacturerDetails": {
+              "name": "string",
+              "address1": "string",
+              "address2": "string",
+              "postTown": "string",
+              "address3": "string",
+              "postCode": "string",
+              "emailAddress": "string",
+              "telephoneNumber": "string",
+              "faxNumber": "string",
+              "manufacturerNotes": "string"
+            },
+            "axles": [
+              {
+                "axleNumber": 1,
+                "brakes": {
+                  "brakeActuator": 24,
+                  "leverLength": 135,
+                  "springBrakeParking": true
+                },
+                "parkingBrakeMrk": true,
+                "tyres": {
+                  "dataTrAxles": 158,
+                  "fitmentCode": "single",
+                  "plyRating": " ",
+                  "tyreCode": 383,
+                  "tyreSize": "385/65-22.5"
+                },
+                "weights": {
+                  "designWeight": 8250,
+                  "gbWeight": 8000
+                }
+              },
+              {
+                "axleNumber": 2,
+                "brakes": {
+                  "brakeActuator": 24,
+                  "leverLength": 135,
+                  "springBrakeParking": true
+                },
+                "parkingBrakeMrk": true,
+                "tyres": {
+                  "dataTrAxles": 158,
+                  "fitmentCode": "single",
+                  "plyRating": " ",
+                  "tyreCode": 383,
+                  "tyreSize": "385/65-22.5"
+                },
+                "weights": {
+                  "designWeight": 8250,
+                  "gbWeight": 8000
+                }
+              },
+              {
+                "axleNumber": 3,
+                "brakes": {
+                  "brakeActuator": 24,
+                  "leverLength": 135,
+                  "springBrakeParking": true
+                },
+                "parkingBrakeMrk": true,
+                "tyres": {
+                  "dataTrAxles": 158,
+                  "fitmentCode": "single",
+                  "plyRating": " ",
+                  "tyreCode": 383,
+                  "tyreSize": "385/65-22.5"
+                },
+                "weights": {
+                  "designWeight": 8250,
+                  "gbWeight": 8000
+                }
+              }
+            ],
+            "bodyType": {
+              "code": "f",
+              "description": "flat"
+            },
+            "brakes": {
+              "antilockBrakingSystem": true,
+              "dtpNumber": "326577",
+              "loadSensingValve": true
+            },
+            "conversionRefNo": " ",
+            "couplingCenterToRearAxleMax": 9430,
+            "couplingCenterToRearAxleMin": 9430,
+            "couplingCenterToRearTrlMax": 11365,
+            "couplingCenterToRearTrlMin": 11365,
+            "couplingType": "F",
+            "centreOfRearmostAxleToRearOfTrl": 11200,
+            "createdAt": "2016-03-04T11:25:12.000000Z",
+            "dimensions": {
+              "axleSpacing": [
+                {
+                  "axles": "1",
+                  "value": 1310
+                },
+                {
+                  "axles": "2",
+                  "value": 1310
+                }
+              ],
+              "length": 12271,
+              "width": 2438
+            },
+            "firstUseDate": "0001-01-01",
+            "frontAxleToRearAxle": 0,
+            "grossDesignWeight": 39000,
+            "grossGbWeight": 39000,
+            "lastUpdatedAt": "2020-01-10T14:04:01.000000Z",
+            "make": "DENNISON TRAILERS",
+            "manufactureYear": 2005,
+            "maxLoadOnCoupling": 15000,
+            "model": " ",
+            "noOfAxles": 3,
+            "notes": "T/S 33 1/9/06",
+            "ntaNumber": "N000394760",
+            "rearAxleToRearTrl": 1935,
+            "reasonForCreation": " ",
+            "regnDate": "2005-01-01",
+            "roadFriendly": true,
+            "suspensionType": "A",
+            "tyreUseCode": "2B",
+            "vehicleClass": {
+              "code": "t",
+              "description": "trailer"
+            },
+            "vehicleConfiguration": "long semi-trailer",
+            "vehicleType": "trl"
+          }
+        ],
+        "vin": "ABCDEF111223",
+        "systemNumber": "1110009"
       }
     ]
   }
