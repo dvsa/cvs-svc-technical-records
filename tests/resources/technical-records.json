@@ -34579,5 +34579,1642 @@
         "vehicleType": "psv"
       }
     ]
+  },
+  {
+    "vtmComment": "Annual Test: PASS, Test Type ID = 94, Vehicle = HGV",
+    "systemNumber": "2789832",
+    "vin": "JM1BF2325G0V37585",
+    "partialVin": "V37585",
+    "primaryVrm": "AA02AAW",
+    "secondaryVrms": [" "],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 129,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 870,
+              "tyreSize": "235/75-17.5"
+            },
+            "weights": {
+              "designWeight": 5000,
+              "eecWeight": 0,
+              "gbWeight": 5000
+            }
+          },
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 132,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 870,
+              "tyreSize": "235/75-17.5"
+            },
+            "weights": {
+              "designWeight": 3800,
+              "eecWeight": 0,
+              "gbWeight": 3800
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "006130"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2013-12-31T12:58:52.000000Z",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "Outer axle spread",
+              "value": 0
+            }
+          ],
+          "length": 6520,
+          "width": 2510
+        },
+        "drawbarCouplingFitted": false,
+        "euroStandard": null,
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelMin": 0,
+        "frontAxleToRearAxle": 4220,
+        "frontVehicleTo5thWheelCouplingMax": 0,
+        "frontVehicleTo5thWheelCouplingMin": 0,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 7490,
+        "grossEecWeight": 0,
+        "grossGbWeight": 7490,
+        "lastUpdatedAt": "2021-11-15T13:21:18.280Z",
+        "lastUpdatedById": "f49d06ac-6900-4c95-8761-bca847eaca55",
+        "lastUpdatedByName": "TST.CVS-PPD3",
+        "make": "MERCEDES",
+        "manufactureYear": 2002,
+        "maxTrainDesignWeight": 0,
+        "maxTrainEecWeight": 0,
+        "maxTrainGbWeight": 0,
+        "model": "818",
+        "noOfAxles": 2,
+        "notes": " ",
+        "ntaNumber": "035A132T",
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2002-08-07T00:00:00.000000Z",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "H99900231069"
+          },
+          {
+            "plateIssueDate": "2003-07-12T00:00:00.000000Z",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H03100007302"
+          },
+          {
+            "plateIssueDate": "2006-07-28T00:00:00.000000Z",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H03100012920"
+          },
+          {
+            "plateIssueDate": "2008-07-21T00:00:00.000000Z",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H03100016618"
+          }
+        ],
+        "reasonForCreation": " ",
+        "recordCompleteness": "testable",
+        "regnDate": "2002-06-28",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 10990,
+        "trainEecWeight": 0,
+        "trainGbWeight": 10990,
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "variantNumber": "2",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 129,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 870,
+              "tyreSize": "235/75-17.5"
+            },
+            "weights": {
+              "designWeight": 5000,
+              "eecWeight": 0,
+              "gbWeight": 5000
+            }
+          },
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 132,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 870,
+              "tyreSize": "235/75-17.5"
+            },
+            "weights": {
+              "designWeight": 3800,
+              "eecWeight": 0,
+              "gbWeight": 3800
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "006130"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2021-11-15T13:21:18.280Z",
+        "createdById": "f49d06ac-6900-4c95-8761-bca847eaca55",
+        "createdByName": "TST.CVS-PPD3",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "Outer axle spread",
+              "value": 0
+            }
+          ],
+          "length": 6520,
+          "width": 2510
+        },
+        "drawbarCouplingFitted": false,
+        "euroStandard": null,
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelMin": 0,
+        "frontAxleToRearAxle": 4220,
+        "frontVehicleTo5thWheelCouplingMax": 0,
+        "frontVehicleTo5thWheelCouplingMin": 0,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 7490,
+        "grossEecWeight": 0,
+        "grossGbWeight": 7490,
+        "make": "MERCEDES",
+        "manufactureYear": 2002,
+        "maxTrainDesignWeight": 0,
+        "maxTrainEecWeight": 0,
+        "maxTrainGbWeight": 0,
+        "model": "818",
+        "noOfAxles": 2,
+        "notes": " ",
+        "ntaNumber": "035A132T",
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2002-08-07T00:00:00.000000Z",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "H99999999999"
+          },
+          {
+            "plateIssueDate": "2003-07-12T00:00:00.000000Z",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H99999999998"
+          },
+          {
+            "plateIssueDate": "2006-07-28T00:00:00.000000Z",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H99999999997"
+          },
+          {
+            "plateIssueDate": "2008-07-21T00:00:00.000000Z",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H99999999996"
+          }
+        ],
+        "reasonForCreation": " ",
+        "recordCompleteness": "testable",
+        "regnDate": "2002-06-28",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 10990,
+        "trainEecWeight": 0,
+        "trainGbWeight": 10990,
+        "tyreUseCode": "2B",
+        "variantNumber": "2",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "vtmComment": "Annual Test: FAIL with defects, Test Type ID = 94, Vehicle = HGV",
+    "systemNumber": "3982236",
+    "vin": "7903094",
+    "partialVin": "903094",
+    "primaryVrm": "AA08AAK",
+    "secondaryVrms": [" "],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 4,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 10500,
+              "eecWeight": 0,
+              "gbWeight": 9500
+            }
+          },
+          {
+            "axleNumber": 3,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 10500,
+              "eecWeight": 0,
+              "gbWeight": 9500
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 160,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 384,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8500,
+              "eecWeight": 0,
+              "gbWeight": 8500
+            }
+          },
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 160,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 384,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8500,
+              "eecWeight": 0,
+              "gbWeight": 8500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "5322"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2017-07-11T13:01:52.000000Z",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "Outer axle spread",
+              "value": 0
+            }
+          ],
+          "length": 10000,
+          "width": 2500
+        },
+        "drawbarCouplingFitted": false,
+        "euroStandard": "Undefined",
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelMin": 0,
+        "frontAxleToRearAxle": 7850,
+        "frontVehicleTo5thWheelCouplingMax": 0,
+        "frontVehicleTo5thWheelCouplingMin": 0,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 34000,
+        "grossEecWeight": 0,
+        "grossGbWeight": 32000,
+        "lastUpdatedAt": "2021-11-15T13:22:52.121Z",
+        "lastUpdatedById": "f49d06ac-6900-4c95-8761-bca847eaca55",
+        "lastUpdatedByName": "TST.CVS-PPD3",
+        "make": "SCANIA",
+        "manufactureYear": 2007,
+        "maxTrainDesignWeight": 0,
+        "maxTrainEecWeight": 0,
+        "maxTrainGbWeight": 0,
+        "model": "P 8X4",
+        "noOfAxles": 4,
+        "notes": " ",
+        "ntaNumber": "087A129T",
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2008-07-04T00:00:00.000000Z",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "A99999999999"
+          }
+        ],
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": "2008-06-18",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 37500,
+        "trainEecWeight": 0,
+        "trainGbWeight": 35500,
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "variantNumber": "27",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 4,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 10500,
+              "eecWeight": 0,
+              "gbWeight": 9500
+            }
+          },
+          {
+            "axleNumber": 3,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 10500,
+              "eecWeight": 0,
+              "gbWeight": 9500
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 160,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 384,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8500,
+              "eecWeight": 0,
+              "gbWeight": 8500
+            }
+          },
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 160,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 384,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8500,
+              "eecWeight": 0,
+              "gbWeight": 8500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "5322"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2021-11-15T13:22:52.121Z",
+        "createdById": "f49d06ac-6900-4c95-8761-bca847eaca55",
+        "createdByName": "TST.CVS-PPD3",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "Outer axle spread",
+              "value": 0
+            }
+          ],
+          "length": 10000,
+          "width": 2500
+        },
+        "drawbarCouplingFitted": false,
+        "euroStandard": "Undefined",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelMin": 0,
+        "frontAxleToRearAxle": 7850,
+        "frontVehicleTo5thWheelCouplingMax": 0,
+        "frontVehicleTo5thWheelCouplingMin": 0,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 34000,
+        "grossEecWeight": 0,
+        "grossGbWeight": 32000,
+        "make": "SCANIA",
+        "manufactureYear": 2007,
+        "maxTrainDesignWeight": 0,
+        "maxTrainEecWeight": 0,
+        "maxTrainGbWeight": 0,
+        "model": "P 8X4",
+        "noOfAxles": 4,
+        "notes": " ",
+        "ntaNumber": "087A129T",
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2008-07-04T00:00:00.000000Z",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "F99999999999"
+          }
+        ],
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": "2008-06-18",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 37500,
+        "trainEecWeight": 0,
+        "trainGbWeight": 35500,
+        "tyreUseCode": "2B",
+        "variantNumber": "27",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "vtmComment": "Annual Test: PRS with defects, Test Type Id = 94, Vehicle = HGV",
+    "systemNumber": "2563833",
+    "vin": "1GCHK23D07F136336",
+    "partialVin": "R00633",
+    "primaryVrm": "X123AAP",
+    "secondaryVrms": [" "],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 121,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 680,
+              "tyreSize": "205/75-17.5"
+            },
+            "weights": {
+              "designWeight": 5200,
+              "eecWeight": 0,
+              "gbWeight": 5200
+            }
+          },
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 123,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 680,
+              "tyreSize": "205/75-17.5"
+            },
+            "weights": {
+              "designWeight": 2900,
+              "eecWeight": 0,
+              "gbWeight": 2900
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "005998"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2006-11-02T11:11:49.000000Z",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "Outer axle spread",
+              "value": 0
+            }
+          ],
+          "length": 0,
+          "width": 0
+        },
+        "drawbarCouplingFitted": false,
+        "euroStandard": null,
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelMin": 0,
+        "frontAxleToRearAxle": 3350,
+        "frontVehicleTo5thWheelCouplingMax": 0,
+        "frontVehicleTo5thWheelCouplingMin": 0,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 7500,
+        "grossEecWeight": 0,
+        "grossGbWeight": 7500,
+        "lastUpdatedAt": "2021-12-10T11:41:22.209Z",
+        "lastUpdatedById": "90d27c0d-eb85-4747-9b9d-411c9073ad36",
+        "lastUpdatedByName": "TST.CVS-PPD2",
+        "make": "MITSUBISHI",
+        "manufactureYear": 2000,
+        "maxTrainDesignWeight": 0,
+        "maxTrainEecWeight": 0,
+        "maxTrainGbWeight": 0,
+        "model": "FE659",
+        "noOfAxles": 2,
+        "notes": " ",
+        "ntaNumber": "530A103T",
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2001-01-16T00:00:00.000000Z",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "H99999999996"
+          }
+        ],
+        "reasonForCreation": " ",
+        "recordCompleteness": "testable",
+        "regnDate": "2000-11-24",
+        "roadFriendly": false,
+        "speedLimiterMrk": true,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 11000,
+        "trainEecWeight": 0,
+        "trainGbWeight": 11000,
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "variantNumber": "1",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 121,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 680,
+              "tyreSize": "205/75-17.5"
+            },
+            "weights": {
+              "designWeight": 5200,
+              "eecWeight": 0,
+              "gbWeight": 5200
+            }
+          },
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 123,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 680,
+              "tyreSize": "205/75-17.5"
+            },
+            "weights": {
+              "designWeight": 2900,
+              "eecWeight": 0,
+              "gbWeight": 2900
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "005998"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2021-12-10T11:41:22.209Z",
+        "createdById": "90d27c0d-eb85-4747-9b9d-411c9073ad36",
+        "createdByName": "TST.CVS-PPD2",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "Outer axle spread",
+              "value": 0
+            }
+          ],
+          "length": 0,
+          "width": 0
+        },
+        "drawbarCouplingFitted": false,
+        "euroStandard": null,
+        "euVehicleCategory": "n2",
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelMin": 0,
+        "frontAxleToRearAxle": 3350,
+        "frontVehicleTo5thWheelCouplingMax": 0,
+        "frontVehicleTo5thWheelCouplingMin": 0,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 7500,
+        "grossEecWeight": 0,
+        "grossGbWeight": 7500,
+        "make": "MITSUBISHI",
+        "manufactureYear": 2000,
+        "maxTrainDesignWeight": 0,
+        "maxTrainEecWeight": 0,
+        "maxTrainGbWeight": 0,
+        "model": "FE659",
+        "noOfAxles": 2,
+        "notes": " ",
+        "ntaNumber": "530A103T",
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2001-01-16T00:00:00.000000Z",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "H99999999995"
+          }
+        ],
+        "reasonForCreation": " ",
+        "recordCompleteness": "testable",
+        "regnDate": "2000-11-24",
+        "roadFriendly": false,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 11000,
+        "trainEecWeight": 0,
+        "trainGbWeight": 11000,
+        "tyreUseCode": "2B",
+        "variantNumber": "1",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "vtmComment": "Annual Test: PASS, Test Type Id = 94, Vehicle = TRL",
+    "systemNumber": "2509676",
+    "vin": "2202162",
+    "partialVin": "202162",
+    "techRecord": [
+      {
+        "approvalType": "NTA",
+        "approvalTypeNumber": "S000279729",
+        "authIntoService": {
+          "cocIssueDate": "0001-01-01",
+          "dateAuthorised": "0001-01-01"
+        },
+        "axles": [
+          {
+            "axleNumber": 3,
+            "brakes": {
+              "brakeActuator": 16,
+              "leverLength": 0,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 160,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 384,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 16,
+              "leverLength": 0,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 160,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 384,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 16,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 160,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 384,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "b",
+          "description": "box"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "317967",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": 2300,
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 8705,
+        "couplingCenterToRearAxleMin": 8705,
+        "couplingCenterToRearTrlMax": 11000,
+        "couplingCenterToRearTrlMin": 11000,
+        "couplingType": "S",
+        "createdAt": "2008-01-15T11:07:39.000000Z",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1320
+            },
+            {
+              "axles": "2-3",
+              "value": 1320
+            }
+          ],
+          "length": 12400,
+          "width": 2600
+        },
+        "firstUseDate": "0001-01-01",
+        "frameDescription": "I section",
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 35000,
+        "grossEecWeight": 0,
+        "grossGbWeight": 35000,
+        "lastUpdatedAt": "2021-11-10T11:09:15.088Z",
+        "lastUpdatedById": "90d27c0d-eb85-4747-9b9d-411c9073ad36",
+        "lastUpdatedByName": "TST.CVS-PPD2",
+        "make": "SCHMITZ",
+        "manufactureYear": 2000,
+        "maxLoadOnCoupling": 12000,
+        "model": "SKO24/L",
+        "noOfAxles": 3,
+        "notes": "BA = 16 DISC'S ALL AXLES",
+        "ntaNumber": "S000279729",
+        "plates": [
+          {
+            "plateIssueDate": "2001-01-10T00:00:00.000000Z",
+            "plateIssuer": "jondoe",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "H99999999994"
+          }
+        ],
+        "rearAxleToRearTrl": 2300,
+        "reasonForCreation": " ",
+        "recordCompleteness": "testable",
+        "regnDate": "2000-01-01",
+        "roadFriendly": true,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "variantNumber": "1",
+        "variantVersionNumber": "0",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      },
+      {
+        "approvalType": "NTA",
+        "approvalTypeNumber": "S000279729",
+        "authIntoService": {
+          "cocIssueDate": "0001-01-01",
+          "dateAuthorised": "0001-01-01"
+        },
+        "axles": [
+          {
+            "axleNumber": 3,
+            "brakes": {
+              "brakeActuator": 16,
+              "leverLength": 0,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 160,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 384,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 16,
+              "leverLength": 0,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 160,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 384,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 16,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 160,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 384,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "b",
+          "description": "box"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "317967",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": 2300,
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 8705,
+        "couplingCenterToRearAxleMin": 8705,
+        "couplingCenterToRearTrlMax": 11000,
+        "couplingCenterToRearTrlMin": 11000,
+        "couplingType": "S",
+        "createdAt": "2021-11-10T11:09:15.088Z",
+        "createdById": "90d27c0d-eb85-4747-9b9d-411c9073ad36",
+        "createdByName": "TST.CVS-PPD2",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1320
+            },
+            {
+              "axles": "2-3",
+              "value": 1320
+            }
+          ],
+          "length": 12400,
+          "width": 2600
+        },
+        "euVehicleCategory": "o4",
+        "firstUseDate": "0001-01-01",
+        "frameDescription": "I section",
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 35000,
+        "grossEecWeight": 0,
+        "grossGbWeight": 35000,
+        "make": "SCHMITZ",
+        "manufactureYear": 2000,
+        "maxLoadOnCoupling": 12000,
+        "model": "SKO24/L",
+        "noOfAxles": 3,
+        "notes": "BA = 16 DISC'S ALL AXLES",
+        "ntaNumber": "S000279729",
+        "plates": [
+          {
+            "plateIssueDate": "2001-01-10T00:00:00.000000Z",
+            "plateIssuer": "jondoe",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "H99999999994"
+          }
+        ],
+        "rearAxleToRearTrl": 2300,
+        "reasonForCreation": " ",
+        "recordCompleteness": "testable",
+        "regnDate": "2000-01-01",
+        "roadFriendly": true,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "variantNumber": "1",
+        "variantVersionNumber": "0",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "C789740"
+  },
+  {
+    "vtmComment": "Annual Test: FAIL with defects, Test Type Id = 94, Vehicle = TRL",
+    "systemNumber": "1793365",
+    "vin": "7897",
+    "partialVin": "7897",
+    "techRecord": [
+      {
+        "approvalType": "NTA",
+        "approvalTypeNumber": "N000103070",
+        "authIntoService": {
+          "cocIssueDate": "0001-01-01",
+          "dateAuthorised": "0001-01-01"
+        },
+        "axles": [
+          {
+            "axleNumber": 3,
+            "brakes": {
+              "brakeActuator": 0,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 0,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 0,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "000000",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": 2770,
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 0,
+        "couplingCenterToRearAxleMin": 0,
+        "couplingCenterToRearTrlMax": 12470,
+        "couplingCenterToRearTrlMin": 12000,
+        "couplingType": " ",
+        "createdAt": "2007-06-01T11:14:45.000000Z",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1320
+            }
+          ],
+          "length": 13600,
+          "width": 2480
+        },
+        "firstUseDate": "0001-01-01",
+        "frameDescription": null,
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 39000,
+        "grossEecWeight": 0,
+        "grossGbWeight": 38000,
+        "lastUpdatedAt": "2022-03-07T14:35:34.806Z",
+        "lastUpdatedById": "1341758d-9108-4cc9-854d-a0f339212a14",
+        "lastUpdatedByName": "TST CVS PPD1",
+        "make": "CLAYDEN",
+        "manufactureYear": 1994,
+        "maxLoadOnCoupling": 14500,
+        "model": "SFT3713M",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "N000103070",
+        "plates": [
+          {
+            "plateIssueDate": "1995-11-02T00:00:00.000000Z",
+            "plateIssuer": "john",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "H99999999994"
+          },
+          {
+            "plateIssueDate": "1999-09-01T00:00:00.000000Z",
+            "plateIssuer": "paul",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H99999999993"
+          },
+          {
+            "plateIssueDate": "1999-09-24T00:00:00.000000Z",
+            "plateIssuer": "george",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H99999999992"
+          }
+        ],
+        "rearAxleToRearTrl": 2770,
+        "reasonForCreation": " ",
+        "recordCompleteness": "testable",
+        "regnDate": "1994-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "suspensionType": " ",
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "variantNumber": "1",
+        "variantVersionNumber": "0",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      },
+      {
+        "approvalType": "NTA",
+        "approvalTypeNumber": "N000103070",
+        "authIntoService": {
+          "cocIssueDate": "0001-01-01",
+          "dateAuthorised": "0001-01-01"
+        },
+        "axles": [
+          {
+            "axleNumber": 3,
+            "brakes": {
+              "brakeActuator": 0,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 0,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 0,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "000000",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": 2770,
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 0,
+        "couplingCenterToRearAxleMin": 0,
+        "couplingCenterToRearTrlMax": 12470,
+        "couplingCenterToRearTrlMin": 12000,
+        "couplingType": " ",
+        "createdAt": "2022-03-07T14:35:34.806Z",
+        "createdById": "1341758d-9108-4cc9-854d-a0f339212a14",
+        "createdByName": "TST CVS PPD1",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 1320
+            }
+          ],
+          "length": 13600,
+          "width": 2480
+        },
+        "euVehicleCategory": "o2",
+        "firstUseDate": "0001-01-01",
+        "frameDescription": null,
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 39000,
+        "grossEecWeight": 0,
+        "grossGbWeight": 38000,
+        "make": "CLAYDEN",
+        "manufactureYear": 1994,
+        "maxLoadOnCoupling": 14500,
+        "model": "SFT3713M",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "N000103070",
+        "plates": [
+          {
+            "plateIssueDate": "1995-11-02T00:00:00.000000Z",
+            "plateIssuer": "john",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "H99999999992"
+          },
+          {
+            "plateIssueDate": "1999-09-01T00:00:00.000000Z",
+            "plateIssuer": "paul",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H99999999993"
+          },
+          {
+            "plateIssueDate": "1999-09-24T00:00:00.000000Z",
+            "plateIssuer": "ringo",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H99999999994"
+          }
+        ],
+        "rearAxleToRearTrl": 2770,
+        "reasonForCreation": " ",
+        "recordCompleteness": "testable",
+        "regnDate": "1994-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "suspensionType": " ",
+        "tyreUseCode": "2B",
+        "variantNumber": "1",
+        "variantVersionNumber": "0",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "A229567"
+  },
+  {
+    "vtmComment": "Annual Test: PRS with defects, Test Type Id = 94, Vehicle = TRL",
+    "systemNumber": "1378942",
+    "vin": "014645",
+    "partialVin": "014645",
+    "techRecord": [
+      {
+        "approvalType": "NTA",
+        "approvalTypeNumber": "N000058824",
+        "authIntoService": {
+          "cocIssueDate": "0001-01-01",
+          "dateAuthorised": "0001-01-01"
+        },
+        "axles": [
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 0,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 138,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 202,
+              "tyreSize": "245/70-19.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 0,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 138,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 202,
+              "tyreSize": "245/70-19.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "000000",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": 1270,
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 0,
+        "couplingCenterToRearAxleMin": 0,
+        "couplingCenterToRearTrlMax": 8800,
+        "couplingCenterToRearTrlMin": 8800,
+        "couplingType": " ",
+        "createdAt": "2015-09-29T13:50:52.000000Z",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [],
+          "length": 7260,
+          "width": 2500
+        },
+        "firstUseDate": "0001-01-01",
+        "frameDescription": null,
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 16000,
+        "grossEecWeight": 16000,
+        "grossGbWeight": 16000,
+        "lastUpdatedAt": "2021-11-10T12:54:45.351Z",
+        "lastUpdatedById": "90d27c0d-eb85-4747-9b9d-411c9073ad36",
+        "lastUpdatedByName": "TST.CVS-PPD2",
+        "make": "SPIER",
+        "manufactureYear": 1995,
+        "maxLoadOnCoupling": 0,
+        "model": " ",
+        "noOfAxles": 2,
+        "notes": " ",
+        "ntaNumber": "N000058824",
+        "plates": [
+          {
+            "plateIssueDate": "1996-03-04T00:00:00.000000Z",
+            "plateIssuer": "john",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "H99999999993"
+          },
+          {
+            "plateIssueDate": "2003-04-25T00:00:00.000000Z",
+            "plateIssuer": "paul",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H99999999994"
+          }
+        ],
+        "rearAxleToRearTrl": 1270,
+        "reasonForCreation": " ",
+        "recordCompleteness": "testable",
+        "regnDate": "1995-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "suspensionType": " ",
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "variantNumber": "1",
+        "variantVersionNumber": "0",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "drawbar",
+        "vehicleType": "trl"
+      },
+      {
+        "approvalType": "NTA",
+        "approvalTypeNumber": "N000058824",
+        "authIntoService": {
+          "cocIssueDate": "0001-01-01",
+          "dateAuthorised": "0001-01-01"
+        },
+        "axles": [
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 0,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 138,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 202,
+              "tyreSize": "245/70-19.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 0,
+              "leverLength": 0,
+              "springBrakeParking": false
+            },
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 138,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 202,
+              "tyreSize": "245/70-19.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": 8000,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "000000",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": 1270,
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 0,
+        "couplingCenterToRearAxleMin": 0,
+        "couplingCenterToRearTrlMax": 8800,
+        "couplingCenterToRearTrlMin": 8800,
+        "couplingType": " ",
+        "createdAt": "2021-11-10T12:54:45.351Z",
+        "createdById": "90d27c0d-eb85-4747-9b9d-411c9073ad36",
+        "createdByName": "TST.CVS-PPD2",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [],
+          "length": 7260,
+          "width": 2500
+        },
+        "euVehicleCategory": "o4",
+        "firstUseDate": "0001-01-01",
+        "frameDescription": null,
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 16000,
+        "grossEecWeight": 16000,
+        "grossGbWeight": 16000,
+        "make": "SPIER",
+        "manufactureYear": 1995,
+        "maxLoadOnCoupling": 0,
+        "model": " ",
+        "noOfAxles": 2,
+        "notes": " ",
+        "ntaNumber": "N000058824",
+        "plates": [
+          {
+            "plateIssueDate": "1996-03-04T00:00:00.000000Z",
+            "plateIssuer": "john",
+            "plateReasonForIssue": "Original",
+            "plateSerialNumber": "H99999999995"
+          },
+          {
+            "plateIssueDate": "2003-04-25T00:00:00.000000Z",
+            "plateIssuer": "paul",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "H99999999996"
+          }
+        ],
+        "rearAxleToRearTrl": 1270,
+        "reasonForCreation": " ",
+        "recordCompleteness": "testable",
+        "regnDate": "1995-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "suspensionType": " ",
+        "tyreUseCode": "2B",
+        "variantNumber": "1",
+        "variantVersionNumber": "0",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "drawbar",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "A250708"
   }
 ]
