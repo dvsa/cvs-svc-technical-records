@@ -25,7 +25,6 @@ describe("getTechRecordsList", () => {
   context("when db call returns data", () => {
     it("should return a populated response", async () => {
       const techRecord = cloneDeep(records[0]);
-      const meaninglessChange = true;
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
