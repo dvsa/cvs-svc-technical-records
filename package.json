@@ -44,7 +44,7 @@
     "aws-lambda-mock-context": "^3.2.1",
     "husky": "^3.1.0",
     "jest": "^26.1.0",
-    "jest-cucumber": "^3.0.0",
+    "jest-cucumber": "^3.0.2",
     "jest-plugin-context": "^2.9.0",
     "jest-sonar-reporter": "^2.0.0",
     "lambda-tester": "^4.0.1",
