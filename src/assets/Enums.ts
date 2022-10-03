@@ -127,6 +127,7 @@ export const VEHICLE_CONFIGURATION: string[] = [
     "centre axle drawbar",
     "semi-car transporter",
     "semi-trailer",
+    "long semi-trailer",
     "low loader",
     "other",
     "drawbar",
