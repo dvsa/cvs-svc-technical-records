@@ -65,7 +65,7 @@ export class TechRecordStatusHandler<T extends Vehicle> {
   }
 
   private static isTestTypeNotifiableAlteration(testTypeId: string): boolean {
-    const notifiableAlterationIds = ["47", "48"];
+    const notifiableAlterationIds = ["38", "47", "48"];
     return notifiableAlterationIds.includes(testTypeId);
   }
 }
