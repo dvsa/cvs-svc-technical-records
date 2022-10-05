@@ -39,7 +39,7 @@ export const psvValidation = commonSchema.keys({
     }).required()
   }).required(),
   dda: Joi.object().keys({
-    certificateIssued: Joi.boolean().required(),
+    certificateIssued: Joi.boolean().optional(),
     wheelchairCapacity: Joi.number().min(0).max(99).optional().allow(null),
     wheelchairFittings: Joi.string().max(250).optional().allow(null),
     wheelchairLiftPresent: Joi.boolean().optional().allow(null),
