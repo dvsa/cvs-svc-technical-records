@@ -12,13 +12,13 @@ const authIntoService = Joi.object().keys({
   datePending: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
   dateAuthorised: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
   dateRejected: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null)
-}).optional().allow(null, '');
+}).optional().allow(null);
 
 const lettersOfAuth = Joi.object().keys({
   letterType: Joi.string().valid(...LETTER_TYPE).optional().allow(null, ''),
   letterDateRequested: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
   letterContents: Joi.string().optional().allow(null, '')
-}).optional().allow(null, '');
+}).optional().allow(null);
 
 export const trlValidation = commonSchema.keys({
   firstUseDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
@@ -36,8 +36,8 @@ export const trlValidation = commonSchema.keys({
       eecWeight: Joi.number().min(0).max(99999).optional().allow(null)
     }).required(),
     brakes: Joi.object().keys({
-      brakeActuator: Joi.number().min(0).max(999).optional().allow(null, ''),
-      leverLength: Joi.number().min(0).max(999).optional().allow(null, ''),
+      brakeActuator: Joi.number().min(0).max(999).optional().allow(null),
+      leverLength: Joi.number().min(0).max(999).optional().allow(null),
       springBrakeParking: Joi.boolean().optional().allow(null, '')
     }).optional().allow(null, '')
   })).min(1).required(),

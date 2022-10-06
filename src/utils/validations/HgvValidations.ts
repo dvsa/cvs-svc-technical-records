@@ -19,7 +19,7 @@ export const hgvValidation = commonSchema.keys({
   euroStandard: Joi.string().required(),
   fuelPropulsionSystem: Joi.string().valid(...FUEL_PROPULSION_SYSTEM).required(),
   numberOfWheelsDriven: Joi.number().min(0).max(9999).required().allow(null),
-  emissionsLimit: Joi.number().min(0).max(99).optional().allow(null, ''),
+  emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
   trainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
   grossEecWeight: Joi.number().min(0).max(99999).optional().allow(null),
   trainGbWeight: Joi.number().min(0).max(99999).required(),
