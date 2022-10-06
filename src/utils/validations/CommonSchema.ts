@@ -65,14 +65,14 @@ export const applicantDetailsSchema = Joi.object().keys({
 }).required();
 
 export const applicantDetailsSchemaOptional = Joi.object().keys({
-  name: Joi.string().max(150).optional().allow(null),
-  address1: Joi.string().max(60).optional().allow(null),
-  address2: Joi.string().max(60).optional().allow(null),
-  postTown: Joi.string().max(60).optional().allow(null),
-  address3: Joi.string().max(60).optional().allow(null),
-  postCode: Joi.string().max(12).optional().allow(null),
-  telephoneNumber: Joi.string().max(25).optional().allow(null),
-  emailAddress: Joi.string().max(255).optional().allow(null)
+  name: Joi.string().max(150).optional().allow(null, ''),
+  address1: Joi.string().max(60).optional().allow(null, ''),
+  address2: Joi.string().max(60).optional().allow(null, ''),
+  postTown: Joi.string().max(60).optional().allow(null, ''),
+  address3: Joi.string().max(60).optional().allow(null, ''),
+  postCode: Joi.string().max(12).optional().allow(null, ''),
+  telephoneNumber: Joi.string().max(25).optional().allow(null, ''),
+  emailAddress: Joi.string().max(255).optional().allow(null, '')
 }).optional().allow(null);
 
 export const commonSchema = Joi.object().keys({

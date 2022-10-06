@@ -1,5 +1,5 @@
 import Joi from "@hapi/joi";
-import {axlesSchema, commonSchema, weightsSchema} from "./CommonSchema";
+import {applicantDetailsSchemaOptional, axlesSchema, commonSchema, weightsSchema} from "./CommonSchema";
 import {FUEL_PROPULSION_SYSTEM} from "../../assets/Enums";
 import {adrValidation} from "./AdrValidation";
 
@@ -42,5 +42,6 @@ export const hgvValidation = commonSchema.keys({
   frontAxleTo5thWheelMin: Joi.number().min(0).max(99999).optional().allow([null, '']),
   frontAxleTo5thWheelMax: Joi.number().min(0).max(99999).optional().allow([null, '']),
   notes: Joi.string().optional().allow([null, '']),
-  adrDetails: adrValidation
+  adrDetails: adrValidation,
+  applicantDetails: applicantDetailsSchemaOptional
 }).required();

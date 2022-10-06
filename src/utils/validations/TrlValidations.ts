@@ -2,7 +2,7 @@
 const Joi = require("@hapi/joi")
   .extend(require("@hapi/joi-date"));
 
-import {applicantDetailsSchema, axlesSchema, brakesSchema, commonSchema, weightsSchema} from "./CommonSchema";
+import {applicantDetailsSchema, applicantDetailsSchemaOptional, axlesSchema, brakesSchema, commonSchema, weightsSchema} from "./CommonSchema";
 import {FRAME_DESCRIPTION, LETTER_TYPE} from "../../assets/Enums";
 import {adrValidation} from "./AdrValidation";
 
@@ -71,5 +71,6 @@ export const trlValidation = commonSchema.keys({
     manufacturerNotes: Joi.string().max(1024).optional().allow([null, ''])
   }).required(),
   notes: Joi.string().optional().allow([null, '']),
-  adrDetails: adrValidation
+  adrDetails: adrValidation,
+  applicantDetails: applicantDetailsSchemaOptional
 }).required();
