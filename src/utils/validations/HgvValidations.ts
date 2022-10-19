@@ -1,5 +1,5 @@
 import Joi from "@hapi/joi";
-import {axlesSchema, commonSchema, weightsSchema} from "./CommonSchema";
+import {applicantDetailsSchemaOptional, axlesSchema, commonSchema, weightsSchema} from "./CommonSchema";
 import {FUEL_PROPULSION_SYSTEM} from "../../assets/Enums";
 import {adrValidation} from "./AdrValidation";
 
@@ -27,7 +27,7 @@ export const hgvValidation = commonSchema.keys({
   maxTrainGbWeight: Joi.number().min(0).max(99999).required(),
   maxTrainEecWeight: Joi.number().min(0).max(99999).optional().allow(null),
   maxTrainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
-  tyreUseCode: Joi.string().max(2).optional().allow(null),
+  tyreUseCode: Joi.string().max(2).optional().allow(null, ''),
   dimensions: Joi.object().keys({
     length: Joi.number().min(0).max(99999).required(),
     width: Joi.number().min(0).max(99999).required(),
@@ -41,6 +41,7 @@ export const hgvValidation = commonSchema.keys({
   frontAxleTo5thWheelCouplingMax: Joi.number().min(0).max(99999).optional().allow(null),
   frontAxleTo5thWheelMin: Joi.number().min(0).max(99999).optional().allow(null),
   frontAxleTo5thWheelMax: Joi.number().min(0).max(99999).optional().allow(null),
-  notes: Joi.string().optional().allow(null),
-  adrDetails: adrValidation
+  notes: Joi.string().optional().allow(null, ''),
+  adrDetails: adrValidation,
+  applicantDetails: applicantDetailsSchemaOptional
 }).required();
