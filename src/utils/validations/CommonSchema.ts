@@ -17,7 +17,7 @@ import {
 } from "../../assets/Enums";
 
 export const brakesSchema = Joi.object().keys({
-  dtpNumber: Joi.string().max(6).required(),
+  dtpNumber: Joi.string().max(6).optional().allow(null, ''),
 }).required();
 
 export const weightsSchema = Joi.object().keys({
