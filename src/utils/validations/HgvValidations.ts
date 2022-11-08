@@ -29,14 +29,14 @@ export const hgvValidation = commonSchema.keys({
   maxTrainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
   tyreUseCode: Joi.string().max(2).optional().allow(null, ''),
   dimensions: Joi.object().keys({
-    length: Joi.number().min(0).max(99999).required(),
-    width: Joi.number().min(0).max(99999).required(),
+    length: Joi.number().min(0).max(99999).optional().allow(null),
+    width: Joi.number().min(0).max(99999).optional().allow(null),
     axleSpacing: Joi.array().items(Joi.object().keys({
       value: Joi.number().min(0).max(99999).optional().allow(null),
       axles: Joi.string().optional()
     })).optional()
   }).required(),
-  frontAxleToRearAxle: Joi.number().min(0).max(99999).required(),
+  frontAxleToRearAxle: Joi.number().min(0).max(99999).optional().allow(null),
   frontAxleTo5thWheelCouplingMin: Joi.number().min(0).max(99999).optional().allow(null),
   frontAxleTo5thWheelCouplingMax: Joi.number().min(0).max(99999).optional().allow(null),
   frontAxleTo5thWheelMin: Joi.number().min(0).max(99999).optional().allow(null),
