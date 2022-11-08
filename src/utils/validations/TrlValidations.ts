@@ -48,14 +48,14 @@ export const trlValidation = commonSchema.keys({
     antilockBrakingSystem: Joi.boolean().required()
   }).required(),
   dimensions: Joi.object().keys({
-    length: Joi.number().min(0).max(99999).required(),
-    width: Joi.number().min(0).max(99999).required(),
+    length: Joi.number().min(0).max(99999).optional().allow(null),
+    width: Joi.number().min(0).max(99999).optional().allow(null),
     axleSpacing: Joi.array().items(Joi.object().keys({
       value: Joi.number().min(0).max(99999).optional().allow(null),
       axles: Joi.string().optional()
     })).optional()
   }).required(),
-  frontAxleToRearAxle: Joi.number().min(0).max(99999).required(),
+  frontAxleToRearAxle: Joi.number().min(0).max(99999).optional().allow(null),
   rearAxleToRearTrl: Joi.number().min(0).max(99999).required(),
   couplingCenterToRearAxleMin: Joi.number().min(0).max(99999).required(),
   couplingCenterToRearAxleMax: Joi.number().min(0).max(99999).required(),
