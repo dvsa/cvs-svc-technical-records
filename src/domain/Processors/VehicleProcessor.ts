@@ -416,15 +416,16 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   }
 
   /**
-   * Removes the tech record to be replaced from history if it is a provisional, if the record to be replaced is a current then archive the old record.
-   * @param techRecToArchive tech record that is being replaced by the new updated tech record
+   * Removes the tech record to be replaced from history IF it is a provisional. Or
+   * archive the tech record to be replaced if it is not a provisional.
+   * @param techRecToArchive tech record that is being removed/archived from the tech record history
    * @param vehicleTechRecord the entire vehicle technical record retrieved from DynamoDB
    */
 
   private archiveOrRemoveOldTechRecord(techRecToArchive: TechRecord, vehicleTechRecord: Vehicle) {
     if (techRecToArchive.statusCode === 'provisonal') {
       const oldProvisionalIndex = vehicleTechRecord.techRecord.findIndex(techRecord => techRecord.statusCode === 'provisional')
-      if (oldProvisionalIndex === -1) {
+      if (oldProvisionalIndex !== -1) {
         delete vehicleTechRecord.techRecord[oldProvisionalIndex]
       }
     }
