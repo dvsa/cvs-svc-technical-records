@@ -392,7 +392,9 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         techRecToArchive,
         msUserDetails
       );
-      techRecToArchive.statusCode = enums.STATUS.ARCHIVED;
+
+      this.archiveOrRemoveOldTechRecord(techRecToArchive, techRecordWithAllStatuses)
+      
       this.mapFields(newRecord);
       const { systemNumber, vin, primaryVrm } = techRecordWithAllStatuses;
       const vehicleToUpdate = {
@@ -410,6 +412,24 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     } catch (error) {
       console.error(error);
       throw this.Error(error.statusCode, error.body);
+    }
+  }
+
+  /**
+   * Removes the tech record to be replaced from history if it is a provisional, if the record to be replaced is a current then archive the old record.
+   * @param techRecToArchive tech record that is being replaced by the new updated tech record
+   * @param vehicleTechRecord the entire vehicle technical record retrieved from DynamoDB
+   */
+
+  private archiveOrRemoveOldTechRecord(techRecToArchive: TechRecord, vehicleTechRecord: Vehicle) {
+    if (techRecToArchive.statusCode === 'provisonal') {
+      const oldProvisionalIndex = vehicleTechRecord.techRecord.findIndex(techRecord => techRecord.statusCode === 'provisional')
+      if (oldProvisionalIndex === -1) {
+        delete vehicleTechRecord.techRecord[oldProvisionalIndex]
+      }
+    }
+    else {
+      techRecToArchive.statusCode = enums.STATUS.ARCHIVED;
     }
   }
 
