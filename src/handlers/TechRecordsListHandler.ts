@@ -5,6 +5,7 @@ import HTTPError from "../models/HTTPError";
 import { cloneDeep } from "lodash";
 import { Vehicle } from "../../@Types/TechRecords";
 import { ErrorHandler } from "./ErrorHandler";
+import { recordExpression } from "@babel/types";
 
 export class TechRecordsListHandler<T extends Vehicle> {
   private readonly techRecordsDAO: TechRecordsDAO;
@@ -56,6 +57,9 @@ export class TechRecordsListHandler<T extends Vehicle> {
       if (status !== STATUS.ALL) {
         techRecordItems = this.filterTechRecordsByStatus(techRecordItems, status);
       }
+      techRecordItems.forEach(item => {
+        item.techRecord = item.techRecord.filter(techRecord => techRecord.statusCode !== 'removed')
+      })
       return techRecordItems;
   }
 

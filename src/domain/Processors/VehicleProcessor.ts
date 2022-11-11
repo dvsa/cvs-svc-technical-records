@@ -393,7 +393,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         msUserDetails
       );
 
-      if (techRecToArchive.statusCode === 'provisonal') {
+      if (statusCode === enums.STATUS.PROVISIONAL || oldStatusCode === enums.STATUS.PROVISIONAL) {
         techRecToArchive.statusCode = enums.STATUS.REMOVED;
       }
       else {
