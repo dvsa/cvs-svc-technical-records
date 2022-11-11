@@ -38,10 +38,6 @@ const getTechRecords = (event: any) => {
 
   return techRecordsService.getTechRecordsList(searchIdentifier, status, searchCriteria)
     .then((data) => {
-      data.forEach((item) => {
-        item.techRecord = item.techRecord.filter((techRecord) => techRecord.statusCode !== "removed");
-      });
-
       if(!(data instanceof Array)) {
         return new HTTPResponse(200, Array.of(data));
       }
@@ -51,6 +47,10 @@ const getTechRecords = (event: any) => {
           Object.assign(record, {metadata: metaData});
         });
       }
+
+      data.forEach((item) => {
+        item.techRecord = item.techRecord.filter((techRecord) => techRecord.statusCode !== "removed");
+      });
 
       return new HTTPResponse(200, data);
     })
