@@ -57,9 +57,9 @@ export class TechRecordsListHandler<T extends Vehicle> {
       if (status !== STATUS.ALL) {
         techRecordItems = this.filterTechRecordsByStatus(techRecordItems, status);
       }
-      techRecordItems.forEach(item => {
-        item.techRecord = item.techRecord.filter(techRecord => techRecord.statusCode !== 'removed')
-      })
+      techRecordItems.forEach((item) => {
+        item.techRecord = item.techRecord.filter((techRecord) => techRecord.statusCode !== "removed");
+      });
       return techRecordItems;
   }
 
