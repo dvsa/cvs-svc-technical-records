@@ -6,7 +6,7 @@ import TechRecordsService from "../services/TechRecordsService";
 import { metaData } from "../utils/metadataEnums";
 import { isValidSearchCriteria } from "../utils/validations/PayloadValidation";
 import { Validator } from "../utils/Validator";
-
+import * as enums from "../assets/Enums";
 
 const getTechRecords = (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -49,7 +49,7 @@ const getTechRecords = (event: any) => {
       }
 
       data.forEach((item) => {
-        item.techRecord = item.techRecord.filter((techRecord) => techRecord.statusCode !== "removed");
+        item.techRecord = item.techRecord.filter((techRecord) => techRecord.statusCode !== enums.STATUS.REMOVED);
       });
 
       return new HTTPResponse(200, data);

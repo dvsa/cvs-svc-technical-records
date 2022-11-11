@@ -5,7 +5,6 @@ import HTTPError from "../models/HTTPError";
 import { cloneDeep } from "lodash";
 import { Vehicle } from "../../@Types/TechRecords";
 import { ErrorHandler } from "./ErrorHandler";
-import { recordExpression } from "@babel/types";
 
 export class TechRecordsListHandler<T extends Vehicle> {
   private readonly techRecordsDAO: TechRecordsDAO;
