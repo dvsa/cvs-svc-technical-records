@@ -132,7 +132,7 @@ describe("VehicleProcessor", () => {
                 msUserDetails.msOid
               );
               expect(updatedTechRecords.techRecord[1].statusCode).toEqual(
-                STATUS.ARCHIVED
+                STATUS.REMOVED
               );
               expect(
                 updatedTechRecords.techRecord[1].lastUpdatedByName
@@ -181,7 +181,7 @@ describe("VehicleProcessor", () => {
                 msUserDetails.msOid
               );
               expect(updatedTechRecords.techRecord[1].statusCode).toEqual(
-                STATUS.ARCHIVED
+                STATUS.REMOVED
               );
               expect(
                 updatedTechRecords.techRecord[1].lastUpdatedByName
