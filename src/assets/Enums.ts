@@ -39,6 +39,7 @@ export enum HTTPRESPONSE {
 
 export enum STATUS {
     ARCHIVED = "archived",
+    REMOVED = "removed",
     CURRENT = "current",
     PROVISIONAL = "provisional",
     PROVISIONAL_OVER_CURRENT = "provisional_over_current",
