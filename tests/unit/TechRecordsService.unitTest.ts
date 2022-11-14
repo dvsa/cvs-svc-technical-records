@@ -1036,7 +1036,7 @@ describe("updateTechRecordStatus", () => {
     });
 
     context("and the vehicle has only a provisional tech record", () => {
-      it("should create new CURRENT, set the audit details and archive the previous provisional record", async () => {
+      it("should create new CURRENT, set the audit details and set the previous provisional record to removed", async () => {
         const existingTechRecord = cloneDeep(records[3]);
         const systemNumber = existingTechRecord.systemNumber;
         const MockDAO = jest.fn().mockImplementation(() => {
@@ -1060,13 +1060,13 @@ describe("updateTechRecordStatus", () => {
         expect(updatedTechRec.techRecord[1]).not.toHaveProperty("lastUpdatedById");
         expect(updatedTechRec.techRecord[0].lastUpdatedById).toEqual(createdById);
         expect(updatedTechRec.techRecord[0].lastUpdatedByName).toEqual(createdByName);
-        expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.ARCHIVED);
+        expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.REMOVED);
         expect(updatedTechRec.techRecord[0].updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
       });
     });
 
     context("and the vehicle has a current and a provisional record", () => {
-      it("should create new CURRENT, set the audit details and archive the previous current and provisional record", async () => {
+      it("should create new CURRENT, set the audit details and archive the previous current and set the previous provisional record to removed", async () => {
         const existingTechRecord = cloneDeep(records[44]);
         const systemNumber = existingTechRecord.systemNumber;
         const MockDAO = jest.fn().mockImplementation(() => {
@@ -1090,7 +1090,7 @@ describe("updateTechRecordStatus", () => {
         expect(updatedTechRec.techRecord[0].lastUpdatedById).toEqual(createdById);
         expect(updatedTechRec.techRecord[0].lastUpdatedByName).toEqual(createdByName);
         expect(updatedTechRec.techRecord[0].updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
-        expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.ARCHIVED);
+        expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.REMOVED);
         expect(updatedTechRec.techRecord[1].lastUpdatedById).toEqual(createdById);
         expect(updatedTechRec.techRecord[1].lastUpdatedByName).toEqual(createdByName);
         expect(updatedTechRec.techRecord[1].updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
