@@ -211,49 +211,57 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     );
   }
 
-  public async archiveTechRecordStatus(
+  public async archiveCurrentTechRecord(
     systemNumber: string,
     techRecordToUpdate: T,
     userDetails: IMsUserDetails
   ) {
-    const allTechRecordWrapper = await this.techRecordsListHandler.getTechRecordList(
-      systemNumber,
-      enums.STATUS.ALL,
-      enums.SEARCHCRITERIA.SYSTEM_NUMBER
-    );
-    if (allTechRecordWrapper.length !== 1) {
-      // systemNumber search should return a single record
-      throw this.Error(400, enums.ERRORS.NO_UNIQUE_RECORD);
-    }
-    const techRecordWithAllStatues = allTechRecordWrapper[0];
-    const techRecordToArchive = VehicleProcessor.getTechRecordToArchive(
-      techRecordWithAllStatues,
-      techRecordToUpdate.techRecord[0].statusCode
-    );
-    if (techRecordToArchive.statusCode === enums.STATUS.ARCHIVED) {
-      throw this.Error(400, enums.ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
-    }
-    if (!isEqual(techRecordToArchive, techRecordToUpdate.techRecord[0])) {
-      throw this.Error(400, enums.ERRORS.CANNOT_ARCHIVE_CHANGED_RECORD);
-    }
-    techRecordToArchive.statusCode = enums.STATUS.ARCHIVED;
-    techRecordToArchive.lastUpdatedAt = new Date().toISOString();
-    techRecordToArchive.lastUpdatedByName = userDetails.msUser;
-    techRecordToArchive.lastUpdatedById = userDetails.msOid;
-    techRecordToArchive.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
 
-    let updatedTechRecord;
+    const techRecordsWithMatchingSystemNumber = await this.techRecordsListHandler.getTechRecordList( systemNumber, enums.STATUS.ALL, enums.SEARCHCRITERIA.SYSTEM_NUMBER);
+
+    const currentTechRecords = this.getTechRecordsWithStatus(techRecordsWithMatchingSystemNumber, enums.STATUS.CURRENT);
+    this.updateRecordWithStatus(currentTechRecords, userDetails, enums.STATUS.ARCHIVED);
+
+    const provisionalTechRecords = this.getTechRecordsWithStatus(techRecordsWithMatchingSystemNumber, enums.STATUS.PROVISIONAL);
+    this.updateRecordWithStatus(provisionalTechRecords, userDetails, enums.STATUS.REMOVED);
+
+    const updatedVehicleTechRecords = [];
     try {
-      updatedTechRecord = await this.techRecordDAO.updateSingle(
-        techRecordWithAllStatues
-      );
+      for (const vehicleTechRecord of techRecordsWithMatchingSystemNumber) {
+        updatedVehicleTechRecords.push(await this.techRecordDAO.updateSingle(
+            vehicleTechRecord
+        ));
+      }
     } catch (error) {
       console.error(error);
       throw this.Error(error.statusCode, error.message);
     }
-    return this.techRecordsListHandler.formatTechRecordItemForResponse(
-      updatedTechRecord.Attributes as T
-    );
+
+    const updatedTechRecordToReturn = updatedVehicleTechRecords
+        .map((vehicleTechRecord) => this.techRecordsListHandler.formatTechRecordItemForResponse(vehicleTechRecord.Attributes as T))
+        .filter((vehicleTechRecord) => vehicleTechRecord.vin === techRecordToUpdate.vin);
+
+    if(updatedTechRecordToReturn && updatedTechRecordToReturn.length !== 1) {
+      throw this.Error(400, enums.ERRORS.NO_UNIQUE_RECORD);
+    }
+
+    return updatedTechRecordToReturn[0];
+  }
+
+  private getTechRecordsWithStatus(techRecordsWithMatchingSystemNumber: T[], status: enums.STATUS) {
+    return techRecordsWithMatchingSystemNumber.flatMap(
+        (vehicleTechRecord) => vehicleTechRecord.techRecord.filter(
+            (techRecord) => techRecord.statusCode === status));
+  }
+
+  private updateRecordWithStatus(currentTechRecords: TechRecord[], userDetails: IMsUserDetails, status: enums.STATUS) {
+    currentTechRecords.map((techRecord) => {
+      techRecord.statusCode = status;
+      techRecord.lastUpdatedAt = new Date().toISOString();
+      techRecord.lastUpdatedByName = userDetails.msUser;
+      techRecord.lastUpdatedById = userDetails.msOid;
+      techRecord.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
+    });
   }
 
   public async updateEuVehicleCategory(
