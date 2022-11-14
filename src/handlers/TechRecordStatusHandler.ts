@@ -25,7 +25,7 @@ export class TechRecordStatusHandler<T extends Vehicle> {
     const currentTechRecords = uniqueRecord.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.CURRENT);
     let newTechRecord;
     if (provisionalTechRecords.length === 1) {
-      provisionalTechRecords[0].statusCode = STATUS.ARCHIVED;
+      provisionalTechRecords[0].statusCode = STATUS.REMOVED;
       newTechRecord = cloneDeep(provisionalTechRecords[0]);
       newTechRecord.statusCode = newStatus;
 
