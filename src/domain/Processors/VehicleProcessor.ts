@@ -237,21 +237,13 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       throw this.Error(error.statusCode, error.message);
     }
 
-    const updatedTechRecordToReturn = updatedVehicleTechRecords
+    return updatedVehicleTechRecords
         .map((vehicleTechRecord) => this.techRecordsListHandler.formatTechRecordItemForResponse(vehicleTechRecord.Attributes as T))
-        .filter((vehicleTechRecord) => vehicleTechRecord.vin === techRecordToUpdate.vin);
-
-    if(updatedTechRecordToReturn && updatedTechRecordToReturn.length !== 1) {
-      throw this.Error(400, enums.ERRORS.NO_UNIQUE_RECORD);
-    }
-
-    return updatedTechRecordToReturn[0];
+        .filter((vehicleTechRecord) => vehicleTechRecord.vin === techRecordToUpdate.vin)[0];
   }
 
   private getTechRecordsWithStatus(techRecordsWithMatchingSystemNumber: T[], status: enums.STATUS) {
-    return techRecordsWithMatchingSystemNumber.flatMap(
-        (vehicleTechRecord) => vehicleTechRecord.techRecord.filter(
-            (techRecord) => techRecord.statusCode === status));
+    return techRecordsWithMatchingSystemNumber.flatMap((vehicleTechRecord) => vehicleTechRecord.techRecord.filter((techRecord) => techRecord.statusCode === status));
   }
 
   private updateRecordWithStatus(currentTechRecords: TechRecord[], userDetails: IMsUserDetails, status: enums.STATUS) {
