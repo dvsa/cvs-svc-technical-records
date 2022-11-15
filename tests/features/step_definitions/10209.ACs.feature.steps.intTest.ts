@@ -155,10 +155,10 @@ defineFeature(feature, (test) => {
       }
     );
     and(
-      'the previous "pre-update" tech record still exists in DynamoDB, with it\'s status set to archived',
+      'the previous "pre-update" tech record still exists in DynamoDB, with it\'s status set to removed',
       () => {
         if (doNotSkipAssertionWhenAdrFlagIsDisabled) {
-          expect(response.body.techRecord[0].statusCode).toEqual("archived");
+          expect(response.body.techRecord[0].statusCode).toEqual("removed");
         }
       }
     );

@@ -46,9 +46,9 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[1].statusCode).toEqual("provisional");
       expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
     });
-    and("the existing tech record is archived", () => {
+    and("the existing provisional tech record status code is set to removed", () => {
       expect(response.body.techRecord[0].reasonForCreation).toContain("string");
-      expect(response.body.techRecord[0].statusCode).toEqual("archived");
+      expect(response.body.techRecord[0].statusCode).toEqual("removed");
     });
     and("my PUT action adheres to the adrDetails{} API validations, present in the attached updated API spec", () => {
       expect(response.body.techRecord[1].reasonForCreation).toEqual("adr update");
@@ -74,9 +74,9 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
       expect(response.body.techRecord[1].adrDetails.additionalExaminerNotes).toEqual("new notes");
     });
-    and("the existing tech record (with the 'old' adrDetails{} object on it) is archived", () => {
+    and("the existing provisional tech record (with the 'old' adrDetails{} object on it) has it's status set to removed", () => {
       expect(response.body.techRecord[0]).toHaveProperty("adrDetails");
-      expect(response.body.techRecord[0].statusCode).toEqual("archived");
+      expect(response.body.techRecord[0].statusCode).toEqual("removed");
     });
     and("my PUT action adheres to the adrDetails{} API validations, present in the attached updated API spec", () => {
       expect(response.body.techRecord[1].reasonForCreation).toEqual("adr update");
@@ -141,14 +141,14 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[1].createdByName).toBeDefined();
       expect(response.body.techRecord[1].createdById).toBeDefined();
     });
-    and('the following attributes are also set on my "existing tech record (without the adrDetails{} object on it)" (which got archived in AC1)', () => {
+    and('the following attributes are also set on my "existing tech record (without the adrDetails{} object on it)" (which got set to removed in AC1)', () => {
       /*
         lastUpdatedAt: Date + time of this action
         lastUpdatedByName: Microsoft AD username, of the person who performed this action
         lastUpdatedById: Microsoft AD OID, of the person who performed this action
         updateType: adrUpdate
        */
-      expect(response.body.techRecord[0].statusCode).toEqual("archived");
+      expect(response.body.techRecord[0].statusCode).toEqual("removed");
       expect(response.body.techRecord[0].lastUpdatedAt).toBeDefined();
       expect(response.body.techRecord[0].lastUpdatedByName).toBeDefined();
       expect(response.body.techRecord[0].lastUpdatedById).toBeDefined();
@@ -179,14 +179,14 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[1].createdByName).toBeDefined();
       expect(response.body.techRecord[1].createdById).toBeDefined();
     });
-    and('the following attributes are also set on my "existing tech record (with the \'old\' adrDetails{} object on it)" (which got archived in AC2)', () => {
+    and('the following attributes are also set on my "existing tech record (with the \'old\' adrDetails{} object on it)" (which got set to removed in AC2)', () => {
       /*
         lastUpdatedAt: Date + time of this action
         lastUpdatedByName: Microsoft AD username, of the person who performed this action
         lastUpdatedById: Microsoft AD OID, of the person who performed this action
         updateType: adrUpdate
        */
-      expect(response.body.techRecord[0].statusCode).toEqual("archived");
+      expect(response.body.techRecord[0].statusCode).toEqual("removed");
       expect(response.body.techRecord[0].lastUpdatedAt).toBeDefined();
       expect(response.body.techRecord[0].lastUpdatedByName).toBeDefined();
       expect(response.body.techRecord[0].lastUpdatedById).toBeDefined();

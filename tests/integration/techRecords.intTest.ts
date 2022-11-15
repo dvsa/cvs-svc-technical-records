@@ -514,7 +514,7 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
               expect(res.body.techRecord).toHaveLength(techRec.techRecord.length + 1);
               expect(res.body.techRecord[techRec.techRecord.length].statusCode).toEqual("provisional");
-              expect(res.body.techRecord[techRec.techRecord.length - 1].statusCode).toEqual("archived");
+              expect(res.body.techRecord[techRec.techRecord.length - 1].statusCode).toEqual("removed");
             });
 
             it("should return status 200 and updated trailer with the updated trailer Id in upper case", async () => {
@@ -541,7 +541,7 @@ describe("techRecords", () => {
               ).toEqual("provisional");
               expect(
                 res.body.techRecord[techRec.techRecord.length - 1].statusCode
-              ).toEqual("archived");
+              ).toEqual("removed");
             });
           });
 
