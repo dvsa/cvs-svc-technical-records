@@ -67,7 +67,7 @@ describe("UpdateTechRecordStatus", () => {
                     expect(result.statusCode).toBe(200);
                     const techRecordWrapper: ITechRecordWrapper = JSON.parse(result.body);
                     expect(techRecordWrapper.techRecord.length).toBe(2);
-                    expect(techRecordWrapper.techRecord[0].statusCode).toBe(STATUS.ARCHIVED);
+                    expect(techRecordWrapper.techRecord[0].statusCode).toBe(STATUS.REMOVED);
                     expect(techRecordWrapper.techRecord[1].statusCode).toBe(STATUS.CURRENT);
                 });
         });

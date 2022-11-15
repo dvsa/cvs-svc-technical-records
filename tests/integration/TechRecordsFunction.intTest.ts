@@ -297,7 +297,7 @@ describe("updateTechRecords", () => {
               expect(
                 updatedTechRes.techRecord[techRecord.techRecord.length - 1]
                   .statusCode
-              ).toEqual("archived");
+              ).toEqual("removed");
             });
         });
       });
