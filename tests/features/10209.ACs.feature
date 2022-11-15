@@ -18,6 +18,6 @@ Feature: HGV Backend service update | Retrieval + Creation + Update
     When an existing HGV vehicle is updated via the PUT verb
     Then my PUT action adheres to the HGV validations, present in the linked excel, columns D-E
     And a new identical tech record is created, with the same status, and the updated attributes on it
-    And the previous "pre-update" tech record still exists in DynamoDB, with it's status set to archived
+    And the previous "pre-update" tech record still exists in DynamoDB, with it's status set to removed
     And the appropriate audit attributes are set on the new updated tech record
     And I am only able to update attributes within the techRecord[] array

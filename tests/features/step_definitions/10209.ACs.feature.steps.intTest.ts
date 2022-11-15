@@ -166,11 +166,11 @@ defineFeature(feature, (test) => {
       "the appropriate audit attributes are set on the new updated tech record",
       () => {
         if (doNotSkipAssertionWhenAdrFlagIsDisabled) {
-          expect(responseGET.body[0].techRecord[1]).toHaveProperty("createdAt");
-          expect(responseGET.body[0].techRecord[1]).toHaveProperty(
+          expect(responseGET.body[0].techRecord[0]).toHaveProperty("createdAt");
+          expect(responseGET.body[0].techRecord[0]).toHaveProperty(
             "createdByName"
           );
-          expect(responseGET.body[0].techRecord[1]).toHaveProperty(
+          expect(responseGET.body[0].techRecord[0]).toHaveProperty(
             "createdById"
           );
         }

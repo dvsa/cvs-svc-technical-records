@@ -4,14 +4,14 @@ Feature: VTM ADR - Backend Service Updates For Vehicles API Spec
     Given I am a consumer of the vehicles API
     When I call the vehicles API via the PUT method
     Then I am able to create a new identical tech record with the adrDetails{} object on it
-    And the existing tech record is archived
+    And the existing provisional tech record status code is set to removed
     And my PUT action adheres to the adrDetails{} API validations, present in the attached updated API spec
 
   Scenario: AC2. PUT: Update adrDetails{} object on an existing tech record
     Given I am a consumer of the vehicles API
     When I call the vehicles API via the PUT method
     Then I am able to create a new identical tech record with the updated adrDetails{} object on it
-    And the existing tech record (with the 'old' adrDetails{} object on it) is archived
+    And the existing provisional tech record (with the 'old' adrDetails{} object on it) has its status set to removed
     And my PUT action adheres to the adrDetails{} API validations, present in the attached updated API spec
 
   Scenario: AC3. GET: All attributes are returned
@@ -30,7 +30,7 @@ Feature: VTM ADR - Backend Service Updates For Vehicles API Spec
         createdByName: Microsoft AD username, of the person who performed this action
         createdById: Microsoft AD OID, of the person who performed this action
         """
-  And the following attributes are also set on my "existing tech record (without the adrDetails{} object on it)" (which got archived in AC1)
+  And the following attributes are also set on my "existing tech record (without the adrDetails{} object on it)" (which got set to removed in AC1)
         """
         lastUpdatedAt: Date + time of this action
         lastUpdatedByName: Microsoft AD username, of the person who performed this action
@@ -47,7 +47,7 @@ Feature: VTM ADR - Backend Service Updates For Vehicles API Spec
         createdByName: Microsoft AD username, of the person who performed this action
         createdById: Microsoft AD OID, of the person who performed this action
         """
-    And the following attributes are also set on my "existing tech record (with the 'old' adrDetails{} object on it)" (which got archived in AC2)
+    And the following attributes are also set on my "existing tech record (with the 'old' adrDetails{} object on it)" (which got set to removed in AC2)
         """
         lastUpdatedAt: Date + time of this action
         lastUpdatedByName: Microsoft AD username, of the person who performed this action

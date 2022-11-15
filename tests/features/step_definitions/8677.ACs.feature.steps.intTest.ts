@@ -74,7 +74,7 @@ defineFeature(feature, ( test ) => {
       expect(response.body.techRecord[1]).toHaveProperty("adrDetails");
       expect(response.body.techRecord[1].adrDetails.additionalExaminerNotes).toEqual("new notes");
     });
-    and("the existing provisional tech record (with the 'old' adrDetails{} object on it) has it's status set to removed", () => {
+    and("the existing provisional tech record (with the 'old' adrDetails{} object on it) has its status set to removed", () => {
       expect(response.body.techRecord[0]).toHaveProperty("adrDetails");
       expect(response.body.techRecord[0].statusCode).toEqual("removed");
     });
