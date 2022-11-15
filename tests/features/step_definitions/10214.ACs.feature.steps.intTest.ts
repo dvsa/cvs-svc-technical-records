@@ -62,7 +62,7 @@ defineFeature(feature, (test) => {
     then("the corresponding vehicle class code is autopopulated, as per the linked excel", async () => {
       if(doNotSkipAssertionWhenAdrFlagIsDisabled) {
         responseGET = await request.get(requestUrlGET);
-        expect(responseGET.body[0].techRecord[1].vehicleClass.code).toEqual("4");
+        expect(responseGET.body[0].techRecord[0].vehicleClass.code).toEqual("4");
       }
     });
   });
@@ -89,7 +89,7 @@ defineFeature(feature, (test) => {
     then("the corresponding body type code is autopopulated, as per the linked excel", async () => {
       if(doNotSkipAssertionWhenAdrFlagIsDisabled) {
         responseGET = await request.get(requestUrlGET);
-        expect(responseGET.body[0].techRecord[1].bodyType.code).toEqual("k");
+        expect(responseGET.body[0].techRecord[0].bodyType.code).toEqual("k");
       }
     });
   });

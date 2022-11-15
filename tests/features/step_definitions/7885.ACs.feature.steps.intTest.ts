@@ -61,7 +61,7 @@ defineFeature(feature, (test) => {
     expect(responsePOST.body).toEqual("Technical Record created");
     if (doNotSkipAssertionWhenAdrFlagIsDisabled) {
       expect(responsePUT.status).toEqual(200);
-      expect(responsePUT.body.techRecord[0].statusCode).toEqual("archived");
+      expect(responsePUT.body.techRecord[0].statusCode).toEqual("removed");
       expect(responsePUT.body.techRecord[1].statusCode).toEqual("provisional");
     }
   });
