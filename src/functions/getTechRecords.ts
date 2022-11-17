@@ -3,9 +3,8 @@ import { HTTPRESPONSE, SEARCHCRITERIA, STATUS } from "../assets/Enums";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsService from "../services/TechRecordsService";
-import {metaData} from "../utils/metadataEnums";
-import {isValidSearchCriteria} from "../utils/validations/PayloadValidation";
-import * as enums from "../assets/Enums";
+import { metaData } from "../utils/metadataEnums";
+import { isValidSearchCriteria } from "../utils/validations/PayloadValidation";
 import { Validator } from "../utils/Validator";
 
 
@@ -49,7 +48,7 @@ const getTechRecords = (event: any) => {
           Object.assign(record, {metadata: metaData});
         });
       }
-      data.forEach((vehicleTechRecord) => vehicleTechRecord.techRecord.filter((techRecord) => techRecord.statusCode !== enums.STATUS.REMOVED));
+
       return new HTTPResponse(200, data);
     })
     .catch((error: any) => {
