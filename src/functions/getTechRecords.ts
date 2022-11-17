@@ -49,6 +49,7 @@ const getTechRecords = (event: any) => {
           Object.assign(record, {metadata: metaData});
         });
       }
+      data.forEach((vehicleTechRecord) => vehicleTechRecord.techRecord.filter((techRecord) => techRecord.statusCode !== enums.STATUS.REMOVED));
       return new HTTPResponse(200, data);
     })
     .catch((error: any) => {
