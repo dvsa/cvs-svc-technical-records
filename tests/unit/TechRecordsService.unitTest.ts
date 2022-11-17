@@ -8,11 +8,10 @@ import {cloneDeep} from "lodash";
 import HTTPResponse from "../../src/models/HTTPResponse";
 import Configuration from "../../src/utils/Configuration";
 import IMsUserDetails from "../../@Types/IUserDetails";
-import {HeavyGoodsVehicle, PublicServiceVehicle, Trailer, Vehicle} from "../../@Types/TechRecords";
+import {HeavyGoodsVehicle, PublicServiceVehicle, Trailer} from "../../@Types/TechRecords";
 import {NumberGenerator} from "../../src/handlers/NumberGenerator";
 import {TechRecordsListHandler} from "../../src/handlers/TechRecordsListHandler";
 import {TechRecordStatusHandler} from "../../src/handlers/TechRecordStatusHandler";
-import TechRecordsDAO from "../../src/models/TechRecordsDAO";
 
 const msUserDetails: IMsUserDetails = {
   msUser: "dorel",
@@ -923,61 +922,77 @@ describe("updateEuVehicleCategory", () => {
 });
 
 describe("archiveTechRecordStatus", () => {
-
   afterEach(() => {
     jest.restoreAllMocks();
   });
 
-  const createTechRecord = (statusCodes: STATUS[], vinT: string): Vehicle => {
-    return {
-      systemNumber: "10044320",
-      vin: vinT,
-      techRecord: statusCodes.map((statusCodeToBe) => ({
-        statusCode: statusCodeToBe,
-        vehicleType: "psv"
-      } as any))
-    };
-};
-
   context("A technical record status is updated to archived via PUT verb", () => {
-    it.each([
-        [
-            [createTechRecord([STATUS.PROVISIONAL], "123")],[createTechRecord([STATUS.REMOVED], "123")]
-        ],
-        [
-            [createTechRecord([STATUS.CURRENT,STATUS.PROVISIONAL], "123")],[createTechRecord([STATUS.ARCHIVED, STATUS.REMOVED], "123")]
-        ],
-        [
-            [createTechRecord([STATUS.CURRENT,STATUS.ARCHIVED], "123"), createTechRecord([STATUS.ARCHIVED,STATUS.PROVISIONAL], "234")],
-            [createTechRecord([STATUS.ARCHIVED,STATUS.ARCHIVED], "123"), createTechRecord([STATUS.ARCHIVED,STATUS.REMOVED], "234")]
-        ],
-        [
-            [createTechRecord([STATUS.CURRENT,STATUS.PROVISIONAL], "123"), createTechRecord([STATUS.CURRENT,STATUS.PROVISIONAL], "234")],
-            [createTechRecord([STATUS.ARCHIVED,STATUS.REMOVED], "123"), createTechRecord([STATUS.ARCHIVED,STATUS.REMOVED], "234")]
-        ]
-    ])
-    ("should change the %s status's to %p", async (recordToUpdate, expected) => {
-      const techRecord = recordToUpdate[0];
-      const expectedTechRecord = expected;
+    it("should change the records status to archived and set audit details and create no other record", async () => {
+      const techRecord: any = cloneDeep(records[43]);
+      const expectedTechRecord = cloneDeep(techRecord);
+      expectedTechRecord.techRecord[0].statusCode = STATUS.ARCHIVED;
 
-      const MockDAO: jest.Mock<TechRecordsDAO> = jest.fn().mockImplementation(() => {
+      const MockDAO = jest.fn().mockImplementation(() => {
         return {
-          updateSingle: (record: any) => {
+          updateSingle: () => {
             return Promise.resolve({
-              Attributes: record
+              Attributes: expectedTechRecord
             });
           },
           getBySearchTerm: () => {
-            return Promise.resolve(recordToUpdate);
+            return Promise.resolve([techRecord]);
           }
         };
       });
-
+      expect.assertions(2);
       const techRecordsService = new TechRecordsService(new MockDAO());
       const updatedTechRec: any = await techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails);
+      expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.ARCHIVED);
+      expect(updatedTechRec.techRecord.length).toEqual(1);
+    });
+  });
 
-      expect(updatedTechRec.vin).toEqual(expectedTechRecord[0].vin);
-      expect(updatedTechRec.techRecord[0].statusCode).toEqual(expectedTechRecord[0].techRecord[0].statusCode);
+  context("when trying to archive a record which was sent with changed attributes on it", () => {
+    it("should return Error 400 Cannot archive tech record with attribute changes", async () => {
+      const techRecord: any = cloneDeep(records[43]);
+      techRecord.techRecord[0].euVehicleCategory = "m3";
+
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve(cloneDeep([records[43]]));
+          }
+        };
+      });
+      expect.assertions(3);
+      const techRecordsService = new TechRecordsService(new MockDAO());
+      try {
+        expect(await techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails)).toThrowError();
+      } catch (errorResponse) {
+        expect(errorResponse).toBeInstanceOf(HTTPError);
+        expect(errorResponse.statusCode).toEqual(400);
+        expect(errorResponse.body.errors).toContain(ERRORS.CANNOT_ARCHIVE_CHANGED_RECORD);
+      }
+    });
+  });
+
+  context("A technical record status is updated to archived via PUT verb", () => {
+    it("should change the records status to archived and set audit details and create no other record", async () => {
+      const techRecord: any = cloneDeep(records[43]);
+      techRecord.techRecord[0].statusCode = STATUS.ARCHIVED;
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve([techRecord]);
+          }
+        };
+      });
+      expect.assertions(2);
+      const techRecordsService = new TechRecordsService(new MockDAO());
+      techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails).catch((err) => {
+        expect(err.statusCode).toEqual(400);
+        expect(err.body.errors).toContain(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
+      });
     });
   });
 });
