@@ -2,15 +2,22 @@ import HTTPError from "../models/HTTPError";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import {
+  ERRORS,
   EU_VEHICLE_CATEGORY,
   HTTPRESPONSE,
   SEARCHCRITERIA,
   STATUS,
+  UPDATE_TYPE,
 } from "../assets/Enums";
 import { ISearchCriteria } from "../../@Types/ISearchCriteria";
 import HTTPResponse from "../models/HTTPResponse";
+import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
+import { formatErrorMessage } from "../utils/formatErrorMessage";
 import IMsUserDetails from "../../@Types/IUserDetails";
-import { Vehicle } from "../../@Types/TechRecords";
+import { PromiseResult } from "aws-sdk/lib/request";
+import { AWSError } from "aws-sdk/lib/error";
+import { isEqual } from "lodash";
+import { Vehicle, TechRecord } from "../../@Types/TechRecords";
 import { VehicleFactory } from "../domain/VehicleFactory";
 import { TechRecordsListHandler } from "../handlers/TechRecordsListHandler";
 import { TechRecordStatusHandler } from "../handlers/TechRecordStatusHandler";
@@ -114,7 +121,7 @@ class TechRecordsService {
       techRecordToUpdate,
       this.techRecordsDAO
     );
-    return vehicle.archiveCurrentTechRecord(systemNumber,techRecordToUpdate,userDetails);
+    return vehicle.archiveTechRecordStatus(systemNumber,techRecordToUpdate,userDetails);
   }
 
   public async updateEuVehicleCategory(
