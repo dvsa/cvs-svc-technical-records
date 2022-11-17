@@ -8,6 +8,7 @@ import { computeRecordCompleteness } from "../../utils/record-completeness/Compu
 import TechRecordsDAO from "../../models/TechRecordsDAO";
 import HTTPResponse from "../../models/HTTPResponse";
 import {getLogger} from "aws-xray-sdk";
+import logger from "../../../tests/util/logger";
 
 export abstract class VehicleProcessor<T extends Vehicle> {
   protected vehicle: T;
@@ -235,8 +236,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       throw this.Error(400, enums.ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
     }
     if (!isEqual(techRecordToArchive, techRecordToUpdate.techRecord[0])) {
-      getLogger().info(techRecordToArchive);
-      getLogger().info(techRecordToUpdate.techRecord[0]);
+      logger.info(techRecordToArchive);
+      logger.info(techRecordToUpdate.techRecord[0]);
       throw this.Error(400, enums.ERRORS.CANNOT_ARCHIVE_CHANGED_RECORD);
     }
     techRecordToArchive.statusCode = enums.STATUS.ARCHIVED;
