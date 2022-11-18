@@ -70,7 +70,6 @@
     "node-yaml": "^3.2.0",
     "path-parser": "^4.2.0",
     "reflect-metadata": "^0.1.13",
-    "winston": "3.3.3",
     "uuid": "^3.3.3"
   },
   "jestSonar": {

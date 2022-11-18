@@ -15,6 +15,7 @@ export enum ERRORS {
     STATUS_CODE_SHOULD_BE_PROVISIONAL = "Status code should be provisional",
     MISSING_PAYLOAD = "Missing payload!",
     MISSING_USER = "Microsoft user details not provided",
+    MISSING_REASON_FOR_ARCHIVING = "Reason for archiving not provided",
     VEHICLE_TYPE_ERROR = "\"vehicleType\" must be one of [hgv, psv, trl, car, lgv, motorcycle]",
     INVALID_PRIMARY_SECONDARY_VRM = "Primary or secondaryVrms are not valid",
     INVALID_PRIMARY_VRM = "Invalid primary VRM",

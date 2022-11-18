@@ -40,6 +40,7 @@ describe("archiveTechRecordStatus", () => {
         const techRecord: any = cloneDeep(mockData[43]);
         const payload = {
           vin: techRecord.vin,
+          reasonForArchiving: "Test",
           systemNumber: techRecord.systemNumber,
           primaryVrm: techRecord.primaryVrm,
           msUserDetails,

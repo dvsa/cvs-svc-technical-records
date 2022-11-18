@@ -7,8 +7,7 @@ import * as handlers from "../../handlers";
 import { computeRecordCompleteness } from "../../utils/record-completeness/ComputeRecordCompleteness";
 import TechRecordsDAO from "../../models/TechRecordsDAO";
 import HTTPResponse from "../../models/HTTPResponse";
-import {getLogger} from "aws-xray-sdk";
-import logger from "../../../tests/util/logger";
+import ITechRecord from "../../../@Types/ITechRecord";
 
 export abstract class VehicleProcessor<T extends Vehicle> {
   protected vehicle: T;
@@ -216,7 +215,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   public async archiveTechRecordStatus(
     systemNumber: string,
     techRecordToUpdate: T,
-    userDetails: IMsUserDetails
+    userDetails: IMsUserDetails,
+    reasonForArchiving: string
   ) {
     const allTechRecordWrapper = await this.techRecordsListHandler.getTechRecordList(
       systemNumber,
@@ -236,8 +236,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       throw this.Error(400, enums.ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
     }
     if (!isEqual(techRecordToArchive, techRecordToUpdate.techRecord[0])) {
-      logger.info(techRecordToArchive);
-      logger.info(techRecordToUpdate.techRecord[0]);
       throw this.Error(400, enums.ERRORS.CANNOT_ARCHIVE_CHANGED_RECORD);
     }
     techRecordToArchive.statusCode = enums.STATUS.ARCHIVED;
@@ -245,6 +243,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     techRecordToArchive.lastUpdatedByName = userDetails.msUser;
     techRecordToArchive.lastUpdatedById = userDetails.msOid;
     techRecordToArchive.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
+    const notes = (techRecordToArchive as ITechRecord).notes;
+    (techRecordToArchive as ITechRecord).notes = notes ? (notes + reasonForArchiving) : reasonForArchiving;
 
     let updatedTechRecord;
     try {

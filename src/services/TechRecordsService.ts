@@ -115,13 +115,14 @@ class TechRecordsService {
   public async archiveTechRecordStatus(
     systemNumber: string,
     techRecordToUpdate: Vehicle,
-    userDetails: IMsUserDetails
+    userDetails: IMsUserDetails,
+    reasonForArchiving: string
   ) {
     const vehicle = VehicleFactory.generateVehicleInstance(
       techRecordToUpdate,
       this.techRecordsDAO
     );
-    return vehicle.archiveTechRecordStatus(systemNumber,techRecordToUpdate,userDetails);
+    return vehicle.archiveTechRecordStatus(systemNumber,techRecordToUpdate,userDetails,reasonForArchiving);
   }
 
   public async updateEuVehicleCategory(
