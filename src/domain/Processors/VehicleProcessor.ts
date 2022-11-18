@@ -245,11 +245,11 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     techRecordToArchive.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
     if (techRecordToArchive.vehicleType === enums.VEHICLE_TYPE.PSV) {
       const remarks = (techRecordToArchive as PsvTechRecord).remarks;
-      (techRecordToArchive as PsvTechRecord).remarks = remarks ? (remarks + reasonForArchiving) : reasonForArchiving;
+      (techRecordToArchive as PsvTechRecord).remarks = remarks ? (remarks + `\n${reasonForArchiving}`) : reasonForArchiving;
     }
     else {
       const notes = (techRecordToArchive as ITechRecord).notes;
-      (techRecordToArchive as ITechRecord).notes = notes ? (notes + reasonForArchiving) : reasonForArchiving;
+      (techRecordToArchive as ITechRecord).notes = notes ? (notes + `\n${reasonForArchiving}`) : reasonForArchiving;
     }
 
     let updatedTechRecord;
