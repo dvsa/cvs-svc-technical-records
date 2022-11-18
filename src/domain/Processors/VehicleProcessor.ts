@@ -1,5 +1,5 @@
 import { cloneDeep, mergeWith, isArray, isEqual } from "lodash";
-import { Vehicle, TechRecord, Trailer } from "../../../@Types/TechRecords";
+import { Vehicle, TechRecord, Trailer, PsvTechRecord } from "../../../@Types/TechRecords";
 import IMsUserDetails from "../../../@Types/IUserDetails";
 import * as enums from "../../assets/Enums";
 import * as validators from "../../utils/validations";
@@ -243,8 +243,14 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     techRecordToArchive.lastUpdatedByName = userDetails.msUser;
     techRecordToArchive.lastUpdatedById = userDetails.msOid;
     techRecordToArchive.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
-    const notes = (techRecordToArchive as ITechRecord).notes;
-    (techRecordToArchive as ITechRecord).notes = notes ? (notes + reasonForArchiving) : reasonForArchiving;
+    if (techRecordToArchive.vehicleType === enums.VEHICLE_TYPE.PSV) {
+      const remarks = (techRecordToArchive as PsvTechRecord).remarks;
+      (techRecordToArchive as PsvTechRecord).remarks = remarks ? (remarks + reasonForArchiving) : reasonForArchiving;
+    }
+    else {
+      const notes = (techRecordToArchive as ITechRecord).notes;
+      (techRecordToArchive as ITechRecord).notes = notes ? (notes + reasonForArchiving) : reasonForArchiving;
+    }
 
     let updatedTechRecord;
     try {
