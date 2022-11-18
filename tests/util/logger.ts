@@ -1,4 +1,4 @@
-import { createLogger, format, transports } from 'winston';
+import { createLogger, format, transports } from "winston";
 
 const { printf } = format;
 
@@ -11,7 +11,7 @@ const logFormat = printf((info) => {
 });
 
 const config = {
-  level: process.env.LOG_LEVEL || 'info',
+  level: process.env.LOG_LEVEL || "info",
   format: logFormat,
 };
 
