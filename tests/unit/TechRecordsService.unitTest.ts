@@ -929,6 +929,7 @@ describe("archiveTechRecordStatus", () => {
   context("A technical record status is updated to archived via PUT verb", () => {
     it("should change the records status to archived and set audit details and create no other record", async () => {
       const techRecord: any = cloneDeep(records[43]);
+      const reasonForArchiving = "Archive me";
       const expectedTechRecord = cloneDeep(techRecord);
       expectedTechRecord.techRecord[0].statusCode = STATUS.ARCHIVED;
 
@@ -946,7 +947,7 @@ describe("archiveTechRecordStatus", () => {
       });
       expect.assertions(2);
       const techRecordsService = new TechRecordsService(new MockDAO());
-      const updatedTechRec: any = await techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails);
+      const updatedTechRec: any = await techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails, reasonForArchiving);
       expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.ARCHIVED);
       expect(updatedTechRec.techRecord.length).toEqual(1);
     });
@@ -955,6 +956,7 @@ describe("archiveTechRecordStatus", () => {
   context("when trying to archive a record which was sent with changed attributes on it", () => {
     it("should return Error 400 Cannot archive tech record with attribute changes", async () => {
       const techRecord: any = cloneDeep(records[43]);
+      const reasonForArchiving = "Archive me";
       techRecord.techRecord[0].euVehicleCategory = "m3";
 
       const MockDAO = jest.fn().mockImplementation(() => {
@@ -967,7 +969,7 @@ describe("archiveTechRecordStatus", () => {
       expect.assertions(3);
       const techRecordsService = new TechRecordsService(new MockDAO());
       try {
-        expect(await techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails)).toThrowError();
+        expect(await techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails, reasonForArchiving)).toThrowError();
       } catch (errorResponse) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(400);
@@ -979,6 +981,7 @@ describe("archiveTechRecordStatus", () => {
   context("A technical record status is updated to archived via PUT verb", () => {
     it("should change the records status to archived and set audit details and create no other record", async () => {
       const techRecord: any = cloneDeep(records[43]);
+      const reasonForArchiving = "Archive me";
       techRecord.techRecord[0].statusCode = STATUS.ARCHIVED;
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
@@ -989,7 +992,7 @@ describe("archiveTechRecordStatus", () => {
       });
       expect.assertions(2);
       const techRecordsService = new TechRecordsService(new MockDAO());
-      techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails).catch((err) => {
+      techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails, reasonForArchiving).catch((err) => {
         expect(err.statusCode).toEqual(400);
         expect(err.body.errors).toContain(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
       });

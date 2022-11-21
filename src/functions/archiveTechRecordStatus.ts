@@ -11,12 +11,16 @@ export async function archiveTechRecordStatus(event: any) {
   const systemNumber: string = event.pathParameters.systemNumber;
   const techRec = event.body && event.body.techRecord;
   const msUserDetails = event.body && event.body.msUserDetails ? event.body.msUserDetails : null;
+  const reasonForArchiving = event.body && event.body.reasonForArchiving;
 
   if (!techRec || !techRec.length) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage(ERRORS.MISSING_PAYLOAD)));
   }
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage(ERRORS.MISSING_USER)));
+  }
+  if(!reasonForArchiving) {
+    return Promise.resolve(new HTTPResponse(400, formatErrorMessage(ERRORS.MISSING_REASON_FOR_ARCHIVING)));
   }
 
   const techRecord = {
@@ -25,7 +29,7 @@ export async function archiveTechRecordStatus(event: any) {
     techRecord: techRec
   };
 
-  return techRecordsService.archiveTechRecordStatus(systemNumber, techRecord, msUserDetails)
+  return techRecordsService.archiveTechRecordStatus(systemNumber, techRecord, msUserDetails, reasonForArchiving)
     .then((updatedTechRec: any) => {
       return new HTTPResponse(200, updatedTechRec);
     })

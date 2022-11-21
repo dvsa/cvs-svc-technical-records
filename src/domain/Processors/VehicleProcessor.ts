@@ -1,5 +1,5 @@
 import { cloneDeep, mergeWith, isArray, isEqual } from "lodash";
-import { Vehicle, TechRecord, Trailer } from "../../../@Types/TechRecords";
+import { Vehicle, TechRecord, Trailer, PsvTechRecord } from "../../../@Types/TechRecords";
 import IMsUserDetails from "../../../@Types/IUserDetails";
 import * as enums from "../../assets/Enums";
 import * as validators from "../../utils/validations";
@@ -7,6 +7,7 @@ import * as handlers from "../../handlers";
 import { computeRecordCompleteness } from "../../utils/record-completeness/ComputeRecordCompleteness";
 import TechRecordsDAO from "../../models/TechRecordsDAO";
 import HTTPResponse from "../../models/HTTPResponse";
+import ITechRecord from "../../../@Types/ITechRecord";
 
 export abstract class VehicleProcessor<T extends Vehicle> {
   protected vehicle: T;
@@ -214,7 +215,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   public async archiveTechRecordStatus(
     systemNumber: string,
     techRecordToUpdate: T,
-    userDetails: IMsUserDetails
+    userDetails: IMsUserDetails,
+    reasonForArchiving: string
   ) {
     const allTechRecordWrapper = await this.techRecordsListHandler.getTechRecordList(
       systemNumber,
@@ -241,6 +243,14 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     techRecordToArchive.lastUpdatedByName = userDetails.msUser;
     techRecordToArchive.lastUpdatedById = userDetails.msOid;
     techRecordToArchive.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
+    if (techRecordToArchive.vehicleType === enums.VEHICLE_TYPE.PSV) {
+      const remarks = (techRecordToArchive as PsvTechRecord).remarks;
+      (techRecordToArchive as PsvTechRecord).remarks = remarks ? (remarks + `\n${reasonForArchiving}`) : reasonForArchiving;
+    }
+    else {
+      const notes = (techRecordToArchive as ITechRecord).notes;
+      (techRecordToArchive as ITechRecord).notes = notes ? (notes + `\n${reasonForArchiving}`) : reasonForArchiving;
+    }
 
     let updatedTechRecord;
     try {

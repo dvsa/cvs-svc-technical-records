@@ -40,12 +40,13 @@ describe("archiveTechRecordStatus", () => {
         const techRecord: any = cloneDeep(mockData[43]);
         const payload = {
           vin: techRecord.vin,
+          reasonForArchiving: "Test",
           systemNumber: techRecord.systemNumber,
           primaryVrm: techRecord.primaryVrm,
           msUserDetails,
           techRecord: techRecord.techRecord
         };
-        expect.assertions(2);
+        expect.assertions(3);
         await LambdaTester(archiveTechRecordStatus)
           .event({
             path: `/vehicles/archive/${systemNumber}`,
@@ -64,6 +65,9 @@ describe("archiveTechRecordStatus", () => {
             );
             expect(techRecordWrapper.techRecord[0].statusCode).toBe(
               STATUS.ARCHIVED
+            );
+            expect(techRecordWrapper.techRecord[0].notes).toBe(
+              "string\nTest"
             );
           });
       });

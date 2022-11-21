@@ -199,6 +199,7 @@ describe("The lambda function handler", () => {
 
       it("should call the /vehicles/archive function with correct event payload", async () => {
         const payload = {
+          reasonForArchiving: "Archive please",
           msUserDetails: {
             msUser: "dorel",
             msOid: "12314234"
