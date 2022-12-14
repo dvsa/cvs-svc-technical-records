@@ -34137,7 +34137,7 @@
     "vin": "H00037504",
     "primaryVrm": "GB02HL",
     "secondaryVrms": ["E5F1I00"],
-    "partialVin": "037502",
+    "partialVin": "037504",
     "techRecord": [
       {
         "vin": "H00037504",
@@ -34271,7 +34271,7 @@
     ]
   },
   {
-    "partialVin": "375332",
+    "partialVin": "375333",
     "primaryVrm": "B2C1C11",
     "secondaryVrms": ["E5F1I00"],
     "systemNumber": "30000012",
@@ -34538,7 +34538,7 @@
     "vin": "H000375333"
   },
   {
-    "partialVin": "666555",
+    "partialVin": "666556",
     "primaryVrm": "8887766",
     "techRecord": [
       {
@@ -34652,7 +34652,7 @@
     "systemNumber": "1110003"
   },
   {
-    "partialVin": "220223",
+    "partialVin": "220224",
     "primaryVrm": "B999XFX",
     "secondaryVrms": ["DB999XFX"],
     "systemNumber": "11220280",
@@ -34790,7 +34790,7 @@
     "vin": "H12220224"
   },
   {
-    "partialVin": "220223",
+    "partialVin": "220225",
     "primaryVrm": "B999XFX",
     "secondaryVrms": ["DB999XFX"],
     "systemNumber": "11220280",
@@ -34928,7 +34928,7 @@
     "vin": "H12220225"
   },
   {
-    "partialVin": "220223",
+    "partialVin": "220226",
     "primaryVrm": "B999XFX",
     "secondaryVrms": ["DB999XFX"],
     "systemNumber": "11220280",
