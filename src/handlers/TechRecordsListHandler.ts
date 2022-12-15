@@ -26,9 +26,11 @@ export class TechRecordsListHandler<T extends Vehicle> {
         status,
         searchCriteria
       );
+
       if (searchCriteria === SEARCHCRITERIA.SYSTEM_NUMBER && this.multipleRecordsWithSameSystemNumber(techRecordItems)) {
         techRecordItems = this.mergeRecordsWithSameSystemNumber(techRecordItems);
       }
+
       return techRecordItems.map(this.formatTechRecordItemForResponse);
     } catch (error) {
       if (!(error instanceof HTTPError)) {
@@ -152,27 +154,28 @@ export class TechRecordsListHandler<T extends Vehicle> {
     const recordsToReturn: T[] = [];
 
     techRecordItems.forEach((vehicle) => {
-      let existingRecordWithSameSystemNumber = recordsToReturn.find((record) => record.systemNumber === vehicle.systemNumber);
+      vehicle.techRecord.forEach((_object, index) => {
+        vehicle.techRecord[index].historicVin = vehicle.vin
+      })
 
-      if (!existingRecordWithSameSystemNumber) {
+      const existingRecordIndex = recordsToReturn.findIndex((record) => record.systemNumber === vehicle.systemNumber);
+
+      if (existingRecordIndex === -1) {
         return recordsToReturn.push(vehicle);
       }
 
-      const existingRecordCreatedAt = Math.min(...existingRecordWithSameSystemNumber.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
-      const itemCreatedAt =  Math.min(...vehicle.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+      const existingRecord = recordsToReturn[existingRecordIndex]
 
+      const existingRecordCreatedAt = Math.min(...existingRecord.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+      const itemCreatedAt =  Math.min(...vehicle.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+      
       if (itemCreatedAt < existingRecordCreatedAt) {
-        return existingRecordWithSameSystemNumber.techRecord.push(...vehicle.techRecord);
+        return recordsToReturn[existingRecordIndex].techRecord.push(...vehicle.techRecord);
       }
 
-      const oldItems = cloneDeep(existingRecordWithSameSystemNumber);
-
-      oldItems.techRecord.forEach((techRecordObject) => {
-        techRecordObject.historicVin = oldItems.vin;
-      });
-
-      existingRecordWithSameSystemNumber = cloneDeep(vehicle);
-      existingRecordWithSameSystemNumber.techRecord.push(...oldItems.techRecord);
+      const oldItems = cloneDeep(existingRecord);
+      recordsToReturn[existingRecordIndex] = cloneDeep(vehicle);
+      recordsToReturn[existingRecordIndex].techRecord.push(...oldItems.techRecord);
     });
 
     return recordsToReturn;
