@@ -171,7 +171,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
         techRecordObject.historicVin = oldItems.vin;
       });
 
-      existingRecordWithSameSystemNumber = vehicle;
+      existingRecordWithSameSystemNumber = cloneDeep(vehicle);
       existingRecordWithSameSystemNumber.techRecord.push(...oldItems.techRecord);
     });
 
