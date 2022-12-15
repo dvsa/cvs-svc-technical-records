@@ -26127,8 +26127,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv",
-        "vin": "H12220223"
+        "vehicleType": "hgv"
       }
     ],
     "vin": "H12220223"
@@ -34713,7 +34712,7 @@
           "dtpNumber": "3798A"
         },
         "conversionRefNo": " ",
-        "createdAt": "2020-07-28T00:06:25.249Z",
+        "createdAt": "2017-07-28T00:06:25.249Z",
         "createdById": "12345",
         "createdByName": "sean",
         "departmentalVehicleMarker": false,
@@ -34783,8 +34782,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv",
-        "vin": "H12220224"
+        "vehicleType": "hgv"
       }
     ],
     "vin": "H12220224"
@@ -34851,7 +34849,7 @@
           "dtpNumber": "3798A"
         },
         "conversionRefNo": " ",
-        "createdAt": "2020-07-28T00:06:25.249Z",
+        "createdAt": "2018-07-28T00:06:25.249Z",
         "createdById": "12345",
         "createdByName": "sean",
         "departmentalVehicleMarker": false,
@@ -34921,8 +34919,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv",
-        "vin": "H12220225"
+        "vehicleType": "hgv"
       }
     ],
     "vin": "H12220225"
@@ -34989,7 +34986,7 @@
           "dtpNumber": "3798A"
         },
         "conversionRefNo": " ",
-        "createdAt": "2020-07-28T00:06:25.249Z",
+        "createdAt": "2019-07-28T00:06:25.249Z",
         "createdById": "12345",
         "createdByName": "sean",
         "departmentalVehicleMarker": false,
@@ -35059,8 +35056,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv",
-        "vin": "H12220226"
+        "vehicleType": "hgv"
       }
     ],
     "vin": "H12220226"
