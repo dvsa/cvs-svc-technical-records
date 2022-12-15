@@ -2,7 +2,7 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import { ISearchCriteria } from "../../@Types/ISearchCriteria";
 import { HTTPRESPONSE, SEARCHCRITERIA, STATUS } from "../assets/Enums";
 import HTTPError from "../models/HTTPError";
-import { cloneDeep } from "lodash";
+import { cloneDeep, union } from "lodash";
 import { Vehicle } from "../../@Types/TechRecords";
 import { ErrorHandler } from "./ErrorHandler";
 
@@ -26,9 +26,10 @@ export class TechRecordsListHandler<T extends Vehicle> {
         status,
         searchCriteria
       );
-      techRecordItems = this.formatTechRecordItemsForResponse(techRecordItems);
-
-      return techRecordItems;
+      if (searchCriteria === SEARCHCRITERIA.SYSTEM_NUMBER && this.multipleRecordsWithSameSystemNumber(techRecordItems)) {
+        techRecordItems = this.mergeRecordsWithSameSystemNumber(techRecordItems);
+      }
+      return techRecordItems.map(this.formatTechRecordItemForResponse);
     } catch (error) {
       if (!(error instanceof HTTPError)) {
         console.error(error);
@@ -142,14 +143,39 @@ export class TechRecordsListHandler<T extends Vehicle> {
     return techRecordItem;
   }
 
-  private formatTechRecordItemsForResponse(techRecordItems: T[]) {
-    const recordsToReturn = [];
-    return techRecordItems.map(this.formatTechRecordItemForResponse);
-    // for (let techRecordItem of techRecordItems) {
-    //   techRecordItem = this.formatTechRecordItemForResponse(techRecordItem);
-    //   recordsToReturn.push(techRecordItem);
-    // }
-    // return recordsToReturn;
+  private multipleRecordsWithSameSystemNumber(techRecordItems: T[]): boolean {
+    const uniqueSystemNumbers = new Set(techRecordItems.map((item) => item.systemNumber));
+    return uniqueSystemNumbers.size !== techRecordItems.length;
+  }
+
+  private mergeRecordsWithSameSystemNumber(techRecordItems: T[]) {
+    const recordsToReturn: T[] = [];
+
+    techRecordItems.forEach((vehicle) => {
+      let existingRecordWithSameSystemNumber = recordsToReturn.find((record) => record.systemNumber === vehicle.systemNumber);
+
+      if (!existingRecordWithSameSystemNumber) {
+        return recordsToReturn.push(vehicle);
+      }
+
+      const existingRecordCreatedAt = Math.min(...existingRecordWithSameSystemNumber.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+      const itemCreatedAt =  Math.min(...vehicle.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+
+      if (itemCreatedAt < existingRecordCreatedAt) {
+        return existingRecordWithSameSystemNumber.techRecord.push(...vehicle.techRecord);
+      }
+
+      const oldItems = cloneDeep(existingRecordWithSameSystemNumber);
+
+      oldItems.techRecord.forEach((techRecordObject) => {
+        techRecordObject.historicVin = oldItems.vin;
+      });
+
+      existingRecordWithSameSystemNumber = vehicle;
+      existingRecordWithSameSystemNumber.techRecord.push(...oldItems.techRecord);
+    });
+
+    return recordsToReturn;
   }
   /* #endregion */
 }
