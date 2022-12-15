@@ -1,18 +1,14 @@
 [
   {
     "primaryVrm": "JY58FPP",
-    "secondaryVrms": [
-      "609859Z"
-    ],
+    "secondaryVrms": ["609859Z"],
     "vin": "XMGDE02FS0H012345",
     "partialVin": "012345",
     "trailerId": "09876543",
     "systemNumber": "11000001",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "DAF",
@@ -115,17 +111,13 @@
   },
   {
     "primaryVrm": "BQ91YHQ",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "vin": "1B7GG36N12S678410",
     "partialVin": "678410",
     "systemNumber": "11000002",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2019-01-16T12:24:38.027Z",
         "lastUpdatedAt": "2019-01-16T12:24:38.027Z",
         "chassisMake": "Mercedes",
@@ -228,18 +220,14 @@
   },
   {
     "primaryVrm": "AA12BCD",
-    "secondaryVrms": [
-      "SM33KR"
-    ],
+    "secondaryVrms": ["SM33KR"],
     "vin": "XMGDE02FS0H012461",
     "partialVin": "012461",
     "trailerId": "A456789",
     "systemNumber": "11000003",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Leyland",
@@ -342,17 +330,13 @@
   },
   {
     "primaryVrm": "AA34BCD",
-    "secondaryVrms": [
-      "VG44BND"
-    ],
+    "secondaryVrms": ["VG44BND"],
     "vin": "1B7GG36N12S021430",
     "partialVin": "021430",
     "systemNumber": "11000004",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "DAF",
@@ -455,17 +439,13 @@
   },
   {
     "primaryVrm": "AA56BCD",
-    "secondaryVrms": [
-      "CO04LAR"
-    ],
+    "secondaryVrms": ["CO04LAR"],
     "vin": "1B7GG36N12S678413",
     "partialVin": "678413",
     "systemNumber": "11000005",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "DAF",
@@ -568,17 +548,13 @@
   },
   {
     "primaryVrm": "AB12CDE",
-    "secondaryVrms": [
-      "BR05ANN"
-    ],
+    "secondaryVrms": ["BR05ANN"],
     "vin": "YV31MEC18GA678413",
     "partialVin": "678413",
     "systemNumber": "11000006",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Volvo",
@@ -681,17 +657,13 @@
   },
   {
     "primaryVrm": "X71LTA",
-    "secondaryVrms": [
-      "609823Z"
-    ],
+    "secondaryVrms": ["609823Z"],
     "vin": "XMGDE02FS0H012356",
     "partialVin": "012356",
     "systemNumber": "11000007",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Mercedes",
@@ -811,17 +783,13 @@
   },
   {
     "primaryVrm": "P111YAC",
-    "secondaryVrms": [
-      "603559Z"
-    ],
+    "secondaryVrms": ["603559Z"],
     "vin": "XMGDE02FS0H012432",
     "partialVin": "012432",
     "systemNumber": "11000008",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Leyland",
@@ -924,17 +892,13 @@
   },
   {
     "primaryVrm": "C47WLL",
-    "secondaryVrms": [
-      "609912Z"
-    ],
+    "secondaryVrms": ["609912Z"],
     "vin": "YV31MEC18GA011900",
     "partialVin": "011900",
     "systemNumber": "11000009",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Volvo",
@@ -2098,17 +2062,13 @@
   },
   {
     "primaryVrm": "C48GWQ",
-    "secondaryVrms": [
-      "6099123Y"
-    ],
+    "secondaryVrms": ["6099123Y"],
     "vin": "YV31MEC18GA011911",
     "partialVin": "011911",
     "systemNumber": "11000010",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Volvo",
@@ -2344,17 +2304,13 @@
   },
   {
     "primaryVrm": "C48GWW",
-    "secondaryVrms": [
-      "6099123Y"
-    ],
+    "secondaryVrms": ["6099123Y"],
     "vin": "YV31MEC18GA011933",
     "partialVin": "011933",
     "systemNumber": "11000011",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Volvo",
@@ -2590,17 +2546,13 @@
   },
   {
     "primaryVrm": "C48GWW",
-    "secondaryVrms": [
-      "6099123Y"
-    ],
+    "secondaryVrms": ["6099123Y"],
     "vin": "YV31MEC18GA011944",
     "partialVin": "011944",
     "systemNumber": "11000012",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2018-04-20T04:20:00.027Z",
         "lastUpdatedAt": "2018-10-01T00:00:00.027Z",
         "chassisMake": "Volvo",
@@ -2839,14 +2791,10 @@
     "partialVin": "230123",
     "primaryVrm": "CT70VRL",
     "systemNumber": "11000013",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -2957,9 +2905,7 @@
     "systemNumber": "11000014",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -3081,9 +3027,7 @@
     "systemNumber": "11000015",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -3183,9 +3127,7 @@
     "systemNumber": "11000016",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -3364,14 +3306,10 @@
     "partialVin": "957486",
     "primaryVrm": "AD35GHT",
     "systemNumber": "11000017",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -3525,14 +3463,10 @@
     "partialVin": "293847",
     "primaryVrm": "CO79ERT",
     "systemNumber": "11000018",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -3672,9 +3606,7 @@
     "systemNumber": "11000019",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -3874,9 +3806,7 @@
     "systemNumber": "11000020",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "antilockBrakingSystem": true,
         "brakes": {
           "brakeCodeOriginal": "12412",
@@ -4036,14 +3966,10 @@
     "partialVin": "012938",
     "primaryVrm": "GH389BH",
     "systemNumber": "11000021",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -4167,14 +4093,10 @@
     "partialVin": "000000",
     "primaryVrm": "AA00AAA",
     "systemNumber": "11000022",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -4373,14 +4295,10 @@
     "partialVin": "098765",
     "primaryVrm": "VM14MDT",
     "systemNumber": "11000023",
-    "secondaryVrms": [
-      "TF14PTH"
-    ],
+    "secondaryVrms": ["TF14PTH"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "brakes": {
           "brakeCodeOriginal": "12412",
           "brakeCode": "123",
@@ -4474,9 +4392,7 @@
     "systemNumber": "11000024",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -4596,9 +4512,7 @@
     "systemNumber": "11000025",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -4693,9 +4607,7 @@
     "systemNumber": "11000026",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -4815,14 +4727,10 @@
     "partialVin": "270123",
     "primaryVrm": "CT70VRL",
     "systemNumber": "11000027",
-    "secondaryVrms": [
-      "CT56DRG"
-    ],
+    "secondaryVrms": ["CT56DRG"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "string",
@@ -4941,14 +4849,10 @@
     "partialVin": "270556",
     "primaryVrm": "CT70HHH",
     "systemNumber": "11000028",
-    "secondaryVrms": [
-      "CT56HGV"
-    ],
+    "secondaryVrms": ["CT56HGV"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "axles": [
           {
             "axleNumber": 1,
@@ -5160,9 +5064,7 @@
     "systemNumber": "11000029",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "antilockBrakingSystem": true,
         "axles": [
           {
@@ -5400,9 +5302,7 @@
         "antilockBrakingSystem": true,
         "axles": [
           {
-            "vehicleSubclass": [
-              "string"
-            ],
+            "vehicleSubclass": ["string"],
             "axleNumber": 1,
             "tyres": {
               "dataTrAxles": 345,
@@ -5514,9 +5414,7 @@
             "type": "Centre axle tank",
             "approvalDate": "2019-10-10"
           },
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "additionalExaminerNotes": "string",
           "applicantDetails": {
             "name": "string",
@@ -5525,17 +5423,10 @@
             "city": "string",
             "postcode": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
           "additionalNotes": {
-            "number": [
-              "1",
-              "2"
-            ],
-            "guidanceNotes": [
-              "New certificate requested"
-            ]
+            "number": ["1", "2"],
+            "guidanceNotes": ["New certificate requested"]
           },
           "tank": {
             "tankDetails": {
@@ -5568,9 +5459,7 @@
     "systemNumber": "11000031",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "antilockBrakingSystem": true,
         "axles": [
           {
@@ -5685,9 +5574,7 @@
             "type": "Centre axle battery",
             "approvalDate": "2019-10-10"
           },
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "additionalExaminerNotes": "string",
           "listStatementApplicable": true,
           "batteryListNumber": "123456",
@@ -5698,17 +5585,10 @@
             "city": "string",
             "postcode": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
           "additionalNotes": {
-            "number": [
-              "1",
-              "2"
-            ],
-            "guidanceNotes": [
-              "New certificate requested"
-            ]
+            "number": ["1", "2"],
+            "guidanceNotes": ["New certificate requested"]
           },
           "tank": {
             "tankDetails": {
@@ -5847,9 +5727,7 @@
             "type": "Centre axle battery",
             "approvalDate": "2019-10-10"
           },
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "additionalExaminerNotes": "string",
           "listStatementApplicable": true,
           "batteryListNumber": "123456",
@@ -5860,17 +5738,10 @@
             "city": "string",
             "postcode": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
           "additionalNotes": {
-            "number": [
-              "1",
-              "2"
-            ],
-            "guidanceNotes": [
-              "New certificate requested"
-            ]
+            "number": ["1", "2"],
+            "guidanceNotes": ["New certificate requested"]
           },
           "tank": {
             "tankDetails": {
@@ -5903,14 +5774,10 @@
     "partialVin": "890123",
     "primaryVrm": "YYY3456",
     "systemNumber": "11000032",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "createdAt": "2019-06-24T10:26:54.903Z",
         "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
         "make": "Isuzu",
@@ -6014,9 +5881,7 @@
             "type": "Artic tractor",
             "approvalDate": "2019-10-10"
           },
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "additionalExaminerNotes": "string",
           "applicantDetails": {
             "name": "string",
@@ -6026,13 +5891,8 @@
             "postcode": "string"
           },
           "additionalNotes": {
-            "number": [
-              "1",
-              "2"
-            ],
-            "guidanceNotes": [
-              "New certificate requested"
-            ]
+            "number": ["1", "2"],
+            "guidanceNotes": ["New certificate requested"]
           }
         },
         "numberOfWheelsDriven": null,
@@ -6142,9 +6002,7 @@
             "type": "Artic tractor",
             "approvalDate": "2019-10-10"
           },
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "additionalExaminerNotes": "string",
           "applicantDetails": {
             "name": "string",
@@ -6154,13 +6012,8 @@
             "postcode": "string"
           },
           "additionalNotes": {
-            "number": [
-              "1",
-              "2"
-            ],
-            "guidanceNotes": [
-              "New certificate requested"
-            ]
+            "number": ["1", "2"],
+            "guidanceNotes": ["New certificate requested"]
           }
         },
         "numberOfWheelsDriven": null,
@@ -6270,9 +6123,7 @@
             "type": "Artic tractor",
             "approvalDate": "2019-10-10"
           },
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "additionalExaminerNotes": "string",
           "applicantDetails": {
             "name": "string",
@@ -6282,13 +6133,8 @@
             "postcode": "string"
           },
           "additionalNotes": {
-            "number": [
-              "1",
-              "2"
-            ],
-            "guidanceNotes": [
-              "New certificate requested"
-            ]
+            "number": ["1", "2"],
+            "guidanceNotes": ["New certificate requested"]
           }
         },
         "numberOfWheelsDriven": null,
@@ -6300,16 +6146,10 @@
     "partialVin": "230000",
     "primaryVrm": "CT70000",
     "systemNumber": "11000033",
-    "secondaryVrms": [
-      "CT96000",
-      "CT96001",
-      "CT96002"
-    ],
+    "secondaryVrms": ["CT96000", "CT96001", "CT96002"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "axles": [
           {
             "axleNumber": 1,
@@ -6629,14 +6469,10 @@
     "partialVin": "230001",
     "primaryVrm": "CT70001",
     "systemNumber": "11000034",
-    "secondaryVrms": [
-      "CT98000"
-    ],
+    "secondaryVrms": ["CT98000"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "axles": [
           {
             "axleNumber": 1,
@@ -6940,14 +6776,10 @@
     "partialVin": "230002",
     "primaryVrm": "CT70002",
     "systemNumber": "11000035",
-    "secondaryVrms": [
-      "CT97001"
-    ],
+    "secondaryVrms": ["CT97001"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "axles": [
           {
             "axleNumber": 1,
@@ -7064,9 +6896,7 @@
     "secondaryVrms": [],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "axles": [
           {
             "axleNumber": 1,
@@ -7404,9 +7234,7 @@
     "secondaryVrms": [],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "axles": [
           {
             "axleNumber": 1,
@@ -7553,9 +7381,7 @@
     "secondaryVrms": [],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "axles": [
           {
             "axleNumber": 1,
@@ -7681,16 +7507,12 @@
     "systemNumber": "11000039",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              null
-            ]
+            "number": [null]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -7703,9 +7525,7 @@
           "batteryListNumber": "H903",
           "compatibilityGroupJ": null,
           "listStatementApplicable": false,
-          "memosApply": [
-            null
-          ],
+          "memosApply": [null],
           "permittedDangerousGoods": null,
           "tank": {
             "tankDetails": {
@@ -7867,16 +7687,12 @@
     "systemNumber": "11000040",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              null
-            ]
+            "number": [null]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -7889,9 +7705,7 @@
           "batteryListNumber": null,
           "compatibilityGroupJ": false,
           "listStatementApplicable": true,
-          "memosApply": [
-            null
-          ],
+          "memosApply": [null],
           "permittedDangerousGoods": null,
           "tank": {
             "tankDetails": {
@@ -8042,16 +7856,12 @@
     "systemNumber": "1100041",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              null
-            ]
+            "number": [null]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -8064,9 +7874,7 @@
           "batteryListNumber": "H903",
           "compatibilityGroupJ": true,
           "listStatementApplicable": true,
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT",
@@ -8101,10 +7909,7 @@
             "tankStatement": {
               "productList": "789",
               "productListRefNo": "111",
-              "productListUnNo": [
-                "UN7269",
-                "UN26289"
-              ],
+              "productListUnNo": ["UN7269", "UN26289"],
               "statement": "4789237",
               "substancesPermitted": "Substances (class UN number and if necessary packing group and proper shipping name) may be carried"
             }
@@ -8235,16 +8040,12 @@
     "systemNumber": "1100042",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              null
-            ]
+            "number": [null]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -8257,9 +8058,7 @@
           "batteryListNumber": "H903",
           "compatibilityGroupJ": true,
           "listStatementApplicable": true,
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
           "permittedDangerousGoods": [
             "FP <61 (FL)",
             "AT",
@@ -8294,10 +8093,7 @@
             "tankStatement": {
               "productList": "789",
               "productListRefNo": "111",
-              "productListUnNo": [
-                "UN7269",
-                "UN26289"
-              ],
+              "productListUnNo": ["UN7269", "UN26289"],
               "statement": "4789237",
               "substancesPermitted": "Substances permitted under the tank code and any special provisions specified in 9 may be carried"
             }
@@ -8426,9 +8222,7 @@
     "systemNumber": "1100043",
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "antilockBrakingSystem": true,
         "axles": [
           {
@@ -8543,10 +8337,7 @@
             "type": "Centre axle tank",
             "approvalDate": "2019-10-10"
           },
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "Explosives (type 3)"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "Explosives (type 3)"],
           "additionalExaminerNotes": "string",
           "applicantDetails": {
             "name": " ",
@@ -8555,17 +8346,10 @@
             "city": "string",
             "postcode": null
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
           "additionalNotes": {
-            "number": [
-              "1",
-              "2"
-            ],
-            "guidanceNotes": [
-              "New certificate requested"
-            ]
+            "number": ["1", "2"],
+            "guidanceNotes": ["New certificate requested"]
           },
           "tank": {
             "tankDetails": {
@@ -8599,9 +8383,7 @@
     "vin": "ABCDEFGH654321",
     "partialVin": "654321",
     "primaryVrm": "LKJH654",
-    "secondaryVrms": [
-      "POI9876"
-    ],
+    "secondaryVrms": ["POI9876"],
     "techRecord": [
       {
         "createdAt": "2019-06-26T10:26:54.903Z",
@@ -8714,9 +8496,7 @@
             "type": "Centre axle battery",
             "approvalDate": "2019-10-10"
           },
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "additionalExaminerNotes": "string",
           "applicantDetails": {
             "name": "string",
@@ -8725,17 +8505,10 @@
             "city": "string",
             "postcode": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
           "additionalNotes": {
-            "number": [
-              "1",
-              "2"
-            ],
-            "guidanceNotes": [
-              "New certificate requested"
-            ]
+            "number": ["1", "2"],
+            "guidanceNotes": ["New certificate requested"]
           },
           "tank": {
             "tankDetails": {
@@ -8765,9 +8538,7 @@
     "vin": "ABCDEFGH444444",
     "partialVin": "444444",
     "primaryVrm": "BBBB333",
-    "secondaryVrms": [
-      "CCCC444"
-    ],
+    "secondaryVrms": ["CCCC444"],
     "techRecord": [
       {
         "createdAt": "2019-06-25T10:26:54.903Z",
@@ -8880,9 +8651,7 @@
             "type": "Centre axle battery",
             "approvalDate": "2019-10-10"
           },
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "additionalExaminerNotes": "string",
           "applicantDetails": {
             "name": "string",
@@ -8891,17 +8660,10 @@
             "city": "string",
             "postcode": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
           "additionalNotes": {
-            "number": [
-              "1",
-              "2"
-            ],
-            "guidanceNotes": [
-              "New certificate requested"
-            ]
+            "number": ["1", "2"],
+            "guidanceNotes": ["New certificate requested"]
           },
           "tank": {
             "tankDetails": {
@@ -9035,9 +8797,7 @@
             "type": "Centre axle battery",
             "approvalDate": "2019-10-10"
           },
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "additionalExaminerNotes": "string",
           "applicantDetails": {
             "name": "string",
@@ -9046,17 +8806,10 @@
             "city": "string",
             "postcode": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
           "additionalNotes": {
-            "number": [
-              "1",
-              "2"
-            ],
-            "guidanceNotes": [
-              "New certificate requested"
-            ]
+            "number": ["1", "2"],
+            "guidanceNotes": ["New certificate requested"]
           },
           "tank": {
             "tankDetails": {
@@ -9089,9 +8842,7 @@
     "secondaryVrms": [],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "axles": [
           {
             "axleNumber": 1,
@@ -9426,14 +9177,10 @@
     "partialVin": "22021979",
     "primaryVrm": "B99XFX",
     "systemNumber": "1100045",
-    "secondaryVrms": [
-      "B999XFX"
-    ],
+    "secondaryVrms": ["B999XFX"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "axles": [
           {
             "axleNumber": 1,
@@ -9546,14 +9293,10 @@
     "partialVin": "091180",
     "primaryVrm": "LONGESTVRM",
     "systemNumber": "1100046",
-    "secondaryVrms": [
-      "SHORT"
-    ],
+    "secondaryVrms": ["SHORT"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "axles": [
           {
             "axleNumber": 1,
@@ -9672,9 +9415,7 @@
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "1"
-            ]
+            "number": ["1"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -9697,9 +9438,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 3"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 3"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -9724,9 +9463,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -9834,9 +9571,7 @@
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "1"
-            ]
+            "number": ["1"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -9859,9 +9594,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 3"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 3"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -9886,9 +9619,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -10001,9 +9732,7 @@
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "1"
-            ]
+            "number": ["1"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -10026,9 +9755,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 3"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 3"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -10053,9 +9780,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -10192,9 +9917,7 @@
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "1"
-            ]
+            "number": ["1"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -10217,9 +9940,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 3"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 3"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -10244,9 +9965,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -10386,20 +10105,14 @@
   {
     "partialVin": "004801",
     "primaryVrm": "F5A6F61",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "1A E4*98/91*98/91*0013*00"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["1A E4*98/91*98/91*0013*00"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -10422,9 +10135,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 2"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 2"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -10449,9 +10160,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -10556,9 +10265,7 @@
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "1A E4*98/91*98/91*0013*00"
-            ]
+            "number": ["1A E4*98/91*98/91*0013*00"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -10581,9 +10288,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 2"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 2"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -10608,9 +10313,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -10750,12 +10453,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additinoal Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "3 GL79AB"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["3 GL79AB"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -10778,10 +10477,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -10806,9 +10502,7 @@
             "tankStatement": {
               "productList": "GAS OIL OR DIESEL OR HEATING OIL LIGHT CLASS 3 F1 III UN1202 KEROSENE CLASS 3 F1 III UN1223 FUEL, AVIATION, TURBINE ENGINE (Vapour pressure at 50\\xa7c more than 110 kPa but not more than 175kPa) class 3F1 I & 3F1 II UN1863 FUEL, AVIATION, TURBINE ENGINE (Vapour pressure at 50\\xa7c not more than 110 kPa) CLASS 3F1 II UN1863 FUEL, AVIATION, TURBINE ENGINE CLASS 3F1 III UN1863",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -10940,12 +10634,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "3 GL79AB"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["3 GL79AB"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -10968,10 +10658,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -10996,9 +10683,7 @@
             "tankStatement": {
               "productList": "GAS OIL OR DIESEL OR HEATING OIL LIGHT CLASS 3 F1 III UN1202 KEROSENE CLASS 3 F1 III UN1223 FUEL, AVIATION, TURBINE ENGINE (Vapour pressure at 50\\xa7c more than 110 kPa but not more than 175kPa) class 3F1 I & 3F1 II UN1863 FUEL, AVIATION, TURBINE ENGINE (Vapour pressure at 50\\xa7c not more than 110 kPa) CLASS 3F1 II UN1863 FUEL, AVIATION, TURBINE ENGINE CLASS 3F1 III UN1863",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -11130,12 +10815,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "3 GL79AB"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["3 GL79AB"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -11158,10 +10839,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -11186,9 +10864,7 @@
             "tankStatement": {
               "productList": "GAS OIL OR DIESEL OR HEATING OIL LIGHT CLASS 3 F1 III UN1202 KEROSENE CLASS 3 F1 III UN1223 FUEL, AVIATION, TURBINE ENGINE (Vapour pressure at 50\\xa7c more than 110 kPa but not more than 175kPa) class 3F1 I & 3F1 II UN1863 FUEL, AVIATION, TURBINE ENGINE (Vapour pressure at 50\\xa7c not more than 110 kPa) CLASS 3F1 II UN1863 FUEL, AVIATION, TURBINE ENGINE CLASS 3F1 III UN1863",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -11333,9 +11009,7 @@
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "1A"
-            ]
+            "number": ["1A"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -11358,9 +11032,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 2"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 2"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -11385,9 +11057,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -11495,9 +11165,7 @@
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "1A"
-            ]
+            "number": ["1A"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -11520,9 +11188,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 2"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 2"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -11547,9 +11213,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -11665,18 +11329,14 @@
   {
     "partialVin": "023353",
     "primaryVrm": "D4H1J51",
-    "secondaryVrms": [
-      "F8G8G21"
-    ],
+    "secondaryVrms": ["F8G8G21"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "1A"
-            ]
+            "number": ["1A"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -11699,9 +11359,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 2"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 2"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -11726,9 +11384,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -11825,9 +11481,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "1A"
-            ]
+            "number": ["1A"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -11850,9 +11504,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 2"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 2"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -11877,9 +11529,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -11983,9 +11633,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3 E5 105R 04001"
-            ]
+            "number": ["3 E5 105R 04001"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -12008,10 +11656,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -12036,9 +11681,7 @@
             "tankStatement": {
               "productList": "WHALE PRODUCTS LIST 3A",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -12174,9 +11817,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "2"
-            ]
+            "number": ["2"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -12199,9 +11840,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "AT"
-          ],
+          "permittedDangerousGoods": ["AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": " ",
@@ -12226,9 +11865,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "A",
               "substancesPermitted": "B"
             }
@@ -12368,18 +12005,14 @@
   {
     "partialVin": "034477",
     "primaryVrm": "F6F2H50",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "1&3 E4 105R 06 0018 EXT.19"
-            ]
+            "number": ["1&3 E4 105R 06 0018 EXT.19"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -12432,9 +12065,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -12538,9 +12169,7 @@
           "additionalExaminerNotes": "VACCUM INTEGRITY TEST CARRIED OUT 08/04/2008. 2S/2M STATEMENT FOR STN TO CHECK 2010 TEST.",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "2"
-            ]
+            "number": ["2"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -12563,9 +12192,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "AT"
-          ],
+          "permittedDangerousGoods": ["AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -12590,9 +12217,7 @@
             "tankStatement": {
               "productList": "REFRIGERATED LIQUID OXYGEN CLASS 2 ITEM 3(0), ARGON, NITROGEN CLASS 2 ITEM 3(a)",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -12728,18 +12353,14 @@
   {
     "partialVin": "037501",
     "primaryVrm": "B2C1C31",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -12762,10 +12383,7 @@
           ],
           "listStatementApplicable": true,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -12790,9 +12408,7 @@
             "tankStatement": {
               "productList": "COMPRESSED HYDROGEN GAS, ADR CLASS 2A, ADR ITEM 1\\xf8(b)",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -12904,9 +12520,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -12929,10 +12543,7 @@
           ],
           "listStatementApplicable": true,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -12957,9 +12568,7 @@
             "tankStatement": {
               "productList": "COMPRESSED HYDROGEN GAS, ADR CLASS 2A, ADR ITEM 1\\xf8(b)",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -13071,9 +12680,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -13096,10 +12703,7 @@
           ],
           "listStatementApplicable": true,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -13124,9 +12728,7 @@
             "tankStatement": {
               "productList": "COMPRESSED HYDROGEN GAS, ADR CLASS 2A, ADR ITEM 1\\xf8(b)",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -13244,12 +12846,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Details",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "3"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -13272,11 +12870,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT",
-            "Hydrogen"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT", "Hydrogen"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -13301,9 +12895,7 @@
             "tankStatement": {
               "productList": "UN 1049",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -13439,18 +13031,14 @@
   {
     "partialVin": "038789",
     "primaryVrm": "D3C3H93",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "2"
-            ]
+            "number": ["2"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -13473,9 +13061,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "AT"
-          ],
+          "permittedDangerousGoods": ["AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -13500,9 +13086,7 @@
             "tankStatement": {
               "productList": " ",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -13631,18 +13215,14 @@
   {
     "partialVin": "039009",
     "primaryVrm": "F1H2B84",
-    "secondaryVrms": [
-      "F4J5F76"
-    ],
+    "secondaryVrms": ["F4J5F76"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -13665,10 +13245,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "CORNHILL LIST 1",
@@ -13693,9 +13270,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "A",
               "substancesPermitted": "B"
             }
@@ -13792,9 +13367,7 @@
           "additionalExaminerNotes": null,
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -13817,10 +13390,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "CORNHILL LIST 1",
@@ -13845,9 +13415,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "A",
               "substancesPermitted": "B"
             }
@@ -13950,12 +13518,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "3"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -13977,13 +13541,8 @@
             "B1883C015EB3009580257C160044E380_A00047469_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": " ",
@@ -14008,9 +13567,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "A",
               "substancesPermitted": "B"
             }
@@ -14117,12 +13674,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional EXaminer Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "3"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -14144,13 +13697,8 @@
             "B1883C015EB3009580257C160044E380_A00047469_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": " ",
@@ -14175,9 +13723,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "A",
               "substancesPermitted": "B"
             }
@@ -14304,12 +13850,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "3"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -14331,13 +13873,8 @@
             "B1883C015EB3009580257C160044E380_A00047469_filename3.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": " ",
@@ -14362,9 +13899,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "A",
               "substancesPermitted": "B"
             }
@@ -14495,20 +14030,14 @@
   {
     "partialVin": "060613",
     "primaryVrm": "H1F4H08",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "3 BRAKE DEC FROM DAVID LILLY DENNISON TRAILERS"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["3 BRAKE DEC FROM DAVID LILLY DENNISON TRAILERS"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -14561,9 +14090,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -14692,18 +14219,14 @@
   {
     "partialVin": "111773",
     "primaryVrm": "F0E9B70",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -14755,9 +14278,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -14884,9 +14405,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -14938,9 +14457,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -15067,9 +14584,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -15121,9 +14636,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -15252,20 +14765,14 @@
   {
     "partialVin": "128821",
     "primaryVrm": "E7E6B64",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "3 T/A NO E1*98/91*0023*06 WAS 583737Z"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["3 T/A NO E1*98/91*0023*06 WAS 583737Z"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -15288,10 +14795,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -15316,9 +14820,7 @@
             "tankStatement": {
               "productList": "MOTOR SPIRIT/GASOLINE/PETROL ADR CLASS 3 UN NO 1203 KEROSENE ADR CLASS 3 UN NO 1223 GAS OIL/DIESEL FUEL/HEATING OIL, LIGHT ADR CLASS 3 UN NO 1202 ",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -15421,12 +14923,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "3, 1 E1 105R-06/00 0062"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["3, 1 E1 105R-06/00 0062"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -15478,9 +14976,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -15596,18 +15092,14 @@
   {
     "partialVin": "124509",
     "primaryVrm": "A0E6E24",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              null
-            ]
+            "number": [null]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -15630,9 +15122,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 3"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 3"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -15657,9 +15147,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -15758,20 +15246,14 @@
   {
     "partialVin": "425867",
     "primaryVrm": "H9F2A22",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "Y"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["Y"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -15790,10 +15272,7 @@
           "documents": [],
           "listStatementApplicable": true,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -15818,9 +15297,7 @@
             "tankStatement": {
               "productList": "3",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "Y",
               "substancesPermitted": "B"
             }
@@ -15919,20 +15396,14 @@
   {
     "partialVin": "041485",
     "primaryVrm": "B1C4F24",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "1A E4-105R-060018 EXT.10"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["1A E4-105R-060018 EXT.10"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -15955,9 +15426,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "Explosives: Type 2"
-          ],
+          "permittedDangerousGoods": ["Explosives: Type 2"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -15982,9 +15451,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": null,
               "substancesPermitted": null
             }
@@ -16098,18 +15565,14 @@
   {
     "partialVin": "082777",
     "primaryVrm": "D7H3E42",
-    "secondaryVrms": [
-      "D6I6I36"
-    ],
+    "secondaryVrms": ["D6I6I36"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -16132,10 +15595,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "UN 1202 UN 1203 UN1223",
@@ -16160,9 +15620,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "A",
               "substancesPermitted": "B"
             }
@@ -16274,9 +15732,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -16299,10 +15755,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "UN 1202 UN 1203 UN1223",
@@ -16327,9 +15780,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "A",
               "substancesPermitted": "B"
             }
@@ -16441,9 +15892,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -16466,10 +15915,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "UN 1202 UN 1203 UN1223",
@@ -16494,9 +15940,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "A",
               "substancesPermitted": "B"
             }
@@ -16608,9 +16052,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -16633,10 +16075,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "UN 1202 UN 1203 UN1223",
@@ -16661,9 +16100,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "A",
               "substancesPermitted": "B"
             }
@@ -16775,9 +16212,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -16800,10 +16235,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "UN 1202 UN 1203 UN1223",
@@ -16828,9 +16260,7 @@
             "tankStatement": {
               "productList": null,
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "A",
               "substancesPermitted": "B"
             }
@@ -16949,9 +16379,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -16974,10 +16402,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -17002,9 +16427,7 @@
             "tankStatement": {
               "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -17144,9 +16567,7 @@
   {
     "partialVin": "037501",
     "primaryVrm": "B2C1C11",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "axles": [
@@ -17277,18 +16698,14 @@
   {
     "partialVin": "038789",
     "primaryVrm": "D3C3H11",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "2"
-            ]
+            "number": ["2"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -17311,9 +16728,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "AT"
-          ],
+          "permittedDangerousGoods": ["AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -17338,9 +16753,7 @@
             "tankStatement": {
               "productList": " ",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -17468,9 +16881,7 @@
   },
   {
     "primaryVrm": "MK99OIF",
-    "secondaryVrms": [
-      "876543D"
-    ],
+    "secondaryVrms": ["876543D"],
     "vin": "ABCDEPSV000666",
     "partialVin": "000666",
     "systemNumber": "9999999",
@@ -17616,15 +17027,10 @@
   {
     "partialVin": "911250",
     "primaryVrm": "QW123RT",
-    "secondaryVrms": [
-      "RT321WQ"
-    ],
+    "secondaryVrms": ["RT321WQ"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "a",
-          "r"
-        ],
+        "vehicleSubclass": ["a", "r"],
         "axles": [
           {
             "axleNumber": 1,
@@ -17738,15 +17144,10 @@
   {
     "partialVin": "951264",
     "primaryVrm": "AS234TY",
-    "secondaryVrms": [
-      "AS432TY"
-    ],
+    "secondaryVrms": ["AS432TY"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "a",
-          "r"
-        ],
+        "vehicleSubclass": ["a", "r"],
         "axles": [
           {
             "axleNumber": 1,
@@ -17860,14 +17261,10 @@
   {
     "partialVin": "956789",
     "primaryVrm": "ZX345CV",
-    "secondaryVrms": [
-      "CV543XZ"
-    ],
+    "secondaryVrms": ["CV543XZ"],
     "techRecord": [
       {
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "axles": [
           {
             "axleNumber": 1,
@@ -17989,9 +17386,7 @@
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
             "guidanceNotes": [],
-            "number": [
-              "3"
-            ]
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -18014,10 +17409,7 @@
           ],
           "listStatementApplicable": false,
           "memosApply": [],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -18042,9 +17434,7 @@
             "tankStatement": {
               "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -18520,9 +17910,7 @@
   {
     "partialVin": "484009",
     "primaryVrm": "PDY70VRL",
-    "secondaryVrms": [
-      "CT98DRG"
-    ],
+    "secondaryVrms": ["CT98DRG"],
     "systemNumber": "11044320",
     "techRecord": [
       {
@@ -18632,9 +18020,7 @@
   {
     "partialVin": "484009",
     "primaryVrm": "PDYTST09",
-    "secondaryVrms": [
-      "X21LTA"
-    ],
+    "secondaryVrms": ["X21LTA"],
     "systemNumber": "12055422",
     "techRecord": [
       {
@@ -18753,9 +18139,7 @@
   {
     "partialVin": "778899",
     "primaryVrm": "JG01SJG",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMMIFK3J",
     "techRecord": [
       {
@@ -18892,9 +18276,7 @@
   {
     "partialVin": "223344",
     "primaryVrm": "JG02SJG",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMMIFK3K",
     "techRecord": [
       {
@@ -19031,9 +18413,7 @@
   {
     "partialVin": "223344",
     "primaryVrm": "JG03SJG",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMMIFK3L",
     "techRecord": [
       {
@@ -19280,9 +18660,7 @@
   {
     "partialVin": "400001",
     "primaryVrm": "SJG1001",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00001",
     "techRecord": [
       {
@@ -19419,9 +18797,7 @@
   {
     "partialVin": "400002",
     "primaryVrm": "SJG1002",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00002",
     "techRecord": [
       {
@@ -19749,9 +19125,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "trl"
       }
     ],
@@ -19952,9 +19326,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "lgv"
       }
     ],
@@ -19964,9 +19336,7 @@
   {
     "partialVin": "400005",
     "primaryVrm": "SJG1005",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00005",
     "techRecord": [
       {
@@ -20073,9 +19443,7 @@
           "description": null
         },
         "vehicleConfiguration": null,
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "car"
       }
     ],
@@ -20084,9 +19452,7 @@
   {
     "partialVin": "400006",
     "primaryVrm": "SJG1006",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00006",
     "techRecord": [
       {
@@ -20192,9 +19558,7 @@
           "description": null
         },
         "vehicleConfiguration": null,
-        "vehicleSubClass": [
-          "string"
-        ],
+        "vehicleSubClass": ["string"],
         "vehicleType": "motorcycle",
         "vehicleWheels": null
       }
@@ -20204,9 +19568,7 @@
   {
     "partialVin": "400007",
     "primaryVrm": "SJG1007",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00007",
     "techRecord": [
       {
@@ -20343,9 +19705,7 @@
   {
     "partialVin": "400008",
     "primaryVrm": "SJG1008",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00008",
     "techRecord": [
       {
@@ -20673,9 +20033,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "trl"
       }
     ],
@@ -20875,9 +20233,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "trl"
       },
       {
@@ -21070,9 +20426,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "lgv"
       }
     ],
@@ -21082,9 +20436,7 @@
   {
     "partialVin": "400031",
     "primaryVrm": "SJG1031",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00031",
     "techRecord": [
       {
@@ -21191,9 +20543,7 @@
           "description": null
         },
         "vehicleConfiguration": null,
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "car"
       }
     ],
@@ -21202,9 +20552,7 @@
   {
     "partialVin": "400012",
     "primaryVrm": "SJG1012",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00012",
     "techRecord": [
       {
@@ -21310,9 +20658,7 @@
           "description": null
         },
         "vehicleConfiguration": null,
-        "vehicleSubClass": [
-          "string"
-        ],
+        "vehicleSubClass": ["string"],
         "vehicleType": "motorcycle",
         "vehicleWheels": null
       }
@@ -21322,9 +20668,7 @@
   {
     "partialVin": "400020",
     "primaryVrm": "SJG1020",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00020",
     "techRecord": [
       {
@@ -21431,9 +20775,7 @@
           "description": null
         },
         "vehicleConfiguration": null,
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "car"
       }
     ],
@@ -21442,9 +20784,7 @@
   {
     "partialVin": "400020",
     "primaryVrm": "SJG1021",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00021",
     "techRecord": [
       {
@@ -21551,9 +20891,7 @@
           "description": null
         },
         "vehicleConfiguration": null,
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "car"
       }
     ],
@@ -21562,9 +20900,7 @@
   {
     "partialVin": "400001",
     "primaryVrm": "SJG1001",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00001",
     "techRecord": [
       {
@@ -21701,9 +21037,7 @@
   {
     "partialVin": "400002",
     "primaryVrm": "SJG1002",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00002",
     "techRecord": [
       {
@@ -22031,9 +21365,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "trl"
       }
     ],
@@ -22234,9 +21566,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "lgv"
       }
     ],
@@ -22246,9 +21576,7 @@
   {
     "partialVin": "400005",
     "primaryVrm": "SJG1005",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00005",
     "techRecord": [
       {
@@ -22355,9 +21683,7 @@
           "description": null
         },
         "vehicleConfiguration": null,
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "car"
       }
     ],
@@ -22366,9 +21692,7 @@
   {
     "partialVin": "400006",
     "primaryVrm": "SJG1006",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00006",
     "techRecord": [
       {
@@ -22474,9 +21798,7 @@
           "description": null
         },
         "vehicleConfiguration": null,
-        "vehicleSubClass": [
-          "string"
-        ],
+        "vehicleSubClass": ["string"],
         "vehicleType": "motorcycle",
         "vehicleWheels": null
       }
@@ -22486,9 +21808,7 @@
   {
     "partialVin": "400007",
     "primaryVrm": "SJG1007",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00007",
     "techRecord": [
       {
@@ -22625,9 +21945,7 @@
   {
     "partialVin": "400008",
     "primaryVrm": "SJG1008",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00008",
     "techRecord": [
       {
@@ -22955,9 +22273,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "trl"
       }
     ],
@@ -23157,9 +22473,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "trl"
       }
     ],
@@ -23169,9 +22483,7 @@
   {
     "partialVin": "484009",
     "primaryVrm": "PDY70VRL",
-    "secondaryVrms": [
-      "CT98DRG"
-    ],
+    "secondaryVrms": ["CT98DRG"],
     "systemNumber": "10044320",
     "techRecord": [
       {
@@ -23280,9 +22592,7 @@
   {
     "partialVin": "484009",
     "primaryVrm": "PDYTST09",
-    "secondaryVrms": [
-      "X21LTA"
-    ],
+    "secondaryVrms": ["X21LTA"],
     "systemNumber": "12055422",
     "techRecord": [
       {
@@ -23485,9 +22795,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "lgv"
       }
     ],
@@ -23497,9 +22805,7 @@
   {
     "partialVin": "400011",
     "primaryVrm": "SJG1011",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00011",
     "techRecord": [
       {
@@ -23617,9 +22923,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": null,
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "car"
       }
     ],
@@ -23628,9 +22932,7 @@
   {
     "partialVin": "400012",
     "primaryVrm": "SJG1012",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00012",
     "techRecord": [
       {
@@ -23877,22 +23179,15 @@
   {
     "partialVin": "599654",
     "primaryVrm": "HBB",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "systemNumber": "910000037",
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "string",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "1",
-              "2"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["1", "2"]
           },
           "applicantDetails": {
             "city": "string",
@@ -23901,12 +23196,8 @@
             "street": "string",
             "town": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "string",
@@ -24065,13 +23356,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "string",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "1",
-              "2"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["1", "2"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -24087,15 +23373,10 @@
           "brakeEndurance": null,
           "compatibilityGroupJ": null,
           "declarationsSeen": null,
-          "documents": [
-          ],
+          "documents": [],
           "listStatementApplicable": null,
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "string",
@@ -24120,10 +23401,7 @@
             "tankStatement": {
               "productList": "string",
               "productListRefNo": "1234567890",
-              "productListUnNo": [
-                "UN1234",
-                "UN3456"
-              ],
+              "productListUnNo": ["UN1234", "UN3456"],
               "statement": null,
               "substancesPermitted": "Substances (Class UN number and if necessary packing group and proper shipping name) may be carried"
             }
@@ -24267,22 +23545,15 @@
   {
     "partialVin": "535848",
     "primaryVrm": "DPQ6",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "systemNumber": "910000038",
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "string",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "1",
-              "2"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["1", "2"]
           },
           "applicantDetails": {
             "city": "string",
@@ -24291,12 +23562,8 @@
             "street": "string",
             "town": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "string",
@@ -24474,22 +23741,15 @@
   {
     "partialVin": "567123",
     "primaryVrm": "HGV1234",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "systemNumber": "12013001123",
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "string",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "1",
-              "2"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["1", "2"]
           },
           "applicantDetails": {
             "city": "string",
@@ -24498,12 +23758,8 @@
             "street": "string",
             "town": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "string",
@@ -24678,13 +23934,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "string",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "1",
-              "2"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["1", "2"]
           },
           "applicantDetails": {
             "city": "string",
@@ -24693,12 +23944,8 @@
             "street": "string",
             "town": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "string",
@@ -24875,22 +24122,15 @@
   {
     "partialVin": "567123",
     "primaryVrm": "TRL1234",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "systemNumber": "12013001124",
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "string",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "1",
-              "2"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["1", "2"]
           },
           "applicantDetails": {
             "city": "string",
@@ -24899,12 +24139,8 @@
             "street": "string",
             "town": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "string",
@@ -25079,13 +24315,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "string",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "1",
-              "2"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["1", "2"]
           },
           "applicantDetails": {
             "city": "string",
@@ -25094,12 +24325,8 @@
             "street": "string",
             "town": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "string",
@@ -25277,22 +24504,15 @@
   {
     "partialVin": "567123",
     "primaryVrm": "HGV1234",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "systemNumber": "12013001125",
     "techRecord": [
       {
         "adrDetails": {
           "additionalExaminerNotes": "string",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "1",
-              "2"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["1", "2"]
           },
           "applicantDetails": {
             "city": "string",
@@ -25301,12 +24521,8 @@
             "street": "string",
             "town": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "string",
@@ -25480,13 +24696,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "string",
           "additionalNotes": {
-            "guidanceNotes": [
-              "New certificate requested"
-            ],
-            "number": [
-              "1",
-              "2"
-            ]
+            "guidanceNotes": ["New certificate requested"],
+            "number": ["1", "2"]
           },
           "applicantDetails": {
             "city": "string",
@@ -25495,12 +24706,8 @@
             "street": "string",
             "town": "string"
           },
-          "memosApply": [
-            "07/09 3mth leak ext"
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)"
-          ],
+          "memosApply": ["07/09 3mth leak ext"],
+          "permittedDangerousGoods": ["FP <61 (FL)"],
           "tank": {
             "tankDetails": {
               "specialProvisions": "string",
@@ -25725,9 +24932,7 @@
           "code": "1",
           "description": "motorbikes up to 200cc"
         },
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "euVehicleCategory": "l2e",
         "recordCompleteness": "complete",
         "applicantDetails": {
@@ -25764,9 +24969,7 @@
           "code": "1",
           "description": "motorbikes up to 200cc"
         },
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "euVehicleCategory": "l2e",
         "recordCompleteness": "complete",
         "applicantDetails": {
@@ -25796,7 +24999,7 @@
       {
         "createdAt": "2019-06-26T10:26:54.903Z",
         "vehicleType": "hgv",
-        "statusCode": "provisional",
+        "statusCode": "archived",
         "regnDate": "2019-12-13",
         "dtpNumber": "123",
         "manufactureYear": 0,
@@ -25895,8 +25098,221 @@
             "plateIssuer": "string"
           }
         ],
-        "reasonForCreation": "string",
-        "recordCompleteness": "complete"
+        "reasonForCreation": "original",
+        "recordCompleteness": "complete",
+        "vin": "MMMMMM666555"
+      },
+      {
+        "createdAt": "2019-06-26T10:26:54.903Z",
+        "vehicleType": "hgv",
+        "statusCode": "archived",
+        "regnDate": "2019-12-13",
+        "dtpNumber": "123",
+        "manufactureYear": 0,
+        "noOfAxles": 0,
+        "brakes": {
+          "dtpNumber": "DTPNUM"
+        },
+        "speedLimiterMrk": true,
+        "tachoExemptMrk": true,
+        "drawbarCouplingFitted": true,
+        "euroStandard": "string",
+        "fuelPropulsionSystem": "DieselPetrol",
+        "offRoad": true,
+        "roadFriendly": true,
+        "vehicleClass": {
+          "code": "2",
+          "description": "motorbikes over 200cc or with a sidecar"
+        },
+        "vehicleConfiguration": "rigid",
+        "numberOfWheelsDriven": 2,
+        "euVehicleCategory": "m1",
+        "emissionsLimit": 0,
+        "approvalType": "NTA",
+        "approvalTypeNumber": "string",
+        "variantNumber": "22",
+        "variantVersionNumber": "3435",
+        "grossEecWeight": 0,
+        "trainEecWeight": 0,
+        "maxTrainEecWeight": 0,
+        "make": "string",
+        "model": "string",
+        "functionCode": "A",
+        "bodyType": {
+          "code": "a",
+          "description": "articulated"
+        },
+        "conversionRefNo": "string",
+        "grossGbWeight": 6,
+        "grossDesignWeight": 0,
+        "trainGbWeight": 0,
+        "trainDesignWeight": 0,
+        "maxTrainGbWeight": 0,
+        "maxTrainDesignWeight": 0,
+        "tyreUseCode": "2",
+        "axles": [
+          {
+            "weights": {
+              "gbWeight": 0,
+              "eecWeight": 0,
+              "designWeight": 0
+            },
+            "tyres": {
+              "tyreCode": 0,
+              "tyreSize": "string",
+              "plyRating": "a",
+              "fitmentCode": "double"
+            }
+          }
+        ],
+        "dimensions": {
+          "length": 0,
+          "width": 0,
+          "axleSpacing": [
+            {
+              "axles": "string"
+            }
+          ]
+        },
+        "frontAxleTo5thWheelMin": 0,
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelCouplingMin": 0,
+        "frontAxleTo5thWheelCouplingMax": 0,
+        "frontAxleToRearAxle": 0,
+        "ntaNumber": "string",
+        "notes": "string",
+        "applicantDetails": {
+          "name": "string",
+          "address1": "string",
+          "address2": "string",
+          "postTown": "string",
+          "address3": "string",
+          "postCode": "string",
+          "emailAddress": "string",
+          "telephoneNumber": "string"
+        },
+        "microfilm": {
+          "microfilmDocumentType": "PSV Miscellaneous",
+          "microfilmRollNumber": "12367",
+          "microfilmSerialNumber": "1234"
+        },
+        "plates": [
+          {
+            "plateSerialNumber": "string",
+            "plateIssueDate": "2019-12-13",
+            "plateReasonForIssue": "Free replacement",
+            "plateIssuer": "string"
+          }
+        ],
+        "reasonForCreation": "change 2",
+        "recordCompleteness": "complete",
+        "vin": "MMMMMM666555"
+      },
+      {
+        "createdAt": "2019-06-26T10:26:54.903Z",
+        "vehicleType": "hgv",
+        "statusCode": "archived",
+        "regnDate": "2019-12-13",
+        "dtpNumber": "123",
+        "manufactureYear": 0,
+        "noOfAxles": 0,
+        "brakes": {
+          "dtpNumber": "DTPNUM"
+        },
+        "speedLimiterMrk": true,
+        "tachoExemptMrk": true,
+        "drawbarCouplingFitted": true,
+        "euroStandard": "string",
+        "fuelPropulsionSystem": "DieselPetrol",
+        "offRoad": true,
+        "roadFriendly": true,
+        "vehicleClass": {
+          "code": "2",
+          "description": "motorbikes over 200cc or with a sidecar"
+        },
+        "vehicleConfiguration": "rigid",
+        "numberOfWheelsDriven": 2,
+        "euVehicleCategory": "m1",
+        "emissionsLimit": 0,
+        "approvalType": "NTA",
+        "approvalTypeNumber": "string",
+        "variantNumber": "22",
+        "variantVersionNumber": "3435",
+        "grossEecWeight": 0,
+        "trainEecWeight": 0,
+        "maxTrainEecWeight": 0,
+        "make": "string",
+        "model": "string",
+        "functionCode": "A",
+        "bodyType": {
+          "code": "a",
+          "description": "articulated"
+        },
+        "conversionRefNo": "string",
+        "grossGbWeight": 6,
+        "grossDesignWeight": 0,
+        "trainGbWeight": 0,
+        "trainDesignWeight": 0,
+        "maxTrainGbWeight": 0,
+        "maxTrainDesignWeight": 0,
+        "tyreUseCode": "2",
+        "axles": [
+          {
+            "weights": {
+              "gbWeight": 0,
+              "eecWeight": 0,
+              "designWeight": 0
+            },
+            "tyres": {
+              "tyreCode": 0,
+              "tyreSize": "string",
+              "plyRating": "a",
+              "fitmentCode": "double"
+            }
+          }
+        ],
+        "dimensions": {
+          "length": 0,
+          "width": 0,
+          "axleSpacing": [
+            {
+              "axles": "string"
+            }
+          ]
+        },
+        "frontAxleTo5thWheelMin": 0,
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelCouplingMin": 0,
+        "frontAxleTo5thWheelCouplingMax": 0,
+        "frontAxleToRearAxle": 0,
+        "ntaNumber": "string",
+        "notes": "string",
+        "applicantDetails": {
+          "name": "string",
+          "address1": "string",
+          "address2": "string",
+          "postTown": "string",
+          "address3": "string",
+          "postCode": "string",
+          "emailAddress": "string",
+          "telephoneNumber": "string"
+        },
+        "microfilm": {
+          "microfilmDocumentType": "PSV Miscellaneous",
+          "microfilmRollNumber": "12367",
+          "microfilmSerialNumber": "1234"
+        },
+        "plates": [
+          {
+            "plateSerialNumber": "string",
+            "plateIssueDate": "2019-12-13",
+            "plateReasonForIssue": "Free replacement",
+            "plateIssuer": "string"
+          }
+        ],
+        "reasonForCreation": "change 2",
+        "recordCompleteness": "complete",
+        "vin": "MMMMMM666555"
       }
     ],
     "vin": "MMMMMM666555",
@@ -26379,9 +25795,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "trl"
       },
       {
@@ -26574,9 +25988,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "trl"
       }
     ],
@@ -26586,9 +25998,7 @@
   {
     "partialVin": "220223",
     "primaryVrm": "B999XFX",
-    "secondaryVrms": [
-      "DB999XFX"
-    ],
+    "secondaryVrms": ["DB999XFX"],
     "systemNumber": "11220280",
     "techRecord": [
       {
@@ -26704,7 +26114,7 @@
         "regnDate": "1985-01-01",
         "roadFriendly": false,
         "speedLimiterMrk": false,
-        "statusCode": "provisional",
+        "statusCode": "archived",
         "tachoExemptMrk": false,
         "trainDesignWeight": 59500,
         "trainEecWeight": 25000,
@@ -26717,7 +26127,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "vin": "H12220223"
       }
     ],
     "vin": "H12220223"
@@ -26753,9 +26164,7 @@
           "code": "4",
           "description": "MOT class 4"
         },
-        "vehicleSubclass": [
-          "n"
-        ],
+        "vehicleSubclass": ["n"],
         "vehicleType": "car"
       }
     ],
@@ -26792,9 +26201,7 @@
           "code": "4",
           "description": "MOT class 4"
         },
-        "vehicleSubclass": [
-          "r"
-        ],
+        "vehicleSubclass": ["r"],
         "vehicleType": "car"
       }
     ],
@@ -26803,9 +26210,7 @@
   {
     "partialVin": "741213",
     "primaryVrm": "B2C1C12",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "systemNumber": "30000006",
     "techRecord": [
       {
@@ -27193,9 +26598,7 @@
   {
     "partialVin": "375332",
     "primaryVrm": "B2C1C11",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "systemNumber": "30000012",
     "techRecord": [
       {
@@ -27311,7 +26714,7 @@
         "regnDate": "1985-01-01",
         "roadFriendly": false,
         "speedLimiterMrk": false,
-        "statusCode": "provisional",
+        "statusCode": "archived",
         "tachoExemptMrk": false,
         "trainDesignWeight": 59500,
         "trainEecWeight": 25000,
@@ -27324,7 +26727,8 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv"
+        "vehicleType": "hgv",
+        "vin": "H000375332"
       }
     ],
     "vin": "H000375332"
@@ -27333,12 +26737,11 @@
     "systemNumber": "30000011",
     "vin": "H00037502",
     "primaryVrm": "GB02HL",
-    "secondaryVrms": [
-      "E5F1I00"
-    ],
+    "secondaryVrms": ["E5F1I00"],
     "partialVin": "037502",
     "techRecord": [
       {
+        "vin": "H00037502",
         "bodyType": {
           "description": "other",
           "code": "o"
@@ -27417,7 +26820,7 @@
         "reasonForCreation": "something",
         "roadFriendly": false,
         "euVehicleCategory": "n3",
-        "statusCode": "provisional",
+        "statusCode": "archived",
         "frontAxleToRearAxle": 1000,
         "drawbarCouplingFitted": false,
         "variantNumber": "324324",
@@ -27477,9 +26880,7 @@
         "createdByName": "Tue",
         "recordCompleteness": "complete",
         "regnDate": "1986-05-01",
-        "vehicleSubclass": [
-          "r"
-        ],
+        "vehicleSubclass": ["r"],
         "createdAt": "2021-08-26T10:35:26.763Z",
         "reasonForCreation": "Testing",
         "applicantDetails": {
@@ -27516,9 +26917,7 @@
         "createdByName": "Tue",
         "recordCompleteness": "complete",
         "regnDate": "1986-05-01",
-        "vehicleSubclass": [
-          "r"
-        ],
+        "vehicleSubclass": ["r"],
         "createdAt": "2021-08-26T10:18:00.182Z",
         "reasonForCreation": "Testing",
         "applicantDetails": {
@@ -27555,9 +26954,7 @@
         "createdByName": "Tue",
         "recordCompleteness": "complete",
         "regnDate": "1986-05-01",
-        "vehicleSubclass": [
-          "r"
-        ],
+        "vehicleSubclass": ["r"],
         "createdAt": "2021-08-24T07:15:26.240Z",
         "reasonForCreation": "Testing",
         "applicantDetails": {
@@ -27594,9 +26991,7 @@
         "createdByName": "Tue",
         "recordCompleteness": "complete",
         "regnDate": "1986-05-01",
-        "vehicleSubclass": [
-          "r"
-        ],
+        "vehicleSubclass": ["r"],
         "createdAt": "2021-08-24T07:10:31.528Z",
         "reasonForCreation": "Testing",
         "applicantDetails": {
@@ -27633,9 +27028,7 @@
         "createdByName": "Tue",
         "recordCompleteness": "complete",
         "regnDate": "1986-05-01",
-        "vehicleSubclass": [
-          "m"
-        ],
+        "vehicleSubclass": ["m"],
         "createdAt": "2021-08-23T13:45:02.574Z",
         "applicantDetails": {
           "emailAddress": "*************",
@@ -27857,9 +27250,7 @@
           "description": "trailer"
         },
         "vehicleConfiguration": "drawbar",
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "lgv"
       }
     ],
@@ -27869,9 +27260,7 @@
   {
     "partialVin": "400066",
     "primaryVrm": "SJG1066",
-    "secondaryVrms": [
-      "SVNSJG"
-    ],
+    "secondaryVrms": ["SVNSJG"],
     "systemNumber": "XYZEP5JYOMM00066",
     "techRecord": [
       {
@@ -27977,9 +27366,7 @@
           "description": null
         },
         "vehicleConfiguration": null,
-        "vehicleSubClass": [
-          "string"
-        ],
+        "vehicleSubClass": ["string"],
         "vehicleType": "motorcycle",
         "vehicleWheels": null
       }
@@ -34744,5 +34131,938 @@
     ],
     "vin": "ABCDEF111223",
     "systemNumber": "1110009"
+  },
+  {
+    "systemNumber": "30000011",
+    "vin": "H00037504",
+    "primaryVrm": "GB02HL",
+    "secondaryVrms": ["E5F1I00"],
+    "partialVin": "037504",
+    "techRecord": [
+      {
+        "vin": "H00037504",
+        "bodyType": {
+          "description": "other",
+          "code": "o"
+        },
+        "createdByName": "sean",
+        "notes": " ",
+        "functionCode": "A",
+        "departmentalVehicleMarker": false,
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "offRoad": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "tyreSize": "12-22.5",
+              "fitmentCode": "single",
+              "dataTrAxles": 2,
+              "plyRating": " ",
+              "tyreCode": 462
+            },
+            "parkingBrakeMrk": false,
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7500,
+              "gbWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "tyreSize": "12-22.5",
+              "fitmentCode": "double",
+              "dataTrAxles": 2,
+              "plyRating": " ",
+              "tyreCode": 462
+            },
+            "parkingBrakeMrk": false,
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "frontAxleTo5thWheelCouplingMin": 1000,
+        "createdAt": "2021-08-24T07:28:24.305Z",
+        "grossGbWeight": 25000,
+        "microfilm": {
+          "microfilmSerialNumber": "1234",
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346"
+        },
+        "variantVersionNumber": "345",
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "maxTrainGbWeight": 44000,
+        "alterationMarker": false,
+        "grossDesignWeight": 33500,
+        "vehicleType": "hgv",
+        "createdById": "12345",
+        "plates": [
+          {
+            "plateSerialNumber": "123456",
+            "plateIssuer": "issuer",
+            "plateIssueDate": "2100-12-31",
+            "plateReasonForIssue": "Replacement"
+          }
+        ],
+        "vehicleConfiguration": "articulated",
+        "regnDate": "1985-01-01",
+        "tachoExemptMrk": false,
+        "trainGbWeight": 41000,
+        "maxTrainEecWeight": 2500,
+        "reasonForCreation": "something",
+        "roadFriendly": false,
+        "euVehicleCategory": "n3",
+        "statusCode": "current",
+        "frontAxleToRearAxle": 1000,
+        "drawbarCouplingFitted": false,
+        "variantNumber": "324324",
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "conversionRefNo": " ",
+        "maxTrainDesignWeight": 2800,
+        "applicantDetails": {
+          "emailAddress": "*************",
+          "telephoneNumber": "**************",
+          "address3": "*****",
+          "address2": "*****",
+          "address1": "*****",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*"
+        },
+        "euroStandard": "3",
+        "vehicleClass": {
+          "description": "heavy goods vehicle",
+          "code": "v"
+        },
+        "make": "VOLVO",
+        "speedLimiterMrk": false,
+        "frontAxleTo5thWheelCouplingMax": 1000,
+        "recordCompleteness": "complete",
+        "grossEecWeight": 25000,
+        "frontAxleTo5thWheelMax": 1000,
+        "ntaNumber": "0000514903",
+        "emissionsLimit": 20,
+        "fuelPropulsionSystem": "Electric",
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "tyreUseCode": "2B",
+        "frontAxleTo5thWheelMin": 1000,
+        "manufactureYear": 1984,
+        "dimensions": {
+          "length": 10000,
+          "width": 2000,
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 10000
+            }
+          ]
+        },
+        "numberOfWheelsDriven": 4
+      }
+    ]
+  },
+  {
+    "partialVin": "375333",
+    "primaryVrm": "B2C1C11",
+    "secondaryVrms": ["E5F1I00"],
+    "systemNumber": "30000012",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7500,
+              "gbWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "o",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2021-08-24T07:34:35.443Z",
+        "createdById": "12345",
+        "createdByName": "sean",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 10000
+            }
+          ],
+          "length": 10000,
+          "width": 2000
+        },
+        "drawbarCouplingFitted": false,
+        "emissionsLimit": 20,
+        "euroStandard": "2",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelCouplingMax": 1000,
+        "frontAxleTo5thWheelCouplingMin": 1000,
+        "frontAxleTo5thWheelMax": 1000,
+        "frontAxleTo5thWheelMin": 1000,
+        "frontAxleToRearAxle": 1000,
+        "fuelPropulsionSystem": "Electric",
+        "functionCode": "A",
+        "grossDesignWeight": 33500,
+        "grossEecWeight": 25000,
+        "grossGbWeight": 25000,
+        "make": "VOLVO",
+        "manufactureYear": 1984,
+        "maxTrainDesignWeight": 2800,
+        "maxTrainEecWeight": 2500,
+        "maxTrainGbWeight": 44000,
+        "microfilm": {
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346",
+          "microfilmSerialNumber": "1234"
+        },
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "0000514903",
+        "numberOfWheelsDriven": 4,
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2100-12-31",
+            "plateIssuer": "issuer",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "123456"
+          }
+        ],
+        "reasonForCreation": "something",
+        "recordCompleteness": "complete",
+        "regnDate": "1985-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "provisional",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "trainGbWeight": 41000,
+        "tyreUseCode": "2B",
+        "variantNumber": "324324",
+        "variantVersionNumber": "345",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "articulated",
+        "vehicleType": "hgv",
+        "vin": "H000375333"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7500,
+              "gbWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "o",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2021-08-24T07:34:35.443Z",
+        "createdById": "12345",
+        "createdByName": "sean",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 10000
+            }
+          ],
+          "length": 10000,
+          "width": 2000
+        },
+        "drawbarCouplingFitted": false,
+        "emissionsLimit": 20,
+        "euroStandard": "2",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelCouplingMax": 1000,
+        "frontAxleTo5thWheelCouplingMin": 1000,
+        "frontAxleTo5thWheelMax": 1000,
+        "frontAxleTo5thWheelMin": 1000,
+        "frontAxleToRearAxle": 1000,
+        "fuelPropulsionSystem": "Electric",
+        "functionCode": "A",
+        "grossDesignWeight": 33500,
+        "grossEecWeight": 25000,
+        "grossGbWeight": 25000,
+        "make": "VOLVO",
+        "manufactureYear": 1984,
+        "maxTrainDesignWeight": 2800,
+        "maxTrainEecWeight": 2500,
+        "maxTrainGbWeight": 44000,
+        "microfilm": {
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346",
+          "microfilmSerialNumber": "1234"
+        },
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "0000514903",
+        "numberOfWheelsDriven": 4,
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2100-12-31",
+            "plateIssuer": "issuer",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "123456"
+          }
+        ],
+        "reasonForCreation": "something",
+        "recordCompleteness": "complete",
+        "regnDate": "1985-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "trainGbWeight": 41000,
+        "tyreUseCode": "2B",
+        "variantNumber": "324324",
+        "variantVersionNumber": "345",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "articulated",
+        "vehicleType": "hgv",
+        "vin": "H000375333"
+      }
+    ],
+    "vin": "H000375333"
+  },
+  {
+    "partialVin": "666556",
+    "primaryVrm": "8887766",
+    "techRecord": [
+      {
+        "createdAt": "2019-06-26T10:26:54.903Z",
+        "vehicleType": "hgv",
+        "statusCode": "provisional",
+        "regnDate": "2019-12-13",
+        "dtpNumber": "123",
+        "manufactureYear": 0,
+        "noOfAxles": 0,
+        "brakes": {
+          "dtpNumber": "DTPNUM"
+        },
+        "speedLimiterMrk": true,
+        "tachoExemptMrk": true,
+        "drawbarCouplingFitted": true,
+        "euroStandard": "string",
+        "fuelPropulsionSystem": "DieselPetrol",
+        "offRoad": true,
+        "roadFriendly": true,
+        "vehicleClass": {
+          "code": "2",
+          "description": "motorbikes over 200cc or with a sidecar"
+        },
+        "vehicleConfiguration": "rigid",
+        "numberOfWheelsDriven": 2,
+        "euVehicleCategory": "m1",
+        "emissionsLimit": 0,
+        "approvalType": "NTA",
+        "approvalTypeNumber": "string",
+        "variantNumber": "22",
+        "variantVersionNumber": "3435",
+        "grossEecWeight": 0,
+        "trainEecWeight": 0,
+        "maxTrainEecWeight": 0,
+        "make": "string",
+        "model": "string",
+        "functionCode": "A",
+        "bodyType": {
+          "code": "a",
+          "description": "articulated"
+        },
+        "conversionRefNo": "string",
+        "grossGbWeight": 6,
+        "grossDesignWeight": 0,
+        "trainGbWeight": 0,
+        "trainDesignWeight": 0,
+        "maxTrainGbWeight": 0,
+        "maxTrainDesignWeight": 0,
+        "tyreUseCode": "2",
+        "axles": [
+          {
+            "weights": {
+              "gbWeight": 0,
+              "eecWeight": 0,
+              "designWeight": 0
+            },
+            "tyres": {
+              "tyreCode": 0,
+              "tyreSize": "string",
+              "plyRating": "a",
+              "fitmentCode": "double"
+            }
+          }
+        ],
+        "dimensions": {
+          "length": 0,
+          "width": 0,
+          "axleSpacing": [
+            {
+              "axles": "string"
+            }
+          ]
+        },
+        "frontAxleTo5thWheelMin": 0,
+        "frontAxleTo5thWheelMax": 0,
+        "frontAxleTo5thWheelCouplingMin": 0,
+        "frontAxleTo5thWheelCouplingMax": 0,
+        "frontAxleToRearAxle": 0,
+        "ntaNumber": "string",
+        "notes": "string",
+        "applicantDetails": {
+          "name": "string",
+          "address1": "string",
+          "address2": "string",
+          "postTown": "string",
+          "address3": "string",
+          "postCode": "string",
+          "emailAddress": "string",
+          "telephoneNumber": "string"
+        },
+        "microfilm": {
+          "microfilmDocumentType": "PSV Miscellaneous",
+          "microfilmRollNumber": "12367",
+          "microfilmSerialNumber": "1234"
+        },
+        "plates": [
+          {
+            "plateSerialNumber": "string",
+            "plateIssueDate": "2019-12-13",
+            "plateReasonForIssue": "Free replacement",
+            "plateIssuer": "string"
+          }
+        ],
+        "reasonForCreation": "string",
+        "recordCompleteness": "complete",
+        "vin": "MMMMMM666556"
+      }
+    ],
+    "vin": "MMMMMM666556",
+    "systemNumber": "1110003"
+  },
+  {
+    "partialVin": "220224",
+    "primaryVrm": "B999XFX",
+    "secondaryVrms": ["DB999XFX"],
+    "systemNumber": "11220280",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "applicant address 1",
+          "address2": "applicant address 2",
+          "address3": "applicant address 3",
+          "emailAddress": "test@test.com",
+          "name": "applicant name",
+          "postCode": "PO16 7GZ",
+          "postTown": "applicant post town",
+          "telephoneNumber": "123456"
+        },
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7600,
+              "gbWeight": 7700
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "o",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2020-07-28T00:06:25.249Z",
+        "createdById": "12345",
+        "createdByName": "sean",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 11000
+            }
+          ],
+          "length": 10000,
+          "width": 2000
+        },
+        "drawbarCouplingFitted": false,
+        "emissionsLimit": 20,
+        "euroStandard": "2",
+        "euVehicleCategory": "n2",
+        "frontAxleTo5thWheelCouplingMax": 1300,
+        "frontAxleTo5thWheelCouplingMin": 1400,
+        "frontAxleTo5thWheelMax": 1100,
+        "frontAxleTo5thWheelMin": 1200,
+        "frontAxleToRearAxle": 1000,
+        "fuelPropulsionSystem": "Electric",
+        "functionCode": "A",
+        "grossDesignWeight": 33500,
+        "grossEecWeight": 26000,
+        "grossGbWeight": 25000,
+        "make": "VOLVO",
+        "manufactureYear": 1984,
+        "maxTrainDesignWeight": 2800,
+        "maxTrainEecWeight": 2500,
+        "maxTrainGbWeight": 44000,
+        "microfilm": {
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346",
+          "microfilmSerialNumber": "1234"
+        },
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "0000514903",
+        "numberOfWheelsDriven": 4,
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2100-12-31",
+            "plateIssuer": "issuer",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "123456"
+          }
+        ],
+        "reasonForCreation": "something",
+        "recordCompleteness": "complete",
+        "regnDate": "1985-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "trainGbWeight": 41000,
+        "tyreUseCode": "2B",
+        "variantNumber": "324324",
+        "variantVersionNumber": "345",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "articulated",
+        "vehicleType": "hgv",
+        "vin": "H12220224"
+      }
+    ],
+    "vin": "H12220224"
+  },
+  {
+    "partialVin": "220225",
+    "primaryVrm": "B999XFX",
+    "secondaryVrms": ["DB999XFX"],
+    "systemNumber": "11220280",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "applicant address 1",
+          "address2": "applicant address 2",
+          "address3": "applicant address 3",
+          "emailAddress": "test@test.com",
+          "name": "applicant name",
+          "postCode": "PO16 7GZ",
+          "postTown": "applicant post town",
+          "telephoneNumber": "123456"
+        },
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7600,
+              "gbWeight": 7700
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "o",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2020-07-28T00:06:25.249Z",
+        "createdById": "12345",
+        "createdByName": "sean",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 11000
+            }
+          ],
+          "length": 10000,
+          "width": 2000
+        },
+        "drawbarCouplingFitted": false,
+        "emissionsLimit": 20,
+        "euroStandard": "2",
+        "euVehicleCategory": "n2",
+        "frontAxleTo5thWheelCouplingMax": 1300,
+        "frontAxleTo5thWheelCouplingMin": 1400,
+        "frontAxleTo5thWheelMax": 1100,
+        "frontAxleTo5thWheelMin": 1200,
+        "frontAxleToRearAxle": 1000,
+        "fuelPropulsionSystem": "Electric",
+        "functionCode": "A",
+        "grossDesignWeight": 33500,
+        "grossEecWeight": 26000,
+        "grossGbWeight": 25000,
+        "make": "VOLVO",
+        "manufactureYear": 1984,
+        "maxTrainDesignWeight": 2800,
+        "maxTrainEecWeight": 2500,
+        "maxTrainGbWeight": 44000,
+        "microfilm": {
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346",
+          "microfilmSerialNumber": "1234"
+        },
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "0000514903",
+        "numberOfWheelsDriven": 4,
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2100-12-31",
+            "plateIssuer": "issuer",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "123456"
+          }
+        ],
+        "reasonForCreation": "something",
+        "recordCompleteness": "complete",
+        "regnDate": "1985-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "trainGbWeight": 41000,
+        "tyreUseCode": "2B",
+        "variantNumber": "324324",
+        "variantVersionNumber": "345",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "articulated",
+        "vehicleType": "hgv",
+        "vin": "H12220225"
+      }
+    ],
+    "vin": "H12220225"
+  },
+  {
+    "partialVin": "220226",
+    "primaryVrm": "B999XFX",
+    "secondaryVrms": ["DB999XFX"],
+    "systemNumber": "11220280",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "applicant address 1",
+          "address2": "applicant address 2",
+          "address3": "applicant address 3",
+          "emailAddress": "test@test.com",
+          "name": "applicant name",
+          "postCode": "PO16 7GZ",
+          "postTown": "applicant post town",
+          "telephoneNumber": "123456"
+        },
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7600,
+              "gbWeight": 7700
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "o",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2020-07-28T00:06:25.249Z",
+        "createdById": "12345",
+        "createdByName": "sean",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 11000
+            }
+          ],
+          "length": 10000,
+          "width": 2000
+        },
+        "drawbarCouplingFitted": false,
+        "emissionsLimit": 20,
+        "euroStandard": "2",
+        "euVehicleCategory": "n2",
+        "frontAxleTo5thWheelCouplingMax": 1300,
+        "frontAxleTo5thWheelCouplingMin": 1400,
+        "frontAxleTo5thWheelMax": 1100,
+        "frontAxleTo5thWheelMin": 1200,
+        "frontAxleToRearAxle": 1000,
+        "fuelPropulsionSystem": "Electric",
+        "functionCode": "A",
+        "grossDesignWeight": 33500,
+        "grossEecWeight": 26000,
+        "grossGbWeight": 25000,
+        "make": "VOLVO",
+        "manufactureYear": 1984,
+        "maxTrainDesignWeight": 2800,
+        "maxTrainEecWeight": 2500,
+        "maxTrainGbWeight": 44000,
+        "microfilm": {
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346",
+          "microfilmSerialNumber": "1234"
+        },
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "0000514903",
+        "numberOfWheelsDriven": 4,
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2100-12-31",
+            "plateIssuer": "issuer",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "123456"
+          }
+        ],
+        "reasonForCreation": "something",
+        "recordCompleteness": "complete",
+        "regnDate": "1985-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "trainGbWeight": 41000,
+        "tyreUseCode": "2B",
+        "variantNumber": "324324",
+        "variantVersionNumber": "345",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "articulated",
+        "vehicleType": "hgv",
+        "vin": "H12220226"
+      }
+    ],
+    "vin": "H12220226"
   }
 ]
