@@ -154,9 +154,9 @@ export class TechRecordsListHandler<T extends Vehicle> {
     const recordsToReturn: T[] = [];
 
     techRecordItems.forEach((vehicle) => {
-      vehicle.techRecord.forEach((_object, index) => {
-        vehicle.techRecord[index].historicVin = vehicle.vin
-      })
+      vehicle.techRecord.forEach((object, index) => {
+        vehicle.techRecord[index].historicVin = vehicle.vin;
+      });
 
       const existingRecordIndex = recordsToReturn.findIndex((record) => record.systemNumber === vehicle.systemNumber);
 
@@ -164,11 +164,11 @@ export class TechRecordsListHandler<T extends Vehicle> {
         return recordsToReturn.push(vehicle);
       }
 
-      const existingRecord = recordsToReturn[existingRecordIndex]
+      const existingRecord = recordsToReturn[existingRecordIndex];
 
       const existingRecordCreatedAt = Math.min(...existingRecord.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
       const itemCreatedAt =  Math.min(...vehicle.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
-      
+
       if (itemCreatedAt < existingRecordCreatedAt) {
         return recordsToReturn[existingRecordIndex].techRecord.push(...vehicle.techRecord);
       }
