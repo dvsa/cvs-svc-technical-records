@@ -27,6 +27,10 @@ export class TechRecordsListHandler<T extends Vehicle> {
         searchCriteria
       );
 
+      if (techRecordItems.length === 0) {
+        throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
+      }
+
       if (searchCriteria === SEARCHCRITERIA.SYSTEM_NUMBER && this.multipleRecordsWithSameSystemNumber(techRecordItems)) {
         techRecordItems = this.mergeRecordsWithSameSystemNumber(techRecordItems);
       }
@@ -95,7 +99,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
 
   /* #region  Private functions */
   private filterTechRecordsByStatus(techRecordItems: T[], status: string): T[] {
-   return techRecordItems.map((item) => this.filterTechRecordsForIndividualVehicleByStatus(item, status));
+   return techRecordItems.map((item) => this.filterTechRecordsForIndividualVehicleByStatus(item, status)).filter((item) => item.techRecord.length > 0);
   }
 
   private filterTechRecordsForIndividualVehicleByStatus(
@@ -136,10 +140,6 @@ export class TechRecordsListHandler<T extends Vehicle> {
         originalTechRecordItem,
         STATUS.CURRENT
       );
-    }
-
-    if (techRecordItem.techRecord.length <= 0) {
-      throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
     }
 
     return techRecordItem;
