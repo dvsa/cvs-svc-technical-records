@@ -2,7 +2,7 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import { ISearchCriteria } from "../../@Types/ISearchCriteria";
 import { HTTPRESPONSE, SEARCHCRITERIA, STATUS } from "../assets/Enums";
 import HTTPError from "../models/HTTPError";
-import { cloneDeep, union } from "lodash";
+import { cloneDeep } from "lodash";
 import { Vehicle } from "../../@Types/TechRecords";
 import { ErrorHandler } from "./ErrorHandler";
 
