@@ -31,7 +31,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
         throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
       }
 
-      if (searchCriteria === SEARCHCRITERIA.SYSTEM_NUMBER && this.multipleRecordsWithSameSystemNumber(techRecordItems)) {
+      if (searchCriteria === SEARCHCRITERIA.SYSTEM_NUMBER && techRecordItems.length > 1) {
         techRecordItems = this.mergeRecordsWithSameSystemNumber(techRecordItems);
       }
 
@@ -143,11 +143,6 @@ export class TechRecordsListHandler<T extends Vehicle> {
     }
 
     return techRecordItem;
-  }
-
-  private multipleRecordsWithSameSystemNumber(techRecordItems: T[]): boolean {
-    const uniqueSystemNumbers = new Set(techRecordItems.map((item) => item.systemNumber));
-    return uniqueSystemNumbers.size !== techRecordItems.length;
   }
 
   private mergeRecordsWithSameSystemNumber(techRecordItems: T[]) {
