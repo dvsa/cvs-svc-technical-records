@@ -153,24 +153,20 @@ export class TechRecordsListHandler<T extends Vehicle> {
         vehicle.techRecord[index].historicVin = vehicle.vin;
       });
 
-      const existingRecordIndex = recordsToReturn.findIndex((record) => record.systemNumber === vehicle.systemNumber);
-
-      if (existingRecordIndex === -1) {
+      if (!recordsToReturn[0]) {
         return recordsToReturn.push(vehicle);
       }
 
-      const existingRecord = recordsToReturn[existingRecordIndex];
-
-      const existingRecordCreatedAt = Math.max(...existingRecord.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+      const existingRecordCreatedAt = Math.max(...recordsToReturn[0].techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
       const itemCreatedAt =  Math.max(...vehicle.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
 
       if (itemCreatedAt < existingRecordCreatedAt) {
-        return recordsToReturn[existingRecordIndex].techRecord.push(...vehicle.techRecord);
+        return recordsToReturn[0].techRecord.push(...vehicle.techRecord);
       }
 
-      const oldItems = cloneDeep(existingRecord);
-      recordsToReturn[existingRecordIndex] = cloneDeep(vehicle);
-      recordsToReturn[existingRecordIndex].techRecord.push(...oldItems.techRecord);
+      const oldItems = cloneDeep(recordsToReturn[0]);
+      recordsToReturn[0] = cloneDeep(vehicle);
+      recordsToReturn[0].techRecord.push(...oldItems.techRecord);
     });
 
     return recordsToReturn;
