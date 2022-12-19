@@ -146,30 +146,30 @@ export class TechRecordsListHandler<T extends Vehicle> {
   }
 
   private mergeRecordsWithSameSystemNumber(techRecordItems: T[]) {
-    const recordsToReturn: T[] = [];
+    let stitchedRecord = {} as T;
 
     techRecordItems.forEach((vehicle) => {
       vehicle.techRecord.forEach((object, index) => {
         vehicle.techRecord[index].historicVin = vehicle.vin;
       });
 
-      if (!recordsToReturn[0]) {
-        return recordsToReturn.push(vehicle);
+      if (!stitchedRecord.systemNumber) {
+        return stitchedRecord = vehicle;
       }
 
-      const existingRecordCreatedAt = Math.max(...recordsToReturn[0].techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+      const stitchedRecordCreatedAt = Math.max(...stitchedRecord.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
       const itemCreatedAt =  Math.max(...vehicle.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
 
-      if (itemCreatedAt < existingRecordCreatedAt) {
-        return recordsToReturn[0].techRecord.push(...vehicle.techRecord);
+      if (itemCreatedAt < stitchedRecordCreatedAt) {
+        return stitchedRecord.techRecord.push(...vehicle.techRecord);
       }
 
-      const oldItems = cloneDeep(recordsToReturn[0]);
-      recordsToReturn[0] = cloneDeep(vehicle);
-      recordsToReturn[0].techRecord.push(...oldItems.techRecord);
+      const oldItems = cloneDeep(stitchedRecord);
+      stitchedRecord = cloneDeep(vehicle);
+      stitchedRecord.techRecord.push(...oldItems.techRecord);
     });
 
-    return recordsToReturn;
+    return [stitchedRecord];
   }
   /* #endregion */
 }
