@@ -166,8 +166,8 @@ export class TechRecordsListHandler<T extends Vehicle> {
 
       const existingRecord = recordsToReturn[existingRecordIndex];
 
-      const existingRecordCreatedAt = Math.min(...existingRecord.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
-      const itemCreatedAt =  Math.min(...vehicle.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+      const existingRecordCreatedAt = Math.max(...existingRecord.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+      const itemCreatedAt =  Math.max(...vehicle.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
 
       if (itemCreatedAt < existingRecordCreatedAt) {
         return recordsToReturn[existingRecordIndex].techRecord.push(...vehicle.techRecord);
