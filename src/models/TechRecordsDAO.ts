@@ -44,17 +44,12 @@ class TechRecordsDAO {
   };
 
   private queryBuilder(searchTerm: string, searchCriteria: SEARCHCRITERIA, query: QueryInput) {
-    if (searchCriteria === SEARCHCRITERIA.VRM) {
-      Object.assign(query.ExpressionAttributeNames, {
-        [`#${searchCriteria}`]: "primaryVrm",
-      });
-    } else {
-      Object.assign(query.ExpressionAttributeNames, {
-        [`#${searchCriteria}`]: searchCriteria,
-      });
-    }
 
-    Object.assign(query.ExpressionAttributeValues, {
+    Object.assign(query.ExpressionAttributeNames ?? {}, {
+      [`#${searchCriteria}`]: searchCriteria === SEARCHCRITERIA.VRM ? "primaryVrm" : searchCriteria,
+    });
+
+    Object.assign(query.ExpressionAttributeValues ?? {}, {
       [`:${searchCriteria}`]: searchTerm,
     });
 
