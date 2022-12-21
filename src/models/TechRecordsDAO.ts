@@ -35,6 +35,29 @@ class TechRecordsDAO {
     }
   }
 
+  private readonly CriteriaIndexMap: {[key: string]: string} = {
+    systemNumber: "SysNumIndex",
+    partialVin: "PartialVinIndex",
+    vrm: "VRMIndex",
+    vin: "VinIndex",
+    trailerId: "TrailerIdIndex"
+  };
+
+  private queryBuilder(searchTerm: string, searchCriteria: SEARCHCRITERIA, query: QueryInput) {
+
+    Object.assign(query.ExpressionAttributeNames!, {
+      [`#${searchCriteria}`]: searchCriteria === SEARCHCRITERIA.VRM ? "primaryVrm" : searchCriteria,
+    });
+
+    Object.assign(query.ExpressionAttributeValues!, {
+      [`:${searchCriteria}`]: searchTerm,
+    });
+
+    query.KeyConditionExpression = `#${searchCriteria} = :${searchCriteria}`;
+
+    query.IndexName = this.CriteriaIndexMap[searchCriteria];
+  }
+
   public getBySearchTerm(searchTerm: string, searchCriteria: ISearchCriteria) {
     searchTerm = searchTerm.toUpperCase();
     const query: QueryInput = {
@@ -46,66 +69,17 @@ class TechRecordsDAO {
     };
 
     if (isSysNumSearch(searchCriteria)) {
-      // Query for a specific System Number
-      Object.assign(query.ExpressionAttributeValues, {
-        ":systemNumber": searchTerm,
-      });
-
-      Object.assign(query.ExpressionAttributeNames, {
-        "#systemNumber": "systemNumber",
-      });
-
-      query.IndexName = "SysNumIndex";
-      query.KeyConditionExpression = "#systemNumber = :systemNumber";
+      this.queryBuilder(searchTerm, SEARCHCRITERIA.SYSTEM_NUMBER, query);
     } else if (isVinSearch(searchTerm, searchCriteria)) {
-      // Query for a full VIN
-      Object.assign(query, { IndexName: "VinIndex" });
-      Object.assign(query.ExpressionAttributeValues, {
-        ":vin": searchTerm,
-      });
-
-      Object.assign(query.ExpressionAttributeNames, {
-        "#vin": "vin",
-      });
-
-      query.IndexName = "VinIndex";
-      query.KeyConditionExpression = "#vin = :vin";
+      this.queryBuilder(searchTerm, SEARCHCRITERIA.VIN, query);
     } else if (isTrailerSearch(searchTerm, searchCriteria)) {
-      // Query for a Trailer ID
-      Object.assign(query.ExpressionAttributeValues, {
-        ":trailerId": searchTerm,
-      });
-      Object.assign(query.ExpressionAttributeNames, {
-        "#trailerId": "trailerId",
-      });
-
-      query.IndexName = "TrailerIdIndex";
-      query.KeyConditionExpression = "#trailerId = :trailerId";
+      this.queryBuilder(searchTerm, SEARCHCRITERIA.TRAILERID, query);
     } else if (isPartialVinSearch(searchTerm, searchCriteria)) {
-      // Query for a partial VIN
-      Object.assign(query.ExpressionAttributeValues, {
-        ":partialVin": searchTerm,
-      });
-
-      Object.assign(query.ExpressionAttributeNames, {
-        "#partialVin": "partialVin",
-      });
-
-      query.IndexName = "PartialVinIndex";
-      query.KeyConditionExpression = "#partialVin = :partialVin";
+      this.queryBuilder(searchTerm, SEARCHCRITERIA.PARTIALVIN, query);
     } else if (isVrmSearch(searchTerm, searchCriteria)) {
-      // Query for a VRM
-      Object.assign(query.ExpressionAttributeValues, {
-        ":vrm": searchTerm,
-      });
-
-      Object.assign(query.ExpressionAttributeNames, {
-        "#vrm": "primaryVrm",
-      });
-
-      query.IndexName = "VRMIndex";
-      query.KeyConditionExpression = "#vrm = :vrm";
+      this.queryBuilder(searchTerm, SEARCHCRITERIA.VRM, query);
     }
+
     console.log("Query Params for getBySearchTerm ", query);
     try {
       return this.queryAllData(query);

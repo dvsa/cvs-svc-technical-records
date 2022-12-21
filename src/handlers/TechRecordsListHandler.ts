@@ -26,9 +26,16 @@ export class TechRecordsListHandler<T extends Vehicle> {
         status,
         searchCriteria
       );
-      techRecordItems = this.formatTechRecordItemsForResponse(techRecordItems);
 
-      return techRecordItems;
+      if (techRecordItems.length === 0) {
+        throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
+      }
+
+      if (searchCriteria === SEARCHCRITERIA.SYSTEM_NUMBER && techRecordItems.length > 1) {
+        techRecordItems = this.mergeRecordsWithSameSystemNumber(techRecordItems);
+      }
+
+      return techRecordItems.map(this.formatTechRecordItemForResponse);
     } catch (error) {
       if (!(error instanceof HTTPError)) {
         console.error(error);
@@ -92,7 +99,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
 
   /* #region  Private functions */
   private filterTechRecordsByStatus(techRecordItems: T[], status: string): T[] {
-   return techRecordItems.map((item) => this.filterTechRecordsForIndividualVehicleByStatus(item, status));
+   return techRecordItems.map((item) => this.filterTechRecordsForIndividualVehicleByStatus(item, status)).filter((item) => item.techRecord.length > 0);
   }
 
   private filterTechRecordsForIndividualVehicleByStatus(
@@ -135,21 +142,34 @@ export class TechRecordsListHandler<T extends Vehicle> {
       );
     }
 
-    if (techRecordItem.techRecord.length <= 0) {
-      throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
-    }
-
     return techRecordItem;
   }
 
-  private formatTechRecordItemsForResponse(techRecordItems: T[]) {
-    const recordsToReturn = [];
-    return techRecordItems.map(this.formatTechRecordItemForResponse);
-    // for (let techRecordItem of techRecordItems) {
-    //   techRecordItem = this.formatTechRecordItemForResponse(techRecordItem);
-    //   recordsToReturn.push(techRecordItem);
-    // }
-    // return recordsToReturn;
+  private mergeRecordsWithSameSystemNumber(techRecordItems: T[]) {
+    let stitchedRecord = {} as T;
+
+    techRecordItems.forEach((vehicle) => {
+      vehicle.techRecord.forEach((object, index) => {
+        vehicle.techRecord[index].historicVin = vehicle.vin;
+      });
+
+      if (!stitchedRecord.systemNumber) {
+        return stitchedRecord = vehicle;
+      }
+
+      const stitchedRecordCreatedAt = Math.max(...stitchedRecord.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+      const itemCreatedAt =  Math.max(...vehicle.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+
+      if (itemCreatedAt < stitchedRecordCreatedAt) {
+        return stitchedRecord.techRecord.push(...vehicle.techRecord);
+      }
+
+      const oldItems = cloneDeep(stitchedRecord);
+      stitchedRecord = cloneDeep(vehicle);
+      stitchedRecord.techRecord.push(...oldItems.techRecord);
+    });
+
+    return [stitchedRecord];
   }
   /* #endregion */
 }
