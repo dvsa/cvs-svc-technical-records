@@ -44,28 +44,27 @@ export function computeRecordCompleteness(vehicle: Vehicle): string {
 function validateVehicleAttributes(vehicle: Vehicle): ValidationResult | undefined {
   const vehicleType = vehicle.techRecord[0].vehicleType;
 
+  if (!vehicleType) {
+    return missingVehicleTypeValidationResult;
+  }
+
   const validationSchema = vehicleType === VEHICLE_TYPE.TRL
     ? trlCoreMandatoryVehicleAttributes
     : psvHgvCarLgvMotoCoreMandatoryVehicleAttributes
 
-  if (!vehicleType) {
-    return missingVehicleTypeValidationResult;
-  } else if (!validationSchema) {
-    return undefined;
-  } else {
-    const vehicleAttributes = {
-      systemNumber: vehicle.systemNumber,
-      vin: vehicle.vin,
-      primaryVrm: vehicle.primaryVrm,
-      trailerId: (vehicle as Trailer).trailerId ?? undefined
-    };
+  const vehicleAttributes = {
+    systemNumber: vehicle.systemNumber,
+    vin: vehicle.vin,
+    primaryVrm: vehicleType === VEHICLE_TYPE.TRL ? undefined : vehicle.primaryVrm,
+    trailerId: (vehicle as Trailer).trailerId ?? undefined
+  };
 
-    return validationSchema.validate(vehicleAttributes, { stripUnknown: true });
-  }
+  return validationSchema?.validate(vehicleAttributes, { stripUnknown: true });
 };
 
 function validateMandatoryTechRecordAttributes(vehicle: Vehicle) {
-  const vehicleType = vehicle.techRecord[0].vehicleType as VEHICLE_TYPE;
+  const techRecord = vehicle.techRecord[0];
+  const vehicleType = techRecord.vehicleType as VEHICLE_TYPE;
   
   const coreMandatorySchema: ObjectSchema | undefined = coreMandatorySchemaMap.get(vehicleType);
 
@@ -74,10 +73,6 @@ function validateMandatoryTechRecordAttributes(vehicle: Vehicle) {
   }
 
   const nonCoreMandatorySchema: ObjectSchema | undefined = nonCoreMandatorySchemaMap.get(vehicleType);
-
-  const techRecord = vehicleType === VEHICLE_TYPE.TRL
-    ? { ...vehicle.techRecord[0], primaryVrm: vehicle.primaryVrm }
-    : vehicle.techRecord[0];
 
   return {
     coreValidationResult: coreMandatorySchema.validate(techRecord, {stripUnknown: true}),
