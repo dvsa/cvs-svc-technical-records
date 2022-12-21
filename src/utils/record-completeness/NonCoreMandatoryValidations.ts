@@ -120,7 +120,6 @@ export const hgvNonCoreMandatorySchema = nonCoreMandatoryCommonSchemaPsvHgvTrl.k
 });
 
 export const trlNonCoreMandatorySchema = nonCoreMandatoryCommonSchemaPsvHgvTrl.keys({
-  primaryVrm: Joi.string().required(),
   make: Joi.string().required(),
   model: Joi.string().required(),
   firstUseDate: Joi.date().format("YYYY-MM-DD").required(),

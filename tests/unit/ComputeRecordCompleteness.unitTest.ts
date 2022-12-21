@@ -152,11 +152,11 @@ describe("Compute Record Completeness", () => {
         expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.TESTABLE);
       });
 
-      it("should return TESTABLE if all core mandatory are completed and primaryVrm is missing", () => {
+      it("should return COMPLETE if all core mandatory are completed and primaryVrm is missing", () => {
         const record: any = cloneDeep(mockData[126]);
         delete record.primaryVrm;
         const recordCompleteness = computeRecordCompleteness(record);
-        expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.TESTABLE);
+        expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.COMPLETE);
       });
     });
 
