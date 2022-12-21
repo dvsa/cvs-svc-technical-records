@@ -48,13 +48,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   protected abstract async setNumberKey(): Promise<void>;
 
   /**
-   * Calculate record completeness based on vehicle type.
-   */
-  protected calculateRecordCompleteness(vehicle: T, trailerId?: string): string {
-    return computeRecordCompleteness(vehicle);
-  }
-
-  /**
    * update the vehicle identifier attributes
    * @param existingVehicle The existing tech record
    * @param updatedVehicle The updated tech record
@@ -331,9 +324,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       this.vehicle.techRecord[0],
       msUserDetails
     );
-    this.vehicle.techRecord[0].recordCompleteness = this.calculateRecordCompleteness(
-      this.vehicle
-    );
+    this.vehicle.techRecord[0].recordCompleteness = computeRecordCompleteness(this.vehicle);
     return this.vehicle;
   }
 
@@ -414,7 +405,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       if(updatedVehicle.techRecord[0].vehicleType === enums.VEHICLE_TYPE.TRL) {
         (vehicleToUpdate as unknown as Trailer).trailerId = (updatedVehicle as unknown as Trailer).trailerId;
       }
-      newRecord.recordCompleteness = this.calculateRecordCompleteness(vehicleToUpdate);
+      newRecord.recordCompleteness = computeRecordCompleteness(vehicleToUpdate);
       techRecordWithAllStatuses.techRecord.push(newRecord);
       return techRecordWithAllStatuses;
     } catch (error) {

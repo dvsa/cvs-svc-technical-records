@@ -1,92 +1,113 @@
-import HTTPError from "../../models/HTTPError";
-import {ERRORS, RECORD_COMPLETENESS_ENUM, VEHICLE_TYPE} from "../../assets/Enums";
-import * as coreMandatoryValidation from "./CoreMandatoryValidations";
-import {ObjectSchema} from "@hapi/joi";
-import * as nonCoreMandatoryValidation from "./NonCoreMandatoryValidations";
-import { Vehicle, Trailer } from "../../../@Types/TechRecords";
+import { ValidationResult, ObjectSchema } from '@hapi/joi';
+import { Vehicle, Trailer } from '../../../@Types/TechRecords';
+import { ERRORS, RECORD_COMPLETENESS_ENUM, VEHICLE_TYPE } from '../../assets';
+import HTTPError from '../../models/HTTPError';
+import {
+  trlCoreMandatoryVehicleAttributes,
+  psvHgvCarLgvMotoCoreMandatoryVehicleAttributes,
+  carCoreMandatorySchema,
+  hgvCoreMandatorySchema,
+  lgvCoreMandatorySchema,
+  motorcycleCoreMandatorySchema,
+  psvCoreMandatorySchema,
+  trlCoreMandatorySchema
+} from './CoreMandatoryValidations';
+import { psvNonCoreMandatorySchema, hgvNonCoreMandatorySchema, trlNonCoreMandatorySchema } from './NonCoreMandatoryValidations';
 
-const validateRecordCompleteness = (validationSchema: ObjectSchema | undefined, techRecordFields: any) => {
-  if (validationSchema) {
-    return validationSchema.validate(techRecordFields, {stripUnknown: true});
-  } else {
-    return undefined;
-  }
-};
-
-const validateVehicleAttributes = (vehicleType: string, vehicleAttributes: any) => {
-  if (vehicleType !== VEHICLE_TYPE.TRL) {
-    return validateRecordCompleteness(coreMandatoryValidation.psvHgvCarLgvMotoCoreMandatoryVehicleAttributes, vehicleAttributes);
-  } else {
-    return validateRecordCompleteness(coreMandatoryValidation.trlCoreMandatoryVehicleAttributes, vehicleAttributes);
-  }
-};
-
-const validateCoreAndNonCoreMandatoryTechRecordAttributes = (vehicleType: string, techRecordWrapper: Vehicle) => {
-  let coreMandatoryValidationResult;
-  let nonCoreMandatoryValidationResult;
-  let coreMandatorySchema: ObjectSchema;
-  let nonCoreMandatorySchema: ObjectSchema | undefined;
-  let techRecord = techRecordWrapper.techRecord[0];
-  if (vehicleType === VEHICLE_TYPE.HGV) {
-    coreMandatorySchema = coreMandatoryValidation.hgvCoreMandatorySchema;
-    nonCoreMandatorySchema = nonCoreMandatoryValidation.hgvNonCoreMandatorySchema;
-  } else if (vehicleType === VEHICLE_TYPE.PSV) {
-    coreMandatorySchema = coreMandatoryValidation.psvCoreMandatorySchema;
-    nonCoreMandatorySchema = nonCoreMandatoryValidation.psvNonCoreMandatorySchema;
-  } else if (vehicleType === VEHICLE_TYPE.TRL) {
-    techRecord = {...techRecord, primaryVrm: techRecordWrapper.primaryVrm} as any;
-    coreMandatorySchema = coreMandatoryValidation.trlCoreMandatorySchema;
-    nonCoreMandatorySchema = nonCoreMandatoryValidation.trlNonCoreMandatorySchema;
-  } else if (vehicleType === VEHICLE_TYPE.LGV) {
-    coreMandatorySchema = coreMandatoryValidation.lgvCoreMandatorySchema;
-  } else if (vehicleType === VEHICLE_TYPE.CAR) {
-    coreMandatorySchema = coreMandatoryValidation.carCoreMandatorySchema;
-  } else if (vehicleType === VEHICLE_TYPE.MOTORCYCLE) {
-    coreMandatorySchema = coreMandatoryValidation.motorcycleCoreMandatorySchema;
-  } else {
-    throw new HTTPError(400, ERRORS.VEHICLE_TYPE_ERROR);
-  }
-  coreMandatoryValidationResult = validateRecordCompleteness(coreMandatorySchema, techRecord);
-  nonCoreMandatoryValidationResult = validateRecordCompleteness(nonCoreMandatorySchema, techRecord);
-  return {coreMandatoryValidationResult, nonCoreMandatoryValidationResult};
-};
-
-export const computeRecordCompleteness = (techRecordWrapper: Vehicle, trailerId?: string): string => {
-  let recordCompleteness = RECORD_COMPLETENESS_ENUM.COMPLETE;
-  let isCoreMandatoryValid = true;
-  let isNonCoreMandatoryValid = true;
-  if (!techRecordWrapper.systemNumber) {
+export function computeRecordCompleteness(vehicle: Vehicle): string {
+  if (!vehicle.systemNumber) {
     throw new HTTPError(400, ERRORS.SYSTEM_NUMBER_GENERATION_FAILED);
   }
-  const generalAttributes = {
-    systemNumber: techRecordWrapper.systemNumber,
-    vin: techRecordWrapper.vin,
-    primaryVrm: techRecordWrapper.primaryVrm,
-    // FIXME: handle trailerId in a better way
-    trailerId
-  };
-  const vehicleType = techRecordWrapper.techRecord[0].vehicleType;
-  if (!vehicleType) {
-    return RECORD_COMPLETENESS_ENUM.SKELETON;
-  }
-  const generalErrors = validateVehicleAttributes(vehicleType, generalAttributes)?.error;
+
+  const generalErrors = validateVehicleAttributes(vehicle)?.error;
 
   if (generalErrors) {
     console.log("general errors: ",generalErrors);
     return RECORD_COMPLETENESS_ENUM.SKELETON;
   }
 
-  const mandatoryAttributesValidationResult = validateCoreAndNonCoreMandatoryTechRecordAttributes(vehicleType, techRecordWrapper);
-  const mandatoryErrors = mandatoryAttributesValidationResult.coreMandatoryValidationResult?.error;
-  isCoreMandatoryValid = !mandatoryErrors;
-  isNonCoreMandatoryValid = !mandatoryAttributesValidationResult.nonCoreMandatoryValidationResult?.error;
+  const mandatoryAttributesValidationResult = validateMandatoryTechRecordAttributes(vehicle);
 
-  if (!isCoreMandatoryValid) {
-    recordCompleteness = RECORD_COMPLETENESS_ENUM.SKELETON;
-  } else if (isCoreMandatoryValid && !isNonCoreMandatoryValid) {
-    recordCompleteness = RECORD_COMPLETENESS_ENUM.TESTABLE;
+  const isCoreMandatoryValid = !mandatoryAttributesValidationResult.coreValidationResult?.error;
+
+  const isNonCoreMandatoryValid = !mandatoryAttributesValidationResult.nonCoreValidationResult?.error;
+
+  if (isCoreMandatoryValid && isNonCoreMandatoryValid) {
+    return RECORD_COMPLETENESS_ENUM.COMPLETE;
+  } else if (isCoreMandatoryValid) {
+    return RECORD_COMPLETENESS_ENUM.TESTABLE;
   } else {
-    recordCompleteness = RECORD_COMPLETENESS_ENUM.COMPLETE;
+    return RECORD_COMPLETENESS_ENUM.SKELETON;
   }
-  return recordCompleteness;
+};
+
+function validateVehicleAttributes(vehicle: Vehicle): ValidationResult | undefined {
+  const vehicleType = vehicle.techRecord[0].vehicleType;
+
+  const validationSchema = vehicleType === VEHICLE_TYPE.TRL
+    ? trlCoreMandatoryVehicleAttributes
+    : psvHgvCarLgvMotoCoreMandatoryVehicleAttributes
+
+  if (!vehicleType) {
+    return missingVehicleTypeValidationResult;
+  } else if (!validationSchema) {
+    return undefined;
+  } else {
+    const vehicleAttributes = {
+      systemNumber: vehicle.systemNumber,
+      vin: vehicle.vin,
+      primaryVrm: vehicle.primaryVrm,
+      trailerId: (vehicle as Trailer).trailerId ?? undefined
+    };
+
+    return validationSchema.validate(vehicleAttributes, { stripUnknown: true });
+  }
+};
+
+function validateMandatoryTechRecordAttributes(vehicle: Vehicle) {
+  const vehicleType = vehicle.techRecord[0].vehicleType as VEHICLE_TYPE;
+  
+  const coreMandatorySchema: ObjectSchema | undefined = coreMandatorySchemaMap.get(vehicleType);
+
+  if (!coreMandatorySchema) {
+    throw new HTTPError(400, ERRORS.VEHICLE_TYPE_ERROR);
+  }
+
+  const nonCoreMandatorySchema: ObjectSchema | undefined = nonCoreMandatorySchemaMap.get(vehicleType);
+
+  const techRecord = vehicleType === VEHICLE_TYPE.TRL
+    ? { ...vehicle.techRecord[0], primaryVrm: vehicle.primaryVrm }
+    : vehicle.techRecord[0];
+
+  return {
+    coreValidationResult: coreMandatorySchema.validate(techRecord, {stripUnknown: true}),
+    nonCoreValidationResult: nonCoreMandatorySchema?.validate(techRecord, {stripUnknown: true})
+  };
+};
+
+const coreMandatorySchemaMap = new Map<VEHICLE_TYPE, any>([
+  [VEHICLE_TYPE.PSV,        psvCoreMandatorySchema],
+  [VEHICLE_TYPE.HGV,        hgvCoreMandatorySchema],
+  [VEHICLE_TYPE.TRL,        trlCoreMandatorySchema],
+  [VEHICLE_TYPE.LGV,        lgvCoreMandatorySchema],
+  [VEHICLE_TYPE.CAR,        carCoreMandatorySchema],
+  [VEHICLE_TYPE.MOTORCYCLE, motorcycleCoreMandatorySchema]
+]);
+
+const nonCoreMandatorySchemaMap = new Map<VEHICLE_TYPE, any>([
+  [VEHICLE_TYPE.PSV, psvNonCoreMandatorySchema],
+  [VEHICLE_TYPE.HGV, hgvNonCoreMandatorySchema],
+  [VEHICLE_TYPE.TRL, trlNonCoreMandatorySchema]
+]);
+
+const missingVehicleTypeValidationResult: ValidationResult = {
+  error: {
+    name: 'ValidationError',
+    isJoi: false,
+    details: [],
+    annotate: () => '',
+    _object: null,
+    message: 'Missing vehicle type'
+  },
+  value: null
 };
