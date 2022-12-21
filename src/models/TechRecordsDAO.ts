@@ -45,11 +45,11 @@ class TechRecordsDAO {
 
   private queryBuilder(searchTerm: string, searchCriteria: SEARCHCRITERIA, query: QueryInput) {
 
-    Object.assign(query.ExpressionAttributeNames ?? {}, {
+    Object.assign(query.ExpressionAttributeNames!, {
       [`#${searchCriteria}`]: searchCriteria === SEARCHCRITERIA.VRM ? "primaryVrm" : searchCriteria,
     });
 
-    Object.assign(query.ExpressionAttributeValues ?? {}, {
+    Object.assign(query.ExpressionAttributeValues!, {
       [`:${searchCriteria}`]: searchTerm,
     });
 
