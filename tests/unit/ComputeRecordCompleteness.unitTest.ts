@@ -138,7 +138,7 @@ describe("Compute Record Completeness", () => {
         for (const coreMandatoryField of coreMandatoryFields) {
           const record: any = cloneDeep(mockData[126]);
           delete (record.techRecord[0] as any)[coreMandatoryField];
-          const recordCompleteness = computeRecordCompleteness(record, record.trailerId);
+          const recordCompleteness = computeRecordCompleteness(record);
           expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.SKELETON);
         }
       });
@@ -148,21 +148,21 @@ describe("Compute Record Completeness", () => {
       it("should return TESTABLE if all core mandatory are completed and one of the non-core mandatory attributes is missing", () => {
         const record: any = cloneDeep(mockData[126]);
         delete record.techRecord[0].dimensions.length;
-        const recordCompleteness = computeRecordCompleteness(record, record.trailerId);
+        const recordCompleteness = computeRecordCompleteness(record);
         expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.TESTABLE);
       });
 
-      it("should return TESTABLE if all core mandatory are completed and primaryVrm is missing", () => {
+      it("should return COMPLETE if all core mandatory are completed and primaryVrm is missing", () => {
         const record: any = cloneDeep(mockData[126]);
         delete record.primaryVrm;
-        const recordCompleteness = computeRecordCompleteness(record, record.trailerId);
-        expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.TESTABLE);
+        const recordCompleteness = computeRecordCompleteness(record);
+        expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.COMPLETE);
       });
     });
 
     it("should return COMPLETE if all core mandatory and non-core mandatory attributes are completed", () => {
       const record: any = cloneDeep(mockData[126]);
-      const recordCompleteness = computeRecordCompleteness(record, record.trailerId);
+      const recordCompleteness = computeRecordCompleteness(record);
       expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.COMPLETE);
     });
   });

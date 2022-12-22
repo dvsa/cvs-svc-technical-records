@@ -4,7 +4,6 @@ import TechRecordsDAO from "../../models/TechRecordsDAO";
 import { ErrorHandler } from "../../handlers/ErrorHandler";
 import * as Enums from "../../assets/Enums";
 import * as fromValidation from "../../utils/validations";
-import { computeRecordCompleteness } from "../../utils/record-completeness/ComputeRecordCompleteness";
 import * as validators from "../../utils/validations";
 
 export class TrailerProcessor extends VehicleProcessor<Trailer> {
@@ -36,10 +35,6 @@ export class TrailerProcessor extends VehicleProcessor<Trailer> {
       vehicleClassDescription
     );
     return techRecord;
-  }
-
-  protected calculateRecordCompleteness(vehicle: Trailer): string {
-    return computeRecordCompleteness(vehicle, vehicle.trailerId);
   }
 
   protected capitaliseGeneralVehicleAttributes(vehicle: Trailer) {
