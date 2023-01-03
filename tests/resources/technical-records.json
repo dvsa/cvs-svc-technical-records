@@ -24990,7 +24990,7 @@
       }
     ],
     "vin": "BBBBBBB555666",
-    "systemNumber": "systemNumber"
+    "systemNumber": "1110002"
   },
   {
     "partialVin": "666555",
@@ -26127,8 +26127,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv",
-        "vin": "H12220223"
+        "vehicleType": "hgv"
       }
     ],
     "vin": "H12220223"
@@ -34783,8 +34782,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv",
-        "vin": "H12220224"
+        "vehicleType": "hgv"
       }
     ],
     "vin": "H12220224"
@@ -34921,8 +34919,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv",
-        "vin": "H12220225"
+        "vehicleType": "hgv"
       }
     ],
     "vin": "H12220225"
