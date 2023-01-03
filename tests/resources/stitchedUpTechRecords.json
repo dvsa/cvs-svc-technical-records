@@ -1,0 +1,532 @@
+{
+    "systemNumber": "11220280",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "applicant address 1",
+          "address2": "applicant address 2",
+          "address3": "applicant address 3",
+          "emailAddress": "test@test.com",
+          "name": "applicant name",
+          "postCode": "PO16 7GZ",
+          "postTown": "applicant post town",
+          "telephoneNumber": "123456"
+        },
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7600,
+              "gbWeight": 7700
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "o",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2022-07-28T00:06:25.249Z",
+        "createdById": "12345",
+        "createdByName": "sean",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 11000
+            }
+          ],
+          "length": 10000,
+          "width": 2000
+        },
+        "drawbarCouplingFitted": false,
+        "emissionsLimit": 20,
+        "euroStandard": "2",
+        "euVehicleCategory": "n2",
+        "frontAxleTo5thWheelCouplingMax": 1300,
+        "frontAxleTo5thWheelCouplingMin": 1400,
+        "frontAxleTo5thWheelMax": 1100,
+        "frontAxleTo5thWheelMin": 1200,
+        "frontAxleToRearAxle": 1000,
+        "fuelPropulsionSystem": "Electric",
+        "functionCode": "A",
+        "grossDesignWeight": 33500,
+        "grossEecWeight": 26000,
+        "grossGbWeight": 25000,
+        "make": "VOLVO",
+        "manufactureYear": 1984,
+        "maxTrainDesignWeight": 2800,
+        "maxTrainEecWeight": 2500,
+        "maxTrainGbWeight": 44000,
+        "microfilm": {
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346",
+          "microfilmSerialNumber": "1234"
+        },
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "0000514903",
+        "numberOfWheelsDriven": 4,
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2100-12-31",
+            "plateIssuer": "issuer",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "123456"
+          }
+        ],
+        "reasonForCreation": "something",
+        "recordCompleteness": "complete",
+        "regnDate": "1985-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "trainGbWeight": 41000,
+        "tyreUseCode": "2B",
+        "variantNumber": "324324",
+        "variantVersionNumber": "345",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "articulated",
+        "vehicleType": "hgv",
+        "historicVin": "H12220226"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "applicant address 1",
+          "address2": "applicant address 2",
+          "address3": "applicant address 3",
+          "emailAddress": "test@test.com",
+          "name": "applicant name",
+          "postCode": "PO16 7GZ",
+          "postTown": "applicant post town",
+          "telephoneNumber": "123456"
+        },
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7600,
+              "gbWeight": 7700
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "o",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2018-07-28T00:06:25.249Z",
+        "createdById": "12345",
+        "createdByName": "sean",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 11000
+            }
+          ],
+          "length": 10000,
+          "width": 2000
+        },
+        "drawbarCouplingFitted": false,
+        "emissionsLimit": 20,
+        "euroStandard": "2",
+        "euVehicleCategory": "n2",
+        "frontAxleTo5thWheelCouplingMax": 1300,
+        "frontAxleTo5thWheelCouplingMin": 1400,
+        "frontAxleTo5thWheelMax": 1100,
+        "frontAxleTo5thWheelMin": 1200,
+        "frontAxleToRearAxle": 1000,
+        "fuelPropulsionSystem": "Electric",
+        "functionCode": "A",
+        "grossDesignWeight": 33500,
+        "grossEecWeight": 26000,
+        "grossGbWeight": 25000,
+        "make": "VOLVO",
+        "manufactureYear": 1984,
+        "maxTrainDesignWeight": 2800,
+        "maxTrainEecWeight": 2500,
+        "maxTrainGbWeight": 44000,
+        "microfilm": {
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346",
+          "microfilmSerialNumber": "1234"
+        },
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "0000514903",
+        "numberOfWheelsDriven": 4,
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2100-12-31",
+            "plateIssuer": "issuer",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "123456"
+          }
+        ],
+        "reasonForCreation": "something",
+        "recordCompleteness": "complete",
+        "regnDate": "1985-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "trainGbWeight": 41000,
+        "tyreUseCode": "2B",
+        "variantNumber": "324324",
+        "variantVersionNumber": "345",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "articulated",
+        "vehicleType": "hgv",
+        "historicVin": "H12220225"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "applicant address 1",
+          "address2": "applicant address 2",
+          "address3": "applicant address 3",
+          "emailAddress": "test@test.com",
+          "name": "applicant name",
+          "postCode": "PO16 7GZ",
+          "postTown": "applicant post town",
+          "telephoneNumber": "123456"
+        },
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7600,
+              "gbWeight": 7700
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "o",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2020-07-28T00:06:25.249Z",
+        "createdById": "12345",
+        "createdByName": "sean",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 11000
+            }
+          ],
+          "length": 10000,
+          "width": 2000
+        },
+        "drawbarCouplingFitted": false,
+        "emissionsLimit": 20,
+        "euroStandard": "2",
+        "euVehicleCategory": "n2",
+        "frontAxleTo5thWheelCouplingMax": 1300,
+        "frontAxleTo5thWheelCouplingMin": 1400,
+        "frontAxleTo5thWheelMax": 1100,
+        "frontAxleTo5thWheelMin": 1200,
+        "frontAxleToRearAxle": 1000,
+        "fuelPropulsionSystem": "Electric",
+        "functionCode": "A",
+        "grossDesignWeight": 33500,
+        "grossEecWeight": 26000,
+        "grossGbWeight": 25000,
+        "make": "VOLVO",
+        "manufactureYear": 1984,
+        "maxTrainDesignWeight": 2800,
+        "maxTrainEecWeight": 2500,
+        "maxTrainGbWeight": 44000,
+        "microfilm": {
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346",
+          "microfilmSerialNumber": "1234"
+        },
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "0000514903",
+        "numberOfWheelsDriven": 4,
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2100-12-31",
+            "plateIssuer": "issuer",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "123456"
+          }
+        ],
+        "reasonForCreation": "something",
+        "recordCompleteness": "complete",
+        "regnDate": "1985-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "trainGbWeight": 41000,
+        "tyreUseCode": "2B",
+        "variantNumber": "324324",
+        "variantVersionNumber": "345",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "articulated",
+        "vehicleType": "hgv",
+        "historicVin": "H12220223"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": "applicant address 1",
+          "address2": "applicant address 2",
+          "address3": "applicant address 3",
+          "emailAddress": "test@test.com",
+          "name": "applicant name",
+          "postCode": "PO16 7GZ",
+          "postTown": "applicant post town",
+          "telephoneNumber": "123456"
+        },
+        "approvalType": "NTA",
+        "approvalTypeNumber": "1234",
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": 7600,
+              "gbWeight": 7700
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 2,
+              "fitmentCode": "double",
+              "plyRating": " ",
+              "tyreCode": 462,
+              "tyreSize": "12-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": 10000,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "o",
+          "description": "other"
+        },
+        "brakes": {
+          "dtpNumber": "3798A"
+        },
+        "conversionRefNo": " ",
+        "createdAt": "2017-07-28T00:06:25.249Z",
+        "createdById": "12345",
+        "createdByName": "sean",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": 11000
+            }
+          ],
+          "length": 10000,
+          "width": 2000
+        },
+        "drawbarCouplingFitted": false,
+        "emissionsLimit": 20,
+        "euroStandard": "2",
+        "euVehicleCategory": "n2",
+        "frontAxleTo5thWheelCouplingMax": 1300,
+        "frontAxleTo5thWheelCouplingMin": 1400,
+        "frontAxleTo5thWheelMax": 1100,
+        "frontAxleTo5thWheelMin": 1200,
+        "frontAxleToRearAxle": 1000,
+        "fuelPropulsionSystem": "Electric",
+        "functionCode": "A",
+        "grossDesignWeight": 33500,
+        "grossEecWeight": 26000,
+        "grossGbWeight": 25000,
+        "make": "VOLVO",
+        "manufactureYear": 1984,
+        "maxTrainDesignWeight": 2800,
+        "maxTrainEecWeight": 2500,
+        "maxTrainGbWeight": 44000,
+        "microfilm": {
+          "microfilmDocumentType": "HGV COC + Int Plate",
+          "microfilmRollNumber": "12346",
+          "microfilmSerialNumber": "1234"
+        },
+        "model": "F12-33",
+        "noOfAxles": 3,
+        "notes": " ",
+        "ntaNumber": "0000514903",
+        "numberOfWheelsDriven": 4,
+        "offRoad": false,
+        "plates": [
+          {
+            "plateIssueDate": "2100-12-31",
+            "plateIssuer": "issuer",
+            "plateReasonForIssue": "Replacement",
+            "plateSerialNumber": "123456"
+          }
+        ],
+        "reasonForCreation": "something",
+        "recordCompleteness": "complete",
+        "regnDate": "1985-01-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 59500,
+        "trainEecWeight": 25000,
+        "trainGbWeight": 41000,
+        "tyreUseCode": "2B",
+        "variantNumber": "324324",
+        "variantVersionNumber": "345",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "articulated",
+        "vehicleType": "hgv",
+        "historicVin": "H12220224"
+      }
+    ],
+    "vin": "H12220226",
+    "vrms": [
+        {
+            "isPrimary": true,
+            "vrm": "B999XFX"
+        },
+        {
+            "isPrimary": false,
+            "vrm": "DB999XFX"
+        }
+    ]
+  }

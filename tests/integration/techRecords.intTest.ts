@@ -1,5 +1,6 @@
 /* global describe context it before beforeEach after afterEach */
 import supertest from "supertest";
+import stitchedRecords from "../resources/stitchedUpTechRecords.json";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -399,6 +400,29 @@ describe("techRecords", () => {
           expect(res.body[0].techRecord.length).toEqual(
             mockData[0].techRecord.length
           );
+        });
+      });
+    });
+
+    context("and when a search by system number is done", () => {
+      context("and no status code is provided", () => {
+        context("and there are multiple dynamodb records for that system number", () => {
+          it("should return a stitched up record for that system number with the most recent vin at the base of the tech record", async () => {
+            const res = await request.get(
+              "vehicles/11220280/tech-records?status=all&searchCriteria=systemNumber"
+            );
+            console.log(res.body);
+            expect(res.status).toEqual(200);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual(
+              "true"
+            );
+            expect(res.body.length).toEqual(1);
+            expect(res.body).toEqual([stitchedRecords]);
+            expect(res.body[0].techRecord.length).toEqual(
+              4
+            );
+          });
         });
       });
     });

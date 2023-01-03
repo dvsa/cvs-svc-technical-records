@@ -34,6 +34,7 @@ export interface Trailer extends TrailerIdentifer {
 }
 
 export interface TechRecord {
+  historicVin?: string;
   recordCompleteness: string;
   euVehicleCategory: string;
   vehicleType: string;
