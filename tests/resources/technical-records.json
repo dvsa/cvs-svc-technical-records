@@ -24990,7 +24990,7 @@
       }
     ],
     "vin": "BBBBBBB555666",
-    "systemNumber": "1110002"
+    "systemNumber": "systemNumber"
   },
   {
     "partialVin": "666555",
@@ -26057,7 +26057,7 @@
           "dtpNumber": "3798A"
         },
         "conversionRefNo": " ",
-        "createdAt": "2020-07-28T00:06:25.249Z",
+        "createdAt": "2020-07-28T00:06:25.246Z",
         "createdById": "12345",
         "createdByName": "sean",
         "departmentalVehicleMarker": false,
@@ -34188,7 +34188,7 @@
           }
         ],
         "frontAxleTo5thWheelCouplingMin": 1000,
-        "createdAt": "2021-08-24T07:28:24.305Z",
+        "createdAt": "2021-08-24T07:28:24.169Z",
         "grossGbWeight": 25000,
         "microfilm": {
           "microfilmSerialNumber": "1234",
@@ -34332,7 +34332,7 @@
           "dtpNumber": "3798A"
         },
         "conversionRefNo": " ",
-        "createdAt": "2021-08-24T07:34:35.443Z",
+        "createdAt": "2021-08-24T07:34:35.147Z",
         "createdById": "12345",
         "createdByName": "sean",
         "departmentalVehicleMarker": false,
@@ -34461,7 +34461,7 @@
           "dtpNumber": "3798A"
         },
         "conversionRefNo": " ",
-        "createdAt": "2021-08-24T07:34:35.443Z",
+        "createdAt": "2021-08-24T07:34:35.697Z",
         "createdById": "12345",
         "createdByName": "sean",
         "departmentalVehicleMarker": false,
@@ -34542,7 +34542,7 @@
     "primaryVrm": "8887766",
     "techRecord": [
       {
-        "createdAt": "2019-06-26T10:26:54.903Z",
+        "createdAt": "2019-06-26T10:26:54.437Z",
         "vehicleType": "hgv",
         "statusCode": "provisional",
         "regnDate": "2019-12-13",
@@ -34713,7 +34713,7 @@
           "dtpNumber": "3798A"
         },
         "conversionRefNo": " ",
-        "createdAt": "2020-07-28T00:06:25.249Z",
+        "createdAt": "2020-07-28T00:06:25.698Z",
         "createdById": "12345",
         "createdByName": "sean",
         "departmentalVehicleMarker": false,
@@ -34851,7 +34851,7 @@
           "dtpNumber": "3798A"
         },
         "conversionRefNo": " ",
-        "createdAt": "2020-07-28T00:06:25.249Z",
+        "createdAt": "2020-07-28T00:06:25.654Z",
         "createdById": "12345",
         "createdByName": "sean",
         "departmentalVehicleMarker": false,
@@ -34989,7 +34989,7 @@
           "dtpNumber": "3798A"
         },
         "conversionRefNo": " ",
-        "createdAt": "2020-07-28T00:06:25.249Z",
+        "createdAt": "2020-07-28T00:06:25.423Z",
         "createdById": "12345",
         "createdByName": "sean",
         "departmentalVehicleMarker": false,
