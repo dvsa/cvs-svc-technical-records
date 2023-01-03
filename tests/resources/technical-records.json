@@ -35060,5 +35060,116 @@
       }
     ],
     "vin": "H12220226"
+  },
+  {
+    "partialVin": "911364",
+    "primaryVrm": "QU160RT",
+    "systemNumber": "30000023",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "createdAt": "2021-08-24T12:57:20.519Z",
+        "createdById": "12345",
+        "createdByName": "Tue",
+        "euVehicleCategory": "m1",
+        "manufactureYear": 1996,
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": 2,
+        "reasonForCreation": "Testing",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "remarks": "For test",
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "2",
+          "description": null
+        },
+        "vehicleType": "motorcycle"
+      }
+    ],
+    "vin": "P0853010911364"
+  },
+  {
+    "partialVin": "911253",
+    "primaryVrm": "QU161RT",
+    "systemNumber": "30000022",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "createdAt": "2021-08-24T12:57:20.519Z",
+        "createdById": "12345",
+        "createdByName": "Tue",
+        "euVehicleCategory": "m1",
+        "manufactureYear": 1994,
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": 3,
+        "reasonForCreation": "Testing",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "remarks": "For test",
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "3",
+          "description": null
+        },
+        "vehicleType": "motorcycle"
+      }
+    ],
+    "vin": "P0853010911253"
+  },
+  {
+    "partialVin": "911263",
+    "primaryVrm": "QU161RT",
+    "systemNumber": "30000019",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": "*****",
+          "address2": "*****",
+          "address3": "*****",
+          "emailAddress": "*************",
+          "name": "************",
+          "postCode": "*****",
+          "postTown": "*",
+          "telephoneNumber": "**************"
+        },
+        "createdAt": "2021-08-24T12:57:20.519Z",
+        "createdById": "12345",
+        "createdByName": "Tue",
+        "euVehicleCategory": "m1",
+        "manufactureYear": 1986,
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": 4,
+        "reasonForCreation": "Testing",
+        "recordCompleteness": "complete",
+        "regnDate": "1986-05-01",
+        "remarks": "For test",
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "4",
+          "description": null
+        },
+        "vehicleType": "motorcycle"
+      }
+    ],
+    "vin": "P0853010911263"
   }
 ]
