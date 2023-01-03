@@ -35056,8 +35056,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv",
-        "vin": "H12220226"
+        "vehicleType": "hgv"
       }
     ],
     "vin": "H12220226"
