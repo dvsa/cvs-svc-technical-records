@@ -73,4 +73,47 @@ describe("archiveTechRecordStatus", () => {
       });
     }
   );
+
+  context(
+      "when trying to update a non archived vehicle tech record status to archived for multiple returned rows",
+      () => {
+        it("should update the status on the correct record and set audit details", async () => {
+          const systemNumber: string = "11220280";
+          const techRecord: any = cloneDeep(mockData[169]);
+          const payload = {
+            vin: techRecord.vin,
+            reasonForArchiving: "Test",
+            systemNumber: techRecord.systemNumber,
+            primaryVrm: techRecord.primaryVrm,
+            msUserDetails,
+            techRecord: techRecord.techRecord
+          };
+          expect.assertions(3);
+          await LambdaTester(archiveTechRecordStatus)
+              .event({
+                path: `/vehicles/archive/${systemNumber}`,
+                pathParameters: {
+                  systemNumber
+                },
+                queryStringParameters: {},
+                body: payload,
+                httpMethod: "PUT",
+                resource: "/vehicles/archive/{systemNumber}"
+              })
+              .expectResolve((result: any) => {
+                expect(result.statusCode).toBe(200);
+                const techRecordWrapper: ITechRecordWrapper = JSON.parse(
+                    result.body
+                );
+                expect(techRecordWrapper.techRecord[0].statusCode).toBe(
+                    STATUS.ARCHIVED
+                );
+                expect(techRecordWrapper.techRecord[0].notes).toBe(
+                    "string\nTest"
+                );
+              });
+        });
+      }
+  );
+
 });
