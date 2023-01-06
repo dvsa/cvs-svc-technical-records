@@ -56,7 +56,7 @@ describe("addProvisionalTechRecord", () => {
 
         hgvVehicle.addNewProvisionalRecord(msUserDetails).catch(err => {
           expect(err.statusCode).toEqual(400);
-          expect(err.body).toEqual(ERRORS.STATUS_CODE_SHOULD_BE_PROVISIONAL);
+          expect(err.body).toEqual({ errors: [ERRORS.STATUS_CODE_SHOULD_BE_PROVISIONAL]});
         });
       });
     }
@@ -81,7 +81,7 @@ describe("addProvisionalTechRecord", () => {
         const hgvVehicle = new HgvProcessor(payload, new MockDAO());
         hgvVehicle.addNewProvisionalRecord(msUserDetails).catch(err => {
           expect(err.statusCode).toEqual(400);
-          expect(err.body).toEqual(ERRORS.CURRENT_OR_PROVISIONAL_RECORD_FOUND);
+          expect(err.body).toEqual({ errors: [{ errors: [ERRORS.CURRENT_OR_PROVISIONAL_RECORD_FOUND] }] });
         });
       });
     }
