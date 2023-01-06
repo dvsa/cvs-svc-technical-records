@@ -10,8 +10,8 @@ const addProvisionalTechRecord = async (event: any) => {
   const techRecordsService = new TechRecordsService(techRecordsDAO);
 
   const sysNum: string = event.pathParameters.systemNumber;
-  const techRec = event.body ? event.body.techRecord : null;
-  const msUserDetails: IMsUserDetails = event.body ? event.body.msUserDetails : null;
+  const techRec = event.body?.techRecord;
+  const msUserDetails: IMsUserDetails = event.body?.msUserDetails;
 
   if (!techRec || !techRec.length) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Body is not a valid TechRecord")));
