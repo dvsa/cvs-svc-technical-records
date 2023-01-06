@@ -242,4 +242,13 @@ describe("Compute Record Completeness", () => {
       expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.SKELETON);
     });
   });
+
+  context("hiddenInVta flag is set to true", () => {
+    it("should return SKELETON", () => {
+      const record: any = cloneDeep(mockData[127]);
+      record.techRecord[0].hiddenInVta = true;
+      const recordCompleteness = computeRecordCompleteness(record);
+      expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.SKELETON);
+    });
+  });
 });
