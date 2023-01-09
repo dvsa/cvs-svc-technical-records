@@ -20,7 +20,7 @@ const addProvisionalTechRecord = async (event: any) => {
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Microsoft user details not provided")));
   }
-  delete techRec.historicVin;
+  delete techRec[0].historicVin;
   const techRecord = {
     vin: "",
     techRecord: techRec,
