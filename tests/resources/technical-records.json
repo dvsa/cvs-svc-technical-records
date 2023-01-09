@@ -25099,8 +25099,7 @@
           }
         ],
         "reasonForCreation": "original",
-        "recordCompleteness": "complete",
-        "vin": "MMMMMM666555"
+        "recordCompleteness": "complete"
       },
       {
         "createdAt": "2019-06-26T10:26:54.903Z",
@@ -25205,8 +25204,7 @@
           }
         ],
         "reasonForCreation": "change 2",
-        "recordCompleteness": "complete",
-        "vin": "MMMMMM666555"
+        "recordCompleteness": "complete"
       },
       {
         "createdAt": "2019-06-26T10:26:54.903Z",
@@ -25311,8 +25309,7 @@
           }
         ],
         "reasonForCreation": "change 2",
-        "recordCompleteness": "complete",
-        "vin": "MMMMMM666555"
+        "recordCompleteness": "complete"
       }
     ],
     "vin": "MMMMMM666555",
@@ -26726,8 +26723,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv",
-        "vin": "H000375332"
+        "vehicleType": "hgv"
       }
     ],
     "vin": "H000375332"
@@ -26740,7 +26736,6 @@
     "partialVin": "037502",
     "techRecord": [
       {
-        "vin": "H00037502",
         "bodyType": {
           "description": "other",
           "code": "o"
@@ -34400,8 +34395,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv",
-        "vin": "H000375333"
+        "vehicleType": "hgv"
       },
       {
         "alterationMarker": false,
