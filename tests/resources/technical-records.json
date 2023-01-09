@@ -34139,7 +34139,6 @@
     "partialVin": "037504",
     "techRecord": [
       {
-        "vin": "H00037504",
         "bodyType": {
           "description": "other",
           "code": "o"
@@ -34530,8 +34529,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "articulated",
-        "vehicleType": "hgv",
-        "vin": "H000375333"
+        "vehicleType": "hgv"
       }
     ],
     "vin": "H000375333"
@@ -34643,8 +34641,7 @@
           }
         ],
         "reasonForCreation": "string",
-        "recordCompleteness": "complete",
-        "vin": "MMMMMM666556"
+        "recordCompleteness": "complete"
       }
     ],
     "vin": "MMMMMM666556",
