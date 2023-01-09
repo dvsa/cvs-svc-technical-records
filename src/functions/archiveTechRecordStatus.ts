@@ -19,9 +19,11 @@ export async function archiveTechRecordStatus(event: any) {
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage(ERRORS.MISSING_USER)));
   }
-  if(!reasonForArchiving) {
+  if (!reasonForArchiving) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage(ERRORS.MISSING_REASON_FOR_ARCHIVING)));
   }
+
+  delete techRec[0].historicVin;
 
   const techRecord = {
     vin: "",
