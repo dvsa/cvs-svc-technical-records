@@ -2,7 +2,7 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import IMsUserDetails from "../../@Types/IUserDetails";
-import {formatErrorMessage} from "../utils/formatErrorMessage";
+import { formatErrorMessage } from "../utils/formatErrorMessage";
 
 
 const addProvisionalTechRecord = async (event: any) => {
@@ -20,6 +20,7 @@ const addProvisionalTechRecord = async (event: any) => {
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Microsoft user details not provided")));
   }
+  delete techRec.historicVin;
   const techRecord = {
     vin: "",
     techRecord: techRec,
@@ -33,4 +34,4 @@ const addProvisionalTechRecord = async (event: any) => {
     return new HTTPResponse(error.statusCode, error.body);
   }
 };
-export {addProvisionalTechRecord};
+export { addProvisionalTechRecord };
