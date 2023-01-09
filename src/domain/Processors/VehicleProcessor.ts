@@ -257,11 +257,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         techRecordToUpdate.techRecord[0].statusCode === techRecord.statusCode
     );
 
-    // if (allTechRecordWrapper.length !== 1) {
-    //   // systemNumber search should return a single record
-    //   throw this.Error(400, enums.ERRORS.NO_UNIQUE_RECORD);
-    // }
-    // const techRecordWithAllStatues = allTechRecordWrapper[0];
     const techRecordToArchive = VehicleProcessor.getTechRecordToArchive(
       uniqueVehicleRecord,
       techRecordToUpdate.techRecord[0].statusCode
@@ -269,6 +264,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     if (techRecordToArchive.statusCode === enums.STATUS.ARCHIVED) {
       throw this.Error(400, enums.ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
     }
+
     if (!isEqual(techRecordToArchive, techRecordToUpdate.techRecord[0])) {
       throw this.Error(400, enums.ERRORS.CANNOT_ARCHIVE_CHANGED_RECORD);
     }
