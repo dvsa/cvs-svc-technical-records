@@ -56,7 +56,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     const { primaryVrm } = updatedVehicle;
     const previousPrimaryVrm = existingVehicle.primaryVrm;
     updatedVehicle.secondaryVrms = existingVehicle.secondaryVrms;
-    if (!primaryVrm || (previousPrimaryVrm === primaryVrm) ) {
+    if (!primaryVrm || (previousPrimaryVrm === primaryVrm)) {
       return updatedVehicle;
     }
     if (previousPrimaryVrm) {
@@ -115,7 +115,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       return data.Attributes as T;
     } catch (error) {
       console.error(error);
-      const errorList = error.body?error.body.errors:error.message;
+      const errorList = error.body ? error.body.errors : error.message;
       throw this.Error(error.statusCode, errorList);
     }
   }
@@ -171,10 +171,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         enums.SEARCHCRITERIA.SYSTEM_NUMBER,
         false
       );
-      const uniqueRecord = this.getTechRecordToUpdate(
-        vehiclesFromDB,
-        (techRecord) => techRecord.statusCode === enums.STATUS.CURRENT
-      );
+      const uniqueRecord = this.getTechRecordToUpdate(vehiclesFromDB, techRecord => techRecord.statusCode === enums.STATUS.CURRENT);
 
       if (uniqueRecord.techRecord.find((techRecord) => techRecord.statusCode === enums.STATUS.PROVISIONAL)) {
         throw this.Error(400, enums.ERRORS.CURRENT_OR_PROVISIONAL_RECORD_FOUND);
@@ -385,7 +382,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
 
       techRecordWithAllStatuses.primaryVrm = updatedVehicle.primaryVrm;
       techRecordWithAllStatuses.secondaryVrms = updatedVehicle.secondaryVrms;
-      if(updatedVehicle.techRecord[0].vehicleType === enums.VEHICLE_TYPE.TRL) {
+      if (updatedVehicle.techRecord[0].vehicleType === enums.VEHICLE_TYPE.TRL) {
         // @ts-ignore
         techRecordWithAllStatuses.trailerId = updatedVehicle.trailerId;
       }
@@ -431,7 +428,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
    */
   private validate(newVehicle: T, isCreate: boolean): TechRecord {
     let errors: string[] = [];
-    const isPrimaryVrmRequired= this.vehicle.techRecord[0].vehicleType !== enums.VEHICLE_TYPE.TRL;
+    const isPrimaryVrmRequired = this.vehicle.techRecord[0].vehicleType !== enums.VEHICLE_TYPE.TRL;
     const { primaryVrm, secondaryVrms } = this.vehicle;
     // primary & secondary vrms are required in case of create and optional in case of update
     const validatePrimaryVrm = isCreate || primaryVrm;
