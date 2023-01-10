@@ -44,6 +44,43 @@ describe("addProvisionalTechRecord", () => {
     });
   });
 
+  context("a new Provisional tech record is created for a vehicle, for which the vin has changed", () => {
+    it("should create a provisional record on the database entry with the current record and format the output to return a stitched record", async () => {
+      const techRecord: any = cloneDeep(mockData[43]);
+      techRecord.techRecord[0].statusCode = STATUS.ARCHIVED;
+      techRecord.vin = "oldVin"
+
+      const techRecordWithNewVin: any = cloneDeep(mockData[43]);
+      techRecordWithNewVin.techRecord[0].statusCode = STATUS.CURRENT;
+
+      const payload: any = cloneDeep(mockData[43]);
+
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve(cloneDeep([techRecord, techRecordWithNewVin]));
+          },
+          updateSingle: () => {
+            return Promise.resolve({
+              Attributes: payload
+            });
+          }
+        };
+      });
+
+      const hgvVehicle = new HgvProcessor(payload, new MockDAO());
+      const updatedTechRec: HeavyGoodsVehicle = await hgvVehicle.addNewProvisionalRecord(msUserDetails);
+      expect(updatedTechRec.vin).toEqual(techRecordWithNewVin.vin)
+      expect(updatedTechRec.techRecord).toHaveLength(3)
+      expect(updatedTechRec.techRecord[1].statusCode).toEqual(STATUS.PROVISIONAL);
+      expect(updatedTechRec.techRecord[1].createdById).toEqual(msUserDetails.msOid);
+      expect(updatedTechRec.techRecord[1].createdByName).toEqual(msUserDetails.msUser);
+      expect(updatedTechRec.techRecord[1].historicVin).toEqual(techRecordWithNewVin.vin);
+      expect(updatedTechRec.techRecord[0].historicVin).toEqual(techRecordWithNewVin.vin);
+      expect(updatedTechRec.techRecord[2].historicVin).toEqual(techRecord.vin);
+    });
+  });
+
   context(
     "a new Provisional tech record is created for a vehicle, that does not have a 'current' tech record and statusCode of the payload is not 'provisional'",
     () => {
