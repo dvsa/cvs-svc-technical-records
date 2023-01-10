@@ -238,6 +238,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     if (techRecordToArchive.statusCode === enums.STATUS.ARCHIVED) {
       throw this.Error(400, enums.ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
     }
+
     if (!isEqual(techRecordToArchive, techRecordToUpdate.techRecord[0])) {
       throw this.Error(400, enums.ERRORS.CANNOT_ARCHIVE_CHANGED_RECORD);
     }
