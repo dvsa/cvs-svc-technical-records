@@ -211,18 +211,19 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     userDetails: IMsUserDetails,
     reasonForArchiving: string
   ) {
-    const allTechRecordWrapper = await this.techRecordsListHandler.getTechRecordList(
+    const vehicleTechRecordsForSystemNumber: Vehicle[] = await this.techRecordsListHandler.getTechRecordList(
       systemNumber,
       enums.STATUS.ALL,
       enums.SEARCHCRITERIA.SYSTEM_NUMBER
     );
-    if (allTechRecordWrapper.length !== 1) {
-      // systemNumber search should return a single record
+    const vehicleTechRecordToMutate = vehicleTechRecordsForSystemNumber.length > 1
+        ? vehicleTechRecordsForSystemNumber.find((vehicleTechRecord: Vehicle) => vehicleTechRecord.vin === techRecordToUpdate.techRecord[0].historicVin)
+        : vehicleTechRecordsForSystemNumber[0];
+    if(!vehicleTechRecordToMutate) {
       throw this.Error(400, enums.ERRORS.NO_UNIQUE_RECORD);
     }
-    const techRecordWithAllStatues = allTechRecordWrapper[0];
     const techRecordToArchive = VehicleProcessor.getTechRecordToArchive(
-      techRecordWithAllStatues,
+        vehicleTechRecordToMutate,
       techRecordToUpdate.techRecord[0].statusCode
     );
     if (techRecordToArchive.statusCode === enums.STATUS.ARCHIVED) {
@@ -248,7 +249,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     let updatedTechRecord;
     try {
       updatedTechRecord = await this.techRecordDAO.updateSingle(
-        techRecordWithAllStatues
+          vehicleTechRecordToMutate
       );
     } catch (error) {
       console.error(error);
