@@ -272,16 +272,23 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     newEuVehicleCategory: enums.EU_VEHICLE_CATEGORY,
     msUserDetails: IMsUserDetails
   ) {
-    const techRecordWrapper = (
+    const vehicles = (
       await this.techRecordsListHandler.getTechRecordList(
         systemNumber,
         enums.STATUS.ALL,
         enums.SEARCHCRITERIA.SYSTEM_NUMBER
       )
-    )[0];
-    const nonArchivedTechRecord = techRecordWrapper.techRecord.filter(
+    );
+
+    const vehicle = this.getTechRecordToUpdate(
+      vehicles,
+      techRecord => techRecord.statusCode !== enums.STATUS.ARCHIVED
+    );
+
+    const nonArchivedTechRecord = vehicle.techRecord.filter(
       (techRecord) => techRecord.statusCode !== enums.STATUS.ARCHIVED
     );
+
     if (nonArchivedTechRecord.length > 1) {
       throw this.Error(
         400,
@@ -303,11 +310,11 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     newTechRecord.euVehicleCategory = newEuVehicleCategory;
     newTechRecord.statusCode = statusCode;
     this.auditHandler.setAuditDetails(newTechRecord, nonArchivedTechRecord[0], msUserDetails);
-    techRecordWrapper.techRecord.push(newTechRecord);
+    vehicle.techRecord.push(newTechRecord);
     let updatedTechRecord;
     try {
       updatedTechRecord = await this.techRecordDAO.updateSingle(
-        techRecordWrapper
+        vehicle
       );
     } catch (error) {
       throw this.Error(500, enums.HTTPRESPONSE.INTERNAL_SERVER_ERROR);
