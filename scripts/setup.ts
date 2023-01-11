@@ -17,17 +17,19 @@ const setupServer = (process: any) => {
     });
 
     process.stderr.setEncoding("utf-8").on("data", (stream: any) => {
-      console.log(stream);
       if (stream.includes(DYNAMO_LOCAL_ERROR_THREAD)) {
         throw new Error("Internal Java process crashed");
       }
       reject(stream);
     });
 
-    process.on("exit", (code: any, signal: any) =>
-      console.info(
-        `process terminated with code: ${code} and signal: ${signal}`
-      )
+    process.on("exit", (code: any, signal: any) => {
+      if (code !== 137) {
+        console.info(
+          `process terminated with code: ${code} and signal: ${signal}`
+        )
+      }
+    }
     );
   });
 };
