@@ -147,13 +147,13 @@ export abstract class VehicleProcessor<T extends Vehicle> {
 
   private getTechRecordToUpdate(vehiclesFromDB: T[], findFn: (...args: any[]) => boolean): T {
     if (vehiclesFromDB.length === 1) {
-      return vehiclesFromDB[0]
+      return vehiclesFromDB[0];
     }
-    const filteredRecords = vehiclesFromDB.filter(record => record.techRecord.find(findFn))
+    const filteredRecords = vehiclesFromDB.filter((record) => record.techRecord.find(findFn));
     if (filteredRecords.length > 1) {
-      throw this.Error(500, enums.ERRORS.NO_UNIQUE_RECORD)
+      throw this.Error(500, enums.ERRORS.NO_UNIQUE_RECORD);
     }
-    return filteredRecords[0]
+    return filteredRecords[0];
   }
 
   public async addNewProvisionalRecord(
@@ -173,8 +173,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       );
       const uniqueRecord = this.getTechRecordToUpdate(vehiclesFromDB, techRecord => techRecord.statusCode === enums.STATUS.CURRENT);
 
-      if (uniqueRecord.techRecord.find((techRecord) => techRecord.statusCode === enums.STATUS.PROVISIONAL)
-      ) {
+      if (uniqueRecord.techRecord.find((techRecord) => techRecord.statusCode === enums.STATUS.PROVISIONAL)) {
         throw this.Error(400, enums.ERRORS.CURRENT_OR_PROVISIONAL_RECORD_FOUND);
       }
 
@@ -188,19 +187,17 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       this.vehicle.techRecord[0].updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
       uniqueRecord.techRecord.push(this.vehicle.techRecord[0]);
       await this.techRecordDAO.updateSingle(uniqueRecord);
-      const mergedRecord = vehiclesFromDB.length > 1 ? this.techRecordsListHandler.mergeRecordsWithSameSystemNumber(vehiclesFromDB) : vehiclesFromDB
-      return this.techRecordsListHandler.formatTechRecordItemForResponse(
-        mergedRecord[0]
-      );
+      const mergedRecord = vehiclesFromDB.length > 1 
+        ? this.techRecordsListHandler.mergeRecordsWithSameSystemNumber(vehiclesFromDB)
+        : vehiclesFromDB;
+      return this.techRecordsListHandler.formatTechRecordItemForResponse(mergedRecord[0]);
     } catch (error) {
       console.error(error);
       throw this.Error(error.statusCode, error.body);
     }
   }
 
-  public async updateTechRecordStatusCode(
-    uniqueRecord: T
-  ) {
+  public async updateTechRecordStatusCode(uniqueRecord: T) {
     let updatedTechRecord;
     try {
       updatedTechRecord = await this.techRecordDAO.updateSingle(uniqueRecord);
@@ -224,18 +221,21 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       enums.STATUS.ALL,
       enums.SEARCHCRITERIA.SYSTEM_NUMBER
     );
-    if (allTechRecordWrapper.length !== 1) {
-      // systemNumber search should return a single record
-      throw this.Error(400, enums.ERRORS.NO_UNIQUE_RECORD);
-    }
-    const techRecordWithAllStatues = allTechRecordWrapper[0];
+
+    // filter out any vehicle records where vin has changed.
+    const uniqueVehicleRecord = this.getTechRecordToUpdate(
+      allTechRecordWrapper,
+      (techRecord) => techRecordToUpdate.techRecord[0].statusCode === techRecord.statusCode
+    );
+
     const techRecordToArchive = VehicleProcessor.getTechRecordToArchive(
-      techRecordWithAllStatues,
+      uniqueVehicleRecord,
       techRecordToUpdate.techRecord[0].statusCode
     );
     if (techRecordToArchive.statusCode === enums.STATUS.ARCHIVED) {
       throw this.Error(400, enums.ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
     }
+
     if (!isEqual(techRecordToArchive, techRecordToUpdate.techRecord[0])) {
       throw this.Error(400, enums.ERRORS.CANNOT_ARCHIVE_CHANGED_RECORD);
     }
@@ -246,17 +246,16 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     techRecordToArchive.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
     if (techRecordToArchive.vehicleType === enums.VEHICLE_TYPE.PSV) {
       const remarks = (techRecordToArchive as PsvTechRecord).remarks;
-      (techRecordToArchive as PsvTechRecord).remarks = remarks ? (remarks + `\n${reasonForArchiving}`) : reasonForArchiving;
-    }
-    else {
+      (techRecordToArchive as PsvTechRecord).remarks = remarks ? remarks + `\n${reasonForArchiving}` : reasonForArchiving;
+    } else {
       const notes = (techRecordToArchive as ITechRecord).notes;
-      (techRecordToArchive as ITechRecord).notes = notes ? (notes + `\n${reasonForArchiving}`) : reasonForArchiving;
+      (techRecordToArchive as ITechRecord).notes = notes ? notes + `\n${reasonForArchiving}` : reasonForArchiving;
     }
 
     let updatedTechRecord;
     try {
       updatedTechRecord = await this.techRecordDAO.updateSingle(
-        techRecordWithAllStatues
+        uniqueVehicleRecord
       );
     } catch (error) {
       console.error(error);
@@ -434,12 +433,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     // primary & secondary vrms are required in case of create and optional in case of update
     const validatePrimaryVrm = isCreate || primaryVrm;
     const validateSecondaryVrms = isCreate || secondaryVrms;
-    errors = errors.concat(
-      validatePrimaryVrm ? validators.primaryVrmValidator(primaryVrm, isPrimaryVrmRequired) : []
-    );
-    errors = errors.concat(
-      validateSecondaryVrms ? validators.secondaryVrmValidator(secondaryVrms) : []
-    );
+    errors = errors.concat(validatePrimaryVrm ? validators.primaryVrmValidator(primaryVrm, isPrimaryVrmRequired) : []);
+    errors = errors.concat(validateSecondaryVrms ? validators.secondaryVrmValidator(secondaryVrms) : []);
     errors = errors.concat(this.validateTechRecordFields(newVehicle.techRecord[0], isCreate));
     if (errors && errors.length) {
       console.error(errors);
@@ -525,10 +520,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     if (oldStatusCode === enums.STATUS.ARCHIVED || statusCode === enums.STATUS.ARCHIVED) {
       throw handlers.ErrorHandler.Error(400, enums.ERRORS.CANNOT_USE_UPDATE_TO_ARCHIVE);
     }
-    if (
-      oldStatusCode === enums.STATUS.CURRENT &&
-      statusCode === enums.STATUS.PROVISIONAL
-    ) {
+    if (oldStatusCode === enums.STATUS.CURRENT && statusCode === enums.STATUS.PROVISIONAL) {
       throw handlers.ErrorHandler.Error(400, enums.ERRORS.CANNOT_CHANGE_CURRENT_TO_PROVISIONAL);
     }
   }
