@@ -145,13 +145,13 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     }
   }
 
-  private getTechRecordToUpdate(vehiclesFromDB: T[], findFn: (...args: any[]) => boolean): T {
+  static getTechRecordToUpdate(vehiclesFromDB: Vehicle[], findFn: (...args: any[]) => boolean): Vehicle {
     if (vehiclesFromDB.length === 1) {
       return vehiclesFromDB[0];
     }
     const filteredRecords = vehiclesFromDB.filter((record) => record.techRecord.find(findFn));
     if (filteredRecords.length > 1) {
-      throw this.Error(500, enums.ERRORS.NO_UNIQUE_RECORD);
+      throw handlers.ErrorHandler.Error(500, enums.ERRORS.NO_UNIQUE_RECORD)
     }
     return filteredRecords[0];
   }
@@ -171,7 +171,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         enums.SEARCHCRITERIA.SYSTEM_NUMBER,
         false
       );
-      const uniqueRecord = this.getTechRecordToUpdate(vehiclesFromDB, techRecord => techRecord.statusCode === enums.STATUS.CURRENT);
+      const uniqueRecord = VehicleProcessor.getTechRecordToUpdate(vehiclesFromDB, techRecord => techRecord.statusCode === enums.STATUS.CURRENT);
 
       if (uniqueRecord.techRecord.find((techRecord) => techRecord.statusCode === enums.STATUS.PROVISIONAL)) {
         throw this.Error(400, enums.ERRORS.CURRENT_OR_PROVISIONAL_RECORD_FOUND);
