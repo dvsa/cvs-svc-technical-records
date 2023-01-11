@@ -19,6 +19,10 @@ export function computeRecordCompleteness(vehicle: Vehicle): string {
     throw new HTTPError(400, ERRORS.SYSTEM_NUMBER_GENERATION_FAILED);
   }
 
+  if (vehicle.techRecord[0].hiddenInVta) {
+    return RECORD_COMPLETENESS_ENUM.SKELETON;
+  }
+
   const generalErrors = validateVehicleAttributes(vehicle)?.error;
 
   if (generalErrors) {
