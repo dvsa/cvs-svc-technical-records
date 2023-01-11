@@ -223,7 +223,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     );
 
     // filter out any vehicle records where vin has changed.
-    const uniqueVehicleRecord = this.getTechRecordToUpdate(
+    const uniqueVehicleRecord = VehicleProcessor.getTechRecordToUpdate(
       allTechRecordWrapper,
       (techRecord) => techRecordToUpdate.techRecord[0].statusCode === techRecord.statusCode
     );
