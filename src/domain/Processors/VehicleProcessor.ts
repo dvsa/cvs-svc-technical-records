@@ -279,7 +279,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       )
     );
 
-    const vehicle = this.getTechRecordToUpdate(
+    const vehicle = VehicleProcessor.getTechRecordToUpdate(
       vehicles,
       techRecord => techRecord.statusCode !== enums.STATUS.ARCHIVED
     );
