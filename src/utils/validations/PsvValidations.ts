@@ -68,6 +68,7 @@ export const psvValidation = commonSchema.keys({
   tachoExemptMrk: Joi.boolean().required(),
   euroStandard: Joi.string().required(),
   fuelPropulsionSystem: Joi.string().valid(...FUEL_PROPULSION_SYSTEM).required(),
+  numberOfWheelsDriven: Joi.number().min(0).max(9999).optional().allow(null),
   emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
   trainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
   vehicleSize: Joi.string().valid(...VEHICLE_SIZE).required(),
