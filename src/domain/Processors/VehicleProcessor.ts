@@ -150,7 +150,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       return vehiclesFromDB[0];
     }
     const filteredRecords = vehiclesFromDB.filter((record) => record.techRecord.find(findFn));
-    if (filteredRecords.length > 1) {
+    if (filteredRecords.length !== 1) {
       throw handlers.ErrorHandler.Error(500, enums.ERRORS.NO_UNIQUE_RECORD)
     }
     return filteredRecords[0];
@@ -484,9 +484,13 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       enums.STATUS.ALL,
       enums.SEARCHCRITERIA.SYSTEM_NUMBER
     );
+
     if (data.length !== 1) {
       // systemNumber search should return a unique record
-      throw this.Error(500, enums.ERRORS.NO_UNIQUE_RECORD);
+      return VehicleProcessor.getTechRecordToUpdate(
+        data,
+        techRecord => techRecord.statusCode !== enums.STATUS.ARCHIVED
+      ) as T;
     }
     return data[0];
   }
