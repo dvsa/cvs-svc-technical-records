@@ -1,5 +1,5 @@
 import LambdaTester from "lambda-tester";
-import {getTechRecords, getTechRecords as GetTechRecordsFunction} from "../../src/functions/getTechRecords";
+import { getTechRecords, getTechRecords as GetTechRecordsFunction } from "../../src/functions/getTechRecords";
 import { emptyDatabase, populateDatabase } from "../util/dbOperations";
 import { updateTechRecords as UpdateTechRecordsFunction } from "../../src/functions/updateTechRecords";
 import { postTechRecords as PostTechRecordsFunction } from "../../src/functions/postTechRecords";
@@ -43,7 +43,7 @@ describe("getTechRecords", () => {
           expect(result.statusCode).toEqual(400);
           // Path checking now handled in the handler. Now only checking for Path Params
           expect(result.body).toEqual(
-              JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS)
+            JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS)
           );
         });
     });
@@ -60,7 +60,7 @@ describe("getTechRecords", () => {
           expect(result.statusCode).toEqual(400);
           // Path checking now handled in the handler. Now only checking for Path Params
           expect(result.body).toEqual(
-              JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS)
+            JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS)
           );
         });
     });
