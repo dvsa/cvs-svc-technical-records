@@ -357,6 +357,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
 
     VehicleProcessor.checkStatusCodeValidity(statusCode, oldStatusCode);
 
+    delete updatedVehicle.techRecord[0].historicVin;
+
     updatedVehicle.techRecord[0] = this.validate(updatedVehicle, false);
 
     try {
