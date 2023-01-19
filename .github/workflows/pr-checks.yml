@@ -1,0 +1,38 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: PR-checks
+
+on:
+  push:
+    branches: ['develop', 'feature/VTMDEV-1']
+  pull_request:
+    branches: ['develop', 'feature/VTMDEV-1']
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Setup local dynamo
+        run: npm run tools-setup
+      - name: Build and test
+        run: npm run prepush
+        env:
+          AWS_ACCESS_KEY_ID: foo
+          AWS_SECRET_ACCESS_KEY: bar
+      - name: Run linter
+        run: npm run lint
