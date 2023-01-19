@@ -20,24 +20,24 @@ import {
 export const psvValidation = commonSchema.keys({
   brakeCode: Joi.string().optional(),
   brakes: brakesSchema.keys({
-    brakeCode: Joi.string().max(6).required(),
+    brakeCode: Joi.string().max(6),
     brakeCodeOriginal: Joi.string().optional(),
-    dataTrBrakeOne: Joi.string().max(60).required(),
-    dataTrBrakeTwo: Joi.string().max(60).required(),
-    dataTrBrakeThree: Joi.string().max(60).required(),
+    dataTrBrakeOne: Joi.string().max(60),
+    dataTrBrakeTwo: Joi.string().max(60),
+    dataTrBrakeThree: Joi.string().max(60),
     retarderBrakeOne: Joi.string().valid(...RETARDER_BRAKE).optional().allow(null, ''),
     retarderBrakeTwo: Joi.string().valid(...RETARDER_BRAKE).optional().allow(null, ''),
     brakeForceWheelsNotLocked: Joi.object().keys({
-      parkingBrakeForceA: Joi.number().min(0).max(99999).required(),
-      secondaryBrakeForceA: Joi.number().min(0).max(99999).required(),
-      serviceBrakeForceA: Joi.number().min(0).max(99999).required()
-    }).required(),
+      parkingBrakeForceA: Joi.number().min(0).max(99999),
+      secondaryBrakeForceA: Joi.number().min(0).max(99999),
+      serviceBrakeForceA: Joi.number().min(0).max(99999)
+    }),
     brakeForceWheelsUpToHalfLocked: Joi.object().keys({
-      parkingBrakeForceB: Joi.number().min(0).max(99999).required(),
-      secondaryBrakeForceB: Joi.number().min(0).max(99999).required(),
-      serviceBrakeForceB: Joi.number().min(0).max(99999).required()
-    }).required()
-  }).required(),
+      parkingBrakeForceB: Joi.number().min(0).max(99999),
+      secondaryBrakeForceB: Joi.number().min(0).max(99999),
+      serviceBrakeForceB: Joi.number().min(0).max(99999)
+    })
+  }),
   dda: Joi.object().keys({
     certificateIssued: Joi.boolean().optional().allow(null, ''),
     wheelchairCapacity: Joi.number().min(0).max(99).optional().allow(null),
@@ -51,40 +51,40 @@ export const psvValidation = commonSchema.keys({
     ddaSchedules: Joi.string().max(250).optional().allow(null, ''),
     seatbeltsFitted: Joi.number().min(0).max(999).optional().allow(null),
     ddaNotes: Joi.string().max(1024).optional().allow(null, '')
-  }).required(),
+  }),
   axles: Joi.array().items(axlesSchema.keys({
     weights: weightsSchema.keys({
-      ladenWeight: Joi.number().min(0).max(99999).required(),
-      kerbWeight: Joi.number().min(0).max(99999).required()
-    }).required(),
+      ladenWeight: Joi.number().min(0).max(99999),
+      kerbWeight: Joi.number().min(0).max(99999)
+    }),
     tyres: tyresSchema.keys({
-      speedCategorySymbol: Joi.string().valid(...SPEED_CATEGORY_SYMBOL).required(),
-    }).required(),
-  })).min(1).required(),
-  seatsLowerDeck: Joi.number().min(0).max(999).required(),
-  seatsUpperDeck: Joi.number().min(0).max(99).required(),
-  standingCapacity: Joi.number().min(0).max(999).required(),
-  speedLimiterMrk: Joi.boolean().required(),
-  tachoExemptMrk: Joi.boolean().required(),
-  euroStandard: Joi.string().required(),
-  fuelPropulsionSystem: Joi.string().valid(...FUEL_PROPULSION_SYSTEM).required(),
+      speedCategorySymbol: Joi.string().valid(...SPEED_CATEGORY_SYMBOL),
+    }),
+  })).min(1),
+  seatsLowerDeck: Joi.number().min(0).max(999),
+  seatsUpperDeck: Joi.number().min(0).max(99),
+  standingCapacity: Joi.number().min(0).max(999),
+  speedLimiterMrk: Joi.boolean(),
+  tachoExemptMrk: Joi.boolean(),
+  euroStandard: Joi.string(),
+  fuelPropulsionSystem: Joi.string().valid(...FUEL_PROPULSION_SYSTEM),
   numberOfWheelsDriven: Joi.number().min(0).max(9999).optional().allow(null),
   emissionsLimit: Joi.number().min(0).max(99).optional().allow(null),
   trainDesignWeight: Joi.number().min(0).max(99999).optional().allow(null),
-  vehicleSize: Joi.string().valid(...VEHICLE_SIZE).required(),
-  numberOfSeatbelts: Joi.string().max(99).required(),
+  vehicleSize: Joi.string().valid(...VEHICLE_SIZE),
+  numberOfSeatbelts: Joi.string().max(99),
   seatbeltInstallationApprovalDate: Joi.string().optional().allow(null, ''),
   coifSerialNumber: Joi.string().max(8).optional().allow(null, ''),
   coifCertifierName: Joi.string().max(20).optional().allow(null, ''),
   coifDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
-  bodyMake: Joi.string().max(20).required(),
-  bodyModel: Joi.string().max(20).required(),
-  chassisMake: Joi.string().max(20).required(),
-  chassisModel: Joi.string().max(20).required(),
+  bodyMake: Joi.string().max(20),
+  bodyModel: Joi.string().max(20),
+  chassisMake: Joi.string().max(20),
+  chassisModel: Joi.string().max(20),
   modelLiteral: Joi.string().max(30).optional().allow(null, ''),
   speedRestriction: Joi.number().min(0).max(99).optional().allow(null),
-  grossKerbWeight: Joi.number().min(0).max(99999).required(),
-  grossLadenWeight: Joi.number().min(0).max(99999).required(),
+  grossKerbWeight: Joi.number().min(0).max(99999),
+  grossLadenWeight: Joi.number().min(0).max(99999),
   unladenWeight: Joi.number().min(0).max(99999).optional().allow(null),
   maxTrainGbWeight: Joi.number().min(0).max(99999).optional().allow(null),
   dimensions: Joi.object().keys({
@@ -96,4 +96,4 @@ export const psvValidation = commonSchema.keys({
   remarks: Joi.string().max(1024).optional().allow(null, ''),
   dispensations: Joi.string().max(160).optional().allow(null, ''),
   applicantDetails: applicantDetailsSchemaOptional
-}).required();
+});
