@@ -87,12 +87,12 @@ export const commonSchema = Joi.object().keys({
   axles: Joi.array().items(axlesSchema).min(1),
   vehicleClass: Joi.object().keys({
     code: Joi.any().when("description", {
-      is: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION),
+      is: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION).required(),
       then: Joi.string().optional(),
       otherwise: Joi.object().forbidden()
     }),
-    description: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION)
-  }),
+    description: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION).required()
+  }).required(),
   vehicleConfiguration: Joi.string().valid(...VEHICLE_CONFIGURATION),
   departmentalVehicleMarker: Joi.boolean().optional(),
   alterationMarker: Joi.boolean().optional(),
@@ -103,11 +103,11 @@ export const commonSchema = Joi.object().keys({
   variantVersionNumber: Joi.string().max(35).optional().allow(null, ''),
   bodyType: Joi.object().keys({
     code: Joi.any().when("description", {
-      is: Joi.string().valid(...BODY_TYPE_DESCRIPTION),
+      is: Joi.string().valid(...BODY_TYPE_DESCRIPTION).required(),
       then: Joi.string().optional(),
       otherwise: Joi.object().forbidden()
     }),
-    description: Joi.string().valid(...BODY_TYPE_DESCRIPTION)
+    description: Joi.string().valid(...BODY_TYPE_DESCRIPTION).required()
   }),
   functionCode: Joi.string().max(1).optional().allow(null, ''),
   conversionRefNo: Joi.string().max(10).optional().allow(null, ''),
