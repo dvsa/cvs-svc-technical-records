@@ -3,88 +3,74 @@ import { VEHICLE_TYPE, ERRORS } from "../../assets/Enums";
 import { ValidationError, ValidationResult } from "@hapi/joi";
 import { ErrorHandler } from "../../handlers/ErrorHandler";
 
-export const populateVehicleClassCode = (description: string) => {
-  switch (description) {
-    case "motorbikes over 200cc or with a sidecar":
-      return "2";
-    case "not applicable":
-      return "n";
-    case "small psv (ie: less than or equal to 22 seats)":
-      return "s";
-    case "motorbikes up to 200cc":
-      return "1";
-    case "trailer":
-      return "t";
-    case "large psv(ie: greater than 23 seats)":
-      return "l";
-    case "3 wheelers":
-      return "3";
-    case "heavy goods vehicle":
-      return "v";
-    case "MOT class 4":
-      return "4";
-    case "MOT class 7":
-      return "7";
-    case "MOT class 5":
-      return "5";
-    default:
-     throw ErrorHandler.Error(400, ERRORS.INVALID_VEHICLE_CLASS);
-  }
+export const populateVehicleClassCode = (description: string): string => {
+  const classCode = vehicleClassCodeMap.get(description);
+
+  if (!classCode) throw ErrorHandler.Error(400, ERRORS.INVALID_VEHICLE_CLASS);
+
+  return classCode;
 };
 
-export const populateBodyTypeCode = (description: string) => {
-  switch (description) {
-    case "articulated":
-      return "a";
-    case "single decker":
-      return "s";
-    case "double decker":
-      return "d";
-    case "other":
-      return "o";
-    case "petrol/oil tanker":
-      return "p";
-    case "skeletal":
-      return "k";
-    case "tipper":
-      return "t";
-    case "box":
-      return "b";
-    case "flat":
-      return "f";
-    case "refuse":
-      return "r";
-    case "skip loader":
-      return "s";
-    case "refrigerated":
-      return "c";
-    default:
-      throw ErrorHandler.Error(400, ERRORS.INVALID_BODY_TYPE);
-  }
-};
+const vehicleClassCodeMap = new Map<string, string>([
+  ["3 wheelers",                                     "3"],
+  ["heavy goods vehicle",                            "v"],
+  ["large psv(ie: greater than 23 seats)",           "l"],
+  ["MOT class 4",                                    "4"],
+  ["MOT class 5",                                    "5"],
+  ["MOT class 7",                                    "7"],
+  ["motorbikes over 200cc or with a sidecar",        "2"],
+  ["motorbikes up to 200cc",                         "1"],
+  ["not applicable",                                 "n"],
+  ["small psv (ie: less than or equal to 22 seats)", "s"],
+  ["trailer",                                        "t"]
+]);
 
-export const populatePartialVin = (vin: string) => (vin.length<6) ? vin : vin.substr(vin.length - 6);
+export const populateBodyTypeCode = (description: string): string => {
+  const bodyTypeCode = bodyTypeCodeMap.get(description);
 
-export const populateFields = (techRecord: ITechRecord) => {
+  if (!bodyTypeCode) throw ErrorHandler.Error(400, ERRORS.INVALID_BODY_TYPE);
+
+  return bodyTypeCode;
+}
+
+const bodyTypeCodeMap = new Map<string, string>([
+  ["artic",             "u"],
+  ["articulated",       "a"],
+  ["box",               "b"],
+  ["car transporter",   "y"],
+  ["concrete mixer",    "m"],
+  ["curtainsider",      "e"],
+  ["double decker",     "d"],
+  ["flat",              "f"],
+  ["livestock carrier", "i"],
+  ["low loader",        "l"],
+  ["mini bus",          "m"],
+  ["other",             "o"],
+  ["petrol/oil tanker", "p"],
+  ["refrigerated",      "c"],
+  ["refuse",            "r"],
+  ["single decker",     "s"],
+  ["skeletal",          "k"],
+  ["skip loader",       "s"],
+  ["tipper",            "t"],
+  ["tractor",           "a"]
+]);
+
+export const populatePartialVin = (vin: string): string => vin.length < 6 ? vin : vin.substring(vin.length - 6);
+
+export const populateFields = (techRecord: ITechRecord): void => {
   const { vehicleType } = techRecord;
-  if (
-    vehicleType === VEHICLE_TYPE.PSV ||
-    vehicleType === VEHICLE_TYPE.HGV ||
-    vehicleType === VEHICLE_TYPE.TRL
-  ) {
-    techRecord.bodyType.code = populateBodyTypeCode(
-      techRecord.bodyType.description
-    );
+  
+  if (vehicleType === VEHICLE_TYPE.PSV || vehicleType === VEHICLE_TYPE.HGV || vehicleType === VEHICLE_TYPE.TRL) {
+    techRecord.bodyType.code = populateBodyTypeCode(techRecord.bodyType.description);
   }
+
   if (techRecord.vehicleClass) {
-    techRecord.vehicleClass.code = populateVehicleClassCode(
-      techRecord.vehicleClass.description
-    );
+    techRecord.vehicleClass.code = populateVehicleClassCode(techRecord.vehicleClass.description);
   }
-  if (techRecord.vehicleType === VEHICLE_TYPE.PSV) {
-    techRecord.brakes.brakeCodeOriginal = techRecord.brakes.brakeCode.substring(
-      techRecord.brakes.brakeCode.length - 3
-    );
+
+  if (vehicleType === VEHICLE_TYPE.PSV) {
+    techRecord.brakes.brakeCodeOriginal = techRecord.brakes.brakeCode.substring(techRecord.brakes.brakeCode.length - 3);
     techRecord.brakeCode = techRecord.brakes.brakeCode;
   }
 };
