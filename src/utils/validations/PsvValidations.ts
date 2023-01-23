@@ -18,6 +18,8 @@ import {
 } from "./CommonSchema";
 
 export const psvValidation = commonSchema.keys({
+  historicPrimaryVrm: Joi.string().optional(),
+  historicSecondaryVrms: Joi.array().items(Joi.string()).optional(),
   brakeCode: Joi.string().optional(),
   brakes: brakesSchema.keys({
     brakeCode: Joi.string().max(6).required(),
