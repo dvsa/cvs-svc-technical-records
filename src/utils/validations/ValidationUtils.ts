@@ -11,7 +11,7 @@ export const populateVehicleClassCode = (description: string): string => {
   return classCode;
 };
 
-const vehicleClassCodeMap = new Map<string, string>([
+export const vehicleClassCodeMap = new Map<string, string>([
   ["3 wheelers",                                     "3"],
   ["heavy goods vehicle",                            "v"],
   ["large psv(ie: greater than 23 seats)",           "l"],
@@ -33,7 +33,7 @@ export const populateBodyTypeCode = (description: string): string => {
   return bodyTypeCode;
 }
 
-const bodyTypeCodeMap = new Map<string, string>([
+export const bodyTypeCodeMap = new Map<string, string>([
   ["artic",             "u"],
   ["articulated",       "a"],
   ["box",               "b"],
