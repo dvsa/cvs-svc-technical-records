@@ -4,6 +4,8 @@ import {FUEL_PROPULSION_SYSTEM} from "../../assets/Enums";
 import {adrValidation} from "./AdrValidation";
 
 export const hgvValidation = commonSchema.keys({
+  historicPrimaryVrm: Joi.string().optional(),
+  historicSecondaryVrms: Joi.array().items(Joi.string()).optional(),
   axles: Joi.array().items(axlesSchema.keys({
     weights: weightsSchema.keys({
       eecWeight: Joi.number().min(0).max(99999).optional().allow(null)

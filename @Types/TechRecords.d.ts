@@ -36,6 +36,8 @@ export interface Trailer extends TrailerIdentifer {
 export interface TechRecord {
   hiddenInVta?: boolean;
   historicVin?: string;
+  historicPrimaryVrm?: string;
+  historicSecondaryVrms?: string[];
   recordCompleteness: string;
   euVehicleCategory: string;
   vehicleType: string;

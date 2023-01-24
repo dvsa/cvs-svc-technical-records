@@ -3,6 +3,8 @@ import {commonSchemaLgvMotorcycleCar} from "./CommonSchema";
 import {VEHICLE_CLASS_DESCRIPTION} from "../../assets/Enums";
 
 export const motorcycleValidation = commonSchemaLgvMotorcycleCar.keys({
+  historicPrimaryVrm: Joi.string().optional(),
+  historicSecondaryVrms: Joi.array().items(Joi.string()).optional(),
   numberOfWheelsDriven: Joi.number().min(0).max(9999).required(),
   vehicleClass: Joi.object().keys({
     code: Joi.any().when("description", {
