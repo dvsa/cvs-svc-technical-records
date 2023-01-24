@@ -3,7 +3,7 @@ import {VEHICLE_CLASS_DESCRIPTION, VEHICLE_SUBCLASS} from "../../assets/Enums";
 import {commonSchemaLgvMotorcycleCar} from "./CommonSchema";
 
 export const lgvValidation = commonSchemaLgvMotorcycleCar.keys({
-  vehicleSubclass: Joi.array().items(Joi.string().valid(...VEHICLE_SUBCLASS)),
+  vehicleSubclass: Joi.array().items(Joi.string().valid(...VEHICLE_SUBCLASS)).allow(null, ''),
   vehicleClass: Joi.object().keys({
     code: Joi.any().when("description", {
       is: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION),

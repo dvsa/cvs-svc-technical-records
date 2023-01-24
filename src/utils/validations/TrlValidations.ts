@@ -28,8 +28,8 @@ export const trlValidation = commonSchema.keys({
   frameDescription: Joi.string().valid(...FRAME_DESCRIPTION).optional().allow(null, ''),
   authIntoService: authIntoService,
   lettersOfAuth: lettersOfAuth,
-  make: Joi.string().max(30),
-  model: Joi.string().max(30),
+  make: Joi.string().max(30).allow(null, ''),
+  model: Joi.string().max(30).allow(null, ''),
   grossEecWeight: Joi.number().min(0).max(99999).optional().allow(null),
   axles: Joi.array().items(axlesSchema.keys({
     weights: weightsSchema.keys({
@@ -41,11 +41,11 @@ export const trlValidation = commonSchema.keys({
       springBrakeParking: Joi.boolean().optional().allow(null, '')
     }).optional().allow(null, '')
   })).min(1),
-  roadFriendly: Joi.boolean(),
+  roadFriendly: Joi.boolean().allow(null, ''),
   tyreUseCode: Joi.string().max(2).optional().allow(null, ''),
   brakes: brakesSchema.keys({
     loadSensingValve: Joi.boolean().optional().allow(null, ''),
-    antilockBrakingSystem: Joi.boolean()
+    antilockBrakingSystem: Joi.boolean().allow(null, '')
   }),
   dimensions: Joi.object().keys({
     length: Joi.number().min(0).max(99999).optional().allow(null),
@@ -56,12 +56,12 @@ export const trlValidation = commonSchema.keys({
     })).optional()
   }),
   frontAxleToRearAxle: Joi.number().min(0).max(99999).optional().allow(null),
-  rearAxleToRearTrl: Joi.number().min(0).max(99999),
-  couplingCenterToRearAxleMin: Joi.number().min(0).max(99999),
-  couplingCenterToRearAxleMax: Joi.number().min(0).max(99999),
-  couplingCenterToRearTrlMin: Joi.number().min(0).max(99999),
-  couplingCenterToRearTrlMax: Joi.number().min(0).max(99999),
-  centreOfRearmostAxleToRearOfTrl: Joi.number().min(0).max(99999),
+  rearAxleToRearTrl: Joi.number().min(0).max(99999).allow(null, ''),
+  couplingCenterToRearAxleMin: Joi.number().min(0).max(99999).allow(null, ''),
+  couplingCenterToRearAxleMax: Joi.number().min(0).max(99999).allow(null, ''),
+  couplingCenterToRearTrlMin: Joi.number().min(0).max(99999).allow(null, ''),
+  couplingCenterToRearTrlMax: Joi.number().min(0).max(99999).allow(null, ''),
+  centreOfRearmostAxleToRearOfTrl: Joi.number().min(0).max(99999).allow(null, ''),
   purchaserDetails: applicantDetailsSchema.keys({
     faxNumber: Joi.string().max(25).optional().allow(null, ''),
     purchaserNotes: Joi.string().max(1024).optional().allow(null, '')
