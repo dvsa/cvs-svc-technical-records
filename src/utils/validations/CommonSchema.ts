@@ -17,7 +17,7 @@ import {
 } from "../../assets/Enums";
 
 export const brakesSchema = Joi.object().keys({
-  dtpNumber: Joi.string().max(6),
+  dtpNumber: Joi.string().max(6).allow(null, ''),
 });
 
 export const weightsSchema = Joi.object().keys({
@@ -54,10 +54,10 @@ export const microfilmSchema = Joi.object().keys({
 }).optional().allow(null);
 
 export const applicantDetailsSchema = Joi.object().keys({
-  name: Joi.string().max(150),
-  address1: Joi.string().max(60),
-  address2: Joi.string().max(60),
-  postTown: Joi.string().max(60),
+  name: Joi.string().max(150).allow(null, ''),
+  address1: Joi.string().max(60).allow(null, ''),
+  address2: Joi.string().max(60).allow(null, ''),
+  postTown: Joi.string().max(60).allow(null, ''),
   address3: Joi.string().max(60).optional().allow(null, ''),
   postCode: Joi.string().max(12).optional().allow(null, ''),
   telephoneNumber: Joi.string().max(25).optional().allow(null, ''),
@@ -77,14 +77,14 @@ export const applicantDetailsSchemaOptional = Joi.object().keys({
 
 export const commonSchema = Joi.object().keys({
   hiddenInVta: Joi.boolean().optional().allow(null),
-  recordCompleteness: Joi.string().valid(...RECORD_COMPLETENESS).optional(),
-  euVehicleCategory: Joi.string().valid(...EU_VEHICLE_CATEGORY_VALIDATION),
+  recordCompleteness: Joi.string().valid(...RECORD_COMPLETENESS).optional().allow(null, ''),
+  euVehicleCategory: Joi.string().valid(...EU_VEHICLE_CATEGORY_VALIDATION).allow(null, ''),
   vehicleType: Joi.string().valid(...VEHICLE_TYPE_VALIDATION),
-  regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
-  manufactureYear: Joi.number().min(0).max(9999),
-  noOfAxles: Joi.number().min(0).max(99),
+  regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null).allow(null, ''),
+  manufactureYear: Joi.number().min(0).max(9999).allow(null, ''),
+  noOfAxles: Joi.number().min(0).max(99).allow(null, ''),
   brakes: brakesSchema,
-  axles: Joi.array().items(axlesSchema).min(1),
+  axles: Joi.array().items(axlesSchema).min(1).allow(null, ''),
   vehicleClass: Joi.object().keys({
     code: Joi.any().when("description", {
       is: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION).required(),
@@ -93,10 +93,10 @@ export const commonSchema = Joi.object().keys({
     }),
     description: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION).required()
   }).required(),
-  vehicleConfiguration: Joi.string().valid(...VEHICLE_CONFIGURATION),
-  departmentalVehicleMarker: Joi.boolean().optional(),
-  alterationMarker: Joi.boolean().optional(),
-  approvalType: Joi.string().valid(...APPROVAL_TYPE),
+  vehicleConfiguration: Joi.string().valid(...VEHICLE_CONFIGURATION).allow(null, ''),
+  departmentalVehicleMarker: Joi.boolean().optional().allow(null, ''),
+  alterationMarker: Joi.boolean().optional().allow(null, ''),
+  approvalType: Joi.string().valid(...APPROVAL_TYPE).allow(null, ''),
   approvalTypeNumber: Joi.string().max(25).optional().allow(null, ''),
   ntaNumber: Joi.string().max(40).optional().allow(null, ''),
   variantNumber: Joi.string().max(25).optional().allow(null, ''),
@@ -111,18 +111,18 @@ export const commonSchema = Joi.object().keys({
   }),
   functionCode: Joi.string().max(1).optional().allow(null, ''),
   conversionRefNo: Joi.string().max(10).optional().allow(null, ''),
-  grossGbWeight: Joi.number().min(0).max(99999),
-  grossDesignWeight: Joi.number().min(0).max(99999),
+  grossGbWeight: Joi.number().min(0).max(99999).allow(null, ''),
+  grossDesignWeight: Joi.number().min(0).max(99999).allow(null, ''),
   applicantDetails: applicantDetailsSchema,
   microfilm: microfilmSchema,
   plates: Joi.array().items(platesSchema).optional().allow(null),
-  reasonForCreation: Joi.string().max(100),
+  reasonForCreation: Joi.string().max(100).allow(null, ''),
   createdAt: Joi.string().optional().allow(null, ''),
-  createdByName: Joi.string().optional(),
-  createdById: Joi.string().optional(),
+  createdByName: Joi.string().optional().allow(null, ''),
+  createdById: Joi.string().optional().allow(null, ''),
   lastUpdatedAt: Joi.string().optional().allow(null, ''),
-  lastUpdatedByName: Joi.string().optional(),
-  lastUpdatedById: Joi.string().optional(),
+  lastUpdatedByName: Joi.string().optional().allow(null, ''),
+  lastUpdatedById: Joi.string().optional().allow(null, ''),
   statusCode: Joi.string().valid(...STATUS_CODES)
 });
 
