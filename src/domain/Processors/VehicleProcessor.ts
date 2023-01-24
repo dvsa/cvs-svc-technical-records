@@ -373,6 +373,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       );
       updatedVehicle = this.capitaliseGeneralVehicleAttributes(updatedVehicle);
 
+      techRecToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm
+      techRecToArchive.historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms
       techRecordWithAllStatuses.primaryVrm = updatedVehicle.primaryVrm;
       techRecordWithAllStatuses.secondaryVrms = updatedVehicle.secondaryVrms;
       if(updatedVehicle.techRecord[0].vehicleType === enums.VEHICLE_TYPE.TRL) {
