@@ -168,18 +168,26 @@ export const APPROVAL_TYPE: string[] = [
 ];
 
 export const BODY_TYPE_DESCRIPTION: string[] = [
+    "artic",
     "articulated",
-    "single decker",
+    "box",
+    "car transporter",
+    "concrete mixer",
+    "curtainsider",
     "double decker",
+    "flat",
+    "livestock carrier",
+    "low loader",
+    "mini bus",
     "other",
     "petrol/oil tanker",
-    "skeletal",
-    "tipper",
-    "box",
-    "flat",
+    "refrigerated",
     "refuse",
+    "single decker",
+    "skeletal",
     "skip loader",
-    "refrigerated"
+    "tipper",
+    "tractor"
 ];
 
 export const MICROFILM_DOCUMENT_TYPE: string[] = [
