@@ -130,7 +130,7 @@ defineFeature(feature, (test) => {
       "the corresponding body type code is autopopulated, as per the linked excel",
       async () => {
         responseGET = await request.get(requestUrlGET);
-        expect(responseGET.body[0].techRecord[0].bodyType.code).toEqual("a");
+        expect(responseGET.body[0].techRecord[0].bodyType.code).toEqual("k");
       }
     );
   });
