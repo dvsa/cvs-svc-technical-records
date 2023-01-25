@@ -113,7 +113,7 @@ export const commonSchema = Joi.object().keys({
   conversionRefNo: Joi.string().max(10).optional().allow(null, ''),
   grossGbWeight: Joi.number().min(0).max(99999).allow(null, ''),
   grossDesignWeight: Joi.number().min(0).max(99999).allow(null, ''),
-  applicantDetails: applicantDetailsSchema,
+  applicantDetails: applicantDetailsSchemaOptional,
   microfilm: microfilmSchema,
   plates: Joi.array().items(platesSchema).optional().allow(null, ''),
   reasonForCreation: Joi.string().max(100).allow(null, ''),
