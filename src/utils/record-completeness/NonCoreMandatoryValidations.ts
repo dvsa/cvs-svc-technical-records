@@ -9,7 +9,15 @@ import {
   FITMENT_CODE,
   FUEL_PROPULSION_SYSTEM, SPEED_CATEGORY_SYMBOL
 } from "../../assets/Enums";
-import {brakesSchema, weightsSchema} from "../validations/CommonSchema";
+
+const brakesSchema = Joi.object().keys({
+  dtpNumber: Joi.string().max(6).required(),
+}).required();
+
+const weightsSchema = Joi.object().keys({
+  gbWeight: Joi.number().min(0).max(99999).required(),
+  designWeight: Joi.number().min(0).max(99999).required()
+}).required();
 
 
 export const nonCoreTyresSchema = Joi.object().keys({
