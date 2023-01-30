@@ -85,7 +85,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       );
       
       const allTechRecordArrays = primaryVrmRecords.map(record => record.techRecord);
-      const allTechRecords = <ITechRecord[]>{};
+      const allTechRecords = new Array() as Array<ITechRecord>;
       allTechRecordArrays.map(record => record.forEach(x => allTechRecords.push(x)));
 
       if (!allTechRecords.every(record => record.statusCode === STATUS_CODES.ARCHIVED)) {
