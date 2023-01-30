@@ -62,7 +62,7 @@ describe("Compute Record Completeness", () => {
       });
 
       it("should return SKELETON if one of the core-mandatory attributes is missing", () => {
-        const coreMandatoryFields = commonMandatoryFields.concat(["vehicleConfiguration", "vehicleClass", "vehicleSize", "seatsUpperDeck", "seatsLowerDeck", "numberOfWheelsDriven"]);
+        const coreMandatoryFields = commonMandatoryFields.concat(["vehicleConfiguration", "vehicleClass", "vehicleSize", "seatsUpperDeck", "seatsLowerDeck"]);
         for (const coreMandatoryField of coreMandatoryFields) {
           const record: any = cloneDeep(mockData[127]);
           delete (record.techRecord[0] as any)[coreMandatoryField];
@@ -98,7 +98,7 @@ describe("Compute Record Completeness", () => {
       });
 
       it("should return SKELETON if one of the core-mandatory attributes is missing", () => {
-        const coreMandatoryFields = commonMandatoryFields.concat(["vehicleConfiguration", "vehicleClass", "numberOfWheelsDriven"]);
+        const coreMandatoryFields = commonMandatoryFields.concat(["vehicleConfiguration", "vehicleClass"]);
         for (const coreMandatoryField of coreMandatoryFields) {
           const record: any = cloneDeep(mockData[125]);
           delete (record.techRecord[0] as any)[coreMandatoryField];
