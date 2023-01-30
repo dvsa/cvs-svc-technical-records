@@ -8,6 +8,7 @@ import { computeRecordCompleteness } from "../../utils/record-completeness/Compu
 import TechRecordsDAO from "../../models/TechRecordsDAO";
 import HTTPResponse from "../../models/HTTPResponse";
 import ITechRecord from "../../../@Types/ITechRecord";
+import { STATUS_CODES } from "http";
 
 export abstract class VehicleProcessor<T extends Vehicle> {
   protected vehicle: T;
@@ -82,7 +83,12 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         primaryVrm,
         enums.SEARCHCRITERIA.VRM
       );
-      if (primaryVrmRecords.length > 0) {
+      
+      const allTechRecordArrays = primaryVrmRecords.map(record => record.techRecord);
+      const allTechRecords = <ITechRecord[]>{};
+      allTechRecordArrays.map(record => record.forEach(x => allTechRecords.push(x)));
+
+      if (!allTechRecords.every(record => record.statusCode === STATUS_CODES.ARCHIVED)) {
         errors.push(`Primary VRM ${primaryVrm} already exists`);
       }
     }
