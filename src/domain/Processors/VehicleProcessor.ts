@@ -87,8 +87,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       const allTechRecordArrays = primaryVrmRecords.map(record => record.techRecord);
       const allTechRecords = new Array() as Array<ITechRecord>;
       allTechRecordArrays.map(record => record.forEach(x => allTechRecords.push(x)));
-      console.log(allTechRecordArrays);
-      console.log(allTechRecords);
 
       if (!allTechRecords.every(record => record.statusCode === enums.STATUS.ARCHIVED)) {
         errors.push(`Primary VRM ${primaryVrm} already exists`);
