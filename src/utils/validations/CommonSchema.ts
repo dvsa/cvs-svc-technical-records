@@ -126,7 +126,7 @@ export const commonSchema = Joi.object().keys({
   statusCode: Joi.string().valid(...STATUS_CODES)
 });
 
-export const commonSchemaLgvMotorcycleCar = Joi.object().keys({
+export const commonSchemaLgvCarSmallTrlMotorcycle = Joi.object().keys({
   vehicleType: Joi.string().valid(...VEHICLE_TYPE_VALIDATION).allow(null, ''),
   regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null, ''),
   manufactureYear: Joi.number().min(0).max(9999).optional().allow(null, ''),

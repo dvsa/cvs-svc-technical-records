@@ -37,8 +37,8 @@ export const featureFlagValidation = (validationSchema: ObjectSchema, payload: H
  */
 export const validateHGVOrTrailer =(payload: HgvTechRecord | TrlTechRecord, options: any , isCreate: boolean) => {
   const isTankOrBattery: boolean = checkIfTankOrBattery(payload);
-  options = {...options, context: {isTankOrBattery}};
-  const validationSchema = payload.vehicleType === VEHICLE_TYPE.HGV? hgvValidation:trlValidation;
+  options = { ...options, context: { isTankOrBattery } };
+  const validationSchema = payload.vehicleType === VEHICLE_TYPE.HGV ? hgvValidation : trlValidation;
   const validationResult = featureFlagValidation(validationSchema, payload, isCreate, options);
   return handleValidationResult(validationResult);
 };
