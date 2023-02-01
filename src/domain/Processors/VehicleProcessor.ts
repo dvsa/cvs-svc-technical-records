@@ -84,9 +84,9 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         enums.SEARCHCRITERIA.VRM
       );
       
-      const allTechRecordArrays = primaryVrmRecords.map(record => record.techRecord);
-      const allTechRecords = new Array() as Array<ITechRecord>;
-      allTechRecordArrays.map(record => record.forEach(x => allTechRecords.push(x)));
+      const allTechRecords = primaryVrmRecords
+        .map(wrapper => wrapper.techRecord)
+        .reduce((accumulator, value) => accumulator.concat(value), []);
 
       if (!allTechRecords.every(record => record.statusCode === enums.STATUS.ARCHIVED)) {
         errors.push(`Primary VRM ${primaryVrm} already exists`);
