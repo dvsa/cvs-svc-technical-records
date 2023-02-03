@@ -4,15 +4,11 @@ import stitchedRecords from "../resources/stitchedUpTechRecords.json";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
-import {
-  populateDatabase,
-  emptyDatabase,
-  convertToResponse,
-} from "../util/dbOperations";
+import {populateDatabase, emptyDatabase, convertToResponse} from "../util/dbOperations";
 import mockData from "../resources/technical-records.json";
-import { HTTPRESPONSE } from "../../src/assets/Enums";
+import {HTTPRESPONSE} from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import { cloneDeep } from "lodash";
+import {cloneDeep} from "lodash";
 
 const msUserDetails = {
   msUser: "dorel",
@@ -39,367 +35,238 @@ describe("techRecords", () => {
 
     context("and when a search by VRM is done", () => {
       context("and no statusCode is provided", () => {
-        context(
-          "and the tech record for that VRM has statusCode 'current'",
-          () => {
-            it("should return the tech record for that VRM with status 'current'", async () => {
-              const res = await request.get("vehicles/JY58FPP/tech-records");
-              expect(res.status).toEqual(200);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body).toEqual(convertToResponse(mockData[0]));
-            });
-          }
-        );
+        context("and the tech record for that VRM has statusCode 'current'", () => {
+          it("should return the tech record for that VRM with status 'current'", async () => {
+            const res = await request.get("vehicles/JY58FPP/tech-records");
+            expect(res.status).toEqual(200);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(res.body).toEqual(convertToResponse(mockData[0]));
+          });
+        });
 
-        context(
-          "and the tech record for that VRM does not have statusCode 'current'",
-          () => {
-            it("should return 404", async () => {
-              const res = await request.get("vehicles/V916FSB/tech-records");
-              expect(res.status).toEqual(404);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
-            });
-          }
-        );
+        context("and the tech record for that VRM does not have statusCode 'current'", () => {
+          it("should return 404", async () => {
+            const res = await request.get("vehicles/V916FSB/tech-records");
+            expect(res.status).toEqual(404);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+          });
+        });
       });
 
       context("and statusCode is provided", () => {
-        context(
-          "and the tech record for that VRM has the statusCode provided",
-          () => {
-            it("should return the tech record for that VRM with statusCode 'archived'", async () => {
-              const res = await request.get(
-                "vehicles/AA12BCD/tech-records?status=archived"
-              );
-              expect(res.status).toEqual(200);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(convertToResponse(mockData[2])).toEqual(res.body);
-            });
-          }
-        );
+        context("and the tech record for that VRM has the statusCode provided", () => {
+          it("should return the tech record for that VRM with statusCode 'archived'", async () => {
+            const res = await request.get("vehicles/AA12BCD/tech-records?status=archived");
+            expect(res.status).toEqual(200);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(convertToResponse(mockData[2])).toEqual(res.body);
+          });
+        });
 
-        context(
-          "and the tech record for that VRM does not have statusCode 'archived'",
-          () => {
-            it("should return 404", async () => {
-              const res = await request.get(
-                "vehicles/BQ91YHQ/tech-records?status=archived"
-              );
-              expect(res.status).toEqual(404);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
-            });
-          }
-        );
+        context("and the tech record for that VRM does not have statusCode 'archived'", () => {
+          it("should return 404", async () => {
+            const res = await request.get("vehicles/BQ91YHQ/tech-records?status=archived");
+            expect(res.status).toEqual(404);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+          });
+        });
       });
 
       context("and the vehicle has more than one tech record", () => {
         it("should return all tech records for that VRM", async () => {
-          const res: supertest.Response = await request.get(
-            "vehicles/C47WLL/tech-records?status=all"
-          );
+          const res: supertest.Response = await request.get("vehicles/C47WLL/tech-records?status=all");
           expect(res.status).toEqual(200);
           expect(res.header["access-control-allow-origin"]).toEqual("*");
-          expect(res.header["access-control-allow-credentials"]).toEqual(
-            "true"
-          );
+          expect(res.header["access-control-allow-credentials"]).toEqual("true");
           expect(convertToResponse(mockData[8])).toEqual(res.body);
-          expect(res.body[0].techRecord.length).toEqual(
-            mockData[8].techRecord.length
-          );
+          expect(res.body[0].techRecord.length).toEqual(mockData[8].techRecord.length);
         });
       });
     });
 
     context("and when a search by partial VIN is done", () => {
       context("and no statusCode is provided", () => {
-        context(
-          "and the tech record for that partial VIN has statusCode 'current'",
-          () => {
-            it("should return the tech record for that partial VIN with status 'current'", async () => {
-              const res = await request.get("vehicles/012345/tech-records");
-              expect(res.status).toEqual(200);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(convertToResponse(mockData[0])).toEqual(res.body);
-            });
-          }
-        );
+        context("and the tech record for that partial VIN has statusCode 'current'", () => {
+          it("should return the tech record for that partial VIN with status 'current'", async () => {
+            const res = await request.get("vehicles/012345/tech-records");
+            expect(res.status).toEqual(200);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(convertToResponse(mockData[0])).toEqual(res.body);
+          });
+        });
 
-        context(
-          "and the tech record for that partial VIN does not have status code current or provisional",
-          () => {
-            it("should return 404", async () => {
-              const res = await request.get("vehicles/541234/tech-records");
-              expect(res.status).toEqual(404);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
-            });
-          }
-        );
+        context("and the tech record for that partial VIN does not have status code current or provisional", () => {
+          it("should return 404", async () => {
+            const res = await request.get("vehicles/541234/tech-records");
+            expect(res.status).toEqual(404);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+          });
+        });
       });
 
       context("and statusCode is provided", () => {
-        context(
-          "and the tech record for that partial VIN has the statusCode provided",
-          () => {
-            it("should return the tech record for that partial VIN with statusCode 'archived'", async () => {
-              const res = await request.get(
-                "vehicles/012461/tech-records?status=archived"
-              );
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(convertToResponse(mockData[2])).toEqual(res.body);
-              expect(res.status).toEqual(200);
-            });
-          }
-        );
+        context("and the tech record for that partial VIN has the statusCode provided", () => {
+          it("should return the tech record for that partial VIN with statusCode 'archived'", async () => {
+            const res = await request.get("vehicles/012461/tech-records?status=archived");
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(convertToResponse(mockData[2])).toEqual(res.body);
+            expect(res.status).toEqual(200);
+          });
+        });
 
-        context(
-          "and the tech record for that partial VIN does not have statusCode 'archived'",
-          () => {
-            it("should return 404", async () => {
-              const res = await request.get(
-                "vehicles/012345/tech-records?status=archived"
-              );
-              expect(res.status).toEqual(404);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
-            });
-          }
-        );
+        context("and the tech record for that partial VIN does not have statusCode 'archived'", () => {
+          it("should return 404", async () => {
+            const res = await request.get("vehicles/012345/tech-records?status=archived");
+            expect(res.status).toEqual(404);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+          });
+        });
       });
 
       context("and the vehicle has more than one tech record", () => {
         it("should return all tech records for that partial VIN", async () => {
-          const res = await request.get(
-            "vehicles/011900/tech-records?status=all"
-          );
+          const res = await request.get("vehicles/011900/tech-records?status=all");
           expect(res.status).toEqual(200);
           expect(res.header["access-control-allow-origin"]).toEqual("*");
-          expect(res.header["access-control-allow-credentials"]).toEqual(
-            "true"
-          );
+          expect(res.header["access-control-allow-credentials"]).toEqual("true");
           expect(convertToResponse(mockData[8])).toEqual(res.body);
-          expect(res.body[0].techRecord.length).toEqual(
-            mockData[8].techRecord.length
-          );
+          expect(res.body[0].techRecord.length).toEqual(mockData[8].techRecord.length);
         });
       });
 
-      context(
-        "and the partial VIN provided returns more than one match",
-        () => {
-          it("should return an array of all matches", async () => {
-            const res = await request.get("vehicles/678413/tech-records");
-            expect(res.status).toEqual(200);
-            expect(res.header["access-control-allow-origin"]).toEqual("*");
-            expect(res.header["access-control-allow-credentials"]).toEqual(
-              "true"
-            );
-            expect(res.body).toHaveLength(2);
-          });
-        }
-      );
+      context("and the partial VIN provided returns more than one match", () => {
+        it("should return an array of all matches", async () => {
+          const res = await request.get("vehicles/678413/tech-records");
+          expect(res.status).toEqual(200);
+          expect(res.header["access-control-allow-origin"]).toEqual("*");
+          expect(res.header["access-control-allow-credentials"]).toEqual("true");
+          expect(res.body).toHaveLength(2);
+        });
+      });
     });
 
     context("and when a search by full VIN is done", () => {
       context("and no statusCode is provided", () => {
-        context(
-          "and the tech record for that full VIN has statusCode 'current'",
-          () => {
-            it("should return the tech record for that full VIN with status 'current'", async () => {
-              const res = await request.get(
-                "vehicles/XMGDE02FS0H012345/tech-records"
-              );
-              expect(res.status).toEqual(200);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(convertToResponse(mockData[0])).toEqual(res.body);
-            });
-          }
-        );
+        context("and the tech record for that full VIN has statusCode 'current'", () => {
+          it("should return the tech record for that full VIN with status 'current'", async () => {
+            const res = await request.get("vehicles/XMGDE02FS0H012345/tech-records");
+            expect(res.status).toEqual(200);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(convertToResponse(mockData[0])).toEqual(res.body);
+          });
+        });
 
-        context(
-          "and the tech record for that full VIN does not have statusCode 'current'",
-          () => {
-            it("should return 404", async () => {
-              const res = await request.get(
-                "vehicles/XMGDE02FS0H012461/tech-records"
-              );
-              expect(res.status).toEqual(404);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
-            });
-          }
-        );
+        context("and the tech record for that full VIN does not have statusCode 'current'", () => {
+          it("should return 404", async () => {
+            const res = await request.get("vehicles/XMGDE02FS0H012461/tech-records");
+            expect(res.status).toEqual(404);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+          });
+        });
       });
 
       context("and statusCode is provided", () => {
-        context(
-          "and the tech record for that full VIN has the statusCode provided",
-          () => {
-            it("should return the tech record for that full VIN with statusCode 'archived'", async () => {
-              const res = await request.get(
-                "vehicles/XMGDE02FS0H012461/tech-records?status=archived"
-              );
-              expect(res.status).toEqual(200);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(convertToResponse(mockData[2])).toEqual(res.body);
-            });
-          }
-        );
+        context("and the tech record for that full VIN has the statusCode provided", () => {
+          it("should return the tech record for that full VIN with statusCode 'archived'", async () => {
+            const res = await request.get("vehicles/XMGDE02FS0H012461/tech-records?status=archived");
+            expect(res.status).toEqual(200);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(convertToResponse(mockData[2])).toEqual(res.body);
+          });
+        });
 
-        context(
-          "and the tech record for that full VIN does not have statusCode 'archived'",
-          () => {
-            it("should return 404", async () => {
-              const res = await request.get(
-                "vehicles/XMGDE02FS0H012345/tech-records?status=archived"
-              );
-              expect(res.status).toEqual(404);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
-            });
-          }
-        );
+        context("and the tech record for that full VIN does not have statusCode 'archived'", () => {
+          it("should return 404", async () => {
+            const res = await request.get("vehicles/XMGDE02FS0H012345/tech-records?status=archived");
+            expect(res.status).toEqual(404);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+          });
+        });
       });
 
       context("and the vehicle has more than one tech record", () => {
         it("should return all tech records for that full VIN", async () => {
-          const res = await request.get(
-            "vehicles/YV31MEC18GA011900/tech-records?status=all"
-          );
+          const res = await request.get("vehicles/YV31MEC18GA011900/tech-records?status=all");
           expect(res.status).toEqual(200);
           expect(res.header["access-control-allow-origin"]).toEqual("*");
-          expect(res.header["access-control-allow-credentials"]).toEqual(
-            "true"
-          );
+          expect(res.header["access-control-allow-credentials"]).toEqual("true");
           expect(convertToResponse(mockData[8])).toEqual(res.body);
-          expect(res.body[0].techRecord.length).toEqual(
-            mockData[8].techRecord.length
-          );
+          expect(res.body[0].techRecord.length).toEqual(mockData[8].techRecord.length);
         });
       });
     });
 
     context("and when a search by Trailer ID is done", () => {
       context("and no statusCode is provided", () => {
-        context(
-          "and the tech record for that Trailer ID has statusCode 'current'",
-          () => {
-            it("should return the tech record for that Trailer ID with status 'current'", async () => {
-              const res = await request.get("vehicles/09876543/tech-records");
-              expect(res.status).toEqual(200);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body).toEqual(convertToResponse(mockData[0]));
-            });
-          }
-        );
+        context("and the tech record for that Trailer ID has statusCode 'current'", () => {
+          it("should return the tech record for that Trailer ID with status 'current'", async () => {
+            const res = await request.get("vehicles/09876543/tech-records");
+            expect(res.status).toEqual(200);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(res.body).toEqual(convertToResponse(mockData[0]));
+          });
+        });
 
-        context(
-          "and the tech record for that TrailerID does not have statusCode 'current'",
-          () => {
-            it("should return 404", async () => {
-              const res = await request.get("vehicles/A456789/tech-records");
-              expect(res.status).toEqual(404);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
-            });
-          }
-        );
+        context("and the tech record for that TrailerID does not have statusCode 'current'", () => {
+          it("should return 404", async () => {
+            const res = await request.get("vehicles/A456789/tech-records");
+            expect(res.status).toEqual(404);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+          });
+        });
       });
 
       context("and statusCode is provided", () => {
-        context(
-          "and the tech record for that Trailer ID has the statusCode provided",
-          () => {
-            it("should return the tech record for that Trailer ID with statusCode 'archived'", async () => {
-              const res = await request.get(
-                "vehicles/A456789/tech-records?status=archived"
-              );
-              expect(res.status).toEqual(200);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(convertToResponse(mockData[2])).toEqual(res.body);
-            });
-          }
-        );
+        context("and the tech record for that Trailer ID has the statusCode provided", () => {
+          it("should return the tech record for that Trailer ID with statusCode 'archived'", async () => {
+            const res = await request.get("vehicles/A456789/tech-records?status=archived");
+            expect(res.status).toEqual(200);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(convertToResponse(mockData[2])).toEqual(res.body);
+          });
+        });
 
-        context(
-          "and the tech record for that Trailer ID does not have statusCode 'archived'",
-          () => {
-            it("should return 404", async () => {
-              const res = await request.get(
-                "vehicles/09876543/tech-records?status=archived"
-              );
-              expect(res.status).toEqual(404);
-              expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
-            });
-          }
-        );
+        context("and the tech record for that Trailer ID does not have statusCode 'archived'", () => {
+          it("should return 404", async () => {
+            const res = await request.get("vehicles/09876543/tech-records?status=archived");
+            expect(res.status).toEqual(404);
+            expect(res.header["access-control-allow-origin"]).toEqual("*");
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
+            expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+          });
+        });
       });
 
       context("and the vehicle has more than one tech record", () => {
         it("should return all tech records for that Trailer ID", async () => {
-          const res = await request.get(
-            "vehicles/09876543/tech-records?status=all"
-          );
+          const res = await request.get("vehicles/09876543/tech-records?status=all");
           expect(res.status).toEqual(200);
           expect(res.header["access-control-allow-origin"]).toEqual("*");
-          expect(res.header["access-control-allow-credentials"]).toEqual(
-            "true"
-          );
+          expect(res.header["access-control-allow-credentials"]).toEqual("true");
           expect(convertToResponse(mockData[0])).toEqual(res.body);
-          expect(res.body[0].techRecord.length).toEqual(
-            mockData[0].techRecord.length
-          );
+          expect(res.body[0].techRecord.length).toEqual(mockData[0].techRecord.length);
         });
       });
     });
@@ -408,20 +275,14 @@ describe("techRecords", () => {
       context("and no status code is provided", () => {
         context("and there are multiple dynamodb records for that system number", () => {
           it("should return a stitched up record for that system number with the most recent vin at the base of the tech record", async () => {
-            const res = await request.get(
-              "vehicles/11220280/tech-records?status=all&searchCriteria=systemNumber"
-            );
+            const res = await request.get("vehicles/11220280/tech-records?status=all&searchCriteria=systemNumber");
             console.log(res.body);
             expect(res.status).toEqual(200);
             expect(res.header["access-control-allow-origin"]).toEqual("*");
-            expect(res.header["access-control-allow-credentials"]).toEqual(
-              "true"
-            );
+            expect(res.header["access-control-allow-credentials"]).toEqual("true");
             expect(res.body.length).toEqual(1);
             expect(res.body).toEqual([stitchedRecords]);
-            expect(res.body[0].techRecord.length).toEqual(
-              4
-            );
+            expect(res.body[0].techRecord.length).toEqual(4);
           });
         });
       });
@@ -455,9 +316,7 @@ describe("techRecords", () => {
               const techRec: any = cloneDeep(mockData[43]);
               const vin = Date.now().toString();
               techRec.techRecord[0].bodyType.description = "skeletal";
-              const primaryVrm = Math.floor(
-                100000 + Math.random() * 900000
-              ).toString();
+              const primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
               delete techRec.techRecord[0].statusCode;
               const payload = {
                 msUserDetails,
@@ -468,9 +327,7 @@ describe("techRecords", () => {
               const res = await request.post("vehicles").send(payload);
               expect(res.status).toEqual(201);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
               expect(res.body).toEqual("Technical Record created");
             });
           });
@@ -490,9 +347,7 @@ describe("techRecords", () => {
               const res = await request.post("vehicles").send(payload);
               expect(res.status).toEqual(400);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
               expect(res.body).toEqual("Body is not a valid TechRecord");
             });
           });
@@ -530,7 +385,7 @@ describe("techRecords", () => {
               const payload = {
                 msUserDetails,
                 primaryVrm,
-                techRecord: techRec.techRecord
+                techRecord: techRec.techRecord,
               };
               const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
               expect(res.status).toEqual(200);
@@ -541,24 +396,28 @@ describe("techRecords", () => {
               expect(res.body.techRecord[techRec.techRecord.length - 1].statusCode).toEqual("archived");
             });
 
-
             it("should populate the historic Vrms for auditing history", async () => {
               await populateDatabase();
               const techRec = cloneDeep(mockData[130]) as ITechRecordWrapper;
               const primaryVrm = "ZYAG/ \\*-";
+              const secondaryVrms = ["QU123RT", "hello"];
               const payload = {
                 msUserDetails,
                 primaryVrm,
-                techRecord: techRec.techRecord
+                secondaryVrms,
+                techRecord: techRec.techRecord,
               };
               const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
               expect(res.status).toEqual(200);
+              console.log("res body");
+              console.log(res.body);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
               expect(res.body.techRecord).toHaveLength(techRec.techRecord.length + 1);
               expect(res.body.techRecord[techRec.techRecord.length].statusCode).toEqual("provisional");
+              expect(res.body.techRecord[techRec.techRecord.length].historicPrimaryVrm).toBe(undefined);
               expect(res.body.techRecord[techRec.techRecord.length - 1].statusCode).toEqual("archived");
-              expect(res.body.techRecord[techRec.techRecord.length - 1].statusCode).toEqual("archived");
+              expect(res.body.techRecord[techRec.techRecord.length - 1].historicPrimaryVrm).toEqual("QU123RT");
             });
 
             it("should return status 200 and updated trailer with the updated trailer Id in upper case", async () => {
@@ -569,23 +428,13 @@ describe("techRecords", () => {
                 msUserDetails,
                 techRecord: techRec.techRecord,
               };
-              const res = await request
-                .put(`vehicles/${techRec.systemNumber}`)
-                .send(payload);
+              const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
               expect(res.status).toEqual(200);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body.techRecord).toHaveLength(
-                techRec.techRecord.length + 1
-              );
-              expect(
-                res.body.techRecord[techRec.techRecord.length].statusCode
-              ).toEqual("provisional");
-              expect(
-                res.body.techRecord[techRec.techRecord.length - 1].statusCode
-              ).toEqual("archived");
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
+              expect(res.body.techRecord).toHaveLength(techRec.techRecord.length + 1);
+              expect(res.body.techRecord[techRec.techRecord.length].statusCode).toEqual("provisional");
+              expect(res.body.techRecord[techRec.techRecord.length - 1].statusCode).toEqual("archived");
             });
           });
 
@@ -593,7 +442,7 @@ describe("techRecords", () => {
             it("should return error status 404 No resources match the search criteria", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
-              const { primaryVrm } = techRec;
+              const {primaryVrm} = techRec;
               const vin = Date.now().toString();
               delete techRec.techRecord[0].statusCode;
               const payload = {
@@ -605,9 +454,7 @@ describe("techRecords", () => {
               const res = await request.put(`vehicles/${vin}`).send(payload);
               expect(res.status).toEqual(404);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
               expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
             });
           });
@@ -617,17 +464,11 @@ describe("techRecords", () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[1]);
               techRec.techRecord = [];
-              const res = await request
-                .put(`vehicles/${techRec.vin}`)
-                .send(techRec);
+              const res = await request.put(`vehicles/${techRec.vin}`).send(techRec);
               expect(res.status).toEqual(400);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual(
-                "true"
-              );
-              expect(res.body.errors).toContain(
-                "Body is not a valid TechRecord"
-              );
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
+              expect(res.body.errors).toContain("Body is not a valid TechRecord");
             });
           });
         });
