@@ -1,8 +1,8 @@
 import Joi from "@hapi/joi";
 import {VEHICLE_CLASS_DESCRIPTION, VEHICLE_SUBCLASS} from "../../assets/Enums";
-import {commonSchemaLgvMotorcycleCar} from "./CommonSchema";
+import {commonSchemaLgvCarSmallTrlMotorcycle} from "./CommonSchema";
 
-export const carValidation = commonSchemaLgvMotorcycleCar.keys({
+export const carValidation = commonSchemaLgvCarSmallTrlMotorcycle.keys({
   vehicleSubclass: Joi.array().items(Joi.string().valid(...VEHICLE_SUBCLASS)).allow(null, ''),
   historicPrimaryVrm: Joi.string().optional(),
   historicSecondaryVrms: Joi.array().items(Joi.string()).optional(),

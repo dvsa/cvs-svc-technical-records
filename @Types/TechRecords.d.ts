@@ -33,6 +33,10 @@ export interface Trailer extends TrailerIdentifer {
   techRecord: TrlTechRecord[];
 }
 
+export interface SmallTrailer extends Vehicle {
+  techRecord: TrlTechRecord[];
+}
+
 export interface TechRecord {
   hiddenInVta?: boolean;
   historicVin?: string;

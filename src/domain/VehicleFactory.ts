@@ -6,6 +6,7 @@ import {
   LightGoodsVehicle,
   Motorcycle,
   PublicServiceVehicle,
+  SmallTrailer,
   Trailer,
   Vehicle,
 } from "../../@Types/TechRecords";
@@ -33,6 +34,8 @@ export class VehicleFactory {
         return new processors.LgvProcessor(vehicleObj as LightGoodsVehicle, techRecordDAO);
       case enums.VEHICLE_TYPE.CAR:
         return new processors.CarProcessor(vehicleObj as Car, techRecordDAO);
+      case enums.VEHICLE_TYPE.SMALL_TRL:
+        return new processors.SmallTrailerProcessor(vehicleObj as SmallTrailer, techRecordDAO);
       case enums.VEHICLE_TYPE.MOTORCYCLE:
         return new processors.MotorcycleProcessor(vehicleObj as Motorcycle, techRecordDAO);
       default:
