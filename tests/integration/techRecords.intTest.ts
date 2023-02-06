@@ -398,26 +398,23 @@ describe("techRecords", () => {
 
             it("should populate the historic Vrms for auditing history", async () => {
               await populateDatabase();
-              const techRec = cloneDeep(mockData[130]) as ITechRecordWrapper;
+              const techRec = cloneDeep(mockData[132]) as ITechRecordWrapper;
               const primaryVrm = "ZYAG/ \\*-";
-              const secondaryVrms = ["QU123RT", "hello"];
               const payload = {
                 msUserDetails,
                 primaryVrm,
-                secondaryVrms,
                 techRecord: techRec.techRecord,
               };
               const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
               expect(res.status).toEqual(200);
-              console.log("res body");
-              console.log(res.body);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
               expect(res.header["access-control-allow-credentials"]).toEqual("true");
               expect(res.body.techRecord).toHaveLength(techRec.techRecord.length + 1);
               expect(res.body.techRecord[techRec.techRecord.length].statusCode).toEqual("provisional");
               expect(res.body.techRecord[techRec.techRecord.length].historicPrimaryVrm).toBe(undefined);
               expect(res.body.techRecord[techRec.techRecord.length - 1].statusCode).toEqual("archived");
-              expect(res.body.techRecord[techRec.techRecord.length - 1].historicPrimaryVrm).toEqual("QU123RT");
+              expect(res.body.techRecord[techRec.techRecord.length - 1].historicPrimaryVrm).toEqual("B2C1C12");
+              expect(res.body.techRecord[techRec.techRecord.length - 1].historicSecondaryVrms).toEqual(["E5F1I00"]);
             });
 
             it("should return status 200 and updated trailer with the updated trailer Id in upper case", async () => {
