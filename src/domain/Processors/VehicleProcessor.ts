@@ -281,7 +281,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
 
       const originalRecord = await this.techRecordDAO.getBySearchTerm(updatedVehicle.systemNumber, enums.SEARCHCRITERIA.SYSTEM_NUMBER);
 
-      techRecToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm;
+      techRecToArchive.historicPrimaryVrm = originalRecord[0].primaryVrm;
       techRecToArchive.historicSecondaryVrms = originalRecord[0].secondaryVrms;
       techRecordWithAllStatuses.primaryVrm = updatedVehicle.primaryVrm;
       techRecordWithAllStatuses.secondaryVrms = updatedVehicle.secondaryVrms;
