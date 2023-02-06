@@ -1,14 +1,14 @@
-import {cloneDeep, mergeWith, isArray, isEqual} from "lodash";
-import {Vehicle, TechRecord, Trailer, PsvTechRecord} from "../../../@Types/TechRecords";
+import { cloneDeep, mergeWith, isArray, isEqual } from "lodash";
+import { Vehicle, TechRecord, Trailer, PsvTechRecord } from "../../../@Types/TechRecords";
 import IMsUserDetails from "../../../@Types/IUserDetails";
 import * as enums from "../../assets/Enums";
 import * as validators from "../../utils/validations";
 import * as handlers from "../../handlers";
-import {computeRecordCompleteness} from "../../utils/record-completeness/ComputeRecordCompleteness";
+import { computeRecordCompleteness } from "../../utils/record-completeness/ComputeRecordCompleteness";
 import TechRecordsDAO from "../../models/TechRecordsDAO";
 import HTTPResponse from "../../models/HTTPResponse";
 import ITechRecord from "../../../@Types/ITechRecord";
-import {STATUS_CODES} from "http";
+import { STATUS_CODES } from "http";
 
 export abstract class VehicleProcessor<T extends Vehicle> {
   protected vehicle: T;
@@ -20,7 +20,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
 
   protected constructor(vehicleObj: T, protected techRecordDAO: TechRecordsDAO) {
     this.vehicle = vehicleObj;
-    this.validationOptions = {abortEarly: false};
+    this.validationOptions = { abortEarly: false };
     this.numberGenerator = new handlers.NumberGenerator(this.techRecordDAO);
     this.techRecordsListHandler = new handlers.TechRecordsListHandler(this.techRecordDAO);
     this.auditHandler = new handlers.AuditDetailsHandler();
@@ -49,7 +49,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
    * @param updatedVehicle The updated tech record
    */
   protected updateVehicleIdentifiers(existingVehicle: T, updatedVehicle: T): T {
-    const {primaryVrm} = updatedVehicle;
+    const { primaryVrm } = updatedVehicle;
     const previousPrimaryVrm = existingVehicle.primaryVrm;
     updatedVehicle.secondaryVrms = existingVehicle.secondaryVrms;
     if (!primaryVrm || previousPrimaryVrm === primaryVrm) {
@@ -70,7 +70,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
    */
   protected async validateVrmWithHistory(newVehicle: T, existingVehicle: T) {
     const errors: string[] = [];
-    const {primaryVrm} = newVehicle;
+    const { primaryVrm } = newVehicle;
     if (primaryVrm && existingVehicle.primaryVrm !== primaryVrm) {
       const primaryVrmRecords = await this.techRecordDAO.getBySearchTerm(primaryVrm, enums.SEARCHCRITERIA.VRM);
 
@@ -256,7 +256,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
    * @param oldStatusCode the old status of the updated techRecord. This is an optional parameter and only needs to be passed if status is updated.
    */
   private async createAndArchiveTechRecord(updatedVehicle: T, msUserDetails: IMsUserDetails, oldStatusCode: enums.STATUS | undefined): Promise<T> {
-    const {statusCode} = updatedVehicle.techRecord[0];
+    const { statusCode } = updatedVehicle.techRecord[0];
 
     VehicleProcessor.checkStatusCodeValidity(statusCode, oldStatusCode);
 
@@ -295,7 +295,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       this.auditHandler.setAuditDetails(newRecord, techRecToArchive, msUserDetails);
       techRecToArchive.statusCode = enums.STATUS.ARCHIVED;
       this.mapFields(newRecord);
-      const {systemNumber, vin, primaryVrm} = techRecordWithAllStatuses;
+      const { systemNumber, vin, primaryVrm } = techRecordWithAllStatuses;
       const vehicleToUpdate = {
         systemNumber,
         vin,
@@ -322,7 +322,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   private validate(newVehicle: T, isCreate: boolean): TechRecord {
     let errors: string[] = [];
     const isPrimaryVrmRequired = this.vehicle.techRecord[0].vehicleType !== enums.VEHICLE_TYPE.TRL;
-    const {primaryVrm, secondaryVrms} = this.vehicle;
+    const { primaryVrm, secondaryVrms } = this.vehicle;
     // primary & secondary vrms are required in case of create and optional in case of update
     const validatePrimaryVrm = isCreate || primaryVrm;
     const validateSecondaryVrms = isCreate || secondaryVrms;

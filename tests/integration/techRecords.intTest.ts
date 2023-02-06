@@ -4,11 +4,11 @@ import stitchedRecords from "../resources/stitchedUpTechRecords.json";
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
-import {populateDatabase, emptyDatabase, convertToResponse} from "../util/dbOperations";
+import { populateDatabase, emptyDatabase, convertToResponse } from "../util/dbOperations";
 import mockData from "../resources/technical-records.json";
-import {HTTPRESPONSE} from "../../src/assets/Enums";
+import { HTTPRESPONSE } from "../../src/assets/Enums";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
-import {cloneDeep} from "lodash";
+import { cloneDeep } from "lodash";
 
 const msUserDetails = {
   msUser: "dorel",
@@ -439,7 +439,7 @@ describe("techRecords", () => {
             it("should return error status 404 No resources match the search criteria", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
-              const {primaryVrm} = techRec;
+              const { primaryVrm } = techRec;
               const vin = Date.now().toString();
               delete techRec.techRecord[0].statusCode;
               const payload = {
