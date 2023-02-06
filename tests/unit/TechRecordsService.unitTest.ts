@@ -310,7 +310,6 @@ describe("insertTechRecord", () => {
         const techRecordsService = new TechRecordsService(new MockDAO());
 
         const data = await techRecordsService.insertTechRecord(techRecord, msUserDetails);
-        console.log("🚀 ~ file: TechRecordsService.unitTest.ts:337 ~ it ~ data", data);
         expect(data.primaryVrm).toBe("1000001Z");
       });
     });
