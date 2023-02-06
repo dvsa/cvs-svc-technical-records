@@ -533,6 +533,41 @@ describe("insertTechRecord", () => {
         expect(await numberGenerator.generateSystemNumber()).toEqual("10001111");
       });
     });
+    context("and there is no vrm on the vehicle", () => {
+      it("should generate the correct ZNumber", async () => {
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getZNumber: () => {
+              return Promise.resolve({
+                zNumber: "10001111",
+                testNumberKey: 4
+              });
+            }
+          };
+        });
+        const numberGenerator = new NumberGenerator(new MockDAO());
+        expect(await numberGenerator.generateZNumber()).toEqual("10001111");
+      });
+      it("should return error 500 Z Number generation failed", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getZNumber: () => {
+                return Promise.resolve({
+                  testNumberKey: 5
+                });
+              }
+            };
+          });
+          const numberGenerator = new NumberGenerator(new MockDAO());
+
+          try {
+            expect(await numberGenerator.generateZNumber()).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual(ERRORS.Z_NUMBER_GENERATION_FAILED);
+          }
+        });
+    });
     context("and the system number generation failed", () => {
       context("and the system number object doesn't contain the systemNumber attribute", () => {
         it("should return error 500 System Number generation failed", async () => {
