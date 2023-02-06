@@ -38,4 +38,19 @@ export class NumberGenerator {
       return Promise.reject({statusCode: 500, body: error});
     }
   }
+
+  public async generateZNumber(): Promise<string> {
+    try {
+      const ZNumberObj = await this.techRecordsDAO.getZNumber();
+      if (ZNumberObj.error) {
+        return Promise.reject({statusCode: 500, body: ZNumberObj.error});
+      }
+      if (!ZNumberObj.ZNumber) {
+        return Promise.reject({statusCode: 500, body: ERRORS.Z_NUMBER_GENERATION_FAILED});
+      }
+      return ZNumberObj.ZNumber;
+    } catch (error) {
+      return Promise.reject({statusCode: 500, body: error});
+    }
+  }
 }

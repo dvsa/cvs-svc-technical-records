@@ -7,8 +7,8 @@ import { ISearchCriteria } from "../../@Types/ISearchCriteria";
 import { populatePartialVin } from "../utils/validations/ValidationUtils";
 import { LambdaService } from "../services/LambdaService";
 import { Vehicle, Trailer } from "../../@Types/TechRecords";
-import {PromiseResult} from "aws-sdk/lib/request";
-import {AWSError} from "aws-sdk/lib/error";
+import { PromiseResult } from "aws-sdk/lib/request";
+import { AWSError } from "aws-sdk/lib/error";
 
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
@@ -35,18 +35,22 @@ class TechRecordsDAO {
     }
   }
 
-  private readonly CriteriaIndexMap: {[key: string]: string} = {
+  private readonly CriteriaIndexMap: { [key: string]: string } = {
     systemNumber: "SysNumIndex",
     partialVin: "PartialVinIndex",
     vrm: "VRMIndex",
     vin: "VinIndex",
-    trailerId: "TrailerIdIndex"
+    trailerId: "TrailerIdIndex",
   };
 
-  private queryBuilder(searchTerm: string, searchCriteria: SEARCHCRITERIA, query: QueryInput) {
-
+  private queryBuilder(
+    searchTerm: string,
+    searchCriteria: SEARCHCRITERIA,
+    query: QueryInput
+  ) {
     Object.assign(query.ExpressionAttributeNames!, {
-      [`#${searchCriteria}`]: searchCriteria === SEARCHCRITERIA.VRM ? "primaryVrm" : searchCriteria,
+      [`#${searchCriteria}`]:
+        searchCriteria === SEARCHCRITERIA.VRM ? "primaryVrm" : searchCriteria,
     });
 
     Object.assign(query.ExpressionAttributeValues!, {
@@ -90,11 +94,11 @@ class TechRecordsDAO {
   }
 
   private async queryAllData(
-      params: any,
-      allData: ITechRecordWrapper[] = []
+    params: any,
+    allData: ITechRecordWrapper[] = []
   ): Promise<ITechRecordWrapper[]> {
-
-    const data: PromiseResult<DocumentClient.QueryOutput, AWSError> = await dbClient.query(params).promise();
+    const data: PromiseResult<DocumentClient.QueryOutput, AWSError> =
+      await dbClient.query(params).promise();
 
     if (data.Items && data.Items.length > 0) {
       allData = [...allData, ...(data.Items as ITechRecordWrapper[])];
@@ -179,6 +183,15 @@ class TechRecordsDAO {
           path: "/system-number/",
           httpMethod: "POST",
           resource: "/system-number/",
+        })
+
+  public getZNumber = () =>
+    process.env.BRANCH === "local"
+      ? Promise.resolve({ ZNumber: "123" })
+      : this.invokeNumberService({
+          path: "/ZNumber/",
+          httpMethod: "POST",
+          resource: "/ZNumber/",
         })
 
   private invokeNumberService = (serviceParams: {

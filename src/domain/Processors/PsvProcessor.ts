@@ -12,6 +12,9 @@ export class PsvProcessor extends VehicleProcessor<PublicServiceVehicle> {
   }
   protected async setNumberKey(): Promise<void> {
     this.vehicle.systemNumber = await this.numberGenerator.generateSystemNumber();
+    if (!this.vehicle.primaryVrm) {
+      this.vehicle.primaryVrm = await this.numberGenerator.generateZNumber();
+    }
   }
 
   protected validateTechRecordFields(newVehicle: PsvTechRecord): string[] {
