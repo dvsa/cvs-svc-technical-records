@@ -41,14 +41,14 @@ export class NumberGenerator {
 
   public async generateZNumber(): Promise<string> {
     try {
-      const ZNumberObj = await this.techRecordsDAO.getZNumber();
-      if (ZNumberObj.error) {
-        return Promise.reject({statusCode: 500, body: ZNumberObj.error});
+      const zNumberObj = await this.techRecordsDAO.getZNumber();
+      if (zNumberObj.error) {
+        return Promise.reject({statusCode: 500, body: zNumberObj.error});
       }
-      if (!ZNumberObj.ZNumber) {
+      if (!zNumberObj.zNumber) {
         return Promise.reject({statusCode: 500, body: ERRORS.Z_NUMBER_GENERATION_FAILED});
       }
-      return ZNumberObj.ZNumber;
+      return zNumberObj.zNumber;
     } catch (error) {
       return Promise.reject({statusCode: 500, body: error});
     }

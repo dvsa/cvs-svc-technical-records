@@ -244,12 +244,15 @@ describe("insertTechRecord", () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });
+
   beforeAll(() => {
     Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(false);
   });
+
   afterAll(() => {
     Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(true);
   });
+
   context("when inserting a new technical record", () => {
     it("should return 201 Technical Record Created", async () => {
       // @ts-ignore
@@ -282,6 +285,35 @@ describe("insertTechRecord", () => {
       expect(data).not.toEqual(undefined);
       expect(Object.keys(data).length).toEqual(7);
     });
+
+    context("and the primaryVRM is missing from the record", () => {
+      it("should generate a z number and create the record", async () => {
+        // @ts-ignore
+        const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
+        // techRecord.secondaryVrms = ["invalidSecondaryVrm"];
+        techRecord.techRecord[0].bodyType.description = "skeletal";
+        delete techRecord.techRecord[0].statusCode;
+        delete techRecord.primaryVrm;
+        delete techRecord.systemNumber;
+
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            createSingle: () => {
+              return Promise.resolve({
+                Attributes: techRecord
+              });
+            },
+            getSystemNumber: () => Promise.resolve({systemNumber: "10000001", testNumberKey: 3}),
+            getZNumber: () => Promise.resolve({zNumber: "1000001Z"}),
+          };
+        });
+        const techRecordsService = new TechRecordsService(new MockDAO());
+
+        const data = await techRecordsService.insertTechRecord(techRecord, msUserDetails);
+        console.log("🚀 ~ file: TechRecordsService.unitTest.ts:337 ~ it ~ data", data);
+        expect(data.primaryVrm).toBe("1000001Z");
+      });
+    });
   });
 
   context("when trying to create a new technical record with invalid payload", () => {
@@ -308,36 +340,6 @@ describe("insertTechRecord", () => {
       } catch (errorResponse) {
         expect(errorResponse.statusCode).toEqual(400);
       }
-    });
-
-    context("and the primaryVRM is missing from the record", () => {
-      it("should return Primary or secondaryVrms are not valid error 400", async () => {
-        const MockDAO = jest.fn().mockImplementation(() => {
-          return {
-            createSingle: () => {
-              return Promise.resolve({});
-            },
-            getSystemNumber: () => Promise.resolve({systemNumber: "10000001", testNumberKey: 3})
-          };
-        });
-        const techRecordsService = new TechRecordsService(new MockDAO());
-
-        // @ts-ignore
-        const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
-        // techRecord.secondaryVrms = ["invalidSecondaryVrm"];
-        techRecord.techRecord[0].bodyType.description = "skeletal";
-        delete techRecord.techRecord[0].statusCode;
-        delete techRecord.primaryVrm;
-        delete techRecord.systemNumber;
-
-        try {
-          expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
-        } catch (errorResponse) {
-          expect(errorResponse.statusCode).toEqual(400);
-          expect(errorResponse.body.errors).toContain(ERRORS.INVALID_PRIMARY_VRM);
-          // expect(errorResponse.body.errors).toContain(ERRORS.INVALID_SECONDARY_VRM);
-        }
-      });
     });
 
     context("and the primaryVrm and secondaryVrms are not valid", () => {

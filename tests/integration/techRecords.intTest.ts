@@ -544,10 +544,9 @@ describe("techRecords", () => {
             it("should return status 200 and updated trailer with the updated trailer Id in upper case", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[131]);
-              const trailerId = "ab2c3YZ5";
               const payload = {
                 msUserDetails,
-                techRecord: techRec.techRecord,
+                ...techRec,
               };
               const res = await request
                 .put(`vehicles/${techRec.systemNumber}`)

@@ -187,11 +187,11 @@ class TechRecordsDAO {
 
   public getZNumber = () =>
     process.env.BRANCH === "local"
-      ? Promise.resolve({ ZNumber: "123" })
+      ? Promise.resolve({ zNumber: "123" })
       : this.invokeNumberService({
-          path: "/ZNumber/",
+          path: "/z-number/",
           httpMethod: "POST",
-          resource: "/ZNumber/",
+          resource: "/z-number/",
         })
 
   private invokeNumberService = (serviceParams: {

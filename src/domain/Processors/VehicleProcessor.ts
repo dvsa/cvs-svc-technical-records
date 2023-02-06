@@ -456,15 +456,15 @@ export abstract class VehicleProcessor<T extends Vehicle> {
    */
   private validate(newVehicle: T, isCreate: boolean): TechRecord {
     let errors: string[] = [];
-    const isPrimaryVrmRequired= this.vehicle.techRecord[0].vehicleType !== enums.VEHICLE_TYPE.TRL;
+    const isPrimaryVrmRequired = this.vehicle.techRecord[0].vehicleType !== enums.VEHICLE_TYPE.TRL;
     const {primaryVrm, secondaryVrms} = this.vehicle;
     
-    // validate primaryVrm if provided or is not create
-    const validatePrimaryVrm = primaryVrm || !isCreate;
+    // validate if it's not create or primaryVrm is truthy
+    const validatePrimaryVrm = !isCreate || primaryVrm;
     const validateSecondaryVrms = isCreate || secondaryVrms;
 
-    errors = errors.concat(validatePrimaryVrm? validators.primaryVrmValidator(primaryVrm, isPrimaryVrmRequired):[]);
-    errors = errors.concat(validateSecondaryVrms? validators.secondaryVrmValidator(secondaryVrms):[]);
+    errors = errors.concat(validatePrimaryVrm ? validators.primaryVrmValidator(primaryVrm, isPrimaryVrmRequired):[]);
+    errors = errors.concat(validateSecondaryVrms ? validators.secondaryVrmValidator(secondaryVrms):[]);
     errors = errors.concat(this.validateTechRecordFields(newVehicle.techRecord[0], isCreate));
 
     if (errors && errors.length) {
