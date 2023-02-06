@@ -62,9 +62,11 @@ export abstract class VehicleProcessor<T extends Vehicle> {
    * @param updatedVehicle The updated tech record
    */
   protected updateVehicleIdentifiers(existingVehicle: T, updatedVehicle: T): T {
+    ;
     const { primaryVrm } = updatedVehicle;
     const previousPrimaryVrm = existingVehicle.primaryVrm;
-    updatedVehicle.secondaryVrms = existingVehicle.secondaryVrms;
+
+    updatedVehicle.secondaryVrms = Object.assign([], existingVehicle.secondaryVrms);
     if (!primaryVrm || previousPrimaryVrm === primaryVrm) {
       return updatedVehicle;
     }
@@ -72,8 +74,9 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       updatedVehicle.secondaryVrms?.push(previousPrimaryVrm);
     }
     updatedVehicle.techRecord[0].reasonForCreation =
-      `VRM updated from ${previousPrimaryVrm} to ${primaryVrm}. ` +
-      updatedVehicle.techRecord[0].reasonForCreation;
+    `VRM updated from ${previousPrimaryVrm} to ${primaryVrm}. ` +
+    updatedVehicle.techRecord[0].reasonForCreation; 
+
 
     return updatedVehicle;
   }
@@ -390,8 +393,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       const techRecToArchive = VehicleProcessor.getTechRecordToArchive(
         techRecordWithAllStatuses,
         oldStatusCode ? oldStatusCode : statusCode
-      );
-
+        );
+        
       // if status code has changed from provisional to current
       this.updateCurrentStatusCode(
         oldStatusCode,
@@ -400,16 +403,15 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         msUserDetails
       );
 
+      techRecToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm
+      techRecToArchive.historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms;
+
       updatedVehicle = this.updateVehicleIdentifiers(
         techRecordWithAllStatuses,
-        updatedVehicle
+        updatedVehicle, 
       );
       updatedVehicle = this.capitaliseGeneralVehicleAttributes(updatedVehicle);
 
-      const originalRecord = await this.techRecordDAO.getBySearchTerm(updatedVehicle.systemNumber, enums.SEARCHCRITERIA.SYSTEM_NUMBER);
-
-      techRecToArchive.historicPrimaryVrm = originalRecord[0].primaryVrm;
-      techRecToArchive.historicSecondaryVrms = originalRecord[0].secondaryVrms;
       techRecordWithAllStatuses.primaryVrm = updatedVehicle.primaryVrm;
       techRecordWithAllStatuses.secondaryVrms = updatedVehicle.secondaryVrms;
       if (updatedVehicle.techRecord[0].vehicleType === enums.VEHICLE_TYPE.TRL) {

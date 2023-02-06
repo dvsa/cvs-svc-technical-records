@@ -545,7 +545,6 @@ describe("techRecords", () => {
               await populateDatabase();
               const techRec = cloneDeep(mockData[132]) as ITechRecordWrapper;
               const primaryVrm = "ZYAG/ \\*-";
-
               const payload = {
                 msUserDetails,
                 primaryVrm,
