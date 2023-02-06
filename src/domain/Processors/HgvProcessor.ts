@@ -9,6 +9,9 @@ export class HgvProcessor extends VehicleProcessor<HeavyGoodsVehicle> {
   }
   protected async setNumberKey(): Promise<void> {
     this.vehicle.systemNumber = await this.numberGenerator.generateSystemNumber();
+    if (!this.vehicle.primaryVrm) {
+      this.vehicle.primaryVrm = await this.numberGenerator.generateZNumber();
+    }
   }
   protected validateTechRecordFields(newVehicle: HgvTechRecord, isCreate: boolean): string[] {
     console.log("HGV validate tech record fields");
