@@ -262,6 +262,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
 
     updatedVehicle.techRecord[0] = this.validate(updatedVehicle, false);
 
+    const secondaryVrmsToArchive = updatedVehicle.secondaryVrms;
+
     try {
       const techRecordWithAllStatuses = await this.getTechRecordList(updatedVehicle.systemNumber);
 
@@ -278,7 +280,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       updatedVehicle = this.capitaliseGeneralVehicleAttributes(updatedVehicle);
 
       techRecToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm;
-      techRecToArchive.historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms?.filter((vrm) => vrm !== techRecordWithAllStatuses.primaryVrm);
+      techRecToArchive.historicSecondaryVrms = secondaryVrmsToArchive;
       techRecordWithAllStatuses.primaryVrm = updatedVehicle.primaryVrm;
       techRecordWithAllStatuses.secondaryVrms = updatedVehicle.secondaryVrms;
       if (updatedVehicle.techRecord[0].vehicleType === enums.VEHICLE_TYPE.TRL) {

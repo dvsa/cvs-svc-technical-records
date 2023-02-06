@@ -400,9 +400,11 @@ describe("techRecords", () => {
               await populateDatabase();
               const techRec = cloneDeep(mockData[132]) as ITechRecordWrapper;
               const primaryVrm = "ZYAG/ \\*-";
+              const secondaryVrms = ["E5F1I00"];
               const payload = {
                 msUserDetails,
                 primaryVrm,
+                secondaryVrms,
                 techRecord: techRec.techRecord,
               };
               const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
@@ -415,6 +417,29 @@ describe("techRecords", () => {
               expect(res.body.techRecord[techRec.techRecord.length - 1].statusCode).toEqual("archived");
               expect(res.body.techRecord[techRec.techRecord.length - 1].historicPrimaryVrm).toEqual("B2C1C12");
               expect(res.body.techRecord[techRec.techRecord.length - 1].historicSecondaryVrms).toEqual(["E5F1I00"]);
+            });
+
+            it("should also update the Vrms array to add the new primary vrm", async () => {
+              await populateDatabase();
+              const techRec = cloneDeep(mockData[132]) as ITechRecordWrapper;
+              const primaryVrm = "ZYAG/ \\*-";
+              const secondaryVrms = ["E5F1I00"];
+              const payload = {
+                msUserDetails,
+                primaryVrm,
+                secondaryVrms,
+                techRecord: techRec.techRecord,
+              };
+              const expectedVrms = [
+                { vrm: "ZYAG/ \\*-", isPrimary: true },
+                { vrm: "E5F1I00", isPrimary: false },
+                { vrm: "B2C1C12", isPrimary: false },
+              ];
+              const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
+              expect(res.status).toEqual(200);
+              expect(res.header["access-control-allow-origin"]).toEqual("*");
+              expect(res.header["access-control-allow-credentials"]).toEqual("true");
+              expect(res.body.vrms).toEqual(expectedVrms);
             });
 
             it("should return status 200 and updated trailer with the updated trailer Id in upper case", async () => {
