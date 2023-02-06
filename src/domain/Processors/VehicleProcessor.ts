@@ -66,7 +66,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     const { primaryVrm } = updatedVehicle;
     const previousPrimaryVrm = existingVehicle.primaryVrm;
 
-    updatedVehicle.secondaryVrms = Object.assign([], existingVehicle.secondaryVrms);
+    updatedVehicle.secondaryVrms = existingVehicle.secondaryVrms ? Object.assign([], existingVehicle.secondaryVrms) : undefined
     if (!primaryVrm || previousPrimaryVrm === primaryVrm) {
       return updatedVehicle;
     }
