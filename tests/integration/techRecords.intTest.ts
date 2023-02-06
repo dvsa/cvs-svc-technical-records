@@ -400,11 +400,10 @@ describe("techRecords", () => {
               await populateDatabase();
               const techRec = cloneDeep(mockData[132]) as ITechRecordWrapper;
               const primaryVrm = "ZYAG/ \\*-";
-              const secondaryVrms = ["E5F1I00"];
+
               const payload = {
                 msUserDetails,
                 primaryVrm,
-                secondaryVrms,
                 techRecord: techRec.techRecord,
               };
               const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
@@ -423,11 +422,10 @@ describe("techRecords", () => {
               await populateDatabase();
               const techRec = cloneDeep(mockData[132]) as ITechRecordWrapper;
               const primaryVrm = "ZYAG/ \\*-";
-              const secondaryVrms = ["E5F1I00"];
+
               const payload = {
                 msUserDetails,
                 primaryVrm,
-                secondaryVrms,
                 techRecord: techRec.techRecord,
               };
               const expectedVrms = [
