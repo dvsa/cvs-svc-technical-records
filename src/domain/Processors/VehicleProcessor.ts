@@ -399,6 +399,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         oldStatusCode ? oldStatusCode : statusCode
         );
         
+      techRecToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm
+      techRecToArchive.historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms
       // if status code has changed from provisional to current
       this.updateCurrentStatusCode(
         oldStatusCode,
@@ -552,8 +554,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         `Vehicle has no tech-records with status ${statusCode}`
       );
     }
-    recordsToArchive[0].historicPrimaryVrm = techRecord.primaryVrm;
-    recordsToArchive[0].historicSecondaryVrms = techRecord.secondaryVrms;
     return recordsToArchive[0];
   }
 
