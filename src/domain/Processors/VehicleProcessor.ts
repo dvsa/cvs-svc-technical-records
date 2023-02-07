@@ -412,12 +412,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         // @ts-ignore
         techRecordWithAllStatuses.trailerId = updatedVehicle.trailerId;
       }
-      const newRecord: TechRecord = cloneDeep(techRecToArchive);
-      mergeWith(
-        newRecord,
-        updatedVehicle.techRecord[0],
-        VehicleProcessor.arrayCustomizer
-      );
+      const newRecord: TechRecord = cloneDeep(updatedVehicle.techRecord[0]);
       if (oldStatusCode) {
         newRecord.statusCode = statusCode;
       }
