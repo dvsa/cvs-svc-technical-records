@@ -22,10 +22,7 @@ export class VehicleFactory {
     const type = vehicleObj.techRecord[0].vehicleType as enums.VEHICLE_TYPE;
     switch (type) {
       case enums.VEHICLE_TYPE.PSV:
-        return new processors.PsvProcessor(
-          vehicleObj as PublicServiceVehicle,
-          techRecordDAO
-        );
+        return new processors.PsvProcessor(vehicleObj as PublicServiceVehicle, techRecordDAO);
       case enums.VEHICLE_TYPE.HGV:
         return new processors.HgvProcessor(vehicleObj as HeavyGoodsVehicle, techRecordDAO);
       case enums.VEHICLE_TYPE.TRL:
