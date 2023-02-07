@@ -65,14 +65,18 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     ;
     const { primaryVrm } = updatedVehicle;
     const previousPrimaryVrm = existingVehicle.primaryVrm;
-
     updatedVehicle.secondaryVrms = existingVehicle.secondaryVrms ? Object.assign([], existingVehicle.secondaryVrms) : undefined
+
     if (!primaryVrm || previousPrimaryVrm === primaryVrm) {
       return updatedVehicle;
     }
     if (previousPrimaryVrm) {
       updatedVehicle.secondaryVrms?.push(previousPrimaryVrm);
     }
+
+    existingVehicle.primaryVrm = updatedVehicle.primaryVrm;
+    existingVehicle.secondaryVrms = updatedVehicle.secondaryVrms;
+    
     updatedVehicle.techRecord[0].reasonForCreation =
     `VRM updated from ${previousPrimaryVrm} to ${primaryVrm}. ` +
     updatedVehicle.techRecord[0].reasonForCreation; 
@@ -402,38 +406,34 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         techRecordWithAllStatuses,
         msUserDetails
       );
-
-      techRecToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm
-      techRecToArchive.historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms;
-
+      
       updatedVehicle = this.updateVehicleIdentifiers(
         techRecordWithAllStatuses,
-        updatedVehicle, 
-      );
-      updatedVehicle = this.capitaliseGeneralVehicleAttributes(updatedVehicle);
-
-      techRecordWithAllStatuses.primaryVrm = updatedVehicle.primaryVrm;
-      techRecordWithAllStatuses.secondaryVrms = updatedVehicle.secondaryVrms;
-      if (updatedVehicle.techRecord[0].vehicleType === enums.VEHICLE_TYPE.TRL) {
-        // @ts-ignore
-        techRecordWithAllStatuses.trailerId = updatedVehicle.trailerId;
-      }
-      const newRecord: TechRecord = cloneDeep(techRecToArchive);
-      mergeWith(
-        newRecord,
-        updatedVehicle.techRecord[0],
-        VehicleProcessor.arrayCustomizer
-      );
-      if (oldStatusCode) {
-        newRecord.statusCode = statusCode;
-      }
-      newRecord.historicPrimaryVrm = undefined;
-      newRecord.historicSecondaryVrms = undefined;
-      this.auditHandler.setAuditDetails(
-        newRecord,
-        techRecToArchive,
-        msUserDetails
-      );
+        updatedVehicle
+        );
+        updatedVehicle = this.capitaliseGeneralVehicleAttributes(updatedVehicle);
+        
+        if (updatedVehicle.techRecord[0].vehicleType === enums.VEHICLE_TYPE.TRL) {
+          // @ts-ignore
+          techRecordWithAllStatuses.trailerId = updatedVehicle.trailerId;
+        }
+        const newRecord: TechRecord = cloneDeep(techRecToArchive);
+        mergeWith(
+          newRecord,
+          updatedVehicle.techRecord[0],
+          VehicleProcessor.arrayCustomizer
+          );
+          if (oldStatusCode) {
+            newRecord.statusCode = statusCode;
+          }
+          newRecord.historicPrimaryVrm = undefined;
+          newRecord.historicSecondaryVrms = undefined;
+          console.log(techRecToArchive)
+          this.auditHandler.setAuditDetails(
+            newRecord,
+            techRecToArchive,
+            msUserDetails
+            );
       techRecToArchive.statusCode = enums.STATUS.ARCHIVED;
       this.mapFields(newRecord);
       const { systemNumber, vin, primaryVrm } = techRecordWithAllStatuses;
@@ -552,7 +552,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         `Vehicle has no tech-records with status ${statusCode}`
       );
     }
-
+    recordsToArchive[0].historicPrimaryVrm = techRecord.primaryVrm;
+    recordsToArchive[0].historicSecondaryVrms = techRecord.secondaryVrms;
     return recordsToArchive[0];
   }
 
