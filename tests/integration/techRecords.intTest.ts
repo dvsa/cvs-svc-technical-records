@@ -612,7 +612,6 @@ describe("techRecords", () => {
             });
           });
 
-
           context("and that vehicle does not exist", () => {
             it("should return error status 404 No resources match the search criteria", async () => {
               // @ts-ignore
