@@ -407,7 +407,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         techRecordWithAllStatuses,
         msUserDetails
       );
-      
       updatedVehicle = this.updateVehicleIdentifiers(
         techRecordWithAllStatuses,
         updatedVehicle
