@@ -68,9 +68,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     if (!primaryVrm || previousPrimaryVrm === primaryVrm) {
       return updatedVehicle;
     }
-    if (previousPrimaryVrm) {
-      updatedVehicle.secondaryVrms?.push(previousPrimaryVrm);
-    }
     updatedVehicle.techRecord[0].reasonForCreation =
       `VRM updated from ${previousPrimaryVrm} to ${primaryVrm}. ` +
       updatedVehicle.techRecord[0].reasonForCreation;
