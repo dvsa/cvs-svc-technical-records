@@ -13,6 +13,7 @@ const postTechRecords = async (event: any) => {
   const vin = event.body ? event.body.vin : null;
   const primaryVrm = event.body ? event.body.primaryVrm : null;
   const secondaryVrms = event.body ? event.body.secondaryVrms : null;
+  const trailerId = event.body?.trailerId;
 
   if (!vin || vin.length < 3 || vin.length > 21 || typeof vin !== "string") {
     return Promise.resolve(new HTTPResponse(400, "Invalid body field 'vin'"));
@@ -32,7 +33,8 @@ const postTechRecords = async (event: any) => {
     techRecord: techRec,
     systemNumber: "",
     primaryVrm,
-    secondaryVrms
+    secondaryVrms,
+    trailerId
   };
 
   try {

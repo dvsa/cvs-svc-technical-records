@@ -456,29 +456,22 @@ export abstract class VehicleProcessor<T extends Vehicle> {
    */
   private validate(newVehicle: T, isCreate: boolean): TechRecord {
     let errors: string[] = [];
-    const isPrimaryVrmRequired =
-      this.vehicle.techRecord[0].vehicleType !== enums.VEHICLE_TYPE.TRL;
-    const { primaryVrm, secondaryVrms } = this.vehicle;
-    // primary & secondary vrms are required in case of create and optional in case of update
-    const validatePrimaryVrm = isCreate || primaryVrm;
+    const isPrimaryVrmRequired = this.vehicle.techRecord[0].vehicleType !== enums.VEHICLE_TYPE.TRL;
+    const {primaryVrm, secondaryVrms} = this.vehicle;
+    
+    // validate if it's not create or primaryVrm is truthy
+    const validatePrimaryVrm = !isCreate || primaryVrm;
     const validateSecondaryVrms = isCreate || secondaryVrms;
-    errors = errors.concat(
-      validatePrimaryVrm
-        ? validators.primaryVrmValidator(primaryVrm, isPrimaryVrmRequired)
-        : []
-    );
-    errors = errors.concat(
-      validateSecondaryVrms
-        ? validators.secondaryVrmValidator(secondaryVrms)
-        : []
-    );
-    errors = errors.concat(
-      this.validateTechRecordFields(newVehicle.techRecord[0], isCreate)
-    );
+
+    errors = errors.concat(validatePrimaryVrm ? validators.primaryVrmValidator(primaryVrm, isPrimaryVrmRequired):[]);
+    errors = errors.concat(validateSecondaryVrms ? validators.secondaryVrmValidator(secondaryVrms):[]);
+    errors = errors.concat(this.validateTechRecordFields(newVehicle.techRecord[0], isCreate));
+
     if (errors && errors.length) {
       console.error(errors);
       throw this.Error(400, errors);
     }
+    
     return newVehicle.techRecord[0];
   }
 

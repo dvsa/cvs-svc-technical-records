@@ -70,7 +70,7 @@ describe("TechRecords", () => {
     const techRecord: ITechRecordWrapper = cloneDeep(mockData[43]);
     const payload = {
       msUserDetails,
-      techRecord: techRecord.techRecord,
+      ...techRecord,
     };
     const vehicleRecordEvent = {
       path: "/vehicles/1100047",
