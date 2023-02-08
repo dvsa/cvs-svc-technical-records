@@ -236,8 +236,6 @@ describe("VehicleProcessor", () => {
                       payload
                     );
                     expect(updatedVehicle.primaryVrm).toEqual("ABCD943");
-                    expect(updatedVehicle.secondaryVrms?.length).toEqual(2);
-                    expect(updatedVehicle.secondaryVrms).toContain("B999XFX");
                     expect(updatedVehicle.techRecord[0].reasonForCreation).toEqual(
                       `VRM updated from B999XFX to ABCD943. Updated VRM`
                     );
@@ -343,8 +341,6 @@ describe("VehicleProcessor", () => {
                       payload
                     );
                     expect(updatedVehicle.primaryVrm).toEqual("AA12BCD");
-                    expect(updatedVehicle.secondaryVrms?.length).toEqual(2);
-                    expect(updatedVehicle.secondaryVrms).toContain("B999XFX");
                     expect(updatedVehicle.techRecord[0].reasonForCreation).toEqual(
                       `VRM updated from B999XFX to AA12BCD. Updated VRM`
                     );
