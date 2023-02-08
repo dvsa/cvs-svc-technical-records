@@ -428,7 +428,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       }
       newRecord.historicPrimaryVrm = undefined;
       newRecord.historicSecondaryVrms = undefined;
-      console.log(techRecToArchive)
       this.auditHandler.setAuditDetails(
         newRecord,
         techRecToArchive,
