@@ -410,30 +410,30 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       updatedVehicle = this.updateVehicleIdentifiers(
         techRecordWithAllStatuses,
         updatedVehicle
-        );
-        updatedVehicle = this.capitaliseGeneralVehicleAttributes(updatedVehicle);
+      );
+      updatedVehicle = this.capitaliseGeneralVehicleAttributes(updatedVehicle);
         
-        if (updatedVehicle.techRecord[0].vehicleType === enums.VEHICLE_TYPE.TRL) {
-          // @ts-ignore
-          techRecordWithAllStatuses.trailerId = updatedVehicle.trailerId;
-        }
-        const newRecord: TechRecord = cloneDeep(techRecToArchive);
-        mergeWith(
-          newRecord,
-          updatedVehicle.techRecord[0],
-          VehicleProcessor.arrayCustomizer
-          );
-          if (oldStatusCode) {
-            newRecord.statusCode = statusCode;
-          }
-          newRecord.historicPrimaryVrm = undefined;
-          newRecord.historicSecondaryVrms = undefined;
-          console.log(techRecToArchive)
-          this.auditHandler.setAuditDetails(
-            newRecord,
-            techRecToArchive,
-            msUserDetails
-            );
+      if (updatedVehicle.techRecord[0].vehicleType === enums.VEHICLE_TYPE.TRL) {
+        // @ts-ignore
+        techRecordWithAllStatuses.trailerId = updatedVehicle.trailerId;
+      }
+      const newRecord: TechRecord = cloneDeep(techRecToArchive);
+      mergeWith(
+        newRecord,
+        updatedVehicle.techRecord[0],
+        VehicleProcessor.arrayCustomizer
+      );
+      if (oldStatusCode) {
+        newRecord.statusCode = statusCode;
+      }
+      newRecord.historicPrimaryVrm = undefined;
+      newRecord.historicSecondaryVrms = undefined;
+      console.log(techRecToArchive)
+      this.auditHandler.setAuditDetails(
+        newRecord,
+        techRecToArchive,
+        msUserDetails
+      );
       techRecToArchive.statusCode = enums.STATUS.ARCHIVED;
       this.mapFields(newRecord);
       const { systemNumber, vin, primaryVrm } = techRecordWithAllStatuses;
