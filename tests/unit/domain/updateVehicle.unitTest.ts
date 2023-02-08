@@ -488,8 +488,8 @@ describe("VehicleProcessor", () => {
                 );
                 // @ts-ignore
                 trailerProcessor.updateVehicleIdentifiers(
-                  payload,
-                  techRecord
+                  techRecord,
+                  payload
                 );
                 expect(techRecord.secondaryVrms).toEqual(["ABCD943"]);
               });
