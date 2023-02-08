@@ -64,7 +64,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   protected updateVehicleIdentifiers(existingVehicle: T, updatedVehicle: T): T {
     const { primaryVrm } = updatedVehicle;
     const previousPrimaryVrm = existingVehicle.primaryVrm;
-    updatedVehicle.secondaryVrms = existingVehicle.secondaryVrms ? Object.assign([], existingVehicle.secondaryVrms) : undefined
+    updatedVehicle.secondaryVrms = existingVehicle.secondaryVrms && [...existingVehicle.secondaryVrms]
 
     if (!primaryVrm || previousPrimaryVrm === primaryVrm) {
       return updatedVehicle;
