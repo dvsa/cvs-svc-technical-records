@@ -396,7 +396,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       const techRecToArchive = VehicleProcessor.getTechRecordToArchive(
         techRecordWithAllStatuses,
         oldStatusCode ? oldStatusCode : statusCode
-        );
+      );
         
       techRecToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm
       techRecToArchive.historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms
