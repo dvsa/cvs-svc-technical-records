@@ -152,7 +152,7 @@ class TechRecordsDAO {
         ":primaryVrm": primaryVrm,
       });
     }
-    if (secondaryVrms && secondaryVrms.length) {
+    if (secondaryVrms) {
       query.UpdateExpression += ", secondaryVrms = :secondaryVrms";
       Object.assign(query.ExpressionAttributeValues, {
         ":secondaryVrms": secondaryVrms,
