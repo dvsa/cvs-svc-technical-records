@@ -2,7 +2,7 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import {populatePartialVin} from "../utils/validations/ValidationUtils";
-import { HTTPRESPONSE } from "../assets/Enums";
+import { HTTPRESPONSE, VEHICLE_TYPE } from "../assets/Enums";
 
 const postTechRecords = async (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -27,15 +27,19 @@ const postTechRecords = async (event: any) => {
     return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
   }
 
-  const techRecord = {
+  const techRecord: any = {
     vin,
     partialVin: populatePartialVin(vin),
     techRecord: techRec,
     systemNumber: "",
     primaryVrm,
-    secondaryVrms,
-    trailerId
+    secondaryVrms
   };
+
+  // Only add the trailer id if we have it and vehicle is a trailer
+  if(trailerId && techRecord.vehicleType === VEHICLE_TYPE.TRL) {
+    techRecord.trailerId = trailerId;
+  }
 
   try {
     const data = await techRecordsService.insertTechRecord(techRecord, msUserDetails);
