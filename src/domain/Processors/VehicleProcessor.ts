@@ -64,16 +64,22 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   protected updateVehicleIdentifiers(existingVehicle: T, updatedVehicle: T): T {
     const { primaryVrm } = updatedVehicle;
     const previousPrimaryVrm = existingVehicle.primaryVrm;
-    updatedVehicle.secondaryVrms = existingVehicle.secondaryVrms;
+    updatedVehicle.secondaryVrms = existingVehicle.secondaryVrms && [...existingVehicle.secondaryVrms]
+
     if (!primaryVrm || previousPrimaryVrm === primaryVrm) {
       return updatedVehicle;
     }
     if (previousPrimaryVrm) {
       updatedVehicle.secondaryVrms?.push(previousPrimaryVrm);
     }
+
+    existingVehicle.primaryVrm = updatedVehicle.primaryVrm;
+    existingVehicle.secondaryVrms = updatedVehicle.secondaryVrms;
+    
     updatedVehicle.techRecord[0].reasonForCreation =
-      `VRM updated from ${previousPrimaryVrm} to ${primaryVrm}. ` +
-      updatedVehicle.techRecord[0].reasonForCreation;
+    `VRM updated from ${previousPrimaryVrm} to ${primaryVrm}. ` +
+    updatedVehicle.techRecord[0].reasonForCreation; 
+
 
     return updatedVehicle;
   }
@@ -391,7 +397,9 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         techRecordWithAllStatuses,
         oldStatusCode ? oldStatusCode : statusCode
       );
-
+        
+      techRecToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm
+      techRecToArchive.historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms
       // if status code has changed from provisional to current
       this.updateCurrentStatusCode(
         oldStatusCode,
@@ -399,15 +407,12 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         techRecordWithAllStatuses,
         msUserDetails
       );
-
       updatedVehicle = this.updateVehicleIdentifiers(
         techRecordWithAllStatuses,
         updatedVehicle
       );
       updatedVehicle = this.capitaliseGeneralVehicleAttributes(updatedVehicle);
-
-      techRecordWithAllStatuses.primaryVrm = updatedVehicle.primaryVrm;
-      techRecordWithAllStatuses.secondaryVrms = updatedVehicle.secondaryVrms;
+        
       if (updatedVehicle.techRecord[0].vehicleType === enums.VEHICLE_TYPE.TRL) {
         // @ts-ignore
         techRecordWithAllStatuses.trailerId = updatedVehicle.trailerId;
@@ -416,6 +421,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       if (oldStatusCode) {
         newRecord.statusCode = statusCode;
       }
+      newRecord.historicPrimaryVrm = undefined;
+      newRecord.historicSecondaryVrms = undefined;
       this.auditHandler.setAuditDetails(
         newRecord,
         techRecToArchive,
@@ -532,7 +539,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         `Vehicle has no tech-records with status ${statusCode}`
       );
     }
-
     return recordsToArchive[0];
   }
 
