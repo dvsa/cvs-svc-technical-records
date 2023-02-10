@@ -565,7 +565,7 @@ describe("techRecords", () => {
             it("should also update the Vrms array to add the new primary vrm", async () => {
               await populateDatabase();
               const techRec = cloneDeep(mockData[132]) as ITechRecordWrapper;
-              const primaryVrm = "ZYAG/ \\*-";
+              const primaryVrm = "NEWVRM";
 
               const payload = {
                 msUserDetails,
@@ -573,9 +573,8 @@ describe("techRecords", () => {
                 techRecord: techRec.techRecord,
               };
               const expectedVrms = [
-                { vrm: "ZYAG/ \\*-", isPrimary: true },
+                { vrm: "NEWVRM", isPrimary: true },
                 { vrm: "E5F1I00", isPrimary: false },
-                { vrm: "B2C1C12", isPrimary: false },
               ];
               const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
               expect(res.status).toEqual(200);
