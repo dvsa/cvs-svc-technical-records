@@ -35162,5 +35162,5212 @@
       }
     ],
     "vin": "P0853010911263"
+  },
+  {
+    "systemNumber": "VTA01QA",
+    "vin": "AUTOQAPSV00000001",
+    "partialVin": "000001",
+    "primaryVrm": "QA01PSV",
+    "secondaryVrms": [
+      "X71LTA"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2019-01-16T12:24:38.027Z",
+        "dispensations": "None",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "lastUpdatedAt": "2022-11-16T21:43:03.236Z",
+        "lastUpdatedById": "10000009",
+        "lastUpdatedByName": "CVS Automation9",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2022-11-16T21:43:03.236Z",
+        "createdById": "10000009",
+        "createdByName": "CVS Automation9",
+        "dispensations": "None",
+        "euVehicleCategory": null,
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA02QA",
+    "vin": "AUTOQAPSV00000002",
+    "partialVin": "000002",
+    "primaryVrm": "QA02PSV",
+    "secondaryVrms": [
+      "X71LTA"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632, 01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2019-01-16T12: 24: 38.027Z",
+        "dispensations": "None",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "lastUpdatedAt": "2022-11-16T21: 43: 03.236Z",
+        "lastUpdatedById": "10000009",
+        "lastUpdatedByName": "CVS Automation9",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632, 01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2022-11-16T21: 43: 03.236Z",
+        "createdById": "10000009",
+        "createdByName": "CVS Automation9",
+        "dispensations": "None",
+        "euVehicleCategory": null,
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA03QA",
+    "vin": "AUTOQAPSV00000003",
+    "partialVin": "000003",
+    "primaryVrm": "QA03PSV",
+    "secondaryVrms": [
+      "X71LTA"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2019-01-16T12:24:38.027Z",
+        "dispensations": "None",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "lastUpdatedAt": "2022-11-16T21:43:03.236Z",
+        "lastUpdatedById": "10000009",
+        "lastUpdatedByName": "CVS Automation9",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2022-11-16T21:43:03.236Z",
+        "createdById": "10000009",
+        "createdByName": "CVS Automation9",
+        "dispensations": "None",
+        "euVehicleCategory": null,
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA04QA",
+    "vin": "AUTOQAPSV00000004",
+    "partialVin": "000004",
+    "primaryVrm": "QA04PSV",
+    "secondaryVrms": [
+      "X71LTA"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2019-01-16T12:24:38.027Z",
+        "dispensations": "None",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "lastUpdatedAt": "2022-11-16T21:43:03.236Z",
+        "lastUpdatedById": "10000009",
+        "lastUpdatedByName": "CVS Automation9",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2022-11-16T21:43:03.236Z",
+        "createdById": "10000009",
+        "createdByName": "CVS Automation9",
+        "dispensations": "None",
+        "euVehicleCategory": null,
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA05QA",
+    "vin": "AUTOQAPSV00000005",
+    "partialVin": "000005",
+    "primaryVrm": "QA05PSV",
+    "secondaryVrms": [
+      "X71LTA"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2019-01-16T12:24:38.027Z",
+        "dispensations": "None",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "lastUpdatedAt": "2022-11-16T21:43:03.236Z",
+        "lastUpdatedById": "10000009",
+        "lastUpdatedByName": "CVS Automation9",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2022-11-16T21:43:03.236Z",
+        "createdById": "10000009",
+        "createdByName": "CVS Automation9",
+        "dispensations": "None",
+        "euVehicleCategory": "m2",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA06QA",
+    "vin": "AUTOQAHGV00000001",
+    "partialVin": "957486",
+    "primaryVrm": "QA01HGV",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdgs",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euroStandard": "7",
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "new vehicle",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA07QA",
+    "vin": "AUTOQAHGV00000002",
+    "partialVin": "957486",
+    "primaryVrm": "QA02HGV",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdgs",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euroStandard": "7",
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "new vehicle",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA08QA",
+    "vin": "AUTOQAHGV00000003",
+    "partialVin": "957486",
+    "primaryVrm": "QA03HGV",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdgs",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euroStandard": "7",
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "new vehicle",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA09QA",
+    "vin": "AUTOQAHGV00000004",
+    "partialVin": "957486",
+    "primaryVrm": "QA04HGV",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdgs",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euroStandard": "7",
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "new vehicle",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA10QA",
+    "vin": "AUTOQAHGV00000005",
+    "partialVin": "957486",
+    "primaryVrm": "QA05HGV",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdgs",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euroStandard": "7",
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "new vehicle",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA11QA",
+    "vin": "AUTOQATRA000000001",
+    "partialVin": "052593",
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": "Additional Examiner Notes",
+          "additionalNotes": {
+            "guidanceNotes": [
+            ],
+            "number": [
+              "3"
+            ]
+          },
+          "adrTypeApprovalNo": null,
+          "applicantDetails": {
+            "city": "**",
+            "name": "***",
+            "postcode": "********",
+            "street": "********",
+            "town": "*****"
+          },
+          "batteryListNumber": null,
+          "brakeDeclarationIssuer": null,
+          "brakeDeclarationsSeen": true,
+          "brakeEndurance": false,
+          "compatibilityGroupJ": null,
+          "declarationsSeen": true,
+          "documents": [
+            "3803A48603D2440A802570DD0036C574_A00052593_filename1.pdf",
+            "3803A48603D2440A802570DD0036C574_A00052593_filename3.pdf",
+            "3803A48603D2440A802570DD0036C574_A00052593_filename2.pdf"
+          ],
+          "listStatementApplicable": false,
+          "memosApply": [
+          ],
+          "permittedDangerousGoods": [
+            "FP <61 (FL)",
+            "AT"
+          ],
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": null,
+              "tankCode": "L4BN",
+              "tankManufacturer": "CROSSLAND TANKERS",
+              "tankManufacturerSerialNo": "CTB296ST0644",
+              "tankTypeAppNo": "GB/FT/TCHSB/5055",
+              "tc2Details": {
+                "tc2IntermediateApprovalNo": "HSB/5640",
+                "tc2IntermediateExpiryDate": null,
+                "tc2Type": null
+              },
+              "tc3Details": [
+                {
+                  "tc3PeriodicExpiryDate": "2017-12-11",
+                  "tc3PeriodicNumber": "GB/M/14/008953",
+                  "tc3Type": null
+                }
+              ],
+              "yearOfManufacture": "2006"
+            },
+            "tankStatement": {
+              "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
+              "productListRefNo": null,
+              "productListUnNo": [
+                null
+              ],
+              "statement": "B",
+              "substancesPermitted": "B"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": "2016-11-09",
+            "type": "SEMI TRAILER TANK"
+          },
+          "weight": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 3,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "f",
+          "description": "flat"
+        },
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "dtpNumber": "326577",
+          "loadSensingValve": true
+        },
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 9430,
+        "couplingCenterToRearAxleMin": 9430,
+        "couplingCenterToRearTrlMax": 11365,
+        "couplingCenterToRearTrlMin": 11365,
+        "couplingType": "F",
+        "createdAt": "2016-03-04T11:25:12.000000Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1",
+              "value": 1310
+            },
+            {
+              "axles": "2",
+              "value": 1310
+            }
+          ],
+          "length": 12271,
+          "width": 2438
+        },
+        "firstUseDate": "0001-01-01",
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 39000,
+        "grossGbWeight": 39000,
+        "lastUpdatedAt": "2020-01-10T14:04:01.000000Z",
+        "make": "DENNISON TRAILERS",
+        "manufactureYear": 2005,
+        "maxLoadOnCoupling": 15000,
+        "model": " ",
+        "noOfAxles": 3,
+        "notes": "T/S 33 1/9/06",
+        "ntaNumber": "N000394760",
+        "numberOfWheelsDriven": null,
+        "rearAxleToRearTrl": 1935,
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": "2005-01-01",
+        "roadFriendly": true,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "Q111111"
+  },
+  {
+    "systemNumber": "VTA12QA",
+    "vin": "AUTOQATRA000000002",
+    "partialVin": "052593",
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": "Additional Examiner Notes",
+          "additionalNotes": {
+            "guidanceNotes": [
+            ],
+            "number": [
+              "3"
+            ]
+          },
+          "adrTypeApprovalNo": null,
+          "applicantDetails": {
+            "city": "**",
+            "name": "***",
+            "postcode": "********",
+            "street": "********",
+            "town": "*****"
+          },
+          "batteryListNumber": null,
+          "brakeDeclarationIssuer": null,
+          "brakeDeclarationsSeen": true,
+          "brakeEndurance": false,
+          "compatibilityGroupJ": null,
+          "declarationsSeen": true,
+          "documents": [
+            "3803A48603D2440A802570DD0036C574_A00052593_filename1.pdf",
+            "3803A48603D2440A802570DD0036C574_A00052593_filename3.pdf",
+            "3803A48603D2440A802570DD0036C574_A00052593_filename2.pdf"
+          ],
+          "listStatementApplicable": false,
+          "memosApply": [
+          ],
+          "permittedDangerousGoods": [
+            "FP <61 (FL)",
+            "AT"
+          ],
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": null,
+              "tankCode": "L4BN",
+              "tankManufacturer": "CROSSLAND TANKERS",
+              "tankManufacturerSerialNo": "CTB296ST0644",
+              "tankTypeAppNo": "GB/FT/TCHSB/5055",
+              "tc2Details": {
+                "tc2IntermediateApprovalNo": "HSB/5640",
+                "tc2IntermediateExpiryDate": null,
+                "tc2Type": null
+              },
+              "tc3Details": [
+                {
+                  "tc3PeriodicExpiryDate": "2017-12-11",
+                  "tc3PeriodicNumber": "GB/M/14/008953",
+                  "tc3Type": null
+                }
+              ],
+              "yearOfManufacture": "2006"
+            },
+            "tankStatement": {
+              "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
+              "productListRefNo": null,
+              "productListUnNo": [
+                null
+              ],
+              "statement": "B",
+              "substancesPermitted": "B"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": "2016-11-09",
+            "type": "SEMI TRAILER TANK"
+          },
+          "weight": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 3,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "f",
+          "description": "flat"
+        },
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "dtpNumber": "326577",
+          "loadSensingValve": true
+        },
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 9430,
+        "couplingCenterToRearAxleMin": 9430,
+        "couplingCenterToRearTrlMax": 11365,
+        "couplingCenterToRearTrlMin": 11365,
+        "couplingType": "F",
+        "createdAt": "2016-03-04T11:25:12.000000Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1",
+              "value": 1310
+            },
+            {
+              "axles": "2",
+              "value": 1310
+            }
+          ],
+          "length": 12271,
+          "width": 2438
+        },
+        "firstUseDate": "0001-01-01",
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 39000,
+        "grossGbWeight": 39000,
+        "lastUpdatedAt": "2020-01-10T14:04:01.000000Z",
+        "make": "DENNISON TRAILERS",
+        "manufactureYear": 2005,
+        "maxLoadOnCoupling": 15000,
+        "model": " ",
+        "noOfAxles": 3,
+        "notes": "T/S 33 1/9/06",
+        "ntaNumber": "N000394760",
+        "numberOfWheelsDriven": null,
+        "rearAxleToRearTrl": 1935,
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": "2005-01-01",
+        "roadFriendly": true,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "Q111112"
+  },
+  {
+    "systemNumber": "VTA13QA",
+    "vin": "AUTOQATRA000000003",
+    "partialVin": "052593",
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": "Additional Examiner Notes",
+          "additionalNotes": {
+            "guidanceNotes": [
+            ],
+            "number": [
+              "3"
+            ]
+          },
+          "adrTypeApprovalNo": null,
+          "applicantDetails": {
+            "city": "**",
+            "name": "***",
+            "postcode": "********",
+            "street": "********",
+            "town": "*****"
+          },
+          "batteryListNumber": null,
+          "brakeDeclarationIssuer": null,
+          "brakeDeclarationsSeen": true,
+          "brakeEndurance": false,
+          "compatibilityGroupJ": null,
+          "declarationsSeen": true,
+          "documents": [
+            "3803A48603D2440A802570DD0036C574_A00052593_filename1.pdf",
+            "3803A48603D2440A802570DD0036C574_A00052593_filename3.pdf",
+            "3803A48603D2440A802570DD0036C574_A00052593_filename2.pdf"
+          ],
+          "listStatementApplicable": false,
+          "memosApply": [
+          ],
+          "permittedDangerousGoods": [
+            "FP <61 (FL)",
+            "AT"
+          ],
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": null,
+              "tankCode": "L4BN",
+              "tankManufacturer": "CROSSLAND TANKERS",
+              "tankManufacturerSerialNo": "CTB296ST0644",
+              "tankTypeAppNo": "GB/FT/TCHSB/5055",
+              "tc2Details": {
+                "tc2IntermediateApprovalNo": "HSB/5640",
+                "tc2IntermediateExpiryDate": null,
+                "tc2Type": null
+              },
+              "tc3Details": [
+                {
+                  "tc3PeriodicExpiryDate": "2017-12-11",
+                  "tc3PeriodicNumber": "GB/M/14/008953",
+                  "tc3Type": null
+                }
+              ],
+              "yearOfManufacture": "2006"
+            },
+            "tankStatement": {
+              "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
+              "productListRefNo": null,
+              "productListUnNo": [
+                null
+              ],
+              "statement": "B",
+              "substancesPermitted": "B"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": "2016-11-09",
+            "type": "SEMI TRAILER TANK"
+          },
+          "weight": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 3,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "f",
+          "description": "flat"
+        },
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "dtpNumber": "326577",
+          "loadSensingValve": true
+        },
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 9430,
+        "couplingCenterToRearAxleMin": 9430,
+        "couplingCenterToRearTrlMax": 11365,
+        "couplingCenterToRearTrlMin": 11365,
+        "couplingType": "F",
+        "createdAt": "2016-03-04T11:25:12.000000Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1",
+              "value": 1310
+            },
+            {
+              "axles": "2",
+              "value": 1310
+            }
+          ],
+          "length": 12271,
+          "width": 2438
+        },
+        "firstUseDate": "0001-01-01",
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 39000,
+        "grossGbWeight": 39000,
+        "lastUpdatedAt": "2020-01-10T14:04:01.000000Z",
+        "make": "DENNISON TRAILERS",
+        "manufactureYear": 2005,
+        "maxLoadOnCoupling": 15000,
+        "model": " ",
+        "noOfAxles": 3,
+        "notes": "T/S 33 1/9/06",
+        "ntaNumber": "N000394760",
+        "numberOfWheelsDriven": null,
+        "rearAxleToRearTrl": 1935,
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": "2005-01-01",
+        "roadFriendly": true,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "Q111113"
+  },
+  {
+    "systemNumber": "VTA14QA",
+    "vin": "AUTOQATRA000000004",
+    "partialVin": "052593",
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": "Additional Examiner Notes",
+          "additionalNotes": {
+            "guidanceNotes": [
+            ],
+            "number": [
+              "3"
+            ]
+          },
+          "adrTypeApprovalNo": null,
+          "applicantDetails": {
+            "city": "**",
+            "name": "***",
+            "postcode": "********",
+            "street": "********",
+            "town": "*****"
+          },
+          "batteryListNumber": null,
+          "brakeDeclarationIssuer": null,
+          "brakeDeclarationsSeen": true,
+          "brakeEndurance": false,
+          "compatibilityGroupJ": null,
+          "declarationsSeen": true,
+          "documents": [
+            "3803A48603D2440A802570DD0036C574_A00052593_filename1.pdf",
+            "3803A48603D2440A802570DD0036C574_A00052593_filename3.pdf",
+            "3803A48603D2440A802570DD0036C574_A00052593_filename2.pdf"
+          ],
+          "listStatementApplicable": false,
+          "memosApply": [
+          ],
+          "permittedDangerousGoods": [
+            "FP <61 (FL)",
+            "AT"
+          ],
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": null,
+              "tankCode": "L4BN",
+              "tankManufacturer": "CROSSLAND TANKERS",
+              "tankManufacturerSerialNo": "CTB296ST0644",
+              "tankTypeAppNo": "GB/FT/TCHSB/5055",
+              "tc2Details": {
+                "tc2IntermediateApprovalNo": "HSB/5640",
+                "tc2IntermediateExpiryDate": null,
+                "tc2Type": null
+              },
+              "tc3Details": [
+                {
+                  "tc3PeriodicExpiryDate": "2017-12-11",
+                  "tc3PeriodicNumber": "GB/M/14/008953",
+                  "tc3Type": null
+                }
+              ],
+              "yearOfManufacture": "2006"
+            },
+            "tankStatement": {
+              "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
+              "productListRefNo": null,
+              "productListUnNo": [
+                null
+              ],
+              "statement": "B",
+              "substancesPermitted": "B"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": "2016-11-09",
+            "type": "SEMI TRAILER TANK"
+          },
+          "weight": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 3,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "f",
+          "description": "flat"
+        },
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "dtpNumber": "326577",
+          "loadSensingValve": true
+        },
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 9430,
+        "couplingCenterToRearAxleMin": 9430,
+        "couplingCenterToRearTrlMax": 11365,
+        "couplingCenterToRearTrlMin": 11365,
+        "couplingType": "F",
+        "createdAt": "2016-03-04T11:25:12.000000Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1",
+              "value": 1310
+            },
+            {
+              "axles": "2",
+              "value": 1310
+            }
+          ],
+          "length": 12271,
+          "width": 2438
+        },
+        "firstUseDate": "0001-01-01",
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 39000,
+        "grossGbWeight": 39000,
+        "lastUpdatedAt": "2020-01-10T14:04:01.000000Z",
+        "make": "DENNISON TRAILERS",
+        "manufactureYear": 2005,
+        "maxLoadOnCoupling": 15000,
+        "model": " ",
+        "noOfAxles": 3,
+        "notes": "T/S 33 1/9/06",
+        "ntaNumber": "N000394760",
+        "numberOfWheelsDriven": null,
+        "rearAxleToRearTrl": 1935,
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": "2005-01-01",
+        "roadFriendly": true,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "Q111114"
+  },
+  {
+    "systemNumber": "VTA15QA",
+    "vin": "AUTOQATRA000000005",
+    "partialVin": "052593",
+    "techRecord": [
+      {
+        "adrDetails": {
+          "additionalExaminerNotes": "Additional Examiner Notes",
+          "additionalNotes": {
+            "guidanceNotes": [
+            ],
+            "number": [
+              "3"
+            ]
+          },
+          "adrTypeApprovalNo": null,
+          "applicantDetails": {
+            "city": "**",
+            "name": "***",
+            "postcode": "********",
+            "street": "********",
+            "town": "*****"
+          },
+          "batteryListNumber": null,
+          "brakeDeclarationIssuer": null,
+          "brakeDeclarationsSeen": true,
+          "brakeEndurance": false,
+          "compatibilityGroupJ": null,
+          "declarationsSeen": true,
+          "documents": [
+            "3803A48603D2440A802570DD0036C574_A00052593_filename1.pdf",
+            "3803A48603D2440A802570DD0036C574_A00052593_filename3.pdf",
+            "3803A48603D2440A802570DD0036C574_A00052593_filename2.pdf"
+          ],
+          "listStatementApplicable": false,
+          "memosApply": [
+          ],
+          "permittedDangerousGoods": [
+            "FP <61 (FL)",
+            "AT"
+          ],
+          "tank": {
+            "tankDetails": {
+              "specialProvisions": null,
+              "tankCode": "L4BN",
+              "tankManufacturer": "CROSSLAND TANKERS",
+              "tankManufacturerSerialNo": "CTB296ST0644",
+              "tankTypeAppNo": "GB/FT/TCHSB/5055",
+              "tc2Details": {
+                "tc2IntermediateApprovalNo": "HSB/5640",
+                "tc2IntermediateExpiryDate": null,
+                "tc2Type": null
+              },
+              "tc3Details": [
+                {
+                  "tc3PeriodicExpiryDate": "2017-12-11",
+                  "tc3PeriodicNumber": "GB/M/14/008953",
+                  "tc3Type": null
+                }
+              ],
+              "yearOfManufacture": "2006"
+            },
+            "tankStatement": {
+              "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
+              "productListRefNo": null,
+              "productListUnNo": [
+                null
+              ],
+              "statement": "B",
+              "substancesPermitted": "B"
+            }
+          },
+          "vehicleDetails": {
+            "approvalDate": "2016-11-09",
+            "type": "SEMI TRAILER TANK"
+          },
+          "weight": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 3,
+            "brakes": {
+              "brakeActuator": 24,
+              "leverLength": 135,
+              "springBrakeParking": true
+            },
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 158,
+              "fitmentCode": "single",
+              "plyRating": " ",
+              "tyreCode": 383,
+              "tyreSize": "385/65-22.5"
+            },
+            "weights": {
+              "designWeight": 8250,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "f",
+          "description": "flat"
+        },
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "dtpNumber": "326577",
+          "loadSensingValve": true
+        },
+        "conversionRefNo": " ",
+        "couplingCenterToRearAxleMax": 9430,
+        "couplingCenterToRearAxleMin": 9430,
+        "couplingCenterToRearTrlMax": 11365,
+        "couplingCenterToRearTrlMin": 11365,
+        "couplingType": "F",
+        "createdAt": "2016-03-04T11:25:12.000000Z",
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1",
+              "value": 1310
+            },
+            {
+              "axles": "2",
+              "value": 1310
+            }
+          ],
+          "length": 12271,
+          "width": 2438
+        },
+        "firstUseDate": "0001-01-01",
+        "frontAxleToRearAxle": 0,
+        "grossDesignWeight": 39000,
+        "grossGbWeight": 39000,
+        "lastUpdatedAt": "2020-01-10T14:04:01.000000Z",
+        "make": "DENNISON TRAILERS",
+        "manufactureYear": 2005,
+        "maxLoadOnCoupling": 15000,
+        "model": " ",
+        "noOfAxles": 3,
+        "notes": "T/S 33 1/9/06",
+        "ntaNumber": "N000394760",
+        "numberOfWheelsDriven": null,
+        "rearAxleToRearTrl": 1935,
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": "2005-01-01",
+        "roadFriendly": true,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "Q111115"
+  },
+  {
+    "systemNumber": "VTA16QA",
+    "vin": "AUTOQAPCM00000002",
+    "partialVin": "000002",
+    "primaryVrm": "QA02CTM",
+    "secondaryVrms": [
+      "X71LTA"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2019-01-16T12:24:38.027Z",
+        "dispensations": "None",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "lastUpdatedAt": "2022-11-16T21:43:03.236Z",
+        "lastUpdatedById": "10000009",
+        "lastUpdatedByName": "CVS Automation9",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2022-11-16T21:43:03.236Z",
+        "createdById": "10000009",
+        "createdByName": "CVS Automation9",
+        "dispensations": "None",
+        "euVehicleCategory": "m2",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA17QA",
+    "vin": "AUTOQAPCM00000012",
+    "partialVin": "000012",
+    "primaryVrm": "QA12CTM",
+    "secondaryVrms": [
+      "X71LTA"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2019-01-16T12:24:38.027Z",
+        "dispensations": "None",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "lastUpdatedAt": "2022-11-16T21:43:03.236Z",
+        "lastUpdatedById": "10000009",
+        "lastUpdatedByName": "CVS Automation9",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2022-11-16T21:43:03.236Z",
+        "createdById": "10000009",
+        "createdByName": "CVS Automation9",
+        "dispensations": "None",
+        "euVehicleCategory": "m2",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA18QA",
+    "vin": "AUTOQAPCM00000022",
+    "partialVin": "000022",
+    "primaryVrm": "QA22CTM",
+    "secondaryVrms": [
+      "X71LTA"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2019-01-16T12:24:38.027Z",
+        "dispensations": "None",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "lastUpdatedAt": "2022-11-16T21:43:03.236Z",
+        "lastUpdatedById": "10000009",
+        "lastUpdatedByName": "CVS Automation9",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2022-11-16T21:43:03.236Z",
+        "createdById": "10000009",
+        "createdByName": "CVS Automation9",
+        "dispensations": "None",
+        "euVehicleCategory": "m2",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA19QA",
+    "vin": "AUTOQAPCM00000003",
+    "partialVin": "000003",
+    "primaryVrm": "QA03CTM",
+    "secondaryVrms": [
+      "X71LTA"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2019-01-16T12:24:38.027Z",
+        "dispensations": "None",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "lastUpdatedAt": "2022-11-16T21:43:03.236Z",
+        "lastUpdatedById": "10000009",
+        "lastUpdatedByName": "CVS Automation9",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2022-11-16T21:43:03.236Z",
+        "createdById": "10000009",
+        "createdByName": "CVS Automation9",
+        "dispensations": "None",
+        "euVehicleCategory": "m3",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA20QA",
+    "vin": "AUTOQAPCM00000013",
+    "partialVin": "000013",
+    "primaryVrm": "QA13CTM",
+    "secondaryVrms": [
+      "X71LTA"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2019-01-16T12:24:38.027Z",
+        "dispensations": "None",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "lastUpdatedAt": "2022-11-16T21:43:03.236Z",
+        "lastUpdatedById": "10000009",
+        "lastUpdatedByName": "CVS Automation9",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2022-11-16T21:43:03.236Z",
+        "createdById": "10000009",
+        "createdByName": "CVS Automation9",
+        "dispensations": "None",
+        "euVehicleCategory": "m3",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA21QA",
+    "vin": "AUTOQAPCM00000033",
+    "partialVin": "000033",
+    "primaryVrm": "QA33CTM",
+    "secondaryVrms": [
+      "X71LTA"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2019-01-16T12:24:38.027Z",
+        "dispensations": "None",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "lastUpdatedAt": "2022-11-16T21:43:03.236Z",
+        "lastUpdatedById": "10000009",
+        "lastUpdatedByName": "CVS Automation9",
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      },
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "single",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5018,
+              "ladenWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 0,
+              "fitmentCode": "double",
+              "plyRating": "A",
+              "speedCategorySymbol": "j",
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "gbWeight": 11500,
+              "kerbWeight": 8297,
+              "ladenWeight": 11500
+            }
+          }
+        ],
+        "bodyMake": "Plaxton",
+        "bodyModel": "Tourismo",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "171202",
+        "brakes": {
+          "brakeCode": "171202",
+          "brakeCodeOriginal": "123",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2742,
+            "secondaryBrakeForceA": 3857,
+            "serviceBrakeForceA": 7713
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 2130,
+            "secondaryBrakeForceB": 3329,
+            "serviceBrakeForceB": 6658
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "chassisMake": "Mercedes",
+        "chassisModel": "632,01",
+        "coifDate": "2010-12-20",
+        "conversionRefNo": "2",
+        "createdAt": "2022-11-16T21:43:03.236Z",
+        "createdById": "10000009",
+        "createdByName": "CVS Automation9",
+        "dispensations": "None",
+        "euVehicleCategory": "m3",
+        "grossDesignWeight": 19000,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13315,
+        "grossLadenWeight": 17140,
+        "manufactureYear": 2010,
+        "noOfAxles": 2,
+        "ntaNumber": "7",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "COIF",
+        "recordCompleteness": "complete",
+        "regnDate": "2011-01-05",
+        "remarks": "None",
+        "seatsLowerDeck": 50,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": 0,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "unladenWeight": 0,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA22QA",
+    "vin": "AUTOQAHCN00000002",
+    "partialVin": "957486",
+    "primaryVrm": "QA02CTN",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdgs",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euVehicleCategory": "n2",
+        "euroStandard": "7",
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "new vehicle",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA23QA",
+    "vin": "AUTOQAHCN00000012",
+    "partialVin": "957486",
+    "primaryVrm": "QA12CTN",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdgs",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euVehicleCategory": "n2",
+        "euroStandard": "7",
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "new vehicle",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA24QA",
+    "vin": "AUTOQAHCN00000022",
+    "partialVin": "957486",
+    "primaryVrm": "QA22CTN",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdgs",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euVehicleCategory": "n2",
+        "euroStandard": "7",
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "new vehicle",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA25QA",
+    "vin": "AUTOQAHCN00000003",
+    "partialVin": "957486",
+    "primaryVrm": "QA03CTN",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdgs",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euVehicleCategory": "n3",
+        "euroStandard": "7",
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "new vehicle",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA26QA",
+    "vin": "AUTOQAHCN00000013",
+    "partialVin": "957486",
+    "primaryVrm": "QA03CTN",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdgs",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euVehicleCategory": "n3",
+        "euroStandard": "7",
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "new vehicle",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "VTA27QA",
+    "vin": "AUTOQAHCN00000033",
+    "partialVin": "957486",
+    "primaryVrm": "QA33CTN",
+    "secondaryVrms": [
+      "CT96DRG"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1800,
+              "gbWeight": 1400
+            }
+          },
+          {
+            "axleNumber": 2,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 3,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 4,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          },
+          {
+            "axleNumber": 5,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "9.23648E+11"
+            },
+            "weights": {
+              "designWeight": 1900,
+              "gbWeight": 1600
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "r",
+          "description": "refuse"
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": "sdgs",
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euVehicleCategory": "n3",
+        "euroStandard": "7",
+        "frontAxleTo5thWheelCouplingMax": 1900,
+        "frontAxleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 5,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "new vehicle",
+        "recordCompleteness": "complete",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": [
+          "string"
+        ],
+        "vehicleType": "hgv"
+      }
+    ]
   }
 ]
