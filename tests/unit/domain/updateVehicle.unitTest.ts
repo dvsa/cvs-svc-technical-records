@@ -481,7 +481,7 @@ describe("VehicleProcessor", () => {
                 const MockDAO = jest.fn().mockImplementation();
                 // @ts-ignore;
                 const payload: Trailer = cloneDeep(mockData[43]);
-                payload.secondaryVrms = ["ABCD943"];
+                payload.secondaryVrms = ["ABCD943", "BCDE132"];
                 const trailerProcessor = new TrailerProcessor(
                   payload,
                   new MockDAO()
@@ -491,7 +491,7 @@ describe("VehicleProcessor", () => {
                   techRecord,
                   payload
                 );
-                expect(techRecord.secondaryVrms).toEqual(["ABCD943"]);
+                expect(techRecord.secondaryVrms).toEqual(["ABCD943", "BCDE132"]);
               });
             });
             context("and the new secondaryVrms are invalid", () => {
