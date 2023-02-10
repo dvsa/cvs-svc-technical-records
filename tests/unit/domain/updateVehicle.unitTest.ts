@@ -236,8 +236,6 @@ describe("VehicleProcessor", () => {
                       payload
                     );
                     expect(updatedVehicle.primaryVrm).toEqual("ABCD943");
-                    expect(updatedVehicle.secondaryVrms?.length).toEqual(2);
-                    expect(updatedVehicle.secondaryVrms).toContain("B999XFX");
                     expect(updatedVehicle.techRecord[0].reasonForCreation).toEqual(
                       `VRM updated from B999XFX to ABCD943. Updated VRM`
                     );
@@ -343,8 +341,6 @@ describe("VehicleProcessor", () => {
                       payload
                     );
                     expect(updatedVehicle.primaryVrm).toEqual("AA12BCD");
-                    expect(updatedVehicle.secondaryVrms?.length).toEqual(2);
-                    expect(updatedVehicle.secondaryVrms).toContain("B999XFX");
                     expect(updatedVehicle.techRecord[0].reasonForCreation).toEqual(
                       `VRM updated from B999XFX to AA12BCD. Updated VRM`
                     );
@@ -485,17 +481,17 @@ describe("VehicleProcessor", () => {
                 const MockDAO = jest.fn().mockImplementation();
                 // @ts-ignore;
                 const payload: Trailer = cloneDeep(mockData[43]);
-                payload.secondaryVrms = ["ABCD943"];
+                payload.secondaryVrms = ["ABCD943", "BCDE132"];
                 const trailerProcessor = new TrailerProcessor(
                   payload,
                   new MockDAO()
                 );
                 // @ts-ignore
                 trailerProcessor.updateVehicleIdentifiers(
-                  payload,
-                  techRecord
+                  techRecord,
+                  payload
                 );
-                expect(techRecord.secondaryVrms).toEqual(["ABCD943"]);
+                expect(techRecord.secondaryVrms).toEqual(["ABCD943", "BCDE132"]);
               });
             });
             context("and the new secondaryVrms are invalid", () => {

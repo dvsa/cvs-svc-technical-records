@@ -64,22 +64,19 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   protected updateVehicleIdentifiers(existingVehicle: T, updatedVehicle: T): T {
     const { primaryVrm } = updatedVehicle;
     const previousPrimaryVrm = existingVehicle.primaryVrm;
-    updatedVehicle.secondaryVrms = existingVehicle.secondaryVrms && [...existingVehicle.secondaryVrms]
+
+    existingVehicle.primaryVrm = updatedVehicle.primaryVrm;
+    existingVehicle.secondaryVrms = updatedVehicle.secondaryVrms;
 
     if (!primaryVrm || previousPrimaryVrm === primaryVrm) {
       return updatedVehicle;
     }
-    if (previousPrimaryVrm) {
-      updatedVehicle.secondaryVrms?.push(previousPrimaryVrm);
-    }
 
-    existingVehicle.primaryVrm = updatedVehicle.primaryVrm;
-    existingVehicle.secondaryVrms = updatedVehicle.secondaryVrms;
-    
     updatedVehicle.techRecord[0].reasonForCreation =
     `VRM updated from ${previousPrimaryVrm} to ${primaryVrm}. ` +
     updatedVehicle.techRecord[0].reasonForCreation; 
 
+    console.log(existingVehicle.secondaryVrms);
 
     return updatedVehicle;
   }
