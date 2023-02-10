@@ -461,8 +461,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     const isPrimaryVrmRequired = this.vehicle.techRecord[0].vehicleType !== enums.VEHICLE_TYPE.TRL;
     const {primaryVrm, secondaryVrms} = this.vehicle;
     
-    // validate if it's not create or primaryVrm is truthy
-    const validatePrimaryVrm = !isCreate || primaryVrm;
+    // don't validate primary vrm if is create and value is falsy
+    const validatePrimaryVrm = (isCreate && primaryVrm) || primaryVrm;
     const validateSecondaryVrms = isCreate || secondaryVrms;
 
     errors = errors.concat(validatePrimaryVrm ? validators.primaryVrmValidator(primaryVrm, isPrimaryVrmRequired):[]);
