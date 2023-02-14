@@ -2869,7 +2869,7 @@
               "designWeight": 1800
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -2884,7 +2884,7 @@
               "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -2986,7 +2986,7 @@
               "designWeight": 1800
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -3001,7 +3001,7 @@
               "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -3103,7 +3103,7 @@
               "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -3159,7 +3159,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -3179,7 +3179,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3199,7 +3199,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3219,7 +3219,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3239,7 +3239,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3341,7 +3341,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -3356,7 +3356,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3371,7 +3371,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3386,7 +3386,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3401,7 +3401,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3498,7 +3498,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -3513,7 +3513,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3528,7 +3528,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3543,7 +3543,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3638,7 +3638,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -3658,7 +3658,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3678,7 +3678,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3698,7 +3698,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3718,7 +3718,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3738,7 +3738,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3839,7 +3839,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -3859,7 +3859,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3879,7 +3879,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -3899,7 +3899,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -4001,7 +4001,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -4016,7 +4016,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -4031,7 +4031,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -4128,7 +4128,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -4143,7 +4143,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -4158,7 +4158,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -4173,7 +4173,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -4188,7 +4188,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -4203,7 +4203,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -4218,7 +4218,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -4233,7 +4233,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -4330,7 +4330,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             }
           }
         ],
@@ -4451,7 +4451,7 @@
               "designWeight": 1800
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -4466,7 +4466,7 @@
               "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -4486,7 +4486,7 @@
               "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -4566,7 +4566,7 @@
               "designWeight": 1800
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -4581,7 +4581,7 @@
               "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -4688,7 +4688,7 @@
               "designWeight": 1800
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -4703,7 +4703,7 @@
               "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -4817,7 +4817,7 @@
               "designWeight": 1800
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -4832,7 +4832,7 @@
               "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -4862,7 +4862,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -4877,7 +4877,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -4964,7 +4964,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -4979,7 +4979,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -5075,7 +5075,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -5095,7 +5095,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -5188,7 +5188,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -5208,7 +5208,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -5310,7 +5310,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -5330,7 +5330,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -5470,7 +5470,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -5490,7 +5490,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -5623,7 +5623,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -5643,7 +5643,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -5852,7 +5852,7 @@
               "designWeight": 1800
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -5867,7 +5867,7 @@
               "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -5973,7 +5973,7 @@
               "designWeight": 1800
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -5988,7 +5988,7 @@
               "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -6094,7 +6094,7 @@
               "designWeight": 1800
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -6109,7 +6109,7 @@
               "designWeight": 1900
             },
             "tyres": {
-              "tyreSize": "9.23648E+11",
+              "tyreSize": "295/80-22.5",
               "plyRating": "AB",
               "fitmentCode": "single",
               "dataTrAxles": 345,
@@ -6264,7 +6264,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -6279,7 +6279,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -6906,7 +6906,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -6926,7 +6926,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -6946,7 +6946,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -6966,7 +6966,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -6986,7 +6986,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -7006,7 +7006,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -7576,7 +7576,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -7596,7 +7596,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -7745,7 +7745,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -7765,7 +7765,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -7929,7 +7929,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -7949,7 +7949,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -8113,7 +8113,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -8133,7 +8133,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -8233,7 +8233,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -8253,7 +8253,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -8852,7 +8852,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -8872,7 +8872,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -8892,7 +8892,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -8912,7 +8912,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -8932,7 +8932,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -8952,7 +8952,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -17724,7 +17724,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -17744,7 +17744,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -17764,7 +17764,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -17784,7 +17784,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -17804,7 +17804,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -17824,7 +17824,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -17924,7 +17924,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -17939,7 +17939,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -18945,7 +18945,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -18965,7 +18965,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -18985,7 +18985,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19005,7 +19005,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19025,7 +19025,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19045,7 +19045,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19146,7 +19146,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -19166,7 +19166,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19186,7 +19186,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19206,7 +19206,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19226,7 +19226,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19246,7 +19246,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19853,7 +19853,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -19873,7 +19873,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19893,7 +19893,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19913,7 +19913,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19933,7 +19933,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -19953,7 +19953,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -20054,7 +20054,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -20074,7 +20074,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -20094,7 +20094,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -20114,7 +20114,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -20134,7 +20134,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -20154,7 +20154,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -20246,7 +20246,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -20266,7 +20266,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -20286,7 +20286,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -20306,7 +20306,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -20326,7 +20326,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -20346,7 +20346,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -21185,7 +21185,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -21205,7 +21205,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -21225,7 +21225,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -21245,7 +21245,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -21265,7 +21265,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -21285,7 +21285,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -21386,7 +21386,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -21406,7 +21406,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -21426,7 +21426,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -21446,7 +21446,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -21466,7 +21466,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -21486,7 +21486,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22093,7 +22093,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -22113,7 +22113,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22133,7 +22133,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22153,7 +22153,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22173,7 +22173,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22193,7 +22193,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22294,7 +22294,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -22314,7 +22314,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22334,7 +22334,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22354,7 +22354,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22374,7 +22374,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22394,7 +22394,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22496,7 +22496,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -22511,7 +22511,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22605,7 +22605,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 7100,
@@ -22627,7 +22627,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22647,7 +22647,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22667,7 +22667,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22687,7 +22687,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -22707,7 +22707,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 12600,
@@ -25613,7 +25613,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -25633,7 +25633,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -25653,7 +25653,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -25673,7 +25673,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -25693,7 +25693,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -25713,7 +25713,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -25805,7 +25805,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -25825,7 +25825,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -25845,7 +25845,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -25865,7 +25865,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -25885,7 +25885,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -25905,7 +25905,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -27064,7 +27064,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -27084,7 +27084,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -27104,7 +27104,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -27124,7 +27124,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -27144,7 +27144,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -27164,7 +27164,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36282,7 +36282,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -36297,7 +36297,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36312,7 +36312,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36327,7 +36327,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36342,7 +36342,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36443,7 +36443,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -36458,7 +36458,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36473,7 +36473,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36488,7 +36488,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36503,7 +36503,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36604,7 +36604,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -36619,7 +36619,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36634,7 +36634,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36649,7 +36649,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36664,7 +36664,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36765,7 +36765,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -36780,7 +36780,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36795,7 +36795,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36810,7 +36810,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36825,7 +36825,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36926,7 +36926,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -36941,7 +36941,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36956,7 +36956,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36971,7 +36971,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -36986,7 +36986,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39417,7 +39417,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -39432,7 +39432,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39447,7 +39447,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39462,7 +39462,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39477,7 +39477,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39579,7 +39579,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -39594,7 +39594,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39609,7 +39609,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39624,7 +39624,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39639,7 +39639,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39741,7 +39741,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -39756,7 +39756,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39771,7 +39771,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39786,7 +39786,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39801,7 +39801,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39903,7 +39903,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -39918,7 +39918,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39933,7 +39933,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39948,7 +39948,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -39963,7 +39963,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -40065,7 +40065,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -40080,7 +40080,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -40095,7 +40095,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -40110,7 +40110,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -40125,7 +40125,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -40227,7 +40227,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 1234,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1800,
@@ -40242,7 +40242,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -40257,7 +40257,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -40272,7 +40272,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
@@ -40287,7 +40287,7 @@
               "plyRating": "AB",
               "speedCategorySymbol": "a7",
               "tyreCode": 5678,
-              "tyreSize": "9.23648E+11"
+              "tyreSize": "295/80-22.5"
             },
             "weights": {
               "designWeight": 1900,
