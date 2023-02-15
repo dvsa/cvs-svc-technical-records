@@ -124,6 +124,8 @@ export default interface ITechRecord {
   manufacturerDetails: ManufacturerDetails;
   authIntoService: AuthIntoService;
   lettersOfAuth: LettersOfAuth;
+  historicPrimaryVrm?: string;
+  historicSecondaryVrms?: string;
 }
 
 interface Dimensions {

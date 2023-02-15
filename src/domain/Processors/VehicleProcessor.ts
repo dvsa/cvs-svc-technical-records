@@ -76,8 +76,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     `VRM updated from ${previousPrimaryVrm} to ${primaryVrm}. ` +
     updatedVehicle.techRecord[0].reasonForCreation; 
 
-    console.log(existingVehicle.secondaryVrms);
-
     return updatedVehicle;
   }
 
@@ -260,6 +258,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     techRecordToArchive.lastUpdatedByName = userDetails.msUser;
     techRecordToArchive.lastUpdatedById = userDetails.msOid;
     techRecordToArchive.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
+    techRecordWithAllStatues.techRecord[0].historicPrimaryVrm = techRecordWithAllStatues.primaryVrm;
+    techRecordWithAllStatues.techRecord[0].historicSecondaryVrms = techRecordWithAllStatues.secondaryVrms;
     if (techRecordToArchive.vehicleType === enums.VEHICLE_TYPE.PSV) {
       const remarks = (techRecordToArchive as PsvTechRecord).remarks;
       (techRecordToArchive as PsvTechRecord).remarks = remarks
