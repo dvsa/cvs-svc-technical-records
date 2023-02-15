@@ -42,7 +42,7 @@ export const axlesSchema = Joi.object().keys({
 
 export const platesSchema = Joi.object().keys({
   plateSerialNumber: Joi.string().max(12).optional().allow(null, ''),
-  plateIssueDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
+  plateIssueDate: Joi.string().optional().allow(null, ''),
   plateReasonForIssue: Joi.string().valid(...PLATE_REASON_FOR_ISSUE).optional().allow(null, ''),
   plateIssuer: Joi.string().max(150).optional().allow(null, '')
 });
