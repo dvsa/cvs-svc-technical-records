@@ -38,7 +38,7 @@ const lettersOfAuth = Joi.object()
       .optional()
       .allow(null),
     letterContents: Joi.string().optional().allow(null, ""),
-    paragraphID: Joi.string().valid(...PARAGRAPH_IDS).optional.allow(null, ""),
+    paragraphID: Joi.string().valid(...PARAGRAPH_IDS).optional().allow(null, ""),
     letterIssuer: Joi.string().optional().allow(null, "")
   })
   .optional()
