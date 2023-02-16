@@ -9,7 +9,7 @@ import {
   commonSchema,
   weightsSchema,
 } from "./CommonSchema";
-import { FRAME_DESCRIPTION, LETTER_TYPE } from "../../assets/Enums";
+import { FRAME_DESCRIPTION, LETTER_TYPE, PARAGRAPH_IDS } from "../../assets/Enums";
 import { adrValidation } from "./AdrValidation";
 
 const authIntoService = Joi.object()
@@ -34,11 +34,12 @@ const lettersOfAuth = Joi.object()
       .optional()
       .allow(null, ""),
     letterDateRequested: Joi.date()
-      .format("YYYY-MM-DD")
       .raw()
       .optional()
       .allow(null),
     letterContents: Joi.string().optional().allow(null, ""),
+    paragraphID: Joi.string().valid(...PARAGRAPH_IDS).optional.allow(null, ""),
+    letterIssuer: Joi.string().optional().allow(null, "")
   })
   .optional()
   .allow(null);
