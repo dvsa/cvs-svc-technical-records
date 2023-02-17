@@ -167,7 +167,16 @@ export const APPROVAL_TYPE: string[] = [
     "ECTA",
     "IVA",
     "NSSTA",
-    "ECSSTA"
+    "ECSSTA",
+    "GB WVTA",
+    "UKNI WVTA",
+    "EU WVTA Pre 23",
+    "EU WVTA 23 on",
+    "QNIG",
+    "Prov.GB WVTA",
+    "Small series",
+    "IVA - VCA",
+    "IVA - DVSA/NI"
 ];
 
 export const BODY_TYPE_DESCRIPTION: string[] = [
@@ -318,6 +327,14 @@ export const FRAME_DESCRIPTION: string[] = [
 export const LETTER_TYPE: string[] = [
     "Trailer authorization",
     "Trailer rejection"
+];
+
+export const PARAGRAPH_IDS: string[] = [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7"
 ];
 
 export const STATUS_CODES: string[] = [
