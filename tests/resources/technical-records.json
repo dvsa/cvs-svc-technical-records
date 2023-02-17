@@ -40691,7 +40691,7 @@
         "rearAxleToRearTrl": 400,
         "reasonForCreation": "registration",
         "roadFriendly": true,
-        "statusCode": "provisional",
+        "statusCode": "current",
         "suspensionType": "Y",
         "grossDesignWeight": 1900,
         "grossGbWeight": 1400,
@@ -40703,7 +40703,8 @@
         "vehicleConfiguration": "drawbar",
         "vehicleType": "trl",
         "numberOfWheelsDriven": null,
-        "recordCompleteness": "complete"
+        "recordCompleteness": "complete",
+        "approvalType": "EU WVTA 23 on"
       }
     ],
     "trailerId": "C111222",
