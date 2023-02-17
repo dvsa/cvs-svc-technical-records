@@ -1914,13 +1914,27 @@ components:
       description: POST request body for amend VIN request.
       additionalProperties: false
       properties:
+        msUserDetails:
+          $ref: '#/components/schemas/msUserDetails'
         newVin:
           description: new vehicle identification number
           type: string
           nullable: false
       required:
+        - msUserDetails
         - newVin
-
+    msUserDetails:
+      description: Authenticated user details
+      type: object
+      additionalProperties: false
+      properties:
+        msUser:
+          type: string
+        msOid:
+          type: string
+      required:
+          - msUser
+          - msOid
 security:
   - OAuth2:
       - read
