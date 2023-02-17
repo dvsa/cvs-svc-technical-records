@@ -40369,5 +40369,117 @@
         "vehicleType": "hgv"
       }
     ]
+  },
+  {
+    "systemNumber": "5917413",
+    "vin": "SHB1HT07500123456",
+    "partialVin": "123456",
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2022-09-26T16:58:05.000000Z",
+        "euVehicleCategory": "o1",
+        "lastUpdatedAt": "2022-09-27T00:55:45.000000Z",
+        "make": "HAZLEWOOD",
+        "manufactureYear": 2022,
+        "model": " ",
+        "noOfAxles": 1,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": " ",
+        "recordCompleteness": "testable",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+        ],
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "123456T"
+  },
+  {
+    "systemNumber": "5978167",
+    "vin": "12340SBW200910880",
+    "partialVin": "910880",
+    "primaryVrm": "995243Z",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T14:54:32.000000Z",
+        "euVehicleCategory": null,
+        "lastUpdatedAt": "2023-02-07T20:56:34.000000Z",
+        "make": "PEDIBAL",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "1",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "1",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+        ],
+        "vehicleType": "motorcycle"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5976221",
+    "vin": "AA11100851",
+    "partialVin": "100851",
+    "primaryVrm": "991234Z",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T10:39:47.000000Z",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": "2023-02-09T20:45:45.000000Z",
+        "make": "HONDA",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+          "r"
+        ],
+        "vehicleType": "car"
+      }
+    ]
   }
 ]
