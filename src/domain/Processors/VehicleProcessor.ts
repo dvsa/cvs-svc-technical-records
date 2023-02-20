@@ -1,4 +1,4 @@
-import { cloneDeep, mergeWith, isArray, isEqual } from "lodash";
+import { cloneDeep, isArray, isEqual } from "lodash";
 import {
   Vehicle,
   TechRecord,
