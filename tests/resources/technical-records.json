@@ -34994,7 +34994,7 @@
         "drawbarCouplingFitted": false,
         "emissionsLimit": 20,
         "euroStandard": "2",
-        "euVehicleCategory": "n2",
+        "euVehicleCategory": null,
         "frontAxleTo5thWheelCouplingMax": 1300,
         "frontAxleTo5thWheelCouplingMin": 1400,
         "frontAxleTo5thWheelMax": 1100,

@@ -884,6 +884,35 @@ describe("updateEuVehicleCategory", () => {
     });
   });
 
+  context("when updating the euVehicleCategory for a vehicle whose VIN has changed", () => {
+    it("should update the euVehicleCategory with the value provided", async () => {
+      const expectedTechRecord = cloneDeep(records[171]) as ITechRecordWrapper;
+      const systemNumber = "11220280";
+      const newEuVehicleCategory = "m1";
+      expectedTechRecord.techRecord[0].euVehicleCategory = newEuVehicleCategory;
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          updateSingle: () => {
+            return Promise.resolve({
+              Attributes: expectedTechRecord
+            });
+          },
+          getBySearchTerm: () => {
+            return Promise.resolve(cloneDeep([records[169], records[170], records[171]]));
+          }
+        };
+      });
+      expect.assertions(2);
+      const {msUser, msOid } = msUserDetails;
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+      const response: HTTPResponse | HTTPError = await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1, msOid, msUser);
+      const updatedTechRec: ITechRecordWrapper = JSON.parse(response.body);
+      expect(response.statusCode).toEqual(200);
+      expect(updatedTechRec.techRecord[0].euVehicleCategory).toEqual(newEuVehicleCategory);
+    });
+  });
+
   context("when updating a euVehicleCategory for an existing vehicle where the value is not null", () => {
     it("should throw error No EU vehicle category update required", async () => {
       const systemNumber = "10000001";

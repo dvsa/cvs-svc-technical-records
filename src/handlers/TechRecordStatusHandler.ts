@@ -1,8 +1,9 @@
-import {ERRORS, SEARCHCRITERIA, STATUS, UPDATE_TYPE} from "../assets/Enums";
+import { ERRORS, SEARCHCRITERIA, STATUS, UPDATE_TYPE } from "../assets/Enums";
 import HTTPError from "../models/HTTPError";
-import {cloneDeep} from "lodash";
+import { cloneDeep } from "lodash";
 import * as handlers from "./index";
-import {Vehicle} from "../../@Types/TechRecords";
+import { Vehicle } from "../../@Types/TechRecords";
+import { VehicleProcessor } from "../domain/Processors";
 
 
 export class TechRecordStatusHandler<T extends Vehicle> {
@@ -15,12 +16,8 @@ export class TechRecordStatusHandler<T extends Vehicle> {
   }
 
   public async prepareTechRecordForStatusUpdate(systemNumber: string, newStatus: STATUS = STATUS.CURRENT, createdById: string, createdByName: string): Promise<T> {
-    const techRecordWrapper = await this.techRecordsListHandler.getFormattedTechRecordsList(systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER);
-    if (techRecordWrapper.length !== 1) {
-      // systemNumber search should return a single record
-      throw new HTTPError(500, ERRORS.NO_UNIQUE_RECORD);
-    }
-    const uniqueRecord = techRecordWrapper[0];
+    const techRecordWrapper = await this.techRecordsListHandler.getFormattedTechRecordsList(systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER, false);
+    const uniqueRecord = VehicleProcessor.getTechRecordToUpdate(techRecordWrapper, (techRecord) => techRecord.statusCode === STATUS.PROVISIONAL || techRecord.statusCode === STATUS.CURRENT) as T;
     const provisionalTechRecords = uniqueRecord.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.PROVISIONAL);
     const currentTechRecords = uniqueRecord.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.CURRENT);
     let newTechRecord;
