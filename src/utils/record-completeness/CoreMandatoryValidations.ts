@@ -48,12 +48,12 @@ export const psvCoreMandatorySchema = coreMandatoryCommonSchemaPsvHgvTrl.keys({
   vehicleSize: Joi.string().valid(...VEHICLE_SIZE).required(),
   seatsLowerDeck: Joi.number().required(),
   seatsUpperDeck: Joi.number().required(),
-  numberOfWheelsDriven: Joi.number().required()
+  numberOfWheelsDriven: Joi.number().required().allow(null)
 }).required();
 
 export const trlCoreMandatorySchema = coreMandatoryCommonSchemaPsvHgvTrl;
 export const hgvCoreMandatorySchema = coreMandatoryCommonSchemaPsvHgvTrl.keys({
-  numberOfWheelsDriven: Joi.number().required()
+  numberOfWheelsDriven: Joi.number().required().allow(null)
 });
 
 export const carCoreMandatorySchema = coreMandatoryCommonSchemaLgvMotorcycleCar.keys({

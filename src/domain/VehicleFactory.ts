@@ -6,6 +6,7 @@ import {
   LightGoodsVehicle,
   Motorcycle,
   PublicServiceVehicle,
+  SmallTrailer,
   Trailer,
   Vehicle,
 } from "../../@Types/TechRecords";
@@ -21,10 +22,7 @@ export class VehicleFactory {
     const type = vehicleObj.techRecord[0].vehicleType as enums.VEHICLE_TYPE;
     switch (type) {
       case enums.VEHICLE_TYPE.PSV:
-        return new processors.PsvProcessor(
-          vehicleObj as PublicServiceVehicle,
-          techRecordDAO
-        );
+        return new processors.PsvProcessor(vehicleObj as PublicServiceVehicle, techRecordDAO);
       case enums.VEHICLE_TYPE.HGV:
         return new processors.HgvProcessor(vehicleObj as HeavyGoodsVehicle, techRecordDAO);
       case enums.VEHICLE_TYPE.TRL:
@@ -33,6 +31,8 @@ export class VehicleFactory {
         return new processors.LgvProcessor(vehicleObj as LightGoodsVehicle, techRecordDAO);
       case enums.VEHICLE_TYPE.CAR:
         return new processors.CarProcessor(vehicleObj as Car, techRecordDAO);
+      case enums.VEHICLE_TYPE.SMALL_TRL:
+        return new processors.SmallTrailerProcessor(vehicleObj as SmallTrailer, techRecordDAO);
       case enums.VEHICLE_TYPE.MOTORCYCLE:
         return new processors.MotorcycleProcessor(vehicleObj as Motorcycle, techRecordDAO);
       default:

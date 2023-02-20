@@ -5,5 +5,6 @@ export * from "./LgvValidations";
 export * from "./MotorcycleValidations";
 export * from "./PayloadValidation";
 export * from "./PsvValidations";
+export * from "./SmallTrailerValidation";
 export * from "./TrlValidations";
 export * from "./ValidationUtils";

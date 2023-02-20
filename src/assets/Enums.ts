@@ -7,6 +7,7 @@ export enum ERRORS {
     NO_UNIQUE_RECORD = "Failed to uniquely identify record",
     TRAILER_ID_GENERATION_FAILED = "TrailerId generation failed!",
     SYSTEM_NUMBER_GENERATION_FAILED = "System Number generation failed!",
+    Z_NUMBER_GENERATION_FAILED = "Z Number generation failed!",
     CANNOT_UPDATE_ARCHIVED_RECORD = "You are not allowed to update an archived tech-record",
     CANNOT_USE_UPDATE_TO_ARCHIVE = "Cannot use update API to archive tech record",
     CANNOT_ARCHIVE_CHANGED_RECORD = "Cannot archive tech record with attribute changes",
@@ -16,14 +17,14 @@ export enum ERRORS {
     MISSING_PAYLOAD = "Missing payload!",
     MISSING_USER = "Microsoft user details not provided",
     MISSING_REASON_FOR_ARCHIVING = "Reason for archiving not provided",
-    VEHICLE_TYPE_ERROR = "\"vehicleType\" must be one of [hgv, psv, trl, car, lgv, motorcycle]",
+    VEHICLE_TYPE_ERROR = "\"vehicleType\" must be one of [hgv, psv, trl, lgv, car, small trl, motorcycle]",
     INVALID_PRIMARY_SECONDARY_VRM = "Primary or secondaryVrms are not valid",
     INVALID_PRIMARY_VRM = "Invalid primary VRM",
     INVALID_SECONDARY_VRM = "Secondary VRMs are invalid",
     INVALID_TRAILER_ID= "TrailerId is invalid",
     INVALID_BODY_TYPE = "Invalid body type code",
     INVALID_VEHICLE_CLASS = "Invalid vehicle class code",
-    INVALID_VEHICLE_TYPE = '"vehicleType" must be one of [hgv, psv, trl, car, lgv, motorcycle]'
+    INVALID_VEHICLE_TYPE = '"vehicleType" must be one of [hgv, psv, trl, lgv, car, small trl, motorcycle]'
 }
 
 export enum HTTPRESPONSE {
@@ -66,6 +67,7 @@ export enum VEHICLE_TYPE {
     PSV = "psv",
     CAR = "car",
     LGV = "lgv",
+    SMALL_TRL = "small trl",
     MOTORCYCLE = "motorcycle"
 }
 
@@ -96,6 +98,7 @@ export const VEHICLE_TYPE_VALIDATION: string[] = [
     "hgv",
     "car",
     "lgv",
+    "small trl",
     "motorcycle"
 ];
 
@@ -168,18 +171,26 @@ export const APPROVAL_TYPE: string[] = [
 ];
 
 export const BODY_TYPE_DESCRIPTION: string[] = [
+    "artic",
     "articulated",
-    "single decker",
+    "box",
+    "car transporter",
+    "concrete mixer",
+    "curtainsider",
     "double decker",
+    "flat",
+    "livestock carrier",
+    "low loader",
+    "mini bus",
     "other",
     "petrol/oil tanker",
-    "skeletal",
-    "tipper",
-    "box",
-    "flat",
+    "refrigerated",
     "refuse",
+    "single decker",
+    "skeletal",
     "skip loader",
-    "refrigerated"
+    "tipper",
+    "tractor"
 ];
 
 export const MICROFILM_DOCUMENT_TYPE: string[] = [

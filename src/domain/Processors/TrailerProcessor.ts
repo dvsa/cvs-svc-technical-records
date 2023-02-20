@@ -16,8 +16,7 @@ export class TrailerProcessor extends VehicleProcessor<Trailer> {
     const { trailerId } = this.vehicle;
     console.log("TRL validate tech record fields");
     const errors: string[] = [];
-    const isTrailerIdValid = validators.validateTrailerId.validate(trailerId);
-    if (isTrailerIdValid.error) {
+    if ((!isCreate || this.vehicle.trailerId) && validators.validateTrailerId.validate(trailerId)?.error) {
       errors.push(Enums.ERRORS.INVALID_TRAILER_ID);
     }
     errors.push(...validators.validateHGVOrTrailer(newVehicle, this.validationOptions, isCreate));
@@ -46,8 +45,12 @@ export class TrailerProcessor extends VehicleProcessor<Trailer> {
 
   /* #region  Async functions */
   protected async setNumberKey(): Promise<void> {
-      this.vehicle.systemNumber = await this.numberGenerator.generateSystemNumber();
-      this.vehicle.trailerId = await this.numberGenerator.generateTrailerId();
+    this.vehicle.systemNumber = await this.numberGenerator.generateSystemNumber();
+    if(!this.vehicle.trailerId) {
+      const newTrailerId = await this.numberGenerator.generateTrailerId();
+      this.vehicle.trailerId = newTrailerId;
+      this.vehicle.primaryVrm = newTrailerId;
+    }
   }
 
   protected async validateVrmWithHistory(

@@ -17,32 +17,32 @@ import {
 } from "../../assets/Enums";
 
 export const brakesSchema = Joi.object().keys({
-  dtpNumber: Joi.string().max(6).required(),
-}).required();
+  dtpNumber: Joi.string().max(6).allow(null, ''),
+});
 
 export const weightsSchema = Joi.object().keys({
-  gbWeight: Joi.number().min(0).max(99999).required(),
-  designWeight: Joi.number().min(0).max(99999).required()
-}).required();
+  gbWeight: Joi.number().min(0).max(99999).allow(null, ''),
+  designWeight: Joi.number().min(0).max(99999).allow(null, '')
+});
 
 export const tyresSchema = Joi.object().keys({
-  tyreCode: Joi.number().min(0).max(9999).required(),
-  tyreSize: Joi.string().max(12).required(),
+  tyreCode: Joi.number().min(0).max(9999).allow(null, ''),
+  tyreSize: Joi.string().max(12).allow(null, ''),
   plyRating: Joi.string().max(2).optional().allow(null, ''),
-  fitmentCode: Joi.string().valid(...FITMENT_CODE).required(),
+  fitmentCode: Joi.string().valid(...FITMENT_CODE).allow(null, ''),
   dataTrAxles: Joi.number().min(0).max(999).optional().allow(null)
-}).required();
+});
 
 export const axlesSchema = Joi.object().keys({
   parkingBrakeMrk: Joi.boolean().optional().allow(null, ''),
-  axleNumber: Joi.number().min(0).max(99999).required(),
+  axleNumber: Joi.number().min(0).max(99999).allow(null, ''),
   weights: weightsSchema,
   tyres: tyresSchema
 });
 
 export const platesSchema = Joi.object().keys({
   plateSerialNumber: Joi.string().max(12).optional().allow(null, ''),
-  plateIssueDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
+  plateIssueDate: Joi.string().optional().allow(null, ''),
   plateReasonForIssue: Joi.string().valid(...PLATE_REASON_FOR_ISSUE).optional().allow(null, ''),
   plateIssuer: Joi.string().max(150).optional().allow(null, '')
 });
@@ -54,15 +54,15 @@ export const microfilmSchema = Joi.object().keys({
 }).optional().allow(null);
 
 export const applicantDetailsSchema = Joi.object().keys({
-  name: Joi.string().max(150).required(),
-  address1: Joi.string().max(60).required(),
-  address2: Joi.string().max(60).required(),
-  postTown: Joi.string().max(60).required(),
+  name: Joi.string().max(150).allow(null, ''),
+  address1: Joi.string().max(60).allow(null, ''),
+  address2: Joi.string().max(60).allow(null, ''),
+  postTown: Joi.string().max(60).allow(null, ''),
   address3: Joi.string().max(60).optional().allow(null, ''),
   postCode: Joi.string().max(12).optional().allow(null, ''),
   telephoneNumber: Joi.string().max(25).optional().allow(null, ''),
   emailAddress: Joi.string().max(255).optional().allow(null, '')
-}).required();
+});
 
 export const applicantDetailsSchemaOptional = Joi.object().keys({
   name: Joi.string().max(150).optional().allow(null, ''),
@@ -77,14 +77,14 @@ export const applicantDetailsSchemaOptional = Joi.object().keys({
 
 export const commonSchema = Joi.object().keys({
   hiddenInVta: Joi.boolean().optional().allow(null),
-  recordCompleteness: Joi.string().valid(...RECORD_COMPLETENESS).optional(),
-  euVehicleCategory: Joi.string().valid(...EU_VEHICLE_CATEGORY_VALIDATION).required(),
-  vehicleType: Joi.string().valid(...VEHICLE_TYPE_VALIDATION).required(),
-  regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
-  manufactureYear: Joi.number().min(0).max(9999).required(),
-  noOfAxles: Joi.number().min(0).max(99).required(),
+  recordCompleteness: Joi.string().valid(...RECORD_COMPLETENESS).optional().allow(null, ''),
+  euVehicleCategory: Joi.string().valid(...EU_VEHICLE_CATEGORY_VALIDATION).allow(null, ''),
+  vehicleType: Joi.string().valid(...VEHICLE_TYPE_VALIDATION),
+  regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null).allow(null, ''),
+  manufactureYear: Joi.number().min(0).max(9999).allow(null, ''),
+  noOfAxles: Joi.number().min(0).max(99).allow(null, ''),
   brakes: brakesSchema,
-  axles: Joi.array().items(axlesSchema).min(1).required(),
+  axles: Joi.array().items(axlesSchema).min(1).allow(null, ''),
   vehicleClass: Joi.object().keys({
     code: Joi.any().when("description", {
       is: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION).required(),
@@ -93,10 +93,10 @@ export const commonSchema = Joi.object().keys({
     }),
     description: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION).required()
   }).required(),
-  vehicleConfiguration: Joi.string().valid(...VEHICLE_CONFIGURATION).required(),
-  departmentalVehicleMarker: Joi.boolean().optional(),
-  alterationMarker: Joi.boolean().optional(),
-  approvalType: Joi.string().valid(...APPROVAL_TYPE).required(),
+  vehicleConfiguration: Joi.string().valid(...VEHICLE_CONFIGURATION).allow(null, ''),
+  departmentalVehicleMarker: Joi.boolean().optional().allow(null, ''),
+  alterationMarker: Joi.boolean().optional().allow(null, ''),
+  approvalType: Joi.string().valid(...APPROVAL_TYPE).allow(null, ''),
   approvalTypeNumber: Joi.string().max(25).optional().allow(null, ''),
   ntaNumber: Joi.string().max(40).optional().allow(null, ''),
   variantNumber: Joi.string().max(25).optional().allow(null, ''),
@@ -108,40 +108,40 @@ export const commonSchema = Joi.object().keys({
       otherwise: Joi.object().forbidden()
     }),
     description: Joi.string().valid(...BODY_TYPE_DESCRIPTION).required()
-  }).required(),
+  }),
   functionCode: Joi.string().max(1).optional().allow(null, ''),
   conversionRefNo: Joi.string().max(10).optional().allow(null, ''),
-  grossGbWeight: Joi.number().min(0).max(99999).required(),
-  grossDesignWeight: Joi.number().min(0).max(99999).required(),
-  applicantDetails: applicantDetailsSchema,
-  microfilm: microfilmSchema,
-  plates: Joi.array().items(platesSchema).optional().allow(null),
-  reasonForCreation: Joi.string().max(100).required(),
-  createdAt: Joi.string().optional().allow(null, ''),
-  createdByName: Joi.string().optional(),
-  createdById: Joi.string().optional(),
-  lastUpdatedAt: Joi.string().optional().allow(null, ''),
-  lastUpdatedByName: Joi.string().optional(),
-  lastUpdatedById: Joi.string().optional(),
-  statusCode: Joi.string().valid(...STATUS_CODES)
-}).required();
-
-export const commonSchemaLgvMotorcycleCar = Joi.object().keys({
-  vehicleType: Joi.string().valid(...VEHICLE_TYPE_VALIDATION).required(),
-  regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null),
-  manufactureYear: Joi.number().min(0).max(9999).optional().allow(null),
-  noOfAxles: Joi.number().min(0).max(99).required(),
-  euVehicleCategory: Joi.string().valid(...EU_VEHICLE_CATEGORY_VALIDATION).optional().allow(null),
+  grossGbWeight: Joi.number().min(0).max(99999).allow(null, ''),
+  grossDesignWeight: Joi.number().min(0).max(99999).allow(null, ''),
   applicantDetails: applicantDetailsSchemaOptional,
-  remarks: Joi.string().max(1024).optional().allow(null),
-  reasonForCreation: Joi.string().max(100).required(),
-  recordCompleteness: Joi.string().valid(...RECORD_COMPLETENESS).optional(),
-  hiddenInVta: Joi.boolean().optional().allow(null),
-  createdAt: Joi.string().optional().allow(null),
-  createdByName: Joi.string().optional(),
-  createdById: Joi.string().optional(),
-  lastUpdatedAt: Joi.string().optional().allow(null),
-  lastUpdatedByName: Joi.string().optional(),
-  lastUpdatedById: Joi.string().optional(),
+  microfilm: microfilmSchema,
+  plates: Joi.array().items(platesSchema).optional().allow(null, ''),
+  reasonForCreation: Joi.string().max(100).allow(null, ''),
+  createdAt: Joi.string().optional().allow(null, ''),
+  createdByName: Joi.string().optional().allow(null, ''),
+  createdById: Joi.string().optional().allow(null, ''),
+  lastUpdatedAt: Joi.string().optional().allow(null, ''),
+  lastUpdatedByName: Joi.string().optional().allow(null, ''),
+  lastUpdatedById: Joi.string().optional().allow(null, ''),
   statusCode: Joi.string().valid(...STATUS_CODES)
-}).required();
+});
+
+export const commonSchemaLgvCarSmallTrlMotorcycle = Joi.object().keys({
+  vehicleType: Joi.string().valid(...VEHICLE_TYPE_VALIDATION).allow(null, ''),
+  regnDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null, ''),
+  manufactureYear: Joi.number().min(0).max(9999).optional().allow(null, ''),
+  noOfAxles: Joi.number().min(0).max(99).allow(null, ''),
+  euVehicleCategory: Joi.string().valid(...EU_VEHICLE_CATEGORY_VALIDATION).optional().allow(null, ''),
+  applicantDetails: applicantDetailsSchemaOptional,
+  remarks: Joi.string().max(1024).optional().allow(null).allow(null, ''),
+  reasonForCreation: Joi.string().max(100).allow(null, ''),
+  recordCompleteness: Joi.string().valid(...RECORD_COMPLETENESS).optional().allow(null, ''),
+  hiddenInVta: Joi.boolean().optional().allow(null, ''),
+  createdAt: Joi.string().optional().allow(null, ''),
+  createdByName: Joi.string().optional().allow(null, ''),
+  createdById: Joi.string().optional().allow(null, ''),
+  lastUpdatedAt: Joi.string().optional().allow(null, ''),
+  lastUpdatedByName: Joi.string().optional().allow(null, ''),
+  lastUpdatedById: Joi.string().optional().allow(null, ''),
+  statusCode: Joi.string().valid(...STATUS_CODES)
+});

@@ -236,8 +236,6 @@ describe("VehicleProcessor", () => {
                       payload
                     );
                     expect(updatedVehicle.primaryVrm).toEqual("ABCD943");
-                    expect(updatedVehicle.secondaryVrms?.length).toEqual(2);
-                    expect(updatedVehicle.secondaryVrms).toContain("B999XFX");
                     expect(updatedVehicle.techRecord[0].reasonForCreation).toEqual(
                       `VRM updated from B999XFX to ABCD943. Updated VRM`
                     );
@@ -284,7 +282,7 @@ describe("VehicleProcessor", () => {
               context(
                 "and the primaryVrm is already present on another vehicle",
                 () => {
-                  it("should return Error 400 primaryVrm already exists", async () => {
+                  it("should return Error 400 primaryVrm already exists on a non-scrapped vehicle", async () => {
                     // @ts-ignore
                     const techRecord: HeavyGoodsVehicle = cloneDeep(
                       mockData[43]
@@ -310,6 +308,42 @@ describe("VehicleProcessor", () => {
                       payload,
                       techRecord);
                     expect(response).toContain("Primary VRM ABCD943 already exists");
+                  });
+
+                  it("should set the new primaryVrm on the vehicle if it only exists on a scrapped vehicle", () => {
+                    // @ts-ignore
+                    const techRecord: HeavyGoodsVehicle = cloneDeep(
+                      mockData[129]
+                    );
+                    // techRecord.vrms = [{isPrimary: true, vrm: "LKJH654"}];
+                    const MockDAO = jest.fn().mockImplementation(() => {
+                      return {
+                        getBySearchTerm: () => {
+                          return Promise.resolve({
+                            Items: [],
+                            Count: 0,
+                            ScannedCount: 1
+                          });
+                        }
+                      };
+                    });
+                    // @ts-ignore
+                    const payload: HeavyGoodsVehicle = cloneDeep(mockData[129]);
+                    const hgvProcessor = new HgvProcessor(
+                      payload,
+                      new MockDAO()
+                    );
+                    payload.techRecord[0].reasonForCreation = "Updated VRM";
+                    payload.primaryVrm = "AA12BCD";
+                    // @ts-ignore
+                    const updatedVehicle =  hgvProcessor.updateVehicleIdentifiers(
+                      techRecord,
+                      payload
+                    );
+                    expect(updatedVehicle.primaryVrm).toEqual("AA12BCD");
+                    expect(updatedVehicle.techRecord[0].reasonForCreation).toEqual(
+                      `VRM updated from B999XFX to AA12BCD. Updated VRM`
+                    );
                   });
                 }
               );
@@ -447,17 +481,17 @@ describe("VehicleProcessor", () => {
                 const MockDAO = jest.fn().mockImplementation();
                 // @ts-ignore;
                 const payload: Trailer = cloneDeep(mockData[43]);
-                payload.secondaryVrms = ["ABCD943"];
+                payload.secondaryVrms = ["ABCD943", "BCDE132"];
                 const trailerProcessor = new TrailerProcessor(
                   payload,
                   new MockDAO()
                 );
                 // @ts-ignore
                 trailerProcessor.updateVehicleIdentifiers(
-                  payload,
-                  techRecord
+                  techRecord,
+                  payload
                 );
-                expect(techRecord.secondaryVrms).toEqual(["ABCD943"]);
+                expect(techRecord.secondaryVrms).toEqual(["ABCD943", "BCDE132"]);
               });
             });
             context("and the new secondaryVrms are invalid", () => {

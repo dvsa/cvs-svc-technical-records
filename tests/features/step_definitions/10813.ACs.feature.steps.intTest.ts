@@ -91,7 +91,7 @@ const createPUTPayload = () => {
       msUser: "dorel",
       msOid: "1234545"
     },
-    techRecord: techRec.techRecord
+    ...techRec
   };
   return payload;
 };

@@ -2,7 +2,7 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import {populatePartialVin} from "../utils/validations/ValidationUtils";
-import { HTTPRESPONSE } from "../assets/Enums";
+import { HTTPRESPONSE, VEHICLE_TYPE } from "../assets/Enums";
 
 const postTechRecords = async (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -13,6 +13,7 @@ const postTechRecords = async (event: any) => {
   const vin = event.body ? event.body.vin : null;
   const primaryVrm = event.body ? event.body.primaryVrm : null;
   const secondaryVrms = event.body ? event.body.secondaryVrms : null;
+  const trailerId = event.body?.trailerId;
 
   if (!vin || vin.length < 3 || vin.length > 21 || typeof vin !== "string") {
     return Promise.resolve(new HTTPResponse(400, "Invalid body field 'vin'"));
@@ -26,7 +27,7 @@ const postTechRecords = async (event: any) => {
     return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
   }
 
-  const techRecord = {
+  const techRecord: any = {
     vin,
     partialVin: populatePartialVin(vin),
     techRecord: techRec,
@@ -34,6 +35,11 @@ const postTechRecords = async (event: any) => {
     primaryVrm,
     secondaryVrms
   };
+
+  // Only add the trailer id if we have it and vehicle is a trailer
+  if(trailerId && techRecord.vehicleType === VEHICLE_TYPE.TRL) {
+    techRecord.trailerId = trailerId;
+  }
 
   try {
     const data = await techRecordsService.insertTechRecord(techRecord, msUserDetails);
