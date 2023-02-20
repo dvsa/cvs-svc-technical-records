@@ -1,27 +1,20 @@
-import HTTPError from "../models/HTTPError";
-import TechRecordsDAO from "../models/TechRecordsDAO";
+import { cloneDeep } from "lodash";
+import { ISearchCriteria } from "../../@Types/ISearchCriteria";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import IMsUserDetails from "../../@Types/IUserDetails";
+import { Vehicle } from "../../@Types/TechRecords";
 import {
-  ERRORS,
   EU_VEHICLE_CATEGORY,
   HTTPRESPONSE,
   SEARCHCRITERIA,
-  STATUS,
-  UPDATE_TYPE,
+  STATUS
 } from "../assets/Enums";
-import { ISearchCriteria } from "../../@Types/ISearchCriteria";
-import HTTPResponse from "../models/HTTPResponse";
-import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
-import { formatErrorMessage } from "../utils/formatErrorMessage";
-import IMsUserDetails from "../../@Types/IUserDetails";
-import { PromiseResult } from "aws-sdk/lib/request";
-import { AWSError } from "aws-sdk/lib/error";
-import { isEqual } from "lodash";
-import { Vehicle, TechRecord } from "../../@Types/TechRecords";
 import { VehicleFactory } from "../domain/VehicleFactory";
 import { TechRecordsListHandler } from "../handlers/TechRecordsListHandler";
 import { TechRecordStatusHandler } from "../handlers/TechRecordStatusHandler";
-
+import HTTPError from "../models/HTTPError";
+import HTTPResponse from "../models/HTTPResponse";
+import TechRecordsDAO from "../models/TechRecordsDAO";
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -184,6 +177,25 @@ class TechRecordsService {
         console.error(error);
         throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
       });
+  }
+
+  public updateVin(oldVehicle: Vehicle, newVin: string) {
+    const currentAndProvisional = oldVehicle.techRecord.filter(
+      (t) => STATUS.ARCHIVED !== t.statusCode
+    );
+
+    const newVehicle = cloneDeep(oldVehicle);
+    newVehicle.vin = newVin;
+    newVehicle.techRecord = newVehicle.techRecord.filter((t) => STATUS.ARCHIVED !== t.statusCode);
+
+    // tidy up old
+    if (currentAndProvisional.length > 1) {
+      const provisionalIndex = oldVehicle.techRecord.findIndex((t) => STATUS.PROVISIONAL === t.statusCode);
+      oldVehicle.techRecord.splice(provisionalIndex);
+    }
+    oldVehicle.techRecord.forEach((t) => (t.statusCode = STATUS.ARCHIVED));
+
+    return [newVehicle, oldVehicle];
   }
 }
 
