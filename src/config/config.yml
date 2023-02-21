@@ -32,7 +32,7 @@ functions:
     function: archiveTechRecordStatus
 - postAmendVin:
     method: POST
-    path: /vehicles/:systemNumber/:vin
+    path: /vehicles/:systemNumber
     function: postAmendVin
 
 dynamodb:

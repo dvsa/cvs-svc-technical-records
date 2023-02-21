@@ -178,13 +178,12 @@ functions:
     handler: src/handler.handler
     events:
       - http:
-          path: /vehicles/{systemNumber}/{vin}
+          path: /vehicles/{systemNumber}
           method: post
           request:
             parameters:
               paths:
                 systemNumber: true
-                vin: true
 
 resources:
   Resources:

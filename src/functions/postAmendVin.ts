@@ -17,7 +17,7 @@ const postAmendVin = async (event: any) => {
     validateParameters(event);
 
     const {
-      pathParameters: { systemNumber, vin },
+      pathParameters: { systemNumber },
       body: { newVin, msUserDetails: {msUser, msOid} },
     } = event;
 
@@ -43,8 +43,6 @@ const postAmendVin = async (event: any) => {
       newVin
     );
 
-    console.log(newVehicle);
-    console.log(oldVehicle);
     await techRecordsDAO.updateVin(newVehicle, oldVehicle);
 
     return new HTTPResponse(200, HTTPRESPONSE.VIN_UPDATED);
@@ -60,15 +58,12 @@ const postAmendVin = async (event: any) => {
 
 function validateParameters(event: any) {
   const {
-    pathParameters: { systemNumber, vin },
+    pathParameters: { systemNumber },
     body: { msUserDetails, newVin },
   } = event;
 
   if (!systemNumber) {
     throw badRequest("Invalid path parameter 'systemNumber'");
-  }
-  if (!vin) {
-    throw badRequest("Invalid path parameter 'vin'");
   }
 
   if (
