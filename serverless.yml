@@ -174,12 +174,12 @@ functions:
             parameters:
               paths:
                 systemNumber: true
-  postAmendVin:
+  updateVin:
     handler: src/handler.handler
     events:
       - http:
-          path: /vehicles/{systemNumber}
-          method: post
+          path: /vehicles/update-vin/{systemNumber}
+          method: put
           request:
             parameters:
               paths:

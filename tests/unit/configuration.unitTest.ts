@@ -14,7 +14,7 @@ describe("The configuration service", () => {
         expect(functions[4].name).toEqual("updateEuVehicleCategory");
         expect(functions[5].name).toEqual("addProvisionalTechRecord");
         expect(functions[6].name).toEqual("archiveTechRecordStatus");
-        expect(functions[7].name).toEqual("postAmendVin");
+        expect(functions[7].name).toEqual("updateVin");
 
         const DBConfig = configService.getDynamoDBConfig();
         const EndpointsConfig = configService.getEndpoints();
@@ -35,7 +35,7 @@ describe("The configuration service", () => {
         expect(functions[4].name).toEqual("updateEuVehicleCategory");
         expect(functions[5].name).toEqual("addProvisionalTechRecord");
         expect(functions[6].name).toEqual("archiveTechRecordStatus");
-        expect(functions[7].name).toEqual("postAmendVin");
+        expect(functions[7].name).toEqual("updateVin");
 
         const DBConfig = configService.getDynamoDBConfig();
         expect(DBConfig).toEqual(configService.getConfig().dynamodb["local-global"]);
@@ -53,7 +53,7 @@ describe("The configuration service", () => {
         expect(functions[4].name).toEqual("updateEuVehicleCategory");
         expect(functions[5].name).toEqual("addProvisionalTechRecord");
         expect(functions[6].name).toEqual("archiveTechRecordStatus");
-        expect(functions[7].name).toEqual("postAmendVin");
+        expect(functions[7].name).toEqual("updateVin");
 
         const DBConfig = configService.getDynamoDBConfig();
         const EndpointsConfig = configService.getEndpoints();

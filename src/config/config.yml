@@ -30,10 +30,10 @@ functions:
     path: /vehicles/archive/:systemNumber
     proxy: :systemNumber
     function: archiveTechRecordStatus
-- postAmendVin:
-    method: POST
-    path: /vehicles/:systemNumber
-    function: postAmendVin
+- updateVin:
+    method: PUT
+    path: /vehicles/update-vin/:systemNumber
+    function: updateVin
 
 dynamodb:
   local:
