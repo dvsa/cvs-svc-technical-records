@@ -7,7 +7,7 @@ import {
   EU_VEHICLE_CATEGORY,
   HTTPRESPONSE,
   SEARCHCRITERIA,
-  STATUS
+  STATUS,
 } from "../assets/Enums";
 import { VehicleFactory } from "../domain/VehicleFactory";
 import { TechRecordsListHandler } from "../handlers/TechRecordsListHandler";
@@ -53,12 +53,12 @@ class TechRecordsService {
     msUserDetails: IMsUserDetails
   ) {
     try {
-    const vehicle = VehicleFactory.generateVehicleInstance(
-      payload,
-      this.techRecordsDAO
-    );
-    return vehicle.createVehicle(msUserDetails);
-    } catch(error) {
+      const vehicle = VehicleFactory.generateVehicleInstance(
+        payload,
+        this.techRecordsDAO
+      );
+      return vehicle.createVehicle(msUserDetails);
+    } catch (error) {
       console.error(error);
       throw new HTTPError(error.statusCode, error.body);
     }
@@ -87,22 +87,23 @@ class TechRecordsService {
     createdById: string,
     createdByName: string
   ) {
-    const uniqueRecord = await this.techRecordStatusHandler.prepareTechRecordForStatusUpdate(
-      systemNumber,
-      newStatus,
-      createdById,
-      createdByName
-    );
+    const uniqueRecord =
+      await this.techRecordStatusHandler.prepareTechRecordForStatusUpdate(
+        systemNumber,
+        newStatus,
+        createdById,
+        createdByName
+      );
     try {
       const vehicle = VehicleFactory.generateVehicleInstance(
-      uniqueRecord,
-      this.techRecordsDAO
-    );
+        uniqueRecord,
+        this.techRecordsDAO
+      );
       return vehicle.updateTechRecordStatusCode(uniqueRecord);
-   } catch(error) {
-    console.error(error);
-    throw new HTTPError(error.statusCode, error.body);
-   }
+    } catch (error) {
+      console.error(error);
+      throw new HTTPError(error.statusCode, error.body);
+    }
   }
 
   public async archiveTechRecordStatus(
@@ -115,7 +116,12 @@ class TechRecordsService {
       techRecordToUpdate,
       this.techRecordsDAO
     );
-    return vehicle.archiveTechRecordStatus(systemNumber,techRecordToUpdate,userDetails,reasonForArchiving);
+    return vehicle.archiveTechRecordStatus(
+      systemNumber,
+      techRecordToUpdate,
+      userDetails,
+      reasonForArchiving
+    );
   }
 
   public async updateEuVehicleCategory(
@@ -133,11 +139,14 @@ class TechRecordsService {
     )[0];
 
     const vehicle = VehicleFactory.generateVehicleInstance(
-    techRecordWrapper,
-    this.techRecordsDAO
+      techRecordWrapper,
+      this.techRecordsDAO
     );
 
-    return vehicle.updateEuVehicleCategory(systemNumber, newEuVehicleCategory, { msOid: createdById, msUser: createByName });
+    return vehicle.updateEuVehicleCategory(systemNumber, newEuVehicleCategory, {
+      msOid: createdById,
+      msUser: createByName,
+    });
   }
 
   public async addProvisionalTechRecord(
@@ -179,23 +188,52 @@ class TechRecordsService {
       });
   }
 
-  public updateVin(oldVehicle: Vehicle, newVin: string) {
-    const currentAndProvisional = oldVehicle.techRecord.filter(
-      (t) => STATUS.ARCHIVED !== t.statusCode
-    );
+  public updateVin(vehicle: Vehicle, newVin: string) {
+    //   const currentAndProvisional = vehicle.techRecord.filter(
+    //     (t) => STATUS.ARCHIVED !== t.statusCode
+    //   );
 
-    const newVehicle = cloneDeep(oldVehicle);
-    newVehicle.vin = newVin;
-    newVehicle.techRecord = newVehicle.techRecord.filter((t) => STATUS.ARCHIVED !== t.statusCode);
+    //   const newVehicle = cloneDeep(vehicle);
+    //   newVehicle.vin = newVin;
+    //   newVehicle.techRecord = newVehicle.techRecord.filter((t) => STATUS.ARCHIVED !== t.statusCode);
 
-    // tidy up old
-    if (currentAndProvisional.length > 1) {
-      const provisionalIndex = oldVehicle.techRecord.findIndex((t) => STATUS.PROVISIONAL === t.statusCode);
-      oldVehicle.techRecord.splice(provisionalIndex);
-    }
-    oldVehicle.techRecord.forEach((t) => (t.statusCode = STATUS.ARCHIVED));
+    //   // tidy up old
+    //   if (currentAndProvisional.length > 1) {
+    //     const provisionalIndex = vehicle.techRecord.findIndex((t) => STATUS.PROVISIONAL === t.statusCode);
+    //     vehicle.techRecord.splice(provisionalIndex);
+    //   }
+    //   vehicle.techRecord.forEach((t) => (t.statusCode = STATUS.ARCHIVED));
 
-    return [newVehicle, oldVehicle];
+    //   return [newVehicle, vehicle];
+    // }
+
+    const vehicleClone = cloneDeep(vehicle);
+
+    let oldVehicle: Vehicle = { ...vehicleClone, techRecord: [] };
+    let newVehicle: Vehicle = { ...vehicleClone, vin: newVin, techRecord: [] };
+
+    vehicleClone.techRecord.map((techRecord) => {
+      switch (techRecord.statusCode) {
+        case STATUS.PROVISIONAL:
+          if (!newVehicle.techRecord.length)
+            newVehicle.techRecord.push(techRecord);
+          break;
+        case STATUS.CURRENT:
+          newVehicle.techRecord = [{ ...techRecord }];
+          oldVehicle.techRecord.push({
+            ...techRecord,
+            statusCode: STATUS.ARCHIVED,
+          });
+          break;
+        case STATUS.ARCHIVED:
+          oldVehicle.techRecord.push({ ...techRecord });
+          break;
+        default:
+          break;
+      }
+    });
+
+    return [oldVehicle, newVehicle];
   }
 }
 
