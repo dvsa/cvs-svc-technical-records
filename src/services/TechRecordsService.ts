@@ -209,14 +209,19 @@ class TechRecordsService {
 
     const vehicleClone = cloneDeep(vehicle);
 
-    let oldVehicle: Vehicle = { ...vehicleClone, techRecord: [] };
-    let newVehicle: Vehicle = { ...vehicleClone, vin: newVin, techRecord: [] };
+    const oldVehicle: Vehicle = { ...vehicleClone, techRecord: [] };
+    const newVehicle: Vehicle = {
+      ...vehicleClone,
+      vin: newVin,
+      techRecord: [],
+    };
 
     vehicleClone.techRecord.map((techRecord) => {
       switch (techRecord.statusCode) {
         case STATUS.PROVISIONAL:
-          if (!newVehicle.techRecord.length)
+          if (!newVehicle.techRecord.length) {
             newVehicle.techRecord.push(techRecord);
+          }
           break;
         case STATUS.CURRENT:
           newVehicle.techRecord = [{ ...techRecord }];
