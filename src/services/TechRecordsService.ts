@@ -218,7 +218,7 @@ class TechRecordsService {
       oldVehicle.techRecord.push({ ...current, statusCode: "archived" });
     }
 
-    return [oldVehicle, newVehicle];
+    return {oldVehicle, newVehicle};
   }
 }
 

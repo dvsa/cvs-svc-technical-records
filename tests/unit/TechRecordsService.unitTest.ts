@@ -8,7 +8,7 @@ import {cloneDeep} from "lodash";
 import HTTPResponse from "../../src/models/HTTPResponse";
 import Configuration from "../../src/utils/Configuration";
 import IMsUserDetails from "../../@Types/IUserDetails";
-import {HeavyGoodsVehicle, PublicServiceVehicle, Trailer} from "../../@Types/TechRecords";
+import {HeavyGoodsVehicle, PublicServiceVehicle, Trailer, Vehicle} from "../../@Types/TechRecords";
 import {NumberGenerator} from "../../src/handlers/NumberGenerator";
 import {TechRecordsListHandler} from "../../src/handlers/TechRecordsListHandler";
 import {TechRecordStatusHandler} from "../../src/handlers/TechRecordStatusHandler";
@@ -1190,26 +1190,27 @@ describe("updateTechRecordStatus", () => {
       const result = techRecordsService.updateVin(vehicle, newVin);
   
       it("returns two vehicle records (oldVehicle, newVehicle)", () => {
-        expect(result.length).toEqual(2);
+        expect(result.oldVehicle).toBeDefined()
+        expect(result.newVehicle).toBeDefined()
       });
       it("oldVehicle has a techRecord.length of 2: Archived x2", () => {
-        expect(result[0].techRecord.length).toEqual(2);
+        expect(result.oldVehicle.techRecord.length).toEqual(2);
       });
       it("oldVehicle vin is the same", () => {
-        expect(result[0].vin).toEqual(vehicle.vin);
+        expect(result.oldVehicle.vin).toEqual(vehicle.vin);
       });
       it("oldVehicle techRecord statuses are all archived", () => {
-        expect(result[0].techRecord[0].statusCode).toEqual("archived");
-        expect(result[0].techRecord[1].statusCode).toEqual("archived");
+        expect(result.oldVehicle.techRecord[0].statusCode).toEqual("archived");
+        expect(result.oldVehicle.techRecord[1].statusCode).toEqual("archived");
       });
       it("newVehicle has a techRecord.length of 1", () => {
-        expect(result[1].techRecord.length).toEqual(1);
+        expect(result.newVehicle.techRecord.length).toEqual(1);
       });
       it("newVehicle techRecord has a status of Current", () => {
-        expect(result[1].techRecord[0].statusCode).toEqual("current");
+        expect(result.newVehicle.techRecord[0].statusCode).toEqual("current");
       });
       it("newVehicle vin is newVin value", () => {
-        expect(result[1].vin).toEqual(newVin);
+        expect(result.newVehicle.vin).toEqual(newVin);
       });
     });
   
@@ -1236,27 +1237,28 @@ describe("updateTechRecordStatus", () => {
   
       const result = techRecordsService.updateVin(vehicle, newVin);
       it("returns two vehicle records (oldVehicle, newVehicle)", () => {
-        expect(result.length).toEqual(2);
+        expect(result.oldVehicle).toBeDefined()
+        expect(result.newVehicle).toBeDefined()
       });
       it("oldVehicle has a techRecord.length of 3: Archived x2 and Current as archived", () => {
-        expect(result[0].techRecord.length).toEqual(3);
+        expect(result.oldVehicle.techRecord.length).toEqual(3);
       });
       it("oldVehicle vin is the same", () => {
-        expect(result[0].vin).toEqual(vehicle.vin);
+        expect(result.oldVehicle.vin).toEqual(vehicle.vin);
       });
       it("oldVehicle techRecord statuses are all archived", () => {
-        expect(result[0].techRecord[0].statusCode).toEqual("archived");
-        expect(result[0].techRecord[1].statusCode).toEqual("archived");
-        expect(result[0].techRecord[2].statusCode).toEqual("archived");
+        expect(result.oldVehicle.techRecord[0].statusCode).toEqual("archived");
+        expect(result.oldVehicle.techRecord[1].statusCode).toEqual("archived");
+        expect(result.oldVehicle.techRecord[2].statusCode).toEqual("archived");
       });
       it("newVehicle has a techRecord.length of 1", () => {
-        expect(result[1].techRecord.length).toEqual(1);
+        expect(result.newVehicle.techRecord.length).toEqual(1);
       });
       it("newVehicle techRecord has a status of Current", () => {
-        expect(result[1].techRecord[0].statusCode).toEqual("current");
+        expect(result.newVehicle.techRecord[0].statusCode).toEqual("current");
       });
       it("newVehicle vin is newVin value", () => {
-        expect(result[1].vin).toEqual(newVin);
+        expect(result.newVehicle.vin).toEqual(newVin);
       });
     });
   });
@@ -1285,26 +1287,27 @@ describe("updateTechRecordStatus", () => {
   
     const result = techRecordsService.updateVin(vehicle, newVin);
     it("returns two vehicle records (oldVehicle, newVehicle)", () => {
-      expect(result.length).toEqual(2);
+      expect(result.oldVehicle).toBeDefined()
+      expect(result.newVehicle).toBeDefined()
     });
     it("oldVehicle has a techRecord.length of 3: Archived x3", () => {
-      expect(result[0].techRecord.length).toEqual(3);
+      expect(result.oldVehicle.techRecord.length).toEqual(3);
     });
     it("oldVehicle vin is the same", () => {
-      expect(result[0].vin).toEqual(vehicle.vin);
+      expect(result.oldVehicle.vin).toEqual(vehicle.vin);
     });
     it("oldVehicle techRecord statuses are all archived", () => {
-      expect(result[0].techRecord[0].statusCode).toEqual("archived");
-      expect(result[0].techRecord[1].statusCode).toEqual("archived");
+      expect(result.oldVehicle.techRecord[0].statusCode).toEqual("archived");
+      expect(result.oldVehicle.techRecord[1].statusCode).toEqual("archived");
     });
     it("newVehicle has a techRecord.length of 1", () => {
-      expect(result[1].techRecord.length).toEqual(1);
+      expect(result.newVehicle.techRecord.length).toEqual(1);
     });
     it("newVehicle techRecord has a status of Provisional", () => {
-      expect(result[1].techRecord[0].statusCode).toEqual("provisional");
+      expect(result.newVehicle.techRecord[0].statusCode).toEqual("provisional");
     });
     it("newVehicle vin is newVin value", () => {
-      expect(result[1].vin).toEqual(newVin);
+      expect(result.newVehicle.vin).toEqual(newVin);
     });
   });
 });
