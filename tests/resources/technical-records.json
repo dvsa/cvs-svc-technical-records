@@ -40481,5 +40481,1673 @@
         "vehicleType": "car"
       }
     ]
+  },
+  {
+    "systemNumber": "5976332",
+    "vin": "AA11100800",
+    "partialVin": "100800",
+    "primaryVrm": "CA01SCR",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T10:39:47.000000Z",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": "2023-02-09T20:45:45.000000Z",
+        "make": "HONDA",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+          "A"
+        ],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5976333",
+    "vin": "AA11100801",
+    "partialVin": "100801",
+    "primaryVrm": "CA01SCA",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T10:39:47.000000Z",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": "2023-02-09T20:45:45.000000Z",
+        "make": "HONDA",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+          "A"
+        ],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5976334",
+    "vin": "AA11100802",
+    "partialVin": "100802",
+    "primaryVrm": "CA01SCC",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T10:39:47.000000Z",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": "2023-02-09T20:45:45.000000Z",
+        "make": "HONDA",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+          "C"
+        ],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5976335",
+    "vin": "AA11100804",
+    "partialVin": "100804",
+    "primaryVrm": "CA01SCS",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T10:39:47.000000Z",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": "2023-02-09T20:45:45.000000Z",
+        "make": "HONDA",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+          "S"
+        ],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5976336",
+    "vin": "AA11100806",
+    "partialVin": "100806",
+    "primaryVrm": "CA01SCL",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T10:39:47.000000Z",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": "2023-02-09T20:45:45.000000Z",
+        "make": "HONDA",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+          "L"
+        ],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5976337",
+    "vin": "AA11100807",
+    "partialVin": "100807",
+    "primaryVrm": "CA01SCM",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T10:39:47.000000Z",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": "2023-02-09T20:45:45.000000Z",
+        "make": "HONDA",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+          "M"
+        ],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5976338",
+    "vin": "AA11100808",
+    "partialVin": "100808",
+    "primaryVrm": "CA01SCP",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T10:39:47.000000Z",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": "2023-02-09T20:45:45.000000Z",
+        "make": "HONDA",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+          "P"
+        ],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5976339",
+    "vin": "AA11100809",
+    "partialVin": "100809",
+    "primaryVrm": "CA01SCN",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T10:39:47.000000Z",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": "2023-02-09T20:45:45.000000Z",
+        "make": "HONDA",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+          "N"
+        ],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5976310",
+    "vin": "AA11100810",
+    "partialVin": "100810",
+    "primaryVrm": "CA01SBT",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T10:39:47.000000Z",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": "2023-02-09T20:45:45.000000Z",
+        "make": "HONDA",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+          "T"
+        ],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "1100311",
+    "vin": "P0123010951211",
+    "partialVin": "951211",
+    "primaryVrm": "LG01SCR",
+    "secondaryVrms": [
+      "AS432TY"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "euVehicleCategory": "n1",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": null,
+        "recordCompleteness": "complete",
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": [
+          "R"
+        ],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "1100312",
+    "vin": "P0123010951212",
+    "partialVin": "951212",
+    "primaryVrm": "LG01SCA",
+    "secondaryVrms": [
+      "AS432TY"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "euVehicleCategory": "n1",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": null,
+        "recordCompleteness": "complete",
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": [
+          "A"
+        ],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "1100313",
+    "vin": "P0123010951213",
+    "partialVin": "951213",
+    "primaryVrm": "LG01SCC",
+    "secondaryVrms": [
+      "AS432TY"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "euVehicleCategory": "n1",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": null,
+        "recordCompleteness": "complete",
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": [
+          "C"
+        ],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "1100314",
+    "vin": "P0123010951214",
+    "partialVin": "951214",
+    "primaryVrm": "LG01SCS",
+    "secondaryVrms": [
+      "AS432TY"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "euVehicleCategory": "n1",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": null,
+        "recordCompleteness": "complete",
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": [
+          "S"
+        ],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "1100315",
+    "vin": "P0123010951215",
+    "partialVin": "951215",
+    "primaryVrm": "LG01SCL",
+    "secondaryVrms": [
+      "AS432TY"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "euVehicleCategory": "n1",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": null,
+        "recordCompleteness": "complete",
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": [
+          "L"
+        ],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "1100316",
+    "vin": "P0123010951216",
+    "partialVin": "951216",
+    "primaryVrm": "LG01SCM",
+    "secondaryVrms": [
+      "AS432TY"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "euVehicleCategory": "n1",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": null,
+        "recordCompleteness": "complete",
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": [
+          "M"
+        ],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "1100317",
+    "vin": "P0123010951217",
+    "partialVin": "951217",
+    "primaryVrm": "LG01SCP",
+    "secondaryVrms": [
+      "AS432TY"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "euVehicleCategory": "n1",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": null,
+        "recordCompleteness": "complete",
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": [
+          "R"
+        ],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "1100318",
+    "vin": "P0123010951218",
+    "partialVin": "951218",
+    "primaryVrm": "LG01SCN",
+    "secondaryVrms": [
+      "AS432TY"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "euVehicleCategory": "n1",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": null,
+        "recordCompleteness": "complete",
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": [
+          "N"
+        ],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "1100319",
+    "vin": "P0123010951219",
+    "partialVin": "951219",
+    "primaryVrm": "LG01SCT",
+    "secondaryVrms": [
+      "AS432TY"
+    ],
+    "techRecord": [
+      {
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": null,
+              "fitmentCode": null,
+              "plyRating": null,
+              "speedCategorySymbol": "a7",
+              "tyreCode": null,
+              "tyreSize": null
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": null,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 5678,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": null,
+              "gbWeight": null
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": null
+        },
+        "brakeCode": "178202",
+        "brakes": {
+          "antilockBrakingSystem": true,
+          "brakeCode": "123",
+          "brakeCodeOriginal": "12412",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 2332,
+            "secondaryBrakeForceA": 2512,
+            "serviceBrakeForceA": 6424
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 3512,
+            "secondaryBrakeForceB": 2512,
+            "serviceBrakeForceB": 5521
+          },
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeThree": "None",
+          "dataTrBrakeTwo": "None",
+          "dtpNumber": null,
+          "loadSensingValve": true,
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "createdByName": null,
+        "dimensions": {
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "euroStandard": " ",
+        "euVehicleCategory": "n1",
+        "frontAxleTo5thWheelCouplingMax": null,
+        "frontAxleTo5thWheelCouplingMin": null,
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "functionCode": null,
+        "grossDesignWeight": null,
+        "grossGbWeight": null,
+        "grossKerbWeight": null,
+        "grossLadenWeight": null,
+        "lastUpdatedAt": "2019-06-24T10:26:54.903Z",
+        "make": null,
+        "manufactureYear": null,
+        "maxTrainDesignWeight": null,
+        "maxTrainGbWeight": null,
+        "model": null,
+        "noOfAxles": 2,
+        "notes": null,
+        "ntaNumber": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": null,
+        "recordCompleteness": "complete",
+        "roadFriendly": false,
+        "speedLimiterMrk": null,
+        "statusCode": "current",
+        "tachoExemptMrk": null,
+        "trainDesignWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": null,
+        "vehicleClass": {
+          "code": "v",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": [
+          "T"
+        ],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5978320",
+    "vin": "12340SBW200910801",
+    "partialVin": "910801",
+    "primaryVrm": "MC001VC",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T14:54:32.000000Z",
+        "euVehicleCategory": null,
+        "lastUpdatedAt": "2023-02-07T20:56:34.000000Z",
+        "make": "PEDIBAL",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "Any",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "1",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+        ],
+        "vehicleType": "motorcycle"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5978321",
+    "vin": "12340SBW200910802",
+    "partialVin": "910802",
+    "primaryVrm": "MC012VC",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T14:54:32.000000Z",
+        "euVehicleCategory": null,
+        "lastUpdatedAt": "2023-02-07T20:56:34.000000Z",
+        "make": "PEDIBAL",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "1",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+        ],
+        "vehicleType": "motorcycle"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5978322",
+    "vin": "12340SBW200910803",
+    "partialVin": "910803",
+    "primaryVrm": "MC022VC",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T14:54:32.000000Z",
+        "euVehicleCategory": null,
+        "lastUpdatedAt": "2023-02-07T20:56:34.000000Z",
+        "make": "PEDIBAL",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "2",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "2",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+        ],
+        "vehicleType": "motorcycle"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5978323",
+    "vin": "12340SBW200910804",
+    "partialVin": "910804",
+    "primaryVrm": "MC033VC",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T14:54:32.000000Z",
+        "euVehicleCategory": null,
+        "lastUpdatedAt": "2023-02-07T20:56:34.000000Z",
+        "make": "PEDIBAL",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "3",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "3",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+        ],
+        "vehicleType": "motorcycle"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5978324",
+    "vin": "12340SBW200910805",
+    "partialVin": "910805",
+    "primaryVrm": "MC043VC",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T14:54:32.000000Z",
+        "euVehicleCategory": null,
+        "lastUpdatedAt": "2023-02-07T20:56:34.000000Z",
+        "make": "PEDIBAL",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "3",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+        ],
+        "vehicleType": "motorcycle"
+      }
+    ]
+  },
+  {
+    "systemNumber": "5978325",
+    "vin": "12340SBW200910806",
+    "partialVin": "910806",
+    "primaryVrm": "MC044VC",
+    "secondaryVrms": [
+      " "
+    ],
+    "techRecord": [
+      {
+        "bodyType": {
+          "code": null,
+          "description": null
+        },
+        "createdAt": "2023-02-07T14:54:32.000000Z",
+        "euVehicleCategory": null,
+        "lastUpdatedAt": "2023-02-07T20:56:34.000000Z",
+        "make": "PEDIBAL",
+        "manufactureYear": null,
+        "model": " ",
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": "4",
+        "reasonForCreation": " ",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "current",
+        "vehicleClass": {
+          "code": "4",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleSize": null,
+        "vehicleSubclass": [
+        ],
+        "vehicleType": "motorcycle"
+      }
+    ]
   }
 ]
