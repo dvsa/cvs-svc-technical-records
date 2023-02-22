@@ -40515,7 +40515,7 @@
         "vehicleConfiguration": "other",
         "vehicleSize": null,
         "vehicleSubclass": [
-          "A"
+          "a"
         ],
         "vehicleType": "car"
       }
@@ -40554,7 +40554,7 @@
         "vehicleConfiguration": "other",
         "vehicleSize": null,
         "vehicleSubclass": [
-          "A"
+          "a"
         ],
         "vehicleType": "car"
       }
@@ -40593,7 +40593,7 @@
         "vehicleConfiguration": "other",
         "vehicleSize": null,
         "vehicleSubclass": [
-          "C"
+          "c"
         ],
         "vehicleType": "car"
       }
@@ -40632,7 +40632,7 @@
         "vehicleConfiguration": "other",
         "vehicleSize": null,
         "vehicleSubclass": [
-          "S"
+          "s"
         ],
         "vehicleType": "car"
       }
@@ -40671,7 +40671,7 @@
         "vehicleConfiguration": "other",
         "vehicleSize": null,
         "vehicleSubclass": [
-          "L"
+          "l"
         ],
         "vehicleType": "car"
       }
@@ -40710,7 +40710,7 @@
         "vehicleConfiguration": "other",
         "vehicleSize": null,
         "vehicleSubclass": [
-          "M"
+          "m"
         ],
         "vehicleType": "car"
       }
@@ -40749,7 +40749,7 @@
         "vehicleConfiguration": "other",
         "vehicleSize": null,
         "vehicleSubclass": [
-          "P"
+          "p"
         ],
         "vehicleType": "car"
       }
@@ -40788,7 +40788,7 @@
         "vehicleConfiguration": "other",
         "vehicleSize": null,
         "vehicleSubclass": [
-          "N"
+          "n"
         ],
         "vehicleType": "car"
       }
@@ -40827,7 +40827,7 @@
         "vehicleConfiguration": "other",
         "vehicleSize": null,
         "vehicleSubclass": [
-          "T"
+          "t"
         ],
         "vehicleType": "car"
       }
@@ -40948,7 +40948,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSubclass": [
-          "R"
+          "r"
         ],
         "vehicleType": "lgv"
       }
@@ -41069,7 +41069,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSubclass": [
-          "A"
+          "a"
         ],
         "vehicleType": "lgv"
       }
@@ -41190,7 +41190,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSubclass": [
-          "C"
+          "c"
         ],
         "vehicleType": "lgv"
       }
@@ -41311,7 +41311,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSubclass": [
-          "S"
+          "s"
         ],
         "vehicleType": "lgv"
       }
@@ -41432,7 +41432,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSubclass": [
-          "L"
+          "l"
         ],
         "vehicleType": "lgv"
       }
@@ -41553,7 +41553,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSubclass": [
-          "M"
+          "m"
         ],
         "vehicleType": "lgv"
       }
@@ -41674,7 +41674,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSubclass": [
-          "R"
+          "r"
         ],
         "vehicleType": "lgv"
       }
@@ -41795,7 +41795,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSubclass": [
-          "N"
+          "n"
         ],
         "vehicleType": "lgv"
       }
@@ -41916,7 +41916,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSubclass": [
-          "T"
+          "t"
         ],
         "vehicleType": "lgv"
       }
