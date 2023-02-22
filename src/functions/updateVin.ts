@@ -80,14 +80,6 @@ function validateVins(oldVin: string, newVin: string) {
   ) {
     throw badRequest("New vin is invalid");
   }
-  if (
-    !oldVin ||
-    oldVin.length < 3 ||
-    oldVin.length > 21 ||
-    typeof oldVin !== "string"
-  ) {
-    throw badRequest("vin is invalid");
-  }
   if (newVin === oldVin) {
     throw badRequest("New vin must be different to current");
   }
