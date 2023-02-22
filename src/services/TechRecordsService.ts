@@ -2,7 +2,7 @@ import { cloneDeep } from "lodash";
 import { ISearchCriteria } from "../../@Types/ISearchCriteria";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
 import IMsUserDetails from "../../@Types/IUserDetails";
-import { Vehicle } from "../../@Types/TechRecords";
+import { TechRecord, Vehicle } from "../../@Types/TechRecords";
 import {
   EU_VEHICLE_CATEGORY,
   HTTPRESPONSE,
@@ -189,24 +189,6 @@ class TechRecordsService {
   }
 
   public updateVin(vehicle: Vehicle, newVin: string) {
-    //   const currentAndProvisional = vehicle.techRecord.filter(
-    //     (t) => STATUS.ARCHIVED !== t.statusCode
-    //   );
-
-    //   const newVehicle = cloneDeep(vehicle);
-    //   newVehicle.vin = newVin;
-    //   newVehicle.techRecord = newVehicle.techRecord.filter((t) => STATUS.ARCHIVED !== t.statusCode);
-
-    //   // tidy up old
-    //   if (currentAndProvisional.length > 1) {
-    //     const provisionalIndex = vehicle.techRecord.findIndex((t) => STATUS.PROVISIONAL === t.statusCode);
-    //     vehicle.techRecord.splice(provisionalIndex);
-    //   }
-    //   vehicle.techRecord.forEach((t) => (t.statusCode = STATUS.ARCHIVED));
-
-    //   return [newVehicle, vehicle];
-    // }
-
     const vehicleClone = cloneDeep(vehicle);
 
     const oldVehicle: Vehicle = { ...vehicleClone, techRecord: [] };
@@ -215,28 +197,35 @@ class TechRecordsService {
       vin: newVin,
       techRecord: [],
     };
+    let current: TechRecord | undefined;
+    let provisional: TechRecord | undefined;
 
-    vehicleClone.techRecord.map((techRecord) => {
-      switch (techRecord.statusCode) {
+    vehicleClone.techRecord.forEach((record) => {
+      switch (record.statusCode) {
         case STATUS.PROVISIONAL:
-          if (!newVehicle.techRecord.length) {
-            newVehicle.techRecord.push(techRecord);
-          }
+          provisional = { ...record };
           break;
         case STATUS.CURRENT:
-          newVehicle.techRecord = [{ ...techRecord }];
-          oldVehicle.techRecord.push({
-            ...techRecord,
-            statusCode: STATUS.ARCHIVED,
-          });
+          current = { ...record };
           break;
         case STATUS.ARCHIVED:
-          oldVehicle.techRecord.push({ ...techRecord });
+          oldVehicle.techRecord.push({ ...record });
           break;
         default:
           break;
       }
     });
+
+    if (current && provisional) {
+      newVehicle.techRecord.push({ ...current });
+      oldVehicle.techRecord.push({ ...current, statusCode: "archived" });
+    } else if (provisional) {
+      newVehicle.techRecord.push({ ...provisional });
+      oldVehicle.techRecord.push({ ...provisional, statusCode: "archived" });
+    } else if (current) {
+      newVehicle.techRecord.push({ ...current });
+      oldVehicle.techRecord.push({ ...current, statusCode: "archived" });
+    }
 
     return [oldVehicle, newVehicle];
   }

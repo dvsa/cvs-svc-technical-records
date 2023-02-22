@@ -1561,98 +1561,98 @@ describe("updateTechRecordStatus", () => {
       });
     });
   });
-});
-describe("updateVin when passed a vehicle record and a vin", () => {
-  context("with techRecord statuses: Archived, Current, Provisional", () => {
-    const newVin = "123ABC";
-    const vehicle = {
-      vin: "ABC123",
-      techRecord: [
-        { recordCompleteness: "skeleton", statusCode: "archived" },
-        { recordCompleteness: "testable", statusCode: "current" },
-        { recordCompleteness: "complete", statusCode: "provisional" },
-      ],
-    } as unknown as Vehicle;
+  describe("updateVin when passed a vehicle record and a vin", () => {
+    context("with techRecord statuses: Archived, Current, Provisional", () => {
+      const newVin = "123ABC";
+      const vehicle = {
+        vin: "ABC123",
+        techRecord: [
+          { recordCompleteness: "skeleton", statusCode: "archived" },
+          { recordCompleteness: "testable", statusCode: "current" },
+          { recordCompleteness: "complete", statusCode: "provisional" },
+        ],
+      } as unknown as Vehicle;
 
-    const MockDAO = jest.fn().mockImplementation(() => {
-      return {
-        getBySearchTerm: () => {
-          return Promise.resolve([vehicle]);
-        },
-      };
-    });
-    const mockDAO = new MockDAO();
-    const techRecordsService = new TechRecordsService(mockDAO);
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve([vehicle]);
+          },
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
+      const result = techRecordsService.updateVin(vehicle, newVin);
 
-    const result = techRecordsService.updateVin(vehicle, newVin);
-    it("returns two vehicle records (oldVehicle, newVehicle)", () => {
-      expect(result.length).toEqual(2);
+      it("returns two vehicle records (oldVehicle, newVehicle)", () => {
+        expect(result.length).toEqual(2);
+      });
+      it("oldVehicle has a techRecord.length of 2: Archived x2", () => {
+        expect(result[0].techRecord.length).toEqual(2);
+      });
+      it("oldVehicle vin is the same", () => {
+        expect(result[0].vin).toEqual(vehicle.vin);
+      });
+      it("oldVehicle techRecord statuses are all archived", () => {
+        expect(result[0].techRecord[0].statusCode).toEqual("archived");
+        expect(result[0].techRecord[1].statusCode).toEqual("archived");
+      });
+      it("newVehicle has a techRecord.length of 1", () => {
+        expect(result[1].techRecord.length).toEqual(1);
+      });
+      it("newVehicle techRecord has a status of Current", () => {
+        expect(result[1].techRecord[0].statusCode).toEqual("current");
+      });
+      it("newVehicle vin is newVin value", () => {
+        expect(result[1].vin).toEqual(newVin);
+      });
     });
-    it("oldVehicle has a techRecord.length of 1 (Archived and Current AS Archived", () => {
-      expect(result[0].techRecord.length).toEqual(2);
-    });
-    it("oldVehicle vin is the same", () => {
-      expect(result[0].vin).toEqual(vehicle.vin);
-    });
-    it("oldVehicle techRecord statuses are all archived", () => {
-      expect(result[0].techRecord[0].statusCode).toEqual("archived");
-      expect(result[0].techRecord[1].statusCode).toEqual("archived");
-    });
-    it("newVehicle has a techRecord.length of 1", () => {
-      expect(result[1].techRecord.length).toEqual(1);
-    });
-    it("newVehicle techRecord has a status of Current", () => {
-      expect(result[1].techRecord[0].statusCode).toEqual("current");
-    });
-    it("newVehicle vin is newVin value", () => {
-      expect(result[1].vin).toEqual(newVin);
-    });
-  });
 
-  context("with techRecord statuses Archived, Current, Archived", () => {
-    const newVin = "123ABC";
-    const vehicle = {
-      vin: "ABC123",
-      techRecord: [
-        { recordCompleteness: "skeleton", statusCode: "archived" },
-        { recordCompleteness: "complete", statusCode: "current" },
-        { recordCompleteness: "testable", statusCode: "archived" },
-      ],
-    } as unknown as Vehicle;
+    context("with techRecord statuses Archived, Current, Archived", () => {
+      const newVin = "123ABC";
+      const vehicle = {
+        vin: "ABC123",
+        techRecord: [
+          { recordCompleteness: "skeleton", statusCode: "archived" },
+          { recordCompleteness: "complete", statusCode: "current" },
+          { recordCompleteness: "testable", statusCode: "archived" },
+        ],
+      } as unknown as Vehicle;
 
-    const MockDAO = jest.fn().mockImplementation(() => {
-      return {
-        getBySearchTerm: () => {
-          return Promise.resolve([vehicle]);
-        },
-      };
-    });
-    const mockDAO = new MockDAO();
-    const techRecordsService = new TechRecordsService(mockDAO);
+      const MockDAO = jest.fn().mockImplementation(() => {
+        return {
+          getBySearchTerm: () => {
+            return Promise.resolve([vehicle]);
+          },
+        };
+      });
+      const mockDAO = new MockDAO();
+      const techRecordsService = new TechRecordsService(mockDAO);
 
-    const result = techRecordsService.updateVin(vehicle, newVin);
-    it("returns two vehicle records (oldVehicle, newVehicle)", () => {
-      expect(result.length).toEqual(2);
-    });
-    it("oldVehicle has a techRecord.length of 3: Archived x2 and Current as archived", () => {
-      expect(result[0].techRecord.length).toEqual(3);
-    });
-    it("oldVehicle vin is the same", () => {
-      expect(result[0].vin).toEqual(vehicle.vin);
-    });
-    it("oldVehicle techRecord statuses are all archived", () => {
-      expect(result[0].techRecord[0].statusCode).toEqual("archived");
-      expect(result[0].techRecord[1].statusCode).toEqual("archived");
-      expect(result[0].techRecord[2].statusCode).toEqual("archived");
-    });
-    it("newVehicle has a techRecord.length of 1", () => {
-      expect(result[1].techRecord.length).toEqual(1);
-    });
-    it("newVehicle techRecord has a status of Current", () => {
-      expect(result[1].techRecord[0].statusCode).toEqual("current");
-    });
-    it("newVehicle vin is newVin value", () => {
-      expect(result[1].vin).toEqual(newVin);
+      const result = techRecordsService.updateVin(vehicle, newVin);
+      it("returns two vehicle records (oldVehicle, newVehicle)", () => {
+        expect(result.length).toEqual(2);
+      });
+      it("oldVehicle has a techRecord.length of 3: Archived x2 and Current as archived", () => {
+        expect(result[0].techRecord.length).toEqual(3);
+      });
+      it("oldVehicle vin is the same", () => {
+        expect(result[0].vin).toEqual(vehicle.vin);
+      });
+      it("oldVehicle techRecord statuses are all archived", () => {
+        expect(result[0].techRecord[0].statusCode).toEqual("archived");
+        expect(result[0].techRecord[1].statusCode).toEqual("archived");
+        expect(result[0].techRecord[2].statusCode).toEqual("archived");
+      });
+      it("newVehicle has a techRecord.length of 1", () => {
+        expect(result[1].techRecord.length).toEqual(1);
+      });
+      it("newVehicle techRecord has a status of Current", () => {
+        expect(result[1].techRecord[0].statusCode).toEqual("current");
+      });
+      it("newVehicle vin is newVin value", () => {
+        expect(result[1].vin).toEqual(newVin);
+      });
     });
   });
 
@@ -1682,8 +1682,8 @@ describe("updateVin when passed a vehicle record and a vin", () => {
     it("returns two vehicle records (oldVehicle, newVehicle)", () => {
       expect(result.length).toEqual(2);
     });
-    it("oldVehicle has a techRecord.length of 2: Archived x2", () => {
-      expect(result[0].techRecord.length).toEqual(2);
+    it("oldVehicle has a techRecord.length of 3: Archived x3", () => {
+      expect(result[0].techRecord.length).toEqual(3);
     });
     it("oldVehicle vin is the same", () => {
       expect(result[0].vin).toEqual(vehicle.vin);
