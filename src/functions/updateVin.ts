@@ -43,7 +43,7 @@ const updateVin = async (event: any) => {
       }
     });
 
-    const [newVehicle, oldVehicle] = techRecordsService.updateVin(
+    const [oldVehicle, newVehicle] = techRecordsService.updateVin(
       activeVehicle,
       newVin
     );
@@ -52,9 +52,8 @@ const updateVin = async (event: any) => {
 
     return new HTTPResponse(200, HTTPRESPONSE.VIN_UPDATED);
   } catch (error) {
-    console.log(error);
     if (error instanceof HTTPResponse) {
-      return new HTTPResponse(error.statusCode, error.body);
+      return error;
     } else {
       return new HTTPResponse(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
     }
@@ -62,15 +61,11 @@ const updateVin = async (event: any) => {
 };
 
 function validateParameters(event: any) {
-  const {
-    pathParameters: { systemNumber },
-    body: { msUserDetails, newVin },
-  } = event;
-
-  if (!systemNumber) {
+  if (!event.pathParameters?.systemNumber) {
     throw badRequest("Invalid path parameter 'systemNumber'");
   }
 
+  const msUserDetails = event.body?.msUserDetails;
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
     throw badRequest("Microsoft user details not provided");
   }
@@ -83,7 +78,7 @@ function validateVins(oldVin: string, newVin: string) {
     newVin.length > 21 ||
     typeof newVin !== "string"
   ) {
-    throw badRequest('New "vin" is invalid');
+    throw badRequest("New vin is invalid");
   }
   if (
     !oldVin ||
@@ -91,10 +86,10 @@ function validateVins(oldVin: string, newVin: string) {
     oldVin.length > 21 ||
     typeof oldVin !== "string"
   ) {
-    throw badRequest('"vin" is invalid');
+    throw badRequest("vin is invalid");
   }
   if (newVin === oldVin) {
-    throw badRequest('New "vin" must be different to current');
+    throw badRequest("New vin must be different to current");
   }
 }
 
