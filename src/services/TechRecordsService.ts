@@ -53,12 +53,12 @@ class TechRecordsService {
     msUserDetails: IMsUserDetails
   ) {
     try {
-      const vehicle = VehicleFactory.generateVehicleInstance(
-        payload,
-        this.techRecordsDAO
-      );
-      return vehicle.createVehicle(msUserDetails);
-    } catch (error) {
+    const vehicle = VehicleFactory.generateVehicleInstance(
+      payload,
+      this.techRecordsDAO
+    );
+    return vehicle.createVehicle(msUserDetails);
+    } catch(error) {
       console.error(error);
       throw new HTTPError(error.statusCode, error.body);
     }
@@ -87,23 +87,22 @@ class TechRecordsService {
     createdById: string,
     createdByName: string
   ) {
-    const uniqueRecord =
-      await this.techRecordStatusHandler.prepareTechRecordForStatusUpdate(
-        systemNumber,
-        newStatus,
-        createdById,
-        createdByName
-      );
+    const uniqueRecord = await this.techRecordStatusHandler.prepareTechRecordForStatusUpdate(
+      systemNumber,
+      newStatus,
+      createdById,
+      createdByName
+    );
     try {
       const vehicle = VehicleFactory.generateVehicleInstance(
-        uniqueRecord,
-        this.techRecordsDAO
-      );
+      uniqueRecord,
+      this.techRecordsDAO
+    );
       return vehicle.updateTechRecordStatusCode(uniqueRecord);
-    } catch (error) {
-      console.error(error);
-      throw new HTTPError(error.statusCode, error.body);
-    }
+   } catch(error) {
+    console.error(error);
+    throw new HTTPError(error.statusCode, error.body);
+   }
   }
 
   public async archiveTechRecordStatus(
@@ -116,12 +115,7 @@ class TechRecordsService {
       techRecordToUpdate,
       this.techRecordsDAO
     );
-    return vehicle.archiveTechRecordStatus(
-      systemNumber,
-      techRecordToUpdate,
-      userDetails,
-      reasonForArchiving
-    );
+    return vehicle.archiveTechRecordStatus(systemNumber,techRecordToUpdate,userDetails,reasonForArchiving);
   }
 
   public async updateEuVehicleCategory(
@@ -139,14 +133,11 @@ class TechRecordsService {
     )[0];
 
     const vehicle = VehicleFactory.generateVehicleInstance(
-      techRecordWrapper,
-      this.techRecordsDAO
+    techRecordWrapper,
+    this.techRecordsDAO
     );
 
-    return vehicle.updateEuVehicleCategory(systemNumber, newEuVehicleCategory, {
-      msOid: createdById,
-      msUser: createByName,
-    });
+    return vehicle.updateEuVehicleCategory(systemNumber, newEuVehicleCategory, { msOid: createdById, msUser: createByName });
   }
 
   public async addProvisionalTechRecord(
