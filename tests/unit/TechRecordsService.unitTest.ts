@@ -1177,7 +1177,6 @@ describe("updateTechRecordStatus", () => {
           { recordCompleteness: "complete", statusCode: "provisional" },
         ],
       } as unknown as Vehicle;
-  
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
@@ -1188,10 +1187,9 @@ describe("updateTechRecordStatus", () => {
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
       const result = techRecordsService.updateVin(vehicle, newVin);
-  
       it("returns two vehicle records (oldVehicle, newVehicle)", () => {
-        expect(result.oldVehicle).toBeDefined()
-        expect(result.newVehicle).toBeDefined()
+        expect(result.oldVehicle).toBeDefined();
+        expect(result.newVehicle).toBeDefined();
       });
       it("oldVehicle has a techRecord.length of 2: Archived x2", () => {
         expect(result.oldVehicle.techRecord.length).toEqual(2);
@@ -1213,7 +1211,6 @@ describe("updateTechRecordStatus", () => {
         expect(result.newVehicle.vin).toEqual(newVin);
       });
     });
-  
     context("with techRecord statuses Archived, Current, Archived", () => {
       const newVin = "123ABC";
       const vehicle = {
@@ -1224,7 +1221,6 @@ describe("updateTechRecordStatus", () => {
           { recordCompleteness: "testable", statusCode: "archived" },
         ],
       } as unknown as Vehicle;
-  
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           getBySearchTerm: () => {
@@ -1234,11 +1230,10 @@ describe("updateTechRecordStatus", () => {
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
-  
       const result = techRecordsService.updateVin(vehicle, newVin);
       it("returns two vehicle records (oldVehicle, newVehicle)", () => {
-        expect(result.oldVehicle).toBeDefined()
-        expect(result.newVehicle).toBeDefined()
+        expect(result.oldVehicle).toBeDefined();
+        expect(result.newVehicle).toBeDefined();
       });
       it("oldVehicle has a techRecord.length of 3: Archived x2 and Current as archived", () => {
         expect(result.oldVehicle.techRecord.length).toEqual(3);
@@ -1262,7 +1257,6 @@ describe("updateTechRecordStatus", () => {
       });
     });
   });
-  
   context("with techRecord statuses Provisional, Archived, Archived", () => {
     const newVin = "123ABC";
     const vehicle = {
@@ -1273,7 +1267,6 @@ describe("updateTechRecordStatus", () => {
         { recordCompleteness: "testable", statusCode: "archived" },
       ],
     } as unknown as Vehicle;
-  
     const MockDAO = jest.fn().mockImplementation(() => {
       return {
         getBySearchTerm: () => {
@@ -1281,14 +1274,12 @@ describe("updateTechRecordStatus", () => {
         },
       };
     });
-  
     const mockDAO = new MockDAO();
     const techRecordsService = new TechRecordsService(mockDAO);
-  
     const result = techRecordsService.updateVin(vehicle, newVin);
     it("returns two vehicle records (oldVehicle, newVehicle)", () => {
-      expect(result.oldVehicle).toBeDefined()
-      expect(result.newVehicle).toBeDefined()
+      expect(result.oldVehicle).toBeDefined();
+      expect(result.newVehicle).toBeDefined();
     });
     it("oldVehicle has a techRecord.length of 3: Archived x3", () => {
       expect(result.oldVehicle.techRecord.length).toEqual(3);
