@@ -329,12 +329,12 @@ export const LETTER_TYPE: string[] = [
     "Trailer rejection"
 ];
 
-export const PARAGRAPH_IDS: string[] = [
-    "3",
-    "4",
-    "5",
-    "6",
-    "7"
+export const PARAGRAPH_IDS: number[] = [
+    3,
+    4,
+    5,
+    6,
+    7
 ];
 
 export const STATUS_CODES: string[] = [

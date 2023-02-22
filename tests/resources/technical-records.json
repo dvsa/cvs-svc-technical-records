@@ -6890,9 +6890,9 @@
     "vin": "P012301230002"
   },
   {
-    "partialVin": "111222",
-    "primaryVrm": "CT71234",
-    "systemNumber": "11000041",
+    "partialVin": "111000",
+    "primaryVrm": "CT71000",
+    "systemNumber": "11000036",
     "secondaryVrms": [],
     "techRecord": [
       {
@@ -40484,8 +40484,8 @@
   },
   {
     "partialVin": "111222",
-    "primaryVrm": "CT71000",
-    "systemNumber": "11000036",
+    "primaryVrm": "CT71234",
+    "systemNumber": "11000041",
     "secondaryVrms": [],
     "techRecord": [
       {
