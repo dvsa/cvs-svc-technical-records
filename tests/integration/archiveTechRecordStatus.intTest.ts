@@ -66,8 +66,8 @@ describe("archiveTechRecordStatus", () => {
           });
       });
       it("should populate the historic vrm's", async () => {
-        const systemNumber: string = "1100047";
-        const techRecord: any = cloneDeep(mockData[43]);
+        const systemNumber: string = "11000009";
+        const techRecord: any = cloneDeep(mockData[8]);
         const payload = {
           vin: techRecord.vin,
           reasonForArchiving: "Test",

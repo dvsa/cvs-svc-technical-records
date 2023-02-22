@@ -258,8 +258,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     techRecordToArchive.lastUpdatedByName = userDetails.msUser;
     techRecordToArchive.lastUpdatedById = userDetails.msOid;
     techRecordToArchive.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
-    techRecordWithAllStatuses.techRecord[0].historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm;
-    techRecordWithAllStatuses.techRecord[0].historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms;
+    techRecordToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm;
+    techRecordToArchive.historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms;
     if (techRecordToArchive.vehicleType === enums.VEHICLE_TYPE.PSV) {
       const remarks = (techRecordToArchive as PsvTechRecord).remarks;
       (techRecordToArchive as PsvTechRecord).remarks = remarks
