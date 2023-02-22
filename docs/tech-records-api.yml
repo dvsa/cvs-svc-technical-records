@@ -263,25 +263,25 @@ paths:
           description: Unprocessable request
         '500':
           description: Validation Error
-  '/vehicles/{vin}':
-    post:
+  '/vehicles/update-vin/{systemNumber}':
+    put:
       summary: 'Amend vin'
       tags:
         - amendVin
       parameters:
         - in: path
-          name: vin
+          name: systemNumber
           schema:
             type: string
           required: true
-          description: Vehicle identification number
+          description: Vehicle system number
       requestBody:
         required: true
-        description: The new VIN
+        description: Request body for amending VINs
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/amendTechRecordVinPost'
+              $ref: '#/components/schemas/amendTechRecordVinPut'
       operationId: amendVin
       responses:
         '200':
@@ -1909,7 +1909,7 @@ components:
           description: Used only for TRL
         techRecord:
           $ref: '#/components/schemas/techRecords'
-    amendTechRecordVinPost:
+    amendTechRecordVinPut:
       type: object
       description: POST request body for amend VIN request.
       additionalProperties: false
