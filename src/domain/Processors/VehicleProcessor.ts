@@ -268,7 +268,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         techRecordToUpdate.techRecord[0].statusCode === techRecord.statusCode
     );
 
-    const techRecordWithAllStatues = allTechRecordWrapper[0];
+    const techRecordWithAllStatuses = allTechRecordWrapper[0];
     const techRecordToArchive = VehicleProcessor.getTechRecordToArchive(
       uniqueVehicleRecord,
       techRecordToUpdate.techRecord[0].statusCode
