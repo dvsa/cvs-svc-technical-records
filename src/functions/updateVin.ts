@@ -43,7 +43,7 @@ const updateVin = async (event: any) => {
       }
     });
 
-    const [oldVehicle, newVehicle] = techRecordsService.updateVin(
+    const {oldVehicle, newVehicle} = techRecordsService.updateVin(
       activeVehicle,
       newVin
     );
