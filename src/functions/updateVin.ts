@@ -43,7 +43,7 @@ const updateVin = async (event: any) => {
       }
     });
 
-    const {oldVehicle, newVehicle} = techRecordsService.updateVin(
+    const { oldVehicle, newVehicle } = techRecordsService.updateVin(
       activeVehicle,
       newVin
     );
@@ -89,4 +89,4 @@ function badRequest(error: string) {
   return new HTTPResponse(400, formatErrorMessage(error));
 }
 
-export { updateVin };
+export { updateVin, validateVins };
