@@ -1,12 +1,16 @@
 import LambdaTester from "lambda-tester";
-import { getTechRecords, getTechRecords as GetTechRecordsFunction } from "../../src/functions/getTechRecords";
-import { emptyDatabase, populateDatabase } from "../util/dbOperations";
-import { updateTechRecords as UpdateTechRecordsFunction } from "../../src/functions/updateTechRecords";
-import { postTechRecords as PostTechRecordsFunction } from "../../src/functions/postTechRecords";
-import records from "../resources/technical-records.json";
 import { cloneDeep } from "lodash";
 import { HTTPRESPONSE } from "../../src/assets/Enums";
+import {
+  getTechRecords as GetTechRecordsFunction
+} from "../../src/functions/getTechRecords";
+import { postTechRecords as PostTechRecordsFunction } from "../../src/functions/postTechRecords";
+import { updateTechRecords as UpdateTechRecordsFunction } from "../../src/functions/updateTechRecords";
+import { updateVin } from "../../src/functions/updateVin";
+import HTTPResponse from "../../src/models/HTTPResponse";
 import Configuration from "../../src/utils/Configuration";
+import records from "../resources/technical-records.json";
+import { emptyDatabase, populateDatabase } from "../util/dbOperations";
 
 const msUserDetails = {
   msUser: "dorel",
@@ -429,6 +433,110 @@ describe("updateTechRecords", () => {
             });
         });
       });
+    });
+  });
+});
+
+describe("updateVin", () => {
+  beforeAll(async () => {
+    jest.resetAllMocks();
+    await emptyDatabase();
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(false);
+  });
+  beforeEach(async () => {
+    await populateDatabase();
+  });
+  afterEach(async () => {
+    await emptyDatabase();
+  });
+  afterAll(async () => {
+    await emptyDatabase();
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(true);
+  });
+
+  context("when trying to update a vin", () => {
+    const testVehicle = cloneDeep(
+      records.find(
+        (v) => v.systemNumber === "3506666" && v.vin === "XXB6703742N122212"
+      )
+    );
+    context("and the request has incorrect parameters", () => {
+      it.each([
+        [
+          "systemNumber is invalid",
+          {
+            path: `/vehicles/update-vin/${testVehicle?.systemNumber}`,
+            body: {
+              msUserDetails: { msOid: "userID", msUser: "Test User" },
+              newVin: "SDJKHDSK89KJSBND",
+            },
+          },
+          { errors: ["Invalid path parameter 'systemNumber'"] },
+        ],
+        [
+          "new vin is missing",
+          {
+            path: `/vehicles/update-vin/${testVehicle?.systemNumber}`,
+            pathParameters: {
+              systemNumber: testVehicle?.systemNumber,
+            },
+            body: {
+              msUserDetails: { msOid: "userID", msUser: "Test User" },
+              newVin: "",
+            },
+          },
+          { errors: ["New vin is invalid"] },
+        ],
+        [
+          "new vin is the same as current vin",
+          {
+            path: `/vehicles/update-vin/${testVehicle?.systemNumber}`,
+            pathParameters: {
+              systemNumber: testVehicle?.systemNumber,
+            },
+            body: {
+              msUserDetails: { msOid: "userID", msUser: "Test User" },
+              newVin: testVehicle?.vin,
+            },
+          },
+          { errors: ["New vin must be different to current"] },
+        ],
+      ])("should return 400 when %s", async (scenario, request, errors) => {
+        await LambdaTester(updateVin)
+          .event(request)
+          .expectResolve((result: any) => {
+            expect(result.statusCode).toBe(400);
+            expect(result.body).toEqual(JSON.stringify(errors));
+          });
+      });
+    });
+
+    context("and the target record exists", () => {
+      it.each([
+        [
+          {
+            path: `/vehicles/update-vin/${testVehicle?.systemNumber}`,
+            pathParameters: {
+              systemNumber: testVehicle?.systemNumber,
+            },
+            body: {
+              msUserDetails: { msOid: "userID", msUser: "Test User" },
+              newVin: "DSFJHGDJSHF834JDFS",
+            },
+          },
+          new HTTPResponse(200, HTTPRESPONSE.VIN_UPDATED),
+        ],
+      ])(
+        "should return status code 200 VIN updated",
+        async (request, response) => {
+          await LambdaTester(updateVin)
+            .event(request)
+            .expectResolve((result: any) => {
+              expect(result.statusCode).toBe(response.statusCode);
+              expect(result.body).toEqual(response.body);
+            });
+        }
+      );
     });
   });
 });

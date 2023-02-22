@@ -9,6 +9,7 @@ import { LambdaService } from "../services/LambdaService";
 import { Vehicle, Trailer } from "../../@Types/TechRecords";
 import { PromiseResult } from "aws-sdk/lib/request";
 import { AWSError } from "aws-sdk/lib/error";
+import { TransactWriteItemsInput } from "aws-sdk/clients/dynamodb";
 
 const dbConfig = Configuration.getInstance().getDynamoDBConfig();
 /* tslint:disable */
@@ -244,6 +245,43 @@ class TechRecordsDAO {
         [this.tableName]: [],
       },
     };
+  }
+
+  public updateVin<T extends Vehicle>(newVehicle: any, oldVehicle: T) {
+    const transactionParams = {
+      TransactItems: [
+        {
+          Put: {
+            TableName: this.tableName,
+            Item: newVehicle,
+            ConditionExpression:
+              "vin <> :vin AND systemNumber <> :systemNumber",
+            ExpressionAttributeValues: {
+              ":vin": newVehicle.vin,
+              ":systemNumber": newVehicle.systemNumber,
+            },
+          },
+        },
+        {
+          Update: {
+            TableName: this.tableName,
+            Key: {
+              systemNumber: oldVehicle.systemNumber,
+              vin: oldVehicle.vin,
+            },
+            UpdateExpression: "set techRecord = :techRecord",
+            ConditionExpression: "vin = :vin AND systemNumber = :systemNumber",
+            ExpressionAttributeValues: {
+              ":vin": oldVehicle.vin,
+              ":systemNumber": oldVehicle.systemNumber,
+              ":techRecord": oldVehicle.techRecord,
+            },
+          },
+        },
+      ],
+    } as TransactWriteItemsInput;
+
+    return dbClient.transactWrite(transactionParams).promise();
   }
 }
 

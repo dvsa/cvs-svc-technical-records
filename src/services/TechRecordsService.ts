@@ -1,27 +1,20 @@
-import HTTPError from "../models/HTTPError";
-import TechRecordsDAO from "../models/TechRecordsDAO";
+import { cloneDeep } from "lodash";
+import { ISearchCriteria } from "../../@Types/ISearchCriteria";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import IMsUserDetails from "../../@Types/IUserDetails";
+import { TechRecord, Vehicle } from "../../@Types/TechRecords";
 import {
-  ERRORS,
   EU_VEHICLE_CATEGORY,
   HTTPRESPONSE,
   SEARCHCRITERIA,
   STATUS,
-  UPDATE_TYPE,
 } from "../assets/Enums";
-import { ISearchCriteria } from "../../@Types/ISearchCriteria";
-import HTTPResponse from "../models/HTTPResponse";
-import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
-import { formatErrorMessage } from "../utils/formatErrorMessage";
-import IMsUserDetails from "../../@Types/IUserDetails";
-import { PromiseResult } from "aws-sdk/lib/request";
-import { AWSError } from "aws-sdk/lib/error";
-import { isEqual } from "lodash";
-import { Vehicle, TechRecord } from "../../@Types/TechRecords";
 import { VehicleFactory } from "../domain/VehicleFactory";
 import { TechRecordsListHandler } from "../handlers/TechRecordsListHandler";
 import { TechRecordStatusHandler } from "../handlers/TechRecordStatusHandler";
-
+import HTTPError from "../models/HTTPError";
+import HTTPResponse from "../models/HTTPResponse";
+import TechRecordsDAO from "../models/TechRecordsDAO";
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -184,6 +177,48 @@ class TechRecordsService {
         console.error(error);
         throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
       });
+  }
+
+  public updateVin(vehicle: Vehicle, newVin: string) {
+    const vehicleClone = cloneDeep(vehicle);
+
+    const oldVehicle: Vehicle = { ...vehicleClone, techRecord: [] };
+    const newVehicle: Vehicle = {
+      ...vehicleClone,
+      vin: newVin,
+      techRecord: [],
+    };
+    let current: TechRecord | undefined;
+    let provisional: TechRecord | undefined;
+
+    vehicleClone.techRecord.forEach((record) => {
+      switch (record.statusCode) {
+        case STATUS.PROVISIONAL:
+          provisional = { ...record };
+          break;
+        case STATUS.CURRENT:
+          current = { ...record };
+          break;
+        case STATUS.ARCHIVED:
+          oldVehicle.techRecord.push({ ...record });
+          break;
+        default:
+          break;
+      }
+    });
+
+    if (current && provisional) {
+      newVehicle.techRecord.push({ ...current });
+      oldVehicle.techRecord.push({ ...current, statusCode: "archived" });
+    } else if (provisional) {
+      newVehicle.techRecord.push({ ...provisional });
+      oldVehicle.techRecord.push({ ...provisional, statusCode: "archived" });
+    } else if (current) {
+      newVehicle.techRecord.push({ ...current });
+      oldVehicle.techRecord.push({ ...current, statusCode: "archived" });
+    }
+
+    return {oldVehicle, newVehicle};
   }
 }
 
