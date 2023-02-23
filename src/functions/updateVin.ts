@@ -89,4 +89,4 @@ function badRequest(error: string) {
   return new HTTPResponse(400, formatErrorMessage(error));
 }
 
-export { updateVin, validateVins };
+export { updateVin, validateVins, validateParameters };
