@@ -337,7 +337,7 @@
       "maxTrainEecWeight": 2500,
       "reasonForCreation": "something",
       "roadFriendly": false,
-      "euVehicleCategory": "n2",
+      "euVehicleCategory": null,
       "statusCode": "current",
       "frontAxleToRearAxle": 1000,
       "drawbarCouplingFitted": false,

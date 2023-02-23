@@ -263,6 +263,44 @@ paths:
           description: Unprocessable request
         '500':
           description: Validation Error
+  '/vehicles/update-vin/{systemNumber}':
+    put:
+      summary: 'Amend vin'
+      tags:
+        - amendVin
+      parameters:
+        - in: path
+          name: systemNumber
+          schema:
+            type: string
+          required: true
+          description: Vehicle system number
+      requestBody:
+        required: true
+        description: Request body for amending VINs
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/amendTechRecordVinPut'
+      operationId: amendVin
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: OK
+        '400':
+          description: Bad request
+        '401':
+          description: Not authenticated
+        '403':
+          description: Unauthorised Access
+        '404':
+          description: Operation not supported
+        '500':
+          description: Validation Error
 components:
   securitySchemes:
     OAuth2:
@@ -339,11 +377,11 @@ components:
                         type: string
                         enum:
                           - 'Substances permitted under the tank
-                          code and any special provisions
-                          specified in 9 may be carried'
+                            code and any special provisions
+                            specified in 9 may be carried'
                           - 'Substances (Class UN number and if
-                          necessary packing group and proper shipping
-                          name) may be carried'
+                            necessary packing group and proper shipping
+                            name) may be carried'
             additionalNotes:
               type: object
               properties:
@@ -1871,7 +1909,32 @@ components:
           description: Used only for TRL
         techRecord:
           $ref: '#/components/schemas/techRecords'
-
+    amendTechRecordVinPut:
+      type: object
+      description: POST request body for amend VIN request.
+      additionalProperties: false
+      properties:
+        msUserDetails:
+          $ref: '#/components/schemas/msUserDetails'
+        newVin:
+          description: new vehicle identification number
+          type: string
+          nullable: false
+      required:
+        - msUserDetails
+        - newVin
+    msUserDetails:
+      description: Authenticated user details
+      type: object
+      additionalProperties: false
+      properties:
+        msUser:
+          type: string
+        msOid:
+          type: string
+      required:
+          - msUser
+          - msOid
 security:
   - OAuth2:
       - read

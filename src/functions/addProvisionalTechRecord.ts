@@ -2,7 +2,7 @@ import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
 import IMsUserDetails from "../../@Types/IUserDetails";
-import {formatErrorMessage} from "../utils/formatErrorMessage";
+import { formatErrorMessage } from "../utils/formatErrorMessage";
 
 
 const addProvisionalTechRecord = async (event: any) => {
@@ -10,8 +10,8 @@ const addProvisionalTechRecord = async (event: any) => {
   const techRecordsService = new TechRecordsService(techRecordsDAO);
 
   const sysNum: string = event.pathParameters.systemNumber;
-  const techRec = event.body ? event.body.techRecord : null;
-  const msUserDetails: IMsUserDetails = event.body ? event.body.msUserDetails : null;
+  const techRec = event.body?.techRecord;
+  const msUserDetails: IMsUserDetails = event.body?.msUserDetails;
 
   if (!techRec || !techRec.length) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Body is not a valid TechRecord")));
@@ -20,6 +20,7 @@ const addProvisionalTechRecord = async (event: any) => {
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Microsoft user details not provided")));
   }
+  delete techRec[0].historicVin;
   const techRecord = {
     vin: "",
     techRecord: techRec,
@@ -33,4 +34,4 @@ const addProvisionalTechRecord = async (event: any) => {
     return new HTTPResponse(error.statusCode, error.body);
   }
 };
-export {addProvisionalTechRecord};
+export { addProvisionalTechRecord };

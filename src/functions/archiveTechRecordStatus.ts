@@ -1,8 +1,8 @@
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
 import HTTPResponse from "../models/HTTPResponse";
-import {ERRORS} from "../assets/Enums";
-import {formatErrorMessage} from "../utils/formatErrorMessage";
+import { ERRORS } from "../assets/Enums";
+import { formatErrorMessage } from "../utils/formatErrorMessage";
 // import {Vehicle, TechRecord} from "../../@Types/TechRecords";
 
 export async function archiveTechRecordStatus(event: any) {
@@ -10,7 +10,7 @@ export async function archiveTechRecordStatus(event: any) {
 
   const systemNumber: string = event.pathParameters.systemNumber;
   const techRec = event.body && event.body.techRecord;
-  const msUserDetails = event.body && event.body.msUserDetails ? event.body.msUserDetails : null;
+  const msUserDetails = event.body?.msUserDetails;
   const reasonForArchiving = event.body && event.body.reasonForArchiving;
 
   if (!techRec || !techRec.length) {
@@ -19,14 +19,16 @@ export async function archiveTechRecordStatus(event: any) {
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage(ERRORS.MISSING_USER)));
   }
-  if(!reasonForArchiving) {
+  if (!reasonForArchiving) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage(ERRORS.MISSING_REASON_FOR_ARCHIVING)));
   }
+
+  delete techRec[0].historicVin;
 
   const techRecord = {
     vin: "",
     systemNumber,
-    techRecord: techRec
+    techRecord: techRec,
   };
 
   return techRecordsService.archiveTechRecordStatus(systemNumber, techRecord, msUserDetails, reasonForArchiving)

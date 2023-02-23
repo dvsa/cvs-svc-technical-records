@@ -103,6 +103,30 @@ describe("updateEuVehicleCategory", () => {
                 });
         });
 
+        it("should return 200 and the updated vehicle if it has a euVehicleCategory as null and the vehicle has had a VIN change", async () => {
+            const systemNumber: string = "11220280";
+            expect.assertions(4);
+            await LambdaTester(updateEuVehicleCategory)
+                .event({
+                    path: `/vehicles/update-eu-vehicle-category/${systemNumber}`,
+                    pathParameters: {
+                        systemNumber,
+                    },
+                    queryStringParameters: {
+                        euVehicleCategory: "l1e-a",
+                    },
+                    httpMethod: "PUT",
+                    resource: "/vehicles/update-eu-vehicle-category/{systemNumber}"
+                })
+                .expectResolve((result: any) => {
+                    expect(result.statusCode).toBe(200);
+                    const techRecordWrapper: ITechRecordWrapper = JSON.parse(result.body);
+                    expect(techRecordWrapper.techRecord.length).toBe(2);
+                    expect(techRecordWrapper.techRecord[0].euVehicleCategory).toBe(null);
+                    expect(techRecordWrapper.techRecord[1].euVehicleCategory).toBe(EU_VEHICLE_CATEGORY.L1EA);
+                });
+        });
+
         it("should return 400 if the euVehicleCategory does not exist", async () => {
             const systemNumber: string = "90000023";
             expect.assertions(2);

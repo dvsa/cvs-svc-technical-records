@@ -118,5 +118,31 @@ describe("UpdateTechRecordStatus", () => {
                     expect(JSON.parse(result.body).errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
                 });
         });
+
+        it("should return an error 200 and the updated vehicle with duplicate system number", async () => {
+            const systemNumber: string = "30000011";
+            expect.assertions(4);
+            await LambdaTester(updateTechRecordStatus)
+                .event({
+                    path: "/vehicles/update-status/" + systemNumber,
+                    pathParameters: {
+                      systemNumber,
+                    },
+                    queryStringParameters: {
+                        testStatus: "submitted",
+                        testResult: "pass",
+                        testTypeId: "47",
+                    },
+                    httpMethod: "PUT",
+                    resource: "/vehicles/update-status/{systemNumber}"
+                })
+                .expectResolve((result: any) => {
+                    expect(result.statusCode).toBe(200);
+                    const techRecordWrapper: ITechRecordWrapper = JSON.parse(result.body);
+                    expect(techRecordWrapper.techRecord.length).toBe(2);
+                    expect(techRecordWrapper.techRecord[0].statusCode).toBe(STATUS.ARCHIVED);
+                    expect(techRecordWrapper.techRecord[1].statusCode).toBe(STATUS.CURRENT);
+                });
+        });
     });
 });

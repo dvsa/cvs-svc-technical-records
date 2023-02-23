@@ -1,3 +1,5 @@
+process.env.BRANCH = 'local';
+
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
@@ -14,5 +16,9 @@ module.exports = {
     transform: {
         '^.+\\.tsx?$': 'ts-jest'
     },
-    testMatch: ['**/*.*Test.ts']
+    testMatch: ['**/*.unitTest.ts'],
+    coverageDirectory: './coverage',
+    collectCoverage: true,
+    testResultsProcessor: 'jest-sonar-reporter',
+    testURL: 'http://localhost'
 }

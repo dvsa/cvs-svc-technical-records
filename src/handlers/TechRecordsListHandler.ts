@@ -17,7 +17,8 @@ export class TechRecordsListHandler<T extends Vehicle> {
   public async getFormattedTechRecordsList(
     searchTerm: string,
     status: string,
-    searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL
+    searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL,
+    mergeRecordsWithSameSystemNumber: boolean = true
   ): Promise<T[]> {
     try {
       // Formatting the object for lambda function
@@ -31,7 +32,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
         throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
       }
 
-      if (searchCriteria === SEARCHCRITERIA.SYSTEM_NUMBER && techRecordItems.length > 1) {
+      if (mergeRecordsWithSameSystemNumber && searchCriteria === SEARCHCRITERIA.SYSTEM_NUMBER && techRecordItems.length > 1) {
         techRecordItems = this.mergeRecordsWithSameSystemNumber(techRecordItems);
       }
 
@@ -51,19 +52,19 @@ export class TechRecordsListHandler<T extends Vehicle> {
     status: string,
     searchCriteria: ISearchCriteria = SEARCHCRITERIA.ALL
   ): Promise<T[]> {
-      const data = await this.techRecordsDAO.getBySearchTerm(
-          searchTerm,
-          searchCriteria
-      );
-      if (data.length === 0) {
-        throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
-      }
-      // Formatting the object for lambda function
-      let techRecordItems: T[] = data as unknown as T[];
-      if (status !== STATUS.ALL) {
-        techRecordItems = this.filterTechRecordsByStatus(techRecordItems, status);
-      }
-      return techRecordItems;
+    const data = await this.techRecordsDAO.getBySearchTerm(
+      searchTerm,
+      searchCriteria
+    );
+    if (data.length === 0) {
+      throw new HTTPError(404, HTTPRESPONSE.RESOURCE_NOT_FOUND);
+    }
+    // Formatting the object for lambda function
+    let techRecordItems: T[] = data as unknown as T[];
+    if (status !== STATUS.ALL) {
+      techRecordItems = this.filterTechRecordsByStatus(techRecordItems, status);
+    }
+    return techRecordItems;
   }
 
   public formatTechRecordItemForResponse(techRecordItem: T) {
@@ -99,7 +100,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
 
   /* #region  Private functions */
   private filterTechRecordsByStatus(techRecordItems: T[], status: string): T[] {
-   return techRecordItems.map((item) => this.filterTechRecordsForIndividualVehicleByStatus(item, status)).filter((item) => item.techRecord.length > 0);
+    return techRecordItems.map((item) => this.filterTechRecordsForIndividualVehicleByStatus(item, status)).filter((item) => item.techRecord.length > 0);
   }
 
   private filterTechRecordsForIndividualVehicleByStatus(
@@ -145,7 +146,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
     return techRecordItem;
   }
 
-  private mergeRecordsWithSameSystemNumber(techRecordItems: T[]) {
+  public mergeRecordsWithSameSystemNumber(techRecordItems: T[]) {
     let stitchedRecord = {} as T;
 
     techRecordItems.forEach((vehicle) => {
@@ -158,7 +159,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
       }
 
       const stitchedRecordCreatedAt = Math.max(...stitchedRecord.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
-      const itemCreatedAt =  Math.max(...vehicle.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
+      const itemCreatedAt = Math.max(...vehicle.techRecord.map((techRecordObject) => new Date(techRecordObject.createdAt).getTime()));
 
       if (itemCreatedAt < stitchedRecordCreatedAt) {
         return stitchedRecord.techRecord.push(...vehicle.techRecord);

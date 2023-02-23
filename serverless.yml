@@ -174,6 +174,16 @@ functions:
             parameters:
               paths:
                 systemNumber: true
+  updateVin:
+    handler: src/handler.handler
+    events:
+      - http:
+          path: /vehicles/update-vin/{systemNumber}
+          method: put
+          request:
+            parameters:
+              paths:
+                systemNumber: true
 
 resources:
   Resources:
