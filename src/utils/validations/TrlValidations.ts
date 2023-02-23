@@ -9,7 +9,11 @@ import {
   commonSchema,
   weightsSchema,
 } from "./CommonSchema";
-import { FRAME_DESCRIPTION, LETTER_TYPE, PARAGRAPH_IDS } from "../../assets/Enums";
+import {
+  FRAME_DESCRIPTION,
+  LETTER_TYPE,
+  PARAGRAPH_IDS,
+} from "../../assets/Enums";
 import { adrValidation } from "./AdrValidation";
 
 const authIntoService = Joi.object()
@@ -27,19 +31,19 @@ const authIntoService = Joi.object()
   .optional()
   .allow(null);
 
-const lettersOfAuth = Joi.object()
+const letterOfAuth = Joi.object()
   .keys({
     letterType: Joi.string()
       .valid(...LETTER_TYPE)
       .optional()
       .allow(null, ""),
-    letterDateRequested: Joi.date()
-      .raw()
-      .optional()
-      .allow(null),
+    letterDateRequested: Joi.date().raw().optional().allow(null),
     letterContents: Joi.string().optional().allow(null, ""),
-    paragraphID: Joi.string().valid(...PARAGRAPH_IDS).optional().allow(null, ""),
-    letterIssuer: Joi.string().optional().allow(null, "")
+    paragraphId: Joi.number()
+      .valid(...PARAGRAPH_IDS)
+      .optional()
+      .allow(null, ""),
+    letterIssuer: Joi.string().optional().allow(null, ""),
   })
   .optional()
   .allow(null);
@@ -54,7 +58,7 @@ export const trlValidation = commonSchema.keys({
     .optional()
     .allow(null, ""),
   authIntoService: authIntoService,
-  lettersOfAuth: lettersOfAuth,
+  letterOfAuth: letterOfAuth,
   make: Joi.string().max(30).allow(null, ""),
   model: Joi.string().max(30).allow(null, ""),
   grossEecWeight: Joi.number().min(0).max(99999).optional().allow(null),

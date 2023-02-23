@@ -325,8 +325,8 @@ export const FRAME_DESCRIPTION: string[] = [
 ];
 
 export const LETTER_TYPE: string[] = [
-    "Trailer authorization",
-    "Trailer rejection"
+    "trailer acceptance",
+    "trailer rejection"
 ];
 
 export const PARAGRAPH_IDS: number[] = [
