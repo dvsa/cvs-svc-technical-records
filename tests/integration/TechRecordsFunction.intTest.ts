@@ -506,7 +506,7 @@ describe("updateVin", () => {
           .event(request)
           .expectResolve((result: any) => {
             expect(result.statusCode).toBe(400);
-            expect(result.body).toEqual(JSON.stringify(errors));
+            expect(result.body).toEqual(errors);
           });
       });
     });

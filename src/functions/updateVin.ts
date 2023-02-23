@@ -1,11 +1,15 @@
 import { TechRecord } from "../../@Types/TechRecords";
 import { HTTPRESPONSE, SEARCHCRITERIA, STATUS } from "../assets";
 import { VehicleProcessor } from "../domain/Processors";
-import { AuditDetailsHandler, TechRecordsListHandler } from "../handlers";
+import {
+  AuditDetailsHandler,
+  ErrorHandler,
+  TechRecordsListHandler,
+} from "../handlers";
+import HTTPError from "../models/HTTPError";
 import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
-import { formatErrorMessage } from "../utils/formatErrorMessage";
 
 const updateVin = async (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
@@ -52,7 +56,7 @@ const updateVin = async (event: any) => {
 
     return new HTTPResponse(200, HTTPRESPONSE.VIN_UPDATED);
   } catch (error) {
-    if (error instanceof HTTPResponse) {
+    if (error instanceof HTTPError) {
       return error;
     } else {
       return new HTTPResponse(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
@@ -62,12 +66,12 @@ const updateVin = async (event: any) => {
 
 function validateParameters(event: any) {
   if (!event.pathParameters?.systemNumber) {
-    throw badRequest("Invalid path parameter 'systemNumber'");
+    throw ErrorHandler.Error(400, "Invalid path parameter 'systemNumber'");
   }
 
   const msUserDetails = event.body?.msUserDetails;
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
-    throw badRequest("Microsoft user details not provided");
+    throw ErrorHandler.Error(400, "Microsoft user details not provided");
   }
 }
 
@@ -78,15 +82,11 @@ function validateVins(oldVin: string, newVin: string) {
     newVin.length > 21 ||
     typeof newVin !== "string"
   ) {
-    throw badRequest("New vin is invalid");
+    throw ErrorHandler.Error(400, "New vin is invalid");
   }
   if (newVin === oldVin) {
-    throw badRequest("New vin must be different to current");
+    throw ErrorHandler.Error(400, "New vin must be different to current");
   }
-}
-
-function badRequest(error: string) {
-  return new HTTPResponse(400, formatErrorMessage(error));
 }
 
 export { updateVin, validateVins, validateParameters };
