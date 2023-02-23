@@ -1132,6 +1132,39 @@ describe("updateTechRecordStatus", () => {
         expect(updatedTechRec.techRecord[0].updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
       });
     });
+
+    context("and the vehicle has a current and a provisional record", () => {
+      it("should create new CURRENT, set the audit details and archive the previous current and provisional record", async () => {
+        const existingTechRecord = cloneDeep(records[44]);
+        const systemNumber = existingTechRecord.systemNumber;
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getBySearchTerm: () => {
+              return Promise.resolve([existingTechRecord]);
+            }
+          };
+        });
+        expect.assertions(15);
+        const mockDAO = new MockDAO();
+        const techRecordStatusHandler = new TechRecordStatusHandler<HeavyGoodsVehicle>(new TechRecordsListHandler<HeavyGoodsVehicle>(mockDAO));
+        const updatedTechRec: HeavyGoodsVehicle = await techRecordStatusHandler.prepareTechRecordForStatusUpdate(systemNumber, undefined, createdById, createdByName);
+        expect(updatedTechRec.techRecord.length).toEqual(3);
+        expect(updatedTechRec.techRecord[2].createdById).toEqual(createdById);
+        expect(updatedTechRec.techRecord[2].createdByName).toEqual(createdByName);
+        expect(updatedTechRec.techRecord[2].statusCode).toEqual(STATUS.CURRENT);
+        expect(updatedTechRec.techRecord[2]).not.toHaveProperty("lastUpdatedAt");
+        expect(updatedTechRec.techRecord[2]).not.toHaveProperty("lastUpdatedByName");
+        expect(updatedTechRec.techRecord[2]).not.toHaveProperty("lastUpdatedById");
+        expect(updatedTechRec.techRecord[0].lastUpdatedById).toEqual(createdById);
+        expect(updatedTechRec.techRecord[0].lastUpdatedByName).toEqual(createdByName);
+        expect(updatedTechRec.techRecord[0].updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
+        expect(updatedTechRec.techRecord[0].statusCode).toEqual(STATUS.ARCHIVED);
+        expect(updatedTechRec.techRecord[1].lastUpdatedById).toEqual(createdById);
+        expect(updatedTechRec.techRecord[1].lastUpdatedByName).toEqual(createdByName);
+        expect(updatedTechRec.techRecord[1].updateType).toEqual(UPDATE_TYPE.TECH_RECORD_UPDATE);
+        expect(updatedTechRec.techRecord[1].statusCode).toEqual(STATUS.ARCHIVED);
+      });
+    });
   });
   describe("updateVin when passed a vehicle record and a vin", () => {
     context("with techRecord statuses: Archived, Current, Provisional", () => {
