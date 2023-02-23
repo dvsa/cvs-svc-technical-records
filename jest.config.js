@@ -1,24 +1,14 @@
-process.env.BRANCH = 'local';
+process.env.BRANCH = "local";
 
 module.exports = {
-    preset: 'ts-jest',
-    testEnvironment: 'node',
-    roots: [
-        '<rootDir>/src',
-        '<rootDir>/tests'
-    ],
-    setupFiles: [
-        'jest-plugin-context/setup',
-        "<rootDir>/jest-cucumber-config"
-    ],
-    moduleFileExtensions: ['js', 'ts'],
-    testResultsProcessor: 'jest-sonar-reporter',
-    transform: {
-        '^.+\\.tsx?$': 'ts-jest'
-    },
-    testMatch: ['**/*.unitTest.ts'],
-    coverageDirectory: './coverage',
-    collectCoverage: true,
-    testResultsProcessor: 'jest-sonar-reporter',
-    testURL: 'http://localhost'
-}
+  preset: "ts-jest",
+  testEnvironment: "node",
+  roots: ["<rootDir>/src", "<rootDir>/tests"],
+  setupFiles: ["jest-plugin-context/setup", "<rootDir>/jest-cucumber-config"],
+  moduleFileExtensions: ["js", "ts"],
+  testResultsProcessor: "jest-sonar-reporter",
+  transform: {
+    "^.+\\.tsx?$": "ts-jest",
+  },
+  testMatch: ["**/*.unitTest.ts"],
+};
