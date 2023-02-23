@@ -78,6 +78,12 @@
     "reportFile": "test-report.xml",
     "indent": 4
   },
+  "jest": {
+    "coverageDirectory": "./coverage",
+    "collectCoverage": true,
+    "testResultsProcessor": "jest-sonar-reporter",
+    "testURL": "http://localhost"
+  },
   "husky": {
     "hooks": {
       "commitlint": "commitlint -E HUSKY_GIT_PARAMS",

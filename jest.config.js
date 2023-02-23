@@ -17,8 +17,4 @@ module.exports = {
         '^.+\\.tsx?$': 'ts-jest'
     },
     testMatch: ['**/*.unitTest.ts'],
-    coverageDirectory: './coverage',
-    collectCoverage: true,
-    testResultsProcessor: 'jest-sonar-reporter',
-    testURL: 'http://localhost'
 }
