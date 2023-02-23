@@ -1210,6 +1210,9 @@ describe("updateTechRecordStatus", () => {
       it("newVehicle vin is newVin value", () => {
         expect(result.newVehicle.vin).toEqual(newVin);
       });
+      it("newVehicle record is the correct record and its other data is intact", () => {
+        expect(result.newVehicle.techRecord[0].recordCompleteness).toEqual("testable");
+      });
     });
     context("with techRecord statuses Archived, Current, Archived", () => {
       const newVin = "123ABC";
@@ -1255,6 +1258,9 @@ describe("updateTechRecordStatus", () => {
       it("newVehicle vin is newVin value", () => {
         expect(result.newVehicle.vin).toEqual(newVin);
       });
+      it("newVehicle record is the correct record and its other data is intact", () => {
+        expect(result.newVehicle.techRecord[0].recordCompleteness).toEqual("complete");
+      });
     });
   });
   context("with techRecord statuses Provisional, Archived, Archived", () => {
@@ -1299,6 +1305,9 @@ describe("updateTechRecordStatus", () => {
     });
     it("newVehicle vin is newVin value", () => {
       expect(result.newVehicle.vin).toEqual(newVin);
+    });
+    it("newVehicle record is the correct record and its other data is intact", () => {
+      expect(result.newVehicle.techRecord[0].recordCompleteness).toEqual("complete");
     });
   });
 });

@@ -188,7 +188,6 @@ class TechRecordsService {
       vin: newVin,
       techRecord: [],
     };
-    let current: TechRecord | undefined;
     let provisional: TechRecord | undefined;
 
     vehicleClone.techRecord.forEach((record) => {
@@ -197,7 +196,8 @@ class TechRecordsService {
           provisional = { ...record };
           break;
         case STATUS.CURRENT:
-          current = { ...record };
+          newVehicle.techRecord = [{ ...record }];
+          oldVehicle.techRecord.push({ ...record, statusCode: "archived" });
           break;
         case STATUS.ARCHIVED:
           oldVehicle.techRecord.push({ ...record });
@@ -207,18 +207,12 @@ class TechRecordsService {
       }
     });
 
-    if (current && provisional) {
-      newVehicle.techRecord.push({ ...current });
-      oldVehicle.techRecord.push({ ...current, statusCode: "archived" });
-    } else if (provisional) {
-      newVehicle.techRecord.push({ ...provisional });
+    if (!newVehicle.techRecord.length && provisional) {
+      newVehicle.techRecord = [{ ...provisional }];
       oldVehicle.techRecord.push({ ...provisional, statusCode: "archived" });
-    } else if (current) {
-      newVehicle.techRecord.push({ ...current });
-      oldVehicle.techRecord.push({ ...current, statusCode: "archived" });
     }
 
-    return {oldVehicle, newVehicle};
+    return { oldVehicle, newVehicle };
   }
 }
 
