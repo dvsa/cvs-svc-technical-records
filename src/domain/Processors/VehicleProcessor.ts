@@ -75,8 +75,6 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       `VRM updated from ${previousPrimaryVrm} to ${primaryVrm}. ` +
       updatedVehicle.techRecord[0].reasonForCreation;
 
-    console.log(existingVehicle.secondaryVrms);
-
     return updatedVehicle;
   }
 
@@ -270,7 +268,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         techRecordToUpdate.techRecord[0].statusCode === techRecord.statusCode
     );
 
-    const techRecordWithAllStatues = allTechRecordWrapper[0];
+    const techRecordWithAllStatuses = allTechRecordWrapper[0];
     const techRecordToArchive = VehicleProcessor.getTechRecordToArchive(
       uniqueVehicleRecord,
       techRecordToUpdate.techRecord[0].statusCode
@@ -287,6 +285,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     techRecordToArchive.lastUpdatedByName = userDetails.msUser;
     techRecordToArchive.lastUpdatedById = userDetails.msOid;
     techRecordToArchive.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
+    techRecordToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm;
+    techRecordToArchive.historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms;
     if (techRecordToArchive.vehicleType === enums.VEHICLE_TYPE.PSV) {
       const remarks = (techRecordToArchive as PsvTechRecord).remarks;
       (techRecordToArchive as PsvTechRecord).remarks = remarks
