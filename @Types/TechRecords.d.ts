@@ -168,7 +168,7 @@ export interface TrlTechRecord extends BaseTechRecord {
   maxLoadOnCoupling?: number;
   frameDescription?: string;
   authIntoService?: AuthIntoService;
-  lettersOfAuth?: LettersOfAuth;
+  letterOfAuth?: LettersOfAuth;
   make: string;
   model: string;
   grossEecWeight?: number;
@@ -219,10 +219,12 @@ interface TrlBrakes extends Brakes {
 interface Dimensions {
   length: number;
   width: number;
-  axleSpacing?: [{
-    axles?: string;
-    value?: number;
-  }];
+  axleSpacing?: [
+    {
+      axles?: string;
+      value?: number;
+    }
+  ];
 }
 
 interface PsvDimensions {
@@ -347,8 +349,8 @@ interface Dda {
 
 interface AdrDetails {
   vehicleDetails: {
-    type: string,
-    approvalDate: string
+    type: string;
+    approvalDate: string;
   };
   listStatementApplicable?: boolean;
   batteryListNumber?: string;
@@ -370,37 +372,39 @@ interface AdrDetails {
   };
   memosApply?: string[];
   additionalNotes?: {
-    number?: string[],
-    guidanceNotes?: string[]
+    number?: string[];
+    guidanceNotes?: string[];
   };
   adrTypeApprovalNo?: string;
   adrCertificateNotes?: string;
   tank?: {
     tankDetails?: {
-      tankManufacturer?: string
-      yearOfManufacture?: number
-      tankCode?: string
-      specialProvisions?: string
-      tankManufacturerSerialNo?: string
-      tankTypeAppNo?: string
+      tankManufacturer?: string;
+      yearOfManufacture?: number;
+      tankCode?: string;
+      specialProvisions?: string;
+      tankManufacturerSerialNo?: string;
+      tankTypeAppNo?: string;
       tc2Details?: {
-        tc2Type?: string,
-        tc2IntermediateApprovalNo?: string,
-        tc2IntermediateExpiryDate?: string
-      },
-      tc3Details?: [{
-        tc3Type?: string,
-        tc3PeriodicNumber?: string,
-        tc3PeriodicExpiryDate?: string
-      }]
-    },
+        tc2Type?: string;
+        tc2IntermediateApprovalNo?: string;
+        tc2IntermediateExpiryDate?: string;
+      };
+      tc3Details?: [
+        {
+          tc3Type?: string;
+          tc3PeriodicNumber?: string;
+          tc3PeriodicExpiryDate?: string;
+        }
+      ];
+    };
     tankStatement?: {
-      substancesPermitted?: string,
-      statement?: string,
-      productListRefNo?: string,
-      productListUnNo?: string[],
-      productList?: string
-    }
+      substancesPermitted?: string;
+      statement?: string;
+      productListRefNo?: string;
+      productListUnNo?: string[];
+      productList?: string;
+    };
   };
 }
 
