@@ -42,8 +42,10 @@ const updateVin = async (event: any) => {
 
     const now = new Date().toISOString();
     activeVehicle.techRecord.forEach((t) => {
-      if (STATUS.ARCHIVED !== t.statusCode) {
+      if (STATUS.ARCHIVED === t.statusCode) {
         auditDetailsHandler.setLastUpdatedAuditDetails(t, msUser, msOid, now);
+      } else {
+        auditDetailsHandler.setCreatedAuditDetails(t, msUser, msOid, now);
       }
     });
 
