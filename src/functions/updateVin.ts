@@ -15,7 +15,6 @@ const updateVin = async (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
   const techRecordsService = new TechRecordsService(techRecordsDAO);
   const techRecordListHandler = new TechRecordsListHandler(techRecordsDAO);
-  const auditDetailsHandler = new AuditDetailsHandler();
 
   try {
     validateParameters(event);
@@ -41,17 +40,12 @@ const updateVin = async (event: any) => {
     validateVins(activeVehicle.vin, newVin);
 
     const now = new Date().toISOString();
-    activeVehicle.techRecord.forEach((t) => {
-      if (STATUS.ARCHIVED === t.statusCode) {
-        auditDetailsHandler.setLastUpdatedAuditDetails(t, msUser, msOid, now);
-      } else {
-        auditDetailsHandler.setCreatedAuditDetails(t, msUser, msOid, now);
-      }
-    });
 
     const { oldVehicle, newVehicle } = techRecordsService.updateVin(
       activeVehicle,
-      newVin
+      newVin,
+      msUser,
+      msOid
     );
 
     await techRecordsDAO.updateVin(newVehicle, oldVehicle);

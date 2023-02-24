@@ -1186,7 +1186,7 @@ describe("updateTechRecordStatus", () => {
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
-      const result = techRecordsService.updateVin(vehicle, newVin);
+      const result = techRecordsService.updateVin(vehicle, newVin, "foo", "bar");
       it("returns two vehicle records (oldVehicle, newVehicle)", () => {
         expect(result.oldVehicle).toBeDefined();
         expect(result.newVehicle).toBeDefined();
@@ -1220,7 +1220,7 @@ describe("updateTechRecordStatus", () => {
         vin: "ABC123",
         techRecord: [
           { recordCompleteness: "skeleton", statusCode: "archived" },
-          { recordCompleteness: "complete", statusCode: "current" },
+          { recordCompleteness: "complete", statusCode: "current", createAt: new Date().toISOString() },
           { recordCompleteness: "testable", statusCode: "archived" },
         ],
       } as unknown as Vehicle;
@@ -1233,7 +1233,7 @@ describe("updateTechRecordStatus", () => {
       });
       const mockDAO = new MockDAO();
       const techRecordsService = new TechRecordsService(mockDAO);
-      const result = techRecordsService.updateVin(vehicle, newVin);
+      const result = techRecordsService.updateVin(vehicle, newVin, "foo", "bar");
       it("returns two vehicle records (oldVehicle, newVehicle)", () => {
         expect(result.oldVehicle).toBeDefined();
         expect(result.newVehicle).toBeDefined();
@@ -1261,6 +1261,14 @@ describe("updateTechRecordStatus", () => {
       it("newVehicle record is the correct record and its other data is intact", () => {
         expect(result.newVehicle.techRecord[0].recordCompleteness).toEqual("complete");
       });
+      it("set the audit details", () => {
+        expect(result.newVehicle.techRecord[0].createdByName).toEqual("foo");
+        expect(result.newVehicle.techRecord[0].createdById).toEqual("bar");
+        expect(result.newVehicle.techRecord[0].createdAt).not.toEqual(vehicle.techRecord[1].createdAt);
+        expect(result.oldVehicle.techRecord[1].lastUpdatedByName).toEqual("foo");
+        expect(result.oldVehicle.techRecord[1].lastUpdatedById).toEqual("bar");
+        expect(result.oldVehicle.techRecord[1].lastUpdatedAt).toEqual(result.newVehicle.techRecord[0].createdAt);
+      });
     });
   });
   context("with techRecord statuses Provisional, Archived, Archived", () => {
@@ -1282,7 +1290,7 @@ describe("updateTechRecordStatus", () => {
     });
     const mockDAO = new MockDAO();
     const techRecordsService = new TechRecordsService(mockDAO);
-    const result = techRecordsService.updateVin(vehicle, newVin);
+    const result = techRecordsService.updateVin(vehicle, newVin, "foo", "bar");
     it("returns two vehicle records (oldVehicle, newVehicle)", () => {
       expect(result.oldVehicle).toBeDefined();
       expect(result.newVehicle).toBeDefined();

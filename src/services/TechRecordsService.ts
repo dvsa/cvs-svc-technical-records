@@ -10,6 +10,7 @@ import {
   STATUS,
 } from "../assets/Enums";
 import { VehicleFactory } from "../domain/VehicleFactory";
+import { AuditDetailsHandler } from "../handlers";
 import { TechRecordsListHandler } from "../handlers/TechRecordsListHandler";
 import { TechRecordStatusHandler } from "../handlers/TechRecordStatusHandler";
 import HTTPError from "../models/HTTPError";
@@ -25,6 +26,7 @@ class TechRecordsService {
   private readonly techRecordsDAO: TechRecordsDAO;
   private readonly techRecordsListHandler: TechRecordsListHandler<Vehicle>;
   private readonly techRecordStatusHandler: TechRecordStatusHandler<Vehicle>;
+  private readonly auditDetailsHandler: AuditDetailsHandler;
 
   constructor(techRecordsDAO: TechRecordsDAO) {
     this.techRecordsDAO = techRecordsDAO;
@@ -34,6 +36,7 @@ class TechRecordsService {
     this.techRecordStatusHandler = new TechRecordStatusHandler(
       this.techRecordsListHandler
     );
+    this.auditDetailsHandler = new AuditDetailsHandler();
   }
 
   public getTechRecordsList(
@@ -53,12 +56,12 @@ class TechRecordsService {
     msUserDetails: IMsUserDetails
   ) {
     try {
-    const vehicle = VehicleFactory.generateVehicleInstance(
-      payload,
-      this.techRecordsDAO
-    );
-    return vehicle.createVehicle(msUserDetails);
-    } catch(error) {
+      const vehicle = VehicleFactory.generateVehicleInstance(
+        payload,
+        this.techRecordsDAO
+      );
+      return vehicle.createVehicle(msUserDetails);
+    } catch (error) {
       console.error(error);
       throw new HTTPError(error.statusCode, error.body);
     }
@@ -87,22 +90,23 @@ class TechRecordsService {
     createdById: string,
     createdByName: string
   ) {
-    const uniqueRecord = await this.techRecordStatusHandler.prepareTechRecordForStatusUpdate(
-      systemNumber,
-      newStatus,
-      createdById,
-      createdByName
-    );
+    const uniqueRecord =
+      await this.techRecordStatusHandler.prepareTechRecordForStatusUpdate(
+        systemNumber,
+        newStatus,
+        createdById,
+        createdByName
+      );
     try {
       const vehicle = VehicleFactory.generateVehicleInstance(
-      uniqueRecord,
-      this.techRecordsDAO
-    );
+        uniqueRecord,
+        this.techRecordsDAO
+      );
       return vehicle.updateTechRecordStatusCode(uniqueRecord);
-   } catch(error) {
-    console.error(error);
-    throw new HTTPError(error.statusCode, error.body);
-   }
+    } catch (error) {
+      console.error(error);
+      throw new HTTPError(error.statusCode, error.body);
+    }
   }
 
   public async archiveTechRecordStatus(
@@ -115,7 +119,12 @@ class TechRecordsService {
       techRecordToUpdate,
       this.techRecordsDAO
     );
-    return vehicle.archiveTechRecordStatus(systemNumber,techRecordToUpdate,userDetails,reasonForArchiving);
+    return vehicle.archiveTechRecordStatus(
+      systemNumber,
+      techRecordToUpdate,
+      userDetails,
+      reasonForArchiving
+    );
   }
 
   public async updateEuVehicleCategory(
@@ -133,11 +142,14 @@ class TechRecordsService {
     )[0];
 
     const vehicle = VehicleFactory.generateVehicleInstance(
-    techRecordWrapper,
-    this.techRecordsDAO
+      techRecordWrapper,
+      this.techRecordsDAO
     );
 
-    return vehicle.updateEuVehicleCategory(systemNumber, newEuVehicleCategory, { msOid: createdById, msUser: createByName });
+    return vehicle.updateEuVehicleCategory(systemNumber, newEuVehicleCategory, {
+      msOid: createdById,
+      msUser: createByName,
+    });
   }
 
   public async addProvisionalTechRecord(
@@ -179,7 +191,12 @@ class TechRecordsService {
       });
   }
 
-  public updateVin(vehicle: Vehicle, newVin: string) {
+  public updateVin(
+    vehicle: Vehicle,
+    newVin: string,
+    msUser: string,
+    msOid: string
+  ) {
     const vehicleClone = cloneDeep(vehicle);
 
     const oldVehicle: Vehicle = { ...vehicleClone, techRecord: [] };
@@ -190,14 +207,28 @@ class TechRecordsService {
     };
     let provisional: TechRecord | undefined;
 
+    const now = new Date().toISOString();
     vehicleClone.techRecord.forEach((record) => {
       switch (record.statusCode) {
         case STATUS.PROVISIONAL:
           provisional = { ...record };
           break;
         case STATUS.CURRENT:
-          newVehicle.techRecord = [{ ...record }];
-          oldVehicle.techRecord.push({ ...record, statusCode: "archived" });
+          newVehicle.techRecord = [
+            {
+              ...record,
+              createdAt: now,
+              createdByName: msUser,
+              createdById: msOid,
+            },
+          ];
+          oldVehicle.techRecord.push({
+            ...record,
+            statusCode: "archived",
+            lastUpdatedAt: now,
+            lastUpdatedByName: msUser,
+            lastUpdatedById: msOid,
+          });
           break;
         case STATUS.ARCHIVED:
           oldVehicle.techRecord.push({ ...record });
@@ -208,8 +239,21 @@ class TechRecordsService {
     });
 
     if (!newVehicle.techRecord.length && provisional) {
-      newVehicle.techRecord = [{ ...provisional }];
-      oldVehicle.techRecord.push({ ...provisional, statusCode: "archived" });
+      newVehicle.techRecord = [
+        {
+          ...provisional,
+          createdAt: now,
+          createdByName: msUser,
+          createdById: msOid,
+        },
+      ];
+      oldVehicle.techRecord.push({
+        ...provisional,
+        statusCode: "archived",
+        lastUpdatedAt: now,
+        lastUpdatedById: msOid,
+        lastUpdatedByName: msUser,
+      });
     }
 
     return { oldVehicle, newVehicle };
