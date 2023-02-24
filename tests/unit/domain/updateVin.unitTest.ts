@@ -61,9 +61,11 @@ describe("updateVin", () => {
         const response = await updateVin(event);
 
         expect(response.statusCode).toBe(500);
-        expect(response.body).toEqual({
-          errors: ["Failed to uniquely identify record"],
-        });
+        expect(response.body).toEqual(
+          JSON.stringify({
+            errors: ["Failed to uniquely identify record"],
+          })
+        );
       });
     });
 
@@ -85,7 +87,7 @@ describe("updateVin", () => {
         const response = await updateVin(event);
 
         expect(response.statusCode).toBe(500);
-        expect(response.body).toEqual("\"Internal Server Error\"");
+        expect(response.body).toEqual('"Internal Server Error"');
       });
     });
   });

@@ -63,7 +63,10 @@ class TechRecordsDAO {
     query.IndexName = this.CriteriaIndexMap[searchCriteria];
   }
 
-  public async getBySearchTerm(searchTerm: string, searchCriteria: ISearchCriteria) {
+  public async getBySearchTerm(
+    searchTerm: string,
+    searchCriteria: ISearchCriteria
+  ) {
     searchTerm = searchTerm.toUpperCase();
     const query: QueryInput = {
       TableName: this.tableName,
@@ -87,7 +90,7 @@ class TechRecordsDAO {
 
     console.log("Query Params for getBySearchTerm ", query);
     try {
-      return  await this.queryAllData(query);
+      return await this.queryAllData(query);
     } catch (err) {
       console.log("Error in queryAllData ", err);
       throw err;
@@ -247,19 +250,13 @@ class TechRecordsDAO {
     };
   }
 
-  public updateVin<T extends Vehicle>(newVehicle: any, oldVehicle: T) {
+  public updateVin<T extends Vehicle>(newVehicle: T, oldVehicle: T) {
     const transactionParams = {
       TransactItems: [
         {
           Put: {
             TableName: this.tableName,
             Item: newVehicle,
-            ConditionExpression:
-              "vin <> :vin AND systemNumber <> :systemNumber",
-            ExpressionAttributeValues: {
-              ":vin": newVehicle.vin,
-              ":systemNumber": newVehicle.systemNumber,
-            },
           },
         },
         {
