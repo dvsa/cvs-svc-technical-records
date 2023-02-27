@@ -628,8 +628,8 @@ components:
           description: Used for all vehicle types
         authIntoService:
           $ref: '#/components/schemas/authIntoService'
-        lettersOfAuth:
-          $ref: '#/components/schemas/lettersOfAuth'
+        letterOfAuth:
+          $ref: '#/components/schemas/letterOfAuth'
         alterationMarker:
           type: boolean
           nullable: true
@@ -1687,7 +1687,7 @@ components:
           format: date
           nullable: true
           description: Used only for TRL
-    lettersOfAuth:
+    letterOfAuth:
       type: object
       description: Letters of authorisation
       properties:
