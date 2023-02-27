@@ -16,6 +16,7 @@ import { TechRecordStatusHandler } from "../handlers/TechRecordStatusHandler";
 import HTTPError from "../models/HTTPError";
 import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsDAO from "../models/TechRecordsDAO";
+import { populatePartialVin } from "../utils/validations";
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -195,7 +196,8 @@ class TechRecordsService {
     vehicle: Vehicle,
     newVin: string,
     msUser: string,
-    msOid: string
+    msOid: string,
+    previousTechRecordsOnNewVin: TechRecord[]
   ) {
     const vehicleClone = cloneDeep(vehicle);
 
@@ -255,6 +257,9 @@ class TechRecordsService {
         lastUpdatedByName: msUser,
       });
     }
+
+    newVehicle.partialVin = populatePartialVin(newVin);
+    newVehicle.techRecord.push(...previousTechRecordsOnNewVin);
 
     return { oldVehicle, newVehicle };
   }

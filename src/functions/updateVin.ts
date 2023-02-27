@@ -39,21 +39,25 @@ const updateVin = async (event: any) => {
 
     validateVins(activeVehicle.vin, newVin);
 
-    const now = new Date().toISOString();
+    // In case we update to an existing vin, we have to extract the archived records on that vin to save them back in
+    const previousTechRecordsOnNewVin =
+      vehicles.find((vehicle) => vehicle.vin === newVin)?.techRecord ?? [];
 
     const { oldVehicle, newVehicle } = techRecordsService.updateVin(
       activeVehicle,
       newVin,
       msUser,
-      msOid
+      msOid,
+      previousTechRecordsOnNewVin
     );
 
     await techRecordsDAO.updateVin(newVehicle, oldVehicle);
 
     return new HTTPResponse(200, HTTPRESPONSE.VIN_UPDATED);
   } catch (error) {
+    console.log(error);
     if (error instanceof HTTPError) {
-      return error;
+      return new HTTPResponse(error.statusCode, error.body);
     } else {
       return new HTTPResponse(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
     }
