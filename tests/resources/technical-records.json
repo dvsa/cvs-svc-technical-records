@@ -35168,9 +35168,7 @@
     "vin": "AUTOQAPSV00000001",
     "partialVin": "000001",
     "primaryVrm": "QA01PSV",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "techRecord": [
       {
         "axles": [
@@ -35272,9 +35270,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       },
       {
@@ -35376,9 +35372,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       }
     ]
@@ -35388,9 +35382,7 @@
     "vin": "AUTOQAPSV00000002",
     "partialVin": "000002",
     "primaryVrm": "QA02PSV",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "techRecord": [
       {
         "axles": [
@@ -35492,9 +35484,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       },
       {
@@ -35596,9 +35586,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       }
     ]
@@ -35608,9 +35596,7 @@
     "vin": "AUTOQAPSV00000003",
     "partialVin": "000003",
     "primaryVrm": "QA03PSV",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "techRecord": [
       {
         "axles": [
@@ -35712,9 +35698,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       },
       {
@@ -35816,9 +35800,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       }
     ]
@@ -35828,9 +35810,7 @@
     "vin": "AUTOQAPSV00000004",
     "partialVin": "000004",
     "primaryVrm": "QA04PSV",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "techRecord": [
       {
         "axles": [
@@ -35932,9 +35912,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       },
       {
@@ -36036,9 +36014,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       }
     ]
@@ -36048,9 +36024,7 @@
     "vin": "AUTOQAPSV00000005",
     "partialVin": "000005",
     "primaryVrm": "QA05PSV",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "techRecord": [
       {
         "axles": [
@@ -36152,9 +36126,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       },
       {
@@ -36256,9 +36228,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       }
     ]
@@ -36268,9 +36238,7 @@
     "vin": "AUTOQAHGV00000001",
     "partialVin": "957486",
     "primaryVrm": "QA01HGV",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
         "axles": [
@@ -36417,9 +36385,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "hgv"
       }
     ]
@@ -36429,9 +36395,7 @@
     "vin": "AUTOQAHGV00000002",
     "partialVin": "957486",
     "primaryVrm": "QA02HGV",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
         "axles": [
@@ -36578,9 +36542,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "hgv"
       }
     ]
@@ -36590,9 +36552,7 @@
     "vin": "AUTOQAHGV00000003",
     "partialVin": "957486",
     "primaryVrm": "QA03HGV",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
         "axles": [
@@ -36739,9 +36699,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "hgv"
       }
     ]
@@ -36751,9 +36709,7 @@
     "vin": "AUTOQAHGV00000004",
     "partialVin": "957486",
     "primaryVrm": "QA04HGV",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
         "axles": [
@@ -36900,9 +36856,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "hgv"
       }
     ]
@@ -36912,9 +36866,7 @@
     "vin": "AUTOQAHGV00000005",
     "partialVin": "957486",
     "primaryVrm": "QA05HGV",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
         "axles": [
@@ -37061,9 +37013,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "hgv"
       }
     ]
@@ -37077,11 +37027,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
-            "number": [
-              "3"
-            ]
+            "guidanceNotes": [],
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -37103,12 +37050,8 @@
             "3803A48603D2440A802570DD0036C574_A00052593_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "memosApply": [],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -37133,9 +37076,7 @@
             "tankStatement": {
               "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -37279,11 +37220,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
-            "number": [
-              "3"
-            ]
+            "guidanceNotes": [],
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -37305,12 +37243,8 @@
             "3803A48603D2440A802570DD0036C574_A00052593_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "memosApply": [],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -37335,9 +37269,7 @@
             "tankStatement": {
               "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -37481,11 +37413,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
-            "number": [
-              "3"
-            ]
+            "guidanceNotes": [],
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -37507,12 +37436,8 @@
             "3803A48603D2440A802570DD0036C574_A00052593_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "memosApply": [],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -37537,9 +37462,7 @@
             "tankStatement": {
               "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -37683,11 +37606,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
-            "number": [
-              "3"
-            ]
+            "guidanceNotes": [],
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -37709,12 +37629,8 @@
             "3803A48603D2440A802570DD0036C574_A00052593_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "memosApply": [],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -37739,9 +37655,7 @@
             "tankStatement": {
               "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -37885,11 +37799,8 @@
         "adrDetails": {
           "additionalExaminerNotes": "Additional Examiner Notes",
           "additionalNotes": {
-            "guidanceNotes": [
-            ],
-            "number": [
-              "3"
-            ]
+            "guidanceNotes": [],
+            "number": ["3"]
           },
           "adrTypeApprovalNo": null,
           "applicantDetails": {
@@ -37911,12 +37822,8 @@
             "3803A48603D2440A802570DD0036C574_A00052593_filename2.pdf"
           ],
           "listStatementApplicable": false,
-          "memosApply": [
-          ],
-          "permittedDangerousGoods": [
-            "FP <61 (FL)",
-            "AT"
-          ],
+          "memosApply": [],
+          "permittedDangerousGoods": ["FP <61 (FL)", "AT"],
           "tank": {
             "tankDetails": {
               "specialProvisions": null,
@@ -37941,9 +37848,7 @@
             "tankStatement": {
               "productList": "TARS LIQUID CLASS 3 UN NO. 1999 ELEVATED TEMPERATURE LIQUID FLAMMABLE NOS CLASS 3 UN NO. 3256 ELEVATED TEMPERATURE LIQUID NOS CLASS 9 UN NO. 3257",
               "productListRefNo": null,
-              "productListUnNo": [
-                null
-              ],
+              "productListUnNo": [null],
               "statement": "B",
               "substancesPermitted": "B"
             }
@@ -38083,9 +37988,7 @@
     "vin": "AUTOQAPCM00000002",
     "partialVin": "000002",
     "primaryVrm": "QA02CTM",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "techRecord": [
       {
         "axles": [
@@ -38187,9 +38090,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       },
       {
@@ -38291,9 +38192,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       }
     ]
@@ -38303,9 +38202,7 @@
     "vin": "AUTOQAPCM00000012",
     "partialVin": "000012",
     "primaryVrm": "QA12CTM",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "techRecord": [
       {
         "axles": [
@@ -38407,9 +38304,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       },
       {
@@ -38511,9 +38406,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       }
     ]
@@ -38523,9 +38416,7 @@
     "vin": "AUTOQAPCM00000022",
     "partialVin": "000022",
     "primaryVrm": "QA22CTM",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "techRecord": [
       {
         "axles": [
@@ -38627,9 +38518,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       },
       {
@@ -38731,9 +38620,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       }
     ]
@@ -38743,9 +38630,7 @@
     "vin": "AUTOQAPCM00000003",
     "partialVin": "000003",
     "primaryVrm": "QA03CTM",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "techRecord": [
       {
         "axles": [
@@ -38847,9 +38732,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       },
       {
@@ -38951,9 +38834,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       }
     ]
@@ -38963,9 +38844,7 @@
     "vin": "AUTOQAPCM00000013",
     "partialVin": "000013",
     "primaryVrm": "QA13CTM",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "techRecord": [
       {
         "axles": [
@@ -39067,9 +38946,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       },
       {
@@ -39171,9 +39048,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       }
     ]
@@ -39183,9 +39058,7 @@
     "vin": "AUTOQAPCM00000033",
     "partialVin": "000033",
     "primaryVrm": "QA33CTM",
-    "secondaryVrms": [
-      "X71LTA"
-    ],
+    "secondaryVrms": ["X71LTA"],
     "techRecord": [
       {
         "axles": [
@@ -39287,9 +39160,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       },
       {
@@ -39391,9 +39262,7 @@
         },
         "vehicleConfiguration": "rigid",
         "vehicleSize": "large",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "psv"
       }
     ]
@@ -39403,9 +39272,7 @@
     "vin": "AUTOQAHCN00000002",
     "partialVin": "957486",
     "primaryVrm": "QA02CTN",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
         "axles": [
@@ -39553,9 +39420,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "hgv"
       }
     ]
@@ -39565,9 +39430,7 @@
     "vin": "AUTOQAHCN00000012",
     "partialVin": "957486",
     "primaryVrm": "QA12CTN",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
         "axles": [
@@ -39715,9 +39578,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "hgv"
       }
     ]
@@ -39727,9 +39588,7 @@
     "vin": "AUTOQAHCN00000022",
     "partialVin": "957486",
     "primaryVrm": "QA22CTN",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
         "axles": [
@@ -39877,9 +39736,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "hgv"
       }
     ]
@@ -39889,9 +39746,7 @@
     "vin": "AUTOQAHCN00000003",
     "partialVin": "957486",
     "primaryVrm": "QA03CTN",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
         "axles": [
@@ -40039,9 +39894,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "hgv"
       }
     ]
@@ -40051,9 +39904,7 @@
     "vin": "AUTOQAHCN00000013",
     "partialVin": "957486",
     "primaryVrm": "QA03CTN",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
         "axles": [
@@ -40201,9 +40052,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "hgv"
       }
     ]
@@ -40213,9 +40062,7 @@
     "vin": "AUTOQAHCN00000033",
     "partialVin": "957486",
     "primaryVrm": "QA33CTN",
-    "secondaryVrms": [
-      "CT96DRG"
-    ],
+    "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
         "axles": [
@@ -40363,9 +40210,7 @@
           "description": "heavy goods vehicle"
         },
         "vehicleConfiguration": "centre axle drawbar",
-        "vehicleSubclass": [
-          "string"
-        ],
+        "vehicleSubclass": ["string"],
         "vehicleType": "hgv"
       }
     ]
@@ -40398,8 +40243,7 @@
         },
         "vehicleConfiguration": "semi-trailer",
         "vehicleSize": null,
-        "vehicleSubclass": [
-        ],
+        "vehicleSubclass": [],
         "vehicleType": "trl"
       }
     ],
@@ -40410,9 +40254,7 @@
     "vin": "12340SBW200910880",
     "partialVin": "910880",
     "primaryVrm": "995243Z",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -40437,8 +40279,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-        ],
+        "vehicleSubclass": [],
         "vehicleType": "motorcycle"
       }
     ]
@@ -40448,9 +40289,7 @@
     "vin": "AA11100851",
     "partialVin": "100851",
     "primaryVrm": "991234Z",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -40475,9 +40314,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-          "r"
-        ],
+        "vehicleSubclass": ["r"],
         "vehicleType": "car"
       }
     ]
@@ -40487,9 +40324,7 @@
     "vin": "AA11100800",
     "partialVin": "100800",
     "primaryVrm": "CA01SCR",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -40514,9 +40349,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "car"
       }
     ]
@@ -40526,9 +40359,7 @@
     "vin": "AA11100801",
     "partialVin": "100801",
     "primaryVrm": "CA01SCA",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -40553,9 +40384,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "car"
       }
     ]
@@ -40565,9 +40394,7 @@
     "vin": "AA11100802",
     "partialVin": "100802",
     "primaryVrm": "CA01SCC",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -40592,9 +40419,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-          "c"
-        ],
+        "vehicleSubclass": ["c"],
         "vehicleType": "car"
       }
     ]
@@ -40604,9 +40429,7 @@
     "vin": "AA11100804",
     "partialVin": "100804",
     "primaryVrm": "CA01SCS",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -40631,9 +40454,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-          "s"
-        ],
+        "vehicleSubclass": ["s"],
         "vehicleType": "car"
       }
     ]
@@ -40643,9 +40464,7 @@
     "vin": "AA11100806",
     "partialVin": "100806",
     "primaryVrm": "CA01SCL",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -40670,9 +40489,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-          "l"
-        ],
+        "vehicleSubclass": ["l"],
         "vehicleType": "car"
       }
     ]
@@ -40682,9 +40499,7 @@
     "vin": "AA11100807",
     "partialVin": "100807",
     "primaryVrm": "CA01SCM",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -40709,9 +40524,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-          "m"
-        ],
+        "vehicleSubclass": ["m"],
         "vehicleType": "car"
       }
     ]
@@ -40721,9 +40534,7 @@
     "vin": "AA11100808",
     "partialVin": "100808",
     "primaryVrm": "CA01SCP",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -40748,9 +40559,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-          "p"
-        ],
+        "vehicleSubclass": ["p"],
         "vehicleType": "car"
       }
     ]
@@ -40760,9 +40569,7 @@
     "vin": "AA11100809",
     "partialVin": "100809",
     "primaryVrm": "CA01SCN",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -40787,9 +40594,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-          "n"
-        ],
+        "vehicleSubclass": ["n"],
         "vehicleType": "car"
       }
     ]
@@ -40799,9 +40604,7 @@
     "vin": "AA11100810",
     "partialVin": "100810",
     "primaryVrm": "CA01SBT",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -40826,9 +40629,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-          "t"
-        ],
+        "vehicleSubclass": ["t"],
         "vehicleType": "car"
       }
     ]
@@ -40838,9 +40639,7 @@
     "vin": "P0123010951211",
     "partialVin": "951211",
     "primaryVrm": "LG01SCR",
-    "secondaryVrms": [
-      "AS432TY"
-    ],
+    "secondaryVrms": ["AS432TY"],
     "techRecord": [
       {
         "axles": [
@@ -40947,9 +40746,7 @@
           "description": "3 wheelers"
         },
         "vehicleConfiguration": "other",
-        "vehicleSubclass": [
-          "r"
-        ],
+        "vehicleSubclass": ["r"],
         "vehicleType": "lgv"
       }
     ]
@@ -40959,9 +40756,7 @@
     "vin": "P0123010951212",
     "partialVin": "951212",
     "primaryVrm": "LG01SCA",
-    "secondaryVrms": [
-      "AS432TY"
-    ],
+    "secondaryVrms": ["AS432TY"],
     "techRecord": [
       {
         "axles": [
@@ -41068,9 +40863,7 @@
           "description": "3 wheelers"
         },
         "vehicleConfiguration": "other",
-        "vehicleSubclass": [
-          "a"
-        ],
+        "vehicleSubclass": ["a"],
         "vehicleType": "lgv"
       }
     ]
@@ -41080,9 +40873,7 @@
     "vin": "P0123010951213",
     "partialVin": "951213",
     "primaryVrm": "LG01SCC",
-    "secondaryVrms": [
-      "AS432TY"
-    ],
+    "secondaryVrms": ["AS432TY"],
     "techRecord": [
       {
         "axles": [
@@ -41189,9 +40980,7 @@
           "description": "3 wheelers"
         },
         "vehicleConfiguration": "other",
-        "vehicleSubclass": [
-          "c"
-        ],
+        "vehicleSubclass": ["c"],
         "vehicleType": "lgv"
       }
     ]
@@ -41201,9 +40990,7 @@
     "vin": "P0123010951214",
     "partialVin": "951214",
     "primaryVrm": "LG01SCS",
-    "secondaryVrms": [
-      "AS432TY"
-    ],
+    "secondaryVrms": ["AS432TY"],
     "techRecord": [
       {
         "axles": [
@@ -41310,9 +41097,7 @@
           "description": "3 wheelers"
         },
         "vehicleConfiguration": "other",
-        "vehicleSubclass": [
-          "s"
-        ],
+        "vehicleSubclass": ["s"],
         "vehicleType": "lgv"
       }
     ]
@@ -41322,9 +41107,7 @@
     "vin": "P0123010951215",
     "partialVin": "951215",
     "primaryVrm": "LG01SCL",
-    "secondaryVrms": [
-      "AS432TY"
-    ],
+    "secondaryVrms": ["AS432TY"],
     "techRecord": [
       {
         "axles": [
@@ -41431,9 +41214,7 @@
           "description": "3 wheelers"
         },
         "vehicleConfiguration": "other",
-        "vehicleSubclass": [
-          "l"
-        ],
+        "vehicleSubclass": ["l"],
         "vehicleType": "lgv"
       }
     ]
@@ -41443,9 +41224,7 @@
     "vin": "P0123010951216",
     "partialVin": "951216",
     "primaryVrm": "LG01SCM",
-    "secondaryVrms": [
-      "AS432TY"
-    ],
+    "secondaryVrms": ["AS432TY"],
     "techRecord": [
       {
         "axles": [
@@ -41552,9 +41331,7 @@
           "description": "3 wheelers"
         },
         "vehicleConfiguration": "other",
-        "vehicleSubclass": [
-          "m"
-        ],
+        "vehicleSubclass": ["m"],
         "vehicleType": "lgv"
       }
     ]
@@ -41564,9 +41341,7 @@
     "vin": "P0123010951217",
     "partialVin": "951217",
     "primaryVrm": "LG01SCP",
-    "secondaryVrms": [
-      "AS432TY"
-    ],
+    "secondaryVrms": ["AS432TY"],
     "techRecord": [
       {
         "axles": [
@@ -41673,9 +41448,7 @@
           "description": "3 wheelers"
         },
         "vehicleConfiguration": "other",
-        "vehicleSubclass": [
-          "r"
-        ],
+        "vehicleSubclass": ["r"],
         "vehicleType": "lgv"
       }
     ]
@@ -41685,9 +41458,7 @@
     "vin": "P0123010951218",
     "partialVin": "951218",
     "primaryVrm": "LG01SCN",
-    "secondaryVrms": [
-      "AS432TY"
-    ],
+    "secondaryVrms": ["AS432TY"],
     "techRecord": [
       {
         "axles": [
@@ -41794,9 +41565,7 @@
           "description": "3 wheelers"
         },
         "vehicleConfiguration": "other",
-        "vehicleSubclass": [
-          "n"
-        ],
+        "vehicleSubclass": ["n"],
         "vehicleType": "lgv"
       }
     ]
@@ -41806,9 +41575,7 @@
     "vin": "P0123010951219",
     "partialVin": "951219",
     "primaryVrm": "LG01SCT",
-    "secondaryVrms": [
-      "AS432TY"
-    ],
+    "secondaryVrms": ["AS432TY"],
     "techRecord": [
       {
         "axles": [
@@ -41915,9 +41682,7 @@
           "description": "3 wheelers"
         },
         "vehicleConfiguration": "other",
-        "vehicleSubclass": [
-          "t"
-        ],
+        "vehicleSubclass": ["t"],
         "vehicleType": "lgv"
       }
     ]
@@ -41927,9 +41692,7 @@
     "vin": "12340SBW200910801",
     "partialVin": "910801",
     "primaryVrm": "MC001VC",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -41954,8 +41717,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-        ],
+        "vehicleSubclass": [],
         "vehicleType": "motorcycle"
       }
     ]
@@ -41965,9 +41727,7 @@
     "vin": "12340SBW200910802",
     "partialVin": "910802",
     "primaryVrm": "MC012VC",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -41992,8 +41752,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-        ],
+        "vehicleSubclass": [],
         "vehicleType": "motorcycle"
       }
     ]
@@ -42003,9 +41762,7 @@
     "vin": "12340SBW200910803",
     "partialVin": "910803",
     "primaryVrm": "MC022VC",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -42030,8 +41787,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-        ],
+        "vehicleSubclass": [],
         "vehicleType": "motorcycle"
       }
     ]
@@ -42041,9 +41797,7 @@
     "vin": "12340SBW200910804",
     "partialVin": "910804",
     "primaryVrm": "MC033VC",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -42068,8 +41822,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-        ],
+        "vehicleSubclass": [],
         "vehicleType": "motorcycle"
       }
     ]
@@ -42079,9 +41832,7 @@
     "vin": "12340SBW200910805",
     "partialVin": "910805",
     "primaryVrm": "MC043VC",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -42106,8 +41857,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-        ],
+        "vehicleSubclass": [],
         "vehicleType": "motorcycle"
       }
     ]
@@ -42117,9 +41867,7 @@
     "vin": "12340SBW200910806",
     "partialVin": "910806",
     "primaryVrm": "MC044VC",
-    "secondaryVrms": [
-      " "
-    ],
+    "secondaryVrms": [" "],
     "techRecord": [
       {
         "bodyType": {
@@ -42144,8 +41892,7 @@
         },
         "vehicleConfiguration": "other",
         "vehicleSize": null,
-        "vehicleSubclass": [
-        ],
+        "vehicleSubclass": [],
         "vehicleType": "motorcycle"
       }
     ]

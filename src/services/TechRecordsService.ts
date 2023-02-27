@@ -1,27 +1,22 @@
-import HTTPError from "../models/HTTPError";
-import TechRecordsDAO from "../models/TechRecordsDAO";
+import { cloneDeep } from "lodash";
+import { ISearchCriteria } from "../../@Types/ISearchCriteria";
 import ITechRecordWrapper from "../../@Types/ITechRecordWrapper";
+import IMsUserDetails from "../../@Types/IUserDetails";
+import { TechRecord, Vehicle } from "../../@Types/TechRecords";
 import {
-  ERRORS,
   EU_VEHICLE_CATEGORY,
   HTTPRESPONSE,
   SEARCHCRITERIA,
   STATUS,
-  UPDATE_TYPE,
 } from "../assets/Enums";
-import { ISearchCriteria } from "../../@Types/ISearchCriteria";
-import HTTPResponse from "../models/HTTPResponse";
-import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
-import { formatErrorMessage } from "../utils/formatErrorMessage";
-import IMsUserDetails from "../../@Types/IUserDetails";
-import { PromiseResult } from "aws-sdk/lib/request";
-import { AWSError } from "aws-sdk/lib/error";
-import { isEqual } from "lodash";
-import { Vehicle, TechRecord } from "../../@Types/TechRecords";
 import { VehicleFactory } from "../domain/VehicleFactory";
+import { AuditDetailsHandler } from "../handlers";
 import { TechRecordsListHandler } from "../handlers/TechRecordsListHandler";
 import { TechRecordStatusHandler } from "../handlers/TechRecordStatusHandler";
-
+import HTTPError from "../models/HTTPError";
+import HTTPResponse from "../models/HTTPResponse";
+import TechRecordsDAO from "../models/TechRecordsDAO";
+import { populatePartialVin } from "../utils/validations";
 
 /**
  * Fetches the entire list of Technical Records from the database.
@@ -32,6 +27,7 @@ class TechRecordsService {
   private readonly techRecordsDAO: TechRecordsDAO;
   private readonly techRecordsListHandler: TechRecordsListHandler<Vehicle>;
   private readonly techRecordStatusHandler: TechRecordStatusHandler<Vehicle>;
+  private readonly auditDetailsHandler: AuditDetailsHandler;
 
   constructor(techRecordsDAO: TechRecordsDAO) {
     this.techRecordsDAO = techRecordsDAO;
@@ -41,6 +37,7 @@ class TechRecordsService {
     this.techRecordStatusHandler = new TechRecordStatusHandler(
       this.techRecordsListHandler
     );
+    this.auditDetailsHandler = new AuditDetailsHandler();
   }
 
   public getTechRecordsList(
@@ -60,12 +57,12 @@ class TechRecordsService {
     msUserDetails: IMsUserDetails
   ) {
     try {
-    const vehicle = VehicleFactory.generateVehicleInstance(
-      payload,
-      this.techRecordsDAO
-    );
-    return vehicle.createVehicle(msUserDetails);
-    } catch(error) {
+      const vehicle = VehicleFactory.generateVehicleInstance(
+        payload,
+        this.techRecordsDAO
+      );
+      return vehicle.createVehicle(msUserDetails);
+    } catch (error) {
       console.error(error);
       throw new HTTPError(error.statusCode, error.body);
     }
@@ -94,22 +91,23 @@ class TechRecordsService {
     createdById: string,
     createdByName: string
   ) {
-    const uniqueRecord = await this.techRecordStatusHandler.prepareTechRecordForStatusUpdate(
-      systemNumber,
-      newStatus,
-      createdById,
-      createdByName
-    );
+    const uniqueRecord =
+      await this.techRecordStatusHandler.prepareTechRecordForStatusUpdate(
+        systemNumber,
+        newStatus,
+        createdById,
+        createdByName
+      );
     try {
       const vehicle = VehicleFactory.generateVehicleInstance(
-      uniqueRecord,
-      this.techRecordsDAO
-    );
+        uniqueRecord,
+        this.techRecordsDAO
+      );
       return vehicle.updateTechRecordStatusCode(uniqueRecord);
-   } catch(error) {
-    console.error(error);
-    throw new HTTPError(error.statusCode, error.body);
-   }
+    } catch (error) {
+      console.error(error);
+      throw new HTTPError(error.statusCode, error.body);
+    }
   }
 
   public async archiveTechRecordStatus(
@@ -122,7 +120,12 @@ class TechRecordsService {
       techRecordToUpdate,
       this.techRecordsDAO
     );
-    return vehicle.archiveTechRecordStatus(systemNumber,techRecordToUpdate,userDetails,reasonForArchiving);
+    return vehicle.archiveTechRecordStatus(
+      systemNumber,
+      techRecordToUpdate,
+      userDetails,
+      reasonForArchiving
+    );
   }
 
   public async updateEuVehicleCategory(
@@ -140,11 +143,14 @@ class TechRecordsService {
     )[0];
 
     const vehicle = VehicleFactory.generateVehicleInstance(
-    techRecordWrapper,
-    this.techRecordsDAO
+      techRecordWrapper,
+      this.techRecordsDAO
     );
 
-    return vehicle.updateEuVehicleCategory(systemNumber, newEuVehicleCategory, { msOid: createdById, msUser: createByName });
+    return vehicle.updateEuVehicleCategory(systemNumber, newEuVehicleCategory, {
+      msOid: createdById,
+      msUser: createByName,
+    });
   }
 
   public async addProvisionalTechRecord(
@@ -184,6 +190,78 @@ class TechRecordsService {
         console.error(error);
         throw new HTTPError(500, HTTPRESPONSE.INTERNAL_SERVER_ERROR);
       });
+  }
+
+  public updateVin(
+    vehicle: Vehicle,
+    newVin: string,
+    msUser: string,
+    msOid: string,
+    previousTechRecordsOnNewVin: TechRecord[]
+  ) {
+    const vehicleClone = cloneDeep(vehicle);
+
+    const oldVehicle: Vehicle = { ...vehicleClone, techRecord: [] };
+    const newVehicle: Vehicle = {
+      ...vehicleClone,
+      vin: newVin,
+      techRecord: [],
+    };
+    let provisional: TechRecord | undefined;
+
+    const now = new Date().toISOString();
+    vehicleClone.techRecord.forEach((record) => {
+      switch (record.statusCode) {
+        case STATUS.PROVISIONAL:
+          provisional = { ...record };
+          break;
+        case STATUS.CURRENT:
+          newVehicle.techRecord = [
+            {
+              ...record,
+              createdAt: now,
+              createdByName: msUser,
+              createdById: msOid,
+            },
+          ];
+          oldVehicle.techRecord.push({
+            ...record,
+            statusCode: "archived",
+            lastUpdatedAt: now,
+            lastUpdatedByName: msUser,
+            lastUpdatedById: msOid,
+          });
+          break;
+        case STATUS.ARCHIVED:
+          oldVehicle.techRecord.push({ ...record });
+          break;
+        default:
+          break;
+      }
+    });
+
+    if (!newVehicle.techRecord.length && provisional) {
+      newVehicle.techRecord = [
+        {
+          ...provisional,
+          createdAt: now,
+          createdByName: msUser,
+          createdById: msOid,
+        },
+      ];
+      oldVehicle.techRecord.push({
+        ...provisional,
+        statusCode: "archived",
+        lastUpdatedAt: now,
+        lastUpdatedById: msOid,
+        lastUpdatedByName: msUser,
+      });
+    }
+
+    newVehicle.partialVin = populatePartialVin(newVin);
+    newVehicle.techRecord.push(...previousTechRecordsOnNewVin);
+
+    return { oldVehicle, newVehicle };
   }
 }
 

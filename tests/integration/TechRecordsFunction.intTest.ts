@@ -1,12 +1,16 @@
 import LambdaTester from "lambda-tester";
-import { getTechRecords, getTechRecords as GetTechRecordsFunction } from "../../src/functions/getTechRecords";
-import { emptyDatabase, populateDatabase } from "../util/dbOperations";
-import { updateTechRecords as UpdateTechRecordsFunction } from "../../src/functions/updateTechRecords";
-import { postTechRecords as PostTechRecordsFunction } from "../../src/functions/postTechRecords";
-import records from "../resources/technical-records.json";
 import { cloneDeep } from "lodash";
+import { TechRecord, Vehicle } from "../../@Types/TechRecords";
 import { HTTPRESPONSE } from "../../src/assets/Enums";
+import { getTechRecords as GetTechRecordsFunction } from "../../src/functions/getTechRecords";
+import { postTechRecords as PostTechRecordsFunction } from "../../src/functions/postTechRecords";
+import { updateTechRecords as UpdateTechRecordsFunction } from "../../src/functions/updateTechRecords";
+import { updateVin } from "../../src/functions/updateVin";
+import HTTPResponse from "../../src/models/HTTPResponse";
 import Configuration from "../../src/utils/Configuration";
+import records from "../resources/technical-records.json";
+import { emptyDatabase, populateDatabase } from "../util/dbOperations";
+import * as enums from "../../src/assets";
 
 const msUserDetails = {
   msUser: "dorel",
@@ -36,8 +40,8 @@ describe("getTechRecords", () => {
         .event({
           path: "/vehicles/undefined/tech-records",
           pathParameters: {
-            searchIdentifier: undefined
-          }
+            searchIdentifier: undefined,
+          },
         })
         .expectResolve((result: any) => {
           expect(result.statusCode).toEqual(400);
@@ -53,8 +57,8 @@ describe("getTechRecords", () => {
         .event({
           path: "/vehicles/null/tech-records",
           pathParameters: {
-            searchIdentifier: null
-          }
+            searchIdentifier: null,
+          },
         })
         .expectResolve((result: any) => {
           expect(result.statusCode).toEqual(400);
@@ -430,5 +434,170 @@ describe("updateTechRecords", () => {
         });
       });
     });
+  });
+});
+
+describe("updateVin", () => {
+  beforeAll(async () => {
+    jest.resetAllMocks();
+    await emptyDatabase();
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(false);
+    await populateDatabase();
+  });
+  afterAll(async () => {
+    await emptyDatabase();
+    Configuration.getInstance().setAllowAdrUpdatesOnlyFlag(true);
+  });
+
+  context("when trying to update a vin", () => {
+    const testVehicle = cloneDeep(
+      records.find(
+        (v) => v.systemNumber === "3506666" && v.vin === "XXB6703742N122212"
+      )
+    );
+    context("and the request has incorrect parameters", () => {
+      it.each([
+        [
+          "systemNumber is invalid",
+          {
+            path: `/vehicles/update-vin/${testVehicle?.systemNumber}`,
+            body: {
+              msUserDetails: { msOid: "userID", msUser: "Test User" },
+              newVin: "SDJKHDSK89KJSBND",
+            },
+          },
+          { errors: ["Invalid path parameter 'systemNumber'"] },
+        ],
+        [
+          "new vin is missing",
+          {
+            path: `/vehicles/update-vin/${testVehicle?.systemNumber}`,
+            pathParameters: {
+              systemNumber: testVehicle?.systemNumber,
+            },
+            body: {
+              msUserDetails: { msOid: "userID", msUser: "Test User" },
+              newVin: "",
+            },
+          },
+          { errors: ["New vin is invalid"] },
+        ],
+        [
+          "new vin is the same as current vin",
+          {
+            path: `/vehicles/update-vin/${testVehicle?.systemNumber}`,
+            pathParameters: {
+              systemNumber: testVehicle?.systemNumber,
+            },
+            body: {
+              msUserDetails: { msOid: "userID", msUser: "Test User" },
+              newVin: testVehicle?.vin,
+            },
+          },
+          { errors: ["New vin must be different to current"] },
+        ],
+      ])("should return 400 when %s", async (scenario, request, errors) => {
+        await LambdaTester(updateVin)
+          .event(request)
+          .expectResolve((result: any) => {
+            expect(result.statusCode).toBe(400);
+            expect(result.body).toEqual(JSON.stringify(errors));
+          });
+      });
+    });
+
+    context("and the target record exists", () => {
+      it.each([
+        [
+          {
+            path: `/vehicles/update-vin/${testVehicle?.systemNumber}`,
+            pathParameters: {
+              systemNumber: testVehicle?.systemNumber,
+            },
+            body: {
+              msUserDetails: { msOid: "userID", msUser: "Test User" },
+              newVin: "DSFJHGDJSHF834JDFS",
+            },
+          },
+          new HTTPResponse(200, HTTPRESPONSE.VIN_UPDATED),
+        ],
+      ])(
+        "should return status code 200 VIN updated",
+        async (request, response) => {
+          await LambdaTester(updateVin)
+            .event(request)
+            .expectResolve((result: any) => {
+              expect(result.statusCode).toBe(response.statusCode);
+              expect(result.body).toEqual(response.body);
+            });
+        }
+      );
+    });
+    context(
+      "and there already is a vehicle record with that vin and systemNumber",
+      () => {
+        const testCases: string[] = [
+          "foobar",
+          "bdsafl",
+          "foobar",
+          "bdsafl",
+          "foobar",
+        ];
+        it.each(testCases)(
+          "should return status code 200 VIN updated",
+          async (newVin: string) => {
+            const response = new HTTPResponse(200, HTTPRESPONSE.VIN_UPDATED);
+            const request = {
+              path: `/vehicles/update-vin/${testVehicle?.systemNumber}`,
+              pathParameters: {
+                systemNumber: testVehicle?.systemNumber,
+              },
+              body: {
+                msUserDetails: { msOid: "userID", msUser: "Test User" },
+                newVin,
+              },
+            };
+            await LambdaTester(updateVin)
+              .event(request)
+              .expectResolve((result: any) => {
+                expect(result.statusCode).toBe(response.statusCode);
+                expect(result.body).toEqual(response.body);
+              });
+
+            // should only have one current across vehicleRecords
+            await LambdaTester(GetTechRecordsFunction)
+              .event({
+                path: `/vehicles/${
+                  testVehicle?.systemNumber ?? ""
+                }/tech-records`,
+                pathParameters: {
+                  searchIdentifier: testVehicle?.systemNumber,
+                },
+                queryStringParameters: {
+                  searchCriteria: "systemNumber",
+                  status: "all",
+                },
+              })
+              .expectResolve((result: any) => {
+                expect(result.statusCode).toEqual(200);
+
+                // TODO: Refactor to flat map when we can update
+                const statusCodes: string[] = [];
+                (JSON.parse(result.body) as Vehicle[]).forEach(
+                  (vehicle: Vehicle) =>
+                    vehicle.techRecord.forEach((techRecord: TechRecord) =>
+                      statusCodes.push(techRecord.statusCode)
+                    )
+                );
+                expect(
+                  statusCodes.filter(
+                    (statusCode) => statusCode !== enums.STATUS.ARCHIVED
+                  )
+                ).toHaveLength(1);
+              });
+          }
+        );
+      }
+    );
   });
 });

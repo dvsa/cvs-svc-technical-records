@@ -36,7 +36,8 @@ export enum HTTPRESPONSE {
     INVALID_EU_VEHICLE_CATEGORY = "Invalid EU vehicle category",
     EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD = "The vehicle has more than one non archived Tech record.",
     TECHINICAL_RECORD_CREATED = "Technical Record created",
-    MISSING_PARAMETERS = "Missing parameter value."
+    MISSING_PARAMETERS = "Missing parameter value.",
+    VIN_UPDATED = "VIN updated"
 }
 
 export enum STATUS {
