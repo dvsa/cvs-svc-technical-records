@@ -1201,8 +1201,13 @@ describe("updateTechRecordStatus", () => {
         expect(result.oldVehicle.techRecord[0].statusCode).toEqual("archived");
         expect(result.oldVehicle.techRecord[1].statusCode).toEqual("archived");
       });
-      it("newVehicle has a techRecord.length of 1", () => {
-        expect(result.newVehicle.techRecord.length).toEqual(1);
+      it("newVehicle has a current and a provisional tech record", () => {
+        expect(result.newVehicle.techRecord.length).toEqual(2);
+        const techRecordStatusList = result.newVehicle.techRecord.map(
+          (t) => t.statusCode
+        );
+        expect(techRecordStatusList).toContain(STATUS.CURRENT);
+        expect(techRecordStatusList).toContain(STATUS.PROVISIONAL);
       });
       it("newVehicle techRecord has a status of Current", () => {
         expect(result.newVehicle.techRecord[0].statusCode).toEqual("current");
