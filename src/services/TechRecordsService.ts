@@ -214,19 +214,25 @@ class TechRecordsService {
       switch (record.statusCode) {
         case STATUS.PROVISIONAL:
           provisional = { ...record };
+          newVehicle.techRecord.push({
+            ...provisional,
+            createdAt: now,
+            createdByName: msUser,
+            createdById: msOid,
+          });
           break;
         case STATUS.CURRENT:
-          newVehicle.techRecord = [
-            {
-              ...record,
-              createdAt: now,
-              createdByName: msUser,
-              createdById: msOid,
-            },
-          ];
+          newVehicle.techRecord.push({
+            ...record,
+            createdAt: now,
+            createdByName: msUser,
+            createdById: msOid,
+          });
           oldVehicle.techRecord.push({
             ...record,
             statusCode: "archived",
+            historicPrimaryVrm: vehicleClone.primaryVrm,
+            historicSecondaryVrms: vehicleClone.secondaryVrms,
             lastUpdatedAt: now,
             lastUpdatedByName: msUser,
             lastUpdatedById: msOid,
@@ -240,18 +246,12 @@ class TechRecordsService {
       }
     });
 
-    if (!newVehicle.techRecord.length && provisional) {
-      newVehicle.techRecord = [
-        {
-          ...provisional,
-          createdAt: now,
-          createdByName: msUser,
-          createdById: msOid,
-        },
-      ];
+    if (newVehicle.techRecord.length === 1 && provisional) {
       oldVehicle.techRecord.push({
         ...provisional,
         statusCode: "archived",
+        historicPrimaryVrm: vehicleClone.primaryVrm,
+        historicSecondaryVrms: vehicleClone.secondaryVrms,
         lastUpdatedAt: now,
         lastUpdatedById: msOid,
         lastUpdatedByName: msUser,

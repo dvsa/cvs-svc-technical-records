@@ -1,11 +1,7 @@
 import { TechRecord } from "../../@Types/TechRecords";
 import { HTTPRESPONSE, SEARCHCRITERIA, STATUS } from "../assets";
 import { VehicleProcessor } from "../domain/Processors";
-import {
-  AuditDetailsHandler,
-  ErrorHandler,
-  TechRecordsListHandler,
-} from "../handlers";
+import { ErrorHandler, TechRecordsListHandler } from "../handlers";
 import HTTPError from "../models/HTTPError";
 import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsDAO from "../models/TechRecordsDAO";
