@@ -209,13 +209,16 @@ class TechRecordsService {
     };
     let provisional: TechRecord | undefined;
 
-    vehicleClone.techRecord.forEach((record) => {
+    const now = new Date();
+
+    vehicleClone.techRecord.forEach((record, i) => {
+      now.setMilliseconds(i);
       switch (record.statusCode) {
         case STATUS.PROVISIONAL:
           provisional = { ...record };
           newVehicle.techRecord.push({
             ...provisional,
-            createdAt: new Date().toISOString(),
+            createdAt: now.toISOString(),
             createdByName: msUser,
             createdById: msOid,
           });
@@ -223,7 +226,7 @@ class TechRecordsService {
         case STATUS.CURRENT:
           newVehicle.techRecord.push({
             ...record,
-            createdAt: new Date().toISOString(),
+            createdAt: now.toISOString(),
             createdByName: msUser,
             createdById: msOid,
           });
@@ -232,7 +235,7 @@ class TechRecordsService {
             statusCode: "archived",
             historicPrimaryVrm: vehicleClone.primaryVrm,
             historicSecondaryVrms: vehicleClone.secondaryVrms,
-            lastUpdatedAt: new Date().toISOString(),
+            lastUpdatedAt: now.toISOString(),
             lastUpdatedByName: msUser,
             lastUpdatedById: msOid,
           });
@@ -251,7 +254,7 @@ class TechRecordsService {
         statusCode: "archived",
         historicPrimaryVrm: vehicleClone.primaryVrm,
         historicSecondaryVrms: vehicleClone.secondaryVrms,
-        lastUpdatedAt: new Date().toISOString(),
+        lastUpdatedAt: provisional.createdAt,
         lastUpdatedById: msOid,
         lastUpdatedByName: msUser,
       });
