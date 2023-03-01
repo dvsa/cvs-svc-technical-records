@@ -27,7 +27,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     protected techRecordDAO: TechRecordsDAO
   ) {
     this.vehicle = vehicleObj;
-    this.validationOptions = { abortEarly: false };
+    this.validationOptions = { abortEarly: false, stripUnknown: true };
     this.numberGenerator = new handlers.NumberGenerator(this.techRecordDAO);
     this.techRecordsListHandler = new handlers.TechRecordsListHandler(
       this.techRecordDAO
@@ -285,8 +285,10 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     techRecordToArchive.lastUpdatedByName = userDetails.msUser;
     techRecordToArchive.lastUpdatedById = userDetails.msOid;
     techRecordToArchive.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
-    techRecordToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm;
-    techRecordToArchive.historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms;
+    techRecordToArchive.historicPrimaryVrm =
+      techRecordWithAllStatuses.primaryVrm;
+    techRecordToArchive.historicSecondaryVrms =
+      techRecordWithAllStatuses.secondaryVrms;
     if (techRecordToArchive.vehicleType === enums.VEHICLE_TYPE.PSV) {
       const remarks = (techRecordToArchive as PsvTechRecord).remarks;
       (techRecordToArchive as PsvTechRecord).remarks = remarks
