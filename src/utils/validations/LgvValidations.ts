@@ -13,5 +13,6 @@ export const lgvValidation = commonSchemaLgvCarSmallTrlMotorcycle.keys({
       otherwise: Joi.object().forbidden()
     }),
     description: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION)
-  }).optional().allow(null)
+  }).optional().allow(null),
+  notes: Joi.string().optional().allow(null, "")
 });

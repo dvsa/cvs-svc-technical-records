@@ -14,5 +14,5 @@ export const smallTrailerValidation = commonSchemaLgvCarSmallTrlMotorcycle.keys(
     }),
     description: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION)
   }).optional().allow(null),
-  notes: Joi.string().optional().allow(null, ""),
+  notes: Joi.string().optional().allow(null, "")
 });
