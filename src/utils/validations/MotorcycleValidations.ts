@@ -21,14 +21,14 @@ export const motorcycleValidation = commonSchemaLgvCarSmallTrlMotorcycle.keys({
   euVehicleCategory: Joi.string().valid(...Object.values(EU_VEHICLE_CATEGORY)).optional().allow(null, ""),
   numberOfWheelsDriven: Joi.number().min(0).max(9999).optional().allow(null, ''),
   applicantDetails: Joi.object().keys({
-    name: Joi.string().max(150).optional(),
-    address1: Joi.string().max(60).optional(),
-    address2: Joi.string().max(60).optional(),
-    address3: Joi.string().max(60).optional(),
-    postTown: Joi.string().max(60).optional(),
-    postCode: Joi.string().max(12).optional(),
-    emailAddress: Joi.string().max(255).optional(),
-    telephoneNumber: Joi.string().max(25).optional(),
+    name: Joi.string().max(150).optional().allow(null, ""),
+    address1: Joi.string().max(60).optional().allow(null, ""),
+    address2: Joi.string().max(60).optional().allow(null, ""),
+    address3: Joi.string().max(60).optional().allow(null, ""),
+    postTown: Joi.string().max(60).optional().allow(null, ""),
+    postCode: Joi.string().max(12).optional().allow(null, ""),
+    emailAddress: Joi.string().max(255).optional().allow(null, ""),
+    telephoneNumber: Joi.string().max(25).optional().allow(null, ""),
   }).optional(),
   notes: Joi.string().max(1024).optional().allow(null, "")
 });
