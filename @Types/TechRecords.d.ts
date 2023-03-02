@@ -8,7 +8,7 @@ export interface VehicleIdentifiers {
 export interface Vehicle extends VehicleIdentifiers {
   techRecord: TechRecord[];
 }
-export interface TrailerIdentifer extends Vehicle {
+export interface TrailerIdentifier extends Vehicle {
   trailerId?: string;
 }
 export interface HeavyGoodsVehicle extends Vehicle {
@@ -29,11 +29,11 @@ export interface Car extends Vehicle {
 export interface Motorcycle extends Vehicle {
   techRecord: MotorcycleTechRecord[];
 }
-export interface Trailer extends TrailerIdentifer {
+export interface Trailer extends TrailerIdentifier {
   techRecord: TrlTechRecord[];
 }
 
-export interface SmallTrailer extends Vehicle {
+export interface SmallTrailer extends Vehicle, TrailerIdentifier {
   techRecord: TrlTechRecord[];
 }
 

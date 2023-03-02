@@ -198,6 +198,15 @@ class TechRecordsDAO {
           resource: "/z-number/",
         })
 
+  public getTNumber = () =>
+    process.env.BRANCH === "local"
+      ? Promise.resolve({ tNumber: "123" })
+      : this.invokeNumberService({
+          path: "/t-number/",
+          httpMethod: "POST",
+          resource: "/t-number/",
+        })
+
   private invokeNumberService = (serviceParams: {
     path: string;
     httpMethod: string;

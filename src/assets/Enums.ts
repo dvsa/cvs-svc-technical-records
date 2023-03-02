@@ -8,6 +8,7 @@ export enum ERRORS {
     TRAILER_ID_GENERATION_FAILED = "TrailerId generation failed!",
     SYSTEM_NUMBER_GENERATION_FAILED = "System Number generation failed!",
     Z_NUMBER_GENERATION_FAILED = "Z Number generation failed!",
+    T_NUMBER_GENERATION_FAILED = "T Number generation failed!",
     CANNOT_UPDATE_ARCHIVED_RECORD = "You are not allowed to update an archived tech-record",
     CANNOT_USE_UPDATE_TO_ARCHIVE = "Cannot use update API to archive tech record",
     CANNOT_ARCHIVE_CHANGED_RECORD = "Cannot archive tech record with attribute changes",

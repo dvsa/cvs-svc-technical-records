@@ -508,6 +508,115 @@ describe("insertTechRecord", () => {
     });
   });
 
+  context("when trying to create a new small trailer", () => {
+    context("and the t number generation is successful", () => {
+      it("should set the correct t number on the vehicle", async () => {
+        const MockDAO = jest.fn().mockImplementation(() => {
+          return {
+            getTNumber: () => {
+              return Promise.resolve({
+                tNumber: "020001T",
+                tNumberLetter: "T",
+                sequenceNumber: 20001,
+                testNumberKey: 6
+              });
+            }
+          };
+        });
+        const numberGenerator = new NumberGenerator(new MockDAO());
+
+        // @ts-ignore
+        const techRecord: Trailer = cloneDeep(records[78]);
+        delete techRecord.trailerId;
+        delete techRecord.techRecord[0].statusCode;
+
+        expect(await numberGenerator.generateTNumber()).toEqual("020001T");
+      });
+    });
+    context("and the t number generation failed", () => {
+      context("and the t number object doesn't contain the tNumber attribute", () => {
+        it("should return error 500 TNumber generation failed", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getTNumber: () => {
+                return Promise.resolve({
+                  tNumberLetter: "T",
+                  sequenceNumber: 20001,
+                  testNumberKey: 6
+                });
+              }
+            };
+          });
+          const numberGenerator = new NumberGenerator(new MockDAO());
+
+          // @ts-ignore
+          const techRecord: Trailer = cloneDeep(records[78]);
+          delete techRecord.trailerId;
+          delete techRecord.techRecord[0].statusCode;
+
+          try {
+            expect(await numberGenerator.generateTNumber()).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual(ERRORS.T_NUMBER_GENERATION_FAILED);
+          }
+        });
+      });
+
+      context("and the t number object contains the error attribute", () => {
+        it("should return error 500 TNumber generation failed", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getTNumber: () => {
+                return Promise.resolve({
+                  error: "Some error from test-number microservice"
+                });
+              }
+            };
+          });
+          const numberGenerator = new NumberGenerator(new MockDAO());
+
+          // @ts-ignore
+          const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
+          delete techRecord.trailerId;
+          delete techRecord.techRecord[0].statusCode;
+
+          try {
+            expect(await numberGenerator.generateTNumber()).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual("Some error from test-number microservice");
+          }
+        });
+      });
+
+      context("and the test-number microservice returned an error", () => {
+        it("should return error 500", async () => {
+          const MockDAO = jest.fn().mockImplementation(() => {
+            return {
+              getTNumber: () => {
+                return Promise.reject("Error from test-number microservice");
+              }
+            };
+          });
+          const numberGenerator = new NumberGenerator(new MockDAO());
+
+          // @ts-ignore
+          const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
+          delete techRecord.trailerId;
+          delete techRecord.techRecord[0].statusCode;
+
+          try {
+            expect(await numberGenerator.generateTNumber()).toThrowError();
+          } catch (errorResponse) {
+            expect(errorResponse.statusCode).toEqual(500);
+            expect(errorResponse.body).toEqual("Error from test-number microservice");
+          }
+        });
+      });
+    });
+  });
+
   context("when trying to create a new vehicle", () => {
     context("and the system number generation is successfull", () => {
       it("should set the correct system number on the vehicle", async () => {
