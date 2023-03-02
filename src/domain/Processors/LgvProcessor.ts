@@ -13,6 +13,9 @@ export class LgvProcessor extends VehicleProcessor<LightGoodsVehicle> {
 
   protected async setNumberKey(): Promise<void> {
     this.vehicle.systemNumber = await this.numberGenerator.generateSystemNumber();
+    if (!this.vehicle.primaryVrm) {
+      this.vehicle.primaryVrm = await this.numberGenerator.generateZNumber();
+    }
   }
 
   protected validateTechRecordFields(newVehicle: CarLgvTechRecord): string[] {

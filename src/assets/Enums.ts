@@ -113,6 +113,20 @@ export const FUEL_PROPULSION_SYSTEM: string[] = [
     "Other"
 ];
 
+export const VEHICLE_CLASS_CODE: string[] = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "7",
+    "l",
+    "n",
+    "s",
+    "t",
+    "v",
+];
+
 export const VEHICLE_CLASS_DESCRIPTION: string[] = [
     "motorbikes over 200cc or with a sidecar",
     "not applicable",
