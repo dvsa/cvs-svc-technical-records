@@ -3,13 +3,13 @@ import { EU_VEHICLE_CATEGORY, STATUS_CODES, VEHICLE_SUBCLASS, VEHICLE_TYPE } fro
 import { commonSchemaLgvCarSmallTrlMotorcycle } from "./CommonSchema";
 
 export const carValidation = commonSchemaLgvCarSmallTrlMotorcycle.keys({
-  statusCode: Joi.string().valid(STATUS_CODES).optional(),
-  vehicleType: Joi.string().valid(Object.values(VEHICLE_TYPE)).optional(),
+  statusCode: Joi.string().valid(...STATUS_CODES).optional(),
+  vehicleType: Joi.string().valid(...Object.values(VEHICLE_TYPE)).optional(),
   regnDate: Joi.date().optional(),
   manufactureYear: Joi.number().min(1900).max(9999).optional(),
   noOfAxles: Joi.number().min(0).max(99).optional(),
-  vehicleSubclass: Joi.string().valid(VEHICLE_SUBCLASS).optional(),
-  euVehicleCategory: Joi.string().valid(Object.values(EU_VEHICLE_CATEGORY)).optional(),
+  vehicleSubclass: Joi.array().items(Joi.string().valid(...VEHICLE_SUBCLASS)).optional(),
+  euVehicleCategory: Joi.string().valid(...Object.values(EU_VEHICLE_CATEGORY)).optional(),
 
   applicantDetails: Joi.object().keys({
     name: Joi.string().max(150).optional(),
