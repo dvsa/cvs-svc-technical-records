@@ -9,6 +9,7 @@ export const motorcycleValidation = commonSchemaLgvCarSmallTrlMotorcycle.keys({
   manufactureYear: Joi.number().min(1900).max(9999).optional(),
   noOfAxles: Joi.number().min(0).max(99).optional(),
   vehicleClass: Joi.object().keys({
+<<<<<<< HEAD
     code: Joi.string().valid(VEHICLE_CLASS_CODE).optional(),
     description: Joi.string().valid(VEHICLE_CLASS_DESCRIPTION).optional()
   }).optional(),
@@ -27,4 +28,14 @@ export const motorcycleValidation = commonSchemaLgvCarSmallTrlMotorcycle.keys({
   }).optional(),
 
   notes: Joi.string().max(1024).optional()
+=======
+    code: Joi.any().when("description", {
+      is: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION),
+      then: Joi.string().optional(),
+      otherwise: Joi.object().forbidden()
+    }),
+    description: Joi.string().valid(...VEHICLE_CLASS_DESCRIPTION)
+  }),
+  notes: Joi.string().optional().allow(null, "")
+>>>>>>> 7c31544fd2470f474e62f0265b32844952bec936
 });
