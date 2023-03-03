@@ -115,8 +115,8 @@ export interface HgvTechRecord extends BaseTechRecord {
   tyreUseCode?: string;
   dimensions: Dimensions;
   frontAxleToRearAxle: number;
-  frontVehicleTo5thWheelCouplingMin?: number;
-  frontVehicleTo5thWheelCouplingMax?: number;
+  frontAxleTo5thWheelCouplingMin?: number;
+  frontAxleTo5thWheelCouplingMax?: number;
   frontAxleTo5thWheelMin?: number;
   frontAxleTo5thWheelMax?: number;
   notes?: string;

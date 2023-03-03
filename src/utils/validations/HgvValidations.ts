@@ -52,12 +52,12 @@ export const hgvValidation = commonSchema.keys({
       .optional(),
   }),
   frontAxleToRearAxle: Joi.number().min(0).max(99999).optional().allow(null),
-  frontVehicleTo5thWheelCouplingMin: Joi.number()
+  frontAxleTo5thWheelCouplingMin: Joi.number()
     .min(0)
     .max(99999)
     .optional()
     .allow(null),
-  frontVehicleTo5thWheelCouplingMax: Joi.number()
+  frontAxleTo5thWheelCouplingMax: Joi.number()
     .min(0)
     .max(99999)
     .optional()
