@@ -51,7 +51,7 @@
     "lambda-tester": "^4.0.1",
     "patch-package": "^6.5.1",
     "serverless": "^2.45.2",
-    "serverless-dynamodb-local": "^0.2.40",
+    "serverless-dynamodb-local": "^1.0.2",
     "serverless-offline": "^5.12.1",
     "serverless-openapi-documentation": "^0.4.0",
     "serverless-plugin-tracing": "^2.0.0",
