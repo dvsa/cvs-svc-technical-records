@@ -285,8 +285,10 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     techRecordToArchive.lastUpdatedByName = userDetails.msUser;
     techRecordToArchive.lastUpdatedById = userDetails.msOid;
     techRecordToArchive.updateType = enums.UPDATE_TYPE.TECH_RECORD_UPDATE;
-    techRecordToArchive.historicPrimaryVrm = techRecordWithAllStatuses.primaryVrm;
-    techRecordToArchive.historicSecondaryVrms = techRecordWithAllStatuses.secondaryVrms;
+    techRecordToArchive.historicPrimaryVrm =
+      techRecordWithAllStatuses.primaryVrm;
+    techRecordToArchive.historicSecondaryVrms =
+      techRecordWithAllStatuses.secondaryVrms;
     if (techRecordToArchive.vehicleType === enums.VEHICLE_TYPE.PSV) {
       const remarks = (techRecordToArchive as PsvTechRecord).remarks;
       (techRecordToArchive as PsvTechRecord).remarks = remarks
@@ -329,33 +331,35 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       (techRecord) => techRecord.statusCode !== enums.STATUS.ARCHIVED
     );
 
-    const nonArchivedTechRecord = vehicle.techRecord.filter(
-      (techRecord) => techRecord.statusCode !== enums.STATUS.ARCHIVED
+    const currentTechRecord = vehicle.techRecord.filter(
+      (techRecord) =>
+        techRecord.statusCode !== enums.STATUS.ARCHIVED &&
+        techRecord.statusCode !== enums.STATUS.PROVISIONAL
     );
 
-    if (nonArchivedTechRecord.length > 1) {
+    if (currentTechRecord.length > 1) {
       throw this.Error(
         400,
         enums.HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD
       );
     }
-    if (nonArchivedTechRecord.length === 0) {
+    if (currentTechRecord.length === 0) {
       throw this.Error(400, enums.ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
     }
-    if (nonArchivedTechRecord[0].euVehicleCategory) {
+    if (currentTechRecord[0].euVehicleCategory) {
       return new HTTPResponse(
         200,
         enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
       );
     }
-    const statusCode = nonArchivedTechRecord[0].statusCode;
-    const newTechRecord: TechRecord = cloneDeep(nonArchivedTechRecord[0]);
-    nonArchivedTechRecord[0].statusCode = enums.STATUS.ARCHIVED;
+    const statusCode = currentTechRecord[0].statusCode;
+    const newTechRecord: TechRecord = cloneDeep(currentTechRecord[0]);
+    currentTechRecord[0].statusCode = enums.STATUS.ARCHIVED;
     newTechRecord.euVehicleCategory = newEuVehicleCategory;
     newTechRecord.statusCode = statusCode;
     this.auditHandler.setAuditDetails(
       newTechRecord,
-      nonArchivedTechRecord[0],
+      currentTechRecord[0],
       msUserDetails
     );
     vehicle.techRecord.push(newTechRecord);
