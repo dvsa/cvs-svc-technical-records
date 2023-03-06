@@ -1,0 +1,34 @@
+diff --git a/node_modules/dynamodb-localhost/dynamodb/config.json b/node_modules/dynamodb-localhost/dynamodb/config.json
+index dc7d7a3..a4420cb 100644
+--- a/node_modules/dynamodb-localhost/dynamodb/config.json
++++ b/node_modules/dynamodb-localhost/dynamodb/config.json
+@@ -1,6 +1,6 @@
+ {
+   "setup": {
+-    "download_url": "http://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.tar.gz",
++    "download_url": "https://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.tar.gz",
+     "install_path": "bin",
+     "jar": "DynamoDBLocal.jar"
+   },
+diff --git a/node_modules/dynamodb-localhost/dynamodb/installer.js b/node_modules/dynamodb-localhost/dynamodb/installer.js
+index c2789c7..874c1c2 100644
+--- a/node_modules/dynamodb-localhost/dynamodb/installer.js
++++ b/node_modules/dynamodb-localhost/dynamodb/installer.js
+@@ -3,7 +3,7 @@
+ var tar = require("tar"),
+   zlib = require("zlib"),
+   path = require("path"),
+-  http = require("http"),
++  https = require("https"),
+   fs = require("fs"),
+   ProgressBar = require("progress"),
+   utils = require("./utils");
+@@ -12,7 +12,7 @@ var download = function(downloadUrl, installPath, callback) {
+   console.log(
+     `Started downloading dynamodb-local from ${downloadUrl} into ${installPath}. Process may take few minutes.`
+   );
+-  http
++  https
+     .get(downloadUrl, function(response) {
+       var len = parseInt(response.headers["content-length"], 10),
+         bar = new ProgressBar(
