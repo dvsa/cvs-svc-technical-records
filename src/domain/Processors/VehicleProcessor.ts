@@ -27,7 +27,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     protected techRecordDAO: TechRecordsDAO
   ) {
     this.vehicle = vehicleObj;
-    this.validationOptions = { abortEarly: false };
+    this.validationOptions = { abortEarly: false, stripUnknown: true };
     this.numberGenerator = new handlers.NumberGenerator(this.techRecordDAO);
     this.techRecordsListHandler = new handlers.TechRecordsListHandler(
       this.techRecordDAO

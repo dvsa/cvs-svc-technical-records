@@ -699,11 +699,11 @@ components:
           type: number
           maximum: 99999
           description: Used only for HGV
-        frontAxleTo5thWheelCouplingMin:
+        frontVehicleTo5thWheelCouplingMin:
           type: number
           maximum: 99999
           description: Used only for HGV. Optional for HGV
-        frontAxleTo5thWheelCouplingMax:
+        frontVehicleTo5thWheelCouplingMax:
           type: number
           maximum: 99999
           description: Used only for HGV. Optional for HGV
@@ -1192,11 +1192,11 @@ components:
           type: number
           maximum: 99999
           description: Used only for HGV
-        frontAxleTo5thWheelCouplingMin:
+        frontVehicleTo5thWheelCouplingMin:
           type: number
           maximum: 99999
           description: Used only for HGV. Optional for HGV
-        frontAxleTo5thWheelCouplingMax:
+        frontVehicleTo5thWheelCouplingMax:
           type: number
           maximum: 99999
           description: Used only for HGV. Optional for HGV

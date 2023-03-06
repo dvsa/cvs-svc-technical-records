@@ -48,7 +48,7 @@
           }
         }
       ],
-      "frontAxleTo5thWheelCouplingMin": 1400,
+      "frontVehicleTo5thWheelCouplingMin": 1400,
       "createdAt": "2020-07-28T00:06:25.698Z",
       "grossGbWeight": 25000,
       "microfilm": {
@@ -105,7 +105,7 @@
       },
       "make": "VOLVO",
       "speedLimiterMrk": false,
-      "frontAxleTo5thWheelCouplingMax": 1300,
+      "frontVehicleTo5thWheelCouplingMax": 1300,
       "recordCompleteness": "complete",
       "grossEecWeight": 26000,
       "frontAxleTo5thWheelMax": 1100,
@@ -177,7 +177,7 @@
           }
         }
       ],
-      "frontAxleTo5thWheelCouplingMin": 1400,
+      "frontVehicleTo5thWheelCouplingMin": 1400,
       "createdAt": "2020-07-28T00:06:25.654Z",
       "grossGbWeight": 25000,
       "microfilm": {
@@ -234,7 +234,7 @@
       },
       "make": "VOLVO",
       "speedLimiterMrk": false,
-      "frontAxleTo5thWheelCouplingMax": 1300,
+      "frontVehicleTo5thWheelCouplingMax": 1300,
       "recordCompleteness": "complete",
       "grossEecWeight": 26000,
       "frontAxleTo5thWheelMax": 1100,
@@ -306,7 +306,7 @@
           }
         }
       ],
-      "frontAxleTo5thWheelCouplingMin": 1400,
+      "frontVehicleTo5thWheelCouplingMin": 1400,
       "createdAt": "2020-07-28T00:06:25.423Z",
       "grossGbWeight": 25000,
       "microfilm": {
@@ -363,7 +363,7 @@
       },
       "make": "VOLVO",
       "speedLimiterMrk": false,
-      "frontAxleTo5thWheelCouplingMax": 1300,
+      "frontVehicleTo5thWheelCouplingMax": 1300,
       "recordCompleteness": "complete",
       "grossEecWeight": 26000,
       "frontAxleTo5thWheelMax": 1100,
@@ -435,7 +435,7 @@
           }
         }
       ],
-      "frontAxleTo5thWheelCouplingMin": 1400,
+      "frontVehicleTo5thWheelCouplingMin": 1400,
       "createdAt": "2020-07-28T00:06:25.246Z",
       "grossGbWeight": 25000,
       "microfilm": {
@@ -492,7 +492,7 @@
       },
       "make": "VOLVO",
       "speedLimiterMrk": false,
-      "frontAxleTo5thWheelCouplingMax": 1300,
+      "frontVehicleTo5thWheelCouplingMax": 1300,
       "recordCompleteness": "complete",
       "grossEecWeight": 26000,
       "frontAxleTo5thWheelMax": 1100,
