@@ -18,14 +18,14 @@ export enum ERRORS {
     MISSING_PAYLOAD = "Missing payload!",
     MISSING_USER = "Microsoft user details not provided",
     MISSING_REASON_FOR_ARCHIVING = "Reason for archiving not provided",
-    VEHICLE_TYPE_ERROR = "\"vehicleType\" must be one of [hgv, psv, trl, lgv, car, small trl, motorcycle]",
+    VEHICLE_TYPE_ERROR = "\"vehicleType\" must be one of [hgv, psv, trl, lgv, car, motorcycle]",
     INVALID_PRIMARY_SECONDARY_VRM = "Primary or secondaryVrms are not valid",
     INVALID_PRIMARY_VRM = "Invalid primary VRM",
     INVALID_SECONDARY_VRM = "Secondary VRMs are invalid",
     INVALID_TRAILER_ID= "TrailerId is invalid",
     INVALID_BODY_TYPE = "Invalid body type code",
     INVALID_VEHICLE_CLASS = "Invalid vehicle class code",
-    INVALID_VEHICLE_TYPE = '"vehicleType" must be one of [hgv, psv, trl, lgv, car, small trl, motorcycle]'
+    INVALID_VEHICLE_TYPE = '"vehicleType" must be one of [hgv, psv, trl, lgv, car, motorcycle]'
 }
 
 export enum HTTPRESPONSE {
@@ -69,7 +69,6 @@ export enum VEHICLE_TYPE {
     PSV = "psv",
     CAR = "car",
     LGV = "lgv",
-    SMALL_TRL = "small trl",
     MOTORCYCLE = "motorcycle"
 }
 
@@ -100,7 +99,6 @@ export const VEHICLE_TYPE_VALIDATION: string[] = [
     "hgv",
     "car",
     "lgv",
-    "small trl",
     "motorcycle"
 ];
 
@@ -112,6 +110,20 @@ export const FUEL_PROPULSION_SYSTEM: string[] = [
     "Fuel cell",
     "LNG",
     "Other"
+];
+
+export const VEHICLE_CLASS_CODE: string[] = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "7",
+    "l",
+    "n",
+    "s",
+    "t",
+    "v",
 ];
 
 export const VEHICLE_CLASS_DESCRIPTION: string[] = [

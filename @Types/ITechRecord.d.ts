@@ -96,8 +96,8 @@ export default interface ITechRecord {
   tyreUseCode: string;
   dimensions: Dimensions;
   frontAxleToRearAxle: number;
-  frontAxleTo5thWheelCouplingMin: number;
-  frontAxleTo5thWheelCouplingMax: number;
+  frontVehicleTo5thWheelCouplingMin: number;
+  frontVehicleTo5thWheelCouplingMax: number;
   frontAxleTo5thWheelMin: number;
   frontAxleTo5thWheelMax: number;
   applicantDetails: ApplicantDetails;
