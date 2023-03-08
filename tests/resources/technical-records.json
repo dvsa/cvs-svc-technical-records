@@ -114,7 +114,7 @@
     "secondaryVrms": ["X71LTA"],
     "vin": "1B7GG36N12S678410",
     "partialVin": "678410",
-    "systemNumber": "11000002",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -224,7 +224,7 @@
     "vin": "XMGDE02FS0H012461",
     "partialVin": "012461",
     "trailerId": "A456789",
-    "systemNumber": "11000003",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -333,7 +333,7 @@
     "secondaryVrms": ["VG44BND"],
     "vin": "1B7GG36N12S021430",
     "partialVin": "021430",
-    "systemNumber": "11000004",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -442,7 +442,7 @@
     "secondaryVrms": ["CO04LAR"],
     "vin": "1B7GG36N12S678413",
     "partialVin": "678413",
-    "systemNumber": "11000005",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -551,7 +551,7 @@
     "secondaryVrms": ["BR05ANN"],
     "vin": "YV31MEC18GA678413",
     "partialVin": "678413",
-    "systemNumber": "11000006",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -660,7 +660,7 @@
     "secondaryVrms": ["609823Z"],
     "vin": "XMGDE02FS0H012356",
     "partialVin": "012356",
-    "systemNumber": "11000007",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -786,7 +786,7 @@
     "secondaryVrms": ["603559Z"],
     "vin": "XMGDE02FS0H012432",
     "partialVin": "012432",
-    "systemNumber": "11000008",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -895,7 +895,7 @@
     "secondaryVrms": ["609912Z"],
     "vin": "YV31MEC18GA011900",
     "partialVin": "011900",
-    "systemNumber": "11000009",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -2065,7 +2065,7 @@
     "secondaryVrms": ["6099123Y"],
     "vin": "YV31MEC18GA011911",
     "partialVin": "011911",
-    "systemNumber": "11000010",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -2307,7 +2307,7 @@
     "secondaryVrms": ["6099123Y"],
     "vin": "YV31MEC18GA011933",
     "partialVin": "011933",
-    "systemNumber": "11000011",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -2549,7 +2549,7 @@
     "secondaryVrms": ["6099123Y"],
     "vin": "YV31MEC18GA011944",
     "partialVin": "011944",
-    "systemNumber": "11000012",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -2790,7 +2790,7 @@
     "vin": "P012301230123",
     "partialVin": "230123",
     "primaryVrm": "CT70VRL",
-    "systemNumber": "11000013",
+    "systemNumber": "",
     "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
@@ -2902,7 +2902,7 @@
     "vin": "T12341234",
     "partialVin": "341234",
     "trailerId": "C000001",
-    "systemNumber": "11000014",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -3024,7 +3024,7 @@
     "vin": "T12341237",
     "partialVin": "341237",
     "trailerId": "C000002",
-    "systemNumber": "11000015",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -3124,7 +3124,7 @@
   },
   {
     "partialVin": "768594",
-    "systemNumber": "11000016",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -3305,7 +3305,7 @@
   {
     "partialVin": "957486",
     "primaryVrm": "AD35GHT",
-    "systemNumber": "11000017",
+    "systemNumber": "",
     "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
@@ -3462,7 +3462,7 @@
   {
     "partialVin": "293847",
     "primaryVrm": "CO79ERT",
-    "systemNumber": "11000018",
+    "systemNumber": "",
     "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
@@ -3603,7 +3603,7 @@
   },
   {
     "partialVin": "111111",
-    "systemNumber": "11000019",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -3803,7 +3803,7 @@
   },
   {
     "partialVin": "876765",
-    "systemNumber": "11000020",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -3965,7 +3965,7 @@
   {
     "partialVin": "012938",
     "primaryVrm": "GH389BH",
-    "systemNumber": "11000021",
+    "systemNumber": "",
     "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
@@ -4092,7 +4092,7 @@
   {
     "partialVin": "000000",
     "primaryVrm": "AA00AAA",
-    "systemNumber": "11000022",
+    "systemNumber": "",
     "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
@@ -4294,7 +4294,7 @@
   {
     "partialVin": "098765",
     "primaryVrm": "VM14MDT",
-    "systemNumber": "11000023",
+    "systemNumber": "",
     "secondaryVrms": ["TF14PTH"],
     "techRecord": [
       {
@@ -4389,7 +4389,7 @@
     "vin": "T12765432",
     "partialVin": "765432",
     "trailerId": "D000001",
-    "systemNumber": "11000024",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -4509,7 +4509,7 @@
     "vin": "T13541234",
     "partialVin": "541234",
     "trailerId": "Q000001",
-    "systemNumber": "11000025",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -4604,7 +4604,7 @@
     "vin": "T72741234",
     "partialVin": "741234",
     "trailerId": "C100001",
-    "systemNumber": "11000026",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -4726,7 +4726,7 @@
     "vin": "P012301270123",
     "partialVin": "270123",
     "primaryVrm": "CT70VRL",
-    "systemNumber": "11000027",
+    "systemNumber": "",
     "secondaryVrms": ["CT56DRG"],
     "techRecord": [
       {
@@ -4848,7 +4848,7 @@
   {
     "partialVin": "270556",
     "primaryVrm": "CT70HHH",
-    "systemNumber": "11000028",
+
     "secondaryVrms": ["CT56HGV"],
     "techRecord": [
       {
@@ -5061,7 +5061,7 @@
   },
   {
     "partialVin": "741999",
-    "systemNumber": "11000029",
+
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -5296,7 +5296,7 @@
   },
   {
     "partialVin": "777777",
-    "systemNumber": "11000030",
+
     "techRecord": [
       {
         "antilockBrakingSystem": true,
@@ -5456,7 +5456,7 @@
   },
   {
     "partialVin": "888888",
-    "systemNumber": "11000031",
+
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -5773,7 +5773,7 @@
     "vin": "P1234567890123",
     "partialVin": "890123",
     "primaryVrm": "YYY3456",
-    "systemNumber": "11000032",
+
     "secondaryVrms": ["CT96DRG"],
     "techRecord": [
       {
@@ -6145,7 +6145,7 @@
   {
     "partialVin": "230000",
     "primaryVrm": "CT70000",
-    "systemNumber": "11000033",
+
     "secondaryVrms": ["CT96000", "CT96001", "CT96002"],
     "techRecord": [
       {
@@ -6468,7 +6468,7 @@
   {
     "partialVin": "230001",
     "primaryVrm": "CT70001",
-    "systemNumber": "11000034",
+
     "secondaryVrms": ["CT98000"],
     "techRecord": [
       {
@@ -6775,7 +6775,7 @@
   {
     "partialVin": "230002",
     "primaryVrm": "CT70002",
-    "systemNumber": "11000035",
+
     "secondaryVrms": ["CT97001"],
     "techRecord": [
       {
@@ -6892,7 +6892,7 @@
   {
     "partialVin": "111000",
     "primaryVrm": "CT71000",
-    "systemNumber": "11000036",
+
     "secondaryVrms": [],
     "techRecord": [
       {
@@ -7230,7 +7230,7 @@
   {
     "partialVin": "111001",
     "primaryVrm": "CT71001",
-    "systemNumber": "11000037",
+    "systemNumber": "7",
     "secondaryVrms": [],
     "techRecord": [
       {
@@ -7377,7 +7377,7 @@
   {
     "partialVin": "111002",
     "primaryVrm": "CT71002",
-    "systemNumber": "11000038",
+    "systemNumber": "8",
     "secondaryVrms": [],
     "techRecord": [
       {
@@ -7504,7 +7504,7 @@
     "partialVin": "777775",
     "trailerId": "C777775",
     "vin": "ABCDEFGH777775",
-    "systemNumber": "11000039",
+    "systemNumber": "9",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -7684,7 +7684,7 @@
     "partialVin": "777776",
     "trailerId": "C777776",
     "vin": "ABCDEFGH777776",
-    "systemNumber": "11000040",
+    "systemNumber": "0",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -7853,7 +7853,7 @@
     "partialVin": "777778",
     "trailerId": "C777778",
     "vin": "ABCDEFGH777778",
-    "systemNumber": "1100041",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -8037,7 +8037,7 @@
     "partialVin": "777779",
     "trailerId": "C777779",
     "vin": "ABCDEFGH777779",
-    "systemNumber": "1100042",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -8219,7 +8219,7 @@
   },
   {
     "partialVin": "999999",
-    "systemNumber": "1100043",
+    "systemNumber": "",
     "techRecord": [
       {
         "vehicleSubclass": ["string"],
@@ -8532,7 +8532,7 @@
         "recordCompleteness": "complete"
       }
     ],
-    "systemNumber": "1100047"
+    "systemNumber": ""
   },
   {
     "vin": "ABCDEFGH444444",
@@ -8833,12 +8833,12 @@
         "recordCompleteness": "complete"
       }
     ],
-    "systemNumber": "1100048"
+    "systemNumber": ""
   },
   {
     "partialVin": "222203",
     "primaryVrm": "X2TRX",
-    "systemNumber": "1100044",
+    "systemNumber": "",
     "secondaryVrms": [],
     "techRecord": [
       {
@@ -9176,7 +9176,7 @@
   {
     "partialVin": "22021979",
     "primaryVrm": "B99XFX",
-    "systemNumber": "1100045",
+    "systemNumber": "",
     "secondaryVrms": ["B999XFX"],
     "techRecord": [
       {
@@ -9292,7 +9292,7 @@
   {
     "partialVin": "091180",
     "primaryVrm": "LONGESTVRM",
-    "systemNumber": "1100046",
+    "systemNumber": "",
     "secondaryVrms": ["SHORT"],
     "techRecord": [
       {
@@ -10100,7 +10100,7 @@
     ],
     "trailerId": "B3966774",
     "vin": "A00000529",
-    "systemNumber": "1100049"
+    "systemNumber": ""
   },
   {
     "partialVin": "004801",
@@ -10255,7 +10255,7 @@
       }
     ],
     "vin": "A00004801",
-    "systemNumber": "1100050"
+    "systemNumber": ""
   },
   {
     "partialVin": "004965",
@@ -10444,7 +10444,7 @@
     ],
     "trailerId": "B3989825",
     "vin": "A00004965",
-    "systemNumber": "1100051"
+    "systemNumber": ""
   },
   {
     "partialVin": "004989",
@@ -10999,7 +10999,7 @@
     ],
     "trailerId": "B3966098",
     "vin": "A00004989",
-    "systemNumber": "1100052"
+    "systemNumber": ""
   },
   {
     "partialVin": "009889",
@@ -11324,7 +11324,7 @@
     ],
     "trailerId": "B3888928",
     "vin": "A00009889",
-    "systemNumber": "1100053"
+    "systemNumber": ""
   },
   {
     "partialVin": "023353",
@@ -11623,7 +11623,7 @@
       }
     ],
     "vin": "A00023353",
-    "systemNumber": "1100054"
+    "systemNumber": ""
   },
   {
     "partialVin": "026621",
@@ -11807,7 +11807,7 @@
     ],
     "trailerId": "B3938127",
     "vin": "A00026621",
-    "systemNumber": "1100055"
+    "systemNumber": ""
   },
   {
     "partialVin": "032509",
@@ -12000,7 +12000,7 @@
     ],
     "trailerId": "B4165134",
     "vin": "A00032509",
-    "systemNumber": "1100056"
+    "systemNumber": ""
   },
   {
     "partialVin": "034477",
@@ -12159,7 +12159,7 @@
       }
     ],
     "vin": "A00034477",
-    "systemNumber": "1100057"
+    "systemNumber": ""
   },
   {
     "partialVin": "037313",
@@ -12348,7 +12348,7 @@
     ],
     "trailerId": "B3933169",
     "vin": "A00037313",
-    "systemNumber": "1100058"
+    "systemNumber": ""
   },
   {
     "partialVin": "037501",
@@ -12837,7 +12837,7 @@
       }
     ],
     "vin": "A00037501",
-    "systemNumber": "1100059"
+    "systemNumber": ""
   },
   {
     "partialVin": "037985",
@@ -13026,7 +13026,7 @@
     ],
     "trailerId": "B4036851",
     "vin": "A00037985",
-    "systemNumber": "1100060"
+    "systemNumber": ""
   },
   {
     "partialVin": "038789",
@@ -13210,7 +13210,7 @@
       }
     ],
     "vin": "A00038789",
-    "systemNumber": "1100061"
+    "systemNumber": ""
   },
   {
     "partialVin": "039009",
@@ -13509,7 +13509,7 @@
       }
     ],
     "vin": "A00039009",
-    "systemNumber": "1100062"
+    "systemNumber": ""
   },
   {
     "partialVin": "047469",
@@ -14025,7 +14025,7 @@
     ],
     "trailerId": "B3693123",
     "vin": "A00047469",
-    "systemNumber": "1100063"
+    "systemNumber": ""
   },
   {
     "partialVin": "060613",
@@ -14213,8 +14213,7 @@
         "recordCompleteness": "complete"
       }
     ],
-    "vin": "A00060613",
-    "systemNumber": "1100064"
+    "vin": "A00060613"
   },
   {
     "partialVin": "111773",
@@ -14759,8 +14758,7 @@
         "recordCompleteness": "complete"
       }
     ],
-    "vin": "A00111773",
-    "systemNumber": "1100065"
+    "vin": "A00111773"
   },
   {
     "partialVin": "128821",
@@ -14913,8 +14911,7 @@
         "recordCompleteness": "complete"
       }
     ],
-    "vin": "A00128821",
-    "systemNumber": "1100066"
+    "vin": "A00128821"
   },
   {
     "partialVin": "132865",
@@ -15086,8 +15083,7 @@
       }
     ],
     "trailerId": "B4029203",
-    "vin": "A00132865",
-    "systemNumber": "1100067"
+    "vin": "A00132865"
   },
   {
     "partialVin": "124509",
@@ -15240,8 +15236,7 @@
         "recordCompleteness": "complete"
       }
     ],
-    "vin": "A00124509",
-    "systemNumber": "1100068"
+    "vin": "A00124509"
   },
   {
     "partialVin": "425867",
@@ -15390,8 +15385,7 @@
         "recordCompleteness": "complete"
       }
     ],
-    "vin": "A00425867",
-    "systemNumber": "1100069"
+    "vin": "A00425867"
   },
   {
     "partialVin": "041485",
@@ -15559,8 +15553,7 @@
         "recordCompleteness": "complete"
       }
     ],
-    "vin": "A00041485",
-    "systemNumber": "1100070"
+    "vin": "A00041485"
   },
   {
     "partialVin": "082777",
@@ -16368,8 +16361,7 @@
         "recordCompleteness": "complete"
       }
     ],
-    "vin": "A00082777",
-    "systemNumber": "1100071"
+    "vin": "A00082777"
   },
   {
     "partialVin": "052593",
@@ -16561,8 +16553,7 @@
       }
     ],
     "trailerId": "B4259594",
-    "vin": "A00052593",
-    "systemNumber": "1100072"
+    "vin": "A00052593"
   },
   {
     "partialVin": "037501",
@@ -16692,8 +16683,7 @@
         "recordCompleteness": "complete"
       }
     ],
-    "vin": "A00037502",
-    "systemNumber": "1100073"
+    "vin": "A00037502"
   },
   {
     "partialVin": "038789",
@@ -16876,15 +16866,13 @@
         "recordCompleteness": "complete"
       }
     ],
-    "vin": "A00038781",
-    "systemNumber": "1100074"
+    "vin": "A00038781"
   },
   {
     "primaryVrm": "MK99OIF",
     "secondaryVrms": ["876543D"],
     "vin": "ABCDEPSV000666",
     "partialVin": "000666",
-    "systemNumber": "9999999",
     "techRecord": [
       {
         "recordCompleteness": "complete",
@@ -17138,8 +17126,7 @@
         "recordCompleteness": "complete"
       }
     ],
-    "vin": "P0123010911250",
-    "systemNumber": "1100075"
+    "vin": "P0123010911250"
   },
   {
     "partialVin": "951264",
