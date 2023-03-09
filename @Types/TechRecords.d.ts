@@ -4,6 +4,7 @@ export interface VehicleIdentifiers {
   systemNumber: string;
   vin: string;
   partialVin?: string;
+  trailerId?: string;
 }
 export interface Vehicle extends VehicleIdentifiers {
   techRecord: TechRecord[];
