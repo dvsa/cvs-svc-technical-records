@@ -1,6 +1,6 @@
 import { ValidationResult, ObjectSchema } from '@hapi/joi';
 import { Vehicle, Trailer } from '../../../@Types/TechRecords';
-import { ERRORS, RECORD_COMPLETENESS_ENUM, VEHICLE_TYPE } from '../../assets';
+import { ERRORS, EU_VEHICLE_CATEGORY, RECORD_COMPLETENESS_ENUM, VEHICLE_TYPE } from '../../assets';
 import HTTPError from '../../models/HTTPError';
 import {
   trlCoreMandatoryVehicleAttributes,
@@ -76,7 +76,9 @@ function validateMandatoryTechRecordAttributes(vehicle: Vehicle) {
     throw new HTTPError(400, ERRORS.VEHICLE_TYPE_ERROR);
   }
 
-  const nonCoreMandatorySchema: ObjectSchema | undefined = nonCoreMandatorySchemaMap.get(vehicleType);
+  const nonCoreMandatorySchema: ObjectSchema | undefined = techRecord.euVehicleCategory !== EU_VEHICLE_CATEGORY.O1
+    ? nonCoreMandatorySchemaMap.get(vehicleType)
+    : undefined;
 
   return {
     coreValidationResult: coreMandatorySchema.validate(techRecord, {stripUnknown: true}),

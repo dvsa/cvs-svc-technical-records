@@ -11,6 +11,12 @@ export class SmallTrailerProcessor extends VehicleProcessor<SmallTrailer> {
 
   protected async setNumberKey(): Promise<void> {
     this.vehicle.systemNumber = await this.numberGenerator.generateSystemNumber();
+    
+    if(!this.vehicle.trailerId) {
+      const newTrailerId = await this.numberGenerator.generateTrailerId();
+      this.vehicle.trailerId = newTrailerId;
+      this.vehicle.primaryVrm = newTrailerId;
+    }
   }
 
   protected validateTechRecordFields(newVehicle: CarLgvTechRecord): string[] {
