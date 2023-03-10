@@ -18,7 +18,7 @@ export async function updateEuVehicleCategory(event: any) {
         } else {
             return new HTTPResponse(400, HTTPRESPONSE.INVALID_EU_VEHICLE_CATEGORY);
         }
-    } catch (error) {
+    } catch (error: any) {
         return new HTTPResponse(error.statusCode, error.body);
     }
 }

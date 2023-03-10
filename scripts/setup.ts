@@ -46,7 +46,7 @@ module.exports = async () => {
     start script running ✅ ...
     on pid: ${pid}
     `);
-  } catch (e) {
+  } catch (e: any) {
     console.error("Something wrong happened:\n");
     console.error(e);
     process.exit(1);

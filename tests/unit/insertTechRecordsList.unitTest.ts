@@ -58,7 +58,7 @@ describe("insertTechRecordsList", () => {
       try {
         // @ts-ignore
         expect(await techRecordsService.insertTechRecordsList(records)).toThrowError();
-      } catch (errorResponse) {
+      } catch (errorResponse: any) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(500);
         expect(errorResponse.body).toEqual(HTTPRESPONSE.INTERNAL_SERVER_ERROR);

@@ -62,7 +62,7 @@ class TechRecordsService {
         this.techRecordsDAO
       );
       return vehicle.createVehicle(msUserDetails);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       throw new HTTPError(error.statusCode, error.body);
     }
@@ -79,7 +79,7 @@ class TechRecordsService {
         this.techRecordsDAO
       );
       return await vehicle.updateVehicle(msUserDetails, oldStatusCode);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       throw new HTTPError(error.statusCode, error.body);
     }
@@ -104,7 +104,7 @@ class TechRecordsService {
         this.techRecordsDAO
       );
       return vehicle.updateTechRecordStatusCode(uniqueRecord);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       throw new HTTPError(error.statusCode, error.body);
     }

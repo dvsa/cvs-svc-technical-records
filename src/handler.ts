@@ -16,7 +16,7 @@ const handler = async (event: any, context: Context) => {
 
     try {
       payload = JSON.parse(event.body)
-    } catch (e) {
+    } catch (e: any) {
       return new HTTPResponse(400, 'Body is not a valid JSON.')
     }
 
@@ -43,7 +43,7 @@ const handler = async (event: any, context: Context) => {
   // Exactly one λ should match the above filtering.
   if (matchingLambdaEvents.length === 1) {
     const lambdaEvent = matchingLambdaEvents[0]
-    const lambdaFn = lambdaEvent.function
+    const lambdaFn = lambdaEvent.function as Function
 
     const localPath = new Path(lambdaEvent.path)
     const remotePath = new Path(`${serverlessConfig.basePath}${lambdaEvent.path}`) // Remote paths also have environment

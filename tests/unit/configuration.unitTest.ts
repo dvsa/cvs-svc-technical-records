@@ -67,7 +67,7 @@ describe("The configuration service", () => {
         const config = new Configuration("../../tests/resources/badConfig.yml");
         try {
           config.getFunctions();
-        } catch (e) {
+        } catch (e: any) {
           expect(e.message).toEqual("Functions were not defined in the config file.");
         }
       });
@@ -76,7 +76,7 @@ describe("The configuration service", () => {
         const config = new Configuration("../../tests/resources/badConfig.yml");
         try {
           config.getDynamoDBConfig();
-        } catch (e) {
+        } catch (e: any) {
           expect(e.message).toEqual("DynamoDB config is not defined in the config file.");
         }
       });
@@ -85,7 +85,7 @@ describe("The configuration service", () => {
         const config = new Configuration("../../tests/resources/badConfig.yml");
         try {
           config.getEndpoints();
-        } catch (e) {
+        } catch (e: any) {
           expect(e.message).toEqual("Endpoints were not defined in the config file.");
         }
       });

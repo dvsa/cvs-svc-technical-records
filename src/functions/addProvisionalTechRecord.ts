@@ -29,7 +29,7 @@ const addProvisionalTechRecord = async (event: any) => {
   try {
     const addedProvisionalTechRecord = await techRecordsService.addProvisionalTechRecord(techRecord, msUserDetails);
     return new HTTPResponse(200, addedProvisionalTechRecord);
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
     return new HTTPResponse(error.statusCode, error.body);
   }

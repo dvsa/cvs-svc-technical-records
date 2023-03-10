@@ -12,7 +12,7 @@ export const validateInvocationResponse = (response: any) => {
 
   try {
     payload = JSON.parse(response.Payload);
-  } catch (error) {
+  } catch (error: any) {
     console.log("validateInvocationResponse response parse error", response );
     throw new HTTPError(500, `Lambda invocation returned bad data: ${response.Payload}`);
   }

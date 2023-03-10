@@ -49,7 +49,7 @@ describe("VehicleProcessor", () => {
                   STATUS.CURRENT
                 )
               ).toThrowError();
-            } catch (errorResponse) {
+            } catch (errorResponse: any) {
               expect(errorResponse).toBeInstanceOf(HTTPError);
               expect(errorResponse.statusCode).toEqual(404);
               expect(errorResponse.body.errors).toContain(
@@ -76,7 +76,7 @@ describe("VehicleProcessor", () => {
                   STATUS.PROVISIONAL
                 )
               ).toThrowError();
-            } catch (errorResponse) {
+            } catch (errorResponse: any) {
               expect(errorResponse).toBeInstanceOf(HTTPError);
               expect(errorResponse.statusCode).toEqual(500);
               // FIXME: decide between error array vs single error message
@@ -362,7 +362,7 @@ describe("VehicleProcessor", () => {
                     techRecord,
                     false)
                   ).toThrowError();
-                } catch (errorResponse) {
+                } catch (errorResponse: any) {
                   expect(errorResponse.statusCode).toEqual(400);
                   expect(errorResponse.body.errors).toContain(
                     ERRORS.INVALID_PRIMARY_VRM
@@ -440,7 +440,7 @@ describe("VehicleProcessor", () => {
                           techRecord
                         )
                       ).toThrowError();
-                    } catch (errorResponse) {
+                    } catch (errorResponse: any) {
                       expect(errorResponse.statusCode).toEqual(400);
                       expect(errorResponse.body.errors).toContain(
                         "TrailerId ABCD943 already exists"
@@ -463,7 +463,7 @@ describe("VehicleProcessor", () => {
                 try {
                   // @ts-ignore
                   trailerProcessor.validate(payload, false);
-                } catch (errorResponse) {
+                } catch (errorResponse: any) {
                   expect(errorResponse.statusCode).toEqual(400);
                   expect(errorResponse.body.errors).toContain(
                     ERRORS.INVALID_TRAILER_ID
@@ -509,7 +509,7 @@ describe("VehicleProcessor", () => {
                 try {
                   // @ts-ignore
                   trailerProcessor.validate(payload, false);
-                } catch (errorResponse) {
+                } catch (errorResponse: any) {
                   expect(errorResponse.statusCode).toEqual(400);
                   expect(errorResponse.body.errors).toContain(
                     ERRORS.INVALID_SECONDARY_VRM

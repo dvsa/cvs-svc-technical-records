@@ -21,7 +21,7 @@ export async function updateTechRecordStatus(event: any) {
     try {
         const updatedTechRec = await techRecordsService.updateTechRecordStatusCode(systemNumber, newStatus, createdById, createdByName);
         return new HTTPResponse(200, updatedTechRec);
-    } catch (error) {
+    } catch (error: any) {
         return new HTTPResponse(error.statusCode, error.body);
     }
 }

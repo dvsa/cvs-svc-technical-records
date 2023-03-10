@@ -17,7 +17,7 @@ describe("Record completeness for systemNumber and Vin", () => {
       delete techRecord.systemNumber;
       try {
         expect(computeRecordCompleteness(techRecord)).toThrowError();
-      } catch (errorResponse) {
+      } catch (errorResponse: any) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(400);
         expect(errorResponse.body).toEqual(ERRORS.SYSTEM_NUMBER_GENERATION_FAILED);
@@ -28,7 +28,7 @@ describe("Record completeness for systemNumber and Vin", () => {
       techRecord.techRecord[0].vehicleType = "something else";
       try {
         expect(computeRecordCompleteness(techRecord)).toThrowError();
-      } catch (errorResponse) {
+      } catch (errorResponse: any) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(400);
         expect(errorResponse.body).toEqual(ERRORS.VEHICLE_TYPE_ERROR);

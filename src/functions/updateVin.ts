@@ -50,7 +50,7 @@ const updateVin = async (event: any) => {
     await techRecordsDAO.updateVin(newVehicle, oldVehicle);
 
     return new HTTPResponse(200, HTTPRESPONSE.VIN_UPDATED);
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
     if (error instanceof HTTPError) {
       return new HTTPResponse(error.statusCode, error.body);

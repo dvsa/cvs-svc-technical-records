@@ -37,7 +37,7 @@ export class TechRecordsListHandler<T extends Vehicle> {
       }
 
       return techRecordItems.map(this.formatTechRecordItemForResponse);
-    } catch (error) {
+    } catch (error: any) {
       if (!(error instanceof HTTPError)) {
         console.error(error);
         error.statusCode = 500;

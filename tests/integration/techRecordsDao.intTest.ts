@@ -50,7 +50,7 @@ describe("TechRecordsDAO", () => {
         const techRecordsDao = new TechRecordsDao();
         try {
           expect(await techRecordsDao.createSingle(techRecord)).toThrowError();
-        } catch (errorResponse) {
+        } catch (errorResponse: any) {
           expect(errorResponse.code).toEqual("ConditionalCheckFailedException");
           expect(errorResponse.message).toEqual("The conditional request failed");
         }
@@ -86,7 +86,7 @@ describe("TechRecordsDAO", () => {
         techRecord.vin = "ABCDEFGHS2340294";
         try {
           expect(await techRecordsDao.updateSingle(techRecord)).toThrowError();
-        } catch (errorResponse) {
+        } catch (errorResponse: any) {
           expect(errorResponse.statusCode).toEqual(400);
           expect(errorResponse.code).toEqual("ConditionalCheckFailedException");
           expect(errorResponse.message).toEqual("The conditional request failed");

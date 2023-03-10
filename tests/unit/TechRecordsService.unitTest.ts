@@ -120,7 +120,7 @@ describe("getTechRecordsList", () => {
 
       try {
         expect(await techRecordsService.getTechRecordsList("Rhubarb", "Potato", SEARCHCRITERIA.ALL)).toThrowError();
-      } catch (errorResponse) {
+      } catch (errorResponse: any) {
         expect(errorResponse.statusCode).toEqual(404);
         // FIXME: array to string
         expect(errorResponse.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
@@ -141,7 +141,7 @@ describe("getTechRecordsList", () => {
 
       try {
         expect(await techRecordsService.getTechRecordsList("", "", SEARCHCRITERIA.ALL)).toThrowError();
-      } catch (errorResponse) {
+      } catch (errorResponse: any) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(404);
         // FIXME: array to string
@@ -168,7 +168,7 @@ describe("getTechRecordsList", () => {
 
       try {
         expect(await techRecordsService.getTechRecordsList("", "", SEARCHCRITERIA.ALL)).toThrowError();
-      } catch (errorResponse) {
+      } catch (errorResponse: any) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(500);
         // FIXME: array to string
@@ -336,7 +336,7 @@ describe("insertTechRecord", () => {
 
       try {
         expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
-      } catch (errorResponse) {
+      } catch (errorResponse: any) {
         expect(errorResponse.statusCode).toEqual(400);
       }
     });
@@ -363,7 +363,7 @@ describe("insertTechRecord", () => {
 
         try {
           expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
-        } catch (errorResponse) {
+        } catch (errorResponse: any) {
           expect(errorResponse.statusCode).toEqual(400);
           expect(errorResponse.body.errors).toContain(ERRORS.INVALID_PRIMARY_VRM);
           expect(errorResponse.body.errors).toContain(ERRORS.INVALID_SECONDARY_VRM);
@@ -390,7 +390,7 @@ describe("insertTechRecord", () => {
       delete (techRecord as any).systemNumber;
       try {
         expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
-      } catch (errorResponse) {
+      } catch (errorResponse: any) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(400);
         // expect(errorResponse.body).toEqual("The conditional request failed");wq
@@ -447,7 +447,7 @@ describe("insertTechRecord", () => {
 
           try {
             expect(await numberGenerator.generateTrailerId()).toThrowError();
-          } catch (errorResponse) {
+          } catch (errorResponse: any) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual(ERRORS.TRAILER_ID_GENERATION_FAILED);
           }
@@ -474,7 +474,7 @@ describe("insertTechRecord", () => {
 
           try {
             expect(await numberGenerator.generateTrailerId()).toThrowError();
-          } catch (errorResponse) {
+          } catch (errorResponse: any) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual("Some error from test-number microservice");
           }
@@ -499,7 +499,7 @@ describe("insertTechRecord", () => {
 
           try {
             expect(await numberGenerator.generateTrailerId()).toThrowError();
-          } catch (errorResponse) {
+          } catch (errorResponse: any) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual("Error from test-number microservice");
           }
@@ -561,7 +561,7 @@ describe("insertTechRecord", () => {
 
           try {
             expect(await numberGenerator.generateZNumber()).toThrowError();
-          } catch (errorResponse) {
+          } catch (errorResponse: any) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual(ERRORS.Z_NUMBER_GENERATION_FAILED);
           }
@@ -589,7 +589,7 @@ describe("insertTechRecord", () => {
 
           try {
             expect(await numberGenerator.generateSystemNumber()).toThrowError();
-          } catch (errorResponse) {
+          } catch (errorResponse: any) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual(ERRORS.SYSTEM_NUMBER_GENERATION_FAILED);
           }
@@ -617,7 +617,7 @@ describe("insertTechRecord", () => {
 
           try {
             expect(await numberGenerator.generateSystemNumber()).toThrowError();
-          } catch (errorResponse) {
+          } catch (errorResponse: any) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual("Some error from test-number microservice");
           }
@@ -643,7 +643,7 @@ describe("insertTechRecord", () => {
 
           try {
             expect(await numberGenerator.generateSystemNumber()).toThrowError();
-          } catch (errorResponse) {
+          } catch (errorResponse: any) {
             expect(errorResponse.statusCode).toEqual(500);
             expect(errorResponse.body).toEqual("Error from test-number microservice");
           }
@@ -753,7 +753,7 @@ describe("updateTechRecord", () => {
         };
         try {
           expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails)).toThrowError();
-        } catch (errorResponse) {
+        } catch (errorResponse: any) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(400);
           expect(errorResponse.body.errors).toContain(ERRORS.VEHICLE_TYPE_ERROR);
@@ -769,7 +769,7 @@ describe("updateTechRecord", () => {
         const techRecordsService = new TechRecordsService(new MockDAO());
         try {
           expect(await techRecordsService.updateTechRecord(techRecord, msUserDetails)).toThrowError();
-        } catch (errorResponse) {
+        } catch (errorResponse: any) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(400);
           expect(errorResponse.body.errors).toContain(ERRORS.CANNOT_USE_UPDATE_TO_ARCHIVE);
@@ -789,7 +789,7 @@ describe("updateTechRecord", () => {
         };
         try {
           expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, STATUS.ARCHIVED)).toThrowError();
-        } catch (errorResponse) {
+        } catch (errorResponse: any) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(400);
           expect(errorResponse.body.errors).toContain(ERRORS.CANNOT_USE_UPDATE_TO_ARCHIVE);
@@ -809,7 +809,7 @@ describe("updateTechRecord", () => {
         };
         try {
           expect(await techRecordsService.updateTechRecord(recordToUpdate, msUserDetails, STATUS.CURRENT)).toThrowError();
-        } catch (errorResponse) {
+        } catch (errorResponse: any) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toEqual(400);
           expect(errorResponse.body.errors).toContain(ERRORS.CANNOT_CHANGE_CURRENT_TO_PROVISIONAL);
@@ -840,7 +840,7 @@ describe("updateTechRecord", () => {
       techRecord.primaryVrm = "JY58FPP";
       try {
         expect(await techRecordsService.updateTechRecord(techRecord, msUserDetails)).toThrowError();
-      } catch (errorResponse) {
+      } catch (errorResponse: any) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(404);
         // FIXME: discuss on how to string vs array of strings
@@ -952,7 +952,7 @@ describe("updateEuVehicleCategory", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
       try {
         expect(await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1, msOid, msUser)).toThrowError();
-      } catch (error) {
+      } catch (error: any) {
         expect(error.statusCode).toEqual(400);
         // FIXME: from array to string
         expect(error.body.errors).toContain(HTTPRESPONSE.EU_VEHICLE_CATEGORY_MORE_THAN_ONE_TECH_RECORD);
@@ -977,7 +977,7 @@ describe("updateEuVehicleCategory", () => {
       const techRecordsService = new TechRecordsService(mockDAO);
       try {
         expect(await techRecordsService.updateEuVehicleCategory(systemNumber, EU_VEHICLE_CATEGORY.M1,msOid, msUser)).toThrowError();
-      } catch (error) {
+      } catch (error: any) {
         expect(error.statusCode).toEqual(400);
         // FIXME: from array to string
         expect(error.body.errors).toContain(ERRORS.CANNOT_UPDATE_ARCHIVED_RECORD);
@@ -1035,7 +1035,7 @@ describe("archiveTechRecordStatus", () => {
       const techRecordsService = new TechRecordsService(new MockDAO());
       try {
         expect(await techRecordsService.archiveTechRecordStatus(techRecord.systemNumber, techRecord, msUserDetails, reasonForArchiving)).toThrowError();
-      } catch (errorResponse) {
+      } catch (errorResponse: any) {
         expect(errorResponse).toBeInstanceOf(HTTPError);
         expect(errorResponse.statusCode).toEqual(400);
         expect(errorResponse.body.errors).toContain(ERRORS.CANNOT_ARCHIVE_CHANGED_RECORD);

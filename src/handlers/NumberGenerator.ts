@@ -19,7 +19,7 @@ export class NumberGenerator {
         return Promise.reject({statusCode: 500, body: ERRORS.SYSTEM_NUMBER_GENERATION_FAILED});
       }
       return systemNumberObj.systemNumber;
-    } catch (error) {
+    } catch (error: any) {
       return Promise.reject({statusCode: 500, body: error});
     }
   }
@@ -34,7 +34,7 @@ export class NumberGenerator {
         return Promise.reject({statusCode: 500, body: ERRORS.TRAILER_ID_GENERATION_FAILED});
       }
       return trailerIdObj.trailerId;
-    } catch (error) {
+    } catch (error: any) {
       return Promise.reject({statusCode: 500, body: error});
     }
   }
@@ -49,7 +49,7 @@ export class NumberGenerator {
         return Promise.reject({statusCode: 500, body: ERRORS.Z_NUMBER_GENERATION_FAILED});
       }
       return zNumberObj.zNumber;
-    } catch (error) {
+    } catch (error: any) {
       return Promise.reject({statusCode: 500, body: error});
     }
   }

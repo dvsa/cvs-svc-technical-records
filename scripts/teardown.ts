@@ -12,7 +12,7 @@ module.exports = async () => {
   try {
     await killTestSetup();
     console.log("processes killed");
-  } catch (e) {
+  } catch (e: any) {
     console.log("Can not kill processes");
     console.error(e);
     throw e;

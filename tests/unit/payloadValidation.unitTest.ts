@@ -59,7 +59,7 @@ describe("New vehicle classes creation", () => {
       it("should throw Error: Not valid if vehicle class description is not an accepted field", () => {
         try {
           expect(fromValidation.populateVehicleClassCode("whatever")).toThrowError();
-        } catch (errorResponse) {
+        } catch (errorResponse: any) {
           console.log(errorResponse);
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.body.errors).toContain(ERRORS.INVALID_VEHICLE_CLASS);
@@ -69,7 +69,7 @@ describe("New vehicle classes creation", () => {
       it("should throw Error: Not valid if body type description is not an accepted field", () => {
         try {
           expect(fromValidation.populateBodyTypeCode("whatever")).toThrowError();
-        } catch (errorResponse) {
+        } catch (errorResponse: any) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.body.errors).toContain(ERRORS.INVALID_BODY_TYPE);
         }

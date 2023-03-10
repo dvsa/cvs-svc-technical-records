@@ -38,7 +38,7 @@ const updateTechRecords = async (event: any) => {
   try {
     const updatedTechRec = await techRecordsService.updateTechRecord(techRecord, msUserDetails, oldStatusCode);
     return new HTTPResponse(200, updatedTechRec);
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
     return new HTTPResponse(error.statusCode, error.body);
   }

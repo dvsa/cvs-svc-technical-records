@@ -53,7 +53,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   /**
    * Returns the system number or trailer id based on vehicle type
    */
-  protected abstract async setNumberKey(): Promise<void>;
+  protected abstract setNumberKey(): Promise<void>;
 
   /**
    * update the vehicle identifier attributes
@@ -132,7 +132,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       this.vehicle = await this.validateAndMapTechRecord(msUserDetails);
       const data = await this.techRecordDAO.createSingle(this.vehicle);
       return data.Attributes as T;
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       const errorList = error.body ? error.body.errors : error.message;
       throw this.Error(error.statusCode, errorList);
@@ -158,7 +158,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       return this.techRecordsListHandler.formatTechRecordItemForResponse(
         updatedData.Attributes as T
       );
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       throw handlers.ErrorHandler.Error(error.statusCode, error.body.errors);
     }
@@ -229,7 +229,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       return this.techRecordsListHandler.formatTechRecordItemForResponse(
         mergedRecord[0]
       );
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       throw this.Error(error.statusCode, error.body);
     }
@@ -239,7 +239,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     let updatedTechRecord;
     try {
       updatedTechRecord = await this.techRecordDAO.updateSingle(uniqueRecord);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       throw this.Error(500, enums.HTTPRESPONSE.INTERNAL_SERVER_ERROR);
     }
@@ -306,7 +306,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       updatedTechRecord = await this.techRecordDAO.updateSingle(
         uniqueVehicleRecord
       );
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       throw this.Error(error.statusCode, error.message);
     }
@@ -364,7 +364,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     let updatedTechRecord;
     try {
       updatedTechRecord = await this.techRecordDAO.updateSingle(vehicle);
-    } catch (error) {
+    } catch (error: any) {
       throw this.Error(500, enums.HTTPRESPONSE.INTERNAL_SERVER_ERROR);
     }
     return new HTTPResponse(
@@ -478,7 +478,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       newRecord.recordCompleteness = computeRecordCompleteness(vehicleToUpdate);
       techRecordWithAllStatuses.techRecord.push(newRecord);
       return techRecordWithAllStatuses;
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       throw this.Error(error.statusCode, error.body);
     }

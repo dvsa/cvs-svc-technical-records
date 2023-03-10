@@ -80,7 +80,7 @@ const createSingleTechRecord = async (
       msUserDetails
     );
     return new HTTPResponse(201, HTTPRESPONSE.TECHINICAL_RECORD_CREATED);
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
     return new HTTPResponse(error.statusCode, error.body);
   }
