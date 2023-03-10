@@ -257,8 +257,8 @@ describe("insertTechRecord", () => {
     it("should return 201 Technical Record Created", async () => {
       // @ts-ignore
       const techRecord: Trailer = cloneDeep(records[78]);
-      delete techRecord.techRecord[0].statusCode;
-      delete techRecord.systemNumber;
+      delete (techRecord as any).techRecord[0].statusCode;
+      delete (techRecord as any).systemNumber;
 
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
@@ -292,9 +292,9 @@ describe("insertTechRecord", () => {
         const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
         // techRecord.secondaryVrms = ["invalidSecondaryVrm"];
         techRecord.techRecord[0].bodyType.description = "skeletal";
-        delete techRecord.techRecord[0].statusCode;
+        delete (techRecord as any).techRecord[0].statusCode;
         delete techRecord.primaryVrm;
-        delete techRecord.systemNumber;
+        delete (techRecord as any).systemNumber;
 
         const MockDAO = jest.fn().mockImplementation(() => {
           return {
@@ -331,8 +331,8 @@ describe("insertTechRecord", () => {
       // @ts-ignore
       const techRecord: Trailer = cloneDeep(records[29]);
       techRecord.techRecord[0].bodyType.description = "whatever";
-      delete techRecord.techRecord[0].statusCode;
-      delete techRecord.systemNumber;
+      delete (techRecord as any).techRecord[0].statusCode;
+      delete (techRecord as any).systemNumber;
 
       try {
         expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
@@ -354,7 +354,7 @@ describe("insertTechRecord", () => {
         const techRecordsService = new TechRecordsService(new MockDAO());
 
         // @ts-ignore
-        const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
+        const techRecord: any = cloneDeep(records[43]);
         techRecord.primaryVrm = "invalidPrimaryVrm";
         techRecord.secondaryVrms = ["invalidSecondaryVrm"];
         techRecord.techRecord[0].bodyType.description = "skeletal";
@@ -386,8 +386,8 @@ describe("insertTechRecord", () => {
 
       // @ts-ignore
       const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
-      delete techRecord.techRecord[0].statusCode;
-      delete techRecord.systemNumber;
+      delete (techRecord as any).techRecord[0].statusCode;
+      delete (techRecord as any).systemNumber;
       try {
         expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
       } catch (errorResponse) {
@@ -419,7 +419,7 @@ describe("insertTechRecord", () => {
         // @ts-ignore
         const techRecord: Trailer = cloneDeep(records[78]);
         delete techRecord.trailerId;
-        delete techRecord.techRecord[0].statusCode;
+        delete (techRecord as any).techRecord[0].statusCode;
 
         expect(await numberGenerator.generateTrailerId()).toEqual("C530001");
       });
