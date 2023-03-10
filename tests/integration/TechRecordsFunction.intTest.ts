@@ -156,7 +156,7 @@ describe("postTechRecords", () => {
       it("should return 201 created", async () => {
         // @ts-ignore
         const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
-        delete techRecord.techRecord[0].statusCode;
+        delete (techRecord as any).techRecord[0].statusCode;
         techRecord.vin = Date.now().toString().substring(8);
 
         const payload = {
@@ -181,7 +181,7 @@ describe("postTechRecords", () => {
     context("and the msUserDetails is not provided", () => {
       it("should return 400 Microsoft user details not provided", async () => {
         const techRecord: any = cloneDeep(records[43]);
-        delete techRecord.techRecord[0].statusCode;
+        delete (techRecord as any).techRecord[0].statusCode;
         techRecord.vin = Date.now().toString();
 
         const payload = {
@@ -207,7 +207,7 @@ describe("postTechRecords", () => {
         // @ts-ignore
         const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
         const { primaryVrm, secondaryVrms } = techRecord;
-        delete techRecord.techRecord[0].statusCode;
+        delete (techRecord as any).techRecord[0].statusCode;
         techRecord.vin = Date.now().toString();
 
         const payload = {
@@ -311,7 +311,7 @@ describe("updateTechRecords", () => {
           // @ts-ignore
           const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
           const { primaryVrm, secondaryVrms } = techRecord;
-          delete techRecord.techRecord[0].statusCode;
+          delete (techRecord as any).techRecord[0].statusCode;
           const systemNumber = "NOT A SYSTEM NUMBER";
           const payload = {
             msUserDetails,

@@ -19,7 +19,8 @@ const postTechRecords = async (event: any) => {
     return createSingleTechRecord(body as any, techRecordsService);
   });
   const res = await Promise.allSettled(results);
-  return new HTTPResponse(201, "all good");
+
+  return new HTTPResponse(201, res);
 };
 
 type PostRecord = Partial<Vehicle & { msUserDetails: IMsUserDetails }>;

@@ -616,7 +616,7 @@ describe("techRecords", () => {
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
               const {primaryVrm} = techRec;
               const vin = Date.now().toString();
-              delete techRec.techRecord[0].statusCode;
+              delete (techRec as any).techRecord[0].statusCode;
               const payload = {
                 msUserDetails,
                 primaryVrm,

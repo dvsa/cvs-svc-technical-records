@@ -40,7 +40,7 @@ describe("TechRecords", () => {
     const vin = Date.now().toString();
     techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
     techRecord.primaryVrm = Math.floor(100000 + Math.random() * 900000).toString();
-    delete techRecord.techRecord[0].statusCode;
+    delete (techRecord as any).techRecord[0].statusCode;
     const payload = {
       msUserDetails,
       vin,

@@ -14,7 +14,7 @@ describe("Record completeness for systemNumber and Vin", () => {
   });
   context("checking Vin and systemNumber attributes", () => {
     it("should throw an error if systemNumber is not present on the vehicle", () => {
-      delete techRecord.systemNumber;
+      delete (techRecord as any).systemNumber;
       try {
         expect(computeRecordCompleteness(techRecord)).toThrowError();
       } catch (errorResponse: any) {
@@ -36,7 +36,7 @@ describe("Record completeness for systemNumber and Vin", () => {
     });
 
     it("should return SKELETON if VIN is missing", () => {
-      delete techRecord.vin;
+      delete (techRecord as any).vin;
       const recordCompleteness = computeRecordCompleteness(techRecord);
       expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.SKELETON);
     });

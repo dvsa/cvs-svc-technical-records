@@ -32,7 +32,7 @@ describe("New vehicle classes creation", () => {
 
       it("should not populate vehicle class code if vehicleClass is missing (LGV, CAR, MOTORCYCLE)", () => {
         const payload: ITechRecord = createPayload();
-        delete payload.vehicleClass;
+        delete (payload as any).vehicleClass;
         fromValidation.populateFields(payload);
         expect(payload).not.toHaveProperty("vehicleClass");
       });

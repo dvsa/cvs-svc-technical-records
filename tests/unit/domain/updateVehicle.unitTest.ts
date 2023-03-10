@@ -248,8 +248,8 @@ describe("VehicleProcessor", () => {
                   // @ts-ignore
                   const techRecord: HeavyGoodsVehicle = cloneDeep(mockData[43]);
                   // techRecord.vrms = [];
-                  delete techRecord.secondaryVrms;
-                  delete techRecord.primaryVrm;
+                  delete (techRecord as any).secondaryVrms;
+                  delete (techRecord as any).primaryVrm;
                   const MockDAO = jest.fn().mockImplementation(() => {
                     return {
                       getBySearchTerm: () => {

@@ -293,7 +293,7 @@ describe("insertTechRecord", () => {
         // techRecord.secondaryVrms = ["invalidSecondaryVrm"];
         techRecord.techRecord[0].bodyType.description = "skeletal";
         delete (techRecord as any).techRecord[0].statusCode;
-        delete techRecord.primaryVrm;
+        delete (techRecord as any).primaryVrm;
         delete (techRecord as any).systemNumber;
 
         const MockDAO = jest.fn().mockImplementation(() => {
@@ -358,8 +358,8 @@ describe("insertTechRecord", () => {
         techRecord.primaryVrm = "invalidPrimaryVrm";
         techRecord.secondaryVrms = ["invalidSecondaryVrm"];
         techRecord.techRecord[0].bodyType.description = "skeletal";
-        delete techRecord.techRecord[0].statusCode;
-        delete techRecord.systemNumber;
+        delete (techRecord as any).techRecord[0].statusCode;
+        delete (techRecord as any).systemNumber;
 
         try {
           expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
@@ -418,7 +418,7 @@ describe("insertTechRecord", () => {
 
         // @ts-ignore
         const techRecord: Trailer = cloneDeep(records[78]);
-        delete techRecord.trailerId;
+        delete (techRecord as any).trailerId;
         delete (techRecord as any).techRecord[0].statusCode;
 
         expect(await numberGenerator.generateTrailerId()).toEqual("C530001");
@@ -442,8 +442,8 @@ describe("insertTechRecord", () => {
 
           // @ts-ignore
           const techRecord: Trailer = cloneDeep(records[78]);
-          delete techRecord.trailerId;
-          delete techRecord.techRecord[0].statusCode;
+          delete (techRecord as any).trailerId;
+          delete (techRecord as any).techRecord[0].statusCode;
 
           try {
             expect(await numberGenerator.generateTrailerId()).toThrowError();
@@ -469,8 +469,8 @@ describe("insertTechRecord", () => {
 
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
-          delete techRecord.trailerId;
-          delete techRecord.techRecord[0].statusCode;
+          delete (techRecord as any).trailerId;
+          delete (techRecord as any).techRecord[0].statusCode;
 
           try {
             expect(await numberGenerator.generateTrailerId()).toThrowError();
@@ -494,8 +494,8 @@ describe("insertTechRecord", () => {
 
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
-          delete techRecord.trailerId;
-          delete techRecord.techRecord[0].statusCode;
+          delete (techRecord as any).trailerId;
+          delete (techRecord as any).techRecord[0].statusCode;
 
           try {
             expect(await numberGenerator.generateTrailerId()).toThrowError();
@@ -526,8 +526,8 @@ describe("insertTechRecord", () => {
         // @ts-ignore
         const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
         techRecord.vin = Date.now().toString();
-        delete techRecord.trailerId;
-        delete techRecord.techRecord[0].statusCode;
+        delete (techRecord as any).trailerId;
+        delete (techRecord as any).techRecord[0].statusCode;
 
         expect(await numberGenerator.generateSystemNumber()).toEqual("10001111");
       });
@@ -584,8 +584,8 @@ describe("insertTechRecord", () => {
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
           techRecord.vin = Date.now().toString();
-          delete techRecord.trailerId;
-          delete techRecord.techRecord[0].statusCode;
+          delete (techRecord as any).trailerId;
+          delete (techRecord as any).techRecord[0].statusCode;
 
           try {
             expect(await numberGenerator.generateSystemNumber()).toThrowError();
@@ -612,8 +612,8 @@ describe("insertTechRecord", () => {
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
           techRecord.vin = Date.now().toString();
-          delete techRecord.trailerId;
-          delete techRecord.techRecord[0].statusCode;
+          delete (techRecord as any).trailerId;
+          delete (techRecord as any).techRecord[0].statusCode;
 
           try {
             expect(await numberGenerator.generateSystemNumber()).toThrowError();
@@ -638,8 +638,8 @@ describe("insertTechRecord", () => {
           // @ts-ignore
           const techRecord: ITechRecordWrapper = cloneDeep(records[78]);
           techRecord.vin = Date.now().toString();
-          delete techRecord.trailerId;
-          delete techRecord.techRecord[0].statusCode;
+          delete (techRecord as any).trailerId;
+          delete (techRecord as any).techRecord[0].statusCode;
 
           try {
             expect(await numberGenerator.generateSystemNumber()).toThrowError();
@@ -701,8 +701,8 @@ describe("updateTechRecord", () => {
       techRecord.techRecord[0].bodyType.description = "skeletal";
       techRecord.techRecord[0].grossGbWeight = 5555;
       techRecord.techRecord[0].adrDetails.vehicleDetails.type = "Artic tractor";
-      delete techRecord.techRecord[0].adrDetails.memosApply;
-      delete techRecord.techRecord[0].adrDetails.tank;
+      delete (techRecord as any).techRecord[0].adrDetails.memosApply;
+      delete (techRecord as any).techRecord[0].adrDetails.tank;
       const vrms = [{vrm: "LKJH654", isPrimary: true}, {vrm: "POI9876", isPrimary: false}];
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
@@ -833,8 +833,8 @@ describe("updateTechRecord", () => {
       const techRecordsService = new TechRecordsService(new MockDAO());
 
       const techRecord: any = cloneDeep(records[43]);
-      delete techRecord.techRecord[0].statusCode;
-      delete techRecord.techRecord[0].adrDetails;
+      delete (techRecord as any).techRecord[0].statusCode;
+      delete (techRecord as any).techRecord[0].adrDetails;
       techRecord.partialVin = "012345";
       techRecord.vin = "XMGDE02FS0H012345";
       techRecord.primaryVrm = "JY58FPP";
@@ -857,10 +857,10 @@ describe("updateEuVehicleCategory", () => {
 
   context("when updating a euVehicleCategory for an existing vehicle where the value is null", () => {
     it("should update the euVehicleCategory with the value provided", async () => {
-      const expectedTechRecord = cloneDeep<ITechRecordWrapper>(records[22]);
+      const expectedTechRecord = cloneDeep(records[22]);
       const systemNumber = "10000023";
       const newEuVehicleCategory = "m1";
-      expectedTechRecord.techRecord[0].euVehicleCategory = newEuVehicleCategory;
+      (expectedTechRecord.techRecord[0] as any).euVehicleCategory = newEuVehicleCategory;
       const MockDAO = jest.fn().mockImplementation(() => {
         return {
           updateSingle: () => {

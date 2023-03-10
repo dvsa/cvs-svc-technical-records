@@ -32,9 +32,9 @@ export class AuditDetailsHandler {
     techRecord.createdAt = date;
     techRecord.createdByName = createdByName;
     techRecord.createdById = createdById;
-    delete techRecord.lastUpdatedAt;
-    delete techRecord.lastUpdatedById;
-    delete techRecord.lastUpdatedByName;
+    delete (techRecord as any).lastUpdatedAt;
+    delete (techRecord as any).lastUpdatedById;
+    delete (techRecord as any).lastUpdatedByName;
   }
 
   public setLastUpdatedAuditDetails<TechRec extends TechRecord>(techRecord: TechRec, createdByName: string, createdById: string, date: string) {

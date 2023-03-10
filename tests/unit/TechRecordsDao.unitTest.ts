@@ -332,8 +332,8 @@ describe("TechRecordsDAO", () => {
       it("for invalid TechRecord", async () => {
         const techRecord: any = cloneDeep(mockData[0]);
 
-        delete techRecord.systemNumber;
-        delete techRecord.vin;
+        delete (techRecord as any).systemNumber;
+        delete (techRecord as any).vin;
         const expectedCall = {
           TableName: "cvs-local-technical-records",
           Item: techRecord,
@@ -367,8 +367,8 @@ describe("TechRecordsDAO", () => {
     context("builds correct request when only primaryVrm is updated", () => {
       it("should return the correct query", async () => {
         const techRecord: any = cloneDeep(mockData[0]);
-        delete techRecord.secondaryVrms;
-        delete techRecord.trailerId;
+        delete (techRecord as any).secondaryVrms;
+        delete (techRecord as any).trailerId;
 
         const expectedCall = {
           TableName: "cvs-local-technical-records",
@@ -395,8 +395,8 @@ describe("TechRecordsDAO", () => {
     context("builds correct request when only secondaryVrms are updated", () => {
       it("should return the correct query", async () => {
         const techRecord: any = cloneDeep(mockData[0]);
-        delete techRecord.primaryVrm;
-        delete techRecord.trailerId;
+        delete (techRecord as any).primaryVrm;
+        delete (techRecord as any).trailerId;
 
         const expectedCall = {
           TableName: "cvs-local-technical-records",
@@ -423,8 +423,8 @@ describe("TechRecordsDAO", () => {
     context("builds correct request when only trailerId is updated", () => {
       it("should return the correct query", async () => {
         const techRecord: any = cloneDeep(mockData[0]);
-        delete techRecord.secondaryVrms;
-        delete techRecord.primaryVrm;
+        delete (techRecord as any).secondaryVrms;
+        delete (techRecord as any).primaryVrm;
 
         const expectedCall = {
           TableName: "cvs-local-technical-records",

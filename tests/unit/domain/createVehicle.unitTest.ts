@@ -24,7 +24,7 @@ describe("createVehicle", () => {
       it("should pass the validation and return the validated payload for TRL", async () => {
         // @ts-ignore
         const techRec: Trailer = cloneDeep(mockData[132]);
-        delete techRec.techRecord[0].statusCode;
+        delete (techRec as any).techRecord[0].statusCode;
         techRec.techRecord[0].bodyType.description = "articulated";
         techRec.techRecord[0].vehicleClass.description = "trailer";
         const MockDAO = jest.fn().mockImplementation(() => {
@@ -60,7 +60,7 @@ describe("createVehicle", () => {
       it("should pass the validation and return the validated payload for PSV", async () => {
         // @ts-ignore
         const techRec: PublicServiceVehicle = cloneDeep(mockData[74]);
-        delete techRec.techRecord[0].statusCode;
+        delete (techRec as any).techRecord[0].statusCode;
         techRec.techRecord[0].bodyType.description = "skeletal";
         techRec.techRecord[0].vehicleClass.description =
           "small psv (ie: less than or equal to 22 seats)";
@@ -94,7 +94,7 @@ describe("createVehicle", () => {
       it("should pass the validation and return the validated payload for HGV", async () => {
         // @ts-ignore
         const techRec: HeavyGoodsVehicle = cloneDeep(mockData[43]);
-        delete techRec.techRecord[0].statusCode;
+        delete (techRec as any).techRecord[0].statusCode;
         techRec.techRecord[0].bodyType.description = "double decker";
         techRec.techRecord[0].vehicleClass.description = "heavy goods vehicle";
         const MockDAO = jest.fn().mockImplementation(() => {
@@ -122,7 +122,7 @@ describe("createVehicle", () => {
       it("should pass the validation and return the validated payload for LGV", async () => {
         // @ts-ignore
         const techRec: LightGoodsVehicle = cloneDeep(mockData[124]);
-        delete techRec.techRecord[0].statusCode;
+        delete (techRec as any).techRecord[0].statusCode;
         techRec.techRecord[0].vehicleClass!.description =
           "motorbikes up to 200cc";
         const MockDAO = jest.fn().mockImplementation(() => {
@@ -149,7 +149,7 @@ describe("createVehicle", () => {
       it("should pass the validation and return the validated payload for CAR", async () => {
         // @ts-ignore
         const techRec: Car = cloneDeep(mockData[123]);
-        delete techRec.techRecord[0].statusCode;
+        delete (techRec as any).techRecord[0].statusCode;
         techRec.techRecord[0].vehicleClass!.description =
           "motorbikes up to 200cc";
         const MockDAO = jest.fn().mockImplementation(() => {
@@ -176,7 +176,7 @@ describe("createVehicle", () => {
       it("should pass the validation and return the validated payload for MOTORCYCLE", async () => {
         // @ts-ignore
         const techRec: Motorcycle = cloneDeep(mockData[122]);
-        delete techRec.techRecord[0].statusCode;
+        delete (techRec as any).techRecord[0].statusCode;
         techRec.techRecord[0].vehicleClass.description =
           "motorbikes up to 200cc";
         const MockDAO = jest.fn().mockImplementation(() => {

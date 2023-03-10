@@ -82,9 +82,9 @@ export class TechRecordsListHandler<T extends Vehicle> {
       vrms
     });
     // Cleaning up unneeded properties
-    delete techRecordItem.primaryVrm; // No longer needed
-    delete techRecordItem.secondaryVrms; // No longer needed
-    delete techRecordItem.partialVin; // No longer needed
+    delete (techRecordItem as any).primaryVrm; // No longer needed
+    delete (techRecordItem as any).secondaryVrms; // No longer needed
+    delete (techRecordItem as any).partialVin; // No longer needed
     techRecordItem.techRecord.forEach((techRecord: any) => {
       if (
         techRecord.euroStandard !== undefined &&
