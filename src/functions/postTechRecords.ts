@@ -18,7 +18,7 @@ const postTechRecords = async (event: any) => {
   const results = eventBody.map(async (body) => {
     return createSingleTechRecord(body as any, techRecordsService);
   });
-  const res = await Promise.all(results);
+  const res = await Promise.allSettled(results);
   return res[0];
 };
 
