@@ -364,6 +364,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       techRecord.statusCode = enums.STATUS.ARCHIVED;
       newTechRecord.euVehicleCategory = newEuVehicleCategory;
       newTechRecord.statusCode = statusCode;
+      newTechRecord.reasonForCreation = 'Update to Eu Vehicle Category';
       this.auditHandler.setAuditDetails(newTechRecord, nonArchivedTechRecord[0],msUserDetails);
       vehicle.techRecord.push(newTechRecord);
     });
