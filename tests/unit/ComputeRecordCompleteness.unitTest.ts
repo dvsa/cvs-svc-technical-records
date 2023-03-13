@@ -2,7 +2,7 @@ import {cloneDeep} from "lodash";
 import mockData from "../resources/technical-records.json";
 import {computeRecordCompleteness} from "../../src/utils/record-completeness/ComputeRecordCompleteness";
 import HTTPError from "../../src/models/HTTPError";
-import {ERRORS, RECORD_COMPLETENESS_ENUM} from "../../src/assets/Enums";
+import {ERRORS, EU_VEHICLE_CATEGORY, RECORD_COMPLETENESS_ENUM} from "../../src/assets/Enums";
 
 describe("Record completeness for systemNumber and Vin", () => {
   let techRecord: any;
@@ -148,6 +148,7 @@ describe("Compute Record Completeness", () => {
       it("should return TESTABLE if all core mandatory are completed and one of the non-core mandatory attributes is missing", () => {
         const record: any = cloneDeep(mockData[126]);
         delete record.techRecord[0].dimensions.length;
+        record.techRecord[0].euVehicleCategory = EU_VEHICLE_CATEGORY.O2;
         const recordCompleteness = computeRecordCompleteness(record);
         expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.TESTABLE);
       });

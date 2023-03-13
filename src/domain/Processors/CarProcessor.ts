@@ -11,6 +11,9 @@ export class CarProcessor extends VehicleProcessor<Car> {
 
   protected async setNumberKey(): Promise<void> {
     this.vehicle.systemNumber = await this.numberGenerator.generateSystemNumber();
+    if (!this.vehicle.primaryVrm) {
+      this.vehicle.primaryVrm = await this.numberGenerator.generateZNumber();
+    }
   }
 
   protected validateTechRecordFields(newVehicle: CarLgvTechRecord): string[] {

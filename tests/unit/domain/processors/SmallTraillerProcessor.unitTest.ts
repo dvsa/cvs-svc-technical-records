@@ -1,16 +1,14 @@
-import { cloneDeep } from "lodash";
 import { CarLgvTechRecord, Vehicle } from "../../../../@Types/TechRecords";
-import { VEHICLE_TYPE } from "../../../../src/assets";
+import { EU_VEHICLE_CATEGORY, VEHICLE_TYPE } from "../../../../src/assets";
 import { VehicleFactory } from "../../../../src/domain/VehicleFactory";
 import TechRecordsDAO from "../../../../src/models/TechRecordsDAO";
-import records from "../../../resources/technical-records.json";
 
 describe("SmallTrailerProcessor", () => {
   const techRecordsDAO = new TechRecordsDAO();
   const smallTrailer = {
     systemNumber: "",
     vin: "",
-    techRecord: [{ vehicleType: VEHICLE_TYPE.SMALL_TRL }],
+    techRecord: [{ vehicleType: VEHICLE_TYPE.TRL, euVehicleCategory: EU_VEHICLE_CATEGORY.O1 }],
   } as Vehicle;
   const vehicle = VehicleFactory.generateVehicleInstance(
     smallTrailer,
@@ -29,10 +27,10 @@ describe("SmallTrailerProcessor", () => {
   context("validateTechRecordFields", () => {
     it("fails validation", async () => {
       const newVehicle = {
-        vehicleSubclass: [],
+        vehicleSubclass: 'o1, o2',
         vehicleClass: {
-          code: "",
-          description: "",
+          code: 123,
+          description: "yolo",
         },
       } as unknown as CarLgvTechRecord;
 
@@ -42,9 +40,7 @@ describe("SmallTrailerProcessor", () => {
     });
 
     it("passes validation", async () => {
-      const newVehicle = {
-        vehicleType: VEHICLE_TYPE.SMALL_TRL,
-      } as unknown as CarLgvTechRecord;
+      const newVehicle = { vehicleType: VEHICLE_TYPE.TRL, euVehicleCategory: EU_VEHICLE_CATEGORY.O1 } as unknown as CarLgvTechRecord;
 
       const validationErrors = vehicle["validateTechRecordFields"](newVehicle!);
 

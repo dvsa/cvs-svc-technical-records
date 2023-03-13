@@ -4,6 +4,7 @@ import path from "path";
 import mockData from "../../resources/technical-records.json";
 import { emptyDatabase, populateDatabase } from "../../util/dbOperations";
 import { cloneDeep } from "lodash";
+import { EU_VEHICLE_CATEGORY } from '../../../src/assets';
 
 const url = "http://localhost:3005/";
 const request = supertest(url);
@@ -119,6 +120,7 @@ defineFeature(feature, (test) => {
       requestUrlGET = `vehicles/${postPayload.vin}/tech-records`;
     });
     and('I have completed the "body type description" field', () => {
+      postPayload.techRecord[0].euVehicleCategory = EU_VEHICLE_CATEGORY.O2;
       postPayload.techRecord[0].bodyType = {
         description: "skeletal",
       };
