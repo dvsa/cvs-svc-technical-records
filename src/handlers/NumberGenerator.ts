@@ -57,12 +57,15 @@ export class NumberGenerator {
   public async generateTNumber(): Promise<string> {
     try {
       const tNumberObj = await this.techRecordsDAO.getTNumber();
+
       if (tNumberObj.error) {
         return Promise.reject({statusCode: 500, body: tNumberObj.error});
       }
+
       if (!tNumberObj.tNumber) {
         return Promise.reject({statusCode: 500, body: ERRORS.T_NUMBER_GENERATION_FAILED});
       }
+
       return tNumberObj.tNumber;
     } catch (error) {
       return Promise.reject({statusCode: 500, body: error});
