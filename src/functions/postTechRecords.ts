@@ -1,18 +1,18 @@
+import { HTTPRESPONSE, VEHICLE_TYPE } from "../assets/Enums";
+import HTTPResponse from "../models/HTTPResponse";
 import TechRecordsDAO from "../models/TechRecordsDAO";
 import TechRecordsService from "../services/TechRecordsService";
-import HTTPResponse from "../models/HTTPResponse";
-import {populatePartialVin} from "../utils/validations/ValidationUtils";
-import { HTTPRESPONSE, VEHICLE_TYPE } from "../assets/Enums";
+import { populatePartialVin } from "../utils/validations/ValidationUtils";
 
 const postTechRecords = async (event: any) => {
   const techRecordsDAO = new TechRecordsDAO();
   const techRecordsService = new TechRecordsService(techRecordsDAO);
 
-  const techRec = event.body ? event.body.techRecord : null;
-  const msUserDetails = event.body ? event.body.msUserDetails : null;
-  const vin = event.body ? event.body.vin : null;
-  const primaryVrm = event.body ? event.body.primaryVrm : null;
-  const secondaryVrms = event.body ? event.body.secondaryVrms : null;
+  const techRec = event.body?.techRecord;
+  const msUserDetails = event.body?.msUserDetails;
+  const vin = event.body?.vin;
+  const primaryVrm = event.body?.primaryVrm;
+  const secondaryVrms = event.body?.secondaryVrms;
   const trailerId = event.body?.trailerId;
 
   if (!vin || vin.length < 3 || vin.length > 21 || typeof vin !== "string") {
@@ -28,16 +28,16 @@ const postTechRecords = async (event: any) => {
   }
 
   const techRecord: any = {
+    systemNumber: "",
     vin,
     partialVin: populatePartialVin(vin),
-    techRecord: techRec,
-    systemNumber: "",
     primaryVrm,
-    secondaryVrms
+    secondaryVrms,
+    techRecord: techRec
   };
 
   // Only add the trailer id if we have it and vehicle is a trailer
-  if(trailerId && techRecord.vehicleType === VEHICLE_TYPE.TRL) {
+  if (trailerId && techRec[0]?.vehicleType === VEHICLE_TYPE.TRL) {
     techRecord.trailerId = trailerId;
   }
 
@@ -50,4 +50,4 @@ const postTechRecords = async (event: any) => {
   }
 };
 
-export {postTechRecords};
+export { postTechRecords };
