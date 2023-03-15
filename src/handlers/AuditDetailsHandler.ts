@@ -1,4 +1,4 @@
-import {STATUS, UPDATE_TYPE} from "../assets/Enums";
+import {STATUS, STATUS_CODES, UPDATE_TYPE} from "../assets/Enums";
 import IMsUserDetails from "../../@Types/IUserDetails";
 import {TechRecord} from "../../@Types/TechRecords";
 import {isEqual} from "lodash";
@@ -25,7 +25,7 @@ export class AuditDetailsHandler {
     techRecord.createdAt = new Date().toISOString();
     techRecord.createdByName = msUserDetails.msUser;
     techRecord.createdById = msUserDetails.msOid;
-    techRecord.statusCode = STATUS.PROVISIONAL;
+    techRecord.statusCode = STATUS_CODES.includes(techRecord.statusCode) ? techRecord.statusCode : STATUS.PROVISIONAL;
   }
 
   public setCreatedAuditDetails<TechRec extends TechRecord>(techRecord: TechRec, createdByName: string, createdById: string, date: string) {
