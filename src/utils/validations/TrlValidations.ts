@@ -118,4 +118,5 @@ export const trlValidation = commonSchema.keys({
   notes: Joi.string().optional().allow(null, ""),
   adrDetails: adrValidation,
   applicantDetails: applicantDetailsSchemaOptional,
+  batchId: Joi.string().optional().allow(null, ""),
 });
