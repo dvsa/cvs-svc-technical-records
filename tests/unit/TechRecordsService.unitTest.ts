@@ -501,7 +501,7 @@ describe("insertTechRecord", () => {
             expect(await numberGenerator.generateTrailerId()).toThrowError();
           } catch (errorResponse) {
             expect(errorResponse.statusCode).toEqual(500);
-            expect(errorResponse.body).toEqual("Error from test-number microservice");
+            expect(errorResponse.body).toEqual(ERRORS.TRAILER_ID_GENERATION_FAILED);
           }
         });
       });
@@ -610,7 +610,7 @@ describe("insertTechRecord", () => {
             expect(await numberGenerator.generateTNumber()).toThrowError();
           } catch (errorResponse) {
             expect(errorResponse.statusCode).toEqual(500);
-            expect(errorResponse.body).toEqual("Error from test-number microservice");
+            expect(errorResponse.body).toEqual(ERRORS.T_NUMBER_GENERATION_FAILED);
           }
         });
       });
@@ -728,7 +728,7 @@ describe("insertTechRecord", () => {
             expect(await numberGenerator.generateSystemNumber()).toThrowError();
           } catch (errorResponse) {
             expect(errorResponse.statusCode).toEqual(500);
-            expect(errorResponse.body).toEqual("Some error from test-number microservice");
+            expect(errorResponse.body).toEqual( "Some error from test-number microservice");
           }
         });
       });
@@ -754,7 +754,7 @@ describe("insertTechRecord", () => {
             expect(await numberGenerator.generateSystemNumber()).toThrowError();
           } catch (errorResponse) {
             expect(errorResponse.statusCode).toEqual(500);
-            expect(errorResponse.body).toEqual("Error from test-number microservice");
+            expect(errorResponse.body).toEqual(ERRORS.SYSTEM_NUMBER_GENERATION_FAILED);
           }
         });
       });
