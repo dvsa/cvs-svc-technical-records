@@ -45,7 +45,7 @@ describe("TechRecords", () => {
       msUserDetails,
       vin,
       primaryVrm: techRecord.primaryVrm,
-      techRecord: techRecord.techRecord
+      techRecord: techRecord.techRecord,
     };
     const vehicleRecordEvent = {
       path: "/vehicles",
@@ -53,16 +53,23 @@ describe("TechRecords", () => {
       resource: "/vehicles/{searchIdentifier}/tech-records",
       httpMethod: "POST",
       body: JSON.stringify(payload),
-      queryStringParameters: null
+      queryStringParameters: null,
     };
 
-    const opts = Object.assign({
-      timeout: 1
-    });
+    const expectedResponse = {
+      vin,
+      primaryVrm: techRecord.primaryVrm,
+      techRecord: techRecord.techRecord,
+    };
+
     const response = await handler(vehicleRecordEvent, ctx);
+
+    expectedResponse.techRecord[0].createdAt = JSON.parse(response.body).techRecord[0].createdAt;
+
     expect(response).toBeDefined();
     expect(response.statusCode).toEqual(201);
-    expect(JSON.parse(response.body)).toEqual("Technical Record created");
+    expect(JSON.parse(response.body)).toMatchObject(expectedResponse);
+    expect(JSON.parse(response.body).systemNumber).toBeDefined();
   });
 
   it("should detect exported path /vehicles/{systemNumber}", async () => {
@@ -85,11 +92,7 @@ describe("TechRecords", () => {
     const response = await handler(vehicleRecordEvent, ctx);
     expect(response).toBeDefined();
     expect(response.statusCode).toEqual(200);
-    expect(JSON.parse(response.body).techRecord[0].statusCode).toEqual(
-      "archived"
-    );
-    expect(JSON.parse(response.body).techRecord[1].statusCode).toEqual(
-      "provisional"
-    );
+    expect(JSON.parse(response.body).techRecord[0].statusCode).toEqual("archived");
+    expect(JSON.parse(response.body).techRecord[1].statusCode).toEqual("provisional");
   });
 });

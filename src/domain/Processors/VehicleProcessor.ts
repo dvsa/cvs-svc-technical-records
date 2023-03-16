@@ -130,8 +130,8 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   public async createVehicle(msUserDetails: IMsUserDetails): Promise<T> {
     try {
       this.vehicle = await this.validateAndMapTechRecord(msUserDetails);
-      const data = await this.techRecordDAO.createSingle(this.vehicle);
-      return data.Attributes as T;
+      await this.techRecordDAO.createSingle(this.vehicle);
+      return this.vehicle;
     } catch (error) {
       console.error(error);
       const errorList = error.body ? error.body.errors : error.message;

@@ -55,7 +55,7 @@ class TechRecordsService {
   public async insertTechRecord(
     payload: Vehicle,
     msUserDetails: IMsUserDetails
-  ) {
+  ): Promise<Vehicle> {
     try {
       const vehicle = VehicleFactory.generateVehicleInstance(
         payload,

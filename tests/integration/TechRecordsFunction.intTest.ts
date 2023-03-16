@@ -46,9 +46,7 @@ describe("getTechRecords", () => {
         .expectResolve((result: any) => {
           expect(result.statusCode).toEqual(400);
           // Path checking now handled in the handler. Now only checking for Path Params
-          expect(result.body).toEqual(
-            JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS)
-          );
+          expect(result.body).toEqual(JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS));
         });
     });
     it("should return 400 when search identifier is undefined", async () => {
@@ -63,9 +61,7 @@ describe("getTechRecords", () => {
         .expectResolve((result: any) => {
           expect(result.statusCode).toEqual(400);
           // Path checking now handled in the handler. Now only checking for Path Params
-          expect(result.body).toEqual(
-            JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS)
-          );
+          expect(result.body).toEqual(JSON.stringify(HTTPRESPONSE.MISSING_PARAMETERS));
         });
     });
   });
@@ -105,9 +101,7 @@ describe("getTechRecords", () => {
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(404);
             // FIXME: array to string
-            expect(result.body).toContain(
-              '"No resources match the search criteria."'
-            );
+            expect(result.body).toContain('"No resources match the search criteria."');
           });
       });
     });
@@ -123,9 +117,7 @@ describe("getTechRecords", () => {
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(400);
-            expect(result.body).toEqual(
-              '"The search identifier should be between 3 and 21 characters."'
-            );
+            expect(result.body).toEqual('"The search identifier should be between 3 and 21 characters."');
           });
       });
     });
@@ -166,14 +158,23 @@ describe("postTechRecords", () => {
           techRecord: techRecord.techRecord,
         };
 
+        const expectedResponse = {
+          vin: techRecord.vin,
+          primaryVrm: payload.primaryVrm,
+          techRecord: techRecord.techRecord,
+        };
+
         await LambdaTester(PostTechRecordsFunction)
           .event({
             path: "/vehicles",
             body: payload,
           })
           .expectResolve((result: any) => {
+            expectedResponse.techRecord[0].createdAt = JSON.parse(result.body).techRecord[0].createdAt;
+
             expect(result.statusCode).toEqual(201);
-            expect(result.body).toEqual('"Technical Record created"');
+            expect(JSON.parse(result.body)).toMatchObject(expectedResponse);
+            expect(JSON.parse(result.body).systemNumber).toBeDefined();
           });
       });
     });
@@ -195,9 +196,7 @@ describe("postTechRecords", () => {
           })
           .expectResolve((result: any) => {
             expect(result.statusCode).toEqual(400);
-            expect(result.body).toEqual(
-              '"Microsoft user details not provided"'
-            );
+            expect(result.body).toEqual('"Microsoft user details not provided"');
           });
       });
     });
@@ -234,9 +233,7 @@ describe("postTechRecords", () => {
         const techRecord = cloneDeep(records[0]);
 
         techRecord.vin = Date.now().toString();
-        techRecord.partialVin = techRecord.vin.substr(
-          techRecord.vin.length - 6
-        );
+        techRecord.partialVin = techRecord.vin.substr(techRecord.vin.length - 6);
         techRecord.techRecord = [];
         await LambdaTester(PostTechRecordsFunction)
           .event({
@@ -294,14 +291,8 @@ describe("updateTechRecords", () => {
             .expectResolve((result: any) => {
               const updatedTechRes = JSON.parse(result.body);
               expect(result.statusCode).toEqual(200);
-              expect(
-                updatedTechRes.techRecord[techRecord.techRecord.length]
-                  .statusCode
-              ).toEqual("provisional");
-              expect(
-                updatedTechRes.techRecord[techRecord.techRecord.length - 1]
-                  .statusCode
-              ).toEqual("archived");
+              expect(updatedTechRes.techRecord[techRecord.techRecord.length].statusCode).toEqual("provisional");
+              expect(updatedTechRes.techRecord[techRecord.techRecord.length - 1].statusCode).toEqual("archived");
             });
         });
       });
@@ -332,9 +323,7 @@ describe("updateTechRecords", () => {
               console.log(result);
               expect(result.statusCode).toEqual(404);
               // FIXME: need to discuss string array vs string message
-              expect(JSON.parse(result.body).errors).toContain(
-                HTTPRESPONSE.RESOURCE_NOT_FOUND
-              );
+              expect(JSON.parse(result.body).errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
             });
         });
       });
@@ -358,9 +347,7 @@ describe("updateTechRecords", () => {
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(JSON.parse(result.body).errors).toContain(
-                "Body is not a valid TechRecord"
-              );
+              expect(JSON.parse(result.body).errors).toContain("Body is not a valid TechRecord");
             });
         });
       });
@@ -388,9 +375,7 @@ describe("updateTechRecords", () => {
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(JSON.parse(result.body).errors).toContain(
-                "Microsoft user details not provided"
-              );
+              expect(JSON.parse(result.body).errors).toContain("Microsoft user details not provided");
             });
         });
       });
@@ -408,9 +393,7 @@ describe("updateTechRecords", () => {
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(JSON.parse(result.body).errors).toContain(
-                "Body is not a valid TechRecord"
-              );
+              expect(JSON.parse(result.body).errors).toContain("Body is not a valid TechRecord");
             });
         });
       });
@@ -427,9 +410,7 @@ describe("updateTechRecords", () => {
             })
             .expectResolve((result: any) => {
               expect(result.statusCode).toEqual(400);
-              expect(JSON.parse(result.body).errors).toContain(
-                "Invalid path parameter 'systemNumber'"
-              );
+              expect(JSON.parse(result.body).errors).toContain("Invalid path parameter 'systemNumber'");
             });
         });
       });
@@ -450,11 +431,7 @@ describe("updateVin", () => {
   });
 
   context("when trying to update a vin", () => {
-    const testVehicle = cloneDeep(
-      records.find(
-        (v) => v.systemNumber === "3506666" && v.vin === "XXB6703742N122212"
-      )
-    );
+    const testVehicle = cloneDeep(records.find((v) => v.systemNumber === "3506666" && v.vin === "XXB6703742N122212"));
     context("and the request has incorrect parameters", () => {
       it.each([
         [
@@ -521,83 +498,57 @@ describe("updateVin", () => {
           },
           new HTTPResponse(200, HTTPRESPONSE.VIN_UPDATED),
         ],
-      ])(
-        "should return status code 200 VIN updated",
-        async (request, response) => {
-          await LambdaTester(updateVin)
-            .event(request)
-            .expectResolve((result: any) => {
-              expect(result.statusCode).toBe(response.statusCode);
-              expect(result.body).toEqual(response.body);
-            });
-        }
-      );
+      ])("should return status code 200 VIN updated", async (request, response) => {
+        await LambdaTester(updateVin)
+          .event(request)
+          .expectResolve((result: any) => {
+            expect(result.statusCode).toBe(response.statusCode);
+            expect(result.body).toEqual(response.body);
+          });
+      });
     });
-    context(
-      "and there already is a vehicle record with that vin and systemNumber",
-      () => {
-        const testCases: string[] = [
-          "foobar",
-          "bdsafl",
-          "foobar",
-          "bdsafl",
-          "foobar",
-        ];
-        it.each(testCases)(
-          "should return status code 200 VIN updated",
-          async (newVin: string) => {
-            const response = new HTTPResponse(200, HTTPRESPONSE.VIN_UPDATED);
-            const request = {
-              path: `/vehicles/update-vin/${testVehicle?.systemNumber}`,
-              pathParameters: {
-                systemNumber: testVehicle?.systemNumber,
-              },
-              body: {
-                msUserDetails: { msOid: "userID", msUser: "Test User" },
-                newVin,
-              },
-            };
-            await LambdaTester(updateVin)
-              .event(request)
-              .expectResolve((result: any) => {
-                expect(result.statusCode).toBe(response.statusCode);
-                expect(result.body).toEqual(response.body);
-              });
+    context("and there already is a vehicle record with that vin and systemNumber", () => {
+      const testCases: string[] = ["foobar", "bdsafl", "foobar", "bdsafl", "foobar"];
+      it.each(testCases)("should return status code 200 VIN updated", async (newVin: string) => {
+        const response = new HTTPResponse(200, HTTPRESPONSE.VIN_UPDATED);
+        const request = {
+          path: `/vehicles/update-vin/${testVehicle?.systemNumber}`,
+          pathParameters: {
+            systemNumber: testVehicle?.systemNumber,
+          },
+          body: {
+            msUserDetails: { msOid: "userID", msUser: "Test User" },
+            newVin,
+          },
+        };
+        await LambdaTester(updateVin)
+          .event(request)
+          .expectResolve((result: any) => {
+            expect(result.statusCode).toBe(response.statusCode);
+            expect(result.body).toEqual(response.body);
+          });
 
-            // should only have one current across vehicleRecords
-            await LambdaTester(GetTechRecordsFunction)
-              .event({
-                path: `/vehicles/${
-                  testVehicle?.systemNumber ?? ""
-                }/tech-records`,
-                pathParameters: {
-                  searchIdentifier: testVehicle?.systemNumber,
-                },
-                queryStringParameters: {
-                  searchCriteria: "systemNumber",
-                  status: "all",
-                },
-              })
-              .expectResolve((result: any) => {
-                expect(result.statusCode).toEqual(200);
+        // should only have one current across vehicleRecords
+        await LambdaTester(GetTechRecordsFunction)
+          .event({
+            path: `/vehicles/${testVehicle?.systemNumber ?? ""}/tech-records`,
+            pathParameters: {
+              searchIdentifier: testVehicle?.systemNumber,
+            },
+            queryStringParameters: {
+              searchCriteria: "systemNumber",
+              status: "all",
+            },
+          })
+          .expectResolve((result: any) => {
+            expect(result.statusCode).toEqual(200);
 
-                // TODO: Refactor to flat map when we can update
-                const statusCodes: string[] = [];
-                (JSON.parse(result.body) as Vehicle[]).forEach(
-                  (vehicle: Vehicle) =>
-                    vehicle.techRecord.forEach((techRecord: TechRecord) =>
-                      statusCodes.push(techRecord.statusCode)
-                    )
-                );
-                expect(
-                  statusCodes.filter(
-                    (statusCode) => statusCode !== enums.STATUS.ARCHIVED
-                  )
-                ).toHaveLength(1);
-              });
-          }
-        );
-      }
-    );
+            // TODO: Refactor to flat map when we can update
+            const statusCodes: string[] = [];
+            (JSON.parse(result.body) as Vehicle[]).forEach((vehicle: Vehicle) => vehicle.techRecord.forEach((techRecord: TechRecord) => statusCodes.push(techRecord.statusCode)));
+            expect(statusCodes.filter((statusCode) => statusCode !== enums.STATUS.ARCHIVED)).toHaveLength(1);
+          });
+      });
+    });
   });
 });

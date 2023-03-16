@@ -43,7 +43,7 @@ const postTechRecords = async (event: any) => {
 
   try {
     const data = await techRecordsService.insertTechRecord(techRecord, msUserDetails);
-    return new HTTPResponse(201, HTTPRESPONSE.TECHINICAL_RECORD_CREATED);
+    return new HTTPResponse(201, data);
   } catch (error) {
     console.log(error);
     return new HTTPResponse(error.statusCode, error.body);

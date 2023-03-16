@@ -455,6 +455,7 @@ describe("techRecords", () => {
           const techRec: any = cloneDeep(mockData[43]);
           const vin = Date.now().toString();
           techRec.techRecord[0].bodyType.description = "skeletal";
+          techRec.techRecord[0].bodyType.code = "k";
           const primaryVrm = Math.floor(
             100000 + Math.random() * 900000
           ).toString();
@@ -465,13 +466,20 @@ describe("techRecords", () => {
             primaryVrm,
             techRecord: techRec.techRecord,
           };
+          const expectedResponse = {
+            vin,
+            primaryVrm: payload.primaryVrm,
+            techRecord: payload.techRecord,
+          };
           const res = await request.post("vehicles").send(payload);
+          expectedResponse.techRecord[0].createdAt = res.body.techRecord[0].createdAt;
           expect(res.status).toEqual(201);
           expect(res.header["access-control-allow-origin"]).toEqual("*");
           expect(res.header["access-control-allow-credentials"]).toEqual(
             "true"
           );
-          expect(res.body).toEqual("Technical Record created");
+          expect(res.body).toMatchObject(expectedResponse);
+          expect(res.body.systemNumber).toBeDefined();
         });
           });
         });
