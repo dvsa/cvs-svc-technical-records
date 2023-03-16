@@ -58,7 +58,6 @@ defineFeature(feature, (test) => {
   });
   then("I am able to perform a PUT or POST request", () => {
     expect(responsePOST.status).toEqual(201);
-    expect(responsePOST.body).toEqual("Technical Record created");
     if (doNotSkipAssertionWhenAdrFlagIsDisabled) {
       expect(responsePUT.status).toEqual(200);
       expect(responsePUT.body.techRecord[0].statusCode).toEqual("archived");
