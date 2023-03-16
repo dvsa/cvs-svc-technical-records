@@ -187,6 +187,7 @@ export interface TrlTechRecord extends BaseTechRecord {
   purchaserDetails: PurchaserDetails;
   manufacturerDetails: ManufacturerDetails;
   notes?: string;
+  batchId?: string;
 }
 interface Brakes {
   dtpNumber: string;

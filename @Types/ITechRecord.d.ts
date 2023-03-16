@@ -126,6 +126,7 @@ export default interface ITechRecord {
   lettersOfAuth: LettersOfAuth;
   historicPrimaryVrm?: string;
   historicSecondaryVrms?: string[];
+  batchId?: string;
 }
 
 interface Dimensions {
