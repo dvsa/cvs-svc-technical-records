@@ -479,6 +479,7 @@ describe("techRecords", () => {
             "true"
           );
           expect(res.body).toMatchObject(expectedResponse);
+          expect(JSON.parse(res.body).systemNumber).toBeDefined();
         });
           });
         });

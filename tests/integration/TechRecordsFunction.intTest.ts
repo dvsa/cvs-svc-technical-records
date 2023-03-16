@@ -174,6 +174,7 @@ describe("postTechRecords", () => {
 
             expect(result.statusCode).toEqual(201);
             expect(JSON.parse(result.body)).toMatchObject(expectedResponse);
+            expect(JSON.parse(result.body).systemNumber).toBeDefined();
           });
       });
     });

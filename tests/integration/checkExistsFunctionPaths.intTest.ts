@@ -69,6 +69,7 @@ describe("TechRecords", () => {
     expect(response).toBeDefined();
     expect(response.statusCode).toEqual(201);
     expect(JSON.parse(response.body)).toMatchObject(expectedResponse);
+    expect(JSON.parse(response.body).systemNumber).toBeDefined();
   });
 
   it("should detect exported path /vehicles/{systemNumber}", async () => {
