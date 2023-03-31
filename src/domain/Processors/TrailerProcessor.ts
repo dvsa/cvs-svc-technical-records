@@ -49,7 +49,6 @@ export class TrailerProcessor extends VehicleProcessor<Trailer> {
     if(!this.vehicle.trailerId) {
       const newTrailerId = await this.numberGenerator.generateTrailerId();
       this.vehicle.trailerId = newTrailerId;
-      this.vehicle.primaryVrm = newTrailerId;
     }
   }
 
