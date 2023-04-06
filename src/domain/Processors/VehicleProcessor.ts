@@ -115,8 +115,10 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   protected capitaliseGeneralVehicleAttributes(vehicle: T) {
     const toUpper = (str: string = "") => str.toUpperCase();
     vehicle.vin = toUpper(vehicle.vin);
-    vehicle.partialVin = toUpper(vehicle.partialVin || "");
-    vehicle.primaryVrm = toUpper(vehicle.primaryVrm || "");
+    vehicle.partialVin = toUpper(vehicle.partialVin);
+    vehicle.primaryVrm = vehicle.primaryVrm
+      ? toUpper(vehicle.primaryVrm)
+      : undefined;
     vehicle.secondaryVrms = vehicle.secondaryVrms?.map(toUpper);
     return vehicle;
   }
@@ -346,17 +348,20 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     }
 
     if (nonArchivedTechRecord.length > 1) {
-        if (nonArchivedTechRecord[0].euVehicleCategory && nonArchivedTechRecord[1].euVehicleCategory) {
-            return new HTTPResponse(
-                200,
-                enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
-            );
-        }
-    } else if (nonArchivedTechRecord[0].euVehicleCategory) {
+      if (
+        nonArchivedTechRecord[0].euVehicleCategory &&
+        nonArchivedTechRecord[1].euVehicleCategory
+      ) {
         return new HTTPResponse(
-            200,
-            enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
+          200,
+          enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
         );
+      }
+    } else if (nonArchivedTechRecord[0].euVehicleCategory) {
+      return new HTTPResponse(
+        200,
+        enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
+      );
     }
     nonArchivedTechRecord.forEach((techRecord) => {
       const statusCode = techRecord.statusCode;
@@ -364,8 +369,12 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       techRecord.statusCode = enums.STATUS.ARCHIVED;
       newTechRecord.euVehicleCategory = newEuVehicleCategory;
       newTechRecord.statusCode = statusCode;
-      newTechRecord.reasonForCreation = 'Update to EU Vehicle Category';
-      this.auditHandler.setAuditDetails(newTechRecord, nonArchivedTechRecord[0],msUserDetails);
+      newTechRecord.reasonForCreation = "Update to EU Vehicle Category";
+      this.auditHandler.setAuditDetails(
+        newTechRecord,
+        nonArchivedTechRecord[0],
+        msUserDetails
+      );
       vehicle.techRecord.push(newTechRecord);
     });
 
