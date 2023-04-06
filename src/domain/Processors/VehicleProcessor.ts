@@ -115,7 +115,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   protected capitaliseGeneralVehicleAttributes(vehicle: T) {
     const toUpper = (str: string = "") => str.toUpperCase();
     vehicle.vin = toUpper(vehicle.vin);
-    vehicle.partialVin = toUpper(vehicle.partialVin || "");
+    vehicle.partialVin = toUpper(vehicle.partialVin);
     vehicle.primaryVrm = vehicle.primaryVrm
       ? toUpper(vehicle.primaryVrm)
       : undefined;
