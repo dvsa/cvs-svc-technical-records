@@ -27,6 +27,7 @@ export class VehicleFactory {
         return new processors.HgvProcessor(vehicleObj as HeavyGoodsVehicle, techRecordDAO);
       case enums.VEHICLE_TYPE.TRL:
         return vehicleObj.techRecord[0].euVehicleCategory === EU_VEHICLE_CATEGORY.O1
+          || vehicleObj.techRecord[0].euVehicleCategory === EU_VEHICLE_CATEGORY.O2
           ? new processors.SmallTrailerProcessor(vehicleObj as SmallTrailer, techRecordDAO)
           : new processors.TrailerProcessor(vehicleObj as Trailer, techRecordDAO);
       case enums.VEHICLE_TYPE.LGV:
