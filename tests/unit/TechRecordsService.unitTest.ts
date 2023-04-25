@@ -292,7 +292,6 @@ describe("insertTechRecord", () => {
         const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
         // techRecord.secondaryVrms = ["invalidSecondaryVrm"];
         techRecord.techRecord[0].bodyType.description = "skeletal";
-        techRecord.techRecord[0].fuelPropulsionSystem = "Diesel"
         delete techRecord.techRecord[0].statusCode;
         delete techRecord.primaryVrm;
         delete techRecord.systemNumber;
@@ -389,7 +388,6 @@ describe("insertTechRecord", () => {
       const techRecord: HeavyGoodsVehicle = cloneDeep(records[43]);
       delete techRecord.techRecord[0].statusCode;
       delete techRecord.systemNumber;
-      techRecord.techRecord[0].fuelPropulsionSystem = "Diesel"
       try {
         expect(await techRecordsService.insertTechRecord(techRecord, msUserDetails)).toThrowError();
       } catch (errorResponse) {
@@ -946,7 +944,6 @@ describe("updateTechRecord", () => {
       const techRecord: any = cloneDeep(records[43]);
       delete techRecord.techRecord[0].statusCode;
       delete techRecord.techRecord[0].adrDetails;
-      techRecord.techRecord[0].fuelPropulsionSystem = "Diesel"
       techRecord.partialVin = "012345";
       techRecord.vin = "XMGDE02FS0H012345";
       techRecord.primaryVrm = "JY58FPP";

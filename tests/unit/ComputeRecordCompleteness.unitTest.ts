@@ -119,7 +119,6 @@ describe("Compute Record Completeness", () => {
 
     it("should return COMPLETE if all core mandatory and non-core mandatory attributes are completed", () => {
       const record: any = cloneDeep(mockData[125]);
-      record.techRecord[0].fuelPropulsionSystem = "Diesel"
       const recordCompleteness = computeRecordCompleteness(record);
       expect(recordCompleteness).toEqual(RECORD_COMPLETENESS_ENUM.COMPLETE);
     });
