@@ -103,7 +103,8 @@ export const VEHICLE_TYPE_VALIDATION: string[] = [
 ];
 
 export const FUEL_PROPULSION_SYSTEM: string[] = [
-    "DieselPetrol",
+    "Diesel",
+    "Petrol",
     "Hybrid",
     "Electric",
     "CNG",

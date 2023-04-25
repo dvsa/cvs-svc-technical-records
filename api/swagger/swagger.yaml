@@ -394,7 +394,8 @@ components:
         fuelPropulsionSystem:
           type: string
           enum:
-            - DieselPetrol
+            - Diesel
+            - Petrol
             - Hybrid
             - Electric
             - CNG
@@ -896,7 +897,8 @@ components:
         fuelPropulsionSystem:
           type: string
           enum:
-            - DieselPetrol
+            - Diesel
+            - Petrol
             - Hybrid
             - Electric
             - CNG
