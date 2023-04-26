@@ -581,6 +581,7 @@ components:
           type: string
           description: Used for HGV and PSV
           enum:
+            - DieselPetrol
             - Diesel
             - Petrol
             - Hybrid
