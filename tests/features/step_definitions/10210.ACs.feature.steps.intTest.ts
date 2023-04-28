@@ -77,7 +77,7 @@ defineFeature(feature, (test) => {
   //   });
   //   then("I am given the 400 error code", () => {
   //     expect(response.status).toEqual(400);
-  //     expect(response.body.errors).toContain('"fuelPropulsionSystem" must be one of [DieselPetrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
+  //     expect(response.body.errors).toContain('"fuelPropulsionSystem" must be one of [DieselPetrol, Diesel, Petrol, Hybrid, Electric, CNG, Fuel cell, LNG, Other]');
   //   });
   // });
 

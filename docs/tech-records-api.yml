@@ -582,6 +582,8 @@ components:
           description: Used for HGV and PSV
           enum:
             - DieselPetrol
+            - Diesel
+            - Petrol
             - Hybrid
             - Electric
             - CNG
