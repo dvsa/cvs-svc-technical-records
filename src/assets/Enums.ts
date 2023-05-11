@@ -208,6 +208,7 @@ export const BODY_TYPE_DESCRIPTION: string[] = [
     "low loader",
     "mini bus",
     "other",
+    "other tanker",
     "petrol/oil tanker",
     "refrigerated",
     "refuse",
