@@ -57,7 +57,7 @@ export class TechRecordStatusHandler<T extends Vehicle> {
   }
 
   private static isTestTypeFirstTest(testTypeId: string): boolean {
-    const firstTestIds = ["41", "95", "65", "66", "67", "103", "104", "82", "83", "119", "120"];
+    const firstTestIds = ["41", "95", "65", "66", "67", "103", "104", "82", "83", "119", "120", "186", "188", "192", "194"];
     return firstTestIds.includes(testTypeId);
   }
 
