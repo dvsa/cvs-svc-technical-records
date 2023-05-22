@@ -20,7 +20,7 @@ export class NumberGenerator {
       }
       return systemNumberObj.systemNumber;
     } catch (error) {
-      return Promise.reject({statusCode: 500, body: error});
+      return Promise.reject({statusCode: 500, body: ERRORS.SYSTEM_NUMBER_GENERATION_FAILED});
     }
   }
 
@@ -35,7 +35,7 @@ export class NumberGenerator {
       }
       return trailerIdObj.trailerId;
     } catch (error) {
-      return Promise.reject({statusCode: 500, body: error});
+      return Promise.reject({statusCode: 500, body: ERRORS.TRAILER_ID_GENERATION_FAILED});
     }
   }
 
@@ -50,7 +50,7 @@ export class NumberGenerator {
       }
       return zNumberObj.zNumber;
     } catch (error) {
-      return Promise.reject({statusCode: 500, body: error});
+      return Promise.reject({statusCode: 500, body: ERRORS.Z_NUMBER_GENERATION_FAILED});
     }
   }
 
@@ -65,7 +65,7 @@ export class NumberGenerator {
       }
       return tNumberObj.tNumber;
     } catch (error) {
-      return Promise.reject({statusCode: 500, body: error});
+      return Promise.reject({statusCode: 500, body: ERRORS.T_NUMBER_GENERATION_FAILED});
     }
   }
 }
