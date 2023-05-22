@@ -42236,5 +42236,4435 @@
     ],
     "trailerId": "C111222",
     "vin": "T12111222"
+  },
+  {
+    "systemNumber": "90000001",
+    "vin": "AUTOQAPSV00000006",
+    "partialVin": "000006",
+    "primaryVrm": "QA06PSV",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5000,
+              "ladenWeight": 6500
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 11500,
+              "gbWeight": 11500,
+              "kerbWeight": 7000,
+              "ladenWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 3,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5000,
+              "ladenWeight": 6500
+            }
+          }
+        ],
+        "bodyMake": "CAETANO",
+        "bodyModel": null,
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "00B06",
+        "brakes": {
+          "brakeCode": "00B06",
+          "brakeCodeOriginal": "B06",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 0,
+            "secondaryBrakeForceA": 0,
+            "serviceBrakeForceA": 0
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 0,
+            "secondaryBrakeForceB": 0,
+            "serviceBrakeForceB": 0
+          },
+          "dataTrBrakeOne": "3 AXLE SPLIT (AXLE 1 / AXLES 2 + 3 )",
+          "dataTrBrakeThree": "AXLES 2 + 3",
+          "dataTrBrakeTwo": "SPLIT SERVICE BRAKE (DESIGNATED) OR HANDBRAKE",
+          "dtpNumber": "011405",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": null
+        },
+        "chassisMake": "SCANIA",
+        "chassisModel": "K 410 EB6x2*4LI",
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T09:52:11.641Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "dda": null,
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": null,
+          "length": null,
+          "width": null
+        },
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "m3",
+        "frontAxleToRearAxle": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 25700,
+        "grossGbWeight": 25700,
+        "grossKerbWeight": 17000,
+        "grossLadenWeight": 21000,
+        "historicPrimaryVrm": "QA06PSV",
+        "lastUpdatedAt": "2023-04-21T11:17:17.394Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "manufactureYear": 2022,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "modelLiteral": null,
+        "noOfAxles": 3,
+        "numberOfSeatbelts": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-04-20",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 49,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": null,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "unladenWeight": null,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "l",
+          "description": "large psv(ie: greater than 23 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleType": "psv"
+      },
+      {
+        "alterationMarker": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5000,
+              "ladenWeight": 6500
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 11500,
+              "gbWeight": 11500,
+              "kerbWeight": 7000,
+              "ladenWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 3,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "gbWeight": 7100,
+              "kerbWeight": 5000,
+              "ladenWeight": 6500
+            }
+          }
+        ],
+        "bodyMake": "CAETANO",
+        "bodyModel": null,
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "00B06",
+        "brakes": {
+          "brakeCode": "00B06",
+          "brakeCodeOriginal": "B06",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 0,
+            "secondaryBrakeForceA": 0,
+            "serviceBrakeForceA": 0
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 0,
+            "secondaryBrakeForceB": 0,
+            "serviceBrakeForceB": 0
+          },
+          "dataTrBrakeOne": "3 AXLE SPLIT (AXLE 1 / AXLES 2 + 3 )",
+          "dataTrBrakeThree": "AXLES 2 + 3",
+          "dataTrBrakeTwo": "SPLIT SERVICE BRAKE (DESIGNATED) OR HANDBRAKE",
+          "dtpNumber": "011405",
+          "retarderBrakeOne": "exhaust",
+          "retarderBrakeTwo": null
+        },
+        "chassisMake": "SCANIA",
+        "chassisModel": "K 410 EB6x2*4LI",
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T11:17:17.394Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "dda": null,
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": null,
+          "length": null,
+          "width": null
+        },
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "m3",
+        "frontAxleToRearAxle": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 25700,
+        "grossGbWeight": 25700,
+        "grossKerbWeight": 17000,
+        "grossLadenWeight": 21000,
+        "manufactureYear": 2022,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "modelLiteral": null,
+        "noOfAxles": 3,
+        "numberOfSeatbelts": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "QA Seed Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-04-20",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 49,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": null,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "unladenWeight": null,
+        "vehicleClass": {
+          "code": "l",
+          "description": "large psv(ie: greater than 23 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000002",
+    "vin": "AUTOQAPSV00000007",
+    "partialVin": "000007",
+    "primaryVrm": "QA07PSV",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 156,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "gbWeight": 7500,
+              "kerbWeight": 5000,
+              "ladenWeight": 6500
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12000,
+              "gbWeight": 11500,
+              "kerbWeight": 7000,
+              "ladenWeight": 8500
+            }
+          }
+        ],
+        "bodyMake": "IRIZAR",
+        "bodyModel": null,
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "00202",
+        "brakes": {
+          "brakeCode": "00202",
+          "brakeCodeOriginal": "202",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 0,
+            "secondaryBrakeForceA": 0,
+            "serviceBrakeForceA": 0
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 0,
+            "secondaryBrakeForceB": 0,
+            "serviceBrakeForceB": 0
+          },
+          "dataTrBrakeOne": "2 AXLE F/R SPLIT (AXLE 1/ AXLE 2)",
+          "dataTrBrakeThree": "AXLE 2",
+          "dataTrBrakeTwo": "SPLIT SERVICE BRAKE (DESIGNATED) OR HANDBRAKE",
+          "dtpNumber": "011300",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": null
+        },
+        "chassisMake": "IRIZAR",
+        "chassisModel": "I8 14.98",
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T11:46:17.980Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "dda": null,
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": null,
+          "length": null,
+          "width": null
+        },
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "m3",
+        "frontAxleToRearAxle": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 19500,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 12000,
+        "grossLadenWeight": 15000,
+        "historicPrimaryVrm": "QA07PSV",
+        "lastUpdatedAt": "2023-04-21T11:47:03.500Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "manufactureYear": 2022,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "modelLiteral": null,
+        "noOfAxles": 2,
+        "numberOfSeatbelts": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-04-01",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 51,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": null,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "unladenWeight": null,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "l",
+          "description": "large psv(ie: greater than 23 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleType": "psv"
+      },
+      {
+        "alterationMarker": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 156,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "gbWeight": 7500,
+              "kerbWeight": 5000,
+              "ladenWeight": 6500
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12000,
+              "gbWeight": 11500,
+              "kerbWeight": 7000,
+              "ladenWeight": 8500
+            }
+          }
+        ],
+        "bodyMake": "IRIZAR",
+        "bodyModel": null,
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "00202",
+        "brakes": {
+          "brakeCode": "00202",
+          "brakeCodeOriginal": "202",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 0,
+            "secondaryBrakeForceA": 0,
+            "serviceBrakeForceA": 0
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 0,
+            "secondaryBrakeForceB": 0,
+            "serviceBrakeForceB": 0
+          },
+          "dataTrBrakeOne": "2 AXLE F/R SPLIT (AXLE 1/ AXLE 2)",
+          "dataTrBrakeThree": "AXLE 2",
+          "dataTrBrakeTwo": "SPLIT SERVICE BRAKE (DESIGNATED) OR HANDBRAKE",
+          "dtpNumber": "011300",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": null
+        },
+        "chassisMake": "IRIZAR",
+        "chassisModel": "I8 14.98",
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T11:47:03.500Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "dda": null,
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": null,
+          "length": null,
+          "width": null
+        },
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "m3",
+        "frontAxleToRearAxle": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 19500,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 12000,
+        "grossLadenWeight": 15000,
+        "manufactureYear": 2022,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "modelLiteral": null,
+        "noOfAxles": 2,
+        "numberOfSeatbelts": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "VTA QA Automation Seed Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-04-01",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 51,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": null,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "unladenWeight": null,
+        "vehicleClass": {
+          "code": "l",
+          "description": "large psv(ie: greater than 23 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000003",
+    "vin": "AUTOQAPSV00000008",
+    "partialVin": "000008",
+    "primaryVrm": "QA08PSV",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 112,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 816,
+              "tyreSize": "225-15"
+            },
+            "weights": {
+              "designWeight": 1750,
+              "gbWeight": 1750,
+              "kerbWeight": 1100,
+              "ladenWeight": 1300
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 110,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 816,
+              "tyreSize": "225-15"
+            },
+            "weights": {
+              "designWeight": 2500,
+              "gbWeight": 2500,
+              "kerbWeight": 2000,
+              "ladenWeight": 2300
+            }
+          }
+        ],
+        "bodyMake": "TBC CONVERSION",
+        "bodyModel": null,
+        "bodyType": {
+          "code": "m",
+          "description": "mini bus"
+        },
+        "brakeCode": "00202",
+        "brakes": {
+          "brakeCode": "00202",
+          "brakeCodeOriginal": "202",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 0,
+            "secondaryBrakeForceA": 0,
+            "serviceBrakeForceA": 0
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 0,
+            "secondaryBrakeForceB": 0,
+            "serviceBrakeForceB": 0
+          },
+          "dataTrBrakeOne": "2 AXLE F/R SPLIT (AXLE 1/ AXLE 2)",
+          "dataTrBrakeThree": "AXLE 2",
+          "dataTrBrakeTwo": "SPLIT SERVICE BRAKE (DESIGNATED) OR HANDBRAKE",
+          "dtpNumber": "011028",
+          "retarderBrakeOne": "none",
+          "retarderBrakeTwo": null
+        },
+        "chassisMake": "MERCEDES",
+        "chassisModel": "516D",
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T12:34:34.722Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "dda": null,
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": null,
+          "length": null,
+          "width": null
+        },
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "m2",
+        "frontAxleToRearAxle": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 4250,
+        "grossGbWeight": 4250,
+        "grossKerbWeight": 3100,
+        "grossLadenWeight": 3600,
+        "historicPrimaryVrm": "QA08PSV",
+        "lastUpdatedAt": "2023-04-21T12:35:13.721Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "manufactureYear": 2022,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "modelLiteral": null,
+        "noOfAxles": 2,
+        "numberOfSeatbelts": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-04-20",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 15,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": null,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "unladenWeight": null,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "small",
+        "vehicleType": "psv"
+      },
+      {
+        "alterationMarker": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 112,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 816,
+              "tyreSize": "225-15"
+            },
+            "weights": {
+              "designWeight": 1750,
+              "gbWeight": 1750,
+              "kerbWeight": 1100,
+              "ladenWeight": 1300
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 110,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 816,
+              "tyreSize": "225-15"
+            },
+            "weights": {
+              "designWeight": 2500,
+              "gbWeight": 2500,
+              "kerbWeight": 2000,
+              "ladenWeight": 2300
+            }
+          }
+        ],
+        "bodyMake": "TBC CONVERSION",
+        "bodyModel": null,
+        "bodyType": {
+          "code": "m",
+          "description": "mini bus"
+        },
+        "brakeCode": "00202",
+        "brakes": {
+          "brakeCode": "00202",
+          "brakeCodeOriginal": "202",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 0,
+            "secondaryBrakeForceA": 0,
+            "serviceBrakeForceA": 0
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 0,
+            "secondaryBrakeForceB": 0,
+            "serviceBrakeForceB": 0
+          },
+          "dataTrBrakeOne": "2 AXLE F/R SPLIT (AXLE 1/ AXLE 2)",
+          "dataTrBrakeThree": "AXLE 2",
+          "dataTrBrakeTwo": "SPLIT SERVICE BRAKE (DESIGNATED) OR HANDBRAKE",
+          "dtpNumber": "011028",
+          "retarderBrakeOne": "none",
+          "retarderBrakeTwo": null
+        },
+        "chassisMake": "MERCEDES",
+        "chassisModel": "516D",
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T12:35:13.721Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "dda": null,
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": null,
+          "length": null,
+          "width": null
+        },
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "m2",
+        "frontAxleToRearAxle": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 4250,
+        "grossGbWeight": 4250,
+        "grossKerbWeight": 3100,
+        "grossLadenWeight": 3600,
+        "manufactureYear": 2022,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "modelLiteral": null,
+        "noOfAxles": 2,
+        "numberOfSeatbelts": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "VTA QA Seed Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-04-20",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 15,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": null,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "unladenWeight": null,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "small",
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000004",
+    "vin": "AUTOQAPSV00000009",
+    "partialVin": "000009",
+    "primaryVrm": "QA09PSV",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 110,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 109,
+              "tyreSize": "205-16C"
+            },
+            "weights": {
+              "designWeight": 1850,
+              "gbWeight": 1850,
+              "kerbWeight": 1200,
+              "ladenWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 110,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 109,
+              "tyreSize": "205-16C"
+            },
+            "weights": {
+              "designWeight": 2000,
+              "gbWeight": 2000,
+              "kerbWeight": 1700,
+              "ladenWeight": null
+            }
+          }
+        ],
+        "bodyMake": "STANFORD COACHWORKS",
+        "bodyModel": null,
+        "bodyType": {
+          "code": "m",
+          "description": "mini bus"
+        },
+        "brakeCode": "00202",
+        "brakes": {
+          "brakeCode": "00202",
+          "brakeCodeOriginal": "202",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 0,
+            "secondaryBrakeForceA": 0,
+            "serviceBrakeForceA": 0
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 0,
+            "secondaryBrakeForceB": 0,
+            "serviceBrakeForceB": 0
+          },
+          "dataTrBrakeOne": "2 AXLE F/R SPLIT (AXLE 1/ AXLE 2)",
+          "dataTrBrakeThree": "AXLE 2",
+          "dataTrBrakeTwo": "SPLIT SERVICE BRAKE (DESIGNATED) OR HANDBRAKE",
+          "dtpNumber": "010012",
+          "retarderBrakeOne": "none",
+          "retarderBrakeTwo": null
+        },
+        "chassisMake": "VOLKSWAGEN",
+        "chassisModel": "CRAFTER",
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T14:04:01.129Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "dda": null,
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": null,
+          "length": null,
+          "width": null
+        },
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "m2",
+        "frontAxleToRearAxle": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 3850,
+        "grossGbWeight": 3850,
+        "grossKerbWeight": 2900,
+        "grossLadenWeight": 3680,
+        "historicPrimaryVrm": "QA09PSV",
+        "lastUpdatedAt": "2023-04-21T14:04:23.569Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "manufactureYear": 2022,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "modelLiteral": null,
+        "noOfAxles": 2,
+        "numberOfSeatbelts": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-03-01",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 11,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": null,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "unladenWeight": null,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "small",
+        "vehicleType": "psv"
+      },
+      {
+        "alterationMarker": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 110,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 109,
+              "tyreSize": "205-16C"
+            },
+            "weights": {
+              "designWeight": 1850,
+              "gbWeight": 1850,
+              "kerbWeight": 1200,
+              "ladenWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 110,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 109,
+              "tyreSize": "205-16C"
+            },
+            "weights": {
+              "designWeight": 2000,
+              "gbWeight": 2000,
+              "kerbWeight": 1700,
+              "ladenWeight": null
+            }
+          }
+        ],
+        "bodyMake": "STANFORD COACHWORKS",
+        "bodyModel": null,
+        "bodyType": {
+          "code": "m",
+          "description": "mini bus"
+        },
+        "brakeCode": "00202",
+        "brakes": {
+          "brakeCode": "00202",
+          "brakeCodeOriginal": "202",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 0,
+            "secondaryBrakeForceA": 0,
+            "serviceBrakeForceA": 0
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 0,
+            "secondaryBrakeForceB": 0,
+            "serviceBrakeForceB": 0
+          },
+          "dataTrBrakeOne": "2 AXLE F/R SPLIT (AXLE 1/ AXLE 2)",
+          "dataTrBrakeThree": "AXLE 2",
+          "dataTrBrakeTwo": "SPLIT SERVICE BRAKE (DESIGNATED) OR HANDBRAKE",
+          "dtpNumber": "010012",
+          "retarderBrakeOne": "none",
+          "retarderBrakeTwo": null
+        },
+        "chassisMake": "VOLKSWAGEN",
+        "chassisModel": "CRAFTER",
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T14:04:23.569Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "dda": null,
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": null,
+          "length": null,
+          "width": null
+        },
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "m2",
+        "frontAxleToRearAxle": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 3850,
+        "grossGbWeight": 3850,
+        "grossKerbWeight": 2900,
+        "grossLadenWeight": 3680,
+        "manufactureYear": 2022,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "modelLiteral": null,
+        "noOfAxles": 2,
+        "numberOfSeatbelts": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "VTA QA Automation Seed Data\n",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-03-01",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 11,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": null,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "unladenWeight": null,
+        "vehicleClass": {
+          "code": "s",
+          "description": "small psv (ie: less than or equal to 22 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "small",
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000005",
+    "vin": "AUTOQAPSV00000010",
+    "partialVin": "000010",
+    "primaryVrm": "QA10PSV",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "gbWeight": 7100,
+              "kerbWeight": 5000,
+              "ladenWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "gbWeight": 11500,
+              "kerbWeight": 8100,
+              "ladenWeight": null
+            }
+          }
+        ],
+        "bodyMake": "VAN HOOL",
+        "bodyModel": "Alize II",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "00202",
+        "brakes": {
+          "brakeCode": "00202",
+          "brakeCodeOriginal": "202",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 0,
+            "secondaryBrakeForceA": 0,
+            "serviceBrakeForceA": 0
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 0,
+            "secondaryBrakeForceB": 0,
+            "serviceBrakeForceB": 0
+          },
+          "dataTrBrakeOne": "2 AXLE F/R SPLIT (AXLE 1/ AXLE 2)",
+          "dataTrBrakeThree": "AXLE 2",
+          "dataTrBrakeTwo": "SPLIT SERVICE BRAKE (DESIGNATED) OR HANDBRAKE",
+          "dtpNumber": "008961",
+          "retarderBrakeOne": null,
+          "retarderBrakeTwo": null
+        },
+        "chassisMake": "SCANIA",
+        "chassisModel": "L94",
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T14:34:12.662Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "dda": null,
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": null,
+          "length": null,
+          "width": null
+        },
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "m3",
+        "frontAxleToRearAxle": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 19500,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13100,
+        "grossLadenWeight": 17225,
+        "historicPrimaryVrm": "QA10PSV",
+        "lastUpdatedAt": "2023-04-21T14:34:34.980Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "manufactureYear": 2022,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "modelLiteral": null,
+        "noOfAxles": 2,
+        "numberOfSeatbelts": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-02-01",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 53,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": null,
+        "standingCapacity": 0,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "unladenWeight": null,
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "l",
+          "description": "large psv(ie: greater than 23 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleType": "psv"
+      },
+      {
+        "alterationMarker": false,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "gbWeight": 7100,
+              "kerbWeight": 5000,
+              "ladenWeight": null
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "speedCategorySymbol": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "gbWeight": 11500,
+              "kerbWeight": 8100,
+              "ladenWeight": null
+            }
+          }
+        ],
+        "bodyMake": "VAN HOOL",
+        "bodyModel": "Alize II",
+        "bodyType": {
+          "code": "s",
+          "description": "single decker"
+        },
+        "brakeCode": "00202",
+        "brakes": {
+          "brakeCode": "00202",
+          "brakeCodeOriginal": "202",
+          "brakeForceWheelsNotLocked": {
+            "parkingBrakeForceA": 0,
+            "secondaryBrakeForceA": 0,
+            "serviceBrakeForceA": 0
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "parkingBrakeForceB": 0,
+            "secondaryBrakeForceB": 0,
+            "serviceBrakeForceB": 0
+          },
+          "dataTrBrakeOne": "2 AXLE F/R SPLIT (AXLE 1/ AXLE 2)",
+          "dataTrBrakeThree": "AXLE 2",
+          "dataTrBrakeTwo": "SPLIT SERVICE BRAKE (DESIGNATED) OR HANDBRAKE",
+          "dtpNumber": "008961",
+          "retarderBrakeOne": null,
+          "retarderBrakeTwo": null
+        },
+        "chassisMake": "SCANIA",
+        "chassisModel": "L94",
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T14:34:34.980Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "dda": null,
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "height": null,
+          "length": null,
+          "width": null
+        },
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "m3",
+        "frontAxleToRearAxle": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 19500,
+        "grossGbWeight": 18000,
+        "grossKerbWeight": 13100,
+        "grossLadenWeight": 17225,
+        "manufactureYear": 2022,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "modelLiteral": null,
+        "noOfAxles": 2,
+        "numberOfSeatbelts": null,
+        "numberOfWheelsDriven": null,
+        "reasonForCreation": "VTA QA Automation Seed Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-02-01",
+        "seatbeltInstallationApprovalDate": null,
+        "seatsLowerDeck": 53,
+        "seatsUpperDeck": 0,
+        "speedLimiterMrk": false,
+        "speedRestriction": null,
+        "standingCapacity": 0,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "unladenWeight": null,
+        "vehicleClass": {
+          "code": "l",
+          "description": "large psv(ie: greater than 23 seats)"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleSize": "large",
+        "vehicleType": "psv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000006",
+    "vin": "AUTOQAHGV00000006",
+    "partialVin": "000006",
+    "primaryVrm": "QA06HGV",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 109,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 780,
+              "tyreSize": "215/70-15"
+            },
+            "weights": {
+              "designWeight": 1850,
+              "eecWeight": null,
+              "gbWeight": 1850
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 109,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 780,
+              "tyreSize": "215/70-15"
+            },
+            "weights": {
+              "designWeight": 2000,
+              "eecWeight": null,
+              "gbWeight": 2000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "i",
+          "description": "livestock carrier"
+        },
+        "brakes": {
+          "dtpNumber": "10482"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T14:52:59.747Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "n2",
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "frontAxleToRearAxle": null,
+        "frontVehicleTo5thWheelCouplingMax": null,
+        "frontVehicleTo5thWheelCouplingMin": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 3850,
+        "grossEecWeight": null,
+        "grossGbWeight": 3850,
+        "historicPrimaryVrm": "QA06HGV",
+        "lastUpdatedAt": "2023-04-21T14:53:38.340Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "make": "PEUGEOT",
+        "manufactureYear": 2022,
+        "maxTrainDesignWeight": null,
+        "maxTrainEecWeight": null,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "model": "Boxer",
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": null,
+        "offRoad": null,
+        "plates": [],
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-04-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 3850,
+        "trainEecWeight": null,
+        "trainGbWeight": 3850,
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 109,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 780,
+              "tyreSize": "215/70-15"
+            },
+            "weights": {
+              "designWeight": 1850,
+              "eecWeight": null,
+              "gbWeight": 1850
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 109,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 780,
+              "tyreSize": "215/70-15"
+            },
+            "weights": {
+              "designWeight": 2000,
+              "eecWeight": null,
+              "gbWeight": 2000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "i",
+          "description": "livestock carrier"
+        },
+        "brakes": {
+          "dtpNumber": "10482"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T14:53:38.340Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "n2",
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "frontAxleToRearAxle": null,
+        "frontVehicleTo5thWheelCouplingMax": null,
+        "frontVehicleTo5thWheelCouplingMin": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 3850,
+        "grossEecWeight": null,
+        "grossGbWeight": 3850,
+        "make": "PEUGEOT",
+        "manufactureYear": 2022,
+        "maxTrainDesignWeight": null,
+        "maxTrainEecWeight": null,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "model": "Boxer",
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": null,
+        "offRoad": null,
+        "plates": [],
+        "reasonForCreation": "VTA QA Automation Seed Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-04-01",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": 3850,
+        "trainEecWeight": null,
+        "trainGbWeight": 3850,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000007",
+    "vin": "AUTOQAHGV00000007",
+    "partialVin": "000007",
+    "primaryVrm": "QA07HGV",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "eecWeight": null,
+              "gbWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "eecWeight": null,
+              "gbWeight": 11500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "b",
+          "description": "box"
+        },
+        "brakes": {
+          "dtpNumber": "09876"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T15:37:18.175Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "frontAxleToRearAxle": null,
+        "frontVehicleTo5thWheelCouplingMax": null,
+        "frontVehicleTo5thWheelCouplingMin": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 19000,
+        "grossEecWeight": null,
+        "grossGbWeight": 18000,
+        "historicPrimaryVrm": "QA07HGV",
+        "lastUpdatedAt": "2023-04-21T15:37:46.133Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "make": "MAN",
+        "manufactureYear": 2022,
+        "maxTrainDesignWeight": null,
+        "maxTrainEecWeight": null,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "model": "TGS",
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": null,
+        "offRoad": null,
+        "plates": [],
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-03-01",
+        "roadFriendly": true,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "trainEecWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "eecWeight": null,
+              "gbWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12600,
+              "eecWeight": null,
+              "gbWeight": 11500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "b",
+          "description": "box"
+        },
+        "brakes": {
+          "dtpNumber": "09876"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T15:37:46.133Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "frontAxleToRearAxle": null,
+        "frontVehicleTo5thWheelCouplingMax": null,
+        "frontVehicleTo5thWheelCouplingMin": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": null,
+        "grossDesignWeight": 19000,
+        "grossEecWeight": null,
+        "grossGbWeight": 18000,
+        "make": "MAN",
+        "manufactureYear": 2022,
+        "maxTrainDesignWeight": null,
+        "maxTrainEecWeight": null,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "model": "TGS",
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": null,
+        "offRoad": null,
+        "plates": [],
+        "reasonForCreation": "VTA QA Automation Seed Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-03-01",
+        "roadFriendly": true,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "trainEecWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000008",
+    "vin": "AUTOQAHGV00000008",
+    "partialVin": "000008",
+    "primaryVrm": "QA08HGV",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 156,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": null,
+              "gbWeight": 11500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "t",
+          "description": "tipper"
+        },
+        "brakes": {
+          "dtpNumber": "10293"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T15:14:19.219Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "frontAxleToRearAxle": null,
+        "frontVehicleTo5thWheelCouplingMax": null,
+        "frontVehicleTo5thWheelCouplingMin": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 20000,
+        "grossEecWeight": null,
+        "grossGbWeight": 18000,
+        "historicPrimaryVrm": "QA08HGV",
+        "lastUpdatedAt": "2023-04-21T15:14:33.301Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "make": "SCANIA",
+        "manufactureYear": 2022,
+        "maxTrainDesignWeight": null,
+        "maxTrainEecWeight": null,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "model": "R410",
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": null,
+        "offRoad": null,
+        "plates": [],
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-04-01",
+        "roadFriendly": true,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "trainEecWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 156,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 13000,
+              "eecWeight": null,
+              "gbWeight": 11500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "t",
+          "description": "tipper"
+        },
+        "brakes": {
+          "dtpNumber": "10293"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T15:14:33.301Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "frontAxleToRearAxle": null,
+        "frontVehicleTo5thWheelCouplingMax": null,
+        "frontVehicleTo5thWheelCouplingMin": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 20000,
+        "grossEecWeight": null,
+        "grossGbWeight": 18000,
+        "make": "SCANIA",
+        "manufactureYear": 2022,
+        "maxTrainDesignWeight": null,
+        "maxTrainEecWeight": null,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "model": "R410",
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": null,
+        "offRoad": null,
+        "plates": [],
+        "reasonForCreation": "VTA QA Automation Seed Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-04-01",
+        "roadFriendly": true,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "trainEecWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000009",
+    "vin": "AUTOQAHGV00000009",
+    "partialVin": "000009",
+    "primaryVrm": "QA09HGV",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 156,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": null,
+              "gbWeight": 7500
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12000,
+              "eecWeight": null,
+              "gbWeight": 11500
+            }
+          },
+          {
+            "axleNumber": 3,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 156,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "eecWeight": null,
+              "gbWeight": 7500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "b",
+          "description": "box"
+        },
+        "brakes": {
+          "dtpNumber": "10234"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T15:22:27.522Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            },
+            {
+              "axles": "2-3",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "frontAxleToRearAxle": null,
+        "frontVehicleTo5thWheelCouplingMax": null,
+        "frontVehicleTo5thWheelCouplingMin": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 27000,
+        "grossEecWeight": null,
+        "grossGbWeight": 26000,
+        "historicPrimaryVrm": "QA09HGV",
+        "lastUpdatedAt": "2023-04-21T15:22:55.800Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "make": "MERCEDES",
+        "manufactureYear": 2022,
+        "maxTrainDesignWeight": null,
+        "maxTrainEecWeight": null,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "model": "Actros 6X2",
+        "noOfAxles": 3,
+        "numberOfWheelsDriven": null,
+        "offRoad": null,
+        "plates": [],
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-01-10",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "trainEecWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 156,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7500,
+              "eecWeight": null,
+              "gbWeight": 7500
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 12000,
+              "eecWeight": null,
+              "gbWeight": 11500
+            }
+          },
+          {
+            "axleNumber": 3,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 156,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "eecWeight": null,
+              "gbWeight": 7500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "b",
+          "description": "box"
+        },
+        "brakes": {
+          "dtpNumber": "10234"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T15:22:55.800Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            },
+            {
+              "axles": "2-3",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "frontAxleToRearAxle": null,
+        "frontVehicleTo5thWheelCouplingMax": null,
+        "frontVehicleTo5thWheelCouplingMin": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 27000,
+        "grossEecWeight": null,
+        "grossGbWeight": 26000,
+        "make": "MERCEDES",
+        "manufactureYear": 2022,
+        "maxTrainDesignWeight": null,
+        "maxTrainEecWeight": null,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "model": "Actros 6X2",
+        "noOfAxles": 3,
+        "numberOfWheelsDriven": null,
+        "offRoad": null,
+        "plates": [],
+        "reasonForCreation": "VTA QA Automation Seed Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-01-10",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "trainEecWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000010",
+    "vin": "AUTOQAHGV00000010",
+    "partialVin": "000010",
+    "primaryVrm": "QA10HGV",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "eecWeight": null,
+              "gbWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "eecWeight": null,
+              "gbWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 3,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 10500,
+              "eecWeight": null,
+              "gbWeight": 9500
+            }
+          },
+          {
+            "axleNumber": 4,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 10500,
+              "eecWeight": null,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "t",
+          "description": "tipper"
+        },
+        "brakes": {
+          "dtpNumber": "09876"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T15:29:16.823Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            },
+            {
+              "axles": "2-3",
+              "value": null
+            },
+            {
+              "axles": "3-4",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "frontAxleToRearAxle": null,
+        "frontVehicleTo5thWheelCouplingMax": null,
+        "frontVehicleTo5thWheelCouplingMin": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 34000,
+        "grossEecWeight": null,
+        "grossGbWeight": 32000,
+        "historicPrimaryVrm": "QA10HGV",
+        "lastUpdatedAt": "2023-04-21T15:29:47.686Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "make": "VOLVO",
+        "manufactureYear": 2022,
+        "maxTrainDesignWeight": null,
+        "maxTrainEecWeight": null,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "model": "FH-540 8X4",
+        "noOfAxles": 4,
+        "numberOfWheelsDriven": null,
+        "offRoad": null,
+        "plates": [],
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-03-20",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "archived",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "trainEecWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": "2R",
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "eecWeight": null,
+              "gbWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 152,
+              "fitmentCode": "single",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 7100,
+              "eecWeight": null,
+              "gbWeight": 7100
+            }
+          },
+          {
+            "axleNumber": 3,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 10500,
+              "eecWeight": null,
+              "gbWeight": 9500
+            }
+          },
+          {
+            "axleNumber": 4,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 10500,
+              "eecWeight": null,
+              "gbWeight": 9500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "t",
+          "description": "tipper"
+        },
+        "brakes": {
+          "dtpNumber": "09876"
+        },
+        "conversionRefNo": null,
+        "createdAt": "2023-04-21T15:29:47.686Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            },
+            {
+              "axles": "2-3",
+              "value": null
+            },
+            {
+              "axles": "3-4",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "drawbarCouplingFitted": null,
+        "emissionsLimit": null,
+        "euroStandard": "Euro 6",
+        "euVehicleCategory": "n3",
+        "frontAxleTo5thWheelMax": null,
+        "frontAxleTo5thWheelMin": null,
+        "frontAxleToRearAxle": null,
+        "frontVehicleTo5thWheelCouplingMax": null,
+        "frontVehicleTo5thWheelCouplingMin": null,
+        "fuelPropulsionSystem": "DieselPetrol",
+        "functionCode": "R",
+        "grossDesignWeight": 34000,
+        "grossEecWeight": null,
+        "grossGbWeight": 32000,
+        "make": "VOLVO",
+        "manufactureYear": 2022,
+        "maxTrainDesignWeight": null,
+        "maxTrainEecWeight": null,
+        "maxTrainGbWeight": null,
+        "microfilm": null,
+        "model": "FH-540 8X4",
+        "noOfAxles": 4,
+        "numberOfWheelsDriven": null,
+        "offRoad": null,
+        "plates": [],
+        "reasonForCreation": "VTA QA Automation Seed Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-03-20",
+        "roadFriendly": false,
+        "speedLimiterMrk": false,
+        "statusCode": "current",
+        "tachoExemptMrk": false,
+        "trainDesignWeight": null,
+        "trainEecWeight": null,
+        "trainGbWeight": null,
+        "tyreUseCode": "2R",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "rigid",
+        "vehicleType": "hgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000011",
+    "vin": "AUTOQATRA000000006",
+    "partialVin": "000006",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "authIntoService": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": null,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "l",
+          "description": "low loader"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "01234",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": null,
+        "conversionRefNo": null,
+        "couplingCenterToRearAxleMax": null,
+        "couplingCenterToRearAxleMin": null,
+        "couplingCenterToRearTrlMax": null,
+        "couplingCenterToRearTrlMin": null,
+        "couplingType": null,
+        "createdAt": "2023-04-21T16:08:05.789Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [],
+          "length": null,
+          "width": null
+        },
+        "euVehicleCategory": "o3",
+        "firstUseDate": "2023-01-10",
+        "frameDescription": null,
+        "frontAxleToRearAxle": null,
+        "functionCode": "R",
+        "grossDesignWeight": 8000,
+        "grossEecWeight": null,
+        "grossGbWeight": 8000,
+        "lastUpdatedAt": "2023-04-21T16:08:36.515Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "letterOfAuth": null,
+        "make": "CRANE FRUEHAUF",
+        "manufacturerDetails": null,
+        "manufactureYear": 2022,
+        "maxLoadOnCoupling": null,
+        "microfilm": null,
+        "model": "CF-1000",
+        "noOfAxles": 1,
+        "plates": [],
+        "purchaserDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "faxNumber": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "purchaserNotes": null,
+          "telephoneNumber": null
+        },
+        "rearAxleToRearTrl": null,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": null,
+        "roadFriendly": true,
+        "statusCode": "archived",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "authIntoService": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": null,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "l",
+          "description": "low loader"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "01234",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": null,
+        "conversionRefNo": null,
+        "couplingCenterToRearAxleMax": null,
+        "couplingCenterToRearAxleMin": null,
+        "couplingCenterToRearTrlMax": null,
+        "couplingCenterToRearTrlMin": null,
+        "couplingType": null,
+        "createdAt": "2023-04-21T16:08:36.515Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [],
+          "length": null,
+          "width": null
+        },
+        "euVehicleCategory": "o3",
+        "firstUseDate": "2023-01-10",
+        "frameDescription": null,
+        "frontAxleToRearAxle": null,
+        "functionCode": "R",
+        "grossDesignWeight": 8000,
+        "grossEecWeight": null,
+        "grossGbWeight": 8000,
+        "letterOfAuth": null,
+        "make": "CRANE FRUEHAUF",
+        "manufacturerDetails": null,
+        "manufactureYear": 2022,
+        "maxLoadOnCoupling": null,
+        "microfilm": null,
+        "model": "CF-1000",
+        "noOfAxles": 1,
+        "plates": [],
+        "purchaserDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "faxNumber": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "purchaserNotes": null,
+          "telephoneNumber": null
+        },
+        "rearAxleToRearTrl": null,
+        "reasonForCreation": "VTA QA Automation Seed Data",
+        "recordCompleteness": "testable",
+        "regnDate": null,
+        "roadFriendly": true,
+        "statusCode": "current",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "Q111116"
+  },
+  {
+    "systemNumber": "90000012",
+    "vin": "AUTOQATRA000000007",
+    "partialVin": "000007",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "authIntoService": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": null,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 124,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 642,
+              "tyreSize": "215/75-17.5"
+            },
+            "weights": {
+              "designWeight": 4500,
+              "eecWeight": null,
+              "gbWeight": 4500
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 124,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 642,
+              "tyreSize": "215/75-17.5"
+            },
+            "weights": {
+              "designWeight": 4500,
+              "eecWeight": null,
+              "gbWeight": 4500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "t",
+          "description": "tipper"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "08976",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": null,
+        "conversionRefNo": null,
+        "couplingCenterToRearAxleMax": null,
+        "couplingCenterToRearAxleMin": null,
+        "couplingCenterToRearTrlMax": null,
+        "couplingCenterToRearTrlMin": null,
+        "couplingType": null,
+        "createdAt": "2023-04-24T08:41:41.913Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "euVehicleCategory": "o3",
+        "firstUseDate": "2023-02-01",
+        "frameDescription": null,
+        "frontAxleToRearAxle": null,
+        "functionCode": null,
+        "grossDesignWeight": 10000,
+        "grossEecWeight": null,
+        "grossGbWeight": 10000,
+        "lastUpdatedAt": "2023-04-24T08:53:00.584Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "letterOfAuth": null,
+        "make": "BROSHUIS",
+        "manufacturerDetails": null,
+        "manufactureYear": 2022,
+        "maxLoadOnCoupling": null,
+        "microfilm": null,
+        "model": "BS-2",
+        "noOfAxles": 2,
+        "plates": [],
+        "purchaserDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "faxNumber": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "purchaserNotes": null,
+          "telephoneNumber": null
+        },
+        "rearAxleToRearTrl": null,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": null,
+        "roadFriendly": true,
+        "statusCode": "archived",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "authIntoService": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": null,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 124,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 642,
+              "tyreSize": "215/75-17.5"
+            },
+            "weights": {
+              "designWeight": 4500,
+              "eecWeight": null,
+              "gbWeight": 4500
+            }
+          },
+          {
+            "axleNumber": 2,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 124,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 642,
+              "tyreSize": "215/75-17.5"
+            },
+            "weights": {
+              "designWeight": 4500,
+              "eecWeight": null,
+              "gbWeight": 4500
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "t",
+          "description": "tipper"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "08976",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": null,
+        "conversionRefNo": null,
+        "couplingCenterToRearAxleMax": null,
+        "couplingCenterToRearAxleMin": null,
+        "couplingCenterToRearTrlMax": null,
+        "couplingCenterToRearTrlMin": null,
+        "couplingType": null,
+        "createdAt": "2023-04-24T08:53:00.584Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "euVehicleCategory": "o3",
+        "firstUseDate": "2023-02-01",
+        "frameDescription": null,
+        "frontAxleToRearAxle": null,
+        "functionCode": null,
+        "grossDesignWeight": 10000,
+        "grossEecWeight": null,
+        "grossGbWeight": 10000,
+        "letterOfAuth": null,
+        "make": "BROSHUIS",
+        "manufacturerDetails": null,
+        "manufactureYear": 2022,
+        "maxLoadOnCoupling": null,
+        "microfilm": null,
+        "model": "BS-2",
+        "noOfAxles": 2,
+        "plates": [],
+        "purchaserDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "faxNumber": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "purchaserNotes": null,
+          "telephoneNumber": null
+        },
+        "rearAxleToRearTrl": null,
+        "reasonForCreation": "VTA QA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": null,
+        "roadFriendly": true,
+        "statusCode": "current",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "Q111117"
+  },
+  {
+    "systemNumber": "90000013",
+    "vin": "AUTOQATRA000000008",
+    "partialVin": "000008",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "authIntoService": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": null,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 10000,
+              "eecWeight": null,
+              "gbWeight": 10000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "f",
+          "description": "flat"
+        },
+        "brakes": {
+          "antilockBrakingSystem": false,
+          "dtpNumber": "10234",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": null,
+        "conversionRefNo": null,
+        "couplingCenterToRearAxleMax": null,
+        "couplingCenterToRearAxleMin": null,
+        "couplingCenterToRearTrlMax": null,
+        "couplingCenterToRearTrlMin": null,
+        "couplingType": null,
+        "createdAt": "2023-04-24T08:50:57.371Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [],
+          "length": null,
+          "width": null
+        },
+        "euVehicleCategory": "o4",
+        "firstUseDate": "2023-01-10",
+        "frameDescription": null,
+        "frontAxleToRearAxle": null,
+        "functionCode": null,
+        "grossDesignWeight": 11000,
+        "grossEecWeight": null,
+        "grossGbWeight": 11000,
+        "lastUpdatedAt": "2023-04-24T08:51:16.063Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "letterOfAuth": null,
+        "make": "A FARLOW ENGINEERING LTD",
+        "manufacturerDetails": null,
+        "manufactureYear": 2022,
+        "maxLoadOnCoupling": null,
+        "microfilm": null,
+        "model": "AFE-1F",
+        "noOfAxles": 1,
+        "plates": [],
+        "purchaserDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "faxNumber": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "purchaserNotes": null,
+          "telephoneNumber": null
+        },
+        "rearAxleToRearTrl": null,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": null,
+        "roadFriendly": false,
+        "statusCode": "archived",
+        "suspensionType": "S",
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "drawbar",
+        "vehicleType": "trl"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "authIntoService": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": null,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 10000,
+              "eecWeight": null,
+              "gbWeight": 10000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "f",
+          "description": "flat"
+        },
+        "brakes": {
+          "antilockBrakingSystem": false,
+          "dtpNumber": "10234",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": null,
+        "conversionRefNo": null,
+        "couplingCenterToRearAxleMax": null,
+        "couplingCenterToRearAxleMin": null,
+        "couplingCenterToRearTrlMax": null,
+        "couplingCenterToRearTrlMin": null,
+        "couplingType": null,
+        "createdAt": "2023-04-24T08:51:16.063Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [],
+          "length": null,
+          "width": null
+        },
+        "euVehicleCategory": "o4",
+        "firstUseDate": "2023-01-10",
+        "frameDescription": null,
+        "frontAxleToRearAxle": null,
+        "functionCode": null,
+        "grossDesignWeight": 11000,
+        "grossEecWeight": null,
+        "grossGbWeight": 11000,
+        "letterOfAuth": null,
+        "make": "A FARLOW ENGINEERING LTD",
+        "manufacturerDetails": null,
+        "manufactureYear": 2022,
+        "maxLoadOnCoupling": null,
+        "microfilm": null,
+        "model": "AFE-1F",
+        "noOfAxles": 1,
+        "plates": [],
+        "purchaserDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "faxNumber": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "purchaserNotes": null,
+          "telephoneNumber": null
+        },
+        "rearAxleToRearTrl": null,
+        "reasonForCreation": "VTA QA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": null,
+        "roadFriendly": false,
+        "statusCode": "current",
+        "suspensionType": "S",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "drawbar",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "Q111118"
+  },
+  {
+    "systemNumber": "90000014",
+    "vin": "AUTOQATRA000000009",
+    "partialVin": "000009",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "authIntoService": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": null,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": null,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "b",
+          "description": "box"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "10034",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": null,
+        "conversionRefNo": null,
+        "couplingCenterToRearAxleMax": null,
+        "couplingCenterToRearAxleMin": null,
+        "couplingCenterToRearTrlMax": null,
+        "couplingCenterToRearTrlMin": null,
+        "couplingType": null,
+        "createdAt": "2023-04-24T09:37:10.134Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "euVehicleCategory": "o4",
+        "firstUseDate": null,
+        "frameDescription": null,
+        "frontAxleToRearAxle": null,
+        "functionCode": null,
+        "grossDesignWeight": 17000,
+        "grossEecWeight": null,
+        "grossGbWeight": 17000,
+        "lastUpdatedAt": "2023-04-24T09:37:27.096Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "letterOfAuth": null,
+        "make": "ANDOVER TRAILERS",
+        "manufacturerDetails": null,
+        "manufactureYear": 2022,
+        "maxLoadOnCoupling": null,
+        "microfilm": null,
+        "model": "AT-2F",
+        "noOfAxles": 2,
+        "plates": [],
+        "purchaserDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "faxNumber": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "purchaserNotes": null,
+          "telephoneNumber": null
+        },
+        "rearAxleToRearTrl": null,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-03-20",
+        "roadFriendly": true,
+        "statusCode": "archived",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "authIntoService": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": null,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": null,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 148,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 456,
+              "tyreSize": "295/80-22.5"
+            },
+            "weights": {
+              "designWeight": 8000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "b",
+          "description": "box"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "10034",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": null,
+        "conversionRefNo": null,
+        "couplingCenterToRearAxleMax": null,
+        "couplingCenterToRearAxleMin": null,
+        "couplingCenterToRearTrlMax": null,
+        "couplingCenterToRearTrlMin": null,
+        "couplingType": null,
+        "createdAt": "2023-04-24T09:37:27.096Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "euVehicleCategory": "o4",
+        "firstUseDate": null,
+        "frameDescription": null,
+        "frontAxleToRearAxle": null,
+        "functionCode": null,
+        "grossDesignWeight": 17000,
+        "grossEecWeight": null,
+        "grossGbWeight": 17000,
+        "letterOfAuth": null,
+        "make": "ANDOVER TRAILERS",
+        "manufacturerDetails": null,
+        "manufactureYear": 2022,
+        "maxLoadOnCoupling": null,
+        "microfilm": null,
+        "model": "AT-2F",
+        "noOfAxles": 2,
+        "plates": [],
+        "purchaserDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "faxNumber": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "purchaserNotes": null,
+          "telephoneNumber": null
+        },
+        "rearAxleToRearTrl": null,
+        "reasonForCreation": "VTA QA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": "2023-03-20",
+        "roadFriendly": true,
+        "statusCode": "current",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-trailer",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "Q111119"
+  },
+  {
+    "systemNumber": "90000015",
+    "vin": "AUTOQATRA000000010",
+    "partialVin": "000010",
+    "techRecord": [
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "authIntoService": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": null,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": null,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 3,
+            "brakes": null,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "y",
+          "description": "car transporter"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "10101",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": null,
+        "conversionRefNo": null,
+        "couplingCenterToRearAxleMax": null,
+        "couplingCenterToRearAxleMin": null,
+        "couplingCenterToRearTrlMax": null,
+        "couplingCenterToRearTrlMin": null,
+        "couplingType": null,
+        "createdAt": "2023-04-24T09:45:38.141Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            },
+            {
+              "axles": "2-3",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "euVehicleCategory": "o4",
+        "firstUseDate": "2023-02-23",
+        "frameDescription": null,
+        "frontAxleToRearAxle": null,
+        "functionCode": null,
+        "grossDesignWeight": 41000,
+        "grossEecWeight": null,
+        "grossGbWeight": 38000,
+        "lastUpdatedAt": "2023-04-24T09:45:56.512Z",
+        "lastUpdatedById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "lastUpdatedByName": "Emyr Waters",
+        "letterOfAuth": null,
+        "make": "ESTEPE",
+        "manufacturerDetails": null,
+        "manufactureYear": 2022,
+        "maxLoadOnCoupling": null,
+        "microfilm": null,
+        "model": "CT-2/3",
+        "noOfAxles": 3,
+        "plates": [],
+        "purchaserDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "faxNumber": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "purchaserNotes": null,
+          "telephoneNumber": null
+        },
+        "rearAxleToRearTrl": null,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": null,
+        "roadFriendly": true,
+        "statusCode": "archived",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "updateType": "techRecordUpdate",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-car transporter",
+        "vehicleType": "trl"
+      },
+      {
+        "alterationMarker": false,
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "authIntoService": null,
+        "axles": [
+          {
+            "axleNumber": 1,
+            "brakes": null,
+            "parkingBrakeMrk": false,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 2,
+            "brakes": null,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          },
+          {
+            "axleNumber": 3,
+            "brakes": null,
+            "parkingBrakeMrk": true,
+            "tyres": {
+              "dataTrAxles": 150,
+              "fitmentCode": "double",
+              "plyRating": null,
+              "tyreCode": 428,
+              "tyreSize": "315/80-22.5"
+            },
+            "weights": {
+              "designWeight": 9000,
+              "eecWeight": null,
+              "gbWeight": 8000
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "y",
+          "description": "car transporter"
+        },
+        "brakes": {
+          "antilockBrakingSystem": null,
+          "dtpNumber": "10101",
+          "loadSensingValve": null
+        },
+        "centreOfRearmostAxleToRearOfTrl": null,
+        "conversionRefNo": null,
+        "couplingCenterToRearAxleMax": null,
+        "couplingCenterToRearAxleMin": null,
+        "couplingCenterToRearTrlMax": null,
+        "couplingCenterToRearTrlMin": null,
+        "couplingType": null,
+        "createdAt": "2023-04-24T09:45:56.512Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "departmentalVehicleMarker": false,
+        "dimensions": {
+          "axleSpacing": [
+            {
+              "axles": "1-2",
+              "value": null
+            },
+            {
+              "axles": "2-3",
+              "value": null
+            }
+          ],
+          "length": null,
+          "width": null
+        },
+        "euVehicleCategory": "o4",
+        "firstUseDate": "2023-02-23",
+        "frameDescription": null,
+        "frontAxleToRearAxle": null,
+        "functionCode": null,
+        "grossDesignWeight": 41000,
+        "grossEecWeight": null,
+        "grossGbWeight": 38000,
+        "letterOfAuth": null,
+        "make": "ESTEPE",
+        "manufacturerDetails": null,
+        "manufactureYear": 2022,
+        "maxLoadOnCoupling": null,
+        "microfilm": null,
+        "model": "CT-2/3",
+        "noOfAxles": 3,
+        "plates": [],
+        "purchaserDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "faxNumber": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "purchaserNotes": null,
+          "telephoneNumber": null
+        },
+        "rearAxleToRearTrl": null,
+        "reasonForCreation": "VTA QA Automation Data",
+        "recordCompleteness": "testable",
+        "regnDate": null,
+        "roadFriendly": true,
+        "statusCode": "current",
+        "suspensionType": "A",
+        "tyreUseCode": "2B",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "semi-car transporter",
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "Q111120"
+  },
+  {
+    "systemNumber": "90000016",
+    "vin": "AUTOQACAR00000001",
+    "partialVin": "000001",
+    "primaryVrm": "QA01CAR",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:24:15.931Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 2,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": ["a"],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000017",
+    "vin": "AUTOQACAR00000002",
+    "partialVin": "000002",
+    "primaryVrm": "QA02CAR",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:25:55.047Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 2,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": ["t"],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000018",
+    "vin": "AUTOQACAR00000003",
+    "partialVin": "000003",
+    "primaryVrm": "QA03CAR",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:27:07.987Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "m1",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 2,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": ["r"],
+        "vehicleType": "car"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000019",
+    "vin": "AUTOQALGV00000001",
+    "partialVin": "000001",
+    "primaryVrm": "QA01LGV",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:28:09.244Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "n1",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 2,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": ["c"],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000020",
+    "vin": "AUTOQALGV00000002",
+    "partialVin": "000002",
+    "primaryVrm": "QA02LGV",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:29:32.732Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "n1",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 2,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": ["p"],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000021",
+    "vin": "AUTOQALGV00000003",
+    "partialVin": "000003",
+    "primaryVrm": "QA03LGV",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:30:31.092Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "n1",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 2,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleConfiguration": "other",
+        "vehicleSubclass": ["r"],
+        "vehicleType": "lgv"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000022",
+    "vin": "AUTOQASTRL0000001",
+    "partialVin": "000001",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:37:45.288Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "o1",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": "1",
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": ["r"],
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "020003T"
+  },
+  {
+    "systemNumber": "90000023",
+    "vin": "AUTOQASTRL0000002",
+    "partialVin": "000002",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:39:58.116Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "o1",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": "2",
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "drawbar",
+        "vehicleSubclass": ["r"],
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "020004T"
+  },
+  {
+    "systemNumber": "90000024",
+    "vin": "AUTOQASTRL0000003",
+    "partialVin": "000003",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:41:38.522Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "o2",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": "1",
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "centre axle drawbar",
+        "vehicleSubclass": ["r"],
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "020005T"
+  },
+  {
+    "systemNumber": "90000025",
+    "vin": "AUTOQASTRL0000004",
+    "partialVin": "000004",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:44:00.760Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "o2",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": "2",
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "testable",
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "t",
+          "description": "trailer"
+        },
+        "vehicleConfiguration": "drawbar",
+        "vehicleSubclass": ["r"],
+        "vehicleType": "trl"
+      }
+    ],
+    "trailerId": "020006T"
+  },
+  {
+    "systemNumber": "90000026",
+    "vin": "AUTOQAMCYCLE00001",
+    "partialVin": "E00001",
+    "primaryVrm": "QA01MCC",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:51:05.597Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "l1e-a",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": 3,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "1",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleType": "motorcycle"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000027",
+    "vin": "AUTOQAMCYCLE00002",
+    "partialVin": "E00002",
+    "primaryVrm": "QA02MCC",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:53:23.034Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": "l1e",
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": 2,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "1",
+          "description": "motorbikes up to 200cc"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleType": "motorcycle"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000028",
+    "vin": "AUTOQAMCYCLE00003",
+    "partialVin": "E00003",
+    "primaryVrm": "QA03MCC",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:56:50.713Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": null,
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 0,
+        "numberOfWheelsDriven": 2,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "2",
+          "description": "motorbikes over 200cc or with a sidecar"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleType": "motorcycle"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000029",
+    "vin": "AUTOQAMCYCLE00004",
+    "partialVin": "E00004",
+    "primaryVrm": "QA04MCC",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:57:50.771Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": null,
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 1,
+        "numberOfWheelsDriven": 3,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "3",
+          "description": "3 wheelers"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleType": "motorcycle"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000030",
+    "vin": "AUTOQAMCYCLE00005",
+    "partialVin": "E00005",
+    "primaryVrm": "QA05MCC",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:59:04.868Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": null,
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 1,
+        "numberOfWheelsDriven": 3,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleType": "motorcycle"
+      }
+    ]
+  },
+  {
+    "systemNumber": "90000031",
+    "vin": "AUTOQAMCYCLE00006",
+    "partialVin": "E00006",
+    "primaryVrm": "QA06MCC",
+    "techRecord": [
+      {
+        "applicantDetails": {
+          "address1": null,
+          "address2": null,
+          "address3": null,
+          "emailAddress": null,
+          "name": null,
+          "postCode": null,
+          "postTown": null,
+          "telephoneNumber": null
+        },
+        "createdAt": "2023-04-24T10:59:59.685Z",
+        "createdById": "28e4bca6-3992-4a06-874d-143395a8b4df",
+        "createdByName": "Emyr Waters",
+        "euVehicleCategory": null,
+        "lastUpdatedAt": null,
+        "lastUpdatedById": null,
+        "lastUpdatedByName": null,
+        "manufactureYear": 2022,
+        "noOfAxles": 2,
+        "numberOfWheelsDriven": 4,
+        "reasonForCreation": "VTA Automation Data",
+        "recordCompleteness": "complete",
+        "regnDate": null,
+        "statusCode": "provisional",
+        "vehicleClass": {
+          "code": "4",
+          "description": "MOT class 4"
+        },
+        "vehicleConfiguration": "other",
+        "vehicleType": "motorcycle"
+      }
+    ]
   }
 ]
