@@ -37,6 +37,7 @@ export class PsvProcessor extends VehicleProcessor<PublicServiceVehicle> {
     );
      if(techRecord.brakes.brakeCode) {
       console.log(techRecord);
+      console.log(techRecord.brakes);
       techRecord.brakes.brakeCodeOriginal = techRecord.brakes.brakeCode.substring(
       techRecord.brakes.brakeCode.length - 3
     )};
