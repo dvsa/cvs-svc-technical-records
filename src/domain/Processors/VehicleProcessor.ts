@@ -396,9 +396,11 @@ export abstract class VehicleProcessor<T extends Vehicle> {
   /* #region  Private functions */
 
   private async validateAndMapTechRecord(msUserDetails: IMsUserDetails) {
+    console.log(this.vehicle);
     this.vehicle.techRecord[0] = this.validate(this.vehicle, true);
     await this.setNumberKey();
     this.vehicle.techRecord[0] = this.mapFields(this.vehicle.techRecord[0]);
+    console.log(this.vehicle.techRecord[0]);
     this.vehicle = this.capitaliseGeneralVehicleAttributes(this.vehicle);
     this.auditHandler.setAuditDetailsAndStatusCodeForNewRecord(
       this.vehicle.techRecord[0],
