@@ -26,6 +26,7 @@ export abstract class VehicleProcessor<T extends Vehicle> {
     vehicleObj: T,
     protected techRecordDAO: TechRecordsDAO
   ) {
+    console.log("VEHICLE RECORDS");
     console.log(vehicleObj);
     this.vehicle = vehicleObj;
     this.validationOptions = { abortEarly: false, stripUnknown: true };

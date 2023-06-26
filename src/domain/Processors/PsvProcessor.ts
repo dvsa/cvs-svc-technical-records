@@ -35,6 +35,9 @@ export class PsvProcessor extends VehicleProcessor<PublicServiceVehicle> {
     techRecord.vehicleClass.code = validators.populateVehicleClassCode(
       techRecord.vehicleClass.description
     );
+
+    console.log(techRecord.brakes);
+
      if(techRecord.brakes.brakeCode) {
       console.log(techRecord);
       console.log(techRecord.brakes);

@@ -36,8 +36,9 @@ const postTechRecords = async (event: any) => {
     techRecord: techRec
   };
 
+  console.log("POST RECORDS");
   console.log(techRecord);
-  console.log(techRecord.brakes);
+  console.log(techRecord.techRecord.brakes);
 
   // Only add the trailer id if we have it and vehicle is a trailer
   if (trailerId && techRec[0]?.vehicleType === VEHICLE_TYPE.TRL) {
