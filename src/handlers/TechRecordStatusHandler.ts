@@ -53,7 +53,7 @@ export class TechRecordStatusHandler<T extends Vehicle> {
 
   public static isStatusUpdateRequired(testStatus: string, testResult: string, testTypeId: string): boolean {
     return testStatus === "submitted" && (testResult === "pass" || testResult === "prs") &&
-      (this.isTestTypeFirstTest(testTypeId) || this.isTestTypeNotifiableAlteration(testTypeId));
+      (this.isTestTypeFirstTest(testTypeId) || this.isTestTypeNotifiableAlteration(testTypeId) || this.isTestTypeCOIF(testTypeId));
   }
 
   private static isTestTypeFirstTest(testTypeId: string): boolean {
@@ -64,5 +64,10 @@ export class TechRecordStatusHandler<T extends Vehicle> {
   private static isTestTypeNotifiableAlteration(testTypeId: string): boolean {
     const notifiableAlterationIds = ["38", "47", "48"];
     return notifiableAlterationIds.includes(testTypeId);
+  }
+
+  private static isTestTypeCOIF(testTypeId: string): boolean {
+    const coifIds = ["142", "143"];
+    return coifIds.includes(testTypeId);
   }
 }
