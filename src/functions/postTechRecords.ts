@@ -19,10 +19,12 @@ const postTechRecords = async (event: any) => {
     return Promise.resolve(new HTTPResponse(400, "Invalid body field 'vin'"));
   }
 
-  if (!techRec || !techRec.length) {
+  if (!techRec?.length) {
     return Promise.resolve(new HTTPResponse(400, "Body is not a valid TechRecord"));
   }
-
+  if (techRec.length > 1) {
+    return Promise.resolve(new HTTPResponse(400, "Can only create one tech record"));
+  }
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
     return Promise.resolve(new HTTPResponse(400, "Microsoft user details not provided"));
   }

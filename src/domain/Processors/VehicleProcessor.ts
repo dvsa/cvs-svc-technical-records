@@ -363,7 +363,9 @@ export abstract class VehicleProcessor<T extends Vehicle> {
         enums.HTTPRESPONSE.NO_EU_VEHICLE_CATEGORY_UPDATE_REQUIRED
       );
     }
-    nonArchivedTechRecord.forEach((techRecord) => {
+    const date = new Date()
+    nonArchivedTechRecord.forEach((techRecord, i) => {
+      date.setMilliseconds(i)
       const statusCode = techRecord.statusCode;
       const newTechRecord: TechRecord = cloneDeep(techRecord);
       techRecord.statusCode = enums.STATUS.ARCHIVED;
@@ -372,8 +374,9 @@ export abstract class VehicleProcessor<T extends Vehicle> {
       newTechRecord.reasonForCreation = "Update to EU Vehicle Category";
       this.auditHandler.setAuditDetails(
         newTechRecord,
-        nonArchivedTechRecord[0],
-        msUserDetails
+        techRecord,
+        msUserDetails,
+        date
       );
       vehicle.techRecord.push(newTechRecord);
     });

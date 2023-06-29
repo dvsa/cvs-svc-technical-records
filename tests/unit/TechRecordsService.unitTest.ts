@@ -1358,7 +1358,7 @@ describe("updateTechRecordStatus", () => {
         vin: "ABC123",
         techRecord: [
           { recordCompleteness: "skeleton", statusCode: "archived" },
-          { recordCompleteness: "complete", statusCode: "current", createAt: new Date().toISOString() },
+          { recordCompleteness: "complete", statusCode: "current", createdAt: new Date().toISOString() },
           { recordCompleteness: "testable", statusCode: "archived" },
         ],
       } as unknown as Vehicle;

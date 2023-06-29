@@ -103,6 +103,37 @@ describe("updateEuVehicleCategory", () => {
                 });
         });
 
+        it("should update the provisional and current record with unique createdAt dates", async () => {
+            const systemNumber: string = "5000";
+            expect.assertions(7);
+            await LambdaTester(updateEuVehicleCategory)
+                .event({
+                    path: `/vehicles/update-eu-vehicle-category/${systemNumber}`,
+                    pathParameters: {
+                        systemNumber,
+                    },
+                    queryStringParameters: {
+                        euVehicleCategory: "l1e-a",
+                    },
+                    httpMethod: "PUT",
+                    resource: "/vehicles/update-eu-vehicle-category/{systemNumber}"
+                })
+                .expectResolve((result: any) => {
+                    expect(result.statusCode).toBe(200);
+                    const techRecordWrapper: ITechRecordWrapper = JSON.parse(result.body);
+                    expect(techRecordWrapper.techRecord.length).toBe(4);
+                    expect(techRecordWrapper.techRecord.map((techRecord) => techRecord.statusCode)).toEqual(["archived", "archived","provisional", "current"]);
+                    expect(
+                        techRecordWrapper.techRecord.filter((techRecord) => techRecord.statusCode === "archived" && techRecord.euVehicleCategory === null)
+                    ).toHaveLength(2);
+                    expect(
+                        techRecordWrapper.techRecord.filter((techRecord) => techRecord.statusCode !== "archived" && techRecord.euVehicleCategory === "l1e-a")
+                    ).toHaveLength(2);
+                    expect(techRecordWrapper.techRecord.filter((techRecord) => techRecord.lastUpdatedAt)).toHaveLength(2);
+                    expect(new Set(techRecordWrapper.techRecord.map((techRecord) => techRecord.createdAt)).size).toBe(4);
+                });
+        });
+
         it("should return 200 and the updated vehicle if it has a euVehicleCategory as null and the vehicle has had a VIN change", async () => {
             const systemNumber: string = "11220280";
             expect.assertions(4);

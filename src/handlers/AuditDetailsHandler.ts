@@ -5,8 +5,8 @@ import {isEqual} from "lodash";
 
 export class AuditDetailsHandler {
 
-  public setAuditDetails<TechRec extends TechRecord>(newTechRecord: TechRec, oldTechRecord: TechRec, msUserDetails: IMsUserDetails) {
-    const date = new Date().toISOString();
+  public setAuditDetails<TechRec extends TechRecord>(newTechRecord: TechRec, oldTechRecord: TechRec, msUserDetails: IMsUserDetails, inputDate?: Date) {
+    const date = inputDate ? inputDate.toISOString() : new Date().toISOString();
 
     this.setCreatedAuditDetails(newTechRecord, msUserDetails.msUser, msUserDetails.msOid, date);
     this.setLastUpdatedAuditDetails(oldTechRecord, msUserDetails.msUser, msUserDetails.msOid, date);

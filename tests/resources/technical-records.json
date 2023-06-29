@@ -46666,5 +46666,182 @@
         "vehicleType": "motorcycle"
       }
     ]
+  },
+  {
+    "partialVin": "098765",
+    "primaryVrm": "VM14MDD",
+    "systemNumber": "5000",
+    "secondaryVrms": ["TF14PTH"],
+    "techRecord": [
+      {
+        "vehicleSubclass": ["string"],
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "fdhh",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "295/80-22.5"
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakeCode": "178202",
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:53.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euroStandard": "7",
+        "euVehicleCategory": null,
+        "frontVehicleTo5thWheelCouplingMax": 1900,
+        "frontVehicleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 1,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "reasonForCreation": "new vehicle",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "provisional",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleType": "hgv",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "other",
+        "numberOfWheelsDriven": null,
+        "recordCompleteness": "complete"
+      },
+      {
+        "vehicleSubclass": ["string"],
+        "brakes": {
+          "brakeCodeOriginal": "12412",
+          "brakeCode": "123",
+          "dataTrBrakeOne": "None",
+          "dataTrBrakeTwo": "None",
+          "dataTrBrakeThree": "None",
+          "retarderBrakeOne": "electric",
+          "retarderBrakeTwo": "exhaust",
+          "dtpNumber": "fdhh",
+          "brakeForceWheelsNotLocked": {
+            "serviceBrakeForceA": 6424,
+            "secondaryBrakeForceA": 2512,
+            "parkingBrakeForceA": 2332
+          },
+          "brakeForceWheelsUpToHalfLocked": {
+            "serviceBrakeForceB": 5521,
+            "secondaryBrakeForceB": 2512,
+            "parkingBrakeForceB": 3512
+          },
+          "loadSensingValve": true,
+          "antilockBrakingSystem": true
+        },
+        "axles": [
+          {
+            "axleNumber": 1,
+            "tyres": {
+              "dataTrAxles": 345,
+              "fitmentCode": "single",
+              "plyRating": "AB",
+              "speedCategorySymbol": "a7",
+              "tyreCode": 1234,
+              "tyreSize": "295/80-22.5"
+            }
+          }
+        ],
+        "bodyType": {
+          "code": "x",
+          "description": "other"
+        },
+        "brakeCode": "178202",
+        "conversionRefNo": "7891234",
+        "createdAt": "2019-06-24T10:26:54.903Z",
+        "dimensions": {
+          "length": 7500,
+          "width": 2200
+        },
+        "drawbarCouplingFitted": true,
+        "euroStandard": "7",
+        "euVehicleCategory": null,
+        "frontVehicleTo5thWheelCouplingMax": 1900,
+        "frontVehicleTo5thWheelCouplingMin": 1700,
+        "frontAxleTo5thWheelMax": 1500,
+        "frontAxleTo5thWheelMin": 1200,
+        "functionCode": "A",
+        "grossKerbWeight": 2500,
+        "grossLadenWeight": 3000,
+        "make": "Isuzu",
+        "manufactureYear": 2018,
+        "maxTrainDesignWeight": 500,
+        "maxTrainGbWeight": 1000,
+        "model": "FM",
+        "noOfAxles": 1,
+        "notes": "test note",
+        "ntaNumber": "123456",
+        "reasonForCreation": "new vehicle",
+        "regnDate": "2019-06-24",
+        "roadFriendly": true,
+        "speedLimiterMrk": true,
+        "statusCode": "current",
+        "tachoExemptMrk": true,
+        "trainDesignWeight": 2000,
+        "trainGbWeight": 1500,
+        "tyreUseCode": "2B",
+        "vehicleType": "hgv",
+        "vehicleClass": {
+          "code": "v",
+          "description": "heavy goods vehicle"
+        },
+        "vehicleConfiguration": "other",
+        "numberOfWheelsDriven": null,
+        "recordCompleteness": "complete"
+      }
+    ],
+    "vin": "P012301098766"
   }
 ]
