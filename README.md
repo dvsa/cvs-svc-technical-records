@@ -4,6 +4,8 @@
 
 To capture and persist technical records for a Vehicle submitted by the client (VTM) which is then made available to VTA/VTM for searching a vehicle. If the submitted technical record is applicable for a ministry plate certificate, it triggers the generation of the certificate via dynamo streams of the technical results table.
 
+changing this file for testing
+
 ## Dependencies
 
 The project runs on node >10.x with typescript and serverless framework. For further details about project dependencies, please refer to the `package.json` file.
@@ -32,6 +34,7 @@ Please refer to the the [docs](./docs/README.md) for the API specification and s
 ### Technical record microservice
 
 [Further details about this micro service](https://wiki.dvsacloud.uk/pages/viewpage.action?spaceKey=HVT&title=Technical+Records+Microservice).
+
 #### Database Model
 
 Being a NoSQL database data isn't stored in the relational model, but as a JSON document which is native to dynamodb database. The JSON document is the representation of API specification, hence API specification should be referred, to understand document structure stored in the database.
@@ -79,6 +82,7 @@ This code repository uses [serverless framework](https://www.serverless.com/fram
 You will also require to install dynamodb serverless to run your project with by running the following command `npm run tools-setup` in your preferred shell.
 Once dynamoDB is installed, you will need a local serverless profile to be created so that you can start developping locally.
 The profiles are stored under `~/.aws/credentials`.
+
 ```sh
 # ~/.aws/credentials
 
@@ -89,6 +93,7 @@ aws_access_key_id=<yourDummyAccesskey>
 aws_secret_access_key=<yourDummySecret>
 
 ```
+
 Please refer to the local development section to [scripts](#scripts).
 
 ### Environmental variables
@@ -142,7 +147,6 @@ Please request the relevant credentials to be added locally to the `~/.aws/crede
 - install deps: `npm install`
 - build project: `npm run build`
 - local development and webserver: `BRANCH=local npm start`
-
 
 ## Debugging
 
