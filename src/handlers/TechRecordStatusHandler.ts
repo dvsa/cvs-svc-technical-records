@@ -67,7 +67,7 @@ export class TechRecordStatusHandler<T extends Vehicle> {
   }
 
   private static isTestTypeCOIF(testTypeId: string): boolean {
-    const coifIds = ["142", "143"];
+    const coifIds = ["142", "143", "175", "176"];
     return coifIds.includes(testTypeId);
   }
 }
