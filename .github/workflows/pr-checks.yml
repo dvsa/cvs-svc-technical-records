@@ -5,9 +5,9 @@ name: PR-checks
 
 on:
   push:
-    branches: ['develop', 'feature/VTMDEV-1']
+    branches: ["develop", "feature/VTMDEV-1"]
   pull_request:
-    branches: ['develop', 'feature/VTMDEV-1']
+    branches: ["develop", "feature/VTMDEV-1"]
 
 jobs:
   build-test:
@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: "npm"
       - name: Install dependencies
         run: npm ci
       - name: Setup local dynamo
