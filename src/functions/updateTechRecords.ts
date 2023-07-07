@@ -19,7 +19,9 @@ const updateTechRecords = async (event: any) => {
   if (!techRec || !techRec.length) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage("Body is not a valid TechRecord")));
   }
-
+  if (techRec.length > 1) {
+    return Promise.resolve(new HTTPResponse(400, "Can only update one tech record"));
+  }
   if (!msUserDetails || !msUserDetails.msUser || !msUserDetails.msOid) {
     return Promise.resolve(new HTTPResponse(400, formatErrorMessage(ERRORS.MISSING_USER)));
   }

@@ -64,7 +64,9 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-credentials"]).toEqual(
                 "true"
               );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+              expect(res.body.errors).toContain(
+                HTTPRESPONSE.RESOURCE_NOT_FOUND
+              );
             });
           }
         );
@@ -100,7 +102,9 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-credentials"]).toEqual(
                 "true"
               );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+              expect(res.body.errors).toContain(
+                HTTPRESPONSE.RESOURCE_NOT_FOUND
+              );
             });
           }
         );
@@ -151,7 +155,9 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-credentials"]).toEqual(
                 "true"
               );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+              expect(res.body.errors).toContain(
+                HTTPRESPONSE.RESOURCE_NOT_FOUND
+              );
             });
           }
         );
@@ -187,7 +193,9 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-credentials"]).toEqual(
                 "true"
               );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+              expect(res.body.errors).toContain(
+                HTTPRESPONSE.RESOURCE_NOT_FOUND
+              );
             });
           }
         );
@@ -257,7 +265,9 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-credentials"]).toEqual(
                 "true"
               );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+              expect(res.body.errors).toContain(
+                HTTPRESPONSE.RESOURCE_NOT_FOUND
+              );
             });
           }
         );
@@ -293,7 +303,9 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-credentials"]).toEqual(
                 "true"
               );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+              expect(res.body.errors).toContain(
+                HTTPRESPONSE.RESOURCE_NOT_FOUND
+              );
             });
           }
         );
@@ -344,7 +356,9 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-credentials"]).toEqual(
                 "true"
               );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+              expect(res.body.errors).toContain(
+                HTTPRESPONSE.RESOURCE_NOT_FOUND
+              );
             });
           }
         );
@@ -380,7 +394,9 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-credentials"]).toEqual(
                 "true"
               );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+              expect(res.body.errors).toContain(
+                HTTPRESPONSE.RESOURCE_NOT_FOUND
+              );
             });
           }
         );
@@ -406,24 +422,25 @@ describe("techRecords", () => {
 
     context("and when a search by system number is done", () => {
       context("and no status code is provided", () => {
-        context("and there are multiple dynamodb records for that system number", () => {
-          it("should return a stitched up record for that system number with the most recent vin at the base of the tech record", async () => {
-            const res = await request.get(
-              "vehicles/11220280/tech-records?status=all&searchCriteria=systemNumber"
-            );
-            console.log(res.body);
-            expect(res.status).toEqual(200);
-            expect(res.header["access-control-allow-origin"]).toEqual("*");
-            expect(res.header["access-control-allow-credentials"]).toEqual(
-              "true"
-            );
-            expect(res.body.length).toEqual(1);
-            expect(res.body).toEqual([stitchedRecords]);
-            expect(res.body[0].techRecord.length).toEqual(
-              4
-            );
-          });
-        });
+        context(
+          "and there are multiple dynamodb records for that system number",
+          () => {
+            it("should return a stitched up record for that system number with the most recent vin at the base of the tech record", async () => {
+              const res = await request.get(
+                "vehicles/11220280/tech-records?status=all&searchCriteria=systemNumber"
+              );
+              console.log(res.body);
+              expect(res.status).toEqual(200);
+              expect(res.header["access-control-allow-origin"]).toEqual("*");
+              expect(res.header["access-control-allow-credentials"]).toEqual(
+                "true"
+              );
+              expect(res.body.length).toEqual(1);
+              expect(res.body).toEqual([stitchedRecords]);
+              expect(res.body[0].techRecord.length).toEqual(4);
+            });
+          }
+        );
       });
     });
   });
@@ -451,36 +468,37 @@ describe("techRecords", () => {
       context("and when trying to create a new vehicle", () => {
         context("and the payload is valid", () => {
           context("and that vehicle does not exist", () => {
-        it("should return status 201 Technical Record created", async () => {
-          const techRec: any = cloneDeep(mockData[43]);
-          const vin = Date.now().toString();
-          techRec.techRecord[0].bodyType.description = "skeletal";
-          techRec.techRecord[0].bodyType.code = "k";
-          const primaryVrm = Math.floor(
-            100000 + Math.random() * 900000
-          ).toString();
-          delete techRec.techRecord[0].statusCode;
-          const payload = {
-            msUserDetails,
-            vin,
-            primaryVrm,
-            techRecord: techRec.techRecord,
-          };
-          const expectedResponse = {
-            vin,
-            primaryVrm: payload.primaryVrm,
-            techRecord: payload.techRecord,
-          };
-          const res = await request.post("vehicles").send(payload);
-          expectedResponse.techRecord[0].createdAt = res.body.techRecord[0].createdAt;
-          expect(res.status).toEqual(201);
-          expect(res.header["access-control-allow-origin"]).toEqual("*");
-          expect(res.header["access-control-allow-credentials"]).toEqual(
-            "true"
-          );
-          expect(res.body).toMatchObject(expectedResponse);
-          expect(res.body.systemNumber).toBeDefined();
-        });
+            it("should return status 201 Technical Record created", async () => {
+              const techRec: any = cloneDeep(mockData[43]);
+              const vin = Date.now().toString();
+              techRec.techRecord[0].bodyType.description = "skeletal";
+              techRec.techRecord[0].bodyType.code = "k";
+              const primaryVrm = Math.floor(
+                100000 + Math.random() * 900000
+              ).toString();
+              delete techRec.techRecord[0].statusCode;
+              const payload = {
+                msUserDetails,
+                vin,
+                primaryVrm,
+                techRecord: techRec.techRecord,
+              };
+              const expectedResponse = {
+                vin,
+                primaryVrm: payload.primaryVrm,
+                techRecord: payload.techRecord,
+              };
+              const res = await request.post("vehicles").send(payload);
+              expectedResponse.techRecord[0].createdAt =
+                res.body.techRecord[0].createdAt;
+              expect(res.status).toEqual(201);
+              expect(res.header["access-control-allow-origin"]).toEqual("*");
+              expect(res.header["access-control-allow-credentials"]).toEqual(
+                "true"
+              );
+              expect(res.body).toMatchObject(expectedResponse);
+              expect(res.body.systemNumber).toBeDefined();
+            });
           });
         });
 
@@ -488,6 +506,7 @@ describe("techRecords", () => {
           context("and the techRecord array is empty", () => {
             it("should return status 400 The conditional request failed", async () => {
               const techRec: any = cloneDeep(mockData[43]);
+              techRec.vehicleType = "psv";
               delete techRec.techRecord[0].statusCode;
               const payload = {
                 msUserDetails,
@@ -502,6 +521,23 @@ describe("techRecords", () => {
                 "true"
               );
               expect(res.body).toEqual("Body is not a valid TechRecord");
+            });
+          });
+          context("and the techRecord array has more than one element", () => {
+            it("should return status 400 The conditional request failed", async () => {
+              const payload = {
+                msUserDetails,
+                vin: "vin",
+                primaryVrm: "primaryVrm",
+                techRecord: [{}, {}],
+              };
+              const res = await request.post("vehicles").send(payload);
+              expect(res.status).toEqual(400);
+              expect(res.header["access-control-allow-origin"]).toEqual("*");
+              expect(res.header["access-control-allow-credentials"]).toEqual(
+                "true"
+              );
+              expect(res.body).toEqual("Can only create one tech record");
             });
           });
         });
@@ -540,13 +576,23 @@ describe("techRecords", () => {
                 primaryVrm,
                 techRecord: techRec.techRecord,
               };
-              const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
+              const res = await request
+                .put(`vehicles/${techRec.systemNumber}`)
+                .send(payload);
               expect(res.status).toEqual(200);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body.techRecord).toHaveLength(techRec.techRecord.length + 1);
-              expect(res.body.techRecord[techRec.techRecord.length].statusCode).toEqual("provisional");
-              expect(res.body.techRecord[techRec.techRecord.length - 1].statusCode).toEqual("archived");
+              expect(res.header["access-control-allow-credentials"]).toEqual(
+                "true"
+              );
+              expect(res.body.techRecord).toHaveLength(
+                techRec.techRecord.length + 1
+              );
+              expect(
+                res.body.techRecord[techRec.techRecord.length].statusCode
+              ).toEqual("provisional");
+              expect(
+                res.body.techRecord[techRec.techRecord.length - 1].statusCode
+              ).toEqual("archived");
             });
 
             it("should populate the historic Vrms for auditing history", async () => {
@@ -558,16 +604,35 @@ describe("techRecords", () => {
                 primaryVrm,
                 techRecord: techRec.techRecord,
               };
-              const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
+              const res = await request
+                .put(`vehicles/${techRec.systemNumber}`)
+                .send(payload);
               expect(res.status).toEqual(200);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual("true");
-              expect(res.body.techRecord).toHaveLength(techRec.techRecord.length + 1);
-              expect(res.body.techRecord[techRec.techRecord.length].statusCode).toEqual("provisional");
-              expect(res.body.techRecord[techRec.techRecord.length].historicPrimaryVrm).toBe(undefined);
-              expect(res.body.techRecord[techRec.techRecord.length - 1].statusCode).toEqual("archived");
-              expect(res.body.techRecord[techRec.techRecord.length - 1].historicPrimaryVrm).toEqual("B2C1C12");
-              expect(res.body.techRecord[techRec.techRecord.length - 1].historicSecondaryVrms).toEqual(["E5F1I00"]);
+              expect(res.header["access-control-allow-credentials"]).toEqual(
+                "true"
+              );
+              expect(res.body.techRecord).toHaveLength(
+                techRec.techRecord.length + 1
+              );
+              expect(
+                res.body.techRecord[techRec.techRecord.length].statusCode
+              ).toEqual("provisional");
+              expect(
+                res.body.techRecord[techRec.techRecord.length]
+                  .historicPrimaryVrm
+              ).toBe(undefined);
+              expect(
+                res.body.techRecord[techRec.techRecord.length - 1].statusCode
+              ).toEqual("archived");
+              expect(
+                res.body.techRecord[techRec.techRecord.length - 1]
+                  .historicPrimaryVrm
+              ).toEqual("B2C1C12");
+              expect(
+                res.body.techRecord[techRec.techRecord.length - 1]
+                  .historicSecondaryVrms
+              ).toEqual(["E5F1I00"]);
             });
 
             it("should also update the Vrms array to add the new primary vrm", async () => {
@@ -584,10 +649,14 @@ describe("techRecords", () => {
                 { vrm: "NEWVRM", isPrimary: true },
                 { vrm: "E5F1I00", isPrimary: false },
               ];
-              const res = await request.put(`vehicles/${techRec.systemNumber}`).send(payload);
+              const res = await request
+                .put(`vehicles/${techRec.systemNumber}`)
+                .send(payload);
               expect(res.status).toEqual(200);
               expect(res.header["access-control-allow-origin"]).toEqual("*");
-              expect(res.header["access-control-allow-credentials"]).toEqual("true");
+              expect(res.header["access-control-allow-credentials"]).toEqual(
+                "true"
+              );
               expect(res.body.vrms).toEqual(expectedVrms);
             });
 
@@ -622,7 +691,7 @@ describe("techRecords", () => {
             it("should return error status 404 No resources match the search criteria", async () => {
               // @ts-ignore
               const techRec: ITechRecordWrapper = cloneDeep(mockData[43]);
-              const {primaryVrm} = techRec;
+              const { primaryVrm } = techRec;
               const vin = Date.now().toString();
               delete techRec.techRecord[0].statusCode;
               const payload = {
@@ -637,7 +706,9 @@ describe("techRecords", () => {
               expect(res.header["access-control-allow-credentials"]).toEqual(
                 "true"
               );
-              expect(res.body.errors).toContain(HTTPRESPONSE.RESOURCE_NOT_FOUND);
+              expect(res.body.errors).toContain(
+                HTTPRESPONSE.RESOURCE_NOT_FOUND
+              );
             });
           });
 
