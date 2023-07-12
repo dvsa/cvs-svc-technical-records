@@ -5,7 +5,6 @@ import * as handlers from "./index";
 import { Vehicle } from "../../@Types/TechRecords";
 import { VehicleProcessor } from "../domain/Processors";
 
-
 export class TechRecordStatusHandler<T extends Vehicle> {
   private techRecordsListHandler: handlers.TechRecordsListHandler<T>;
   private readonly auditHandler: handlers.AuditDetailsHandler;
@@ -15,11 +14,31 @@ export class TechRecordStatusHandler<T extends Vehicle> {
     this.auditHandler = new handlers.AuditDetailsHandler();
   }
 
-  public async prepareTechRecordForStatusUpdate(systemNumber: string, newStatus: STATUS = STATUS.CURRENT, createdById: string, createdByName: string): Promise<T> {
-    const techRecordWrapper = await this.techRecordsListHandler.getFormattedTechRecordsList(systemNumber, STATUS.ALL, SEARCHCRITERIA.SYSTEM_NUMBER, false);
-    const uniqueRecord = VehicleProcessor.getTechRecordToUpdate(techRecordWrapper, (techRecord) => techRecord.statusCode === STATUS.PROVISIONAL || techRecord.statusCode === STATUS.CURRENT) as T;
-    const provisionalTechRecords = uniqueRecord.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.PROVISIONAL);
-    const currentTechRecords = uniqueRecord.techRecord.filter((techRecord) => techRecord.statusCode === STATUS.CURRENT);
+  public async prepareTechRecordForStatusUpdate(
+    systemNumber: string,
+    newStatus: STATUS = STATUS.CURRENT,
+    createdById: string,
+    createdByName: string
+  ): Promise<T> {
+    const techRecordWrapper =
+      await this.techRecordsListHandler.getFormattedTechRecordsList(
+        systemNumber,
+        STATUS.ALL,
+        SEARCHCRITERIA.SYSTEM_NUMBER,
+        false
+      );
+    const uniqueRecord = VehicleProcessor.getTechRecordToUpdate(
+      techRecordWrapper,
+      (techRecord) =>
+        techRecord.statusCode === STATUS.PROVISIONAL ||
+        techRecord.statusCode === STATUS.CURRENT
+    ) as T;
+    const provisionalTechRecords = uniqueRecord.techRecord.filter(
+      (techRecord) => techRecord.statusCode === STATUS.PROVISIONAL
+    );
+    const currentTechRecords = uniqueRecord.techRecord.filter(
+      (techRecord) => techRecord.statusCode === STATUS.CURRENT
+    );
     let newTechRecord;
     if (provisionalTechRecords.length === 1) {
       provisionalTechRecords[0].statusCode = STATUS.ARCHIVED;
@@ -27,8 +46,18 @@ export class TechRecordStatusHandler<T extends Vehicle> {
       newTechRecord.statusCode = newStatus;
 
       const date = new Date().toISOString();
-      this.auditHandler.setCreatedAuditDetails(newTechRecord, createdByName, createdById, date);
-      this.auditHandler.setLastUpdatedAuditDetails(provisionalTechRecords[0], createdByName, createdById, date);
+      this.auditHandler.setCreatedAuditDetails(
+        newTechRecord,
+        createdByName,
+        createdById,
+        date
+      );
+      this.auditHandler.setLastUpdatedAuditDetails(
+        provisionalTechRecords[0],
+        createdByName,
+        createdById,
+        date
+      );
       provisionalTechRecords[0].updateType = UPDATE_TYPE.TECH_RECORD_UPDATE;
     }
     if (currentTechRecords.length === 1) {
@@ -37,37 +66,30 @@ export class TechRecordStatusHandler<T extends Vehicle> {
       if (!newTechRecord) {
         newTechRecord = cloneDeep(currentTechRecords[0]);
         newTechRecord.statusCode = newStatus;
-        this.auditHandler.setCreatedAuditDetails(newTechRecord, createdByName, createdById, date);
+        this.auditHandler.setCreatedAuditDetails(
+          newTechRecord,
+          createdByName,
+          createdById,
+          date
+        );
       }
-      this.auditHandler.setLastUpdatedAuditDetails(currentTechRecords[0], createdByName, createdById, date);
+      this.auditHandler.setLastUpdatedAuditDetails(
+        currentTechRecords[0],
+        createdByName,
+        createdById,
+        date
+      );
       currentTechRecords[0].updateType = UPDATE_TYPE.TECH_RECORD_UPDATE;
     }
 
     // if newTechRecord is undefined that means there multiple or no current/provisional records were found
     if (!newTechRecord) {
-      throw new HTTPError(400, "The tech record status cannot be updated to " + newStatus);
+      throw new HTTPError(
+        400,
+        "The tech record status cannot be updated to " + newStatus
+      );
     }
     uniqueRecord.techRecord.push(newTechRecord);
     return uniqueRecord;
-  }
-
-  public static isStatusUpdateRequired(testStatus: string, testResult: string, testTypeId: string): boolean {
-    return testStatus === "submitted" && (testResult === "pass" || testResult === "prs") &&
-      (this.isTestTypeFirstTest(testTypeId) || this.isTestTypeNotifiableAlteration(testTypeId) || this.isTestTypeCOIF(testTypeId));
-  }
-
-  private static isTestTypeFirstTest(testTypeId: string): boolean {
-    const firstTestIds = ["41", "95", "65", "66", "67", "103", "104", "82", "83", "119", "120", "186", "188", "192", "194"];
-    return firstTestIds.includes(testTypeId);
-  }
-
-  private static isTestTypeNotifiableAlteration(testTypeId: string): boolean {
-    const notifiableAlterationIds = ["38", "47", "48"];
-    return notifiableAlterationIds.includes(testTypeId);
-  }
-
-  private static isTestTypeCOIF(testTypeId: string): boolean {
-    const coifIds = ["142", "143", "175", "176"];
-    return coifIds.includes(testTypeId);
   }
 }
