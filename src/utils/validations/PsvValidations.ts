@@ -126,9 +126,9 @@ export const psvValidation = commonSchema.keys({
     .allow(null, "")
     .allow(null, ""),
   coifDate: Joi.date().format("YYYY-MM-DD").raw().optional().allow(null, ""),
-  bodyMake: Joi.string().max(20).allow(null, ""),
+  bodyMake: Joi.string().max(50).allow(null, ""),
   bodyModel: Joi.string().max(20).allow(null, ""),
-  chassisMake: Joi.string().max(20).allow(null, ""),
+  chassisMake: Joi.string().max(50).allow(null, ""),
   chassisModel: Joi.string().max(20).allow(null, ""),
   modelLiteral: Joi.string().max(30).optional().allow(null, ""),
   speedRestriction: Joi.number().min(0).max(99).optional().allow(null, ""),

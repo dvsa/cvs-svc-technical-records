@@ -59,7 +59,7 @@ export const trlValidation = commonSchema.keys({
     .allow(null, ""),
   authIntoService: authIntoService,
   letterOfAuth: letterOfAuth,
-  make: Joi.string().max(30).allow(null, ""),
+  make: Joi.string().max(50).allow(null, ""),
   model: Joi.string().max(30).allow(null, ""),
   grossEecWeight: Joi.number().min(0).max(99999).optional().allow(null),
   axles: Joi.array().items(
