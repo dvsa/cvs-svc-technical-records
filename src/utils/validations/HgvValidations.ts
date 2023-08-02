@@ -21,7 +21,7 @@ export const hgvValidation = commonSchema.keys({
   roadFriendly: Joi.boolean().allow(null, ""),
   drawbarCouplingFitted: Joi.boolean().allow(null, ""),
   offRoad: Joi.boolean().optional().allow(null, ""),
-  make: Joi.string().max(30).allow(null, ""),
+  make: Joi.string().max(50).allow(null, ""),
   model: Joi.string().max(30).allow(null, ""),
   speedLimiterMrk: Joi.boolean().allow(null, ""),
   tachoExemptMrk: Joi.boolean().allow(null, ""),
