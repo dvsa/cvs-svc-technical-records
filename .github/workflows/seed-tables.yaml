@@ -1,0 +1,76 @@
+name: 🌱 Seed Tables
+run-name: 🌱 ${{ github.actor }} is seeding ${{ inputs.environment-name || github.ref_name }}
+on:
+  workflow_dispatch:
+    inputs: 
+      environment-name: 
+        description: The environment to seed (if different from selected branch)
+        type: string
+        required: false
+      environment:
+        description: (optional) Release Environment
+        type: environment
+        default: feature
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  environment:
+    name: 🧹 Prepare Seeds
+    runs-on: ubuntu-latest
+    outputs: 
+      github-branch: ${{ steps.environment.outputs.github-branch }}
+      environment-name:  ${{ steps.environment.outputs.environment-name }}
+      environment-type:  ${{ steps.environment.outputs.environment-type }}
+      seed_tables:  ${{ steps.get_seed_tables.outputs.value }}
+    steps:
+
+      - name: ↕️ Get Environment Details
+        id: environment
+        uses: dvsa/cvs-github-actions/environment@develop
+        with:
+          environment: ${{ inputs.environment-name || github.ref_name }}
+
+      - name: 📥 Get Codebase
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.environment.outputs.github-branch }}
+          
+      - name: 📥 Get Seed Tables
+        id: get_seed_tables
+        run: |
+          echo "value=$(cat .github/libraries/seed-tables.json | tr -d ' \n')" >> $GITHUB_OUTPUT
+
+  seed_table:
+    name: 🌱 Seed Table
+    needs: environment
+    runs-on: [self-hosted, X64]
+    environment: ${{ needs.environment.outputs.environment-type == 'release' && inputs.environment || needs.environment.outputs.environment-type }}
+    strategy:
+      matrix:
+        seed: ${{ fromJson(needs.environment.outputs.seed_tables) }}
+    steps:
+      - name: 📥 Get Codebase
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.environment.outputs.github-branch }}
+
+      - name: 🪪 Get Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.CVS_NONPROD_AWS_ROLE }}
+          aws-region: ${{ vars.DVSA_AWS_REGION}}
+          role-session-name: GHA_Seed_tables
+
+      - name: 🧹 Purge Table
+        uses: dvsa/cvs-github-actions/table-purge@develop
+        with:
+          table: cvs-${{ needs.environment.outputs.environment-name }}-${{ matrix.seed.table-name }}
+
+      - name: 🌱 Re-Seed Table
+        uses: dvsa/cvs-github-actions/table-seed@develop
+        with:
+          table: cvs-${{ needs.environment.outputs.environment-name }}-${{ matrix.seed.table-name }}
+          seed-file: tests/resources/${{ matrix.seed.seed-file }}
