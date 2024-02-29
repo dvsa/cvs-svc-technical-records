@@ -1,0 +1,10 @@
+{
+  "name": "dvsa/cvs-devops",
+  "description": "",
+  "team": "",
+  "documentation": "",
+  "language": "unknown",
+  "terraform": false,
+  "monorepo": false,
+  "dynamo_tables": []
+}
