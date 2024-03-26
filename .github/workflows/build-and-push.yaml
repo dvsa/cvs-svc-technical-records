@@ -1,0 +1,116 @@
+name: 🧱 Build and Push
+run-name: 🧱 Build and Push ${{ github.ref_name }}
+env:
+  bucket-name: cvs-services
+on:
+  workflow_call:
+  workflow_dispatch:
+    inputs:
+      ignore-test-failures:
+        type: boolean
+        description: Ignore Test Failures
+        default: false
+      upload-files:
+        description: Upload files
+        type: boolean
+        default: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  environment:
+    name: 🧹 Prepare Environment
+    runs-on: ubuntu-latest
+    outputs: 
+      environment-name: ${{ steps.environment.outputs.environment-name }}
+      environment-type: ${{ steps.environment.outputs.environment-type }}
+      commit: ${{ steps.commit.outputs.commit }}
+      language: ${{ steps.manifest.outputs.language }}
+      liquibase: ${{ steps.manifest.outputs.liquibase }}
+      package-name: ${{ steps.manifest.outputs.package-name }}
+
+    steps:
+      - name: 🪪 Get Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.CVS_MGMT_AWS_ROLE }}
+          aws-region: ${{ vars.DVSA_AWS_REGION}}
+          role-session-name: GHA_TagDevelop
+
+      - name: 📥 Get Codebase
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: ↕️ Get Environment Details
+        id: environment
+        uses: dvsa/cvs-github-actions/environment@develop
+        with:
+          environment: ${{ github.ref_name }}
+
+      - name: Get Commit SHA
+        id: commit
+        run: |
+          # Get the branch Commit ID
+          commit_id=$(git rev-parse HEAD)
+          echo "commit=${commit_id}"
+          echo "commit=${commit_id}" >> $GITHUB_OUTPUT
+          echo "Commit ID: ${commit_id}" >> $GITHUB_STEP_SUMMARY
+
+      - name: 🗒️ Get Manifest Data
+        id: manifest
+        run: |
+          # Get information from Manifest File
+          echo "package-name=$(jq -r '.name' manifest.json)" >> $GITHUB_OUTPUT
+          echo "language=$(jq -r '.language' manifest.json)" >> $GITHUB_OUTPUT
+          echo "liquibase=$(jq -r '.liquibase' manifest.json)" >> $GITHUB_OUTPUT
+
+          echo "package-name=$(jq -r '.name' manifest.json)" >> $GITHUB_STEP_SUMMARY
+          echo "language=$(jq -r '.language' manifest.json)" >> $GITHUB_STEP_SUMMARY
+          echo "liquibase=$(jq -r '.liquibase' manifest.json)" >> $GITHUB_STEP_SUMMARY
+
+  build-service:
+    name: 🧱 Build ${{ needs.environment.outputs.package-name }}
+    runs-on: [self-hosted, Linux]
+    needs: environment
+    steps:
+      - name: 🪪 Get Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.CVS_MGMT_AWS_ROLE }}
+          aws-region: ${{ vars.DVSA_AWS_REGION }}
+          role-session-name: GHA_BuildServices
+
+      - name: 📥 Get Codebase
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: 🏗️ Build Node Function
+        uses: dvsa/cvs-github-actions/build-node-function@default
+        if: ${{ needs.environment.outputs.language == 'node' }}
+        with:
+          commit-sha: ${{ needs.environment.outputs.commit }}
+          branch: ${{ github.ref_name }}
+          mysql_liquibase: ${{ needs.environment.outputs.liquibase }}
+          mysql_user: ${{ secrets.MYSQL_USER }}
+          mysql_password: ${{ secrets.MYSQL_PASS }}
+          continue-on-error: ${{ inputs.ignore-test-failures }}
+
+      - name: 🏗️ Build Java Function
+        uses: dvsa/cvs-github-actions/build-java-function@develop
+        if: ${{ needs.environment.outputs.language == 'java' }}
+
+      - name: 📤 Upload hash zip to S3
+        if: ${{ inputs.upload-files == 'true' }}
+        uses: dvsa/cvs-github-actions/hash-upload@develop
+        with:
+          commit-id: ${{ needs.environment.outputs.commit }}
+          package-name: ${{ needs.environment.outputs.package-name }}
+          environment-name: ${{ needs.environment.outputs.environment-name }}
