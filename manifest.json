@@ -6,9 +6,5 @@
   "language": "node",
   "terraform": false,
   "monorepo": false,
-  "dynamo_tables": [
-    {
-      "technical-records": "technical-records.json"
-    }
-  ]
+  "dynamo_tables": []
 }
