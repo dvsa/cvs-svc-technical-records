@@ -16661,6 +16661,7 @@
         "approvalTypeNumber": "1234",
         "variantNumber": "324324",
         "variantVersionNumber": "345",
+        "createdAt": "2023-02-07T10:39:47.000000Z",
         "applicantDetails": {
           "address1": "*****",
           "address2": "*****",
@@ -18132,7 +18133,8 @@
     "systemNumber": "137",
     "techRecord": [
       {
-        "recordCompleteness": "skeleton"
+        "recordCompleteness": "skeleton",
+        "createdAt": "2023-02-07T10:39:47.000000Z"
       }
     ]
   },
