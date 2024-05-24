@@ -73,7 +73,7 @@
     "lodash": "^4.17.21",
     "node-yaml": "^4.0.1",
     "path-parser": "^4.2.0",
-    "reflect-metadata": "^0.1.13",
+    "reflect-metadata": "^0.2.2",
     "uuid": "^3.3.3"
   },
   "jestSonar": {
