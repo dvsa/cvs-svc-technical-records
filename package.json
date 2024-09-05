@@ -68,7 +68,7 @@
     "@hapi/joi": "^16.1.8",
     "@hapi/joi-date": "^2.0.1",
     "aws-sdk": "^2.600.0",
-    "aws-xray-sdk": "^3.3.4",
+    "aws-xray-sdk": "^3.5.1",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
     "node-yaml": "^4.0.1",
