@@ -1,3 +1,5 @@
+# [ARCHIVED - cvs-svc-technical-records is no longer in use]
+
 # cvs-svc-technical-records
 
 ## Introduction
